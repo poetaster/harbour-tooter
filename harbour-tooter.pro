@@ -53,6 +53,7 @@ HEADERS += src/dbusAdaptor.h
 HEADERS += src/dbus.h
 
 DISTFILES += qml/harbour-tooter.qml \
+    qml/pages/components/VisualContainer.qml \
     qml/pages/components/MiniStatus.qml \
     qml/pages/components/MiniHeader.qml \
     qml/pages/components/ItemUser.qml \
@@ -67,17 +68,21 @@ DISTFILES += qml/harbour-tooter.qml \
     qml/pages/LoginPage.qml \
     qml/pages/Conversation.qml \
     qml/pages/components/Toot.qml \
+    qml/pages/Browser.qml \
     qml/pages/Profile.qml \
     qml/pages/Settings.qml \
     qml/lib/API.js \
     qml/images/notification.svg \
     qml/images/verified.svg \
+    qml/images/boosted.svg \
     qml/images/tooter.svg \
+    qml/images/emojiselect.svg \
+    qml/images/icon-m-profile.svg \
+    qml/images/icon-l-profile.svg \
     qml/lib/Mastodon.js \
     qml/lib/Worker.js \
     config/icon-lock-harbour-tooter.png \
     config/x-harbour.tooter.activity.conf \
-    qml/pages/components/VisualContainer.qml \
     rpm/harbour-tooter.changes \
     rpm/harbour-tooter.changes.run.in \
     rpm/harbour-tooter.spec \
@@ -108,3 +113,4 @@ TRANSLATIONS += translations/harbour-tooter-ru.ts
 TRANSLATIONS += translations/harbour-tooter-sr.ts
 TRANSLATIONS += translations/harbour-tooter-sv.ts
 TRANSLATIONS += translations/harbour-tooter-zh_CN.ts
+TRANSLATIONS += translations/harbour-tooter-it.ts

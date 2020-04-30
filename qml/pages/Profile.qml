@@ -29,6 +29,7 @@ Page {
     property bool muting : false;
     property bool domain_blocking : false;
 
+
     WorkerScript {
         id: worker
         source: "../lib/Worker.js"
@@ -71,7 +72,7 @@ Page {
                 // line below was commented out, reason unknown
                 // username = messageObject.data
                 break;
-            case 'locked':m
+            case 'locked':
                 locked = messageObject.data
                 break;
             case 'created_at':

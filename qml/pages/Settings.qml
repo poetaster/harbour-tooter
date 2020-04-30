@@ -25,8 +25,8 @@ Page {
                 IconTextSwitch {
                     id: removeAccount
                     text: Logic.conf['login'] ? qsTr("Remove Account") : qsTr("Add Account")
-                    description: Logic.conf['login'] ? qsTr("Deauthorize this app and remove your account") : qsTr("Authorize this app to use your Mastodon account in your behalf")
-                    icon.source: Logic.conf['login'] ? "image://theme/icon-m-people" : "image://theme/icon-m-add"
+                    description: Logic.conf['login'] ? qsTr("Deauthorize this app and remove your account") : qsTr("Authorize this app to access your Mastodon account")
+                    icon.source: Logic.conf['login'] ? "image://theme/icon-m-contact" : "image://theme/icon-m-add"
 
 
                     onCheckedChanged: {
@@ -59,7 +59,7 @@ Page {
                     checked: typeof Logic.conf['loadImages'] !== "undefined" && Logic.conf['loadImages']
                     text: qsTr("Load images in toots")
                     description: qsTr("Disable this option if you want to preserve your data connection")
-                    icon.source: "image://theme/icon-m-mobile-network"
+                    icon.source: "image://theme/icon-m-image"
                     onClicked: {
                         Logic.conf['loadImages'] = checked
                     }
@@ -67,7 +67,7 @@ Page {
                 IconTextSwitch {
                     text: qsTr("Translate")
                     description: qsTr("Use Transifex to help with app translation to your language")
-                    icon.source: "image://theme/icon-m-presence"
+                    icon.source: "image://theme/icon-m-font-size"
                     onCheckedChanged: {
                         busy = true;
                         checked = false;
@@ -108,7 +108,7 @@ Page {
                         }
                         ListElement {
                             name: "Molan"
-                            desc: qsTr("Development and maintenance")
+                            desc: qsTr("Development and translations")
                             mastodon: ""
                             mail: "mol_an@sunrise.ch"
                         }
@@ -153,7 +153,7 @@ Page {
                                 verticalCenter: parent.verticalCenter
                                 right: parent.right
                             }
-                            icon.source: "image://theme/" + (model.mastodon !== "" ? "icon-m-person" : "icon-m-mail") + "?" + (pressed
+                            icon.source: "image://theme/" + (model.mastodon !== "" ? "icon-m-contact" : "icon-m-mail") + "?" + (pressed
                                                                                                                                ? Theme.highlightColor
                                                                                                                                : Theme.primaryColor)
                             onClicked: {

@@ -39,7 +39,8 @@ dbus_services.files = config/ba.dysko.harbour.tooter.service
 interfaces.path = /usr/share/dbus-1/interfaces/
 interfaces.files = config/ba.dysko.harbour.tooter.xml
 
-SOURCES += src/harbour-tooter.cpp
+SOURCES += \
+    src/harbour-tooter-beta.cpp
 SOURCES += src/imageuploader.cpp
 SOURCES += src/filedownloader.cpp
 SOURCES += src/notifications.cpp
@@ -52,7 +53,8 @@ HEADERS += src/notifications.h
 HEADERS += src/dbusAdaptor.h
 HEADERS += src/dbus.h
 
-DISTFILES += qml/harbour-tooter.qml \
+DISTFILES += qml/harbour-tooter-beta.qml \
+    config/icon-lock-harbour-tooter-beta.png \
     qml/pages/components/VisualContainer.qml \
     qml/pages/components/MiniStatus.qml \
     qml/pages/components/MiniHeader.qml \
@@ -81,7 +83,6 @@ DISTFILES += qml/harbour-tooter.qml \
     qml/images/icon-l-profile.svg \
     qml/lib/Mastodon.js \
     qml/lib/Worker.js \
-    config/icon-lock-harbour-tooter.png \
     config/x-harbour.tooter.activity.conf \
     rpm/harbour-tooter-beta.changes \
     rpm/harbour-tooter-beta.changes.run.in \
@@ -100,17 +101,17 @@ CONFIG += sailfishapp_i18n
 # planning to localize your app, remember to comment out the
 # following TRANSLATIONS line. And also do not forget to
 # modify the localized app name in the the .desktop file.
-TRANSLATIONS += translations/harbour-tooter-de.ts
-TRANSLATIONS += translations/harbour-tooter-el.ts
-TRANSLATIONS += translations/harbour-tooter-es.ts
-TRANSLATIONS += translations/harbour-tooter-fi.ts
-TRANSLATIONS += translations/harbour-tooter-fr.ts
-TRANSLATIONS += translations/harbour-tooter-nl.ts
-TRANSLATIONS += translations/harbour-tooter-nl_BE.ts
-TRANSLATIONS += translations/harbour-tooter-oc.ts
-TRANSLATIONS += translations/harbour-tooter-pl.ts
-TRANSLATIONS += translations/harbour-tooter-ru.ts
-TRANSLATIONS += translations/harbour-tooter-sr.ts
-TRANSLATIONS += translations/harbour-tooter-sv.ts
-TRANSLATIONS += translations/harbour-tooter-zh_CN.ts
-TRANSLATIONS += translations/harbour-tooter-it.ts
+TRANSLATIONS += translations/harbour-tooter-beta-de.ts
+TRANSLATIONS += translations/harbour-tooter-beta-el.ts
+TRANSLATIONS += translations/harbour-tooter-beta-es.ts
+TRANSLATIONS += translations/harbour-tooter-beta-fi.ts
+TRANSLATIONS += translations/harbour-tooter-beta-fr.ts
+TRANSLATIONS += translations/harbour-tooter-beta-nl.ts
+TRANSLATIONS += translations/harbour-tooter-beta-nl_BE.ts
+TRANSLATIONS += translations/harbour-tooter-beta-oc.ts
+TRANSLATIONS += translations/harbour-tooter-beta-pl.ts
+TRANSLATIONS += translations/harbour-tooter-beta-ru.ts
+TRANSLATIONS += translations/harbour-tooter-beta-sr.ts
+TRANSLATIONS += translations/harbour-tooter-beta-sv.ts
+TRANSLATIONS += translations/harbour-tooter-beta-zh_CN.ts
+TRANSLATIONS += translations/harbour-tooter-beta-it.ts

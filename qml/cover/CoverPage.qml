@@ -95,7 +95,7 @@ CoverBackground {
             rightMargin: Theme.paddingLarge
             verticalCenter: iconNot.verticalCenter
         }
-        text: "Tooter"
+        text: "Tooter β"
         color: Theme.primaryColor
     }
 

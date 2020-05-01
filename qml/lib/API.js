@@ -1,7 +1,7 @@
 .pragma library
 .import QtQuick.LocalStorage 2.0 as LS
 
-var db = LS.LocalStorage.openDatabaseSync("tooter", "", "harbour-tooter", 100000);
+var db = LS.LocalStorage.openDatabaseSync("tooter", "", "harbour-tooter-beta", 100000);
 var conf = {};
 var mediator = (function(){
     var subscribe = function(channel, fn){

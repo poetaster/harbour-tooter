@@ -36,7 +36,7 @@ int main(int argc, char *argv[])
     Dbus *dbus = new Dbus();
     view->rootContext()->setContextProperty("Dbus", dbus);
 
-    view->setSource(SailfishApp::pathTo("qml/harbour-tooter.qml"));
+    view->setSource(SailfishApp::pathTo("qml/harbour-tooter-beta.qml"));
     view->show();
     return app->exec();
 }

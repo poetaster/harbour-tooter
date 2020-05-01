@@ -1,9 +1,9 @@
 [Desktop Entry]
 Type=Application
 X-Nemo-Application-Type=silica-qt5
-Icon=harbour-tooter
-Exec=harbour-tooter
-Name=Tooter Beta
+Icon=harbour-tooter-beta
+Exec=harbour-tooter-beta
+Name=Tooter β
 # translation example:
 # your app name in German locale (de)
 #

@@ -10,7 +10,7 @@
 #   - translation filenames have to be changed
 
 # The name of your application
-TARGET = harbour-tooter
+TARGET = harbour-tooter-beta
 
 CONFIG += sailfishapp
 
@@ -83,12 +83,12 @@ DISTFILES += qml/harbour-tooter.qml \
     qml/lib/Worker.js \
     config/icon-lock-harbour-tooter.png \
     config/x-harbour.tooter.activity.conf \
-    rpm/harbour-tooter.changes \
-    rpm/harbour-tooter.changes.run.in \
-    rpm/harbour-tooter.spec \
-    rpm/harbour-tooter.yaml \
+    rpm/harbour-tooter-beta.changes \
+    rpm/harbour-tooter-beta.changes.run.in \
+    rpm/harbour-tooter-beta.spec \
+    rpm/harbour-tooter-beta.yaml \
     translations/*.ts \
-    harbour-tooter.desktop
+    harbour-tooter-beta.desktop
 
 SAILFISHAPP_ICONS = 86x86 108x108 128x128 172x172
 

@@ -1,13 +1,13 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
-import harbour.tooterb.Uploader 1.0
+import harbour.tooter.Uploader 1.0
 import "../lib/API.js" as Logic
 import "./components/"
 
 Page {
 	id: conversationPage
 	property string type
-    property alias title: header.title
+	property alias title: header.title
 	property alias description: header.description
 	property alias avatar: header.image
 	property string suggestedUser: ""
@@ -61,10 +61,10 @@ Page {
 	}
 	SilicaListView {
 		id: conversationList
-        header: PageHeader {
-            title: qsTr("Conversation")
+		header: PageHeader {
+			title: qsTr("Conversation")
 		}
-        clip: true
+		clip: true
 		anchors {
 			top: parent.top
 			bottom: panel.top
@@ -157,6 +157,7 @@ Page {
 		Rectangle {
 			id: progressBar
 			width: toot.text.length ? panel.width * (toot.text.length / tootMaxChar) : 0
+
 			height: Theme.itemSizeSmall * 0.05
 			color: Theme.highlightBackgroundColor
 			opacity: 0.7
@@ -208,9 +209,9 @@ Page {
 																		 0) == '#') ? description + ' ' : ''
             height: Math.max(270, Math.min(900, implicitHeight))
             //height: implicitHeight
-			horizontalAlignment: Text.AlignLeft
+	    horizontalAlignment: Text.AlignLeft
             placeholderText: qsTr("What's on your mind?")
-            font.pixelSize: Theme.fontSizeSmall
+	    font.pixelSize: Theme.fontSizeSmall
 			EnterKey.onClicked: {
 				//tweet()
 			}
@@ -606,7 +607,7 @@ Page {
 					Label {
 						anchors.centerIn: parent
 						color: (highlighted ? Theme.secondaryHighlightColor : Theme.secondaryColor)
-                        font.pixelSize: Theme.fontSizeLarge
+						font.pixelSize: Theme.fontSizeLarge
 						text: glyph
 					}
 					onClicked: {

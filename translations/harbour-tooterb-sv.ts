@@ -23,6 +23,10 @@
 <context>
     <name>Conversation</name>
     <message>
+        <source>Conversation</source>
+        <translation>Konversation</translation>
+    </message>
+    <message>
         <source>Delete</source>
         <translation>Radera</translation>
     </message>

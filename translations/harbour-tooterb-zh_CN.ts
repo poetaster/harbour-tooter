@@ -23,6 +23,10 @@
 <context>
     <name>Conversation</name>
     <message>
+        <source>Conversation</source>
+        <translation>对话</translation>
+    </message>
+    <message>
         <source>Delete</source>
         <translation>删除</translation>
     </message>

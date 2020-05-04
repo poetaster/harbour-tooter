@@ -23,6 +23,10 @@
 <context>
     <name>Conversation</name>
     <message>
+        <source>Conversation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Delete</source>
         <translation type="unfinished"></translation>
     </message>

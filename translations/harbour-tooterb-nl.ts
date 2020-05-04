@@ -23,6 +23,10 @@
 <context>
     <name>Conversation</name>
     <message>
+        <source>Conversation</source>
+        <translation>Gesprek</translation>
+    </message>
+    <message>
         <source>Delete</source>
         <translation>Verwijderen</translation>
     </message>

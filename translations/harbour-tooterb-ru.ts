@@ -23,6 +23,10 @@
 <context>
     <name>Conversation</name>
     <message>
+        <source>Conversation</source>
+        <translation>Беседа</translation>
+    </message>
+    <message>
         <source>Delete</source>
         <translation>Удалить</translation>
     </message>

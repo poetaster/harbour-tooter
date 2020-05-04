@@ -23,6 +23,10 @@
 <context>
     <name>Conversation</name>
     <message>
+        <source>Conversation</source>
+        <translation>Συνομιλία</translation>
+    </message>
+    <message>
         <source>Delete</source>
         <translation>Διαγραφή</translation>
     </message>

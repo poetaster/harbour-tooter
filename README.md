@@ -3,9 +3,9 @@
 ## About
 Tooter is Mastodon client for Sailfish OS. It is a free, open-source social network. A decentralized alternative to commercial platforms, it avoids the risks of a single company monopolizing your communication. 
 
-This fork is being used to further develop and maintain the Tooter app by dysko (https://github.com/dysk0/harbour-tooter). The development branch 'upstream' is being used to create pull requests from this fork. Releases by dysko can be found on the Jolla store and on https://openrepos.net/content/dysko/tooter
+This fork is being used to further develop and maintain the Tooter app by dysko (https://github.com/dysk0/harbour-tooter). The development branch 'upstream' is being for merge requests with the original repository. Releases by dysko can be found on the Jolla store and on https://openrepos.net/content/dysko/tooter
 
-Releases from this forked repository can be found here: https://openrepos.net/content/molan/tooter-fork.
+Releases from this forked repository (branch 'master') can be found here: https://openrepos.net/content/molan/tooter-fork.
 
 ## Build 
 Clone / download this repository and import it in your SailfishOS IDE using the harbour-tooter.pro project file. No additional configuration needed. 

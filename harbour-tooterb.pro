@@ -89,7 +89,7 @@ DISTFILES += qml/harbour-tooterb.qml \
     rpm/harbour-tooterb.spec \
     rpm/harbour-tooterb.yaml \
     translations/*.ts \
-    harbour-tooterb.desktop \
+    harbour-tooterb.desktop 
 
 SAILFISHAPP_ICONS = 86x86 108x108 128x128 172x172
 

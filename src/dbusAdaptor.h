@@ -27,12 +27,12 @@ QT_END_NAMESPACE
 /*
  * Adaptor class for interface com.kimmoli.harbour.maira
  */
-class TooterAdaptor: public QDBusAbstractAdaptor
+class TooterbAdaptor: public QDBusAbstractAdaptor
 {
     Q_OBJECT
-    Q_CLASSINFO("D-Bus Interface", "ba.dysko.harbour.tooter")
+    Q_CLASSINFO("D-Bus Interface", "ba.dysko.harbour.tooterb")
     Q_CLASSINFO("D-Bus Introspection", ""
-"  <interface name=\"ba.dysko.harbour.tooter\">\n"
+"  <interface name=\"ba.dysko.harbour.tooterb\">\n"
 "    <method name=\"showtoot\">\n"
 "      <annotation value=\"true\" name=\"org.freedesktop.DBus.Method.NoReply\"/>\n"
 "      <arg direction=\"in\" type=\"as\" name=\"key\"/>\n"
@@ -41,8 +41,8 @@ class TooterAdaptor: public QDBusAbstractAdaptor
 "  </interface>\n"
         "")
 public:
-    TooterAdaptor(QObject *parent);
-    virtual ~TooterAdaptor();
+    TooterbAdaptor(QObject *parent);
+    virtual ~TooterbAdaptor();
 
 public: // PROPERTIES
 public Q_SLOTS: // METHODS

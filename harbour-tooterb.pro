@@ -10,7 +10,7 @@
 #   - translation filenames have to be changed
 
 # The name of your application
-TARGET = harbour-tooter-beta
+TARGET = harbour-tooterb
 
 CONFIG += sailfishapp
 
@@ -24,23 +24,23 @@ DEFINES += "APPVERSION=\\\"$${SPECVERSION}\\\""
 DEFINES += "APPNAME=\\\"$${TARGET}\\\""
 
 !exists( src/dbusAdaptor.h ) {
-    system(qdbusxml2cpp config/ba.dysko.harbour.tooter.xml -i dbus.h -a src/dbusAdaptor)
+    system(qdbusxml2cpp config/ba.dysko.harbour.tooterb.xml -i dbus.h -a src/dbusAdaptor)
 }
 
 config.path = /usr/share/$${TARGET}/config/
 config.files = config/icon-lock-harbour-tooter.png
 
 notification_categories.path = /usr/share/lipstick/notificationcategories
-notification_categories.files = config/x-harbour.tooter.activity.*
+notification_categories.files = config/x-harbour.tooterb.activity.*
 
 dbus_services.path = /usr/share/dbus-1/services/
-dbus_services.files = config/ba.dysko.harbour.tooter.service
+dbus_services.files = config/ba.dysko.harbour.tooterb.service
 
 interfaces.path = /usr/share/dbus-1/interfaces/
-interfaces.files = config/ba.dysko.harbour.tooter.xml
+interfaces.files = config/ba.dysko.harbour.tooterb.xml
 
 SOURCES += \
-    src/harbour-tooter-beta.cpp
+    src/harbour-tooterb.cpp
 SOURCES += src/imageuploader.cpp
 SOURCES += src/filedownloader.cpp
 SOURCES += src/notifications.cpp
@@ -53,8 +53,8 @@ HEADERS += src/notifications.h
 HEADERS += src/dbusAdaptor.h
 HEADERS += src/dbus.h
 
-DISTFILES += qml/harbour-tooter-beta.qml \
-    config/icon-lock-harbour-tooter-beta.png \
+DISTFILES += qml/harbour-tooterb.qml \
+    config/icon-lock-harbour-tooterb.png \
     qml/pages/components/VisualContainer.qml \
     qml/pages/components/MiniStatus.qml \
     qml/pages/components/MiniHeader.qml \
@@ -83,13 +83,13 @@ DISTFILES += qml/harbour-tooter-beta.qml \
     qml/images/icon-l-profile.svg \
     qml/lib/Mastodon.js \
     qml/lib/Worker.js \
-    config/x-harbour.tooter.activity.conf \
-    rpm/harbour-tooter-beta.changes \
-    rpm/harbour-tooter-beta.changes.run.in \
-    rpm/harbour-tooter-beta.spec \
-    rpm/harbour-tooter-beta.yaml \
+    config/x-harbour.tooterb.activity.conf \
+    rpm/harbour-tooterb.changes \
+    rpm/harbour-tooterb.changes.run.in \
+    rpm/harbour-tooterb.spec \
+    rpm/harbour-tooterb.yaml \
     translations/*.ts \
-    harbour-tooter-beta.desktop
+    harbour-tooterb.desktop \
 
 SAILFISHAPP_ICONS = 86x86 108x108 128x128 172x172
 
@@ -101,17 +101,17 @@ CONFIG += sailfishapp_i18n
 # planning to localize your app, remember to comment out the
 # following TRANSLATIONS line. And also do not forget to
 # modify the localized app name in the the .desktop file.
-TRANSLATIONS += translations/harbour-tooter-beta-de.ts
-TRANSLATIONS += translations/harbour-tooter-beta-el.ts
-TRANSLATIONS += translations/harbour-tooter-beta-es.ts
-TRANSLATIONS += translations/harbour-tooter-beta-fi.ts
-TRANSLATIONS += translations/harbour-tooter-beta-fr.ts
-TRANSLATIONS += translations/harbour-tooter-beta-nl.ts
-TRANSLATIONS += translations/harbour-tooter-beta-nl_BE.ts
-TRANSLATIONS += translations/harbour-tooter-beta-oc.ts
-TRANSLATIONS += translations/harbour-tooter-beta-pl.ts
-TRANSLATIONS += translations/harbour-tooter-beta-ru.ts
-TRANSLATIONS += translations/harbour-tooter-beta-sr.ts
-TRANSLATIONS += translations/harbour-tooter-beta-sv.ts
-TRANSLATIONS += translations/harbour-tooter-beta-zh_CN.ts
-TRANSLATIONS += translations/harbour-tooter-beta-it.ts
+TRANSLATIONS += translations/harbour-tooterb-de.ts
+TRANSLATIONS += translations/harbour-tooterb-el.ts
+TRANSLATIONS += translations/harbour-tooterb-es.ts
+TRANSLATIONS += translations/harbour-tooterb-fi.ts
+TRANSLATIONS += translations/harbour-tooterb-fr.ts
+TRANSLATIONS += translations/harbour-tooterb-nl.ts
+TRANSLATIONS += translations/harbour-tooterb-nl_BE.ts
+TRANSLATIONS += translations/harbour-tooterb-oc.ts
+TRANSLATIONS += translations/harbour-tooterb-pl.ts
+TRANSLATIONS += translations/harbour-tooterb-ru.ts
+TRANSLATIONS += translations/harbour-tooterb-sr.ts
+TRANSLATIONS += translations/harbour-tooterb-sv.ts
+TRANSLATIONS += translations/harbour-tooterb-zh_CN.ts
+TRANSLATIONS += translations/harbour-tooterb-it.ts

@@ -1,42 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="nl_BE">
+<TS version="2.1" language="ru">
 <context>
     <name>API</name>
     <message>
         <source>favourited</source>
-        <translation>heeft geduimd voor</translation>
+        <translation>избранное</translation>
     </message>
     <message>
         <source>followed you</source>
-        <translation>volgt u nu</translation>
+        <translation>следую за тобой</translation>
     </message>
     <message>
         <source>boosted</source>
-        <translation>heeft geboost</translation>
+        <translation>росту</translation>
     </message>
     <message>
         <source>said</source>
-        <translation>zei</translation>
+        <translation>сказал</translation>
     </message>
 </context>
 <context>
     <name>Conversation</name>
     <message>
-        <source>Conversation</source>
-        <translation>Gesprek</translation>
-    </message>
-    <message>
         <source>Delete</source>
-        <translation>Verwijderen</translation>
+        <translation>Удалить</translation>
     </message>
     <message>
         <source>Emojis</source>
-        <translation>Emoji’s</translation>
+        <translation>Cмайликов</translation>
     </message>
     <message>
         <source>Tap to insert</source>
-        <translation>Tikt voor in te voegen</translation>
+        <translation>Нажмите, чтобы вставить</translation>
     </message>
     <message>
         <source>Write your warning here</source>
@@ -67,153 +63,153 @@
     <name>ImageFullScreen</name>
     <message>
         <source>Error loading</source>
-        <translation>Fout bij laden</translation>
+        <translation>Ошибка при загрузке</translation>
     </message>
 </context>
 <context>
     <name>ImageUploader</name>
     <message>
         <source>The file %1 does not exists</source>
-        <translation>Het bestand %1 bestaat niet</translation>
+        <translation>Файл %1 не существует</translation>
     </message>
 </context>
 <context>
     <name>LoginPage</name>
     <message>
         <source>Login</source>
-        <translation>Inloggen</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Instance</source>
-        <translation>Instantie</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Enter a valid Mastodon instance URL</source>
-        <translation>Voert den URL van een Mastodon-instantie in</translation>
+        <translation>Введите URL-адрес экземпляра Mastodon</translation>
     </message>
     <message>
         <source>Mastodon is a free, open-source social network. A decentralized alternative to commercial platforms, it avoids the risks of a single company monopolizing your communication. Pick a server that you trust — whichever you choose, you can interact with everyone else. Anyone can run their own Mastodon instance and participate in the social network seamlessly.</source>
-        <translation>Mastodon is e vrij sociaal netwerk. Als gedecentraliseerd alternatief voor commerciële platformen, vermijdt het de risico’s van één enkel bedrijf dat uw communicatie monopoliseert. Kiest ne server die ge vertrouwt — dewelken dat ge ook kiest, ge kunt met iedereen communiceren. Iedereen kan zelf een Mastodon-instantie hebben en naadloos deelnemen aan het sociaal netwerk.</translation>
+        <translation>Mastodon - бесплатная социальная сеть с открытым исходным кодом. Децентрализованная альтернатива коммерческим платформам позволяет избежать рисков, связанных с тем, что одна компания монополизирует ваше общение. Выберите сервер, которому вы доверяете - в зависимости от того, что вы выберете, вы можете взаимодействовать со всеми остальными. Любой может запустить свой собственный экземпляр Mastodon и беспрепятственно участвовать в социальной сети.</translation>
     </message>
     <message>
         <source>Reload</source>
-        <translation>Herladen</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>MainPage</name>
     <message>
         <source>Home</source>
-        <translation>Thuis</translation>
+        <translation>Главная</translation>
     </message>
     <message>
         <source>Notifications</source>
-        <translation>Meldingen</translation>
+        <translation>Уведомления</translation>
     </message>
     <message>
         <source>New Toot</source>
-        <translation>Nieuwen toot</translation>
+        <translation>Новый</translation>
     </message>
     <message>
         <source>Search</source>
-        <translation>Zoeken</translation>
+        <translation>Поиск</translation>
     </message>
     <message>
         <source>@user or #term</source>
-        <translation>@gebruiker of #term</translation>
+        <translation>@пользователь или #срок</translation>
     </message>
     <message>
         <source>Local</source>
-        <translation>Lokaal</translation>
+        <translation>Локальный</translation>
     </message>
     <message>
         <source>Federated</source>
-        <translation>Gefedereerd</translation>
+        <translation>Федеративные</translation>
     </message>
 </context>
 <context>
     <name>MiniStatus</name>
     <message>
         <source>boosted</source>
-        <translation>heeft geboost</translation>
+        <translation>росту</translation>
     </message>
     <message>
         <source>favourited</source>
-        <translation>heeft geduimd voor</translation>
+        <translation>любимый</translation>
     </message>
     <message>
         <source>followed you</source>
-        <translation>volgt u nu</translation>
+        <translation>следую за тобой</translation>
     </message>
 </context>
 <context>
     <name>MyList</name>
     <message>
         <source>Load more</source>
-        <translation>Meer laden</translation>
+        <translation>Загрузи больше</translation>
     </message>
     <message>
         <source>Settings</source>
-        <translation>Instellingen</translation>
+        <translation>Настройки</translation>
     </message>
     <message>
         <source>Loading</source>
-        <translation>Laden</translation>
+        <translation>Загрузка</translation>
     </message>
     <message>
         <source>please wait...</source>
-        <translation>efkens geduld…</translation>
+        <translation>Пожалуйста, подождите...</translation>
     </message>
 </context>
 <context>
     <name>Profile</name>
     <message>
         <source>Unfollow</source>
-        <translation>Ontvolgen</translation>
+        <translation>Отписаться</translation>
     </message>
     <message>
         <source>Follow request sent!</source>
-        <translation>Volgverzoek verzonden!</translation>
+        <translation>Следуйте запрошенному запросу!</translation>
     </message>
     <message>
         <source>Following</source>
-        <translation>Volgend</translation>
+        <translation>Следующий</translation>
     </message>
     <message>
         <source>Mute</source>
-        <translation>Dempen</translation>
+        <translation>Безгласный</translation>
     </message>
     <message>
         <source>Unmute</source>
-        <translation>Ontdempen</translation>
+        <translation>Нет безгласный</translation>
     </message>
     <message>
         <source>Unblock</source>
-        <translation>Deblokkeren</translation>
+        <translation>Открыть</translation>
     </message>
     <message>
         <source>Block</source>
-        <translation>Blokkeren</translation>
+        <translation>Блокировать</translation>
     </message>
     <message>
         <source>Statuses</source>
-        <translation>Statussen</translation>
+        <translation>Статусы</translation>
     </message>
     <message>
         <source>Favourites</source>
-        <translation>Duimen</translation>
+        <translation>Избранные</translation>
     </message>
     <message>
         <source>Follow</source>
-        <translation>Volgen</translation>
+        <translation>Следить</translation>
     </message>
     <message>
         <source>Summary</source>
-        <translation>Samenvatting</translation>
+        <translation>Резюме</translation>
     </message>
     <message>
         <source>Followers</source>
-        <translation>Volgers</translation>
+        <translation>Читают</translation>
     </message>
     <message>
         <source>Bio</source>
@@ -228,35 +224,35 @@
     <name>Settings</name>
     <message>
         <source>Settings</source>
-        <translation>Instellingen</translation>
+        <translation>Настройки</translation>
     </message>
     <message>
         <source>Remove Account</source>
-        <translation>Account verwijderen</translation>
+        <translation>Удалить учетную запись</translation>
     </message>
     <message>
         <source>Add Account</source>
-        <translation>Account toevoegen</translation>
+        <translation>Добавить аккаунт</translation>
     </message>
     <message>
         <source>Deauthorize this app and remove your account</source>
-        <translation>Trekt autorisaties van dezen app in en verwijdert uwen account</translation>
+        <translation>удалить учетную запись с устройства</translation>
     </message>
     <message>
         <source>Authorize this app to access your Mastodon account</source>
-        <translation>Autoriseert dezen app voor uwe Mastodon-account namens u te gebruiken</translation>
+        <translation>Уполномочить это приложение использовать свою учетную запись Mastodon от вашего имени</translation>
     </message>
     <message>
         <source>Disable this option if you want to preserve your data connection</source>
-        <translation>Schakelt dees optie uit als ge uw verbinding wilt behouden</translation>
+        <translation>Отключите эту опцию, если вы хотите сохранить подключение к данным</translation>
     </message>
     <message>
         <source>Credits</source>
-        <translation>Credits</translation>
+        <translation>Зачет</translation>
     </message>
     <message>
         <source>UI/UX design and development</source>
-        <translation>UI/UX-ontwerp en -ontwikkeling</translation>
+        <translation>Дизайн и разработка UI / UX</translation>
     </message>
     <message>
         <source>Visual identity</source>
@@ -284,15 +280,15 @@
     </message>
     <message>
         <source>Load images in toots</source>
-        <translation>Afbeeldingen in toots laden</translation>
+        <translation>Загружать изображения</translation>
     </message>
     <message>
         <source>Translate</source>
-        <translation>Vertalen</translation>
+        <translation>Переведите</translation>
     </message>
     <message>
         <source>Use Transifex to help with app translation to your language</source>
-        <translation>Gebruikt Transifex voor te helpen met dezen app in uw taal te vertalen</translation>
+        <translation>Используйте Transifex, чтобы помочь с переводом приложения на ваш язык</translation>
     </message>
     <message>
         <source>Development and translations</source>
@@ -303,34 +299,34 @@
     <name>Toot</name>
     <message>
         <source>boosted</source>
-        <translation>heeft geboost</translation>
+        <translation>росту</translation>
     </message>
     <message>
         <source>favourited</source>
-        <translation>heeft geduimd voor</translation>
+        <translation>имеет любимый</translation>
     </message>
     <message>
         <source>followed you</source>
-        <translation>volgt u nu</translation>
+        <translation>следую за тобой</translation>
     </message>
 </context>
 <context>
     <name>VisualContainer</name>
     <message>
         <source>Unboost</source>
-        <translation>Ontboosten</translation>
+        <translation>Нет росту</translation>
     </message>
     <message>
         <source>Boost</source>
-        <translation>Boosten</translation>
+        <translation>Росту</translation>
     </message>
     <message>
         <source>Unfavorite</source>
-        <translation>Duim verwijderen</translation>
+        <translation>Избранные нет</translation>
     </message>
     <message>
         <source>Favorite</source>
-        <translation>Duim toevoegen</translation>
+        <translation>Избранные</translation>
     </message>
 </context>
 </TS>

@@ -1,336 +1,332 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="pl">
+<TS version="2.1" language="de">
 <context>
     <name>API</name>
     <message>
         <source>favourited</source>
-        <translation type="unfinished">dodał(a) do ulubionych</translation>
+        <translation>hat favorisiert</translation>
     </message>
     <message>
         <source>followed you</source>
-        <translation>zaczął(-ęła) Cię śledzić</translation>
+        <translation>folgt dir</translation>
     </message>
     <message>
         <source>boosted</source>
-        <translation>podbił(a)</translation>
+        <translation>hat geteilt</translation>
     </message>
     <message>
         <source>said</source>
-        <translation>napisał(a)</translation>
+        <translation>hat gesagt</translation>
     </message>
 </context>
 <context>
     <name>Conversation</name>
     <message>
-        <source>Conversation</source>
-        <translation>Konwersacja</translation>
-    </message>
-    <message>
         <source>Delete</source>
-        <translation>Usuń</translation>
+        <translation>Löschen</translation>
     </message>
     <message>
         <source>Emojis</source>
-        <translation>Emoji</translation>
+        <translation>Emojis</translation>
     </message>
     <message>
         <source>Tap to insert</source>
-        <translation>Dotknij aby wstawić</translation>
+        <translation>Tippen um einzufügen</translation>
     </message>
     <message>
         <source>Write your warning here</source>
-        <translation type="unfinished"></translation>
+        <translation>Inhaltswarnung</translation>
     </message>
     <message>
         <source>Public</source>
-        <translation type="unfinished"></translation>
+        <translation>Öffentlich</translation>
     </message>
     <message>
         <source>Unlisted</source>
-        <translation type="unfinished"></translation>
+        <translation>Nicht gelistet</translation>
     </message>
     <message>
         <source>Followers-only</source>
-        <translation type="unfinished"></translation>
+        <translation>Nur für Folgende</translation>
     </message>
     <message>
         <source>Direct</source>
-        <translation type="unfinished"></translation>
+        <translation>Direktnachricht</translation>
     </message>
     <message>
         <source>What&apos;s on your mind?</source>
-        <translation type="unfinished"></translation>
+        <translation>Was gibt&apos;s Neues?</translation>
     </message>
 </context>
 <context>
     <name>ImageFullScreen</name>
     <message>
         <source>Error loading</source>
-        <translation>Błąd ładowania</translation>
+        <translation>Fehler beim Laden</translation>
     </message>
 </context>
 <context>
     <name>ImageUploader</name>
     <message>
         <source>The file %1 does not exists</source>
-        <translation>Plik %1 nie istnieje</translation>
+        <translation>Die Datei %1 existiert nicht</translation>
     </message>
 </context>
 <context>
     <name>LoginPage</name>
     <message>
         <source>Login</source>
-        <translation type="unfinished"></translation>
+        <translation>Login</translation>
     </message>
     <message>
         <source>Instance</source>
-        <translation type="unfinished"></translation>
+        <translation>Instanz</translation>
     </message>
     <message>
         <source>Enter a valid Mastodon instance URL</source>
-        <translation type="unfinished"></translation>
+        <translation>Eine gültige Mastodon-Instanz URL eingeben</translation>
     </message>
     <message>
         <source>Mastodon is a free, open-source social network. A decentralized alternative to commercial platforms, it avoids the risks of a single company monopolizing your communication. Pick a server that you trust — whichever you choose, you can interact with everyone else. Anyone can run their own Mastodon instance and participate in the social network seamlessly.</source>
-        <translation type="unfinished"></translation>
+        <translation>Mastodon ist ein freies, quelloffenes soziales Netzwerk. Im Gegensatz zu kommerziellen Plattformen, ist Mastodon als dezentrales Netzwerk konzipiert. Somit wird das Risiko vermieden, dass ein einziges Unternehmen die volle Kontrolle über die Kommunikation der Benutzer hat. Benutzer können einer beliebigen Instanz beitreten oder selbst eine eigene betreiben.</translation>
     </message>
     <message>
         <source>Reload</source>
-        <translation type="unfinished"></translation>
+        <translation>Neu laden</translation>
     </message>
 </context>
 <context>
     <name>MainPage</name>
     <message>
         <source>Home</source>
-        <translation>Strona główna</translation>
+        <translation>Home</translation>
     </message>
     <message>
         <source>Notifications</source>
-        <translation>Powiadomienia</translation>
+        <translation>Benachrichtigungen</translation>
     </message>
     <message>
         <source>New Toot</source>
-        <translation>Nowy wpis</translation>
+        <translation>Neuer Toot</translation>
     </message>
     <message>
         <source>Search</source>
-        <translation>Szukaj</translation>
+        <translation>Suche</translation>
     </message>
     <message>
         <source>@user or #term</source>
-        <translation>@użytkownik lub #tag</translation>
+        <translation>@Benutzer oder #Ausdruck</translation>
     </message>
     <message>
         <source>Local</source>
-        <translation>Lokalne</translation>
+        <translation>Lokal</translation>
     </message>
     <message>
         <source>Federated</source>
-        <translation>Globalne</translation>
+        <translation>Föderation</translation>
     </message>
 </context>
 <context>
     <name>MiniStatus</name>
     <message>
         <source>boosted</source>
-        <translation>podbił(a)</translation>
+        <translation>hat geteilt</translation>
     </message>
     <message>
         <source>favourited</source>
-        <translation>dodał(a) do ulubionych</translation>
+        <translation>hat favorisiert</translation>
     </message>
     <message>
         <source>followed you</source>
-        <translation>zaczął(-ęła) Cię śledzić</translation>
+        <translation>folgt dir</translation>
     </message>
 </context>
 <context>
     <name>MyList</name>
     <message>
         <source>Load more</source>
-        <translation>Załaduj więcej</translation>
+        <translation>Lade mehr</translation>
     </message>
     <message>
         <source>Settings</source>
-        <translation>Ustawienia</translation>
+        <translation>Einstellungen</translation>
     </message>
     <message>
         <source>Loading</source>
-        <translation>Ładowanie</translation>
+        <translation>Wird geladen</translation>
     </message>
     <message>
         <source>please wait...</source>
-        <translation>proszę czekać…</translation>
+        <translation>bitte warten...</translation>
     </message>
 </context>
 <context>
     <name>Profile</name>
     <message>
         <source>Unfollow</source>
-        <translation>Przestań śledzić</translation>
+        <translation>Entfolgen</translation>
     </message>
     <message>
         <source>Follow request sent!</source>
-        <translation>Wysłano prośbę o możliwość śledzenia!</translation>
+        <translation>Folge-Anfrage gesendet!</translation>
     </message>
     <message>
         <source>Following</source>
-        <translation>Śledzisz</translation>
+        <translation>Folgt</translation>
     </message>
     <message>
         <source>Mute</source>
-        <translation>Wycisz</translation>
+        <translation>Stummschalten</translation>
     </message>
     <message>
         <source>Unmute</source>
-        <translation>Unmute</translation>
+        <translation>Nicht stummschalten</translation>
     </message>
     <message>
         <source>Unblock</source>
-        <translation>Unblock</translation>
+        <translation>Nicht blockieren</translation>
     </message>
     <message>
         <source>Block</source>
-        <translation>Block</translation>
+        <translation>Blockieren</translation>
     </message>
     <message>
         <source>Statuses</source>
-        <translation>Statuses</translation>
+        <translation>Beiträge</translation>
     </message>
     <message>
         <source>Favourites</source>
-        <translation>Favourites</translation>
+        <translation>Favoriten</translation>
     </message>
     <message>
         <source>Follow</source>
-        <translation>Follow</translation>
+        <translation>Folgen</translation>
     </message>
     <message>
         <source>Summary</source>
-        <translation>Summary</translation>
+        <translation>Zusammenfassung</translation>
     </message>
     <message>
         <source>Followers</source>
-        <translation>Followers</translation>
+        <translation>Folgende</translation>
     </message>
     <message>
         <source>Bio</source>
-        <translation type="unfinished"></translation>
+        <translation>Bio</translation>
     </message>
     <message>
         <source>Open Profile in Browser</source>
-        <translation type="unfinished"></translation>
+        <translation>Profil im Browser öffnen</translation>
     </message>
 </context>
 <context>
     <name>Settings</name>
     <message>
         <source>Settings</source>
-        <translation type="unfinished">Ustawienia</translation>
+        <translation>Einstellungen</translation>
     </message>
     <message>
         <source>Remove Account</source>
-        <translation type="unfinished"></translation>
+        <translation>Konto entfernen</translation>
     </message>
     <message>
         <source>Add Account</source>
-        <translation type="unfinished"></translation>
+        <translation>Konto hinzufügen</translation>
     </message>
     <message>
         <source>Deauthorize this app and remove your account</source>
-        <translation type="unfinished"></translation>
+        <translation>Konto entfernen und für diese Anwendung deaktivieren</translation>
     </message>
     <message>
         <source>Authorize this app to access your Mastodon account</source>
-        <translation type="unfinished"></translation>
+        <translation>Zugriff durch diese Anwendung auf eigenes Mastodon-Konto erlauben</translation>
     </message>
     <message>
         <source>Disable this option if you want to preserve your data connection</source>
-        <translation type="unfinished"></translation>
+        <translation>Diese Option deaktivieren um Datenvolumen zu sparen</translation>
     </message>
     <message>
         <source>Credits</source>
-        <translation type="unfinished"></translation>
+        <translation>Über</translation>
     </message>
     <message>
         <source>UI/UX design and development</source>
-        <translation type="unfinished"></translation>
+        <translation>UI/UX-Gestaltung und Entwicklung</translation>
     </message>
     <message>
         <source>Visual identity</source>
-        <translation type="unfinished"></translation>
+        <translation>Visuelle Identität</translation>
     </message>
     <message>
         <source>Occitan &amp; French translation</source>
-        <translation type="unfinished"></translation>
+        <translation>Französische Übersetzung</translation>
     </message>
     <message>
         <source>Dutch translation</source>
-        <translation type="unfinished"></translation>
+        <translation>Niederländische Übersetzung</translation>
     </message>
     <message>
         <source>Spanish translation</source>
-        <translation type="unfinished"></translation>
+        <translation>Spanische Übersetzung</translation>
     </message>
     <message>
         <source>Added README file</source>
-        <translation type="unfinished"></translation>
+        <translation>Erstellung README-Datei</translation>
     </message>
     <message>
         <source>Chinese translation</source>
-        <translation type="unfinished"></translation>
+        <translation>Chinesische Übersetzung</translation>
     </message>
     <message>
         <source>Load images in toots</source>
-        <translation type="unfinished"></translation>
+        <translation>Bilder in Toots laden</translation>
     </message>
     <message>
         <source>Translate</source>
-        <translation type="unfinished"></translation>
+        <translation>Übersetzungen</translation>
     </message>
     <message>
         <source>Use Transifex to help with app translation to your language</source>
-        <translation type="unfinished"></translation>
+        <translation>Transifex benutzen um bei den Übersetzungen mitzuhelfen</translation>
     </message>
     <message>
         <source>Development and translations</source>
-        <translation type="unfinished"></translation>
+        <translation>Entwicklung und Übersetzungen</translation>
     </message>
 </context>
 <context>
     <name>Toot</name>
     <message>
         <source>boosted</source>
-        <translation>podbił(a)</translation>
+        <translation>hat geteilt</translation>
     </message>
     <message>
         <source>favourited</source>
-        <translation>dodał(a) do ulubionych</translation>
+        <translation>hat favorisiert</translation>
     </message>
     <message>
         <source>followed you</source>
-        <translation>zaczął(-ęła Cię śledzić)</translation>
+        <translation>folgt dir</translation>
     </message>
 </context>
 <context>
     <name>VisualContainer</name>
     <message>
         <source>Unboost</source>
-        <translation type="unfinished"></translation>
+        <translation>Nicht mehr teilen</translation>
     </message>
     <message>
         <source>Boost</source>
-        <translation type="unfinished"></translation>
+        <translation>Teilen</translation>
     </message>
     <message>
         <source>Unfavorite</source>
-        <translation type="unfinished"></translation>
+        <translation>Nicht favorisieren</translation>
     </message>
     <message>
         <source>Favorite</source>
-        <translation type="unfinished"></translation>
+        <translation>Favorisieren</translation>
     </message>
 </context>
 </TS>

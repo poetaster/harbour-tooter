@@ -1,34 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="oc">
+<TS version="2.1" language="sv">
 <context>
     <name>API</name>
     <message>
         <source>favourited</source>
-        <translation>a mes en favorit</translation>
+        <translation>favoriserad</translation>
     </message>
     <message>
         <source>followed you</source>
-        <translation>vos sèc</translation>
+        <translation>följer dig</translation>
     </message>
     <message>
         <source>boosted</source>
-        <translation>a partejat</translation>
+        <translation>puffat</translation>
     </message>
     <message>
         <source>said</source>
-        <translation>a dich</translation>
+        <translation>sade</translation>
     </message>
 </context>
 <context>
     <name>Conversation</name>
     <message>
-        <source>Conversation</source>
-        <translation>Discutida</translation>
-    </message>
-    <message>
         <source>Delete</source>
-        <translation>Escafar</translation>
+        <translation>Radera</translation>
     </message>
     <message>
         <source>Emojis</source>
@@ -36,7 +32,7 @@
     </message>
     <message>
         <source>Tap to insert</source>
-        <translation>Tustejar per inserir</translation>
+        <translation>Tryck för att infoga</translation>
     </message>
     <message>
         <source>Write your warning here</source>
@@ -67,21 +63,21 @@
     <name>ImageFullScreen</name>
     <message>
         <source>Error loading</source>
-        <translation>Error en cargar</translation>
+        <translation>Problem att ladda</translation>
     </message>
 </context>
 <context>
     <name>ImageUploader</name>
     <message>
         <source>The file %1 does not exists</source>
-        <translation>Lo fichièr %1 existís pas</translation>
+        <translation>Filen %1 går inte att hitta</translation>
     </message>
 </context>
 <context>
     <name>LoginPage</name>
     <message>
         <source>Login</source>
-        <translation>Connexion</translation>
+        <translation>Logga in</translation>
     </message>
     <message>
         <source>Instance</source>
@@ -89,11 +85,11 @@
     </message>
     <message>
         <source>Enter a valid Mastodon instance URL</source>
-        <translation>Picatz l’URL d’una instància Mastodon</translation>
+        <translation>Fyll i URL till Mastodoninstans</translation>
     </message>
     <message>
         <source>Mastodon is a free, open-source social network. A decentralized alternative to commercial platforms, it avoids the risks of a single company monopolizing your communication. Pick a server that you trust — whichever you choose, you can interact with everyone else. Anyone can run their own Mastodon instance and participate in the social network seamlessly.</source>
-        <translation>Mastodon es un malhum liure e open source. Es una alternativa descentralizada a las plataformas comercialas, per empachar qu&apos;una sola entrepresa monopolize vòstras comunicacions. Causissètz un servidor que vos fisatz - qualque siá vòstre causida poiretz interagir amb los autres. Tot lo monde pòt montar sa pròpria instància Mastodon e atal participar a construire un malhum mai solid.</translation>
+        <translation>Mastodon är ett fritt och öppet socialt nätverk byggt på öppen källkod. Ett decentraliserat alternativ till kommersiella plattformar, vilket undviker att ett ensamt företag monopoliserar din kommunikation. Välj en server du litar på --- beroende på vilken du väljer, kan du interagera med alla andra. Vem som helst kan köra deras egen Mastodoninstans och delta i nätverket. Även du!</translation>
     </message>
     <message>
         <source>Reload</source>
@@ -104,116 +100,116 @@
     <name>MainPage</name>
     <message>
         <source>Home</source>
-        <translation>Acuèlh</translation>
+        <translation>Hem</translation>
     </message>
     <message>
         <source>Notifications</source>
-        <translation>Notificacions</translation>
+        <translation>Notifieringar</translation>
     </message>
     <message>
         <source>New Toot</source>
-        <translation>Nòu Tut</translation>
+        <translation>Ny toot</translation>
     </message>
     <message>
         <source>Search</source>
-        <translation>Cercar</translation>
+        <translation>Sök</translation>
     </message>
     <message>
         <source>@user or #term</source>
-        <translation>@utilizaire o #tèrm</translation>
+        <translation>@user eller #term</translation>
     </message>
     <message>
         <source>Local</source>
-        <translation>Local</translation>
+        <translation>Lokalt</translation>
     </message>
     <message>
         <source>Federated</source>
-        <translation>Federat</translation>
+        <translation>Förenade</translation>
     </message>
 </context>
 <context>
     <name>MiniStatus</name>
     <message>
         <source>boosted</source>
-        <translation>a tornat partejar</translation>
+        <translation>puffade</translation>
     </message>
     <message>
         <source>favourited</source>
-        <translation>a mes en favorit</translation>
+        <translation>favoriserade</translation>
     </message>
     <message>
         <source>followed you</source>
-        <translation>vos sèc</translation>
+        <translation>följer dig</translation>
     </message>
 </context>
 <context>
     <name>MyList</name>
     <message>
         <source>Load more</source>
-        <translation>Cargar mai</translation>
+        <translation>Ladda mer</translation>
     </message>
     <message>
         <source>Settings</source>
-        <translation>Parmètres</translation>
+        <translation>Inställningar</translation>
     </message>
     <message>
         <source>Loading</source>
-        <translation>Cargament</translation>
+        <translation>Laddar</translation>
     </message>
     <message>
         <source>please wait...</source>
-        <translation>esperatz....</translation>
+        <translation>Vänligen vänta...</translation>
     </message>
 </context>
 <context>
     <name>Profile</name>
     <message>
         <source>Unfollow</source>
-        <translation>Quitar de seguir</translation>
+        <translation>Sluta följa</translation>
     </message>
     <message>
         <source>Follow request sent!</source>
-        <translation>Demanda de seguir enviada !</translation>
+        <translation>Följarförfrågan har skickats!</translation>
     </message>
     <message>
         <source>Following</source>
-        <translation>Abonaments</translation>
+        <translation>Följer</translation>
     </message>
     <message>
         <source>Mute</source>
-        <translation>Amagar</translation>
+        <translation>Tysta</translation>
     </message>
     <message>
         <source>Unmute</source>
-        <translation>Mostrar</translation>
+        <translation>Avtysta</translation>
     </message>
     <message>
         <source>Unblock</source>
-        <translation>Desblocar</translation>
+        <translation>Avblockera</translation>
     </message>
     <message>
         <source>Block</source>
-        <translation>Blocar</translation>
+        <translation>Blockera</translation>
     </message>
     <message>
         <source>Statuses</source>
-        <translation>Estatuts</translation>
+        <translation>Statusar</translation>
     </message>
     <message>
         <source>Favourites</source>
-        <translation>Favorits</translation>
+        <translation>Favoriter</translation>
     </message>
     <message>
         <source>Follow</source>
-        <translation>Seguir</translation>
+        <translation>Följ</translation>
     </message>
     <message>
         <source>Summary</source>
-        <translation>Resumit</translation>
+        <translation>Översikt</translation>
     </message>
     <message>
         <source>Followers</source>
-        <translation>Seguidors</translation>
+        <translation>Följare</translation>
     </message>
     <message>
         <source>Bio</source>
@@ -228,35 +224,35 @@
     <name>Settings</name>
     <message>
         <source>Settings</source>
-        <translation>Parmètres</translation>
+        <translation>Inställningar</translation>
     </message>
     <message>
         <source>Remove Account</source>
-        <translation>Levar un compte</translation>
+        <translation>Radera konto</translation>
     </message>
     <message>
         <source>Add Account</source>
-        <translation>Ajustar un compte</translation>
+        <translation>Lägg till konto</translation>
     </message>
     <message>
         <source>Deauthorize this app and remove your account</source>
-        <translation>Revocar l’aplicacion e levar vòstre compte</translation>
+        <translation>Avauktorisera  denna app och radera ditt konto</translation>
     </message>
     <message>
         <source>Authorize this app to access your Mastodon account</source>
-        <translation>Autorizar aquesta aplicacion a utilizar vòstre compte Mastodon per vos</translation>
+        <translation>Godkänn denna app att använda ditt Mastodon-konto på dina vägnar</translation>
     </message>
     <message>
         <source>Disable this option if you want to preserve your data connection</source>
-        <translation>Desactivar aquesta opcion per estalviar vòstra connexion de donadas</translation>
+        <translation>Inaktivera det här alternativet om du vill behålla din dataanslutning</translation>
     </message>
     <message>
         <source>Credits</source>
-        <translation>Crèdits</translation>
+        <translation>Erkännanden</translation>
     </message>
     <message>
         <source>UI/UX design and development</source>
-        <translation>UI/UX design e desvlopament</translation>
+        <translation>UI/UX design och utveckling</translation>
     </message>
     <message>
         <source>Visual identity</source>
@@ -284,53 +280,53 @@
     </message>
     <message>
         <source>Load images in toots</source>
-        <translation>Cargar los imatges dels tuts</translation>
+        <translation>Ladda bilder i toots</translation>
     </message>
     <message>
         <source>Translate</source>
-        <translation>Traduire</translation>
+        <translation>Översätt</translation>
     </message>
     <message>
         <source>Use Transifex to help with app translation to your language</source>
-        <translation>Utilizar Transifex per ajudar a traduire l’aplicacion dins vòstra lenga</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Development and translations</source>
-        <translation type="unfinished"></translation>
+        <translation>Använd Transifex för att hjälpa med app-översättningar till ditt språk</translation>
     </message>
 </context>
 <context>
     <name>Toot</name>
     <message>
         <source>boosted</source>
-        <translation>a tornat partejar</translation>
+        <translation>puffade</translation>
     </message>
     <message>
         <source>favourited</source>
-        <translation>a mes en favorit</translation>
+        <translation>favoriserad</translation>
     </message>
     <message>
         <source>followed you</source>
-        <translation>vos sèc</translation>
+        <translation>följer dig</translation>
     </message>
 </context>
 <context>
     <name>VisualContainer</name>
     <message>
         <source>Unboost</source>
-        <translation>Partejar pas mai</translation>
+        <translation>Avpuffa</translation>
     </message>
     <message>
         <source>Boost</source>
-        <translation>Partejar</translation>
+        <translation>Puffa</translation>
     </message>
     <message>
         <source>Unfavorite</source>
-        <translation>Levar dels favorits</translation>
+        <translation>Avfavorisera</translation>
     </message>
     <message>
         <source>Favorite</source>
-        <translation>Ajustar als favorits</translation>
+        <translation>Favorisera</translation>
     </message>
 </context>
 </TS>

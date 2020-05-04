@@ -7,7 +7,7 @@ Item {
     property string title: "";
     property string description: "";
     property string image: "";
-    property string bg: "";
+    //property string bg: "";
     width: parent.width
     height: icon.height + Theme.paddingLarge*2
     /*Image {
@@ -54,9 +54,14 @@ Item {
         }
         Label {
             id: ttl
-            text: title
+            //text: title
+            text:
+                if (title === "") {
+                    description.split('@')[0]
+                }
+                else title
             height: contentHeight
-            color: Theme.primaryColor
+            color: Theme.highlightColor
             font.pixelSize: Theme.fontSizeLarge
             font.family: Theme.fontFamilyHeading
             horizontalAlignment: Text.AlignRight
@@ -65,8 +70,8 @@ Item {
         }
         Label {
             height: description === "" ? 0 : contentHeight
-            text: description
-            color: Theme.secondaryColor
+            text: "@"+description
+            color: Theme.secondaryHighlightColor
             font.pixelSize: Theme.fontSizeSmall
             font.family: Theme.fontFamilyHeading
             horizontalAlignment: Text.AlignRight

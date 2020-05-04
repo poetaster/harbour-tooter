@@ -1,42 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1">
+<TS version="2.1" language="nl_BE">
 <context>
     <name>API</name>
     <message>
         <source>favourited</source>
-        <translation>favourited</translation>
+        <translation>heeft geduimd voor</translation>
     </message>
     <message>
         <source>followed you</source>
-        <translation>followed you</translation>
+        <translation>volgt u nu</translation>
     </message>
     <message>
         <source>boosted</source>
-        <translation>boosted</translation>
+        <translation>heeft geboost</translation>
     </message>
     <message>
         <source>said</source>
-        <translation>said</translation>
+        <translation>zei</translation>
     </message>
 </context>
 <context>
     <name>Conversation</name>
     <message>
-        <source>Conversation</source>
-        <translation>Conversation</translation>
-    </message>
-    <message>
         <source>Delete</source>
-        <translation>Delete</translation>
+        <translation>Verwijderen</translation>
     </message>
     <message>
         <source>Emojis</source>
-        <translation>Emojis</translation>
+        <translation>Emoji’s</translation>
     </message>
     <message>
         <source>Tap to insert</source>
-        <translation>Tap to insert</translation>
+        <translation>Tikt voor in te voegen</translation>
     </message>
     <message>
         <source>Write your warning here</source>
@@ -67,153 +63,153 @@
     <name>ImageFullScreen</name>
     <message>
         <source>Error loading</source>
-        <translation></translation>
+        <translation>Fout bij laden</translation>
     </message>
 </context>
 <context>
     <name>ImageUploader</name>
     <message>
         <source>The file %1 does not exists</source>
-        <translation></translation>
+        <translation>Het bestand %1 bestaat niet</translation>
     </message>
 </context>
 <context>
     <name>LoginPage</name>
     <message>
         <source>Login</source>
-        <translation type="unfinished"></translation>
+        <translation>Inloggen</translation>
     </message>
     <message>
         <source>Instance</source>
-        <translation type="unfinished"></translation>
+        <translation>Instantie</translation>
     </message>
     <message>
         <source>Enter a valid Mastodon instance URL</source>
-        <translation type="unfinished"></translation>
+        <translation>Voert den URL van een Mastodon-instantie in</translation>
     </message>
     <message>
         <source>Mastodon is a free, open-source social network. A decentralized alternative to commercial platforms, it avoids the risks of a single company monopolizing your communication. Pick a server that you trust — whichever you choose, you can interact with everyone else. Anyone can run their own Mastodon instance and participate in the social network seamlessly.</source>
-        <translation type="unfinished"></translation>
+        <translation>Mastodon is e vrij sociaal netwerk. Als gedecentraliseerd alternatief voor commerciële platformen, vermijdt het de risico’s van één enkel bedrijf dat uw communicatie monopoliseert. Kiest ne server die ge vertrouwt — dewelken dat ge ook kiest, ge kunt met iedereen communiceren. Iedereen kan zelf een Mastodon-instantie hebben en naadloos deelnemen aan het sociaal netwerk.</translation>
     </message>
     <message>
         <source>Reload</source>
-        <translation type="unfinished"></translation>
+        <translation>Herladen</translation>
     </message>
 </context>
 <context>
     <name>MainPage</name>
     <message>
         <source>Home</source>
-        <translation></translation>
+        <translation>Thuis</translation>
     </message>
     <message>
         <source>Notifications</source>
-        <translation></translation>
+        <translation>Meldingen</translation>
     </message>
     <message>
         <source>New Toot</source>
-        <translation></translation>
+        <translation>Nieuwen toot</translation>
     </message>
     <message>
         <source>Search</source>
-        <translation></translation>
+        <translation>Zoeken</translation>
     </message>
     <message>
         <source>@user or #term</source>
-        <translation></translation>
+        <translation>@gebruiker of #term</translation>
     </message>
     <message>
         <source>Local</source>
-        <translation></translation>
+        <translation>Lokaal</translation>
     </message>
     <message>
         <source>Federated</source>
-        <translation></translation>
+        <translation>Gefedereerd</translation>
     </message>
 </context>
 <context>
     <name>MiniStatus</name>
     <message>
         <source>boosted</source>
-        <translation>boosted</translation>
+        <translation>heeft geboost</translation>
     </message>
     <message>
         <source>favourited</source>
-        <translation>favourited</translation>
+        <translation>heeft geduimd voor</translation>
     </message>
     <message>
         <source>followed you</source>
-        <translation>followed you</translation>
+        <translation>volgt u nu</translation>
     </message>
 </context>
 <context>
     <name>MyList</name>
     <message>
         <source>Load more</source>
-        <translation>Load more</translation>
+        <translation>Meer laden</translation>
     </message>
     <message>
         <source>Settings</source>
-        <translation>Settings</translation>
+        <translation>Instellingen</translation>
     </message>
     <message>
         <source>Loading</source>
-        <translation></translation>
+        <translation>Laden</translation>
     </message>
     <message>
         <source>please wait...</source>
-        <translation></translation>
+        <translation>efkens geduld…</translation>
     </message>
 </context>
 <context>
     <name>Profile</name>
     <message>
         <source>Unfollow</source>
-        <translation>Unfollow</translation>
+        <translation>Ontvolgen</translation>
     </message>
     <message>
         <source>Follow request sent!</source>
-        <translation>Follow request sent!</translation>
+        <translation>Volgverzoek verzonden!</translation>
     </message>
     <message>
         <source>Following</source>
-        <translation>Following</translation>
+        <translation>Volgend</translation>
     </message>
     <message>
         <source>Mute</source>
-        <translation>Mute</translation>
+        <translation>Dempen</translation>
     </message>
     <message>
         <source>Unmute</source>
-        <translation>Unmute</translation>
+        <translation>Ontdempen</translation>
     </message>
     <message>
         <source>Unblock</source>
-        <translation>Unblock</translation>
+        <translation>Deblokkeren</translation>
     </message>
     <message>
         <source>Block</source>
-        <translation>Block</translation>
+        <translation>Blokkeren</translation>
     </message>
     <message>
         <source>Statuses</source>
-        <translation>Statuses</translation>
+        <translation>Statussen</translation>
     </message>
     <message>
         <source>Favourites</source>
-        <translation>Favourites</translation>
+        <translation>Duimen</translation>
     </message>
     <message>
         <source>Follow</source>
-        <translation>Follow</translation>
+        <translation>Volgen</translation>
     </message>
     <message>
         <source>Summary</source>
-        <translation>Summary</translation>
+        <translation>Samenvatting</translation>
     </message>
     <message>
         <source>Followers</source>
-        <translation>Followers</translation>
+        <translation>Volgers</translation>
     </message>
     <message>
         <source>Bio</source>
@@ -228,35 +224,35 @@
     <name>Settings</name>
     <message>
         <source>Settings</source>
-        <translation type="unfinished">Settings</translation>
+        <translation>Instellingen</translation>
     </message>
     <message>
         <source>Remove Account</source>
-        <translation type="unfinished"></translation>
+        <translation>Account verwijderen</translation>
     </message>
     <message>
         <source>Add Account</source>
-        <translation type="unfinished"></translation>
+        <translation>Account toevoegen</translation>
     </message>
     <message>
         <source>Deauthorize this app and remove your account</source>
-        <translation type="unfinished"></translation>
+        <translation>Trekt autorisaties van dezen app in en verwijdert uwen account</translation>
     </message>
     <message>
         <source>Authorize this app to access your Mastodon account</source>
-        <translation type="unfinished"></translation>
+        <translation>Autoriseert dezen app voor uwe Mastodon-account namens u te gebruiken</translation>
     </message>
     <message>
         <source>Disable this option if you want to preserve your data connection</source>
-        <translation type="unfinished"></translation>
+        <translation>Schakelt dees optie uit als ge uw verbinding wilt behouden</translation>
     </message>
     <message>
         <source>Credits</source>
-        <translation type="unfinished"></translation>
+        <translation>Credits</translation>
     </message>
     <message>
         <source>UI/UX design and development</source>
-        <translation type="unfinished"></translation>
+        <translation>UI/UX-ontwerp en -ontwikkeling</translation>
     </message>
     <message>
         <source>Visual identity</source>
@@ -284,15 +280,15 @@
     </message>
     <message>
         <source>Load images in toots</source>
-        <translation type="unfinished"></translation>
+        <translation>Afbeeldingen in toots laden</translation>
     </message>
     <message>
         <source>Translate</source>
-        <translation type="unfinished"></translation>
+        <translation>Vertalen</translation>
     </message>
     <message>
         <source>Use Transifex to help with app translation to your language</source>
-        <translation type="unfinished"></translation>
+        <translation>Gebruikt Transifex voor te helpen met dezen app in uw taal te vertalen</translation>
     </message>
     <message>
         <source>Development and translations</source>
@@ -303,34 +299,34 @@
     <name>Toot</name>
     <message>
         <source>boosted</source>
-        <translation>boosted</translation>
+        <translation>heeft geboost</translation>
     </message>
     <message>
         <source>favourited</source>
-        <translation>favourited</translation>
+        <translation>heeft geduimd voor</translation>
     </message>
     <message>
         <source>followed you</source>
-        <translation>followed you</translation>
+        <translation>volgt u nu</translation>
     </message>
 </context>
 <context>
     <name>VisualContainer</name>
     <message>
         <source>Unboost</source>
-        <translation type="unfinished"></translation>
+        <translation>Ontboosten</translation>
     </message>
     <message>
         <source>Boost</source>
-        <translation type="unfinished"></translation>
+        <translation>Boosten</translation>
     </message>
     <message>
         <source>Unfavorite</source>
-        <translation type="unfinished"></translation>
+        <translation>Duim verwijderen</translation>
     </message>
     <message>
         <source>Favorite</source>
-        <translation type="unfinished"></translation>
+        <translation>Duim toevoegen</translation>
     </message>
 </context>
 </TS>

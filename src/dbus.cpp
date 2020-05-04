@@ -7,7 +7,7 @@ Dbus::Dbus(QObject *parent) :
     QObject(parent)
 {
     m_dbusRegistered = false;
-    new TooterAdaptor(this);
+    new TooterbAdaptor(this);
     registerDBus();
 }
 

@@ -27,7 +27,7 @@ int main(int argc, char *argv[])
 
     FileDownloader *fd = new FileDownloader(engine);
     view->rootContext()->setContextProperty("FileDownloader", fd);
-    qmlRegisterType<ImageUploader>("harbour.tooter.Uploader", 1, 0, "ImageUploader");
+    qmlRegisterType<ImageUploader>("harbour.tooterb.Uploader", 1, 0, "ImageUploader");
 
     Notifications *no = new Notifications();
     view->rootContext()->setContextProperty("Notifications", no);
@@ -36,7 +36,7 @@ int main(int argc, char *argv[])
     Dbus *dbus = new Dbus();
     view->rootContext()->setContextProperty("Dbus", dbus);
 
-    view->setSource(SailfishApp::pathTo("qml/harbour-tooter-beta.qml"));
+    view->setSource(SailfishApp::pathTo("qml/harbour-tooterb.qml"));
     view->show();
     return app->exec();
 }

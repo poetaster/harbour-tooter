@@ -9,6 +9,7 @@ Page {
     property string display_name : "";
     property string username : "";
     property string profileImage : "";
+    property string discoverable : "";
     property int user_id;
     property int statuses_count;
     property int following_count;
@@ -19,7 +20,6 @@ Page {
     property string profile_background: "";
     property string note: "";
     property string url: "";
-
     property bool locked : false;
     property date created_at;
     property bool following : false;
@@ -134,14 +134,12 @@ Page {
         }
     }
 
-
-
     MyList {
         id: list
         header: ProfileHeader {
             id: header
             title: display_name
-            description: '@'+username
+            description: username
             image: profileImage
         }
 
@@ -251,7 +249,6 @@ Page {
                 Text {
                     x: Theme.horizontalPageMargin
                     width: parent.width  - ( 2 * Theme.horizontalPageMargin )
-                    id: txtnote
                     text: note
                     font.pixelSize: Theme.fontSizeExtraSmall
                     color: Theme.secondaryColor
@@ -274,23 +271,19 @@ Page {
                                 return check;
                             }));
                             send(link)
-
                         } else if (test.length === 4 && test[3][0] === "@" ) {
                             tlSearch.search = decodeURIComponent("@"+test[3].substring(1)+"@"+test[2])
                             slideshow.positionViewAtIndex(4, ListView.SnapToItem)
                             navigation.navigateTo('search')
-
                         } else {
                             Qt.openUrlExternally(link);
                         }
                     }
-
                 }
                 Column {
                     spacing: Theme.paddingMedium
                     anchors.horizontalCenter:     parent.horizontalCenter
                     Button {
-                        id: btnUrl
                         text: qsTr("Open Profile in Browser")
                         onClicked: {
                             Qt.openUrlExternally(url);

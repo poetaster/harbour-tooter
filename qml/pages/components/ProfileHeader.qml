@@ -54,7 +54,6 @@ Item {
         }
         Label {
             id: ttl
-            //text: title
             text:
                 if (title === "") {
                     description.split('@')[0]

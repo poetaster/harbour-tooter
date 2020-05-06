@@ -58,7 +58,7 @@ CoverBackground {
         verticalAlignment: Image.AlignBottom
         fillMode: Image.PreserveAspectFit
 
-        source: "../images/tooter.svg"
+        source: "../images/tooterb.svg"
     }
     Timer {
         id: timer

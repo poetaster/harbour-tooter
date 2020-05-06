@@ -28,7 +28,7 @@ DEFINES += "APPNAME=\\\"$${TARGET}\\\""
 }
 
 config.path = /usr/share/$${TARGET}/config/
-config.files = config/icon-lock-harbour-tooter.png
+config.files = config/icon-lock-harbour-tooterb.png
 
 notification_categories.path = /usr/share/lipstick/notificationcategories
 notification_categories.files = config/x-harbour.tooterb.activity.*
@@ -55,6 +55,7 @@ HEADERS += src/dbus.h
 
 DISTFILES += qml/harbour-tooterb.qml \
     config/icon-lock-harbour-tooterb.png \
+    qml/images/tooterb.svg \
     qml/pages/components/VisualContainer.qml \
     qml/pages/components/MiniStatus.qml \
     qml/pages/components/MiniHeader.qml \
@@ -77,7 +78,6 @@ DISTFILES += qml/harbour-tooterb.qml \
     qml/images/notification.svg \
     qml/images/verified.svg \
     qml/images/boosted.svg \
-    qml/images/tooter.svg \
     qml/images/emojiselect.svg \
     qml/images/icon-m-profile.svg \
     qml/images/icon-l-profile.svg \

@@ -29,7 +29,7 @@ BuildRequires:  pkgconfig(nemonotifications-qt5)
 BuildRequires:  desktop-file-utils
 
 %description
-Tooter is native client for Mastodon network instances.
+Tooter Beta is a native client for Mastodon network instances.
 
 
 %prep

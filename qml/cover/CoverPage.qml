@@ -58,7 +58,7 @@ CoverBackground {
         verticalAlignment: Image.AlignBottom
         fillMode: Image.PreserveAspectFit
 
-        source: "../images/tooter.svg"
+        source: "../images/tooterb.svg"
     }
     Timer {
         id: timer
@@ -95,7 +95,7 @@ CoverBackground {
             rightMargin: Theme.paddingLarge
             verticalCenter: iconNot.verticalCenter
         }
-        text: "Tooter"
+        text: "Tooter β"
         color: Theme.primaryColor
     }
 

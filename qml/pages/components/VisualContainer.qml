@@ -46,7 +46,7 @@ BackgroundItem {
         visible: true
         onStatusChanged: {
             if (avatar.status === Image.Error)
-                source = "image://theme/icon-m-person?" + (pressed
+                source = "../../images/icon-m-profile.svg?" + (pressed
                  ? Theme.highlightColor
                  : Theme.primaryColor)
         }
@@ -133,11 +133,11 @@ BackgroundItem {
                     return check;
                 }));
                 send(link)
+              // temporary solution for access to user profiles via toots
             } else if (test.length === 4 && test[3][0] === "@" ) {
                 tlSearch.search = decodeURIComponent("@"+test[3].substring(1)+"@"+test[2])
                 slideshow.positionViewAtIndex(4, ListView.SnapToItem)
                 navigation.navigateTo('search')
-
             } else {
                 Qt.openUrlExternally(link);
             }
@@ -146,7 +146,7 @@ BackgroundItem {
         linkColor : Theme.highlightColor
         wrapMode: Text.WordWrap
             textFormat: Text.StyledText
-        font.pixelSize: Theme.fontSizeSmall
+        font.pixelSize: Theme.fontSizeExtraSmall
         color: (pressed ? Theme.highlightColor : (!highlight ? Theme.primaryColor : Theme.secondaryColor))
         Rectangle {
             anchors.fill: parent

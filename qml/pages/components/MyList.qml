@@ -122,7 +122,6 @@ SilicaListView {
         }
     }
     onContentYChanged: {
-
         if (Math.abs(contentY - scrollOffset) > Theme.itemSizeMedium) {
             openDrawer(contentY - scrollOffset  > 0 ? false : true )
             scrollOffset = contentY

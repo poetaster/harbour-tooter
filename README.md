@@ -11,8 +11,8 @@ Releases from this forked repository (branch 'master') can be found here: https:
 Clone / download this repository and import it in your SailfishOS IDE using the harbour-tooter.pro project file. No additional configuration needed. 
 
 ## Repository branches:
-- master: default (Beta release version)
-- upstream: commits for Tooter release
+- master: default (Beta release version, harbour-tooterb)
+- upstream: commits for Tooter release (harbour-tooter)
 
 ## Contributions
 Contributions to this project are very welcome, since I don't have the resources and time to implement and fix everything Tooter still misses or lacks. Thank you! 

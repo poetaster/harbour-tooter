@@ -62,6 +62,14 @@
         <source>What&apos;s on your mind?</source>
         <translation>Qu&apos;avez-vous en tête?</translation>
     </message>
+    <message>
+        <source>Open in Browser</source>
+        <translation>Ouvrir dans le navigateur</translation>
+    </message>
+    <message>
+        <source>Copy URL to Clipboard</source>
+        <translation>Copier le lien</translation>
+    </message>
 </context>
 <context>
     <name>ImageFullScreen</name>

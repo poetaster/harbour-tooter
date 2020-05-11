@@ -278,11 +278,12 @@ BackgroundItem {
             m.append(mdl.get(index))
         pageStack.push(Qt.resolvedUrl("../Conversation.qml"), {
                            toot_id: status_id,
+                           uri: status_uri,
                            title: account_display_name,
                            description: '@'+account_acct,
                            avatar: account_avatar,
                            mdl: m,
-                           type: "reply"
+                           type: "reply",
                        })
     }
     onPressAndHold: {

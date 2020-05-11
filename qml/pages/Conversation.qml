@@ -12,7 +12,8 @@ Page {
 	property alias avatar: header.image
 	property string suggestedUser: ""
 	property ListModel suggestedModel
-	property string toot_id: ""
+    property string toot_id: ""
+    property string uri: ""
     property int tootMaxChar: 500;
 	property ListModel mdl
 	allowedOrientations: Orientation.All
@@ -90,6 +91,16 @@ Page {
 					}
 				}
 		}
+        PullDownMenu {
+                    MenuItem {
+                        text: qsTr("Open in Browser")
+                        onClicked: Qt.openUrlExternally(uri);
+                    }
+                    MenuItem {
+                        text: qsTr("Copy URL to Clipboard")
+                        onClicked: Clipboard.text = uri;
+                    }
+                }
 	}
 	Rectangle {
 		id: predictionList

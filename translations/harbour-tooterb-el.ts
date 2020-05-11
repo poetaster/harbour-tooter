@@ -62,6 +62,14 @@
         <source>What&apos;s on your mind?</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Open in Browser</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Copy URL to Clipboard</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ImageFullScreen</name>
@@ -318,7 +326,7 @@
     <name>VisualContainer</name>
     <message>
         <source>Unboost</source>
-        <translation>Αναίρεση προώθησης</translation>
+        <translation>Αναίρεση προώθηση</translation>
     </message>
     <message>
         <source>Boost</source>

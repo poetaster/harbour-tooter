@@ -62,6 +62,14 @@
         <source>What&apos;s on your mind?</source>
         <translation>有何想法?</translation>
     </message>
+    <message>
+        <source>Open in Browser</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Copy URL to Clipboard</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ImageFullScreen</name>

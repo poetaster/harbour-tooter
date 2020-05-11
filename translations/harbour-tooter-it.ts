@@ -28,52 +28,62 @@
 <context>
     <name>Conversation</name>
     <message>
-        <location filename="../qml/pages/Conversation.qml" line="65"/>
+        <location filename="../qml/pages/Conversation.qml" line="66"/>
         <source>Conversation</source>
         <translation>Conversazione</translation>
     </message>
     <message>
-        <location filename="../qml/pages/Conversation.qml" line="182"/>
+        <location filename="../qml/pages/Conversation.qml" line="96"/>
+        <source>Open in Browser</source>
+        <translation>Aprire nel browser</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/Conversation.qml" line="100"/>
+        <source>Copy URL to Clipboard</source>
+        <translation>Copia link</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/Conversation.qml" line="193"/>
         <source>Write your warning here</source>
         <translation>Contenuto avviso</translation>
     </message>
     <message>
-        <location filename="../qml/pages/Conversation.qml" line="213"/>
+        <location filename="../qml/pages/Conversation.qml" line="224"/>
         <source>What&apos;s on your mind?</source>
         <translation>A cosa stai pensando?</translation>
     </message>
     <message>
-        <location filename="../qml/pages/Conversation.qml" line="276"/>
+        <location filename="../qml/pages/Conversation.qml" line="287"/>
         <source>Delete</source>
         <translation>Elimina</translation>
     </message>
     <message>
-        <location filename="../qml/pages/Conversation.qml" line="376"/>
+        <location filename="../qml/pages/Conversation.qml" line="387"/>
         <source>Public</source>
         <translation>Pubblico</translation>
     </message>
     <message>
-        <location filename="../qml/pages/Conversation.qml" line="379"/>
+        <location filename="../qml/pages/Conversation.qml" line="390"/>
         <source>Unlisted</source>
         <translation>Non elencato</translation>
     </message>
     <message>
-        <location filename="../qml/pages/Conversation.qml" line="382"/>
+        <location filename="../qml/pages/Conversation.qml" line="393"/>
         <source>Followers-only</source>
         <translation>Solo ai seguaci</translation>
     </message>
     <message>
-        <location filename="../qml/pages/Conversation.qml" line="385"/>
+        <location filename="../qml/pages/Conversation.qml" line="396"/>
         <source>Direct</source>
         <translation>Diretto</translation>
     </message>
     <message>
-        <location filename="../qml/pages/Conversation.qml" line="499"/>
+        <location filename="../qml/pages/Conversation.qml" line="510"/>
         <source>Emojis</source>
         <translation>Emojis</translation>
     </message>
     <message>
-        <location filename="../qml/pages/Conversation.qml" line="500"/>
+        <location filename="../qml/pages/Conversation.qml" line="511"/>
         <source>Tap to insert</source>
         <translation>Tap per inserire</translation>
     </message>

@@ -283,7 +283,7 @@ BackgroundItem {
                            description: '@'+account_acct,
                            avatar: account_avatar,
                            mdl: m,
-                           type: "reply",
+                           type: "reply"
                        })
     }
     onPressAndHold: {

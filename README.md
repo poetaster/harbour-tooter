@@ -12,7 +12,6 @@ Clone / download this repository and import it in your SailfishOS IDE using the 
 
 ## Repository branches:
 - master: default (Beta release version)
-- develop: commits WIP
 - upstream: commits for Tooter release
 
 ## Contributions

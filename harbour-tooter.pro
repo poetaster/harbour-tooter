@@ -53,6 +53,7 @@ HEADERS += src/dbusAdaptor.h
 HEADERS += src/dbus.h
 
 DISTFILES += qml/harbour-tooter.qml \
+    qml/pages/components/InfoBanner.qml \
     qml/pages/components/VisualContainer.qml \
     qml/pages/components/MiniStatus.qml \
     qml/pages/components/MiniHeader.qml \

@@ -277,6 +277,7 @@ BackgroundItem {
         if (typeof mdl !== "undefined")
             m.append(mdl.get(index))
         pageStack.push(Qt.resolvedUrl("../Conversation.qml"), {
+                           headerTitle: "Conversation",
                            toot_id: status_id,
                            title: account_display_name,
                            description: '@'+account_acct,

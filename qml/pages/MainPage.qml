@@ -246,7 +246,7 @@ Page {
         visible: !isPortrait ? true : !infoPanel.open
         icon.source: "image://theme/icon-l-add"
         onClicked: {
-            pageStack.push(Qt.resolvedUrl("Conversation.qml"), {title: qsTr("New Toot"), type: "new"})
+            pageStack.push(Qt.resolvedUrl("Conversation.qml"), {headerTitle: qsTr("New Toot"), type: "new"})
         }
     }
 

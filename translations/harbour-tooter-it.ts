@@ -28,52 +28,52 @@
 <context>
     <name>Conversation</name>
     <message>
-        <location filename="../qml/pages/Conversation.qml" line="65"/>
-        <source>Conversation</source>
-        <translation>Conversazione</translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/Conversation.qml" line="182"/>
+        <location filename="../qml/pages/Conversation.qml" line="188"/>
         <source>Write your warning here</source>
         <translation>Contenuto avviso</translation>
     </message>
     <message>
-        <location filename="../qml/pages/Conversation.qml" line="213"/>
+        <location filename="../qml/pages/Conversation.qml" line="218"/>
         <source>What&apos;s on your mind?</source>
         <translation>A cosa stai pensando?</translation>
     </message>
     <message>
-        <location filename="../qml/pages/Conversation.qml" line="276"/>
+        <location filename="../qml/pages/Conversation.qml" line="281"/>
         <source>Delete</source>
         <translation>Elimina</translation>
     </message>
     <message>
-        <location filename="../qml/pages/Conversation.qml" line="376"/>
+        <location filename="../qml/pages/Conversation.qml" line="380"/>
         <source>Public</source>
         <translation>Pubblico</translation>
     </message>
     <message>
-        <location filename="../qml/pages/Conversation.qml" line="379"/>
+        <location filename="../qml/pages/Conversation.qml" line="383"/>
         <source>Unlisted</source>
         <translation>Non elencato</translation>
     </message>
     <message>
-        <location filename="../qml/pages/Conversation.qml" line="382"/>
+        <location filename="../qml/pages/Conversation.qml" line="386"/>
         <source>Followers-only</source>
         <translation>Solo ai seguaci</translation>
     </message>
     <message>
-        <location filename="../qml/pages/Conversation.qml" line="385"/>
+        <location filename="../qml/pages/Conversation.qml" line="389"/>
         <source>Direct</source>
         <translation>Diretto</translation>
     </message>
     <message>
-        <location filename="../qml/pages/Conversation.qml" line="499"/>
+        <location filename="../qml/pages/Conversation.qml" line="437"/>
+        <source>Toot sent!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/Conversation.qml" line="503"/>
         <source>Emojis</source>
         <translation>Emojis</translation>
     </message>
     <message>
-        <location filename="../qml/pages/Conversation.qml" line="500"/>
+        <location filename="../qml/pages/Conversation.qml" line="504"/>
         <source>Tap to insert</source>
         <translation>Tap per inserire</translation>
     </message>

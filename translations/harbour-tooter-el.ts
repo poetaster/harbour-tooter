@@ -23,10 +23,6 @@
 <context>
     <name>Conversation</name>
     <message>
-        <source>Conversation</source>
-        <translation>Συνομιλία</translation>
-    </message>
-    <message>
         <source>Delete</source>
         <translation>Διαγραφή</translation>
     </message>
@@ -60,6 +56,10 @@
     </message>
     <message>
         <source>What&apos;s on your mind?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Toot sent!</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

@@ -62,6 +62,10 @@
         <source>Toot sent!</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Copy Link to Clipboard</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ImageFullScreen</name>

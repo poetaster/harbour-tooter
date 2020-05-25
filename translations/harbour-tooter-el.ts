@@ -62,12 +62,16 @@
         <source>Toot sent!</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Copy Link to Clipboard</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ImageFullScreen</name>
     <message>
         <source>Error loading</source>
-        <translation>Σφάλμα φόρτωσης</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

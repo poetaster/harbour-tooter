@@ -57,6 +57,7 @@ Page {
             }
         }
     }
+
     VisualItemModel {
         id: visualModel
         MyList{
@@ -188,7 +189,8 @@ Page {
                                                "display_name": model.account_display_name,
                                                "username": model.account_acct,
                                                "user_id": model.account_id,
-                                               "profileImage": model.account_avatar
+                                               "profileImage": model.account_avatar,
+                                               "profileBackground": model.account_header
                                            })
                         }
                     }

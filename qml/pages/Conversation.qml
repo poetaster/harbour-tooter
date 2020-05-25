@@ -15,6 +15,7 @@ Page {
 	property string suggestedUser: ""
 	property ListModel suggestedModel
 	property string toot_id: ""
+    property string toot_url: ""
     property int tootMaxChar: 500;
 	property ListModel mdl
 	allowedOrientations: Orientation.All
@@ -96,6 +97,18 @@ Page {
 					}
 				}
 		}
+        PullDownMenu {
+            visible: type == "reply" && toot_url != ""
+                    /* MenuItem {
+                        text: qsTr("Open in Browser")
+                        onClicked: Qt.openUrlExternally(toot_url);
+                    } */
+                    // ! url isn't always fetched. Needs a solution.
+                    MenuItem {
+                        text: qsTr("Copy Link to Clipboard")
+                        onClicked: Clipboard.text = toot_url;
+                    }
+                }
 	}
 	Rectangle {
 		id: predictionList
@@ -110,7 +123,6 @@ Page {
 			anchors.fill: parent
 			model: suggestedModel
 			clip: true
-
 			delegate: ItemUser {
 				onClicked: {
 					var start = toot.cursorPosition
@@ -433,7 +445,7 @@ Page {
                 worker.sendMessage(msg)
                 warningContent.text = ""
                 toot.text = ""
-                mediaModel.clear()
+                mediaModel.clear();
                 sentBanner.showText(qsTr("Toot sent!"))
 			}
 		}

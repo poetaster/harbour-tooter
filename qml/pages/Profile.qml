@@ -16,7 +16,7 @@ Page {
     property int favourites_count;
     property int reblogs_count;
     property int count_moments;
-    property string profile_background: "";
+    property string profileBackground: "";
     property string note: "";
     property string url: "";
 
@@ -42,6 +42,7 @@ Page {
                 username = messageObject.data.acct
                 display_name = messageObject.data.display_name
                 profileImage = messageObject.data.avatar_static
+                profileBackground = messageObject.data.header_static
 
                 var msg = {
                     'action'    : "accounts/relationships/",
@@ -135,7 +136,6 @@ Page {
     }
 
 
-
     MyList {
         id: list
         header: ProfileHeader {
@@ -143,6 +143,7 @@ Page {
             title: display_name
             description: username
             image: profileImage
+            bg: profileBackground
         }
 
         anchors {
@@ -158,7 +159,6 @@ Page {
         vars: {}
         conf: Logic.conf
     }
-
 
     ExpandingSectionGroup {
         id: expander
@@ -275,10 +275,8 @@ Page {
                             }));
                             send(link)
 
-                        } else if (test.length === 4 && test[3][0] === "@" ) {
-                            tlSearch.search = decodeURIComponent("@"+test[3].substring(1)+"@"+test[2])
-                            slideshow.positionViewAtIndex(4, ListView.SnapToItem)
-                            navigation.navigateTo('search')
+                    //  function still missing for user accounts
+                    //  } else if (test.length === 4 && test[3][0] === "@" ) {
 
                         } else {
                             Qt.openUrlExternally(link);
@@ -290,7 +288,6 @@ Page {
                     spacing: Theme.paddingMedium
                     anchors.horizontalCenter:     parent.horizontalCenter
                     Button {
-                        id: btnUrl
                         text: qsTr("Open Profile in Browser")
                         onClicked: {
                             Qt.openUrlExternally(url);

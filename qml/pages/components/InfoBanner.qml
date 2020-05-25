@@ -4,16 +4,15 @@ import Sailfish.Silica 1.0
 
 DockedPanel {
     id: root
-    z: 100;
-    width: parent.width //- Theme.paddingLarge*4
-    //x: Theme.paddingLarge*2
+    z: 100
+    width: parent.width
     height: content.height
-    dock: Dock.Bottom
+    dock: Dock.Top
 
     Rectangle {
         id: content
         width: root.width
-        height: infoLabel.height + 4*Theme.paddingMedium
+        height: infoLabel.height + 5*Theme.paddingMedium
         //anchors.topMargin: 20
         color: Theme.highlightBackgroundColor
         opacity: 1.0
@@ -29,7 +28,7 @@ DockedPanel {
             wrapMode: Text.WrapAnywhere
             anchors {
                 left: parent.left
-                leftMargin: Theme.horizontalPageMargin
+                leftMargin: Theme.horizontalPageMargin*2
                 right: parent.right
                 rightMargin: Theme.horizontalPageMargin
                 verticalCenter: parent.verticalCenter

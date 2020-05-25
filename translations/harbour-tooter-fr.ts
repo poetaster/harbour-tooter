@@ -60,14 +60,18 @@
     </message>
     <message>
         <source>Toot sent!</source>
-        <translation type="unfinished"></translation>
+        <translation>Pouet envoyé !</translation>
+    </message>
+    <message>
+        <source>Copy Link to Clipboard</source>
+        <translation>Copier le lien</translation>
     </message>
 </context>
 <context>
     <name>ImageFullScreen</name>
     <message>
         <source>Error loading</source>
-        <translation>Erreur de chargement</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

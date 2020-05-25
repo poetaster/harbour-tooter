@@ -9,7 +9,6 @@ Page {
     property string display_name : "";
     property string username : "";
     property string profileImage : "";
-    property string discoverable : "";
     property int user_id;
     property int statuses_count;
     property int following_count;
@@ -135,6 +134,7 @@ Page {
         }
     }
 
+
     MyList {
         id: list
         header: ProfileHeader {
@@ -250,6 +250,7 @@ Page {
                 Text {
                     x: Theme.horizontalPageMargin
                     width: parent.width  - ( 2 * Theme.horizontalPageMargin )
+                    id: txtnote
                     text: note
                     font.pixelSize: Theme.fontSizeExtraSmall
                     color: Theme.secondaryColor
@@ -280,6 +281,7 @@ Page {
                             Qt.openUrlExternally(link);
                         }
                     }
+
                 }
                 Column {
                     spacing: Theme.paddingMedium

@@ -7,7 +7,7 @@ Item {
     property string title: "";
     property string description: "";
     property string image: "";
-    //property string bg: "";
+    property string bg: "";
     width: parent.width
     height: icon.height + Theme.paddingLarge*2
 

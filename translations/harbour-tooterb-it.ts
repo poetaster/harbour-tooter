@@ -274,7 +274,7 @@
         <translation>Biografia</translation>
     </message>
     <message>
-        <location filename="../qml/pages/Profile.qml" line="288"/>
+        <location filename="../qml/pages/Profile.qml" line="290"/>
         <source>Open Profile in Browser</source>
         <translation>Aprire profile nel browser</translation>
     </message>

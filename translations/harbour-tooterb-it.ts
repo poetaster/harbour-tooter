@@ -209,72 +209,72 @@
 <context>
     <name>Profile</name>
     <message>
-        <location filename="../qml/pages/Profile.qml" line="170"/>
+        <location filename="../qml/pages/Profile.qml" line="171"/>
         <source>Summary</source>
         <translation>Sintesi</translation>
     </message>
     <message>
-        <location filename="../qml/pages/Profile.qml" line="176"/>
+        <location filename="../qml/pages/Profile.qml" line="177"/>
         <source>Followers</source>
         <translation>Seguaci</translation>
     </message>
     <message>
-        <location filename="../qml/pages/Profile.qml" line="181"/>
+        <location filename="../qml/pages/Profile.qml" line="182"/>
         <source>Following</source>
         <translation>Segue</translation>
     </message>
     <message>
-        <location filename="../qml/pages/Profile.qml" line="186"/>
+        <location filename="../qml/pages/Profile.qml" line="187"/>
         <source>Statuses</source>
         <translation>Toots</translation>
     </message>
     <message>
-        <location filename="../qml/pages/Profile.qml" line="191"/>
+        <location filename="../qml/pages/Profile.qml" line="192"/>
         <source>Favourites</source>
         <translation>Apprezzati</translation>
     </message>
     <message>
-        <location filename="../qml/pages/Profile.qml" line="200"/>
+        <location filename="../qml/pages/Profile.qml" line="201"/>
         <source>Unfollow</source>
         <translation>Smetti di seguire</translation>
     </message>
     <message>
-        <location filename="../qml/pages/Profile.qml" line="200"/>
+        <location filename="../qml/pages/Profile.qml" line="201"/>
         <source>Follow request sent!</source>
         <translation>Richiesta di seguito inviata!</translation>
     </message>
     <message>
-        <location filename="../qml/pages/Profile.qml" line="200"/>
+        <location filename="../qml/pages/Profile.qml" line="201"/>
         <source>Follow</source>
         <translation>Segui</translation>
     </message>
     <message>
-        <location filename="../qml/pages/Profile.qml" line="213"/>
+        <location filename="../qml/pages/Profile.qml" line="214"/>
         <source>Unmute</source>
         <translation>Non silenziare</translation>
     </message>
     <message>
-        <location filename="../qml/pages/Profile.qml" line="213"/>
+        <location filename="../qml/pages/Profile.qml" line="214"/>
         <source>Mute</source>
         <translation>Silenzia</translation>
     </message>
     <message>
-        <location filename="../qml/pages/Profile.qml" line="226"/>
+        <location filename="../qml/pages/Profile.qml" line="227"/>
         <source>Unblock</source>
         <translation>Sblocca</translation>
     </message>
     <message>
-        <location filename="../qml/pages/Profile.qml" line="226"/>
+        <location filename="../qml/pages/Profile.qml" line="227"/>
         <source>Block</source>
         <translation>Blocca</translation>
     </message>
     <message>
-        <location filename="../qml/pages/Profile.qml" line="245"/>
+        <location filename="../qml/pages/Profile.qml" line="246"/>
         <source>Bio</source>
         <translation>Biografia</translation>
     </message>
     <message>
-        <location filename="../qml/pages/Profile.qml" line="291"/>
+        <location filename="../qml/pages/Profile.qml" line="288"/>
         <source>Open Profile in Browser</source>
         <translation>Aprire profile nel browser</translation>
     </message>
@@ -393,22 +393,22 @@
 <context>
     <name>VisualContainer</name>
     <message>
-        <location filename="../qml/pages/components/VisualContainer.qml" line="204"/>
+        <location filename="../qml/pages/components/VisualContainer.qml" line="207"/>
         <source>Unboost</source>
         <translation>Annulla condivisione</translation>
     </message>
     <message>
-        <location filename="../qml/pages/components/VisualContainer.qml" line="204"/>
+        <location filename="../qml/pages/components/VisualContainer.qml" line="207"/>
         <source>Boost</source>
         <translation>Condividi</translation>
     </message>
     <message>
-        <location filename="../qml/pages/components/VisualContainer.qml" line="241"/>
+        <location filename="../qml/pages/components/VisualContainer.qml" line="244"/>
         <source>Unfavorite</source>
         <translation>Annulla apprezzamento</translation>
     </message>
     <message>
-        <location filename="../qml/pages/components/VisualContainer.qml" line="241"/>
+        <location filename="../qml/pages/components/VisualContainer.qml" line="244"/>
         <source>Favorite</source>
         <translation>Apprezzato</translation>
     </message>

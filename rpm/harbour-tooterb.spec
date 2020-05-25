@@ -14,7 +14,7 @@ Name:       harbour-tooterb
 %{?qtc_builddir:%define _builddir %qtc_builddir}
 Summary:    Tooter β
 Version:    1.0.4
-Release:    2
+Release:    3
 Group:      Qt/Qt
 License:    LICENSE
 URL:        http://example.org/

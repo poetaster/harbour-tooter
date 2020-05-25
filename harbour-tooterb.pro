@@ -37,7 +37,7 @@ dbus_services.path = /usr/share/dbus-1/services/
 dbus_services.files = config/ba.dysko.harbour.tooterb.service
 
 interfaces.path = /usr/share/dbus-1/interfaces/
-interfaces.files = config/ba.dysko.harbourb.tooter.xml
+interfaces.files = config/ba.dysko.harbourb.tooterb.xml
 
 SOURCES += src/harbour-tooterb.cpp
 SOURCES += src/imageuploader.cpp
@@ -76,7 +76,7 @@ DISTFILES += qml/harbour-tooterb.qml \
     qml/images/notification.svg \
     qml/images/verified.svg \
     qml/images/boosted.svg \
-    qml/images/tooter.svg \
+    qml/images/tooterb.svg \
     qml/images/emojiselect.svg \
     qml/images/icon-m-profile.svg \
     qml/images/icon-l-profile.svg \
@@ -89,7 +89,7 @@ DISTFILES += qml/harbour-tooterb.qml \
     rpm/harbour-tooterb.spec \
     rpm/harbour-tooterb.yaml \
     translations/*.ts \
-    harbour-tooter.desktop
+    harbour-tooterb.desktop
 
 SAILFISHAPP_ICONS = 86x86 108x108 128x128 172x172
 

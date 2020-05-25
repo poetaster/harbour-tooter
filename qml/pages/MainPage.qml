@@ -57,6 +57,7 @@ Page {
             }
         }
     }
+
     VisualItemModel {
         id: visualModel
         MyList{
@@ -188,7 +189,8 @@ Page {
                                                "display_name": model.account_display_name,
                                                "username": model.account_acct,
                                                "user_id": model.account_id,
-                                               "profileImage": model.account_avatar
+                                               "profileImage": model.account_avatar,
+                                               "profileBackground": model.account_header
                                            })
                         }
                     }
@@ -246,7 +248,7 @@ Page {
         visible: !isPortrait ? true : !infoPanel.open
         icon.source: "image://theme/icon-l-add"
         onClicked: {
-            pageStack.push(Qt.resolvedUrl("Conversation.qml"), {title: qsTr("New Toot"), type: "new"})
+            pageStack.push(Qt.resolvedUrl("Conversation.qml"), {headerTitle: qsTr("New Toot"), type: "new"})
         }
     }
 

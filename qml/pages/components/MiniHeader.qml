@@ -41,7 +41,6 @@ Item {
                                                   : Theme.primaryColor)
     }
 
-
     Label {
         id: lblScreenName
         anchors {

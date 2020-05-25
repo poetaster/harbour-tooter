@@ -23,10 +23,6 @@
 <context>
     <name>Conversation</name>
     <message>
-        <source>Conversation</source>
-        <translation>Conversación</translation>
-    </message>
-    <message>
         <source>Delete</source>
         <translation>Borrar</translation>
     </message>
@@ -63,19 +59,19 @@
         <translation>¿En qué estás pensando?</translation>
     </message>
     <message>
-        <source>Open in Browser</source>
-        <translation>Abrir en el navegador</translation>
+        <source>Toot sent!</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Copy URL to Clipboard</source>
-        <translation>Copiar enlace</translation>
+        <source>Copy Link to Clipboard</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>ImageFullScreen</name>
     <message>
         <source>Error loading</source>
-        <translation>Error al cargar</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

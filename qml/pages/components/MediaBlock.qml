@@ -74,8 +74,6 @@ Item {
         }
     }
 
-
-
     MyImage {
         id: placeholder1
         width: 2

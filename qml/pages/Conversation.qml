@@ -4,16 +4,18 @@ import harbour.tooterb.Uploader 1.0
 import "../lib/API.js" as Logic
 import "./components/"
 
+
 Page {
 	id: conversationPage
-	property string type
+    property string headerTitle: ""
+    property string type
 	property alias title: header.title
 	property alias description: header.description
 	property alias avatar: header.image
 	property string suggestedUser: ""
 	property ListModel suggestedModel
-    property string toot_id: ""
-    property string uri: ""
+	property string toot_id: ""
+    property string toot_url: ""
     property int tootMaxChar: 500;
 	property ListModel mdl
 	allowedOrientations: Orientation.All
@@ -41,6 +43,10 @@ Page {
 		}
 	}
 
+    InfoBanner {
+        id: sentBanner
+    }
+
 	ListModel {
 		id: mediaModel
 		onCountChanged: {
@@ -63,7 +69,7 @@ Page {
 	SilicaListView {
 		id: conversationList
 		header: PageHeader {
-			title: qsTr("Conversation")
+            title: headerTitle // pageTitle pushed from MainPage.qml or VisualContainer.qml
 		}
 		clip: true
 		anchors {
@@ -92,13 +98,15 @@ Page {
 				}
 		}
         PullDownMenu {
-                    MenuItem {
+            visible: type == "reply" && toot_url != ""
+                    /* MenuItem {
                         text: qsTr("Open in Browser")
-                        onClicked: Qt.openUrlExternally(uri);
-                    }
+                        onClicked: Qt.openUrlExternally(toot_url);
+                    } */
+                    // ! url isn't always fetched. Needs a solution.
                     MenuItem {
-                        text: qsTr("Copy URL to Clipboard")
-                        onClicked: Clipboard.text = uri;
+                        text: qsTr("Copy Link to Clipboard")
+                        onClicked: Clipboard.text = toot_url;
                     }
                 }
 	}
@@ -115,7 +123,6 @@ Page {
 			anchors.fill: parent
 			model: suggestedModel
 			clip: true
-
 			delegate: ItemUser {
 				onClicked: {
 					var start = toot.cursorPosition
@@ -219,7 +226,6 @@ Page {
 																	 || description.charAt(
 																		 0) == '#') ? description + ' ' : ''
             height: Math.max(270, Math.min(900, implicitHeight))
-            //height: implicitHeight
             horizontalAlignment: Text.AlignLeft
             placeholderText: qsTr("What's on your mind?")
             font.pixelSize: Theme.fontSizeSmall
@@ -315,7 +321,6 @@ Page {
 			}
 		}
 		IconButton {
-
 			id: btnContentWarning
 			anchors {
                 top: toot.bottom
@@ -437,11 +442,11 @@ Page {
 					msg.params['spoiler_text'] = warningContent.text
 				}
 
-				worker.sendMessage(msg)
-				warningContent.text = ""
-				toot.text = ""
-				mediaModel.clear()
-                pageStack.pop()
+                worker.sendMessage(msg)
+                warningContent.text = ""
+                toot.text = ""
+                mediaModel.clear();
+                sentBanner.showText(qsTr("Toot sent!"))
 			}
 		}
 

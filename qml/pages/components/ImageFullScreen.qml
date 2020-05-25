@@ -2,7 +2,7 @@ import QtQuick 2.0
 import Sailfish.Silica 1.0
 import QtMultimedia 5.0
 
-Page {
+FullscreenContentPage {
     id: imagePage
     property string type: ""
     property string previewURL: ""
@@ -22,6 +22,26 @@ Page {
             videoFlickable.visible = true;
         }
     }
+
+    Item {
+        id: overlay
+        z: 100
+        property bool active: true
+        enabled: active
+        anchors.fill: parent
+        opacity: active ? 1.0 : 0.0
+        Behavior on opacity { FadeAnimator {}}
+        IconButton {
+            y: Theme.paddingLarge
+            anchors {
+                right: parent.right
+                rightMargin: Theme.horizontalPageMargin
+            }
+            icon.source: "image://theme/icon-m-dismiss"
+            onClicked: pageStack.pop()
+        }
+    }
+
     Flickable {
         id: videoFlickable
         visible: false
@@ -49,7 +69,6 @@ Page {
                 case MediaPlayer.EndOfMedia:
                     console.log("EndOfMedia")
                     return;
-
                 }
             }
 
@@ -68,7 +87,6 @@ Page {
                 }
             }
 
-
             onPositionChanged: function(){
                 //console.log(duration)
                 //console.log(bufferProgress)
@@ -81,15 +99,17 @@ Page {
                 }
 
             }
+
             onStopped: function(){
                 play()
             }
+
             IconButton {
                 id: playerIcon
                 anchors.left: parent.left
                 anchors.bottom: parent.bottom
                 anchors.leftMargin: Theme.paddingLarge
-                anchors.bottomMargin: Theme.paddingMedium
+                anchors.bottomMargin: Theme.paddingLarge*1.5
                 icon.source: "image://theme/icon-m-play"
                 onClicked: function() {
                     if (video.playbackState === MediaPlayer.PlayingState)
@@ -104,10 +124,9 @@ Page {
                 id: playerProgress
                 anchors.left: playerIcon.right
                 anchors.right: videoDlBtn.left
-
                 anchors.verticalCenter: playerIcon.verticalCenter
                 anchors.leftMargin: 0
-                anchors.bottomMargin: Theme.paddingMedium
+                anchors.bottomMargin: Theme.paddingLarge*1.5
             }
             IconButton {
                 id: videoDlBtn
@@ -115,9 +134,9 @@ Page {
                 anchors.right: parent.right
                 anchors.bottom: parent.bottom
                 anchors.rightMargin: Theme.paddingLarge
-                anchors.bottomMargin: Theme.paddingMedium
-                //width: Theme.iconSizeMedium+Theme.paddingMedium*2
-                icon.source: "image://theme/icon-m-cloud-download"
+                anchors.bottomMargin: Theme.paddingLarge*1.5
+                icon.source: "image://theme/icon-m-device-download"
+                icon.opacity: 0.0
                 onClicked: {
                     var filename = mediaURL.split("/");
                     FileDownloader.downloadFile(mediaURL, filename[filename.length-1]);
@@ -135,7 +154,7 @@ Page {
                     anchors.centerIn: parent
                     id: videoError
                     width: parent.width - 2*Theme.paddingMedium
-                    wrapMode: Text.WordWrap
+                    wrapMode: Text.Wrap
                     height: contentHeight
                     visible: false;
                     font.pixelSize: Theme.fontSizeSmall;
@@ -165,7 +184,6 @@ Page {
         clip: true
         onHeightChanged: if (imagePreview.status === Image.Ready) imagePreview.fitToScreen();
 
-
         Item {
             id: imageContainer
             width: Math.max(imagePreview.width * imagePreview.scale, imageFlickable.width)
@@ -173,22 +191,18 @@ Page {
 
             Image {
                 id: imagePreview
-
                 property real prevScale
-
                 function fitToScreen() {
                     scale = Math.min(imageFlickable.width / width, imageFlickable.height / height, 1)
                     pinchArea.minScale = scale
                     prevScale = scale
                 }
-
                 anchors.centerIn: parent
                 fillMode: Image.PreserveAspectFit
                 cache: true
                 asynchronous: true
                 sourceSize.height: 1000;
                 smooth: false
-
                 onStatusChanged: {
                     if (status == Image.Ready) {
                         fitToScreen()
@@ -224,7 +238,6 @@ Page {
             opacity: 0.3
             property real minScale: 1.0
             property real maxScale: 3.0
-
             anchors.fill: parent
             enabled: imagePreview.status === Image.Ready
             pinch.target: imagePreview
@@ -267,11 +280,9 @@ Page {
 
         Component {
             id: loadingIndicator
-
             Item {
                 height: childrenRect.height
                 width: imagePage.width
-
                 ProgressCircle {
                     id: imageLoadingIndicator
                     anchors.horizontalCenter: parent.horizontalCenter
@@ -293,9 +304,8 @@ Page {
         anchors.right: parent.right
         anchors.bottom: parent.bottom
         anchors.rightMargin: Theme.paddingLarge
-        anchors.bottomMargin: Theme.paddingMedium
-        //width: Theme.iconSizeMedium+Theme.paddingMedium*2
-        icon.source: "image://theme/icon-m-cloud-download"
+        anchors.bottomMargin: Theme.paddingLarge*1.5
+        icon.source: "image://theme/icon-m-device-download"
         onClicked: {
             var filename = mediaURL.split("/");
             FileDownloader.downloadFile(mediaURL, filename[filename.length-1]);

@@ -3,20 +3,20 @@
 ## About
 Tooter is Mastodon client for Sailfish OS. It is a free, open-source social network. A decentralized alternative to commercial platforms, it avoids the risks of a single company monopolizing your communication. 
 
-This fork is being used to further develop and maintain the Tooter app by dysko (https://github.com/dysk0/harbour-tooter). The development branch 'upstream' is being for merge requests with the original repository. Releases by dysko can be found on the Jolla store and on https://openrepos.net/content/dysko/tooter
+This fork is being used to further develop and maintain the Tooter app by dysko (https://github.com/dysk0/harbour-tooter). The development branch 'upstream' is being used for merge pull requests to the original repository. Releases by dysko can be found on the Jolla store and on https://openrepos.net/content/dysko/tooter
 
-Releases from this forked repository (branch 'master') can be found here: https://openrepos.net/content/molan/tooter-fork.
+Releases from this forked repository (branch 'master') can be found here: https://openrepos.net/content/molan/tooter-v-fork.
 
 ## Build 
 Clone / download this repository and import it in your SailfishOS IDE using the harbour-tooter.pro project file. No additional configuration needed. 
 
 ## Repository branches:
-- master: default (Beta release version)
-- develop: commits WIP
-- upstream: commits for Tooter release
+- master: default (Beta release version, harbour-tooterb)
+- upstream: commits for Tooter release (harbour-tooter)
 
 ## Contributions
-Contributions to this project are very welcome, since I don't have the resources and time to implement and fix everything Tooter still misses or lacks. Thank you! 
+Contributions to this project are very welcome, since there are still many things which can be done for Tooter. 
+- please fork the upstream branch if you want to contribute to this project. 
 
 ## Screenshots
 <img width="200" title="Page Home" src="https://telegra.ph/file/710bba46d9f818e0f88ab.png"> <img width="200" title="Page Profile" src="https://telegra.ph/file/c5b504f637c874861eeee.png"> <img width="200" title="Page Conversation" src="https://telegra.ph/file/c9584f8d68c89827c53e5.png"> 

@@ -9,7 +9,6 @@ Page {
     property string display_name : "";
     property string username : "";
     property string profileImage : "";
-    property string discoverable : "";
     property int user_id;
     property int statuses_count;
     property int following_count;
@@ -17,7 +16,7 @@ Page {
     property int favourites_count;
     property int reblogs_count;
     property int count_moments;
-    property string profile_background: "";
+    property string profileBackground: "";
     property string note: "";
     property string url: "";
     property bool locked : false;
@@ -42,6 +41,7 @@ Page {
                 username = messageObject.data.acct
                 display_name = messageObject.data.display_name
                 profileImage = messageObject.data.avatar_static
+                profileBackground = messageObject.data.header_static
 
                 var msg = {
                     'action'    : "accounts/relationships/",
@@ -134,6 +134,7 @@ Page {
         }
     }
 
+
     MyList {
         id: list
         header: ProfileHeader {
@@ -141,6 +142,7 @@ Page {
             title: display_name
             description: username
             image: profileImage
+            bg: profileBackground
         }
 
         anchors {
@@ -156,7 +158,6 @@ Page {
         vars: {}
         conf: Logic.conf
     }
-
 
     ExpandingSectionGroup {
         id: expander
@@ -249,6 +250,7 @@ Page {
                 Text {
                     x: Theme.horizontalPageMargin
                     width: parent.width  - ( 2 * Theme.horizontalPageMargin )
+                    id: txtnote
                     text: note
                     font.pixelSize: Theme.fontSizeExtraSmall
                     color: Theme.secondaryColor
@@ -271,14 +273,15 @@ Page {
                                 return check;
                             }));
                             send(link)
-                        } else if (test.length === 4 && test[3][0] === "@" ) {
-                            tlSearch.search = decodeURIComponent("@"+test[3].substring(1)+"@"+test[2])
-                            slideshow.positionViewAtIndex(4, ListView.SnapToItem)
-                            navigation.navigateTo('search')
+
+                    //  function still missing for user accounts
+                    //  } else if (test.length === 4 && test[3][0] === "@" ) {
+
                         } else {
                             Qt.openUrlExternally(link);
                         }
                     }
+
                 }
                 Column {
                     spacing: Theme.paddingMedium

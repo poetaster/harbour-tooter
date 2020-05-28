@@ -34,14 +34,10 @@ import Sailfish.Silica 1.0
 import "../lib/API.js" as Logic
 
 
-
 Page {
     id: loginPage
-
     // The effective value will be restricted by ApplicationWindow.allowedOrientations
     allowedOrientations: Orientation.All
-
-
 
     SilicaFlickable {
         anchors.fill: parent
@@ -52,8 +48,9 @@ Page {
         Column {
             id: column
             width: parent.width
-
-            PageHeader { title: qsTr("Login") }
+            PageHeader {
+                title: qsTr("Login")
+            }
 
             SectionHeader {
                 text: qsTr("Instance")
@@ -82,7 +79,6 @@ Page {
                                         var conf = JSON.parse(data)
                                         conf.instance = instance.text;
                                         conf.login = false;
-
 
                                         /*conf['login'] = false;
                                         conf['mastodon_client_id'] = data['mastodon_client_id'];

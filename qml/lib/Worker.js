@@ -132,11 +132,13 @@ function parseAccounts(collection, prefix, data){
     res[prefix + 'account_username'] = data["username"]
     res[prefix + 'account_acct'] = data["acct"]
     res[prefix + 'account_display_name'] = data["display_name"]
+    res[prefix + 'account_discoverable'] = data["discoverable"]
     res[prefix + 'account_locked'] = data["locked"]
     res[prefix + 'account_created_at'] = data["created_at"]
     res[prefix + 'account_avatar'] = data["avatar"]
+    res[prefix + 'account_header'] = data["header"]
 
-    //    /console.log(JSON.stringify(res))
+    // console.log(JSON.stringify(res))
     return (res);
 }
 
@@ -226,6 +228,7 @@ function parseToot (data){
     item['highlight'] = false
     item['status_id'] = data["id"]
     item['status_uri'] = data["uri"]
+    item['status_url'] = data["url"]
     item['status_in_reply_to_id'] = data["in_reply_to_id"]
     item['status_in_reply_to_account_id'] = data["in_reply_to_account_id"]
     item['status_reblog'] = data["reblog"] ? true : false
@@ -236,6 +239,7 @@ function parseToot (data){
     item['favourites_count'] = data["favourites_count"]
     item['reblogged'] = data["reblogged"]
     item['favourited'] = data["favourited"]
+    item['bookmarked'] = data["bookmarked"]
     item['status_sensitive'] = data["sensitive"]
     item['status_spoiler_text'] = data["spoiler_text"]
     item['status_visibility'] = data["visibility"]

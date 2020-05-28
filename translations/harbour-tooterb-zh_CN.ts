@@ -23,10 +23,6 @@
 <context>
     <name>Conversation</name>
     <message>
-        <source>Conversation</source>
-        <translation>对话</translation>
-    </message>
-    <message>
         <source>Delete</source>
         <translation>删除</translation>
     </message>
@@ -62,12 +58,20 @@
         <source>What&apos;s on your mind?</source>
         <translation>有何想法?</translation>
     </message>
+    <message>
+        <source>Toot sent!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Copy Link to Clipboard</source>
+        <translation>复制链接到剪切板</translation>
+    </message>
 </context>
 <context>
     <name>ImageFullScreen</name>
     <message>
         <source>Error loading</source>
-        <translation>加载错误</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -128,7 +132,7 @@
     </message>
     <message>
         <source>Federated</source>
-        <translation>联合的</translation>
+        <translation>联合</translation>
     </message>
 </context>
 <context>
@@ -292,18 +296,18 @@
     </message>
     <message>
         <source>Use Transifex to help with app translation to your language</source>
-        <translation type="unfinished"></translation>
+        <translation>使用 Transifex 以帮助翻译软件为你的语言</translation>
     </message>
     <message>
         <source>Development and translations</source>
-        <translation type="unfinished"></translation>
+        <translation>开发及翻译</translation>
     </message>
 </context>
 <context>
     <name>Toot</name>
     <message>
         <source>boosted</source>
-        <translation>推起的</translation>
+        <translation>推起</translation>
     </message>
     <message>
         <source>favourited</source>
@@ -311,7 +315,7 @@
     </message>
     <message>
         <source>followed you</source>
-        <translation>关注你的</translation>
+        <translation>关注你</translation>
     </message>
 </context>
 <context>

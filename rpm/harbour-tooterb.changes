@@ -1,5 +1,26 @@
-*Wed May 06 2020 molan <mol_an@sunrise.ch> 1.0.4-2
-- Beta release
+*Mon May 25 2020 molan <mol_an@sunrise.ch> 1.0.4-3
+- Show user profile background image (if available)
+- New Sailfish 3-styled image/video viewer page (WIP)
+- Added "Toot sent!" notification banner
+- Show Pulley Menu for copying Toot-link only if link is provided (WIP)
+- Distiction between "New Toot" and "Conversation" page
+- some small fixes
+
+*Mon May 11 2020 molan <mol_an@sunrise.ch> 1.0.4-2
+- Beta release by molan
+- Login / Settings Page: Small changes in text wording
+- Login Page: Use of correct label coloring and text alignment
+- Login Page: Highlight login confirmation button + 'accept' icon on Sailfish keyboard
+- Media Page: Switched play / pause buttons during media playback
+- Conversation Page: Improved alignment of elements in 'New Toot' (no more overlapping)
+- Settings Page: Replaced icons in Settings page for consistency and clarity
+- Settings Page: Added missing language contributor
+- Translations: Completed and fixed German and French translations
+- Translations: Added complete Italian translation
+- Translations: Added missing/lost strings and updates to other translation files
+- Timeline: Better text formatting in toots (show paragraph breaks)
+- Timeline: Use shortend username if display_name isn't provided in ProfileHeader and MiniHeader
+- Timeline: Created new placeholder for profile avatars if instance doesn't provide valid image
 
 * Thu Apr 16 2020 Dusko Angirevic <dysko@me.com> 1.0.4-1
 - Merge with molan code

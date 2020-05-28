@@ -3,7 +3,6 @@ import Sailfish.Silica 1.0
 import "../../lib/API.js" as Logic
 
 BackgroundItem {
-
     id: delegate
     signal send (string notice)
     signal navigateTo(string link)
@@ -28,6 +27,7 @@ BackgroundItem {
             topMargin: Theme.paddingMedium
         }
     }
+
     Image {
         id: avatar
         anchors {
@@ -50,7 +50,6 @@ BackgroundItem {
                  ? Theme.highlightColor
                  : Theme.primaryColor)
         }
-
         MouseArea {
             anchors.fill: parent
             onClicked: {
@@ -58,12 +57,12 @@ BackgroundItem {
                                    "display_name": model.account_display_name,
                                    "username": model.account_acct,
                                    "user_id": model.account_id,
-                                   "profileImage": model.account_avatar
+                                   "profileImage": model.account_avatar,
+                                   "profileBackground": model.account_header
                                })
             }
 
         }
-
         Image {
             id: iconTR
             anchors {
@@ -75,7 +74,7 @@ BackgroundItem {
             width: Theme.iconSizeExtraSmall
             height: width
             source: "image://theme/icon-s-retweet"
-        }
+        }       
         Rectangle {
             color: Theme.highlightDimmerColor
             width: Theme.iconSizeSmall
@@ -138,15 +137,23 @@ BackgroundItem {
                 tlSearch.search = decodeURIComponent("@"+test[3].substring(1)+"@"+test[2])
                 slideshow.positionViewAtIndex(4, ListView.SnapToItem)
                 navigation.navigateTo('search')
+
+            // Original component
+            /*   pageStack.push(Qt.resolvedUrl("../Profile.qml"), {
+                                   "name": "",
+                                   "username": test[3].substring(1)+"@"+test[2],
+                                   "profileImage": ""
+                               }) */
+
             } else {
                 Qt.openUrlExternally(link);
             }
         }
         text: content.replace(new RegExp("<a ", 'g'), '<a style="text-decoration: none; color:'+(pressed ?  Theme.secondaryColor : Theme.highlightColor)+'" ')
         linkColor : Theme.highlightColor
-        wrapMode: Text.WordWrap
-            textFormat: Text.StyledText
-        font.pixelSize: Theme.fontSizeExtraSmall
+        wrapMode: Text.Wrap
+        textFormat: Text.RichText
+        font.pixelSize: Theme.fontSizeSmall
         color: (pressed ? Theme.highlightColor : (!highlight ? Theme.primaryColor : Theme.secondaryColor))
         Rectangle {
             anchors.fill: parent
@@ -169,7 +176,7 @@ BackgroundItem {
                 width: parent.width
                 truncationMode: TruncationMode.Fade
                 color: Theme.highlightColor
-                wrapMode: Text.WordWrap
+                wrapMode: Text.Wrap
                 text: model.status_spoiler_text
             }
             MouseArea {
@@ -179,6 +186,7 @@ BackgroundItem {
 
         }
     }
+
     MediaBlock {
         id: media
         anchors {
@@ -191,6 +199,7 @@ BackgroundItem {
         model: typeof attachments !== "undefined" ? attachments : Qt.createQmlObject('import QtQuick 2.0; ListModel {   }', Qt.application, 'InternalQmlObject');
         height: 100
     }
+
     ContextMenu {
         id: mnu
         MenuItem {
@@ -269,15 +278,14 @@ BackgroundItem {
         }
     }
 
-
-
-
     onClicked: {
         var m = Qt.createQmlObject('import QtQuick 2.0; ListModel {   }', Qt.application, 'InternalQmlObject');
         if (typeof mdl !== "undefined")
             m.append(mdl.get(index))
         pageStack.push(Qt.resolvedUrl("../Conversation.qml"), {
+                           headerTitle: "Conversation",
                            toot_id: status_id,
+                           toot_url: status_url,
                            title: account_display_name,
                            description: '@'+account_acct,
                            avatar: account_avatar,

@@ -23,10 +23,6 @@
 <context>
     <name>Conversation</name>
     <message>
-        <source>Conversation</source>
-        <translation>Разговор</translation>
-    </message>
-    <message>
         <source>Delete</source>
         <translation>Обриши</translation>
     </message>
@@ -62,12 +58,20 @@
         <source>What&apos;s on your mind?</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Toot sent!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Copy Link to Clipboard</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ImageFullScreen</name>
     <message>
         <source>Error loading</source>
-        <translation>Greška u učitavanju</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

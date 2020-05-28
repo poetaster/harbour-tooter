@@ -7,24 +7,25 @@ Item {
     property string title: "";
     property string description: "";
     property string image: "";
-    //property string bg: "";
+    property string bg: "";
     width: parent.width
     height: icon.height + Theme.paddingLarge*2
-    /*Image {
-        anchors.fill: parent
-        asynchronous: true
-        fillMode: Image.PreserveAspectCrop
-        source: bg
-        opacity: 0.3
-    }*/
+
     Rectangle {
+        id: bgImage
         anchors.fill: parent
         opacity: 0.2
         gradient: Gradient {
             GradientStop { position: 0.0; color: Theme.highlightBackgroundColor }
-            GradientStop { position: 1.0; color: Theme.highlightBackgroundColor  }
+            GradientStop { position: 1.0; color: Theme.highlightBackgroundColor }
         }
-
+        Image {
+            anchors.fill: bgImage
+            asynchronous: true
+            fillMode: Image.PreserveAspectCrop
+            source: bg
+            opacity: 0.8
+        }
     }
     Image {
         id: icon
@@ -69,7 +70,7 @@ Item {
         }
         Label {
             height: description === "" ? 0 : contentHeight
-            text: description
+            text: "@"+description
             color: Theme.secondaryHighlightColor
             font.pixelSize: Theme.fontSizeSmall
             font.family: Theme.fontFamilyHeading

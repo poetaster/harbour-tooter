@@ -37,10 +37,9 @@ dbus_services.path = /usr/share/dbus-1/services/
 dbus_services.files = config/ba.dysko.harbour.tooterb.service
 
 interfaces.path = /usr/share/dbus-1/interfaces/
-interfaces.files = config/ba.dysko.harbour.tooterb.xml
+interfaces.files = config/ba.dysko.harbourb.tooterb.xml
 
-SOURCES += \
-    src/harbour-tooterb.cpp
+SOURCES += src/harbour-tooterb.cpp
 SOURCES += src/imageuploader.cpp
 SOURCES += src/filedownloader.cpp
 SOURCES += src/notifications.cpp
@@ -54,8 +53,7 @@ HEADERS += src/dbusAdaptor.h
 HEADERS += src/dbus.h
 
 DISTFILES += qml/harbour-tooterb.qml \
-    config/icon-lock-harbour-tooterb.png \
-    qml/images/tooterb.svg \
+    qml/pages/components/InfoBanner.qml \
     qml/pages/components/VisualContainer.qml \
     qml/pages/components/MiniStatus.qml \
     qml/pages/components/MiniHeader.qml \
@@ -78,18 +76,20 @@ DISTFILES += qml/harbour-tooterb.qml \
     qml/images/notification.svg \
     qml/images/verified.svg \
     qml/images/boosted.svg \
+    qml/images/tooterb.svg \
     qml/images/emojiselect.svg \
     qml/images/icon-m-profile.svg \
     qml/images/icon-l-profile.svg \
     qml/lib/Mastodon.js \
     qml/lib/Worker.js \
+    config/icon-lock-harbour-tooterb.png \
     config/x-harbour.tooterb.activity.conf \
     rpm/harbour-tooterb.changes \
     rpm/harbour-tooterb.changes.run.in \
     rpm/harbour-tooterb.spec \
     rpm/harbour-tooterb.yaml \
     translations/*.ts \
-    harbour-tooterb.desktop 
+    harbour-tooterb.desktop
 
 SAILFISHAPP_ICONS = 86x86 108x108 128x128 172x172
 

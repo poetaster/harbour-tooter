@@ -64,7 +64,7 @@
     </message>
     <message>
         <source>Copy Link to Clipboard</source>
-        <translation>Copiar enlace a portapapeles</translation>
+        <translation>Copiar enlace al portapapeles</translation>
     </message>
 </context>
 <context>

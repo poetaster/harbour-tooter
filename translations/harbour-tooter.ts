@@ -23,19 +23,19 @@
 <context>
     <name>Conversation</name>
     <message>
-        <source>Delete</source>
-        <translation>Delete</translation>
-    </message>
-    <message>
-        <source>Emojis</source>
-        <translation>Emojis</translation>
-    </message>
-    <message>
-        <source>Tap to insert</source>
-        <translation>Tap to insert</translation>
+        <source>Copy Link to Clipboard</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Write your warning here</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>What&apos;s on your mind?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delete</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -55,15 +55,18 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>What&apos;s on your mind?</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Toot sent!</source>
         <translation type="unfinished"></translation>
     </message>
+</context>
+<context>
+    <name>EmojiPage</name>
     <message>
-        <source>Copy Link to Clipboard</source>
+        <source>Emojis</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Tap to insert</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

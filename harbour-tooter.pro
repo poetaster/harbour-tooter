@@ -53,6 +53,9 @@ HEADERS += src/dbusAdaptor.h
 HEADERS += src/dbus.h
 
 DISTFILES += qml/harbour-tooter.qml \
+    qml/pages/ConversationPage.qml \
+    qml/pages/ProfilePage.qml \
+    qml/pages/SettingsPage.qml \
     qml/pages/components/InfoBanner.qml \
     qml/pages/components/VisualContainer.qml \
     qml/pages/components/MiniStatus.qml \
@@ -67,11 +70,8 @@ DISTFILES += qml/harbour-tooter.qml \
     qml/cover/CoverPage.qml \
     qml/pages/MainPage.qml \
     qml/pages/LoginPage.qml \
-    qml/pages/Conversation.qml \
     qml/pages/components/Toot.qml \
     qml/pages/Browser.qml \
-    qml/pages/Profile.qml \
-    qml/pages/Settings.qml \
     qml/lib/API.js \
     qml/images/notification.svg \
     qml/images/verified.svg \
@@ -95,7 +95,7 @@ SAILFISHAPP_ICONS = 86x86 108x108 128x128 172x172
 
 # to disable building translations every time, comment out the
 # following CONFIG line
-CONFIG += sailfishapp_i18n
+# CONFIG += sailfishapp_i18n
 
 # German translation is enabled as an example. If you aren't
 # planning to localize your app, remember to comment out the

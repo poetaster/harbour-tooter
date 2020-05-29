@@ -1,13 +1,14 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
 
+
 Item {
-    id: header
-    property int value: 0;
-    property string title: "";
-    property string description: "";
-    property string image: "";
-    property string bg: "";
+    id: profileHeader
+    property int value: 0
+    property string title: ""
+    property string description: ""
+    property string image: ""
+    property string bg: ""
     width: parent.width
     height: icon.height + Theme.paddingLarge*2
 

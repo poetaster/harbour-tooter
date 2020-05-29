@@ -2,32 +2,30 @@ import QtQuick 2.0
 import Sailfish.Silica 1.0
 import QtGraphicalEffects 1.0
 
+
 BackgroundItem {
     signal send (string notice)
+    signal navigateTo(string link)
 
     id: delegate
     //property string text: "0"
     width: parent.width
-    signal navigateTo(string link)
     height: lblText.paintedHeight + (lblText.text.length > 0 ? Theme.paddingLarge : 0 )+ lblName.paintedHeight + (type.length ? Theme.paddingLarge + iconRT.height : 0) + Theme.paddingLarge
     Image {
         id: iconRT
         y: Theme.paddingLarge
-        anchors {
-            right: avatar.right
-        }
+        anchors.right: avatar.right
         visible: type.length
         width: Theme.iconSizeExtraSmall
         height: width
         source: "../../images/boosted.svg"
     }
+
     Label {
         id: lblRtByName
         visible: type.length
-        anchors {
-            left: lblName.left
-            bottom: iconRT.bottom
-        }
+        anchors.left: lblName.left
+        anchors.bottom: iconRT.bottom
         text: {
             var action;
             switch(type){
@@ -45,10 +43,10 @@ BackgroundItem {
             }
             return '@' + retweetScreenName + ' ' +  action
         }
-
         font.pixelSize: Theme.fontSizeExtraSmall
         color: Theme.secondaryColor
     }
+
     Image {
         id: avatar
         x: Theme.horizontalPageMargin
@@ -62,28 +60,28 @@ BackgroundItem {
         MouseArea {
             anchors.fill: parent
             onClicked: {
-                pageStack.push(Qt.resolvedUrl("../Profile.qml"), {
+                pageStack.push(Qt.resolvedUrl("../ProfilePage.qml"), {
                                    "display_name": account_display_name,
                                    "username": account_username,
                                    "profileImage": account_avatar
                                })
             }
-
         }
 
     }
+
     Label {
         id: lblName
+        text: account_display_name
+        font.weight: Font.Bold
+        font.pixelSize: Theme.fontSizeSmall
+        color: (pressed ? Theme.highlightColor : Theme.primaryColor)
         anchors {
             top: avatar.top
             topMargin: 0
             left: avatar.right
             leftMargin: Theme.paddingMedium
         }
-        text: account_display_name
-        font.weight: Font.Bold
-        font.pixelSize: Theme.fontSizeSmall
-        color: (pressed ? Theme.highlightColor : Theme.primaryColor)
     }
 
     Image {
@@ -103,7 +101,6 @@ BackgroundItem {
                                                   : Theme.primaryColor)
     }
 
-
     Label {
         id: lblScreenName
         anchors {
@@ -117,6 +114,7 @@ BackgroundItem {
         font.pixelSize: Theme.fontSizeExtraSmall
         color: (pressed ? Theme.secondaryHighlightColor : Theme.secondaryColor)
     }
+
     Label {
         function timestamp() {
             var txt = Format.formatDate(created_at, Formatter.Timepoint)
@@ -135,7 +133,7 @@ BackgroundItem {
         }
     }
 
-    Label {
+    Text {
         id: lblText
         anchors {
             left: lblName.left
@@ -154,20 +152,16 @@ BackgroundItem {
                                    "profileImage": ""
                                })
             } else if (link[0] === "#") {
-
                 pageStack.pop(pageStack.find(function(page) {
                     var check = page.isFirstPage === true;
                     if (check)
                         page.onLinkActivated(link)
                     return check;
                 }));
-
                 send(link)
             } else {
                 Qt.openUrlExternally(link);
             }
-
-
         }
         text: content
         textFormat: Text.RichText
@@ -178,10 +172,12 @@ BackgroundItem {
         color: (pressed ? Theme.highlightColor : Theme.primaryColor)
     }
     onClicked: {
-        pageStack.push(Qt.resolvedUrl("../Conversation.qml"), {
+        pageStack.push(Qt.resolvedUrl("../ConversationPage.qml"), {
+                           headerTitle: "Conversation",
                            toot_id: id,
-                           title: account_display_name,
-                           description: '@'+account_username,
+                           toot_url: status_url,
+                           //title: account_display_name,
+                           description: '@'+account_acc,
                            avatar: account_avatar,
                            type: "reply"
                        })

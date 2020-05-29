@@ -2,11 +2,13 @@ import QtQuick 2.0
 import Sailfish.Silica 1.0
 import QtMultimedia 5.0
 
+
 FullscreenContentPage {
-    id: imagePage
     property string type: ""
     property string previewURL: ""
     property string mediaURL: ""
+
+    id: imagePage
     allowedOrientations: Orientation.All
     Component.onCompleted: function(){
         console.log(type)
@@ -14,31 +16,12 @@ FullscreenContentPage {
         console.log(mediaURL)
         if (type != 'gifv' && type != 'video') {
             imagePreview.source = mediaURL
-            imageFlickable.visible = true;
+            imageFlickable.visible = true
         } else {
             video.source = mediaURL
             video.fillMode = VideoOutput.PreserveAspectFit
             video.play()
-            videoFlickable.visible = true;
-        }
-    }
-
-    Item {
-        id: overlay
-        z: 100
-        property bool active: true
-        enabled: active
-        anchors.fill: parent
-        opacity: active ? 1.0 : 0.0
-        Behavior on opacity { FadeAnimator {}}
-        IconButton {
-            y: Theme.paddingLarge
-            anchors {
-                right: parent.right
-                rightMargin: Theme.horizontalPageMargin
-            }
-            icon.source: "image://theme/icon-m-dismiss"
-            onClicked: pageStack.pop()
+            videoFlickable.visible = true
         }
     }
 
@@ -46,14 +29,17 @@ FullscreenContentPage {
         id: videoFlickable
         visible: false
         anchors.fill: parent
-        contentWidth: imageContainer.width; contentHeight: imageContainer.height
+        contentWidth: imageContainer.width
+        contentHeight: imageContainer.height
         clip: true
+
         Image {
             id: videoPreview
             fillMode: Image.PreserveAspectFit
             anchors.fill: parent
             source: previewURL
         }
+
         Video {
             id: video
             anchors.fill: parent
@@ -82,7 +68,7 @@ FullscreenContentPage {
                     playerIcon.icon.source = "image://theme/icon-m-play"
                     return;
                 case MediaPlayer.StoppedState:
-                    playerIcon.icon.source = "image://theme/icon-m-stop"
+                    playerIcon.icon.source = "image://theme/icon-m-reload"
                     return;
                 }
             }
@@ -97,11 +83,10 @@ FullscreenContentPage {
                     playerProgress.minimumValue = 0
                     playerProgress.value = position
                 }
-
             }
 
             onStopped: function(){
-                play()
+                stop()
             }
 
             IconButton {
@@ -128,20 +113,20 @@ FullscreenContentPage {
                 anchors.leftMargin: 0
                 anchors.bottomMargin: Theme.paddingLarge*1.5
             }
+
             IconButton {
                 id: videoDlBtn
-                visible: true
                 anchors.right: parent.right
                 anchors.bottom: parent.bottom
                 anchors.rightMargin: Theme.paddingLarge
                 anchors.bottomMargin: Theme.paddingLarge*1.5
-                icon.source: "image://theme/icon-m-device-download"
-                icon.opacity: 0.0
+                icon.source: "image://theme/icon-m-cloud-download"
                 onClicked: {
                     var filename = mediaURL.split("/");
                     FileDownloader.downloadFile(mediaURL, filename[filename.length-1]);
                 }
             }
+
             Rectangle {
                 visible: videoError.text != ""
                 anchors.left: parent.left
@@ -163,7 +148,6 @@ FullscreenContentPage {
                 }
             }
 
-
             MouseArea {
                 anchors.fill: parent
                 onClicked: function() {
@@ -180,7 +164,8 @@ FullscreenContentPage {
         id: imageFlickable
         visible: false
         anchors.fill: parent
-        contentWidth: imageContainer.width; contentHeight: imageContainer.height
+        contentWidth: imageContainer.width
+        contentHeight: imageContainer.height
         clip: true
         onHeightChanged: if (imagePreview.status === Image.Ready) imagePreview.fitToScreen();
 
@@ -201,8 +186,8 @@ FullscreenContentPage {
                 fillMode: Image.PreserveAspectFit
                 cache: true
                 asynchronous: true
-                sourceSize.height: 1000;
-                smooth: false
+                sourceSize.height: 2000;
+                smooth: true // might slower performance
                 onStatusChanged: {
                     if (status == Image.Ready) {
                         fitToScreen()
@@ -255,6 +240,7 @@ FullscreenContentPage {
                     bounceBackAnimation.start()
                 }
             }
+
             NumberAnimation {
                 id: bounceBackAnimation
                 target: imagePreview
@@ -280,17 +266,22 @@ FullscreenContentPage {
 
         Component {
             id: loadingIndicator
+
             Item {
                 height: childrenRect.height
                 width: imagePage.width
+
                 ProgressCircle {
                     id: imageLoadingIndicator
+                    progressColor: inAlternateCycle ? Theme.highlightColor : Theme.highlightDimmerColor
+                    backgroundColor: inAlternateCycle ? Theme.highlightDimmerColor : Theme.highlightColor
                     anchors.horizontalCenter: parent.horizontalCenter
                     progressValue: imagePreview.progress
                 }
             }
         }
     }
+
     Component {
         id: failedLoading
         Text {
@@ -299,17 +290,26 @@ FullscreenContentPage {
             color: Theme.highlightColor
         }
     }
+
     IconButton {
-        visible: true
+        y: Theme.paddingLarge
+        anchors.right: parent.right
+        anchors.rightMargin: Theme.horizontalPageMargin
+        icon.source: "image://theme/icon-m-dismiss"
+        onClicked: pageStack.pop()
+    }
+
+    IconButton {
         anchors.right: parent.right
         anchors.bottom: parent.bottom
         anchors.rightMargin: Theme.paddingLarge
         anchors.bottomMargin: Theme.paddingLarge*1.5
-        icon.source: "image://theme/icon-m-device-download"
+        icon.source: "image://theme/icon-m-cloud-download"
         onClicked: {
             var filename = mediaURL.split("/");
             FileDownloader.downloadFile(mediaURL, filename[filename.length-1]);
         }
     }
+
     VerticalScrollDecorator { flickable: imageFlickable }
 }

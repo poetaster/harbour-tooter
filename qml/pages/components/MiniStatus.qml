@@ -1,8 +1,9 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
 
+
 Item {
-    id: ministatus
+    id: miniStatus
     visible: true
     height: icon.height+Theme.paddingMedium
     width: parent.width
@@ -42,7 +43,7 @@ Item {
                 action =  qsTr('followed you');
                 break;
             default:
-                ministatus.visible = false
+                miniStatus.visible = false
                 action = type;
             }
             return typeof reblog_account_username !== "undefined" ? '@' + reblog_account_username + ' ' +  action : ''

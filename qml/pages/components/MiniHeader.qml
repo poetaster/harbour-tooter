@@ -1,8 +1,9 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
 
+
 Item {
-    id: miniheader
+    id: miniHeader
     height: lblName.height
     width: parent.width
 
@@ -67,4 +68,5 @@ Item {
             rightMargin: Theme.horizontalPageMargin
         }
     }
+
 }

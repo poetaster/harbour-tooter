@@ -1,16 +1,15 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
-
 import "../lib/API.js" as Logic
 
+
 Page {
+    id: settingsPage
     SilicaFlickable {
         anchors.fill: parent
         contentHeight: column.height + Theme.paddingLarge
         contentWidth: parent.width
         RemorsePopup { id: remorsePopup }
-
-
         VerticalScrollDecorator {}
         Column {
             id: column
@@ -22,13 +21,12 @@ Page {
             Column {
                 // No spacing in this column
                 width: parent.width
+
                 IconTextSwitch {
                     id: removeAccount
                     text: Logic.conf['login'] ? qsTr("Remove Account") : qsTr("Add Account")
                     description: Logic.conf['login'] ? qsTr("Deauthorize this app and remove your account") : qsTr("Authorize this app to access your Mastodon account")
                     icon.source: Logic.conf['login'] ? "image://theme/icon-m-contact" : "image://theme/icon-m-add"
-
-
                     onCheckedChanged: {
                         remorsePopup.execute(removeAccount.text, function() {
                             busy = true;
@@ -42,18 +40,17 @@ Page {
                             pageStack.push(Qt.resolvedUrl("LoginPage.qml"))
                         })
                     }
-
                     /*    busy = true;
                         checked = false;
                         timer1.start()
-
-                    }*/
+                    }*/                    
                     Timer {
                         id: timer1
                         interval: 4700
                         onTriggered: parent.busy = false
                     }
                 }
+
                 IconTextSwitch {
                     //enabled: false
                     checked: typeof Logic.conf['loadImages'] !== "undefined" && Logic.conf['loadImages']
@@ -64,6 +61,7 @@ Page {
                         Logic.conf['loadImages'] = checked
                     }
                 }
+
                 IconTextSwitch {
                     text: qsTr("Translate")
                     description: qsTr("Use Transifex to help with app translation to your language")
@@ -81,6 +79,7 @@ Page {
                     }
                 }
             }
+
             SectionHeader {
                 text:  qsTr("Credits")
             }
@@ -109,8 +108,8 @@ Page {
                         ListElement {
                             name: "Molan"
                             desc: qsTr("Development and translations")
-                            mastodon: ""
-                            mail: "mol_an@sunrise.ch"
+                            mastodon: "molan@fosstodon.org"
+                            mail: ""
                         }
                         ListElement {
                             name: "Quentin PAGÈS / Quenti ♏"
@@ -159,7 +158,7 @@ Page {
                             onClicked: {
                                 if (model.mastodon !== ""){
                                     var m = Qt.createQmlObject('import QtQuick 2.0; ListModel {   }', Qt.application, 'InternalQmlObject');
-                                    pageStack.push(Qt.resolvedUrl("Conversation.qml"), {
+                                    pageStack.push(Qt.resolvedUrl("ConversationPage.qml"), {
                                                        toot_id: 0,
                                                        title: model.name,
                                                        description: '@'+model.mastodon,
@@ -198,4 +197,5 @@ Page {
             }
         }
     }
+
 }

@@ -2,12 +2,13 @@ import QtQuick 2.2
 import Sailfish.Silica 1.0
 import "../../lib/API.js" as Logic
 
+
 BackgroundItem {
     id: delegate
     signal send (string notice)
     signal navigateTo(string link)
     width: parent.width
-    height: mnu.height +  miniHeader.height + (typeof attachments !== "undefined" && attachments.count ? media.height + Theme.paddingLarge + Theme.paddingMedium: Theme.paddingLarge) + lblContent.height + Theme.paddingLarge + (ministatus.visible ? ministatus.height : 0)
+    height: mnu.height +  miniHeader.height + (typeof attachments !== "undefined" && attachments.count ? media.height + Theme.paddingLarge + Theme.paddingMedium: Theme.paddingLarge) + lblContent.height + Theme.paddingLarge + (miniStatus.visible ? miniStatus.height : 0)
     Rectangle {
         x: 0;
         y: 0;
@@ -15,11 +16,11 @@ BackgroundItem {
         width: parent.width
         height: parent.height
         opacity: 0.3
-        color: Theme.highlightBackgroundColor;
+        color: Theme.highlightBackgroundColor
     }
 
     MiniStatus {
-        id: ministatus
+        id: miniStatus
         anchors {
             leftMargin: Theme.horizontalPageMargin
             rightMargin: Theme.horizontalPageMargin
@@ -31,8 +32,8 @@ BackgroundItem {
     Image {
         id: avatar
         anchors {
-            top: ministatus.visible ? ministatus.bottom : parent.top
-            topMargin: ministatus.visible ? Theme.paddingMedium : Theme.paddingLarge
+            top: miniStatus.visible ? miniStatus.bottom : parent.top
+            topMargin: miniStatus.visible ? Theme.paddingMedium : Theme.paddingLarge
             left: parent.left
             leftMargin: Theme.horizontalPageMargin
         }
@@ -50,10 +51,11 @@ BackgroundItem {
                  ? Theme.highlightColor
                  : Theme.primaryColor)
         }
+
         MouseArea {
             anchors.fill: parent
             onClicked: {
-                pageStack.push(Qt.resolvedUrl("../Profile.qml"), {
+                pageStack.push(Qt.resolvedUrl("../ProfilePage.qml"), {
                                    "display_name": model.account_display_name,
                                    "username": model.account_acct,
                                    "user_id": model.account_id,
@@ -63,6 +65,7 @@ BackgroundItem {
             }
 
         }
+
         Image {
             id: iconTR
             anchors {
@@ -74,7 +77,8 @@ BackgroundItem {
             width: Theme.iconSizeExtraSmall
             height: width
             source: "image://theme/icon-s-retweet"
-        }       
+        }
+
         Rectangle {
             color: Theme.highlightDimmerColor
             width: Theme.iconSizeSmall
@@ -98,6 +102,7 @@ BackgroundItem {
             }
         }
     }
+
     MiniHeader {
         id: miniHeader
         anchors {
@@ -106,6 +111,7 @@ BackgroundItem {
             right: parent.right
         }
     }
+
     Text  {
         id: lblContent
         anchors {
@@ -176,6 +182,7 @@ BackgroundItem {
                 wrapMode: Text.Wrap
                 text: model.status_spoiler_text
             }
+
             MouseArea {
                 anchors.fill: parent
                 onClicked: parent.visible = false;
@@ -225,6 +232,7 @@ BackgroundItem {
                 height: width
                 source: "image://theme/icon-s-retweet?" + (!model.reblogged ? Theme.highlightColor : Theme.primaryColor)
             }
+
             Label {
                 anchors {
                     left: icRT.right
@@ -236,6 +244,7 @@ BackgroundItem {
                 color: !model.reblogged ? Theme.highlightColor : Theme.primaryColor
             }
         }
+
         MenuItem {
             enabled: model.type !== "follow"
             text: typeof model.favourited !== "undefined" && model.favourited ? qsTr("Unfavorite") : qsTr("Favorite")
@@ -251,6 +260,7 @@ BackgroundItem {
                 model.favourites_count = !status ? model.favourites_count+1 : (model.favourites_count > 0 ? model.favourites_count-1 : model.favourites_count);
                 model.favourited = !model.favourited
             }
+
             Image {
                 id: icFA
                 anchors {
@@ -262,6 +272,7 @@ BackgroundItem {
                 height: width
                 source: "image://theme/icon-s-favorite?" + (!model.favourited ? Theme.highlightColor : Theme.primaryColor)
             }
+
             Label {
                 anchors {
                     left: icFA.right
@@ -279,7 +290,7 @@ BackgroundItem {
         var m = Qt.createQmlObject('import QtQuick 2.0; ListModel {   }', Qt.application, 'InternalQmlObject');
         if (typeof mdl !== "undefined")
             m.append(mdl.get(index))
-        pageStack.push(Qt.resolvedUrl("../Conversation.qml"), {
+        pageStack.push(Qt.resolvedUrl("../ConversationPage.qml"), {
                            headerTitle: "Conversation",
                            toot_id: status_id,
                            toot_url: status_url,

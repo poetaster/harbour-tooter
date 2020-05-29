@@ -2,7 +2,9 @@ import QtQuick 2.0
 import Sailfish.Silica 1.0
 import QtMultimedia 5.0
 
+
 Item {
+    id: myImage
     property string type : ""
     property string previewURL: ""
     property string mediaURL: ""
@@ -37,8 +39,6 @@ Item {
                 progressRec.width = 0;
             }
         }
-
-
         MouseArea {
             anchors.fill: parent
             onClicked: {

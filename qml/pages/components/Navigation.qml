@@ -2,13 +2,13 @@ import QtQuick 2.0
 import Sailfish.Silica 1.0
 import QtGraphicalEffects 1.0
 
+
 SilicaGridView {
-    signal slideshowShow(int vIndex);
-    signal slideshowIndexChanged(int vIndex);
+    signal slideshowShow(int vIndex)
+    signal slideshowIndexChanged(int vIndex)
     onSlideshowIndexChanged: {
         navigateTo(vIndex)
     }
-
     id: gridView
     property bool isPortrait: false
     ListModel {
@@ -55,7 +55,6 @@ SilicaGridView {
     cellWidth: isPortrait ? gridView.width : gridView.width / model.count
     cellHeight: isPortrait ? gridView.height/model.count : gridView.height
 
-
     delegate: BackgroundItem {
         clip: true
         id: rectangle
@@ -78,7 +77,6 @@ SilicaGridView {
             anchors.horizontalCenter: parent.horizontalCenter
             color: Theme.highlightColor
         }
-
         GlassItem {
             id: effect2
             visible: isPortrait && unread
@@ -90,18 +88,10 @@ SilicaGridView {
             anchors.verticalCenter: parent.verticalCenter
             color: Theme.highlightColor
         }
-
         OpacityRampEffect {
             sourceItem: label
             offset: 0.5
         }
-
-        /*Image {
-            source: model.icon + (highlighted
-                                  ? Theme.highlightColor
-                                  : (model.active ? Theme.primaryColor : Theme.secondaryHighlightColor))
-            anchors.centerIn: parent
-        }*/
         ColorOverlay {
                anchors.fill: image
                source: image
@@ -170,4 +160,5 @@ SilicaGridView {
     }
 
     VerticalScrollDecorator {}
+
 }

@@ -56,8 +56,8 @@ var MastodonAPI = function(config) {
             http.setRequestHeader("Connection", "close");
 
             http.onreadystatechange = function() { // Call a function when the state changes.
-                if (http.readyState == 4) {
-                    if (http.status == 200) {
+                if (http.readyState === 4) {
+                    if (http.status === 200) {
                         console.log("Successful GET API request to " +apiBase+endpoint);
                         callback(JSON.parse(http.response),http.status)
                     } else {
@@ -91,8 +91,8 @@ var MastodonAPI = function(config) {
             http.setRequestHeader("Connection", "close");
 
             http.onreadystatechange = function() { // Call a function when the state changes.
-                if (http.readyState == 4) {
-                    if (http.status == 200) {
+                if (http.readyState === 4) {
+                    if (http.status === 200) {
                         console.log("Successful POST API request to " +apiBase+endpoint);
                         callback(JSON.parse(http.response),http.status)
                     } else {
@@ -180,8 +180,8 @@ var MastodonAPI = function(config) {
             http.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 
             http.onreadystatechange = function() { // Call a function when the state changes.
-                if (http.readyState == 4) {
-                    if (http.status == 200) {
+                if (http.readyState === 4) {
+                    if (http.status === 200) {
                         console.log("Registered Application: " + http.response);
                         callback(http.response)
                     } else {
@@ -221,8 +221,8 @@ var MastodonAPI = function(config) {
             http.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 
             http.onreadystatechange = function() { // Call a function when the state changes.
-                if (http.readyState == 4) {
-                    if (http.status == 200) {
+                if (http.readyState === 4) {
+                    if (http.status === 200) {
                         console.log("Got Token: " + http.response);
                         callback(http.response)
                     } else {

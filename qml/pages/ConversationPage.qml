@@ -9,9 +9,9 @@ Page {
 	id: conversationPage
     property string headerTitle: ""
     property string type
-	property alias title: header.title
-	property alias description: header.description
-	property alias avatar: header.image
+    property alias title: header.title
+    property alias description: header.description
+    property alias avatar: header.image
 	property string suggestedUser: ""
 	property ListModel suggestedModel
 	property string toot_id: ""
@@ -66,6 +66,7 @@ Page {
 		id: header
 		visible: false
 	}
+
 	SilicaListView {
 		id: conversationList
 		header: PageHeader {
@@ -97,6 +98,7 @@ Page {
 					}
 				}
 		}
+
         PullDownMenu {
             visible: type == "reply" && toot_url != ""
                     /* MenuItem {
@@ -110,19 +112,24 @@ Page {
                     }
                 }
 	}
+
 	Rectangle {
 		id: predictionList
 		visible: false
 		anchors.bottom: panel.top
 		anchors.left: parent.left
 		anchors.right: panel.right
-		height: suggestedModel.count > 6 ? Theme.itemSizeMedium * 6 : Theme.itemSizeMedium * suggestedModel.count
+        anchors.top: parent.top
+        height: implicitHeight
+        //height: suggestedModel.count > 6 ? Theme.itemSizeMedium * 6 : Theme.itemSizeMedium * suggestedModel.count
 		color: Theme.highlightDimmerColor
 
 		SilicaListView {
 			anchors.fill: parent
 			model: suggestedModel
 			clip: true
+            quickScroll: false
+            VerticalScrollDecorator {}
 			delegate: ItemUser {
 				onClicked: {
 					var start = toot.cursorPosition
@@ -149,19 +156,19 @@ Page {
 
 	DockedPanel {
 		id: panel
-		open: true
-		onExpandedChanged: {
-			if (!expanded) {
-				show()
-			}
-		}
-
+        open: true
+        //onExpandedChanged: {
+        //    if (!expanded) {
+        //        show()
+        //    }
+        //}
 		width: parent.width
-		height: progressBar.height + toot.height + (mediaModel.count ? uploadedImages.height : 0)
+        height: progressBar.height + toot.height + (mediaModel.count ? uploadedImages.height : 0)
 			+ btnContentWarning.height + Theme.paddingMedium
-			+ (warningContent.visible ? warningContent.height : 0)
-		dock: Dock.Bottom
-		Rectangle {
+            + (warningContent.visible ? warningContent.height : 0)
+        dock: Dock.Bottom
+
+        Rectangle {
 			width: parent.width
 			height: progressBar.height
 			color: Theme.highlightBackgroundColor
@@ -172,15 +179,16 @@ Page {
 				top: parent.top
 			}
 		}
+
 		Rectangle {
 			id: progressBar
 			width: toot.text.length ? panel.width * (toot.text.length / tootMaxChar) : 0
-			height: Theme.itemSizeSmall * 0.05
+            height: Theme.itemSizeSmall * 0.05
 			color: Theme.highlightBackgroundColor
 			opacity: 0.7
 			anchors {
 				left: parent.left
-				top: parent.top
+                top: parent.top
 			}
 		}
 
@@ -189,7 +197,7 @@ Page {
 			visible: false
 			height: visible ? implicitHeight : 0
 			anchors {
-				top: parent.top
+                top: parent.top
 				topMargin: Theme.paddingMedium
 				left: parent.left
 				right: parent.right
@@ -201,10 +209,9 @@ Page {
             placeholderColor: palette.highlightColor
             color: palette.highlightColor
 			horizontalAlignment: Text.AlignLeft
-			EnterKey.onClicked: {
-				//tweet()
-			}
+			EnterKey.onClicked: {}
 		}
+
 		TextInput {
 			id: textOperations
 			visible: false
@@ -221,17 +228,19 @@ Page {
 			}
 			autoScrollEnabled: true
 			labelVisible: false
-			//focus: true
-			text: description !== "" && (description.charAt(0) == '@'
+            text: description !== "" && (description.charAt(0) === '@'
 																	 || description.charAt(
-																		 0) == '#') ? description + ' ' : ''
-            height: Math.max(270, Math.min(900, implicitHeight))
+                                                                         0) === '#') ? description + ' ' : ''
+            height: if (type !== "reply") {
+                        Math.max(conversationPage.height / 3, Math.min(conversationPage.height * 0.65, implicitHeight))
+                    }
+                    else {
+                        Math.max(conversationPage.height / 4, Math.min(conversationPage.height * 0.65, implicitHeight))
+                    }
             horizontalAlignment: Text.AlignLeft
             placeholderText: qsTr("What's on your mind?")
             font.pixelSize: Theme.fontSizeSmall
-			EnterKey.onClicked: {
-				//tweet()
-			}
+            EnterKey.onClicked: {}
 			onTextChanged: {
 				textOperations.text = toot.text
 				textOperations.cursorPosition = toot.cursorPosition
@@ -247,45 +256,46 @@ Page {
 				}
 			}
 		}
+
 		IconButton {
 			id: btnSmileys
-			property string selection
+            property string selection
 			onSelectionChanged: {
-				console.log(selection)
-			}
-
+                console.log(selection)
+            }
 			anchors {
                 top: warningContent.bottom
 				bottom: bottom.top
 				right: parent.right
 				rightMargin: Theme.paddingSmall
 			}
-            opacity: 0.8
-            icon.source: "../../qml/images/emojiselect.svg" + (pressed ? Theme.highlightColor : (warningContent.visible ? Theme.secondaryHighlightColor : Theme.primaryColor))
-			onClicked: pageStack.push(firstWizardPage)
+            opacity: 0.6
+            icon.source: "../../qml/images/emojiselect.svg"
+            onClicked: pageStack.push(emojiSelect)
 		}
+
 		SilicaGridView {
 			id: uploadedImages
 			width: parent.width
             anchors.top: bottom.toot
 			anchors.bottom: parent.bottom
-            height: mediaModel.count ? Theme.itemSizeSmall : 0
-			model: mediaModel
+            height: mediaModel.count ? Theme.itemSizeExtraLarge : 0
+            model: mediaModel
 			cellWidth: uploadedImages.width / 4
-            cellHeight: Theme.itemSizeSmall
+            cellHeight: Theme.itemSizeExtraLarge
 			delegate: BackgroundItem {
 				id: myDelegate
 				width: uploadedImages.cellWidth
 				height: uploadedImages.cellHeight
 				RemorseItem {
-					id: remorse
+                    id: remorse
 				}
+
 				Image {
 					anchors.fill: parent
 					fillMode: Image.PreserveAspectCrop
 					source: model.preview_url
 				}
-
 				onClicked: {
 					var idx = index
 					console.log(idx)
@@ -303,7 +313,6 @@ Page {
 					duration: 800
 				}
 			}
-
 			remove: Transition {
 				NumberAnimation {
 					property: "opacity"
@@ -320,6 +329,7 @@ Page {
 				}
 			}
 		}
+
 		IconButton {
 			id: btnContentWarning
 			anchors {
@@ -332,6 +342,7 @@ Page {
 				+ (pressed ? Theme.highlightColor : (warningContent.visible ? Theme.secondaryHighlightColor : Theme.primaryColor))
 			onClicked: warningContent.visible = !warningContent.visible
 		}
+
 		IconButton {
 			id: btnAddImage
 			enabled: mediaModel.count < 4
@@ -357,21 +368,18 @@ Page {
 				})
 			}
 		}
+
 		ImageUploader {
 			id: imageUploader
-
 			onProgressChanged: {
 				console.log("progress " + progress)
 				uploadProgress.width = parent.width * progress
 			}
-
 			onSuccess: {
 				uploadProgress.width = 0
 				console.log(replyData)
-
 				mediaModel.append(JSON.parse(replyData))
 			}
-
 			onFailure: {
 				uploadProgress.width = 0
 				btnAddImage.enabled = true
@@ -379,15 +387,16 @@ Page {
 				console.log(statusText)
 			}
 		}
+
 		ComboBox {
-			id: privacy
+            id: privacy
 			anchors {
                 top: toot.bottom
                 topMargin: -Theme.paddingSmall * 1.5
 				left: btnAddImage.right
-				right: btnSend.left
-			}
-			menu: ContextMenu {
+                right: btnSend.left
+            }
+            menu: ContextMenu {
 				MenuItem {
                     text: qsTr("Public")
 				}
@@ -421,7 +430,6 @@ Page {
 					console.log(mediaModel.get(k).id)
 					media_ids.push(mediaModel.get(k).id)
 				}
-
 				var msg = {
 					"action": 'statuses',
 					"method": 'POST',
@@ -445,7 +453,7 @@ Page {
                 worker.sendMessage(msg)
                 warningContent.text = ""
                 toot.text = ""
-                mediaModel.clear();
+                mediaModel.clear()
                 sentBanner.showText(qsTr("Toot sent!"))
 			}
 		}
@@ -453,11 +461,12 @@ Page {
 		Rectangle {
 			id: uploadProgress
 			color: Theme.highlightBackgroundColor
-			anchors.bottom: parent.bottom
+            anchors.bottom: parent.bottom
 			anchors.left: parent.left
-			height: 3
+            height: Theme.itemSizeSmall * 0.05
 		}
 	}
+
 	Component.onCompleted: {
 		toot.cursorPosition = toot.text.length
 		if (mdl.count > 0) {
@@ -490,157 +499,64 @@ Page {
 			"conf": Logic.conf
 		})
 	}
-	Component {
-		id: firstWizardPage
 
-		Dialog {
-			id: emoticonsDialog
-			canAccept: false //selector.currentIndex >= 0
+    BackgroundItem {
+        id: showPanel
+        visible: !panel.open
+        height: Theme.paddingMedium
+        width: parent.width
+        opacity: enabled ? 1.0 : 0.0
+        Behavior on opacity { FadeAnimator {} }
+        anchors {
+            horizontalCenter: parent.horizontalCenter
+            bottom: parent.bottom
+        }
 
-			//acceptDestination: conversationPage
-			onAcceptPendingChanged: {
-				if (acceptPending) {
+        MouseArea {
+            anchors.fill: parent
+            onClicked: panel.open = !panel.open
+        }
 
-					// Tell the destination page what the selected category is
-					// acceptDestinationInstance.category = selector.value
-				}
-			}
+        Rectangle {
+            width: parent.width
+            height: progressBarShowPanel.height
+            color: Theme.highlightBackgroundColor
+            opacity: 0.2
+            anchors {
+                left: parent.left
+                right: parent.right
+                top: parent.top
+            }
+        }
 
-			SilicaGridView {
-				id: gridView
-				anchors.fill: parent
-				cellWidth: gridView.width / 6
-				cellHeight: cellWidth
-				header: PageHeader {
-					title: qsTr("Emojis")
-					description: qsTr("Tap to insert")
-				}
-				model: ListModel {
-					ListElement { section: "smileys"; glyph: "😁" }
-					ListElement { section: "smileys"; glyph: "😂" }
-					ListElement { section: "smileys"; glyph: "😃" }
-					ListElement { section: "smileys"; glyph: "😄" }
-					ListElement { section: "smileys"; glyph: "😅" }
-					ListElement { section: "smileys"; glyph: "😆" }
-					ListElement { section: "smileys"; glyph: "😉" }
-					ListElement { section: "smileys"; glyph: "😊" }
-					ListElement { section: "smileys"; glyph: "😋" }
-					ListElement { section: "smileys"; glyph: "😌" }
-					ListElement { section: "smileys"; glyph: "😍" }
-					ListElement { section: "smileys"; glyph: "😏" }
-					ListElement { section: "smileys"; glyph: "😒" }
-					ListElement { section: "smileys"; glyph: "😓" }
-					ListElement { section: "smileys"; glyph: "😔" }
-					ListElement { section: "smileys"; glyph: "😖" }
-					ListElement { section: "smileys"; glyph: "😘" }
-					ListElement { section: "smileys"; glyph: "😚" }
-					ListElement { section: "smileys"; glyph: "😜" }
-					ListElement { section: "smileys"; glyph: "😝" }
-					ListElement { section: "smileys"; glyph: "😞" }
-					ListElement { section: "smileys"; glyph: "😠" }
-					ListElement { section: "smileys"; glyph: "😡" }
-					ListElement { section: "smileys"; glyph: "😢" }
-					ListElement { section: "smileys"; glyph: "😣" }
-					ListElement { section: "smileys"; glyph: "😤" }
-					ListElement { section: "smileys"; glyph: "😥" }
-					ListElement { section: "smileys"; glyph: "😨" }
-					ListElement { section: "smileys"; glyph: "😩" }
-					ListElement { section: "smileys"; glyph: "😪" }
-					ListElement { section: "smileys"; glyph: "😫" }
-					ListElement { section: "smileys"; glyph: "😭" }
-					ListElement { section: "smileys"; glyph: "😰" }
-					ListElement { section: "smileys"; glyph: "😱" }
-					ListElement { section: "smileys"; glyph: "😲" }
-					ListElement { section: "smileys"; glyph: "😳" }
-					ListElement { section: "smileys"; glyph: "😵" }
-					ListElement { section: "smileys"; glyph: "😷" }
-					ListElement { section: "smileys"; glyph: "😸" }
-					ListElement { section: "smileys"; glyph: "😹" }
-					ListElement { section: "smileys"; glyph: "😺" }
-					ListElement { section: "smileys"; glyph: "😻" }
-					ListElement { section: "smileys"; glyph: "😼" }
-					ListElement { section: "smileys"; glyph: "😽" }
-					ListElement { section: "smileys"; glyph: "😾" }
-					ListElement { section: "smileys"; glyph: "😿" }
-					ListElement { section: "smileys"; glyph: "🙀" }
-					ListElement { section: "smileys"; glyph: "🙅" }
-					ListElement { section: "smileys"; glyph: "🙆" }
-					ListElement { section: "smileys"; glyph: "🙇" }
-					ListElement { section: "smileys"; glyph: "🙈" }
-					ListElement { section: "smileys"; glyph: "🙉" }
-					ListElement { section: "smileys"; glyph: "🙊" }
-					ListElement { section: "smileys"; glyph: "🙋" }
-					ListElement { section: "smileys"; glyph: "🙌" }
-					ListElement { section: "smileys"; glyph: "🙍" }
-					ListElement { section: "smileys"; glyph: "🙎" }
-					ListElement { section: "smileys"; glyph: "🙏" }
+        Rectangle {
+            color: Theme.highlightBackgroundColor
+            opacity: 0.2
+            height: showPanel.height
+            width: showPanel.width
+            anchors {
+                horizontalCenter: parent.horizontalCenter
+                top: parent.top
+                bottom: parent.bottom
+            }
+        }
 
-					ListElement { section: "Transport and map"; glyph: "🚀" }
-					ListElement { section: "Transport and map"; glyph: "🚃" }
-					ListElement { section: "Transport and map"; glyph: "🚀" }
-					ListElement { section: "Transport and map"; glyph: "🚄" }
-					ListElement { section: "Transport and map"; glyph: "🚅" }
-					ListElement { section: "Transport and map"; glyph: "🚇" }
-					ListElement { section: "Transport and map"; glyph: "🚉" }
-					ListElement { section: "Transport and map"; glyph: "🚌" }
-					ListElement { section: "Transport and map"; glyph: "🚏" }
-					ListElement { section: "Transport and map"; glyph: "🚑" }
-					ListElement { section: "Transport and map"; glyph: "🚒" }
-					ListElement { section: "Transport and map"; glyph: "🚓" }
-					ListElement { section: "Transport and map"; glyph: "🚕" }
-					ListElement { section: "Transport and map"; glyph: "🚗" }
-					ListElement { section: "Transport and map"; glyph: "🚙" }
-					ListElement { section: "Transport and map"; glyph: "🚚" }
-					ListElement { section: "Transport and map"; glyph: "🚢" }
-					ListElement { section: "Transport and map"; glyph: "🚨" }
-					ListElement { section: "Transport and map"; glyph: "🚩" }
-					ListElement { section: "Transport and map"; glyph: "🚪" }
-					ListElement { section: "Transport and map"; glyph: "🚫" }
-					ListElement { section: "Transport and map"; glyph: "🚬" }
-					ListElement { section: "Transport and map"; glyph: "🚭" }
-					ListElement { section: "Transport and map"; glyph: "🚲" }
-					ListElement { section: "Transport and map"; glyph: "🚶" }
-					ListElement { section: "Transport and map"; glyph: "🚹" }
-					ListElement { section: "Transport and map"; glyph: "🚺" }
-					ListElement { section: "Transport and map"; glyph: "🚻" }
-					ListElement { section: "Transport and map"; glyph: "🚼" }
-					ListElement { section: "Transport and map"; glyph: "🚽" }
-					ListElement { section: "Transport and map"; glyph: "🚾" }
-					ListElement { section: "Transport and map"; glyph: "🛀" }
+        Rectangle {
+            id: progressBarShowPanel
+            width: toot.text.length ? panel.width * (toot.text.length / tootMaxChar) : 0
+            height: Theme.itemSizeSmall * 0.05
+            color: Theme.highlightBackgroundColor
+            opacity: 0.7
+            anchors {
+                left: parent.left
+                top: parent.top
+            }
+        }
 
-					ListElement { section: "Horoscope Signs"; glyph: "♈" }
-					ListElement { section: "Horoscope Signs"; glyph: "♉" }
-					ListElement { section: "Horoscope Signs"; glyph: "♊" }
-					ListElement { section: "Horoscope Signs"; glyph: "♋" }
-					ListElement { section: "Horoscope Signs"; glyph: "♌" }
-					ListElement { section: "Horoscope Signs"; glyph: "♍" }
-					ListElement { section: "Horoscope Signs"; glyph: "♎" }
-					ListElement { section: "Horoscope Signs"; glyph: "♏" }
-					ListElement { section: "Horoscope Signs"; glyph: "♐" }
-					ListElement { section: "Horoscope Signs"; glyph: "♑" }
-					ListElement { section: "Horoscope Signs"; glyph: "♒" }
-					ListElement { section: "Horoscope Signs"; glyph: "♓" }
-				}
-				delegate: BackgroundItem {
-					width: gridView.cellWidth
-					height: gridView.cellHeight
-					Label {
-						anchors.centerIn: parent
-						color: (highlighted ? Theme.secondaryHighlightColor : Theme.secondaryColor)
-						font.pixelSize: Theme.fontSizeLarge
-						text: glyph
-					}
-					onClicked: {
-						var cursorPosition = toot.cursorPosition
-						toot.text = toot.text.substring(
-									0, cursorPosition) + model.glyph + toot.text.substring(
-									cursorPosition)
-						toot.cursorPosition = cursorPosition + model.glyph.length
-						emoticonsDialog.canAccept = true
-						emoticonsDialog.accept()
-					}
-				}
-			}
-		}
+    }
+
+    EmojiSelect {
+        id: emojiSelect
 	}
+
 }

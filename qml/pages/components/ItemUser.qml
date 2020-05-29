@@ -32,14 +32,16 @@ BackgroundItem {
         }
         MouseArea {
             anchors.fill: parent
-            onClicked: pageStack.push(Qt.resolvedUrl("./../Profile.qml"), {
+            onClicked: pageStack.push(Qt.resolvedUrl("./../ProfilePage.qml"), {
                                           "display_name": model.account_display_name,
                                           "username": model.account_acct,
                                           "user_id": model.account_id,
-                                          "profileImage": model.account_avatar
+                                          "profileImage": model.account_avatar,
+                                          "profileBackground": model.account_header
                                       })
         }
     }
+
     Column {
         anchors.left: avatar.right
         anchors.leftMargin: Theme.paddingLarge
@@ -63,6 +65,8 @@ BackgroundItem {
                             "display_name": model.account_display_name,
                             "username": model.account_acct,
                             "user_id": model.account_id,
-                            "profileImage": model.account_avatar
+                            "profileImage": model.account_avatar,
+                            "profileBackground": model.account_header
                         })
+
 }

@@ -13,7 +13,7 @@ Clone / download this repository and import it in your SailfishOS IDE using the 
 
 ## Repository branches:
 - master: default (Beta release version, harbour-tooterb)
-- upstream: used for merge pull requests to upstream (harbour-tooter)
+- upstream: used to send changes to upstream repository (harbour-tooter)
 
 ## Contributions
 Contributions to this project are very welcome, since there are still many things which can be done for Tooter. 

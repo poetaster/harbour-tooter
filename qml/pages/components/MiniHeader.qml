@@ -37,26 +37,24 @@ Item {
         width: account_locked ? Theme.iconSizeExtraSmall*0.8 : 0
         opacity: 0.8
         height: width
-        source: "image://theme/icon-s-secure?" + (pressed
-                                                  ? Theme.highlightColor
-                                                  : Theme.primaryColor)
+        source: "image://theme/icon-s-secure?" + (pressed ? Theme.highlightColor : Theme.primaryColor)
     }
 
     Label {
         id: lblScreenName
+        truncationMode: TruncationMode.Fade
+        text: '@'+account_username
+        font.pixelSize: Theme.fontSizeExtraSmall
+        color: (pressed ? Theme.secondaryHighlightColor : Theme.secondaryColor)
         anchors {
             left: iconVerified.right
             right: lblDate.left
             leftMargin: Theme.paddingMedium
             baseline: lblName.baseline
         }
-        truncationMode: TruncationMode.Fade
-        text: '@'+account_username
-        font.pixelSize: Theme.fontSizeExtraSmall
-        color: (pressed ? Theme.secondaryHighlightColor : Theme.secondaryColor)
     }
-    Label {
 
+    Label {
         id: lblDate
         color: (pressed ? Theme.highlightColor : Theme.primaryColor)
         text: Format.formatDate(created_at, new Date() - created_at < 60*60*1000 ? Formatter.DurationElapsedShort : Formatter.TimeValueTwentyFourHours)
@@ -64,8 +62,8 @@ Item {
         horizontalAlignment: Text.AlignRight
         anchors {
             right: parent.right
-            baseline: lblName.baseline
             rightMargin: Theme.horizontalPageMargin
+            baseline: lblName.baseline
         }
     }
 

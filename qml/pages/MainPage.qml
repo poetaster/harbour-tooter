@@ -6,6 +6,7 @@ import "./components/"
 
 Page {
     id: mainPage
+
     property bool isFirstPage: true
     property bool isTablet: true //Screen.sizeCategory >= Screen.Large
 
@@ -39,6 +40,7 @@ Page {
             height: parent.itemHeight
             onOpenDrawer:  infoPanel.open = setDrawer
         }
+
         MyList{
             id: tlNotifications;
             title: qsTr("Notifications")
@@ -49,6 +51,7 @@ Page {
             height: parent.itemHeight
             onOpenDrawer:  infoPanel.open = setDrawer
         }
+
         MyList{
             id: tlLocal;
             title: qsTr("Local")
@@ -59,6 +62,7 @@ Page {
             height: parent.itemHeight
             onOpenDrawer:  infoPanel.open = setDrawer
         }
+
         MyList{
             id: tlPublic;
             title: qsTr("Federated")
@@ -68,6 +72,7 @@ Page {
             height: parent.itemHeight
             onOpenDrawer:  infoPanel.open = setDrawer
         }
+
         Item {
             id: tlSearch;
             width: parent.itemWidth
@@ -84,6 +89,7 @@ Page {
                 id: loader
                 anchors.fill: parent
             }
+
             Column {
                 id: headerContainer
                 width: tlSearch.width
@@ -103,6 +109,7 @@ Page {
                     }
                 }
             }
+
             Component {
                 id: loading
                 BusyIndicator {
@@ -111,6 +118,7 @@ Page {
                     running: true
                 }
             }
+
             Component {
                 id: tagListComponent
                 MyList {
@@ -135,6 +143,7 @@ Page {
                     }
                 }
             }
+
             Component {
                 id: userListComponent
                 MyList {
@@ -172,9 +181,7 @@ Page {
                     }
                 }
             }
-
         }
-
     }
 
     SlideshowView {
@@ -187,12 +194,9 @@ Page {
         onCurrentIndexChanged: {
             navigation.slideshowIndexChanged(currentIndex)
         }
-
         anchors {
             fill: parent
-            leftMargin: 0
             top: parent.top
-            topMargin: 0
             rightMargin: mainPage.isPortrait ? 0 : infoPanel.visibleSize
             bottomMargin: mainPage.isPortrait ? infoPanel.visibleSize : 0
         }
@@ -209,11 +213,9 @@ Page {
         icon.source: "image://theme/icon-l-add"
         anchors {
             right: (mainPage.isPortrait ? parent.right : infoPanel.left)
+            rightMargin: Theme.paddingLarge
             bottom: (mainPage.isPortrait ? infoPanel.top : parent.bottom)
-            margins: {
-                left: Theme.paddingLarge
-                bottom: Theme.paddingLarge
-            }
+            bottomMargin: Theme.paddingLarge
         }
         onClicked: {
             pageStack.push(Qt.resolvedUrl("ConversationPage.qml"), {
@@ -242,6 +244,7 @@ Page {
             Qt.openUrlExternally(href);
         }
     }
+
     Component.onCompleted: {
         console.log("aaa")
     }

@@ -4,9 +4,11 @@ import Sailfish.Silica 1.0
 
 BackgroundItem {
     id: delegate
+
     signal openUser (string notice)
-    height: Theme.itemSizeMedium
+
     width: parent.width
+    height: Theme.itemSizeMedium
 
     Rectangle {
         id: avatar
@@ -23,6 +25,7 @@ BackgroundItem {
             anchors.fill: parent
             source: model.account_avatar
         }
+
         BusyIndicator {
             size: BusyIndicatorSize.Small
             opacity: img.status === Image.Ready ? 0.0 : 1.0
@@ -30,6 +33,7 @@ BackgroundItem {
             running: avatar.status !== Image.Ready;
             anchors.centerIn: parent
         }
+
         MouseArea {
             anchors.fill: parent
             onClicked: pageStack.push(Qt.resolvedUrl("./../ProfilePage.qml"), {

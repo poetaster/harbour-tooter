@@ -7,6 +7,7 @@ import QtGraphicalEffects 1.0
 
 Page {
     id: profilePage
+
     property ListModel tweets
     property string display_name: ""
     property string username: ""
@@ -141,27 +142,28 @@ Page {
             image: profileImage
             bg: profileBackground
         }
-        anchors {
-            top: parent.top
-            bottom: expander.top
-            left: parent.left
-            right: parent.right
-        }
         clip: true
         mdl: ListModel {}
         type: "accounts/"+user_id+"/statuses"
         vars: {}
         conf: Logic.conf
+        anchors {
+            top: parent.top
+            bottom: profileExpander.top
+            left: parent.left
+            right: parent.right
+        }
     }
 
     // ProfilePage ExpandingSection
     ExpandingSectionGroup {
-        id: expander
+        id: profileExpander
         anchors {
             bottom: parent.bottom
             left: parent.left
             right: parent.right
         }
+
         ExpandingSection {
             id: expandingSection1
             title: qsTr("About")
@@ -172,22 +174,23 @@ Page {
 
                 Rectangle {
                     id: txtContainer
-                    width: expander.width
+                    width: parent.width
                     height: Math.min(txtNote.height, parent.height*0.488)
                     color: "transparent"
                     visible: {
-                        if ((note.text === "") && (note.text === "<p></p>") ) {
+                        if ((note.text === "") || (note.text === "<p></p>") ) {
                             false
                         } else {
                             true
                         }
                     }
+
                     SilicaListView {
                         id: txtFlickable
-                        anchors.fill: txtContainer
+                        anchors.fill: parent
                         clip: true
                         quickScroll: false
-                        VerticalScrollDecorator { flickable: txtNote }
+                        VerticalScrollDecorator {}
 
                         Text {
                             id: txtNote
@@ -228,6 +231,7 @@ Page {
                     anchors.horizontalCenter: parent.horizontalCenter
                     anchors.leftMargin: Theme.paddingLarge
                     anchors.rightMargin: Theme.paddingLarge
+
                     Text {
                         id: txtFollowers
                         visible: followers_count ? true : false
@@ -236,6 +240,7 @@ Page {
                         color: Theme.highlightColor
                         wrapMode: Text.Wrap
                     }
+
                     Text {
                         id: txtFollowing
                         visible: following_count ? true : false
@@ -244,6 +249,7 @@ Page {
                         color: Theme.highlightColor
                         wrapMode: Text.Wrap
                     }
+
                     Text {
                         id: txtStatuses
                         visible: statuses_count ? true : false
@@ -252,6 +258,7 @@ Page {
                         color: Theme.highlightColor
                         wrapMode: Text.Wrap
                     }
+
                     /*Text {
                         id: txtFavourites
                         visible: favourites_count ? true : false
@@ -304,11 +311,12 @@ Page {
                             // to-do: create notification banner "Follow request sent!"
                         }
                     }
+
                     Button {
                         id: btnMute
                         preferredWidth: Theme.buttonWidthSmall
                         text: (muting ?  qsTr("Unmute") : qsTr("Mute"))
-                        color: (muting ? highlightColor : palette.primaryColor)
+                        color: (muting ? palette.errorColor : palette.primaryColor)
                         onClicked: {
                             var msg = {
                                 'method'    : 'POST',
@@ -319,6 +327,7 @@ Page {
                             worker.sendMessage(msg);
                         }
                     }
+
                     Button {
                         id: btnBlock
                         preferredWidth: Theme.buttonWidthSmall

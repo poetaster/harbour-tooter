@@ -43,10 +43,6 @@ Page {
 		}
 	}
 
-    InfoBanner {
-        id: sentBanner
-    }
-
 	ListModel {
 		id: mediaModel
 		onCountChanged: {
@@ -73,12 +69,14 @@ Page {
             title: headerTitle // pageTitle pushed from MainPage.qml or VisualContainer.qml
 		}
 		clip: true
-		anchors {
-			top: parent.top
-			bottom: panel.top
-			left: parent.left
-			right: parent.right
-		}
+        anchors.top: parent.top
+        anchors.left: parent.left
+        anchors.right: parent.right
+        anchors.bottom: if (panel.open == true) {
+                            panel.top
+                        } else {
+                            hiddenPanel.top
+                        }
 		model: mdl
 		section {
 			property: 'section'
@@ -100,12 +98,7 @@ Page {
 		}
 
         PullDownMenu {
-            visible: type == "reply" && toot_url != ""
-                    /* MenuItem {
-                        text: qsTr("Open in Browser")
-                        onClicked: Qt.openUrlExternally(toot_url);
-                    } */
-                    // ! url isn't always fetched. Needs a solution.
+            visible: type === "reply" && toot_url !== ""
                     MenuItem {
                         text: qsTr("Copy Link to Clipboard")
                         onClicked: Clipboard.text = toot_url;
@@ -121,16 +114,17 @@ Page {
 		anchors.right: panel.right
         anchors.top: parent.top
         height: implicitHeight
-        //height: suggestedModel.count > 6 ? Theme.itemSizeMedium * 6 : Theme.itemSizeMedium * suggestedModel.count
 		color: Theme.highlightDimmerColor
 
 		SilicaListView {
+            rotation: 180
 			anchors.fill: parent
 			model: suggestedModel
 			clip: true
             quickScroll: false
             VerticalScrollDecorator {}
 			delegate: ItemUser {
+                rotation: 180
 				onClicked: {
 					var start = toot.cursorPosition
 					while (toot.text[start] !== "@" && start > 0) {
@@ -149,24 +143,20 @@ Page {
 				}
 			}
 			onCountChanged: {
-				positionViewAtIndex(suggestedModel.count - 1, ListView.End)
+                positionViewAtBeginning(suggestedModel.count - 1, ListView.Beginning)
 			}
 		}
 	}
 
 	DockedPanel {
 		id: panel
-        open: true
-        //onExpandedChanged: {
-        //    if (!expanded) {
-        //        show()
-        //    }
-        //}
 		width: parent.width
         height: progressBar.height + toot.height + (mediaModel.count ? uploadedImages.height : 0)
 			+ btnContentWarning.height + Theme.paddingMedium
             + (warningContent.visible ? warningContent.height : 0)
         dock: Dock.Bottom
+        open: true
+        animationDuration: 200
 
         Rectangle {
 			width: parent.width
@@ -260,8 +250,12 @@ Page {
 		IconButton {
 			id: btnSmileys
             property string selection
-			onSelectionChanged: {
-                console.log(selection)
+            opacity: 0.7
+            icon {
+                color: Theme.highlightColor
+                width: Theme.iconSizeSmallPlus
+                fillMode: Image.PreserveAspectFit
+                source: "../../qml/images/emojiselect.svg"
             }
 			anchors {
                 top: warningContent.bottom
@@ -269,8 +263,9 @@ Page {
 				right: parent.right
 				rightMargin: Theme.paddingSmall
 			}
-            opacity: 0.6
-            icon.source: "../../qml/images/emojiselect.svg"
+            onSelectionChanged: {
+                console.log(selection)
+            }
             onClicked: pageStack.push(emojiSelect)
 		}
 
@@ -501,12 +496,12 @@ Page {
 	}
 
     BackgroundItem {
-        id: showPanel
+        id: hiddenPanel
         visible: !panel.open
-        height: Theme.paddingMedium
+        height: Theme.paddingLarge * 0.5
         width: parent.width
-        opacity: enabled ? 1.0 : 0.0
-        Behavior on opacity { FadeAnimator {} }
+        opacity: enabled ? 0.6 : 0.0
+        Behavior on opacity { FadeAnimator { duration: 400 } }
         anchors {
             horizontalCenter: parent.horizontalCenter
             bottom: parent.bottom
@@ -518,8 +513,18 @@ Page {
         }
 
         Rectangle {
+            id: hiddenPanelBackground
             width: parent.width
-            height: progressBarShowPanel.height
+            height: parent.height
+            color: Theme.highlightBackgroundColor
+            opacity: 0.4
+            anchors.fill: parent
+        }
+
+        Rectangle {
+            id: progressBarBackground
+            width: parent.width
+            height: progressBarHiddenPanel.height
             color: Theme.highlightBackgroundColor
             opacity: 0.2
             anchors {
@@ -530,19 +535,7 @@ Page {
         }
 
         Rectangle {
-            color: Theme.highlightBackgroundColor
-            opacity: 0.2
-            height: showPanel.height
-            width: showPanel.width
-            anchors {
-                horizontalCenter: parent.horizontalCenter
-                top: parent.top
-                bottom: parent.bottom
-            }
-        }
-
-        Rectangle {
-            id: progressBarShowPanel
+            id: progressBarHiddenPanel
             width: toot.text.length ? panel.width * (toot.text.length / tootMaxChar) : 0
             height: Theme.itemSizeSmall * 0.05
             color: Theme.highlightBackgroundColor
@@ -558,5 +551,9 @@ Page {
     EmojiSelect {
         id: emojiSelect
 	}
+
+    InfoBanner {
+        id: sentBanner
+    }
 
 }

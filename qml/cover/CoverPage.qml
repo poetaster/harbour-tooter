@@ -57,7 +57,6 @@ CoverBackground {
         horizontalAlignment: Image.AlignLeft
         verticalAlignment: Image.AlignBottom
         fillMode: Image.PreserveAspectFit
-
         source: "../images/tooter.svg"
     }
     Timer {
@@ -78,6 +77,7 @@ CoverBackground {
         }
         source: "image://theme/icon-s-alarm?" + Theme.highlightColor
     }
+
     Label {
         id: notificationsLbl
         anchors {
@@ -112,8 +112,11 @@ CoverBackground {
         CoverAction {
             iconSource: "image://theme/icon-cover-new"
             onTriggered: {
-                pageStack.push(Qt.resolvedUrl("./../pages/Conversation.qml"), {})
-                appWindow.activate();
+                pageStack.push(Qt.resolvedUrl("./../pages/ConversationPage.qml"), {
+                                   headerTitle: qsTr("New Toot"),
+                                   type: "new"
+                               })
+                appWindow.activate()
             }
         }
     }

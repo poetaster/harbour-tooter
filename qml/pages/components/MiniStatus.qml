@@ -9,6 +9,10 @@ Item {
     width: parent.width
     Image {
         id: icon
+        visible: type.length
+        width: Theme.iconSizeExtraSmall
+        height: width
+        source: typeof typeIcon !== "undefined" ? typeIcon : ""
         anchors {
             top: parent.top
             topMargin: Theme.paddingMedium
@@ -16,12 +20,8 @@ Item {
             left: parent.left
             leftMargin: Theme.horizontalPageMargin + Theme.iconSizeMedium - width
         }
-        visible: type.length
-        width: Theme.iconSizeExtraSmall
-        height: width
-        source: typeof typeIcon !== "undefined" ? typeIcon : ""
-
     }
+
     Label {
         id: lblRtByName
         visible: type.length
@@ -48,7 +48,6 @@ Item {
             }
             return typeof reblog_account_username !== "undefined" ? '@' + reblog_account_username + ' ' +  action : ''
         }
-
         font.pixelSize: Theme.fontSizeExtraSmall
         color: Theme.highlightColor
     }

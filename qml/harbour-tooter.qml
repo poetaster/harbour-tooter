@@ -47,7 +47,7 @@ ApplicationWindow {
                     Logic.conf['notificationLastID'] = 0
 
             if (Logic.conf['instance']) {
-                    Logic.api = new Logic.MastodonAPI({
+                    Logic.api = Logic.mastodonAPI({
                         "instance": Logic.conf['instance'],
                         "api_user_token": ""
                     })

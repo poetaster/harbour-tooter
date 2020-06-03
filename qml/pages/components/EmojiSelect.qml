@@ -4,6 +4,7 @@ import Sailfish.Silica 1.0
 
 Component {
     id: emojiComponent
+
     Dialog {
         id: emoticonsDialog
         canAccept: false //selector.currentIndex >= 0
@@ -13,20 +14,17 @@ Component {
                 // acceptDestinationInstance.category = selector.value
             }
         }
+
         SilicaGridView {
             id: gridView
-            anchors.fill: parent
-            //anchors.rightMargin: Theme.paddingLarge
-            //anchors.leftMargin: Theme.paddingLarge
-            cellWidth: gridView.width / 6
-            cellHeight: cellWidth
-            VerticalScrollDecorator {flickable: listEmojis }
             header: PageHeader {
                 title: qsTr("Emojis")
                 description: qsTr("Tap to insert")
             }
+            cellWidth: gridView.width / 6
+            cellHeight: cellWidth
+            anchors.fill: parent
             model: ListModel {
-                id: listEmojis
                 ListElement { section: "smileys"; glyph: "😁" }
                 ListElement { section: "smileys"; glyph: "😂" }
                 ListElement { section: "smileys"; glyph: "😃" }
@@ -142,11 +140,12 @@ Component {
             delegate: BackgroundItem {
                 width: gridView.cellWidth
                 height: gridView.cellHeight
+
                 Label {
-                    anchors.centerIn: parent
-                    color: (highlighted ? Theme.secondaryHighlightColor : Theme.secondaryColor)
-                    font.pixelSize: Theme.fontSizeLarge
                     text: glyph
+                    font.pixelSize: Theme.fontSizeLarge
+                    color: (highlighted ? Theme.secondaryHighlightColor : Theme.secondaryColor)
+                    anchors.centerIn: parent
                 }
                 onClicked: {
                     var cursorPosition = toot.cursorPosition
@@ -158,6 +157,8 @@ Component {
                     emoticonsDialog.accept()
                 }
             }
+
+            VerticalScrollDecorator {flickable: listEmojis }
         }
     }
 

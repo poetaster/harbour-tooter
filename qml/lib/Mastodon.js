@@ -3,7 +3,7 @@
 // do whatever you want with it
 // but please don't hurt it (and keep this header)
 
-var MastodonAPI = function(config) {
+var mastodonAPI = function(config) {
     var apiBase = config.instance + "/api/v1/";
     return {
         setConfig: function (key, value) {
@@ -236,7 +236,7 @@ var MastodonAPI = function(config) {
 };
 
 // node.js
-if (typeof module !== 'undefined') { module.exports = MastodonAPI; };
+if (typeof module !== 'undefined') { module.exports = mastodonAPI; };
 
 String.prototype.replaceAll = function(search, replacement) {
     var target = this;

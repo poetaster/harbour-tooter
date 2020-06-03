@@ -61,13 +61,7 @@ SilicaListView {
                 pageStack.push(Qt.resolvedUrl("../SettingsPage.qml"), {})
             }
         }
-        /* MenuItem {
-            text: qsTr("Open in Browser")
-            visible: profile_url != ""
-            onClicked: {
-                Clipboard.text = profile_url
-            }
-        } */
+
         MenuItem {
             text: qsTr("Load more")
             onClicked: {

@@ -4,28 +4,24 @@ import Sailfish.Silica 1.0
 
 DockedPanel {
     id: root
-    z: 100
+    dock: Dock.Top
     width: parent.width
     height: content.height
-    dock: Dock.Top
 
     Rectangle {
         id: content
-        width: root.width
-        height: infoLabel.height + 5*Theme.paddingMedium
-        //anchors.topMargin: 20
         color: Theme.highlightBackgroundColor
-        opacity: 1.0
+        width: root.width
+        height: infoLabel.height + 3*Theme.paddingMedium
 
         Label {
             id: infoLabel
             text : ""
-            color: Theme.primaryColor
             font.family: Theme.fontFamilyHeading
             font.pixelSize: Theme.fontSizeMedium
-            //font.weight: Font.Bold
-            width: parent.width
+            color: Theme.highlightColor
             wrapMode: Text.WrapAnywhere
+            width: parent.width
             anchors {
                 left: parent.left
                 leftMargin: Theme.horizontalPageMargin*2
@@ -34,6 +30,7 @@ DockedPanel {
                 verticalCenter: parent.verticalCenter
                 }
         }
+
         MouseArea {
             anchors.fill: parent
             onClicked: {

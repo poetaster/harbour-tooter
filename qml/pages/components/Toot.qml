@@ -26,6 +26,8 @@ BackgroundItem {
         visible: type.length
         anchors.left: lblName.left
         anchors.bottom: iconRT.bottom
+        font.pixelSize: Theme.fontSizeExtraSmall
+        color: Theme.secondaryColor
         text: {
             var action;
             switch(type){
@@ -43,8 +45,6 @@ BackgroundItem {
             }
             return '@' + retweetScreenName + ' ' +  action
         }
-        font.pixelSize: Theme.fontSizeExtraSmall
-        color: Theme.secondaryColor
     }
 
     Image {
@@ -116,12 +116,12 @@ BackgroundItem {
     }
 
     Label {
+        id: lblDate
         function timestamp() {
             var txt = Format.formatDate(created_at, Formatter.Timepoint)
             var elapsed = Format.formatDate(created_at, Formatter.DurationElapsedShort)
             return (elapsed ? elapsed  : txt )
         }
-        id: lblDate
         color: (pressed ? Theme.highlightColor : Theme.primaryColor)
         text: Format.formatDate(created_at, new Date() - created_at < 60*60*1000 ? Formatter.DurationElapsedShort : Formatter.TimeValueTwentyFourHours)
         font.pixelSize: Theme.fontSizeExtraSmall

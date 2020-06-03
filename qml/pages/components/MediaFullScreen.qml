@@ -4,12 +4,13 @@ import QtMultimedia 5.0
 
 
 FullscreenContentPage {
+    id: mediaPage
+    allowedOrientations: Orientation.All
+
     property string type: ""
     property string previewURL: ""
     property string mediaURL: ""
 
-    id: imagePage
-    allowedOrientations: Orientation.All
     Component.onCompleted: function(){
         console.log(type)
         console.log(previewURL)
@@ -29,8 +30,6 @@ FullscreenContentPage {
         id: videoFlickable
         visible: false
         anchors.fill: parent
-        contentWidth: imageContainer.width
-        contentHeight: imageContainer.height
         clip: true
 
         Image {
@@ -57,7 +56,6 @@ FullscreenContentPage {
                     return;
                 }
             }
-
             onPlaybackStateChanged: {
                 console.log(playbackState)
                 switch (playbackState){
@@ -72,7 +70,6 @@ FullscreenContentPage {
                     return;
                 }
             }
-
             onPositionChanged: function(){
                 //console.log(duration)
                 //console.log(bufferProgress)
@@ -84,17 +81,18 @@ FullscreenContentPage {
                     playerProgress.value = position
                 }
             }
-
             onStopped: function(){
                 stop()
             }
 
             IconButton {
                 id: playerIcon
-                anchors.left: parent.left
-                anchors.bottom: parent.bottom
-                anchors.leftMargin: Theme.paddingLarge
-                anchors.bottomMargin: Theme.paddingLarge*1.5
+                anchors {
+                    left: parent.left
+                    bottom: parent.bottom
+                    leftMargin: Theme.horizontalPageMargin
+                    bottomMargin: Theme.horizontalPageMargin
+                }
                 icon.source: "image://theme/icon-m-play"
                 onClicked: function() {
                     if (video.playbackState === MediaPlayer.PlayingState)
@@ -105,56 +103,47 @@ FullscreenContentPage {
             }
 
             ProgressBar {
-                indeterminate: true
                 id: playerProgress
-                anchors.left: playerIcon.right
-                anchors.right: videoDlBtn.left
-                anchors.verticalCenter: playerIcon.verticalCenter
-                anchors.leftMargin: 0
-                anchors.bottomMargin: Theme.paddingLarge*1.5
-            }
-
-            IconButton {
-                id: videoDlBtn
-                anchors.right: parent.right
-                anchors.bottom: parent.bottom
-                anchors.rightMargin: Theme.paddingLarge
-                anchors.bottomMargin: Theme.paddingLarge*1.5
-                icon.source: "image://theme/icon-m-cloud-download"
-                onClicked: {
-                    var filename = mediaURL.split("/");
-                    FileDownloader.downloadFile(mediaURL, filename[filename.length-1]);
+                indeterminate: true
+                width: 400
+                anchors {
+                    verticalCenter: playerIcon.verticalCenter
+                    left: playerIcon.right
+                    right: parent.right
+                    rightMargin: Theme.horizontalPageMargin + Theme.iconSizeMedium
+                    bottomMargin: Theme.horizontalPageMargin
                 }
-            }
 
-            Rectangle {
-                visible: videoError.text != ""
-                anchors.left: parent.left
-                anchors.right: parent.right
-                anchors.bottom: parent.bottom
-                color: Theme.highlightDimmerColor
-                height: videoError.height + 2*Theme.paddingMedium
-                width: parent.width
-                Label {
-                    anchors.centerIn: parent
-                    id: videoError
-                    width: parent.width - 2*Theme.paddingMedium
-                    wrapMode: Text.Wrap
-                    height: contentHeight
-                    visible: false;
-                    font.pixelSize: Theme.fontSizeSmall;
-                    text: video.errorString
-                    color: Theme.highlightColor
+                Rectangle {
+                    visible: videoError.text != ""
+                    anchors.left: parent.left
+                    anchors.right: parent.right
+                    anchors.bottom: parent.bottom
+                    color: Theme.highlightDimmerColor
+                    height: videoError.height + 2*Theme.paddingMedium
+                    width: parent.width
+
+                    Label {
+                        id: videoError
+                        visible: false
+                        text: video.errorString
+                        font.pixelSize: Theme.fontSizeSmall
+                        color: Theme.highlightColor
+                        wrapMode: Text.Wrap
+                        width: parent.width - 2*Theme.paddingMedium
+                        height: contentHeight
+                        anchors.centerIn: parent
+                    }
                 }
-            }
 
-            MouseArea {
-                anchors.fill: parent
-                onClicked: function() {
-                    if (video.playbackState === MediaPlayer.PlayingState)
-                        video.pause()
-                    else
-                        video.play()
+                MouseArea {
+                    anchors.fill: parent
+                    onClicked: function() {
+                        if (video.playbackState === MediaPlayer.PlayingState)
+                            video.pause()
+                        else
+                            video.play()
+                    }
                 }
             }
         }
@@ -163,11 +152,12 @@ FullscreenContentPage {
     Flickable {
         id: imageFlickable
         visible: false
-        anchors.fill: parent
-        contentWidth: imageContainer.width
-        contentHeight: imageContainer.height
+        contentWidth: imageContainer.width; contentHeight: imageContainer.height
         clip: true
-        onHeightChanged: if (imagePreview.status === Image.Ready) imagePreview.fitToScreen();
+        anchors.fill: parent
+        onHeightChanged: if (imagePreview.status === Image.Ready) {
+                             imagePreview.fitToScreen()
+                         }
 
         Item {
             id: imageContainer
@@ -176,32 +166,26 @@ FullscreenContentPage {
 
             Image {
                 id: imagePreview
+
                 property real prevScale
+
                 function fitToScreen() {
-                    scale = Math.min(imageFlickable.width / width, imageFlickable.height / height, 1)
+                    scale = Math.min(imageFlickable.width / width, imageFlickable.height / height, imageFlickable.width, imageFlickable.height)
                     pinchArea.minScale = scale
                     prevScale = scale
                 }
-                anchors.centerIn: parent
+
                 fillMode: Image.PreserveAspectFit
                 cache: true
                 asynchronous: true
-                sourceSize.height: 2000;
-                smooth: true // might slower performance
+                sourceSize.width:  mediaPage.width
+                smooth: false
+                anchors.centerIn: parent
                 onStatusChanged: {
                     if (status == Image.Ready) {
                         fitToScreen()
                         loadedAnimation.start()
                     }
-                }
-
-                NumberAnimation {
-                    id: loadedAnimation
-                    target: imagePreview
-                    property: "opacity"
-                    duration: 250
-                    from: 0; to: 1
-                    easing.type: Easing.InOutQuad
                 }
 
                 onScaleChanged: {
@@ -215,19 +199,30 @@ FullscreenContentPage {
                     }
                     prevScale = scale
                 }
+
+                NumberAnimation {
+                    id: loadedAnimation
+                    target: imagePreview
+                    property: "opacity"
+                    duration: 250
+                    from: 0; to: 1
+                    easing.type: Easing.InOutQuad
+                }
             }
         }
 
         PinchArea {
             id: pinchArea
             opacity: 0.3
+
             property real minScale: 1.0
             property real maxScale: 3.0
+
             anchors.fill: parent
             enabled: imagePreview.status === Image.Ready
             pinch.target: imagePreview
             pinch.minimumScale: minScale * 0.5 // This is to create "bounce back effect"
-            pinch.maximumScale: maxScale * 1.5 // when over zoomed
+            pinch.maximumScale: maxScale * 1.5 // when over zoomed}
 
             onPinchFinished: {
                 imageFlickable.returnToBounds()
@@ -249,67 +244,74 @@ FullscreenContentPage {
                 from: imagePreview.scale
             }
         }
-    }
 
-    Loader {
-        anchors.centerIn: parent
-        sourceComponent: {
-            switch (imagePreview.status) {
-            case Image.Loading:
-                return loadingIndicator
-            case Image.Error:
-                return failedLoading
-            default:
-                return undefined
+        Loader {
+            anchors.centerIn: parent
+            sourceComponent: {
+                switch (imagePreview.status) {
+                case Image.Loading:
+                    return loadingIndicator
+                case Image.Error:
+                    return failedLoading
+                default:
+                    return undefined
+                }
             }
-        }
 
-        Component {
-            id: loadingIndicator
+            Component {
+                id: loadingIndicator
+                Item {
+                    width: mediaPage.width
+                    height: childrenRect.height
 
-            Item {
-                height: childrenRect.height
-                width: imagePage.width
+                    ProgressCircle {
+                        id: imageLoadingIndicator
+                        progressValue: imagePreview.progress
+                        progressColor: inAlternateCycle ? Theme.highlightColor : Theme.highlightDimmerColor
+                        backgroundColor: inAlternateCycle ? Theme.highlightDimmerColor : Theme.highlightColor
+                        anchors.horizontalCenter: parent.horizontalCenter
+                    }
+                }
+            }
 
-                ProgressCircle {
-                    id: imageLoadingIndicator
-                    progressColor: inAlternateCycle ? Theme.highlightColor : Theme.highlightDimmerColor
-                    backgroundColor: inAlternateCycle ? Theme.highlightDimmerColor : Theme.highlightColor
-                    anchors.horizontalCenter: parent.horizontalCenter
-                    progressValue: imagePreview.progress
+            Component {
+                id: failedLoading
+                Text {
+                    text: qsTr("Error loading")
+                    font.pixelSize: Theme.fontSizeSmall;
+                    color: Theme.highlightColor
                 }
             }
         }
-    }
 
-    Component {
-        id: failedLoading
-        Text {
-            font.pixelSize: Theme.fontSizeSmall;
-            text: qsTr("Error loading")
-            color: Theme.highlightColor
-        }
+        VerticalScrollDecorator { flickable: imageFlickable }
     }
 
     IconButton {
-        y: Theme.paddingLarge
-        anchors.right: parent.right
-        anchors.rightMargin: Theme.horizontalPageMargin
+        id: dismissBtn
         icon.source: "image://theme/icon-m-dismiss"
+        anchors {
+            top: parent.top
+            topMargin: Theme.horizontalPageMargin
+            right: parent.right
+            rightMargin: Theme.horizontalPageMargin
+        }
         onClicked: pageStack.pop()
     }
 
     IconButton {
-        anchors.right: parent.right
-        anchors.bottom: parent.bottom
-        anchors.rightMargin: Theme.paddingLarge
-        anchors.bottomMargin: Theme.paddingLarge*1.5
+        id: mediaDlBtn
+        anchors {
+            right: parent.right
+            rightMargin: Theme.horizontalPageMargin
+            bottom: parent.bottom
+            bottomMargin: Theme.horizontalPageMargin
+        }
         icon.source: "image://theme/icon-m-cloud-download"
         onClicked: {
             var filename = mediaURL.split("/");
             FileDownloader.downloadFile(mediaURL, filename[filename.length-1]);
         }
     }
-
-    VerticalScrollDecorator { flickable: imageFlickable }
 }
+

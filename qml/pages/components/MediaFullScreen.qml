@@ -114,6 +114,16 @@ FullscreenContentPage {
                     bottomMargin: Theme.horizontalPageMargin
                 }
 
+                MouseArea {
+                    anchors.fill: parent
+                    onClicked: function() {
+                        if (video.playbackState === MediaPlayer.PlayingState)
+                            video.pause()
+                        else
+                            video.play()
+                    }
+                }
+
                 Rectangle {
                     visible: videoError.text != ""
                     anchors.left: parent.left
@@ -136,15 +146,6 @@ FullscreenContentPage {
                     }
                 }
 
-                MouseArea {
-                    anchors.fill: parent
-                    onClicked: function() {
-                        if (video.playbackState === MediaPlayer.PlayingState)
-                            video.pause()
-                        else
-                            video.play()
-                    }
-                }
             }
         }
     }
@@ -152,7 +153,8 @@ FullscreenContentPage {
     Flickable {
         id: imageFlickable
         visible: false
-        contentWidth: imageContainer.width; contentHeight: imageContainer.height
+        contentWidth: imageContainer.width
+        contentHeight: imageContainer.height
         clip: true
         anchors.fill: parent
         onHeightChanged: if (imagePreview.status === Image.Ready) {
@@ -178,8 +180,8 @@ FullscreenContentPage {
                 fillMode: Image.PreserveAspectFit
                 cache: true
                 asynchronous: true
-                sourceSize.width:  mediaPage.width
-                smooth: false
+                sourceSize.width: mediaPage.width
+                smooth: true
                 anchors.centerIn: parent
                 onStatusChanged: {
                     if (status == Image.Ready) {
@@ -197,7 +199,6 @@ FullscreenContentPage {
                         var yoff = (imageFlickable.height / 2 + imageFlickable.contentY) * scale / prevScale;
                         imageFlickable.contentY = yoff - imageFlickable.height / 2
                     }
-                    prevScale = scale
                 }
 
                 NumberAnimation {

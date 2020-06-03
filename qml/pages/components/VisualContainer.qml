@@ -153,7 +153,7 @@ BackgroundItem {
             }
         }
         text: content.replace(new RegExp("<a ", 'g'), '<a style="text-decoration: none; color:'+(pressed ?  Theme.secondaryColor : Theme.highlightColor)+'" ')
-        linkColor : Theme.highlightColor
+        linkColor: Theme.highlightColor
         wrapMode: Text.Wrap
         textFormat: Text.RichText
         font.pixelSize: Theme.fontSizeSmall
@@ -201,7 +201,7 @@ BackgroundItem {
             bottomMargin: Theme.paddingLarge
         }
         model: typeof attachments !== "undefined" ? attachments : Qt.createQmlObject('import QtQuick 2.0; ListModel {   }', Qt.application, 'InternalQmlObject');
-        height: 100
+        height: Theme.iconSizeExtraLarge * 2
     }
 
     ContextMenu {

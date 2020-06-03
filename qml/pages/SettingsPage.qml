@@ -38,17 +38,6 @@ Page {
                 }
             }
 
-            IconTextSwitch {
-                text: qsTr("Use smaller Font Size in Toots")
-                description: qsTr("Enable this option if you prefer to use a smaller font size in displayed Toots")
-                icon.source: "image://theme/icon-m-font-size"
-                enabled: false
-                //checked: typeof Logic.conf['loadImages'] !== "undefined" && Logic.conf['loadImages']
-                //onClicked: {
-                //    Logic.conf['loadImages'] = checked
-                //}
-            }
-
             SectionHeader { text: "Account"}
 
             Item {
@@ -82,6 +71,7 @@ Page {
                     Button {
                         id: btnRemoveAccount
                         text: Logic.conf['login'] ? qsTr("Remove Account") : qsTr("Add Account")
+                        width: Theme.buttonWidthMedium
                         anchors.horizontalCenter: parent.horizontalCenter
                         onClicked: {
                             remorsePopup.execute(btnRemoveAccount.text, function() {

@@ -175,7 +175,7 @@ Page {
                 Rectangle {
                     id: txtContainer
                     width: parent.width
-                    height: Math.min(txtNote.height, parent.height*0.488)
+                    height: Math.min(txtNote.height, parent.height*0.5)
                     color: "transparent"
                     visible: {
                         if ((note.text === "") || (note.text === "<p></p>") ) {
@@ -185,9 +185,13 @@ Page {
                         }
                     }
 
-                    SilicaListView {
+                    SilicaFlickable {
                         id: txtFlickable
                         anchors.fill: parent
+                        contentWidth: parent.width
+                        contentHeight: txtNote.height
+                        anchors.topMargin: Theme.paddingMedium
+                        anchors.bottomMargin: Theme.paddingMedium
                         clip: true
                         quickScroll: false
                         VerticalScrollDecorator {}
@@ -229,6 +233,7 @@ Page {
                     id: statsRow
                     spacing: Theme.paddingLarge
                     anchors.horizontalCenter: parent.horizontalCenter
+                    anchors.topMargin: Theme.paddingMedium
                     anchors.leftMargin: Theme.paddingLarge
                     anchors.rightMargin: Theme.paddingLarge
 

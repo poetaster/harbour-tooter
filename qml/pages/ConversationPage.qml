@@ -7,6 +7,7 @@ import "./components/"
 
 Page {
 	id: conversationPage
+
     property string headerTitle: ""
     property string type
     property alias title: header.title
@@ -18,6 +19,7 @@ Page {
     property string toot_url: ""
     property int tootMaxChar: 500;
 	property ListModel mdl
+
 	allowedOrientations: Orientation.All
 	onSuggestedUserChanged: {
 		console.log(suggestedUser)
@@ -101,7 +103,7 @@ Page {
             visible: type === "reply" && toot_url !== ""
                     MenuItem {
                         text: qsTr("Copy Link to Clipboard")
-                        onClicked: Clipboard.text = toot_url;
+                        onClicked: Clipboard.text = toot_url
                     }
                 }
 	}
@@ -109,16 +111,21 @@ Page {
 	Rectangle {
 		id: predictionList
 		visible: false
-		anchors.bottom: panel.top
-		anchors.left: parent.left
-		anchors.right: panel.right
-        anchors.top: parent.top
-        height: implicitHeight
-		color: Theme.highlightDimmerColor
+        color: Theme.highlightDimmerColor
+        height: parent.height - panel.height - (Theme.paddingLarge * 4.5)
+        anchors {
+            left: panel.left
+            right: panel.right
+            bottom: if (panel.open == true) {
+                        panel.top
+                    } else {
+                        hiddenPanel.top
+                    }
+        }
 
-		SilicaListView {
+        SilicaListView {
             rotation: 180
-			anchors.fill: parent
+            anchors.fill: parent
 			model: suggestedModel
 			clip: true
             quickScroll: false

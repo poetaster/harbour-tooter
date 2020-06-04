@@ -5,13 +5,16 @@ import "../../lib/API.js" as Logic
 
 BackgroundItem {
     id: delegate
+
     signal send (string notice)
     signal navigateTo(string link)
+
     width: parent.width
     height: mnu.height +  miniHeader.height + (typeof attachments !== "undefined" && attachments.count ? media.height + Theme.paddingLarge + Theme.paddingMedium: Theme.paddingLarge) + lblContent.height + Theme.paddingLarge + (miniStatus.visible ? miniStatus.height : 0)
+
     Rectangle {
-        x: 0;
-        y: 0;
+        x: 0
+        y: 0
         visible: status_visibility == 'direct'
         width: parent.width
         height: parent.height
@@ -31,20 +34,20 @@ BackgroundItem {
 
     Image {
         id: avatar
+        visible: true
+        opacity: status === Image.Ready ? 1.0 : 0.0
+        Behavior on opacity { FadeAnimator {} }
+        asynchronous: true
+        smooth: true
+        source: account_avatar
+        width: Theme.iconSizeMedium
+        height: width
         anchors {
             top: miniStatus.visible ? miniStatus.bottom : parent.top
             topMargin: miniStatus.visible ? Theme.paddingMedium : Theme.paddingLarge
             left: parent.left
             leftMargin: Theme.horizontalPageMargin
         }
-        opacity: status === Image.Ready ? 1.0 : 0.0
-        Behavior on opacity { FadeAnimator {} }
-        asynchronous: true
-        width: Theme.iconSizeMedium
-        height: width
-        smooth: true
-        source: account_avatar
-        visible: true
         onStatusChanged: {
             if (avatar.status === Image.Error)
                 source = "../../images/icon-m-profile.svg?" + (pressed
@@ -63,20 +66,19 @@ BackgroundItem {
                                    "profileBackground": model.account_header
                                })
             }
-
         }
 
         Image {
             id: iconTR
+            visible: typeof status_reblogged !== "undefined" && status_reblogged
+            width: Theme.iconSizeExtraSmall
+            height: width
+            source: "image://theme/icon-s-retweet"
             anchors {
                 top: avatar.bottom
                 topMargin: Theme.paddingMedium
                 left: avatar.left
             }
-            visible: typeof status_reblogged !== "undefined" && status_reblogged
-            width: Theme.iconSizeExtraSmall
-            height: width
-            source: "image://theme/icon-s-retweet"
         }
 
         Rectangle {
@@ -90,15 +92,16 @@ BackgroundItem {
                 left: parent.left
                 leftMargin: -width/3
             }
+
             Image {
                 asynchronous: true
-                width: Theme.iconSizeSmall
-                height: width
                 smooth: true
                 opacity: status === Image.Ready ? 1.0 : 0.0
                 Behavior on opacity { FadeAnimator {} }
                 source: typeof reblog_account_avatar !== "undefined" ? reblog_account_avatar : ''
                 visible: typeof status_reblog !== "undefined" && status_reblog
+                width: Theme.iconSizeSmall
+                height: width
             }
         }
     }
@@ -114,6 +117,13 @@ BackgroundItem {
 
     Text  {
         id: lblContent
+        text: content.replace(new RegExp("<a ", 'g'), '<a style="text-decoration: none; color:'+(pressed ?  Theme.secondaryColor : Theme.highlightColor)+'" ')
+        textFormat: Text.RichText
+        font.pixelSize: Theme.fontSizeSmall
+        linkColor: Theme.highlightColor
+        wrapMode: Text.Wrap
+        color: (pressed ? Theme.highlightColor : (!highlight ? Theme.primaryColor : Theme.secondaryColor))
+        height: content.length ? (contentWarningLabel.paintedHeight > paintedHeight ? contentWarningLabel.paintedHeight : paintedHeight) : 0
         anchors {
             left: miniHeader.left
             leftMargin: Theme.paddingMedium
@@ -123,7 +133,6 @@ BackgroundItem {
             topMargin: Theme.paddingSmall
             bottomMargin: Theme.paddingLarge
         }
-        height: content.length ? (contentWarningLabel.paintedHeight > paintedHeight ? contentWarningLabel.paintedHeight : paintedHeight) : 0
         onLinkActivated: {
             var test = link.split("/")
             console.log(link)
@@ -139,34 +148,32 @@ BackgroundItem {
                 }));
                 send(link)
             } else if (test.length === 4 && test[3][0] === "@" ) {
-                tlSearch.search = decodeURIComponent("@"+test[3].substring(1)+"@"+test[2])
-                slideshow.positionViewAtIndex(4, ListView.SnapToItem)
-                navigation.navigateTo('search')
-            // Original component
-            /*   pageStack.push(Qt.resolvedUrl("../Profile.qml"), {
-                                   "name": "",
-                                   "username": test[3].substring(1)+"@"+test[2],
-                                   "profileImage": ""
-                               }) */
+                pageStack.pop(pageStack.find(function(page) {
+                    var check = page.isFirstPage === true;
+                    if (check)
+                        page.onLinkActivated(link)
+                    return check;
+                }));
             } else {
                 Qt.openUrlExternally(link);
             }
         }
-        text: content.replace(new RegExp("<a ", 'g'), '<a style="text-decoration: none; color:'+(pressed ?  Theme.secondaryColor : Theme.highlightColor)+'" ')
-        linkColor: Theme.highlightColor
-        wrapMode: Text.Wrap
-        textFormat: Text.RichText
-        font.pixelSize: Theme.fontSizeSmall
-        color: (pressed ? Theme.highlightColor : (!highlight ? Theme.primaryColor : Theme.secondaryColor))
+
         Rectangle {
-            anchors.fill: parent
             radius: 2
             color: Theme.highlightDimmerColor
             visible: status_spoiler_text.length > 0
+            anchors.fill: parent
+
             Label {
                 id: contentWarningLabel
+                text: model.status_spoiler_text
                 font.pixelSize: Theme.fontSizeExtraSmall
+                color: Theme.highlightColor
+                truncationMode: TruncationMode.Fade
+                wrapMode: Text.Wrap
                 horizontalAlignment: Text.AlignHCenter
+                width: parent.width
                 anchors {
                     topMargin: Theme.paddingSmall
                     left: parent.left
@@ -176,16 +183,11 @@ BackgroundItem {
                     rightMargin: Theme.paddingMedium
                     bottomMargin: Theme.paddingSmall
                 }
-                width: parent.width
-                truncationMode: TruncationMode.Fade
-                color: Theme.highlightColor
-                wrapMode: Text.Wrap
-                text: model.status_spoiler_text
             }
 
             MouseArea {
                 anchors.fill: parent
-                onClicked: parent.visible = false;
+                onClicked: parent.visible = false
             }
 
         }
@@ -193,6 +195,8 @@ BackgroundItem {
 
     MediaBlock {
         id: media
+        model: typeof attachments !== "undefined" ? attachments : Qt.createQmlObject('import QtQuick 2.0; ListModel {   }', Qt.application, 'InternalQmlObject');
+        height: Theme.iconSizeExtraLarge * 2
         anchors {
             left: lblContent.left
             right: lblContent.right
@@ -200,12 +204,11 @@ BackgroundItem {
             topMargin: Theme.paddingSmall
             bottomMargin: Theme.paddingLarge
         }
-        model: typeof attachments !== "undefined" ? attachments : Qt.createQmlObject('import QtQuick 2.0; ListModel {   }', Qt.application, 'InternalQmlObject');
-        height: Theme.iconSizeExtraLarge * 2
     }
 
     ContextMenu {
         id: mnu
+
         MenuItem {
             enabled: model.type !== "follow"
             text: typeof model.reblogged !== "undefined" && model.reblogged ? qsTr("Unboost") : qsTr("Boost")
@@ -221,27 +224,28 @@ BackgroundItem {
                 model.reblogs_count = !status ? model.reblogs_count+1 : (model.reblogs_count > 0 ? model.reblogs_count-1 : model.reblogs_count);
                 model.reblogged = !model.reblogged
             }
+
             Image {
                 id: icRT
+                source: "image://theme/icon-s-retweet?" + (!model.reblogged ? Theme.highlightColor : Theme.primaryColor)
+                width: Theme.iconSizeExtraSmall
+                height: width
                 anchors {
                     leftMargin: Theme.horizontalPageMargin
                     left: parent.left
                     verticalCenter: parent.verticalCenter
                 }
-                width: Theme.iconSizeExtraSmall
-                height: width
-                source: "image://theme/icon-s-retweet?" + (!model.reblogged ? Theme.highlightColor : Theme.primaryColor)
             }
 
             Label {
+                text: reblogs_count
+                font.pixelSize: Theme.fontSizeExtraSmall
+                color: !model.reblogged ? Theme.highlightColor : Theme.primaryColor
                 anchors {
                     left: icRT.right
                     leftMargin: Theme.paddingMedium
                     verticalCenter: parent.verticalCenter
                 }
-                text: reblogs_count
-                font.pixelSize: Theme.fontSizeExtraSmall
-                color: !model.reblogged ? Theme.highlightColor : Theme.primaryColor
             }
         }
 
@@ -274,14 +278,14 @@ BackgroundItem {
             }
 
             Label {
+                text: favourites_count
+                font.pixelSize: Theme.fontSizeExtraSmall
+                color: !model.favourited ? Theme.highlightColor : Theme.primaryColor
                 anchors {
                     left: icFA.right
                     leftMargin: Theme.paddingMedium
                     verticalCenter: parent.verticalCenter
                 }
-                text: favourites_count
-                font.pixelSize: Theme.fontSizeExtraSmall
-                color: !model.favourited ? Theme.highlightColor : Theme.primaryColor
             }
         }
     }

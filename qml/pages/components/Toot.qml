@@ -11,6 +11,7 @@ BackgroundItem {
     //property string text: "0"
     width: parent.width
     height: lblText.paintedHeight + (lblText.text.length > 0 ? Theme.paddingLarge : 0 )+ lblName.paintedHeight + (type.length ? Theme.paddingLarge + iconRT.height : 0) + Theme.paddingLarge
+
     Image {
         id: iconRT
         y: Theme.paddingLarge
@@ -67,7 +68,6 @@ BackgroundItem {
                                })
             }
         }
-
     }
 
     Label {
@@ -86,33 +86,33 @@ BackgroundItem {
 
     Image {
         id: iconVerified
+        visible: account_locked
         y: Theme.paddingLarge
+        opacity: 0.8
+        source: "image://theme/icon-s-secure?" + (pressed
+                                                  ? Theme.highlightColor
+                                                  : Theme.primaryColor)
+        width: account_locked ? Theme.iconSizeExtraSmall*0.8 : 0
+        height: width
         anchors {
             left: lblName.right
             leftMargin: Theme.paddingSmall
             verticalCenter: lblName.verticalCenter
         }
-        visible: account_locked
-        width: account_locked ? Theme.iconSizeExtraSmall*0.8 : 0
-        opacity: 0.8
-        height: width
-        source: "image://theme/icon-s-secure?" + (pressed
-                                                  ? Theme.highlightColor
-                                                  : Theme.primaryColor)
     }
 
     Label {
         id: lblScreenName
+        truncationMode: TruncationMode.Fade
+        text: '@'+account_username
+        font.pixelSize: Theme.fontSizeExtraSmall
+        color: (pressed ? Theme.secondaryHighlightColor : Theme.secondaryColor)
         anchors {
             left: iconVerified.right
             right: lblDate.left
             leftMargin: Theme.paddingMedium
             baseline: lblName.baseline
         }
-        truncationMode: TruncationMode.Fade
-        text: '@'+account_username
-        font.pixelSize: Theme.fontSizeExtraSmall
-        color: (pressed ? Theme.secondaryHighlightColor : Theme.secondaryColor)
     }
 
     Label {
@@ -122,9 +122,9 @@ BackgroundItem {
             var elapsed = Format.formatDate(created_at, Formatter.DurationElapsedShort)
             return (elapsed ? elapsed  : txt )
         }
-        color: (pressed ? Theme.highlightColor : Theme.primaryColor)
         text: Format.formatDate(created_at, new Date() - created_at < 60*60*1000 ? Formatter.DurationElapsedShort : Formatter.TimeValueTwentyFourHours)
         font.pixelSize: Theme.fontSizeExtraSmall
+        color: (pressed ? Theme.highlightColor : Theme.primaryColor)
         horizontalAlignment: Text.AlignRight
         anchors {
             right: parent.right
@@ -135,13 +135,6 @@ BackgroundItem {
 
     Text {
         id: lblText
-        anchors {
-            left: lblName.left
-            right: parent.right
-            top: lblScreenName.bottom
-            topMargin: Theme.paddingSmall
-            rightMargin: Theme.paddingLarge          
-        }
         height: content.length ? paintedHeight : 0
         onLinkActivated: {
             console.log(link)
@@ -165,12 +158,20 @@ BackgroundItem {
         }
         text: content
         textFormat: Text.RichText
+        font.pixelSize: Theme.fontSizeSmall
+        color: (pressed ? Theme.highlightColor : Theme.primaryColor)
         linkColor : Theme.highlightColor
         wrapMode: Text.Wrap
         maximumLineCount: 6
-        font.pixelSize: Theme.fontSizeSmall
-        color: (pressed ? Theme.highlightColor : Theme.primaryColor)
+        anchors {
+            left: lblName.left
+            right: parent.right
+            top: lblScreenName.bottom
+            topMargin: Theme.paddingSmall
+            rightMargin: Theme.paddingLarge
+        }
     }
+
     onClicked: {
         pageStack.push(Qt.resolvedUrl("../ConversationPage.qml"), {
                            headerTitle: "Conversation",

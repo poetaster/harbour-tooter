@@ -1,8 +1,8 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
+import QtGraphicalEffects 1.0
 import "../lib/API.js" as Logic
 import "./components/"
-import QtGraphicalEffects 1.0
 
 
 Page {
@@ -12,6 +12,9 @@ Page {
     property string display_name: ""
     property string username: ""
     property string profileImage: ""
+    property string profileBackground: ""
+    property string note: ""
+    property string url: ""
     property int user_id
     property int statuses_count
     property int following_count
@@ -19,17 +22,14 @@ Page {
     property int favourites_count
     property int reblogs_count
     property int count_moments
-    property string profileBackground: ""
-    property string note: ""
-    property string url: ""
     property bool locked: false
-    property date created_at
     property bool following: false
     property bool requested: false
     property bool followed_by: false
     property bool blocking: false
     property bool muting: false
     property bool domain_blocking: false
+    property date created_at
 
     WorkerScript {
         id: worker
@@ -106,6 +106,7 @@ Page {
             }
         }
     }
+
     // The effective value will be restricted by ApplicationWindow.allowedOrientations
     allowedOrientations: Orientation.All
     Component.onCompleted: {
@@ -155,8 +156,7 @@ Page {
         }
     }
 
-    // ProfilePage ExpandingSection
-    ExpandingSectionGroup {
+    ExpandingSectionGroup {  // ProfilePage ExpandingSection
         id: profileExpander
         anchors {
             bottom: parent.bottom
@@ -168,17 +168,16 @@ Page {
             id: expandingSection1
             title: qsTr("About")
             content.sourceComponent: Column {
-                height: Math.min(txtContainer, parent.height*0.7)
-                spacing: Theme.paddingSmall
-                anchors.bottomMargin: Theme.paddingLarge
+                height: Math.min( txtContainer, parent.height * 0.7 )
+                spacing: Theme.paddingLarge
 
-                Rectangle {
+                Item {
                     id: txtContainer
                     width: parent.width
-                    height: Math.min(txtNote.height, parent.height*0.5)
-                    color: "transparent"
+                    height: Math.min( txtNote.height, parent.height * 0.55 )
+                    //color: "transparent"
                     visible: {
-                        if ((note.text === "") || (note.text === "<p></p>") ) {
+                        if ((note.text === "") || ( note.text === "<p></p>" )) {
                             false
                         } else {
                             true
@@ -187,23 +186,21 @@ Page {
 
                     SilicaFlickable {
                         id: txtFlickable
-                        anchors.fill: parent
                         contentWidth: parent.width
                         contentHeight: txtNote.height
-                        anchors.topMargin: Theme.paddingMedium
-                        anchors.bottomMargin: Theme.paddingMedium
+                        anchors.fill: parent
                         clip: true
-                        quickScroll: false
+
                         VerticalScrollDecorator {}
 
-                        Text {
+                        Label {
                             id: txtNote
                             text: note
                             textFormat: Text.StyledText
-                            wrapMode: Text.Wrap
-                            font.pixelSize: Theme.fontSizeExtraSmall
                             color: Theme.secondaryColor
+                            font.pixelSize: Theme.fontSizeExtraSmall
                             linkColor: Theme.highlightColor
+                            wrapMode: Text.Wrap
                             width: parent.width - ( 2 * Theme.horizontalPageMargin )
                             anchors.horizontalCenter: parent.horizontalCenter
                             onLinkActivated: {
@@ -219,8 +216,13 @@ Page {
                                         return check;
                                     }));
                                     send(link)
-                                    /*  Function still missing for user accounts */
-                                    //  } else if (test.length === 4 && test[3][0] === "@" ) {
+                                } else if (test.length === 4 && test[3][0] === "@" ) {
+                                    pageStack.pop(pageStack.find(function(page) {
+                                        var check = page.isFirstPage === true;
+                                        if (check)
+                                            page.onLinkActivated(link)
+                                        return check;
+                                    }));
                                 } else {
                                     Qt.openUrlExternally(link);
                                 }
@@ -229,11 +231,14 @@ Page {
                     }
                 }
 
+                Item {  // dummy item for spacing
+                    height: Theme.paddingSmall
+                }
+
                 Row {
                     id: statsRow
                     spacing: Theme.paddingLarge
                     anchors.horizontalCenter: parent.horizontalCenter
-                    anchors.topMargin: Theme.paddingMedium
                     anchors.leftMargin: Theme.paddingLarge
                     anchors.rightMargin: Theme.paddingLarge
 
@@ -274,15 +279,8 @@ Page {
                     } */
                 }
 
-                Label {
-                    id: separatorLabel1
-                    x: Theme.horizontalPageMargin
-                    width: parent.width  - ( 2 * Theme.horizontalPageMargin )
-                    font.pixelSize: Theme.fontSizeExtraSmall
-                    wrapMode: Text.Wrap
-                    anchors {
-                        horizontalCenter: parent.horizontalCenter
-                    }
+                Item {  // dummy item for spacing
+                    height: Theme.paddingSmall
                 }
 
                 ButtonLayout {
@@ -350,39 +348,23 @@ Page {
                     }
                 }
 
-                Separator {
-                    id: btnSeparator
-                    width: parent.width
-                    height: Theme.paddingMedium
-                    color: Theme.primaryColor
-                    opacity: 0.0
-                    horizontalAlignment: Qt.AlignHCenter
-                }
-
                 Button {
                     id: btnBrowser
                     text: qsTr("Open in Browser")
                     preferredWidth: Theme.buttonWidthMedium
-                    anchors {
-                        horizontalCenter: parent.horizontalCenter
-                    }
+                    anchors.horizontalCenter: parent.horizontalCenter
                     onClicked: {
-                        Qt.openUrlExternally(url);
+                        Qt.openUrlExternally(url)
                     }
                 }
 
-                Label {
-                    id: separatorLabel2
-                    x: Theme.horizontalPageMargin
-                    width: parent.width  - ( 2 * Theme.horizontalPageMargin )
-                    font.pixelSize: Theme.fontSizeExtraSmall
-                    wrapMode: Text.Wrap
-                    anchors {
-                        horizontalCenter: parent.horizontalCenter
-                    }
+                Rectangle { // dummy item for spacing
+                    height: Theme.paddingSmall
+                    width: parent.width
+                    opacity: 0
                 }
-
             }
         }
     }
+
 }

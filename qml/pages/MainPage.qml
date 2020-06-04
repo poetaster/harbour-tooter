@@ -74,11 +74,13 @@ Page {
         }
 
         Item {
-            id: tlSearch;
+            id: tlSearch
+
+            property ListModel mdl: ListModel {}
+            property string search
+
             width: parent.itemWidth
             height: parent.itemHeight
-            property ListModel mdl: ListModel {}
-            property string search;
             onSearchChanged: {
                 console.log(search)
                 loader.sourceComponent = loading
@@ -241,7 +243,7 @@ Page {
             navigation.navigateTo('search')
 
         } else {
-            Qt.openUrlExternally(href);
+            Qt.openUrlExternally(href)
         }
     }
 

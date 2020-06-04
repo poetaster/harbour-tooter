@@ -3,7 +3,7 @@ import Sailfish.Silica 1.0
 
 
 DockedPanel {
-    id: root
+    id: root    
     dock: Dock.Top
     width: parent.width
     height: content.height
@@ -12,14 +12,14 @@ DockedPanel {
         id: content
         color: Theme.highlightBackgroundColor
         width: root.width
-        height: infoLabel.height + 3*Theme.paddingMedium
+        height: infoLabel.height + 2 * Theme.paddingMedium
 
         Label {
             id: infoLabel
             text : ""
             font.family: Theme.fontFamilyHeading
             font.pixelSize: Theme.fontSizeMedium
-            color: Theme.highlightColor
+            color: Theme.primaryColor
             wrapMode: Text.WrapAnywhere
             width: parent.width
             anchors {

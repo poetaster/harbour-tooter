@@ -6,6 +6,7 @@ import "."
 
 SilicaListView {
     id: myList
+
     property string type
     property string title
     property string vwPlaceholderText: qsTr("Loading")
@@ -22,6 +23,7 @@ SilicaListView {
     property variant conf
     property bool notifier: false
     model:  mdl
+
     signal notify (string what, int num)
     onNotify: {
         console.log(what + " - " + num)
@@ -109,6 +111,7 @@ SilicaListView {
                 loadData("append")
             }
         }
+
         BusyIndicator {
             size: BusyIndicatorSize.Small
             running: loadStarted;
@@ -116,6 +119,7 @@ SilicaListView {
             anchors.horizontalCenter: parent.horizontalCenter
         }
     }
+
     onContentYChanged: {
         if (Math.abs(contentY - scrollOffset) > Theme.itemSizeMedium) {
             openDrawer(contentY - scrollOffset  > 0 ? false : true )
@@ -139,7 +143,6 @@ SilicaListView {
             if (messageObject.fireNotification && notifier){
                 Logic.notifier(messageObject.data)
             }
-
         }
     }
 
@@ -154,6 +157,7 @@ SilicaListView {
             loadData("prepend")
         }
     }
+
     function loadData(mode){
         var p = []
         if (params.length)

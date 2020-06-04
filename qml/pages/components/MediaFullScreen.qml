@@ -30,6 +30,8 @@ FullscreenContentPage {
         id: videoFlickable
         visible: false
         anchors.fill: parent
+        contentWidth: imageContainer.width
+        contentHeight: imageContainer.height
         clip: true
 
         Image {
@@ -113,42 +115,43 @@ FullscreenContentPage {
                     rightMargin: Theme.horizontalPageMargin + Theme.iconSizeMedium
                     bottomMargin: Theme.horizontalPageMargin
                 }
-
-                MouseArea {
-                    anchors.fill: parent
-                    onClicked: function() {
-                        if (video.playbackState === MediaPlayer.PlayingState)
-                            video.pause()
-                        else
-                            video.play()
-                    }
-                }
-
-                Rectangle {
-                    visible: videoError.text != ""
-                    anchors.left: parent.left
-                    anchors.right: parent.right
-                    anchors.bottom: parent.bottom
-                    color: Theme.highlightDimmerColor
-                    height: videoError.height + 2*Theme.paddingMedium
-                    width: parent.width
-
-                    Label {
-                        id: videoError
-                        visible: false
-                        text: video.errorString
-                        font.pixelSize: Theme.fontSizeSmall
-                        color: Theme.highlightColor
-                        wrapMode: Text.Wrap
-                        width: parent.width - 2*Theme.paddingMedium
-                        height: contentHeight
-                        anchors.centerIn: parent
-                    }
-                }
-
             }
+
+            MouseArea {
+                anchors.fill: parent
+                onClicked: function() {
+                    if (video.playbackState === MediaPlayer.PlayingState)
+                        video.pause()
+                    else
+                        video.play()
+                }
+            }
+
+            Rectangle {
+                visible: videoError.text != ""
+                anchors.left: parent.left
+                anchors.right: parent.right
+                anchors.bottom: parent.bottom
+                color: Theme.highlightDimmerColor
+                height: videoError.height + 2*Theme.paddingMedium
+                width: parent.width
+
+                Label {
+                    id: videoError
+                    visible: false
+                    text: video.errorString
+                    font.pixelSize: Theme.fontSizeSmall
+                    color: Theme.highlightColor
+                    wrapMode: Text.Wrap
+                    width: parent.width - 2*Theme.paddingMedium
+                    height: contentHeight
+                    anchors.centerIn: parent
+                }
+            }
+
         }
     }
+
 
     Flickable {
         id: imageFlickable
@@ -158,7 +161,7 @@ FullscreenContentPage {
         clip: true
         anchors.fill: parent
         onHeightChanged: if (imagePreview.status === Image.Ready) {
-                             imagePreview.fitToScreen()
+                             imagePreview.fitToScreen();
                          }
 
         Item {
@@ -190,6 +193,15 @@ FullscreenContentPage {
                     }
                 }
 
+                NumberAnimation {
+                    id: loadedAnimation
+                    target: imagePreview
+                    property: "opacity"
+                    duration: 250
+                    from: 0; to: 1
+                    easing.type: Easing.InOutQuad
+                }
+
                 onScaleChanged: {
                     if ((width * scale) > imageFlickable.width) {
                         var xoff = (imageFlickable.width / 2 + imageFlickable.contentX) * scale / prevScale;
@@ -199,15 +211,7 @@ FullscreenContentPage {
                         var yoff = (imageFlickable.height / 2 + imageFlickable.contentY) * scale / prevScale;
                         imageFlickable.contentY = yoff - imageFlickable.height / 2
                     }
-                }
-
-                NumberAnimation {
-                    id: loadedAnimation
-                    target: imagePreview
-                    property: "opacity"
-                    duration: 250
-                    from: 0; to: 1
-                    easing.type: Easing.InOutQuad
+                    prevScale = scale
                 }
             }
         }
@@ -245,47 +249,45 @@ FullscreenContentPage {
                 from: imagePreview.scale
             }
         }
+    }
 
-        Loader {
-            anchors.centerIn: parent
-            sourceComponent: {
-                switch (imagePreview.status) {
-                case Image.Loading:
-                    return loadingIndicator
-                case Image.Error:
-                    return failedLoading
-                default:
-                    return undefined
-                }
-            }
-
-            Component {
-                id: loadingIndicator
-                Item {
-                    width: mediaPage.width
-                    height: childrenRect.height
-
-                    ProgressCircle {
-                        id: imageLoadingIndicator
-                        progressValue: imagePreview.progress
-                        progressColor: inAlternateCycle ? Theme.highlightColor : Theme.highlightDimmerColor
-                        backgroundColor: inAlternateCycle ? Theme.highlightDimmerColor : Theme.highlightColor
-                        anchors.horizontalCenter: parent.horizontalCenter
-                    }
-                }
-            }
-
-            Component {
-                id: failedLoading
-                Text {
-                    text: qsTr("Error loading")
-                    font.pixelSize: Theme.fontSizeSmall;
-                    color: Theme.highlightColor
-                }
+    Loader {
+        anchors.centerIn: parent
+        sourceComponent: {
+            switch (imagePreview.status) {
+            case Image.Loading:
+                return loadingIndicator
+            case Image.Error:
+                return failedLoading
+            default:
+                return undefined
             }
         }
 
-        VerticalScrollDecorator { flickable: imageFlickable }
+        Component {
+            id: loadingIndicator
+            Item {
+                width: mediaPage.width
+                height: childrenRect.height
+
+                ProgressCircle {
+                    id: imageLoadingIndicator
+                    progressValue: imagePreview.progress
+                    progressColor: inAlternateCycle ? Theme.highlightColor : Theme.highlightDimmerColor
+                    backgroundColor: inAlternateCycle ? Theme.highlightDimmerColor : Theme.highlightColor
+                    anchors.horizontalCenter: parent.horizontalCenter
+                }
+            }
+        }
+    }
+
+    Component {
+        id: failedLoading
+        Text {
+            text: qsTr("Error loading")
+            font.pixelSize: Theme.fontSizeSmall;
+            color: Theme.highlightColor
+        }
     }
 
     IconButton {
@@ -314,5 +316,6 @@ FullscreenContentPage {
             FileDownloader.downloadFile(mediaURL, filename[filename.length-1]);
         }
     }
+    VerticalScrollDecorator { flickable: imageFlickable }
 }
 

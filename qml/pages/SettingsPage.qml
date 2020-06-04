@@ -25,7 +25,7 @@ Page {
                 title: qsTr("Settings")
             }
 
-            SectionHeader { text: "Options"}
+            SectionHeader { text: qsTr("Options")}
 
             IconTextSwitch {
                 text: qsTr("Load Images in Toots")
@@ -38,7 +38,7 @@ Page {
                 }
             }
 
-            SectionHeader { text: "Account"}
+            SectionHeader { text: qsTr("Account")}
 
             Item {
                 id: removeAccount
@@ -53,7 +53,7 @@ Page {
 
                 Icon {
                     id: icnRemoveAccount
-                    color: Theme.secondaryColor
+                    color: Theme.highlightColor
                     width: Theme.iconSizeMedium
                     fillMode: Image.PreserveAspectFit
                     source: Logic.conf['login'] ? "image://theme/icon-m-contact" : "image://theme/icon-m-add"
@@ -96,7 +96,7 @@ Page {
                         text: Logic.conf['login'] ? qsTr("Deauthorize this app from using your account and remove account data from phone") : qsTr("Authorize this app to access your Mastodon account")
                         font.pixelSize: Theme.fontSizeExtraSmall
                         wrapMode: Text.Wrap
-                        color: Theme.secondaryColor
+                        color: Theme.highlightColor
                         anchors {
                             left: parent.left
                             leftMargin: Theme.paddingLarge * 1.9
@@ -107,24 +107,25 @@ Page {
                 }
             }
 
-            /* SectionHeader { text: "Support"}
+            SectionHeader {
+                text:  qsTr("Translate")
+            }
 
-            IconTextSwitch {
-                text: qsTr("Translate")
-                description: qsTr("Use Transifex to help with app translation to your language")
-                icon.source: "image://theme/icon-m-font-size"
-                onCheckedChanged: {
-                    busy = true;
-                    checked = false;
-                    Qt.openUrlExternally("https://www.transifex.com/dysko/tooter/");
-                    timer2.start()
+            LinkedLabel {
+                text: qsTr("Use <a href='https://www.transifex.com/dysko/tooter/'>Transifex</a> to help with app translation to your language.")
+                textFormat: Text.StyledText
+                color: Theme.highlightColor
+                linkColor: Theme.primaryColor
+                font.family: Theme.fontFamilyHeading
+                font.pixelSize: Theme.fontSizeExtraSmall
+                wrapMode: Text.Wrap
+                anchors {
+                    left: parent.left
+                    leftMargin: Theme.horizontalPageMargin
+                    right: parent.right
+                    rightMargin: Theme.paddingLarge
                 }
-                Timer {
-                    id: timer2
-                    interval: 4700
-                    onTriggered: parent.busy = false
-                }
-            } */
+            }
 
             SectionHeader {
                 text:  qsTr("Credits")

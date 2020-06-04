@@ -32,7 +32,7 @@ Page {
     VisualItemModel {
         id: visualModel
         MyList{
-            id: tlHome;
+            id: tlHome
             title: qsTr("Home")
             type: "timelines/home"
             mdl: Logic.modelTLhome
@@ -42,35 +42,35 @@ Page {
         }
 
         MyList{
-            id: tlNotifications;
+            id: tlNotifications
             title: qsTr("Notifications")
             type: "notifications"
             notifier: true
             mdl: Logic.modelTLnotifications
             width: parent.itemWidth
             height: parent.itemHeight
-            onOpenDrawer:  infoPanel.open = setDrawer
+            onOpenDrawer: infoPanel.open = setDrawer
         }
 
         MyList{
-            id: tlLocal;
+            id: tlLocal
             title: qsTr("Local")
             type: "timelines/public?local=true"
             //params: ["local", true]
             mdl: Logic.modelTLlocal
             width: parent.itemWidth
             height: parent.itemHeight
-            onOpenDrawer:  infoPanel.open = setDrawer
+            onOpenDrawer: infoPanel.open = setDrawer
         }
 
         MyList{
-            id: tlPublic;
+            id: tlPublic
             title: qsTr("Federated")
             type: "timelines/public"
             mdl: Logic.modelTLpublic
             width: parent.itemWidth
             height: parent.itemHeight
-            onOpenDrawer:  infoPanel.open = setDrawer
+            onOpenDrawer: infoPanel.open = setDrawer
         }
 
         Item {

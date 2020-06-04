@@ -46,7 +46,7 @@ Page {
                 height: txtRemoveAccount.height + btnRemoveAccount.height + Theme.paddingLarge
                 anchors {
                     left: parent.left
-                    leftMargin: Theme.paddingLarge
+                    leftMargin: Theme.horizontalPageMargin
                     right: parent.right
                     rightMargin: Theme.paddingLarge
                 }
@@ -99,9 +99,8 @@ Page {
                         color: Theme.highlightColor
                         anchors {
                             left: parent.left
-                            leftMargin: Theme.paddingLarge * 1.9
                             right: parent.right
-                            rightMargin: Theme.paddingLarge * 1.2
+                            rightMargin: Theme.paddingLarge + icnRemoveAccount
                         }
                     }
                 }

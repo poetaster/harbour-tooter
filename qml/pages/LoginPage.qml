@@ -31,14 +31,13 @@ Page {
                 focus: true
                 label: qsTr("Enter a valid Mastodon instance URL")
                 text: "https://"
-                placeholderText: "https://mastodon.social"
                 width: parent.width
                 validator: RegExpValidator { regExp: /^(ftp|http|https):\/\/[^ "]+$/ }
                 EnterKey.enabled: instance.acceptableInput;
                 EnterKey.highlighted: instance.acceptableInput;
                 EnterKey.iconSource: "image://theme/icon-m-accept"
                 EnterKey.onClicked: {
-                    Logic.api = new Logic.MastodonAPI({ instance: instance.text, api_user_token: "" });
+                    Logic.api = Logic.mastodonAPI({ instance: instance.text, api_user_token: "" });
                     Logic.api.registerApplication("Tooter",
                                     'http://localhost/harbour-tooter', // redirect uri, we will need this later on
                                     ["read", "write", "follow"], //scopes

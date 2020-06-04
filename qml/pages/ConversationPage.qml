@@ -259,7 +259,7 @@ Page {
             property string selection
             opacity: 0.7
             icon {
-                color: Theme.highlightColor
+                color: Theme.secondaryColor
                 width: Theme.iconSizeSmallPlus
                 fillMode: Image.PreserveAspectFit
                 source: "../../qml/images/emojiselect.svg"

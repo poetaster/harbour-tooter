@@ -88,7 +88,6 @@ var tootParser = function(data){
     ret.display_name = data.account.display_name
     ret.avatar_static = data.account.avatar_static
 
-
     ret.favourited = data.favourited ? true : false
     ret.favourites_count = data.favourites_count ? data.favourites_count : 0
 
@@ -99,7 +98,6 @@ var tootParser = function(data){
     ret.muted = data.muted ? true : false
     ret.sensitive = data.sensitive ? true : false
     ret.visibility = data.visibility ? data.visibility : false
-
 
     console.log(ret)
 }

@@ -22,6 +22,7 @@ SilicaListView {
     property variant vars
     property variant conf
     property bool notifier: false
+
     model:  mdl
 
     signal notify (string what, int num)

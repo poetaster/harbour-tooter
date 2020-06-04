@@ -13,6 +13,7 @@ BackgroundItem {
     height: mnu.height +  miniHeader.height + (typeof attachments !== "undefined" && attachments.count ? media.height + Theme.paddingLarge + Theme.paddingMedium: Theme.paddingLarge) + lblContent.height + Theme.paddingLarge + (miniStatus.visible ? miniStatus.height : 0)
 
     Rectangle {
+        id: bgDirect
         x: 0
         y: 0
         visible: status_visibility == 'direct'
@@ -21,6 +22,20 @@ BackgroundItem {
         opacity: 0.3
         color: Theme.highlightBackgroundColor
     }
+
+    /* Rectangle {
+        id: bgDelegate
+        x: 0
+        y: 0
+        visible: status_visibility !== 'direct'
+        width: parent.width
+        height: parent.height
+        opacity: 0.15
+        gradient: Gradient {
+                GradientStop { position: 0.7; color: "transparent" }
+                GradientStop { position: 1.0; color: Theme.highlightDimmerColor }
+        }
+    } */
 
     MiniStatus {
         id: miniStatus
@@ -117,13 +132,16 @@ BackgroundItem {
 
     Text  {
         id: lblContent
+        visible: model.type !== "follow"
         text: content.replace(new RegExp("<a ", 'g'), '<a style="text-decoration: none; color:'+(pressed ?  Theme.secondaryColor : Theme.highlightColor)+'" ')
         textFormat: Text.RichText
         font.pixelSize: Theme.fontSizeSmall
         linkColor: Theme.highlightColor
         wrapMode: Text.Wrap
         color: (pressed ? Theme.highlightColor : (!highlight ? Theme.primaryColor : Theme.secondaryColor))
-        height: content.length ? (contentWarningLabel.paintedHeight > paintedHeight ? contentWarningLabel.paintedHeight : paintedHeight) : 0
+        height: if (model.type === "follow") {
+                    Theme.paddingLarge
+                } else content.length ? (contentWarningLabel.paintedHeight > paintedHeight ? contentWarningLabel.paintedHeight : paintedHeight) : 0
         anchors {
             left: miniHeader.left
             leftMargin: Theme.paddingMedium
@@ -210,7 +228,7 @@ BackgroundItem {
         id: mnu
 
         MenuItem {
-            enabled: model.type !== "follow"
+            visible: model.type !== "follow"
             text: typeof model.reblogged !== "undefined" && model.reblogged ? qsTr("Unboost") : qsTr("Boost")
             onClicked: {
                 var status = typeof model.reblogged !== "undefined" && model.reblogged
@@ -250,7 +268,7 @@ BackgroundItem {
         }
 
         MenuItem {
-            enabled: model.type !== "follow"
+            visible: model.type !== "follow"
             text: typeof model.favourited !== "undefined" && model.favourited ? qsTr("Unfavorite") : qsTr("Favorite")
             onClicked: {
                 var status = typeof model.favourited !== "undefined" && model.favourited
@@ -286,6 +304,30 @@ BackgroundItem {
                     leftMargin: Theme.paddingMedium
                     verticalCenter: parent.verticalCenter
                 }
+            }
+        }
+
+        MenuItem {
+            visible: model.type === "follow"
+            text: qsTr("Mention")
+            onClicked: {
+                pageStack.push(Qt.resolvedUrl("../ConversationPage.qml"), {
+                                   headerTitle: "Mention",
+                                   description: "@"+reblog_account_acct,
+                                   type: "new"
+                               })
+            }
+
+            Image {
+                id: icMT
+                anchors {
+                    leftMargin: Theme.horizontalPageMargin
+                    left: parent.left
+                    verticalCenter: parent.verticalCenter
+                }
+                width: Theme.iconSizeExtraSmall
+                height: width
+                source: "image://theme/icon-s-chat?" + (!model.favourited ? Theme.highlightColor : Theme.primaryColor)
             }
         }
     }

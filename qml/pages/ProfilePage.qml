@@ -15,7 +15,7 @@ Page {
     property string profileBackground: ""
     property string note: ""
     property string url: ""
-    property int user_id
+    property string user_id: ""
     property int statuses_count
     property int following_count
     property int followers_count
@@ -175,7 +175,6 @@ Page {
                     id: txtContainer
                     width: parent.width
                     height: Math.min( txtNote.height, parent.height * 0.55 )
-                    //color: "transparent"
                     visible: {
                         if ((note.text === "") || ( note.text === "<p></p>" )) {
                             false

@@ -26,7 +26,7 @@ Item {
     }
 
     Image {
-        id: iconVerified
+        id: iconLocked
         y: Theme.paddingLarge
         anchors {
             left: lblName.right
@@ -47,7 +47,7 @@ Item {
         font.pixelSize: Theme.fontSizeExtraSmall
         color: (pressed ? Theme.secondaryHighlightColor : Theme.secondaryColor)
         anchors {
-            left: iconVerified.right
+            left: iconLocked.right
             right: lblDate.left
             leftMargin: Theme.paddingMedium
             baseline: lblName.baseline

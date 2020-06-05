@@ -74,11 +74,9 @@ DISTFILES += qml/harbour-tooter.qml \
     qml/pages/components/Toot.qml \
     qml/pages/Browser.qml \
     qml/lib/API.js \
-    qml/images/notification.svg \
-    qml/images/verified.svg \
-    qml/images/boosted.svg \
+    qml/images/icon-s-following \
     qml/images/tooter.svg \
-    qml/images/emojiselect.svg \
+    qml/images/icon-m-emoji.svg \
     qml/images/icon-m-profile.svg \
     qml/images/icon-l-profile.svg \
     qml/lib/Mastodon.js \

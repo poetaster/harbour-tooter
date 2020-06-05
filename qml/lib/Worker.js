@@ -190,7 +190,7 @@ function parseNotification(data){
         item = parseAccounts(item, "", data["account"])
         item = parseAccounts(item, "reblog_", data["account"])
         item['content'] = data['account']['note']
-        item['typeIcon'] = "image://theme/icon-s-installed"
+        item['typeIcon'] = "../../images/icon-s-following.svg"
         item['attachments'] = []
 
         break;

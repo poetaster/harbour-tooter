@@ -262,7 +262,7 @@ Page {
                 color: Theme.secondaryColor
                 width: Theme.iconSizeSmallPlus
                 fillMode: Image.PreserveAspectFit
-                source: "../../qml/images/emojiselect.svg"
+                source: "../../qml/images/icon-m-emoji.svg"
             }
 			anchors {
                 top: warningContent.bottom

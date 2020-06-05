@@ -208,7 +208,7 @@ Page {
     }
 
     IconButton {
-        id: newTweet
+        id: newToot
         width: Theme.iconSizeLarge
         height: width
         visible: !isPortrait ? true : !infoPanel.open

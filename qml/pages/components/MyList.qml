@@ -39,15 +39,16 @@ SilicaListView {
         console.log("LIST send signal emitted with notice: " + notice)
     }
 
-    BusyIndicator {
-        size: BusyIndicatorSize.Large
-        running: myList.model.count === 0 && !viewPlaceHolder.visible
-        anchors.centerIn: parent
-    }
 
     header: PageHeader {
         title: myList.title
         description: myList.description
+    }
+
+    BusyIndicator {
+        size: BusyIndicatorSize.Large
+        running: myList.model.count === 0 && !viewPlaceHolder.visible
+        anchors.centerIn: parent
     }
 
     ViewPlaceholder {
@@ -66,18 +67,20 @@ SilicaListView {
         }
 
         MenuItem {
+            text: qsTr("New Toot")
+            onClicked: {
+                pageStack.push(Qt.resolvedUrl("../ConversationPage.qml"), {
+                                   //headerTitle: "New Toot",
+                                   type: "new"
+                               })
+            }
+        }
+
+        MenuItem {
             text: qsTr("Load more")
             onClicked: {
                 loadData("prepend")
             }
-        }
-    }
-    clip: true
-    section {
-        property: 'section'
-        delegate: SectionHeader  {
-            height: Theme.itemSizeExtraSmall
-            text: Format.formatDate(section, Formatter.DateMedium)
         }
     }
 

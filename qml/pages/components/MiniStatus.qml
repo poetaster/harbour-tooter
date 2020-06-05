@@ -7,9 +7,10 @@ Item {
     visible: true
     height: icon.height+Theme.paddingMedium
     width: parent.width
-    Image {
+    Icon {
         id: icon
         visible: type.length
+        color: Theme.highlightColor
         width: Theme.iconSizeExtraSmall
         height: width
         source: typeof typeIcon !== "undefined" ? typeIcon : ""

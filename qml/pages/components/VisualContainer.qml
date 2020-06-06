@@ -10,8 +10,9 @@ BackgroundItem {
     signal navigateTo(string link)
 
     width: parent.width
-    height: mnu.height +  miniHeader.height + (typeof attachments !== "undefined" && attachments.count ? media.height + Theme.paddingLarge + Theme.paddingMedium: Theme.paddingLarge) + lblContent.height + Theme.paddingLarge + (miniStatus.visible ? miniStatus.height : 0)
-
+    height: if (myList.type === "notifications" && ( model.type === "favourite" || model.type === "reblog" )) {
+                mnu.height + miniHeader.height + Theme.paddingLarge + lblContent.height + Theme.paddingLarge + (miniStatus.visible ? miniStatus.height : 0)
+            } else mnu.height + miniHeader.height + (typeof attachments !== "undefined" && attachments.count ? media.height + Theme.paddingLarge + Theme.paddingMedium: Theme.paddingLarge) + lblContent.height + Theme.paddingLarge + (miniStatus.visible ? miniStatus.height : 0)
     Rectangle {
         id: bgDirect
         x: 0
@@ -36,6 +37,20 @@ BackgroundItem {
                 GradientStop { position: 1.0; color: Theme.highlightDimmerColor }
         }
     } */
+
+    Rectangle {
+        id: bgDelegate
+        x: 0
+        y: 0
+        visible: myList.type === "notifications" && ( model.type === "favourite" || model.type === "reblog" )
+        width: parent.width
+        height: parent.height
+        opacity: 0.5
+        gradient: Gradient {
+                GradientStop { position: -0.5; color: "transparent" }
+                GradientStop { position: 0.4; color: Theme.highlightDimmerColor }
+        }
+    }
 
     MiniStatus {
         id: miniStatus
@@ -83,6 +98,13 @@ BackgroundItem {
             }
         }
 
+        Rectangle {
+            visible: myList.type === "notifications" && ( model.type === "favourite" || model.type === "reblog" )
+            opacity: 0.5
+            color: Theme.highlightDimmerColor
+            anchors.fill: avatar
+        }
+
         Image {
             id: iconTR
             visible: typeof status_reblogged !== "undefined" && status_reblogged
@@ -109,6 +131,7 @@ BackgroundItem {
             }
 
             Image {
+                id: reblogAvatar
                 asynchronous: true
                 smooth: true
                 opacity: status === Image.Ready ? 1.0 : 0.0
@@ -117,6 +140,13 @@ BackgroundItem {
                 visible: typeof status_reblog !== "undefined" && status_reblog
                 width: Theme.iconSizeSmall
                 height: width
+            }
+
+            Rectangle {
+                visible: myList.type === "notifications" && ( model.type === "favourite" || model.type === "reblog" )
+                opacity: 0.5
+                color: Theme.highlightDimmerColor
+                anchors.fill: reblogAvatar
             }
         }
     }
@@ -136,9 +166,13 @@ BackgroundItem {
         text: content.replace(new RegExp("<a ", 'g'), '<a style="text-decoration: none; color:'+(pressed ?  Theme.secondaryColor : Theme.highlightColor)+'" ')
         textFormat: Text.RichText
         font.pixelSize: Theme.fontSizeSmall
-        linkColor: Theme.highlightColor
+        linkColor: if (myList.type === "notifications" && ( model.type === "favourite" || model.type === "reblog" )) {
+                   Theme.secondaryHighlightColor
+               } else Theme.highlightColor
         wrapMode: Text.Wrap
-        color: (pressed ? Theme.highlightColor : (!highlight ? Theme.primaryColor : Theme.secondaryColor))
+        color: if (myList.type === "notifications" && ( model.type === "favourite" || model.type === "reblog" )) {
+                   (pressed ? Theme.secondaryHighlightColor : (!highlight ? Theme.secondaryColor : Theme.secondaryHighlightColor))
+               } else (pressed ? Theme.highlightColor : (!highlight ? Theme.primaryColor : Theme.secondaryColor))
         height: if (model.type === "follow") {
                     Theme.paddingLarge
                 } else content.length ? (contentWarningLabel.paintedHeight > paintedHeight ? contentWarningLabel.paintedHeight : paintedHeight) : 0
@@ -213,6 +247,7 @@ BackgroundItem {
 
     MediaBlock {
         id: media
+        visible: myList.type !== "notifications" && ( model.type !== "favourite" || model.type !== "reblog" )
         model: typeof attachments !== "undefined" ? attachments : Qt.createQmlObject('import QtQuick 2.0; ListModel {   }', Qt.application, 'InternalQmlObject');
         height: Theme.iconSizeExtraLarge * 2
         anchors {

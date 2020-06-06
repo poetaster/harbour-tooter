@@ -17,7 +17,7 @@ Page {
 	property ListModel suggestedModel
 	property string toot_id: ""
     property string toot_url: ""
-    property int tootMaxChar: 500;
+    property int tootMaxChar: 500
 	property ListModel mdl
 
 	allowedOrientations: Orientation.All
@@ -65,8 +65,8 @@ Page {
 		visible: false
 	}
 
-	SilicaListView {
-		id: conversationList
+    SilicaListView {
+        id: myList
 		header: PageHeader {
             title: headerTitle // pageTitle pushed from MainPage.qml or VisualContainer.qml
 		}

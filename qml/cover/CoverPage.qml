@@ -46,19 +46,21 @@ CoverBackground {
             break;
         }
     }
+
     Image {
         id: bg
+        source: "../images/tooter-cover.svg"
+        horizontalAlignment: Image.AlignLeft
+        verticalAlignment: Image.AlignBottom
+        fillMode: Image.PreserveAspectFit
         anchors {
             bottom : parent.bottom
             left: parent.left
             right: parent.right
             top: parent.top
         }
-        horizontalAlignment: Image.AlignLeft
-        verticalAlignment: Image.AlignBottom
-        fillMode: Image.PreserveAspectFit
-        source: "../images/tooter.svg"
     }
+
     Timer {
         id: timer
         interval: 60*1000
@@ -69,34 +71,34 @@ CoverBackground {
 
     Image {
         id: iconNot
+        source: "image://theme/icon-s-alarm?" + Theme.highlightColor
         anchors {
             left: parent.left
             top: parent.top
             leftMargin: Theme.paddingLarge
             topMargin: Theme.paddingLarge
         }
-        source: "image://theme/icon-s-alarm?" + Theme.highlightColor
     }
 
     Label {
         id: notificationsLbl
+        text: " "
+        color: Theme.highlightColor
         anchors {
             left: iconNot.right
             leftMargin: Theme.paddingMedium
             verticalCenter: iconNot.verticalCenter
         }
-        text: " "
-        color: Theme.highlightColor
     }
 
     Label {
+        text: "Tooter"
+        color: Theme.secondaryColor
         anchors {
             right: parent.right
             rightMargin: Theme.paddingLarge
             verticalCenter: iconNot.verticalCenter
         }
-        text: "Tooter"
-        color: Theme.primaryColor
     }
 
     signal activateapp(string person, string notice)

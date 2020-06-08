@@ -12,7 +12,7 @@ BackgroundItem {
     width: parent.width
     height: if (myList.type === "notifications" && ( model.type === "favourite" || model.type === "reblog" )) {
                 mnu.height + miniHeader.height + Theme.paddingLarge + lblContent.height + Theme.paddingLarge + (miniStatus.visible ? miniStatus.height : 0)
-            } else mnu.height + miniHeader.height + (typeof attachments !== "undefined" && attachments.count ? media.height + Theme.paddingLarge + Theme.paddingMedium: Theme.paddingLarge) + lblContent.height + Theme.paddingLarge + (miniStatus.visible ? miniStatus.height : 0)
+            } else mnu.height + miniHeader.height + (typeof attachments !== "undefined" && attachments.count ? media.height + Theme.paddingLarge + Theme.paddingMedium: Theme.paddingLarge) + lblContent.height + Theme.paddingLarge + (miniStatus.visible ? miniStatus.height : 0) + (iconDirectMsg.visible ? iconDirectMsg.height : 0)
     Rectangle {
         id: bgDirect
         x: 0
@@ -39,7 +39,7 @@ BackgroundItem {
     } */
 
     Rectangle {
-        id: bgDelegate
+        id: bgNotifications
         x: 0
         y: 0
         visible: myList.type === "notifications" && ( model.type === "favourite" || model.type === "reblog" )
@@ -118,7 +118,22 @@ BackgroundItem {
             }
         }
 
+        Image {
+            id: iconDirectMsg
+            visible: status_visibility == 'direct'
+            width: Theme.iconSizeMedium
+            height: width
+            source: "image://theme/icon-m-mail"
+            anchors {
+                horizontalCenter: avatar.horizontalCenter
+                top: avatar.bottom
+                topMargin: Theme.paddingMedium
+                left: avatar.left
+            }
+        }
+
         Rectangle {
+            id: bgReblogAvatar
             color: Theme.highlightDimmerColor
             width: Theme.iconSizeSmall
             height: width
@@ -141,14 +156,35 @@ BackgroundItem {
                 width: Theme.iconSizeSmall
                 height: width
             }
+        }
 
-            Rectangle {
-                visible: myList.type === "notifications" && ( model.type === "favourite" || model.type === "reblog" )
-                opacity: 0.5
-                color: Theme.highlightDimmerColor
-                anchors.fill: reblogAvatar
+        Rectangle {
+            id: bgBotIcon
+            color: Theme.highlightDimmerColor
+            radius: Theme.paddingSmall
+            width: Theme.iconSizeSmall
+            height: width
+            visible: true //typeof status_reblog !== "undefined" && status_reblog
+            anchors {
+                top: parent.top
+                topMargin: -width/3
+                left: parent.left
+                leftMargin: -width/3
+            }
+
+            Image {
+                id: botIcon
+                asynchronous: true
+                smooth: true
+                opacity: status === Image.Ready ? 1.0 : 0.0
+                Behavior on opacity { FadeAnimator {} }
+                source: "image://theme/icon-s-alarm?" //typeof reblog_account_avatar !== "undefined" ? reblog_account_avatar : ''
+                visible: typeof bot === true //typeof status_reblog !== "undefined" && status_reblog
+                width: Theme.iconSizeSmall
+                height: width
             }
         }
+
     }
 
     MiniHeader {

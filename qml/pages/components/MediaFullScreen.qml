@@ -5,12 +5,12 @@ import QtMultimedia 5.0
 
 FullscreenContentPage {
     id: mediaPage
-    allowedOrientations: Orientation.All
 
     property string type: ""
     property string previewURL: ""
     property string mediaURL: ""
 
+    allowedOrientations: Orientation.All
     Component.onCompleted: function(){
         console.log(type)
         console.log(previewURL)
@@ -27,12 +27,12 @@ FullscreenContentPage {
     }
 
     Flickable {
-        id: videoFlickable
+        id: videoFlickable        
         visible: false
-        anchors.fill: parent
+        clip: true
         contentWidth: imageContainer.width
         contentHeight: imageContainer.height
-        clip: true
+        anchors.fill: parent
 
         Image {
             id: videoPreview
@@ -45,7 +45,7 @@ FullscreenContentPage {
             id: video
             anchors.fill: parent
             onErrorStringChanged: function(){
-                videoError.visible = true;
+                videoError.visible = true
             }
             onStatusChanged: {
                 console.log(status)
@@ -83,19 +83,22 @@ FullscreenContentPage {
                     playerProgress.value = position
                 }
             }
-            onStopped: function(){
-                stop()
+            onStopped: function() {
+                if (video.duration < 30000)
+                    video.play()
+                else
+                    video.stop()
             }
 
             IconButton {
                 id: playerIcon
+                icon.source: "image://theme/icon-m-play"
                 anchors {
                     left: parent.left
                     bottom: parent.bottom
                     leftMargin: Theme.horizontalPageMargin
                     bottomMargin: Theme.horizontalPageMargin
                 }
-                icon.source: "image://theme/icon-m-play"
                 onClicked: function() {
                     if (video.playbackState === MediaPlayer.PlayingState)
                         video.pause()
@@ -161,7 +164,7 @@ FullscreenContentPage {
         clip: true
         anchors.fill: parent
         onHeightChanged: if (imagePreview.status === Image.Ready) {
-                             imagePreview.fitToScreen();
+                             imagePreview.fitToScreen()
                          }
 
         Item {
@@ -218,11 +221,11 @@ FullscreenContentPage {
 
         PinchArea {
             id: pinchArea
-            opacity: 0.3
 
             property real minScale: 1.0
             property real maxScale: 3.0
 
+            opacity: 0.3
             anchors.fill: parent
             enabled: imagePreview.status === Image.Ready
             pinch.target: imagePreview

@@ -53,6 +53,7 @@ HEADERS += src/dbusAdaptor.h
 HEADERS += src/dbus.h
 
 DISTFILES += qml/harbour-tooter.qml \
+    qml/images/tooter-cover.svg \
     qml/pages/ConversationPage.qml \
     qml/pages/ProfilePage.qml \
     qml/pages/SettingsPage.qml \
@@ -75,7 +76,6 @@ DISTFILES += qml/harbour-tooter.qml \
     qml/pages/Browser.qml \
     qml/lib/API.js \
     qml/images/icon-s-following \
-    qml/images/tooter.svg \
     qml/images/icon-m-emoji.svg \
     qml/images/icon-m-profile.svg \
     qml/images/icon-l-profile.svg \

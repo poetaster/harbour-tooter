@@ -66,8 +66,8 @@ Page {
 		visible: false
 	}
 
-	SilicaListView {
-		id: conversationList
+    SilicaListView {
+        id: myList
 		header: PageHeader {
             title: headerTitle // pageTitle pushed from MainPage.qml or VisualContainer.qml
 		}

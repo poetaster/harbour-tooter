@@ -88,7 +88,7 @@ Page {
                     loader.sourceComponent = userListComponent
                 } else if (search.charAt(0) === "#") {
                     loader.sourceComponen = tagListComponent
-                } else { loader.sourceComponent = worldListComponent}
+                } else { loader.sourceComponent = wordListComponent}
             }
 
             Loader {

@@ -134,7 +134,7 @@ BackgroundItem {
 
         Rectangle {
             id: bgReblogAvatar
-            color: Theme.highlightDimmerColor
+            color: Theme.secondaryColor
             width: Theme.iconSizeSmall
             height: width
             visible: typeof status_reblog !== "undefined" && status_reblog
@@ -157,34 +157,6 @@ BackgroundItem {
                 height: width
             }
         }
-
-        Rectangle {
-            id: bgBotIcon
-            color: Theme.highlightDimmerColor
-            radius: Theme.paddingSmall
-            width: Theme.iconSizeSmall
-            height: width
-            visible: true //typeof status_reblog !== "undefined" && status_reblog
-            anchors {
-                top: parent.top
-                topMargin: -width/3
-                left: parent.left
-                leftMargin: -width/3
-            }
-
-            Image {
-                id: botIcon
-                asynchronous: true
-                smooth: true
-                opacity: status === Image.Ready ? 1.0 : 0.0
-                Behavior on opacity { FadeAnimator {} }
-                source: "image://theme/icon-s-alarm?" //typeof reblog_account_avatar !== "undefined" ? reblog_account_avatar : ''
-                visible: typeof bot === true //typeof status_reblog !== "undefined" && status_reblog
-                width: Theme.iconSizeSmall
-                height: width
-            }
-        }
-
     }
 
     MiniHeader {

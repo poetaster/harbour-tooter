@@ -17,8 +17,9 @@ Page {
 	property ListModel suggestedModel
 	property string toot_id: ""
     property string toot_url: ""
+    property string toot_uri: ""
     property int tootMaxChar: 500;
-	property ListModel mdl
+    property ListModel mdl
 
 	allowedOrientations: Orientation.All
 	onSuggestedUserChanged: {
@@ -100,13 +101,26 @@ Page {
 		}
 
         PullDownMenu {
-            visible: type === "reply" && toot_url !== ""
-                    MenuItem {
-                        text: qsTr("Copy Link to Clipboard")
-                        onClicked: Clipboard.text = toot_url
-                    }
-                }
-	}
+            id: pulleyConversation
+            visible: type === "reply" //&& toot_url !== ""
+            MenuItem {
+                text: qsTr("Copy Link to Clipboard")
+                onClicked: if (toot_url === "") {
+
+                               var test = toot_uri.split("/")
+                               console.log(toot_uri)
+                               console.log(JSON.stringify(test))
+                               console.log(JSON.stringify(test.length))
+                               if (test.length === 8 && (test[7] === "activity")) {
+                                   var urialt = toot_uri.replace("activity", "")
+                                   Clipboard.text = urialt
+                               }
+                               else Clipboard.text = toot_uri
+
+                           } else onClicked: Clipboard.text = toot_url
+            }
+        }
+    }
 
 	Rectangle {
 		id: predictionList

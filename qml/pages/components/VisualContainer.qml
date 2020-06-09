@@ -340,6 +340,7 @@ BackgroundItem {
                            headerTitle: "Conversation",
                            toot_id: status_id,
                            toot_url: status_url,
+                           toot_uri: status_uri,
                            title: account_display_name,
                            description: '@'+account_acct,
                            avatar: account_avatar,

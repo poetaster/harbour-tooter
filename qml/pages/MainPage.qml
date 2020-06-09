@@ -84,7 +84,11 @@ Page {
             onSearchChanged: {
                 console.log(search)
                 loader.sourceComponent = loading
-                loader.sourceComponent = search.charAt(0) === "@" ? userListComponent : tagListComponent
+                if (search.charAt(0) === "@") {
+                    loader.sourceComponent = userListComponent
+                } else if (search.charAt(0) === "#") {
+                    loader.sourceComponen = tagListComponent
+                } else { loader.sourceComponent = worldListComponent}
             }
 
             Loader {
@@ -180,6 +184,31 @@ Page {
                         view2.params = []
                         view2.params.push({name: 'q', data: tlSearch.search.substring(1)});
                         view2.loadData("append")
+                    }
+                }
+            }
+
+            Component {
+                id: wordListComponent
+                MyList {
+                    id: view3
+                    mdl: ListModel {}
+                    width: parent.width
+                    height: parent.height
+                    onOpenDrawer:  infoPanel.open = setDrawer
+                    anchors.fill: parent
+                    currentIndex: -1 // otherwise currentItem will steal focus
+                    header:  Item {
+                        id: header
+                        width: headerContainer.width
+                        height: headerContainer.height
+                        Component.onCompleted: headerContainer.parent = header
+                    }
+
+                    delegate: VisualContainer
+                    Component.onCompleted: {
+                        view3.type = "timelines/tag/"+tlSearch.search
+                        view3.loadData("append")
                     }
                 }
             }

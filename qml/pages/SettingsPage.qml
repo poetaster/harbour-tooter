@@ -111,7 +111,9 @@ Page {
             }
 
             LinkedLabel {
-                text: qsTr("Use <a href='https://www.transifex.com/dysko/tooter/'>Transifex</a> to help with app translation to your language.")
+                id: translateLbl
+                //: Full sentence for translation: "Use Transifex to help with app translation to your language." - The word Transifex is a link and doesn't need translation.
+                text: qsTr("Use")+" "+"<a href='https://www.transifex.com/dysko/tooter/'>Transifex</a>"+" "+qsTr("to help with app translation to your language.")
                 textFormat: Text.StyledText
                 color: Theme.highlightColor
                 linkColor: Theme.primaryColor

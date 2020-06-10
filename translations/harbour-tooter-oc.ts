@@ -21,22 +21,22 @@
     </message>
 </context>
 <context>
-    <name>Conversation</name>
+    <name>ConversationPage</name>
     <message>
-        <source>Delete</source>
-        <translation>Escafar</translation>
-    </message>
-    <message>
-        <source>Emojis</source>
-        <translation>Emojis</translation>
-    </message>
-    <message>
-        <source>Tap to insert</source>
-        <translation>Tustejar per inserir</translation>
+        <source>Copy Link to Clipboard</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Write your warning here</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>What&apos;s on your mind?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation>Escafar</translation>
     </message>
     <message>
         <source>Public</source>
@@ -55,23 +55,26 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>What&apos;s on your mind?</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Toot sent!</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Copy Link to Clipboard</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
-    <name>ImageFullScreen</name>
+    <name>CoverPage</name>
     <message>
-        <source>Error loading</source>
-        <translation type="unfinished"></translation>
+        <source>New Toot</source>
+        <translation>Nòu Tut</translation>
+    </message>
+</context>
+<context>
+    <name>EmojiSelect</name>
+    <message>
+        <source>Emojis</source>
+        <translation>Emojis</translation>
+    </message>
+    <message>
+        <source>Tap to insert</source>
+        <translation>Tustejar per inserir</translation>
     </message>
 </context>
 <context>
@@ -136,6 +139,13 @@
     </message>
 </context>
 <context>
+    <name>MediaFullScreen</name>
+    <message>
+        <source>Error loading</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>MiniStatus</name>
     <message>
         <source>boosted</source>
@@ -168,71 +178,109 @@
         <source>please wait...</source>
         <translation>esperatz....</translation>
     </message>
+    <message>
+        <source>New Toot</source>
+        <translation>Nòu Tut</translation>
+    </message>
 </context>
 <context>
-    <name>Profile</name>
+    <name>ProfileHeader</name>
     <message>
-        <source>Unfollow</source>
-        <translation>Quitar de seguir</translation>
+        <source>Follows you</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Follow request sent!</source>
-        <translation>Demanda de seguir enviada !</translation>
+        <source>Bot</source>
+        <translation>Bot</translation>
+    </message>
+</context>
+<context>
+    <name>ProfilePage</name>
+    <message>
+        <source>About</source>
+        <extracomment>If there&apos;s no good translation for &quot;About&quot;, use &quot;Details&quot; (in details about profile).</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Followers</source>
+        <extracomment>Will show as: &quot;35 Followers&quot;</extracomment>
+        <translation>Seguidors</translation>
     </message>
     <message>
         <source>Following</source>
+        <extracomment>Will show as: &quot;23 Following&quot;</extracomment>
         <translation>Abonaments</translation>
     </message>
     <message>
-        <source>Mute</source>
-        <translation>Amagar</translation>
+        <source>Statuses</source>
+        <extracomment>Will show as: &quot;115 Statuses&quot;</extracomment>
+        <translation>Estatuts</translation>
+    </message>
+    <message>
+        <source>Unfollow</source>
+        <extracomment>Is a button. Keep it as short as possible.</extracomment>
+        <translation>Quitar de seguir</translation>
+    </message>
+    <message>
+        <source>Requested</source>
+        <extracomment>Is a button. Keep it as short as possible.</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Follow</source>
+        <extracomment>Is a button. Keep it as short as possible.</extracomment>
+        <translation>Seguir</translation>
     </message>
     <message>
         <source>Unmute</source>
+        <extracomment>Is a button. Keep it as short as possible.</extracomment>
         <translation>Mostrar</translation>
     </message>
     <message>
+        <source>Mute</source>
+        <extracomment>Is a button. Keep it as short as possible.</extracomment>
+        <translation>Amagar</translation>
+    </message>
+    <message>
         <source>Unblock</source>
+        <extracomment>Is a button. Keep it as short as possible.</extracomment>
         <translation>Desblocar</translation>
     </message>
     <message>
         <source>Block</source>
+        <extracomment>Is a button. Keep it as short as possible.</extracomment>
         <translation>Blocar</translation>
     </message>
     <message>
-        <source>Statuses</source>
-        <translation>Estatuts</translation>
-    </message>
-    <message>
-        <source>Favourites</source>
-        <translation>Favorits</translation>
-    </message>
-    <message>
-        <source>Follow</source>
-        <translation>Seguir</translation>
-    </message>
-    <message>
-        <source>Summary</source>
-        <translation>Resumit</translation>
-    </message>
-    <message>
-        <source>Followers</source>
-        <translation>Seguidors</translation>
-    </message>
-    <message>
-        <source>Bio</source>
+        <source>Open in Browser</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Open Profile in Browser</source>
+        <source>Mention</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
-    <name>Settings</name>
+    <name>SettingsPage</name>
     <message>
         <source>Settings</source>
         <translation>Parmètres</translation>
+    </message>
+    <message>
+        <source>Options</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Load Images in Toots</source>
+        <translation>Cargar los imatges dels tuts</translation>
+    </message>
+    <message>
+        <source>Disable this option if you want to preserve your data connection</source>
+        <translation>Desactivar aquesta opcion per estalviar vòstra connexion de donadas</translation>
+    </message>
+    <message>
+        <source>Account</source>
+        <translation>Compte</translation>
     </message>
     <message>
         <source>Remove Account</source>
@@ -243,7 +291,7 @@
         <translation>Ajustar un compte</translation>
     </message>
     <message>
-        <source>Deauthorize this app and remove your account</source>
+        <source>Deauthorize this app from using your account and remove account data from phone</source>
         <translation>Revocar l’aplicacion e levar vòstre compte</translation>
     </message>
     <message>
@@ -251,8 +299,8 @@
         <translation>Autorizar aquesta aplicacion a utilizar vòstre compte Mastodon per vos</translation>
     </message>
     <message>
-        <source>Disable this option if you want to preserve your data connection</source>
-        <translation>Desactivar aquesta opcion per estalviar vòstra connexion de donadas</translation>
+        <source>Translate</source>
+        <translation>Traduire</translation>
     </message>
     <message>
         <source>Credits</source>
@@ -267,7 +315,15 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Development and translations</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Occitan &amp; French translation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Chinese translation</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -283,24 +339,13 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Chinese translation</source>
-        <translation type="unfinished"></translation>
+        <source>Use</source>
+        <extracomment>Full sentence for translation: &quot;Use Transifex to help with app translation to your language.&quot; - The word Transifex is a link and doesn&apos;t need translation.</extracomment>
+        <translation>Utilizar</translation>
     </message>
     <message>
-        <source>Load images in toots</source>
-        <translation>Cargar los imatges dels tuts</translation>
-    </message>
-    <message>
-        <source>Translate</source>
-        <translation>Traduire</translation>
-    </message>
-    <message>
-        <source>Use Transifex to help with app translation to your language</source>
-        <translation>Utilizar Transifex per ajudar a traduire l’aplicacion dins vòstra lenga</translation>
-    </message>
-    <message>
-        <source>Development and translations</source>
-        <translation type="unfinished"></translation>
+        <source>to help with app translation to your language.</source>
+        <translation>per ajudar a traduire l’aplicacion dins vòstra lenga.</translation>
     </message>
 </context>
 <context>
@@ -335,6 +380,10 @@
     <message>
         <source>Favorite</source>
         <translation>Ajustar als favorits</translation>
+    </message>
+    <message>
+        <source>Mention</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

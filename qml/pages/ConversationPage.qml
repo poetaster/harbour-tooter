@@ -19,6 +19,7 @@ Page {
     property string toot_url: ""
     property string toot_uri: ""
     property int tootMaxChar: 500;
+    property bool bot: false
     property ListModel mdl
 
 	allowedOrientations: Orientation.All
@@ -102,7 +103,7 @@ Page {
 
         PullDownMenu {
             id: pulleyConversation
-            visible: type === "reply" //&& toot_url !== ""
+            visible: type === "reply"
             MenuItem {
                 text: qsTr("Copy Link to Clipboard")
                 onClicked: if (toot_url === "") {

@@ -18,30 +18,30 @@
 #include <QtCore/QVariant>
 
 /*
- * Implementation of adaptor class TooterAdaptor
+ * Implementation of adaptor class TooterbAdaptor
  */
 
-TooterAdaptor::TooterAdaptor(QObject *parent)
+TooterbAdaptor::TooterbAdaptor(QObject *parent)
     : QDBusAbstractAdaptor(parent)
 {
     // constructor
     setAutoRelaySignals(true);
 }
 
-TooterAdaptor::~TooterAdaptor()
+TooterbAdaptor::~TooterbAdaptor()
 {
     // destructor
 }
 
-void TooterAdaptor::openapp()
+void TooterbAdaptor::openapp()
 {
-    // handle method call ba.dysko.harbour.tooter.openapp
+    // handle method call ba.dysko.harbour.tooterb.openapp
     QMetaObject::invokeMethod(parent(), "openapp");
 }
 
-void TooterAdaptor::showtoot(const QStringList &key)
+void TooterbAdaptor::showtoot(const QStringList &key)
 {
-    // handle method call ba.dysko.harbour.tooter.showtoot
+    // handle method call ba.dysko.harbour.tooterb.showtoot
     QMetaObject::invokeMethod(parent(), "showtoot", Q_ARG(QStringList, key));
 }
 

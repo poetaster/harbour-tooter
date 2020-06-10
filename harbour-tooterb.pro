@@ -9,7 +9,7 @@
 #   - icon definition filename in desktop file must be changed
 #   - translation filenames have to be changed
 
-TARGET = harbour-tooter
+TARGET = harbour-tooterb
 
 CONFIG += sailfishapp
 
@@ -23,22 +23,22 @@ DEFINES += "APPVERSION=\\\"$${SPECVERSION}\\\""
 DEFINES += "APPNAME=\\\"$${TARGET}\\\""
 
 !exists( src/dbusAdaptor.h ) {
-    system(qdbusxml2cpp config/ba.dysko.harbour.tooter.xml -i dbus.h -a src/dbusAdaptor)
+    system(qdbusxml2cpp config/ba.dysko.harbour.tooterb.xml -i dbus.h -a src/dbusAdaptor)
 }
 
 config.path = /usr/share/$${TARGET}/config/
-config.files = config/icon-lock-harbour-tooter.png
+config.files = config/icon-lock-harbour-tooterb.png
 
 notification_categories.path = /usr/share/lipstick/notificationcategories
-notification_categories.files = config/x-harbour.tooter.activity.*
+notification_categories.files = config/x-harbour.tooterb.activity.*
 
 dbus_services.path = /usr/share/dbus-1/services/
-dbus_services.files = config/ba.dysko.harbour.tooter.service
+dbus_services.files = config/ba.dysko.harbour.tooterb.service
 
 interfaces.path = /usr/share/dbus-1/interfaces/
-interfaces.files = config/ba.dysko.harbour.tooter.xml
+interfaces.files = config/ba.dysko.harbourb.tooterb.xml
 
-SOURCES += src/harbour-tooter.cpp \
+SOURCES += src/harbour-tooterb.cpp \
     src/imageuploader.cpp \
     src/filedownloader.cpp \
     src/notifications.cpp \
@@ -51,8 +51,8 @@ HEADERS += src/imageuploader.h \
     src/dbusAdaptor.h \
     src/dbus.h
 
-DISTFILES += qml/harbour-tooter.qml \
-    qml/images/tooter-cover.svg \
+DISTFILES += qml/harbour-tooterb.qml \
+    qml/images/tooterb-cover.svg \
     qml/pages/ConversationPage.qml \
     qml/pages/ProfilePage.qml \
     qml/pages/SettingsPage.qml \
@@ -80,14 +80,14 @@ DISTFILES += qml/harbour-tooter.qml \
     qml/images/icon-l-profile.svg \
     qml/lib/Mastodon.js \
     qml/lib/Worker.js \
-    config/icon-lock-harbour-tooter.png \
-    config/x-harbour.tooter.activity.conf \
-    rpm/harbour-tooter.changes \
-    rpm/harbour-tooter.changes.run.in \
-    rpm/harbour-tooter.spec \
-    rpm/harbour-tooter.yaml \
+    config/icon-lock-harbour-tooterb.png \
+    config/x-harbour.tooterb.activity.conf \
+    rpm/harbour-tooterb.changes \
+    rpm/harbour-tooterb.changes.run.in \
+    rpm/harbour-tooterb.spec \
+    rpm/harbour-tooterb.yaml \
     translations/*.ts \
-    harbour-tooter.desktop
+    harbour-tooterb.desktop
 
 SAILFISHAPP_ICONS = 86x86 108x108 128x128 172x172
 
@@ -95,17 +95,18 @@ SAILFISHAPP_ICONS = 86x86 108x108 128x128 172x172
 # following CONFIG line
 CONFIG += sailfishapp_i18n
 
-TRANSLATIONS += translations/harbour-tooter.ts \
-    translations/harbour-tooter-de.ts \
-    translations/harbour-tooter-el.ts \
-    translations/harbour-tooter-es.ts \
-    translations/harbour-tooter-fr.ts \
-    translations/harbour-tooter-it.ts \
-    translations/harbour-tooter-nl.ts \
-    translations/harbour-tooter-nl_BE.ts \
-    translations/harbour-tooter-oc.ts \
-    translations/harbour-tooter-pl.ts \
-    translations/harbour-tooter-ru.ts \
-    translations/harbour-tooter-sr.ts \
-    translations/harbour-tooter-sv.ts \
-    translations/harbour-tooter-zh_CN.ts
+TRANSLATIONS += translations/harbour-tooterb.ts \
+    translations/harbour-tooterb-de.ts \
+    translations/harbour-tooterb-el.ts \
+    translations/harbour-tooterb-es.ts \
+    translations/harbour-tooterb-fr.ts \
+    translations/harbour-tooterb-it.ts \
+    translations/harbour-tooterb-nl.ts \
+    translations/harbour-tooterb-nl_BE.ts \
+    translations/harbour-tooterb-oc.ts \
+    translations/harbour-tooterb-pl.ts \
+    translations/harbour-tooterb-ru.ts \
+    translations/harbour-tooterb-sr.ts \
+    translations/harbour-tooterb-sv.ts \
+    translations/harbour-tooterb-zh_CN.ts
+

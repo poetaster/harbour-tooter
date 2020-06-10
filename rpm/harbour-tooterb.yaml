@@ -1,7 +1,7 @@
-Name: harbour-tooter
-Summary: Tooter
+Name: harbour-tooterb
+Summary: Tooter β
 Version: 1.0.4
-Release: 1
+Release: 3
 # The contents of the Group field should be one of the groups listed here:
 # https://github.com/mer-tools/spectacle/blob/master/data/GROUPS
 Group: Qt/Qt
@@ -12,7 +12,7 @@ License: LICENSE
 Sources:
 - '%{name}-%{version}.tar.bz2'
 Description: |
-  Tooter is native client for Mastodon network instances.
+  Tooter Beta is a native client for Mastodon network instances.
 Configure: none
 # The qtc5 builder inserts macros to allow QtCreator to have fine
 # control over qmake/make execution

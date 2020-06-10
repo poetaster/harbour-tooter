@@ -24,14 +24,14 @@ void Notifications::notify(QString appName, QString summary, QString body, bool 
     {
         notif.setPreviewSummary(summary);
         notif.setPreviewBody(body);
-        notif.setCategory("x-harbour.tooter.activity");
+        notif.setCategory("x-harbour.tooterb.activity");
         if (issuekey.isEmpty())
         {
             remoteactions << Notification::remoteAction("default",
                                                         QString(),
-                                                        "ba.dysko.habour.tooter",
+                                                        "ba.dysko.habour.tooterb",
                                                         "/",
-                                                        "ba.dysko.habour.tooter",
+                                                        "ba.dysko.habour.tooterb",
                                                         "openapp",
                                                          QVariantList());
         }
@@ -42,12 +42,12 @@ void Notifications::notify(QString appName, QString summary, QString body, bool 
         notif.setSummary(summary);
         notif.setBody(body);
         notif.setItemCount(1);
-        notif.setCategory("x-harbour.tooter.activity");
+        notif.setCategory("x-harbour.tooterb.activity");
         remoteactions << Notification::remoteAction("app",
                                                     QString(),
-                                                    "ba.dysko.habour.tooter",
+                                                    "ba.dysko.habour.tooterb",
                                                     "/",
-                                                    "ba.dysko.habour.tooter",
+                                                    "ba.dysko.habour.tooterb",
                                                     "openapp",
                                                      QVariantList());
     }
@@ -64,9 +64,9 @@ void Notifications::notify(QString appName, QString summary, QString body, bool 
 
         remoteactions << Notification::remoteAction("default",
                                                     QString(),
-                                                    "ba.dysko.habour.tooter",
+                                                    "ba.dysko.habour.tooterb",
                                                     "/",
-                                                    "ba.dysko.habour.tooter",
+                                                    "ba.dysko.habour.tooterb",
                                                     "showtoot",
                                                      args);
     }

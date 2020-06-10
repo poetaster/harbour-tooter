@@ -197,6 +197,7 @@ BackgroundItem {
                     return check;
                 }));
                 send(link)
+              // temporary solution for access to user profiles via toots
             } else if (test.length === 4 && test[3][0] === "@" ) {
                 pageStack.pop(pageStack.find(function(page) {
                     var check = page.isFirstPage === true;

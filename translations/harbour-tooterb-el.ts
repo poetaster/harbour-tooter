@@ -367,7 +367,7 @@
     <name>VisualContainer</name>
     <message>
         <source>Unboost</source>
-        <translation>Αναίρεση προώθησης</translation>
+        <translation>Αναίρεση προώθηση</translation>
     </message>
     <message>
         <source>Boost</source>

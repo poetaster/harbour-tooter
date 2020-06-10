@@ -49,7 +49,7 @@ CoverBackground {
 
     Image {
         id: bg
-        source: "../images/tooter-cover.svg"
+        source: "../images/tooterb-cover.svg"
         horizontalAlignment: Image.AlignLeft
         verticalAlignment: Image.AlignBottom
         fillMode: Image.PreserveAspectFit
@@ -92,7 +92,7 @@ CoverBackground {
     }
 
     Label {
-        text: "Tooter"
+        text: "Tooter β"
         color: Theme.secondaryColor
         anchors {
             right: parent.right

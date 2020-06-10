@@ -453,7 +453,7 @@
         <source>Boost</source>
         <translation>Condividi</translation>
     </message>
-    <message>
+    <message>s
         <location filename="../qml/pages/components/VisualContainer.qml" line="308"/>
         <source>Unfavorite</source>
         <translation>Annulla apprezzamento</translation>

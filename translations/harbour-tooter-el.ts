@@ -36,7 +36,7 @@
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished">Διαγραφή</translation>
+        <translation>Διαγραφή</translation>
     </message>
     <message>
         <source>Public</source>
@@ -63,18 +63,18 @@
     <name>CoverPage</name>
     <message>
         <source>New Toot</source>
-        <translation type="unfinished">Νέος</translation>
+        <translation>Νέος</translation>
     </message>
 </context>
 <context>
     <name>EmojiSelect</name>
     <message>
         <source>Emojis</source>
-        <translation type="unfinished">Emoji</translation>
+        <translation>Emoji</translation>
     </message>
     <message>
         <source>Tap to insert</source>
-        <translation type="unfinished">Κτυπήστε για εισαγωγή</translation>
+        <translation>Κτυπήστε για εισαγωγή</translation>
     </message>
 </context>
 <context>
@@ -131,7 +131,7 @@
     </message>
     <message>
         <source>Local</source>
-        <translation type="unfinished"></translation>
+        <translation>Τοπικός</translation>
     </message>
     <message>
         <source>Federated</source>
@@ -180,7 +180,7 @@
     </message>
     <message>
         <source>New Toot</source>
-        <translation type="unfinished">Νέος</translation>
+        <translation>Νέος</translation>
     </message>
 </context>
 <context>
@@ -198,50 +198,65 @@
     <name>ProfilePage</name>
     <message>
         <source>About</source>
+        <extracomment>If there&apos;s no good translation for &quot;About&quot;, use &quot;Details&quot; (in details about profile).</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Followers</source>
-        <translation type="unfinished">Σας ακολουθούν</translation>
+        <extracomment>Will show as: &quot;35 Followers&quot;</extracomment>
+        <translation>Σας ακολουθούν</translation>
     </message>
     <message>
         <source>Following</source>
-        <translation type="unfinished">Σε παρακολούθηση</translation>
+        <extracomment>Will show as: &quot;23 Following&quot;</extracomment>
+        <translation>Σε παρακολούθηση</translation>
     </message>
     <message>
         <source>Statuses</source>
-        <translation type="unfinished">Κατάσταση</translation>
+        <extracomment>Will show as: &quot;115 Statuses&quot;</extracomment>
+        <translation>Κατάσταση</translation>
     </message>
     <message>
         <source>Unfollow</source>
-        <translation type="unfinished">Αναίρεση παρακολούθησης</translation>
+        <extracomment>Is a button. Keep it as short as possible.</extracomment>
+        <translation>Αναίρεση παρακολούθησης</translation>
     </message>
     <message>
         <source>Requested</source>
+        <extracomment>Is a button. Keep it as short as possible.</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Follow</source>
-        <translation type="unfinished">Παρακολούθηση</translation>
+        <extracomment>Is a button. Keep it as short as possible.</extracomment>
+        <translation>Παρακολούθηση</translation>
     </message>
     <message>
         <source>Unmute</source>
-        <translation type="unfinished">Αναίρεση σίγασης</translation>
+        <extracomment>Is a button. Keep it as short as possible.</extracomment>
+        <translation>Αναίρεση σίγασης</translation>
     </message>
     <message>
         <source>Mute</source>
-        <translation type="unfinished">Σίγαση</translation>
+        <extracomment>Is a button. Keep it as short as possible.</extracomment>
+        <translation>Σίγαση</translation>
     </message>
     <message>
         <source>Unblock</source>
-        <translation type="unfinished">Αναίρεση φραγής</translation>
+        <extracomment>Is a button. Keep it as short as possible.</extracomment>
+        <translation>Αναίρεση φραγής</translation>
     </message>
     <message>
         <source>Block</source>
-        <translation type="unfinished">Φραγή</translation>
+        <extracomment>Is a button. Keep it as short as possible.</extracomment>
+        <translation>Φραγή</translation>
     </message>
     <message>
         <source>Open in Browser</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Mention</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -249,7 +264,7 @@
     <name>SettingsPage</name>
     <message>
         <source>Settings</source>
-        <translation type="unfinished">Ρυθμίσεις</translation>
+        <translation>Ρυθμίσεις</translation>
     </message>
     <message>
         <source>Options</source>
@@ -261,43 +276,39 @@
     </message>
     <message>
         <source>Disable this option if you want to preserve your data connection</source>
-        <translation type="unfinished">Απενεργοποιήστε αυτήν την επιλογή αν θέλετε να διατηρήσετε την σύνδεση των δεδομένων σας</translation>
+        <translation>Απενεργοποιήστε αυτήν την επιλογή αν θέλετε να διατηρήσετε την σύνδεση των δεδομένων σας</translation>
     </message>
     <message>
         <source>Account</source>
-        <translation type="unfinished"></translation>
+        <translation>λογαριασμού</translation>
     </message>
     <message>
         <source>Remove Account</source>
-        <translation type="unfinished">Αφαίρεση λογαριασμού</translation>
+        <translation>Αφαίρεση λογαριασμού</translation>
     </message>
     <message>
         <source>Add Account</source>
-        <translation type="unfinished">Προσθήκη λογαριασμού</translation>
+        <translation>Προσθήκη λογαριασμού</translation>
     </message>
     <message>
         <source>Deauthorize this app from using your account and remove account data from phone</source>
-        <translation type="unfinished"></translation>
+        <translation>Άρση της αδειοδότησης της εφαρμογής και αφαίρεση του λογαριασμού σας</translation>
     </message>
     <message>
         <source>Authorize this app to access your Mastodon account</source>
-        <translation type="unfinished">Να επιτρέπεται στην εφαρμογή να χρησιμοποιεί τον λογαριασμό σας στο Mastodon εκ μέρους σας</translation>
+        <translation>Να επιτρέπεται στην εφαρμογή να χρησιμοποιεί τον λογαριασμό σας στο Mastodon εκ μέρους σας</translation>
     </message>
     <message>
         <source>Translate</source>
-        <translation type="unfinished">Μετάφραση</translation>
-    </message>
-    <message>
-        <source>Use &lt;a href=&apos;https://www.transifex.com/dysko/tooter/&apos;&gt;Transifex&lt;/a&gt; to help with app translation to your language.</source>
-        <translation type="unfinished"></translation>
+        <translation>Μετάφραση</translation>
     </message>
     <message>
         <source>Credits</source>
-        <translation type="unfinished">Ευχαριστίες</translation>
+        <translation>Ευχαριστίες</translation>
     </message>
     <message>
         <source>UI/UX design and development</source>
-        <translation type="unfinished">UI/UX σχεδιασμός και ανάπτυξη</translation>
+        <translation>UI/UX σχεδιασμός και ανάπτυξη</translation>
     </message>
     <message>
         <source>Visual identity</source>
@@ -326,6 +337,15 @@
     <message>
         <source>Added README file</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use</source>
+        <extracomment>Full sentence for translation: &quot;Use Transifex to help with app translation to your language.&quot; - The word Transifex is a link and doesn&apos;t need translation.</extracomment>
+        <translation>Χρησιμοποιήστε το</translation>
+    </message>
+    <message>
+        <source>to help with app translation to your language.</source>
+        <translation>για να βοηθήσετε την μετάφραση της εφαρμογής στην γλώσσα σας.</translation>
     </message>
 </context>
 <context>

@@ -198,51 +198,66 @@
     <name>ProfilePage</name>
     <message>
         <source>About</source>
+        <extracomment>If there&apos;s no good translation for &quot;About&quot;, use &quot;Details&quot; (in details about profile).</extracomment>
         <translation>Details</translation>
     </message>
     <message>
         <source>Followers</source>
+        <extracomment>Will show as: &quot;35 Followers&quot;</extracomment>
         <translation>Folgende</translation>
     </message>
     <message>
         <source>Following</source>
+        <extracomment>Will show as: &quot;23 Following&quot;</extracomment>
         <translation>Folgt</translation>
     </message>
     <message>
         <source>Statuses</source>
+        <extracomment>Will show as: &quot;115 Statuses&quot;</extracomment>
         <translation>Beiträge</translation>
     </message>
     <message>
         <source>Unfollow</source>
+        <extracomment>Is a button. Keep it as short as possible.</extracomment>
         <translation>Entfolgen</translation>
     </message>
     <message>
         <source>Requested</source>
+        <extracomment>Is a button. Keep it as short as possible.</extracomment>
         <translation>Angefragt</translation>
     </message>
     <message>
         <source>Follow</source>
+        <extracomment>Is a button. Keep it as short as possible.</extracomment>
         <translation>Folgen</translation>
     </message>
     <message>
         <source>Unmute</source>
+        <extracomment>Is a button. Keep it as short as possible.</extracomment>
         <translation>Nicht stumm schalten</translation>
     </message>
     <message>
         <source>Mute</source>
+        <extracomment>Is a button. Keep it as short as possible.</extracomment>
         <translation>Stumm schalten</translation>
     </message>
     <message>
         <source>Unblock</source>
+        <extracomment>Is a button. Keep it as short as possible.</extracomment>
         <translation>Nicht blockieren</translation>
     </message>
     <message>
         <source>Block</source>
+        <extracomment>Is a button. Keep it as short as possible.</extracomment>
         <translation>Blockieren</translation>
     </message>
     <message>
         <source>Open in Browser</source>
         <translation>Im Browser öffnen</translation>
+    </message>
+    <message>
+        <source>Mention</source>
+        <translation>Erwähnen</translation>
     </message>
 </context>
 <context>
@@ -288,10 +303,6 @@
         <translation>Übersetzungen</translation>
     </message>
     <message>
-        <source>Use &lt;a href=&apos;https://www.transifex.com/dysko/tooter/&apos;&gt;Transifex&lt;/a&gt; to help with app translation to your language.</source>
-        <translation>&lt;a href=&apos;https://www.transifex.com/dysko/tooter/&apos;&gt;Transifex&lt;/a&gt; benutzen um bei den Übersetzungen mitzuhelfen.</translation>
-    </message>
-    <message>
         <source>Credits</source>
         <translation>Über</translation>
     </message>
@@ -326,6 +337,15 @@
     <message>
         <source>Added README file</source>
         <translation>Erstellung README-Datei</translation>
+    </message>
+    <message>
+        <source>Use</source>
+        <extracomment>Full sentence for translation: &quot;Use Transifex to help with app translation to your language.&quot; - The word Transifex is a link and doesn&apos;t need translation.</extracomment>
+        <translation>Benutze</translation>
+    </message>
+    <message>
+        <source>to help with app translation to your language.</source>
+        <translation>um bei den Übersetzungen mitzuhelfen.</translation>
     </message>
 </context>
 <context>

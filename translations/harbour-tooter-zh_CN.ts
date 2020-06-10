@@ -198,51 +198,66 @@
     <name>ProfilePage</name>
     <message>
         <source>About</source>
+        <extracomment>If there&apos;s no good translation for &quot;About&quot;, use &quot;Details&quot; (in details about profile).</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Followers</source>
+        <extracomment>Will show as: &quot;35 Followers&quot;</extracomment>
         <translation>关注者</translation>
     </message>
     <message>
         <source>Following</source>
+        <extracomment>Will show as: &quot;23 Following&quot;</extracomment>
         <translation>关注中</translation>
     </message>
     <message>
         <source>Statuses</source>
+        <extracomment>Will show as: &quot;115 Statuses&quot;</extracomment>
         <translation>状态</translation>
     </message>
     <message>
         <source>Unfollow</source>
+        <extracomment>Is a button. Keep it as short as possible.</extracomment>
         <translation>取消关注</translation>
     </message>
     <message>
         <source>Requested</source>
+        <extracomment>Is a button. Keep it as short as possible.</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Follow</source>
+        <extracomment>Is a button. Keep it as short as possible.</extracomment>
         <translation>关注</translation>
     </message>
     <message>
         <source>Unmute</source>
+        <extracomment>Is a button. Keep it as short as possible.</extracomment>
         <translation>未静音</translation>
     </message>
     <message>
         <source>Mute</source>
+        <extracomment>Is a button. Keep it as short as possible.</extracomment>
         <translation>静音</translation>
     </message>
     <message>
         <source>Unblock</source>
+        <extracomment>Is a button. Keep it as short as possible.</extracomment>
         <translation>解除封锁</translation>
     </message>
     <message>
         <source>Block</source>
+        <extracomment>Is a button. Keep it as short as possible.</extracomment>
         <translation>封锁</translation>
     </message>
     <message>
         <source>Open in Browser</source>
         <translation>在浏览器打开个人简介</translation>
+    </message>
+    <message>
+        <source>Mention</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -288,10 +303,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Use &lt;a href=&apos;https://www.transifex.com/dysko/tooter/&apos;&gt;Transifex&lt;/a&gt; to help with app translation to your language.</source>
-        <translation>使用 &lt;a href=&apos;https://www.transifex.com/dysko/tooter/&apos;&gt;Transifex&lt;/a&gt; 以帮助翻译软件为你的语言.</translation>
-    </message>
-    <message>
         <source>Credits</source>
         <translation>信誉</translation>
     </message>
@@ -326,6 +337,15 @@
     <message>
         <source>Added README file</source>
         <translation>添加 README 文件</translation>
+    </message>
+    <message>
+        <source>Use</source>
+        <extracomment>Full sentence for translation: &quot;Use Transifex to help with app translation to your language.&quot; - The word Transifex is a link and doesn&apos;t need translation.</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>to help with app translation to your language.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

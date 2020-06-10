@@ -36,7 +36,7 @@
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished">Escafar</translation>
+        <translation>Escafar</translation>
     </message>
     <message>
         <source>Public</source>
@@ -63,18 +63,18 @@
     <name>CoverPage</name>
     <message>
         <source>New Toot</source>
-        <translation type="unfinished">Nòu Tut</translation>
+        <translation>Nòu Tut</translation>
     </message>
 </context>
 <context>
     <name>EmojiSelect</name>
     <message>
         <source>Emojis</source>
-        <translation type="unfinished">Emojis</translation>
+        <translation>Emojis</translation>
     </message>
     <message>
         <source>Tap to insert</source>
-        <translation type="unfinished">Tustejar per inserir</translation>
+        <translation>Tustejar per inserir</translation>
     </message>
 </context>
 <context>
@@ -180,7 +180,7 @@
     </message>
     <message>
         <source>New Toot</source>
-        <translation type="unfinished">Nòu Tut</translation>
+        <translation>Nòu Tut</translation>
     </message>
 </context>
 <context>
@@ -191,57 +191,72 @@
     </message>
     <message>
         <source>Bot</source>
-        <translation type="unfinished"></translation>
+        <translation>Bot</translation>
     </message>
 </context>
 <context>
     <name>ProfilePage</name>
     <message>
         <source>About</source>
+        <extracomment>If there&apos;s no good translation for &quot;About&quot;, use &quot;Details&quot; (in details about profile).</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Followers</source>
-        <translation type="unfinished">Seguidors</translation>
+        <extracomment>Will show as: &quot;35 Followers&quot;</extracomment>
+        <translation>Seguidors</translation>
     </message>
     <message>
         <source>Following</source>
-        <translation type="unfinished">Abonaments</translation>
+        <extracomment>Will show as: &quot;23 Following&quot;</extracomment>
+        <translation>Abonaments</translation>
     </message>
     <message>
         <source>Statuses</source>
-        <translation type="unfinished">Estatuts</translation>
+        <extracomment>Will show as: &quot;115 Statuses&quot;</extracomment>
+        <translation>Estatuts</translation>
     </message>
     <message>
         <source>Unfollow</source>
-        <translation type="unfinished">Quitar de seguir</translation>
+        <extracomment>Is a button. Keep it as short as possible.</extracomment>
+        <translation>Quitar de seguir</translation>
     </message>
     <message>
         <source>Requested</source>
+        <extracomment>Is a button. Keep it as short as possible.</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Follow</source>
-        <translation type="unfinished">Seguir</translation>
+        <extracomment>Is a button. Keep it as short as possible.</extracomment>
+        <translation>Seguir</translation>
     </message>
     <message>
         <source>Unmute</source>
-        <translation type="unfinished">Mostrar</translation>
+        <extracomment>Is a button. Keep it as short as possible.</extracomment>
+        <translation>Mostrar</translation>
     </message>
     <message>
         <source>Mute</source>
-        <translation type="unfinished">Amagar</translation>
+        <extracomment>Is a button. Keep it as short as possible.</extracomment>
+        <translation>Amagar</translation>
     </message>
     <message>
         <source>Unblock</source>
-        <translation type="unfinished">Desblocar</translation>
+        <extracomment>Is a button. Keep it as short as possible.</extracomment>
+        <translation>Desblocar</translation>
     </message>
     <message>
         <source>Block</source>
-        <translation type="unfinished">Blocar</translation>
+        <extracomment>Is a button. Keep it as short as possible.</extracomment>
+        <translation>Blocar</translation>
     </message>
     <message>
         <source>Open in Browser</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Mention</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -249,7 +264,7 @@
     <name>SettingsPage</name>
     <message>
         <source>Settings</source>
-        <translation type="unfinished">Parmètres</translation>
+        <translation>Parmètres</translation>
     </message>
     <message>
         <source>Options</source>
@@ -257,47 +272,43 @@
     </message>
     <message>
         <source>Load Images in Toots</source>
-        <translation type="unfinished"></translation>
+        <translation>Cargar los imatges dels tuts</translation>
     </message>
     <message>
         <source>Disable this option if you want to preserve your data connection</source>
-        <translation type="unfinished">Desactivar aquesta opcion per estalviar vòstra connexion de donadas</translation>
+        <translation>Desactivar aquesta opcion per estalviar vòstra connexion de donadas</translation>
     </message>
     <message>
         <source>Account</source>
-        <translation type="unfinished"></translation>
+        <translation>Compte</translation>
     </message>
     <message>
         <source>Remove Account</source>
-        <translation type="unfinished">Levar un compte</translation>
+        <translation>Levar un compte</translation>
     </message>
     <message>
         <source>Add Account</source>
-        <translation type="unfinished">Ajustar un compte</translation>
+        <translation>Ajustar un compte</translation>
     </message>
     <message>
         <source>Deauthorize this app from using your account and remove account data from phone</source>
-        <translation type="unfinished"></translation>
+        <translation>Revocar l’aplicacion e levar vòstre compte</translation>
     </message>
     <message>
         <source>Authorize this app to access your Mastodon account</source>
-        <translation type="unfinished">Autorizar aquesta aplicacion a utilizar vòstre compte Mastodon per vos</translation>
+        <translation>Autorizar aquesta aplicacion a utilizar vòstre compte Mastodon per vos</translation>
     </message>
     <message>
         <source>Translate</source>
-        <translation type="unfinished">Traduire</translation>
-    </message>
-    <message>
-        <source>Use &lt;a href=&apos;https://www.transifex.com/dysko/tooter/&apos;&gt;Transifex&lt;/a&gt; to help with app translation to your language.</source>
-        <translation type="unfinished"></translation>
+        <translation>Traduire</translation>
     </message>
     <message>
         <source>Credits</source>
-        <translation type="unfinished">Crèdits</translation>
+        <translation>Crèdits</translation>
     </message>
     <message>
         <source>UI/UX design and development</source>
-        <translation type="unfinished">UI/UX design e desvlopament</translation>
+        <translation>UI/UX design e desvlopament</translation>
     </message>
     <message>
         <source>Visual identity</source>
@@ -326,6 +337,15 @@
     <message>
         <source>Added README file</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use</source>
+        <extracomment>Full sentence for translation: &quot;Use Transifex to help with app translation to your language.&quot; - The word Transifex is a link and doesn&apos;t need translation.</extracomment>
+        <translation>Utilizar</translation>
+    </message>
+    <message>
+        <source>to help with app translation to your language.</source>
+        <translation>per ajudar a traduire l’aplicacion dins vòstra lenga.</translation>
     </message>
 </context>
 <context>

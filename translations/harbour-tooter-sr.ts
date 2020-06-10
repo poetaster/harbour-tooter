@@ -36,7 +36,7 @@
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished">Обриши</translation>
+        <translation>Обриши</translation>
     </message>
     <message>
         <source>Public</source>
@@ -63,18 +63,18 @@
     <name>CoverPage</name>
     <message>
         <source>New Toot</source>
-        <translation type="unfinished">Novi toot</translation>
+        <translation>Novi toot</translation>
     </message>
 </context>
 <context>
     <name>EmojiSelect</name>
     <message>
         <source>Emojis</source>
-        <translation type="unfinished">Емотикони</translation>
+        <translation>Емотикони</translation>
     </message>
     <message>
         <source>Tap to insert</source>
-        <translation type="unfinished">Тапни за убацивање</translation>
+        <translation>Тапни за убацивање</translation>
     </message>
 </context>
 <context>
@@ -180,7 +180,7 @@
     </message>
     <message>
         <source>New Toot</source>
-        <translation type="unfinished">Novi toot</translation>
+        <translation>Novi toot</translation>
     </message>
 </context>
 <context>
@@ -198,50 +198,65 @@
     <name>ProfilePage</name>
     <message>
         <source>About</source>
+        <extracomment>If there&apos;s no good translation for &quot;About&quot;, use &quot;Details&quot; (in details about profile).</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Followers</source>
-        <translation type="unfinished">Пратиоци</translation>
+        <extracomment>Will show as: &quot;35 Followers&quot;</extracomment>
+        <translation>Пратиоци</translation>
     </message>
     <message>
         <source>Following</source>
-        <translation type="unfinished">Пратите</translation>
+        <extracomment>Will show as: &quot;23 Following&quot;</extracomment>
+        <translation>Пратите</translation>
     </message>
     <message>
         <source>Statuses</source>
-        <translation type="unfinished">Статуси</translation>
+        <extracomment>Will show as: &quot;115 Statuses&quot;</extracomment>
+        <translation>Статуси</translation>
     </message>
     <message>
         <source>Unfollow</source>
-        <translation type="unfinished">Одпрати</translation>
+        <extracomment>Is a button. Keep it as short as possible.</extracomment>
+        <translation>Одпрати</translation>
     </message>
     <message>
         <source>Requested</source>
+        <extracomment>Is a button. Keep it as short as possible.</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Follow</source>
-        <translation type="unfinished">Прати</translation>
+        <extracomment>Is a button. Keep it as short as possible.</extracomment>
+        <translation>Прати</translation>
     </message>
     <message>
         <source>Unmute</source>
-        <translation type="unfinished">Укини утишање</translation>
+        <extracomment>Is a button. Keep it as short as possible.</extracomment>
+        <translation>Укини утишање</translation>
     </message>
     <message>
         <source>Mute</source>
-        <translation type="unfinished">Утишај</translation>
+        <extracomment>Is a button. Keep it as short as possible.</extracomment>
+        <translation>Утишај</translation>
     </message>
     <message>
         <source>Unblock</source>
-        <translation type="unfinished">Одблокирати</translation>
+        <extracomment>Is a button. Keep it as short as possible.</extracomment>
+        <translation>Одблокирати</translation>
     </message>
     <message>
         <source>Block</source>
-        <translation type="unfinished">Блокирати</translation>
+        <extracomment>Is a button. Keep it as short as possible.</extracomment>
+        <translation>Блокирати</translation>
     </message>
     <message>
         <source>Open in Browser</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Mention</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -249,7 +264,7 @@
     <name>SettingsPage</name>
     <message>
         <source>Settings</source>
-        <translation type="unfinished">Подешавања</translation>
+        <translation>Подешавања</translation>
     </message>
     <message>
         <source>Options</source>
@@ -257,47 +272,43 @@
     </message>
     <message>
         <source>Load Images in Toots</source>
-        <translation type="unfinished"></translation>
+        <translation>Прикажи слике у објавама</translation>
     </message>
     <message>
         <source>Disable this option if you want to preserve your data connection</source>
-        <translation type="unfinished">Искључите ову опцију уколико желите да уштедите на преносу података</translation>
+        <translation>Искључите ову опцију уколико желите да уштедите на преносу података</translation>
     </message>
     <message>
         <source>Account</source>
-        <translation type="unfinished"></translation>
+        <translation>Hалог</translation>
     </message>
     <message>
         <source>Remove Account</source>
-        <translation type="unfinished">Уклони налог</translation>
+        <translation>Уклони налог</translation>
     </message>
     <message>
         <source>Add Account</source>
-        <translation type="unfinished">Додај налог</translation>
+        <translation>Додај налог</translation>
     </message>
     <message>
         <source>Deauthorize this app from using your account and remove account data from phone</source>
-        <translation type="unfinished"></translation>
+        <translation>Укините дозволе за кориштење и уклоните налог с телефона</translation>
     </message>
     <message>
         <source>Authorize this app to access your Mastodon account</source>
-        <translation type="unfinished">Дозволите овој апликацији да користи ваш Mastodon налог</translation>
+        <translation>Дозволите овој апликацији да користи ваш Mastodon налог</translation>
     </message>
     <message>
         <source>Translate</source>
-        <translation type="unfinished">Преведи</translation>
-    </message>
-    <message>
-        <source>Use &lt;a href=&apos;https://www.transifex.com/dysko/tooter/&apos;&gt;Transifex&lt;/a&gt; to help with app translation to your language.</source>
-        <translation type="unfinished"></translation>
+        <translation>Преведи</translation>
     </message>
     <message>
         <source>Credits</source>
-        <translation type="unfinished">Спомен плоча</translation>
+        <translation>Спомен плоча</translation>
     </message>
     <message>
         <source>UI/UX design and development</source>
-        <translation type="unfinished">интерфејс дизајн и развој</translation>
+        <translation>интерфејс дизајн и развој</translation>
     </message>
     <message>
         <source>Visual identity</source>
@@ -326,6 +337,15 @@
     <message>
         <source>Added README file</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use</source>
+        <extracomment>Full sentence for translation: &quot;Use Transifex to help with app translation to your language.&quot; - The word Transifex is a link and doesn&apos;t need translation.</extracomment>
+        <translation>Користите</translation>
+    </message>
+    <message>
+        <source>to help with app translation to your language.</source>
+        <translation>и помозите у преводу апликације на други језик.</translation>
     </message>
 </context>
 <context>

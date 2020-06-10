@@ -5,7 +5,7 @@
     <name>API</name>
     <message>
         <source>favourited</source>
-        <translation type="unfinished">dodał(a) do ulubionych</translation>
+        <translation>dodał(a) do ulubionych</translation>
     </message>
     <message>
         <source>followed you</source>
@@ -36,7 +36,7 @@
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished">Usuń</translation>
+        <translation>Usuń</translation>
     </message>
     <message>
         <source>Public</source>
@@ -63,18 +63,18 @@
     <name>CoverPage</name>
     <message>
         <source>New Toot</source>
-        <translation type="unfinished">Nowy wpis</translation>
+        <translation>Nowy wpis</translation>
     </message>
 </context>
 <context>
     <name>EmojiSelect</name>
     <message>
         <source>Emojis</source>
-        <translation type="unfinished">Emoji</translation>
+        <translation>Emoji</translation>
     </message>
     <message>
         <source>Tap to insert</source>
-        <translation type="unfinished">Dotknij aby wstawić</translation>
+        <translation>Dotknij aby wstawić</translation>
     </message>
 </context>
 <context>
@@ -180,7 +180,7 @@
     </message>
     <message>
         <source>New Toot</source>
-        <translation type="unfinished">Nowy wpis</translation>
+        <translation>Nowy wpis</translation>
     </message>
 </context>
 <context>
@@ -191,57 +191,72 @@
     </message>
     <message>
         <source>Bot</source>
-        <translation type="unfinished"></translation>
+        <translation>Bot</translation>
     </message>
 </context>
 <context>
     <name>ProfilePage</name>
     <message>
         <source>About</source>
+        <extracomment>If there&apos;s no good translation for &quot;About&quot;, use &quot;Details&quot; (in details about profile).</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Followers</source>
-        <translation type="unfinished">Followers</translation>
+        <extracomment>Will show as: &quot;35 Followers&quot;</extracomment>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Following</source>
-        <translation type="unfinished">Śledzisz</translation>
+        <extracomment>Will show as: &quot;23 Following&quot;</extracomment>
+        <translation>Śledzisz</translation>
     </message>
     <message>
         <source>Statuses</source>
-        <translation type="unfinished">Statuses</translation>
+        <extracomment>Will show as: &quot;115 Statuses&quot;</extracomment>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Unfollow</source>
-        <translation type="unfinished">Przestań śledzić</translation>
+        <extracomment>Is a button. Keep it as short as possible.</extracomment>
+        <translation>Przestań śledzić</translation>
     </message>
     <message>
         <source>Requested</source>
+        <extracomment>Is a button. Keep it as short as possible.</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Follow</source>
-        <translation type="unfinished">Follow</translation>
+        <extracomment>Is a button. Keep it as short as possible.</extracomment>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Unmute</source>
-        <translation type="unfinished">Unmute</translation>
+        <extracomment>Is a button. Keep it as short as possible.</extracomment>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Mute</source>
-        <translation type="unfinished">Wycisz</translation>
+        <extracomment>Is a button. Keep it as short as possible.</extracomment>
+        <translation>Wycisz</translation>
     </message>
     <message>
         <source>Unblock</source>
-        <translation type="unfinished">Unblock</translation>
+        <extracomment>Is a button. Keep it as short as possible.</extracomment>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Block</source>
-        <translation type="unfinished">Block</translation>
+        <extracomment>Is a button. Keep it as short as possible.</extracomment>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Open in Browser</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Mention</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -249,7 +264,7 @@
     <name>SettingsPage</name>
     <message>
         <source>Settings</source>
-        <translation type="unfinished">Ustawienia</translation>
+        <translation>Ustawienia</translation>
     </message>
     <message>
         <source>Options</source>
@@ -288,10 +303,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Use &lt;a href=&apos;https://www.transifex.com/dysko/tooter/&apos;&gt;Transifex&lt;/a&gt; to help with app translation to your language.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Credits</source>
         <translation type="unfinished"></translation>
     </message>
@@ -325,6 +336,15 @@
     </message>
     <message>
         <source>Added README file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use</source>
+        <extracomment>Full sentence for translation: &quot;Use Transifex to help with app translation to your language.&quot; - The word Transifex is a link and doesn&apos;t need translation.</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>to help with app translation to your language.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

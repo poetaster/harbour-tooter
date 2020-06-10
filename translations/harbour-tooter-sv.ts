@@ -36,7 +36,7 @@
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished">Radera</translation>
+        <translation>Radera</translation>
     </message>
     <message>
         <source>Public</source>
@@ -63,18 +63,18 @@
     <name>CoverPage</name>
     <message>
         <source>New Toot</source>
-        <translation type="unfinished">Ny toot</translation>
+        <translation>Ny toot</translation>
     </message>
 </context>
 <context>
     <name>EmojiSelect</name>
     <message>
         <source>Emojis</source>
-        <translation type="unfinished">Emojis</translation>
+        <translation>Emojis</translation>
     </message>
     <message>
         <source>Tap to insert</source>
-        <translation type="unfinished">Tryck för att infoga</translation>
+        <translation>Tryck för att infoga</translation>
     </message>
 </context>
 <context>
@@ -180,7 +180,7 @@
     </message>
     <message>
         <source>New Toot</source>
-        <translation type="unfinished">Ny toot</translation>
+        <translation>Ny toot</translation>
     </message>
 </context>
 <context>
@@ -191,57 +191,72 @@
     </message>
     <message>
         <source>Bot</source>
-        <translation type="unfinished"></translation>
+        <translation>Bot</translation>
     </message>
 </context>
 <context>
     <name>ProfilePage</name>
     <message>
         <source>About</source>
+        <extracomment>If there&apos;s no good translation for &quot;About&quot;, use &quot;Details&quot; (in details about profile).</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Followers</source>
-        <translation type="unfinished">Följare</translation>
+        <extracomment>Will show as: &quot;35 Followers&quot;</extracomment>
+        <translation>Följare</translation>
     </message>
     <message>
         <source>Following</source>
-        <translation type="unfinished">Följer</translation>
+        <extracomment>Will show as: &quot;23 Following&quot;</extracomment>
+        <translation>Följer</translation>
     </message>
     <message>
         <source>Statuses</source>
-        <translation type="unfinished">Statusar</translation>
+        <extracomment>Will show as: &quot;115 Statuses&quot;</extracomment>
+        <translation>Statusar</translation>
     </message>
     <message>
         <source>Unfollow</source>
-        <translation type="unfinished">Sluta följa</translation>
+        <extracomment>Is a button. Keep it as short as possible.</extracomment>
+        <translation>Sluta följa</translation>
     </message>
     <message>
         <source>Requested</source>
+        <extracomment>Is a button. Keep it as short as possible.</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Follow</source>
-        <translation type="unfinished">Följ</translation>
+        <extracomment>Is a button. Keep it as short as possible.</extracomment>
+        <translation>Följ</translation>
     </message>
     <message>
         <source>Unmute</source>
-        <translation type="unfinished">Avtysta</translation>
+        <extracomment>Is a button. Keep it as short as possible.</extracomment>
+        <translation>Avtysta</translation>
     </message>
     <message>
         <source>Mute</source>
-        <translation type="unfinished">Tysta</translation>
+        <extracomment>Is a button. Keep it as short as possible.</extracomment>
+        <translation>Tysta</translation>
     </message>
     <message>
         <source>Unblock</source>
-        <translation type="unfinished">Avblockera</translation>
+        <extracomment>Is a button. Keep it as short as possible.</extracomment>
+        <translation>Avblockera</translation>
     </message>
     <message>
         <source>Block</source>
-        <translation type="unfinished">Blockera</translation>
+        <extracomment>Is a button. Keep it as short as possible.</extracomment>
+        <translation>Blockera</translation>
     </message>
     <message>
         <source>Open in Browser</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Mention</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -249,7 +264,7 @@
     <name>SettingsPage</name>
     <message>
         <source>Settings</source>
-        <translation type="unfinished">Inställningar</translation>
+        <translation>Inställningar</translation>
     </message>
     <message>
         <source>Options</source>
@@ -257,47 +272,43 @@
     </message>
     <message>
         <source>Load Images in Toots</source>
-        <translation type="unfinished"></translation>
+        <translation>Ladda bilder i toots</translation>
     </message>
     <message>
         <source>Disable this option if you want to preserve your data connection</source>
-        <translation type="unfinished">Inaktivera det här alternativet om du vill behålla din dataanslutning</translation>
+        <translation>Inaktivera det här alternativet om du vill behålla din dataanslutning</translation>
     </message>
     <message>
         <source>Account</source>
-        <translation type="unfinished"></translation>
+        <translation>Konto</translation>
     </message>
     <message>
         <source>Remove Account</source>
-        <translation type="unfinished">Radera konto</translation>
+        <translation>Radera konto</translation>
     </message>
     <message>
         <source>Add Account</source>
-        <translation type="unfinished">Lägg till konto</translation>
+        <translation>Lägg till konto</translation>
     </message>
     <message>
         <source>Deauthorize this app from using your account and remove account data from phone</source>
-        <translation type="unfinished"></translation>
+        <translation>Avauktorisera denna app och radera ditt konto</translation>
     </message>
     <message>
         <source>Authorize this app to access your Mastodon account</source>
-        <translation type="unfinished">Godkänn denna app att använda ditt Mastodon-konto på dina vägnar</translation>
+        <translation>Godkänn denna app att använda ditt Mastodon-konto på dina vägnar</translation>
     </message>
     <message>
         <source>Translate</source>
-        <translation type="unfinished">Översätt</translation>
-    </message>
-    <message>
-        <source>Use &lt;a href=&apos;https://www.transifex.com/dysko/tooter/&apos;&gt;Transifex&lt;/a&gt; to help with app translation to your language.</source>
-        <translation type="unfinished"></translation>
+        <translation>Översätt</translation>
     </message>
     <message>
         <source>Credits</source>
-        <translation type="unfinished">Erkännanden</translation>
+        <translation>Erkännanden</translation>
     </message>
     <message>
         <source>UI/UX design and development</source>
-        <translation type="unfinished">UI/UX design och utveckling</translation>
+        <translation>UI/UX design och utveckling</translation>
     </message>
     <message>
         <source>Visual identity</source>
@@ -305,7 +316,7 @@
     </message>
     <message>
         <source>Development and translations</source>
-        <translation type="unfinished">Använd Transifex för att hjälpa med app-översättningar till ditt språk</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Occitan &amp; French translation</source>
@@ -326,6 +337,15 @@
     <message>
         <source>Added README file</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use</source>
+        <extracomment>Full sentence for translation: &quot;Use Transifex to help with app translation to your language.&quot; - The word Transifex is a link and doesn&apos;t need translation.</extracomment>
+        <translation>Använd</translation>
+    </message>
+    <message>
+        <source>to help with app translation to your language.</source>
+        <translation>för att hjälpa med app-översättningar till ditt språk.</translation>
     </message>
 </context>
 <context>

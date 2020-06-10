@@ -238,62 +238,78 @@
 <context>
     <name>ProfilePage</name>
     <message>
-        <location filename="../qml/pages/ProfilePage.qml" line="173"/>
+        <location filename="../qml/pages/ProfilePage.qml" line="175"/>
         <source>About</source>
+        <extracomment>If there&apos;s no good translation for &quot;About&quot;, use &quot;Details&quot; (in details about profile).</extracomment>
         <translation>Dettagli</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ProfilePage.qml" line="251"/>
+        <location filename="../qml/pages/ProfilePage.qml" line="255"/>
         <source>Followers</source>
+        <extracomment>Will show as: &quot;35 Followers&quot;</extracomment>
         <translation>Seguaci</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ProfilePage.qml" line="260"/>
+        <location filename="../qml/pages/ProfilePage.qml" line="266"/>
         <source>Following</source>
+        <extracomment>Will show as: &quot;23 Following&quot;</extracomment>
         <translation>Segue</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ProfilePage.qml" line="269"/>
+        <location filename="../qml/pages/ProfilePage.qml" line="277"/>
         <source>Statuses</source>
+        <extracomment>Will show as: &quot;115 Statuses&quot;</extracomment>
         <translation>Toots</translation>
     </message>
     <message>
         <location filename="../qml/pages/ProfilePage.qml" line="307"/>
+        <source>Mention</source>
+        <translation>Menzionare</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/ProfilePage.qml" line="319"/>
         <source>Unfollow</source>
+        <extracomment>Is a button. Keep it as short as possible.</extracomment>
         <translation>Smetti di seguire</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ProfilePage.qml" line="307"/>
+        <location filename="../qml/pages/ProfilePage.qml" line="321"/>
         <source>Requested</source>
+        <extracomment>Is a button. Keep it as short as possible.</extracomment>
         <translation>Richiesto</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ProfilePage.qml" line="307"/>
+        <location filename="../qml/pages/ProfilePage.qml" line="323"/>
         <source>Follow</source>
+        <extracomment>Is a button. Keep it as short as possible.</extracomment>
         <translation>Segui</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ProfilePage.qml" line="324"/>
+        <location filename="../qml/pages/ProfilePage.qml" line="342"/>
         <source>Unmute</source>
+        <extracomment>Is a button. Keep it as short as possible.</extracomment>
         <translation>Non silenziare</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ProfilePage.qml" line="324"/>
+        <location filename="../qml/pages/ProfilePage.qml" line="344"/>
         <source>Mute</source>
+        <extracomment>Is a button. Keep it as short as possible.</extracomment>
         <translation>Silenzia</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ProfilePage.qml" line="340"/>
+        <location filename="../qml/pages/ProfilePage.qml" line="362"/>
         <source>Unblock</source>
+        <extracomment>Is a button. Keep it as short as possible.</extracomment>
         <translation>Sblocca</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ProfilePage.qml" line="340"/>
+        <location filename="../qml/pages/ProfilePage.qml" line="364"/>
         <source>Block</source>
+        <extracomment>Is a button. Keep it as short as possible.</extracomment>
         <translation>Blocca</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ProfilePage.qml" line="356"/>
+        <location filename="../qml/pages/ProfilePage.qml" line="380"/>
         <source>Open in Browser</source>
         <translation>Aprire nel browser</translation>
     </message>
@@ -351,52 +367,58 @@
         <translation>Tradurre</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="114"/>
-        <source>Use &lt;a href=&apos;https://www.transifex.com/dysko/tooter/&apos;&gt;Transifex&lt;/a&gt; to help with app translation to your language.</source>
-        <translation>Utilizzare &lt;a href=&apos;https://www.transifex.com/dysko/tooter/&apos;&gt;Transifex&lt;/a&gt; per aiutare nella traduzione dell&apos;app.</translation>
+        <location filename="../qml/pages/SettingsPage.qml" line="116"/>
+        <source>Use</source>
+        <extracomment>Full sentence for translation: &quot;Use Transifex to help with app translation to your language.&quot; - The word Transifex is a link and doesn&apos;t need translation.</extracomment>
+        <translation>Utilizzare</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="130"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="116"/>
+        <source>to help with app translation to your language.</source>
+        <translation>per aiutare nella traduzione dell&apos;app.</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/SettingsPage.qml" line="132"/>
         <source>Credits</source>
         <translation>Sviluppo</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="146"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="148"/>
         <source>UI/UX design and development</source>
         <translation>Design UI/UX e sviluppo</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="153"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="155"/>
         <source>Visual identity</source>
         <translation>Identità visiva</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="160"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="162"/>
         <source>Development and translations</source>
         <translation>Sviluppo e traduzioni</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="167"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="169"/>
         <source>Occitan &amp; French translation</source>
         <translation>Traduzione francese e occitanica</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="174"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="176"/>
         <source>Chinese translation</source>
         <translation>Traduzione cinese</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="181"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="183"/>
         <source>Dutch translation</source>
         <translation>Traduzione olandese</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="188"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="190"/>
         <source>Spanish translation</source>
         <translation>Traduzione spagnola</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="195"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="197"/>
         <source>Added README file</source>
         <translation>Aggiunto file README</translation>
     </message>

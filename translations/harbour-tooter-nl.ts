@@ -24,7 +24,7 @@
     <name>ConversationPage</name>
     <message>
         <source>Copy Link to Clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Linkadres kopiëren</translation>
     </message>
     <message>
         <source>Write your warning here</source>
@@ -36,7 +36,7 @@
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished">Verwijderen</translation>
+        <translation>Verwijderen</translation>
     </message>
     <message>
         <source>Public</source>
@@ -63,18 +63,18 @@
     <name>CoverPage</name>
     <message>
         <source>New Toot</source>
-        <translation type="unfinished">Nieuwe Toot</translation>
+        <translation>Nieuwe Toot</translation>
     </message>
 </context>
 <context>
     <name>EmojiSelect</name>
     <message>
         <source>Emojis</source>
-        <translation type="unfinished">Emojis</translation>
+        <translation>Emojis</translation>
     </message>
     <message>
         <source>Tap to insert</source>
-        <translation type="unfinished">Tikken om in te voegen</translation>
+        <translation>Tikken om in te voegen</translation>
     </message>
 </context>
 <context>
@@ -180,7 +180,7 @@
     </message>
     <message>
         <source>New Toot</source>
-        <translation type="unfinished">Nieuwe Toot</translation>
+        <translation>Nieuwe Toot</translation>
     </message>
 </context>
 <context>
@@ -191,113 +191,124 @@
     </message>
     <message>
         <source>Bot</source>
-        <translation type="unfinished"></translation>
+        <translation>Bot</translation>
     </message>
 </context>
 <context>
     <name>ProfilePage</name>
     <message>
         <source>About</source>
-        <translation type="unfinished"></translation>
+        <extracomment>If there&apos;s no good translation for &quot;About&quot;, use &quot;Details&quot; (in details about profile).</extracomment>
+        <translation>Gegevens</translation>
     </message>
     <message>
         <source>Followers</source>
-        <translation type="unfinished">Volgers</translation>
+        <extracomment>Will show as: &quot;35 Followers&quot;</extracomment>
+        <translation>Volgers</translation>
     </message>
     <message>
         <source>Following</source>
-        <translation type="unfinished">Volgend</translation>
+        <extracomment>Will show as: &quot;23 Following&quot;</extracomment>
+        <translation>Volgend</translation>
     </message>
     <message>
         <source>Statuses</source>
-        <translation type="unfinished">Statussen</translation>
+        <extracomment>Will show as: &quot;115 Statuses&quot;</extracomment>
+        <translation>Statussen</translation>
     </message>
     <message>
         <source>Unfollow</source>
-        <translation type="unfinished">Ontvolgen</translation>
+        <extracomment>Is a button. Keep it as short as possible.</extracomment>
+        <translation>Ontvolgen</translation>
     </message>
     <message>
         <source>Requested</source>
-        <translation type="unfinished"></translation>
+        <extracomment>Is a button. Keep it as short as possible.</extracomment>
+        <translation>Gevraagd</translation>
     </message>
     <message>
         <source>Follow</source>
-        <translation type="unfinished">Volgen</translation>
+        <extracomment>Is a button. Keep it as short as possible.</extracomment>
+        <translation>Volgen</translation>
     </message>
     <message>
         <source>Unmute</source>
-        <translation type="unfinished">Ontdempen</translation>
+        <extracomment>Is a button. Keep it as short as possible.</extracomment>
+        <translation>Ontdempen</translation>
     </message>
     <message>
         <source>Mute</source>
-        <translation type="unfinished">Dempen</translation>
+        <extracomment>Is a button. Keep it as short as possible.</extracomment>
+        <translation>Dempen</translation>
     </message>
     <message>
         <source>Unblock</source>
-        <translation type="unfinished">Deblokkeren</translation>
+        <extracomment>Is a button. Keep it as short as possible.</extracomment>
+        <translation>Deblokkeren</translation>
     </message>
     <message>
         <source>Block</source>
-        <translation type="unfinished">Blokkeren</translation>
+        <extracomment>Is a button. Keep it as short as possible.</extracomment>
+        <translation>Blokkeren</translation>
     </message>
     <message>
         <source>Open in Browser</source>
-        <translation type="unfinished"></translation>
+        <translation>Open een Browser</translation>
+    </message>
+    <message>
+        <source>Mention</source>
+        <translation type="unfinished">Vermelden</translation>
     </message>
 </context>
 <context>
     <name>SettingsPage</name>
     <message>
         <source>Settings</source>
-        <translation type="unfinished">Instellingen</translation>
+        <translation>Instellingen</translation>
     </message>
     <message>
         <source>Options</source>
-        <translation type="unfinished"></translation>
+        <translation>Opties</translation>
     </message>
     <message>
         <source>Load Images in Toots</source>
-        <translation type="unfinished"></translation>
+        <translation>Laden afbeeldingen in toots</translation>
     </message>
     <message>
         <source>Disable this option if you want to preserve your data connection</source>
-        <translation type="unfinished">Schakel deze optie uit als je je dataverbinding wilt behouden</translation>
+        <translation>Schakel deze optie uit als je je dataverbinding wilt behouden</translation>
     </message>
     <message>
         <source>Account</source>
-        <translation type="unfinished"></translation>
+        <translation>Account</translation>
     </message>
     <message>
         <source>Remove Account</source>
-        <translation type="unfinished">Verwijderen account</translation>
+        <translation>Verwijderen account</translation>
     </message>
     <message>
         <source>Add Account</source>
-        <translation type="unfinished">Toevoegen account</translation>
+        <translation>Toevoegen account</translation>
     </message>
     <message>
         <source>Deauthorize this app from using your account and remove account data from phone</source>
-        <translation type="unfinished"></translation>
+        <translation>Trek autorisaties van deze app in en verwijder je account</translation>
     </message>
     <message>
         <source>Authorize this app to access your Mastodon account</source>
-        <translation type="unfinished">Autoriseer deze app om je Mastodon namens jou te gebruiken</translation>
+        <translation>Autoriseer deze app om je Mastodon namens jou te gebruiken</translation>
     </message>
     <message>
         <source>Translate</source>
-        <translation type="unfinished">Vertalen</translation>
-    </message>
-    <message>
-        <source>Use &lt;a href=&apos;https://www.transifex.com/dysko/tooter/&apos;&gt;Transifex&lt;/a&gt; to help with app translation to your language.</source>
-        <translation type="unfinished"></translation>
+        <translation>Vertalen</translation>
     </message>
     <message>
         <source>Credits</source>
-        <translation type="unfinished">Credits</translation>
+        <translation>Credits</translation>
     </message>
     <message>
         <source>UI/UX design and development</source>
-        <translation type="unfinished">UI/UX ontwerp en ontwikkeling</translation>
+        <translation>UI/UX ontwerp en ontwikkeling</translation>
     </message>
     <message>
         <source>Visual identity</source>
@@ -305,7 +316,7 @@
     </message>
     <message>
         <source>Development and translations</source>
-        <translation type="unfinished">Ontwikkeling en vertalingen</translation>
+        <translation>Ontwikkeling en vertalingen</translation>
     </message>
     <message>
         <source>Occitan &amp; French translation</source>
@@ -326,6 +337,15 @@
     <message>
         <source>Added README file</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use</source>
+        <extracomment>Full sentence for translation: &quot;Use Transifex to help with app translation to your language.&quot; - The word Transifex is a link and doesn&apos;t need translation.</extracomment>
+        <translation>Gebruik</translation>
+    </message>
+    <message>
+        <source>to help with app translation to your language.</source>
+        <translation>om deze app te helpen vertalen in jouw taal.</translation>
     </message>
 </context>
 <context>
@@ -363,7 +383,7 @@
     </message>
     <message>
         <source>Mention</source>
-        <translation type="unfinished"></translation>
+        <translation>Vermelden</translation>
     </message>
 </context>
 </TS>

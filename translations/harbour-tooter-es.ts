@@ -24,57 +24,57 @@
     <name>ConversationPage</name>
     <message>
         <source>Copy Link to Clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Copiar enlace al portapapeles</translation>
     </message>
     <message>
         <source>Write your warning here</source>
-        <translation type="unfinished">Escribe aquí tu advertencia</translation>
+        <translation>Escribe aquí tu advertencia</translation>
     </message>
     <message>
         <source>What&apos;s on your mind?</source>
-        <translation type="unfinished">¿En qué estás pensando?</translation>
+        <translation>¿En qué estás pensando?</translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished">Borrar</translation>
+        <translation>Borrar</translation>
     </message>
     <message>
         <source>Public</source>
-        <translation type="unfinished">Público</translation>
+        <translation>Público</translation>
     </message>
     <message>
         <source>Unlisted</source>
-        <translation type="unfinished">Sin federar</translation>
+        <translation>Sin federar</translation>
     </message>
     <message>
         <source>Followers-only</source>
-        <translation type="unfinished">Sólo seguidores</translation>
+        <translation>Sólo seguidores</translation>
     </message>
     <message>
         <source>Direct</source>
-        <translation type="unfinished">Directo</translation>
+        <translation>Directo</translation>
     </message>
     <message>
         <source>Toot sent!</source>
-        <translation type="unfinished"></translation>
+        <translation>¡Toot enviado!</translation>
     </message>
 </context>
 <context>
     <name>CoverPage</name>
     <message>
         <source>New Toot</source>
-        <translation type="unfinished">Nuevo toot</translation>
+        <translation>Nuevo toot</translation>
     </message>
 </context>
 <context>
     <name>EmojiSelect</name>
     <message>
         <source>Emojis</source>
-        <translation type="unfinished">Emoticonos</translation>
+        <translation>Emoticonos</translation>
     </message>
     <message>
         <source>Tap to insert</source>
-        <translation type="unfinished">Toca para insertar</translation>
+        <translation>Toca para insertar</translation>
     </message>
 </context>
 <context>
@@ -142,7 +142,7 @@
     <name>MediaFullScreen</name>
     <message>
         <source>Error loading</source>
-        <translation type="unfinished"></translation>
+        <translation>Error al cargar</translation>
     </message>
 </context>
 <context>
@@ -180,7 +180,7 @@
     </message>
     <message>
         <source>New Toot</source>
-        <translation type="unfinished">Nuevo toot</translation>
+        <translation>Nuevo toot</translation>
     </message>
 </context>
 <context>
@@ -191,7 +191,7 @@
     </message>
     <message>
         <source>Bot</source>
-        <translation type="unfinished"></translation>
+        <translation>Bot</translation>
     </message>
 </context>
 <context>
@@ -202,19 +202,19 @@
     </message>
     <message>
         <source>Followers</source>
-        <translation type="unfinished">Seguidores</translation>
+        <translation>Seguidores</translation>
     </message>
     <message>
         <source>Following</source>
-        <translation type="unfinished">Siguiendo</translation>
+        <translation>Siguiendo</translation>
     </message>
     <message>
         <source>Statuses</source>
-        <translation type="unfinished">Estados</translation>
+        <translation>Estados</translation>
     </message>
     <message>
         <source>Unfollow</source>
-        <translation type="unfinished">Dejar de seguir</translation>
+        <translation>Dejar de seguir</translation>
     </message>
     <message>
         <source>Requested</source>
@@ -222,110 +222,110 @@
     </message>
     <message>
         <source>Follow</source>
-        <translation type="unfinished">Seguir</translation>
+        <translation>Seguir</translation>
     </message>
     <message>
         <source>Unmute</source>
-        <translation type="unfinished">Dejar de silenciar</translation>
+        <translation>Dejar de silenciar</translation>
     </message>
     <message>
         <source>Mute</source>
-        <translation type="unfinished">Silenciar</translation>
+        <translation>Silenciar</translation>
     </message>
     <message>
         <source>Unblock</source>
-        <translation type="unfinished">Desbloquear</translation>
+        <translation>Desbloquear</translation>
     </message>
     <message>
         <source>Block</source>
-        <translation type="unfinished">Bloquear</translation>
+        <translation>Bloquear</translation>
     </message>
     <message>
         <source>Open in Browser</source>
-        <translation type="unfinished"></translation>
+        <translation>Abrir en el navegador</translation>
     </message>
 </context>
 <context>
     <name>SettingsPage</name>
     <message>
         <source>Settings</source>
-        <translation type="unfinished">Ajustes</translation>
+        <translation>Ajustes</translation>
     </message>
     <message>
         <source>Options</source>
-        <translation type="unfinished"></translation>
+        <translation>Opciones</translation>
     </message>
     <message>
         <source>Load Images in Toots</source>
-        <translation type="unfinished"></translation>
+        <translation>Cargar imágenes en messages</translation>
     </message>
     <message>
         <source>Disable this option if you want to preserve your data connection</source>
-        <translation type="unfinished">Deshabilita esta opción si quieres ahorrar en tu conexión de datos</translation>
+        <translation>Deshabilita esta opción si quieres ahorrar en tu conexión de datos</translation>
     </message>
     <message>
         <source>Account</source>
-        <translation type="unfinished"></translation>
+        <translation>Cuenta</translation>
     </message>
     <message>
         <source>Remove Account</source>
-        <translation type="unfinished">Eliminar cuenta</translation>
+        <translation>Eliminar cuenta</translation>
     </message>
     <message>
         <source>Add Account</source>
-        <translation type="unfinished">Añadir cuenta</translation>
+        <translation>Añadir cuenta</translation>
     </message>
     <message>
         <source>Deauthorize this app from using your account and remove account data from phone</source>
-        <translation type="unfinished"></translation>
+        <translation>Retira la autorización a esta aplicación y elimina tu cuenta</translation>
     </message>
     <message>
         <source>Authorize this app to access your Mastodon account</source>
-        <translation type="unfinished">Autoriza a esta aplicación para usar tu cuenta de Mastodon en tu nombre</translation>
+        <translation>Autoriza a esta aplicación para usar tu cuenta de Mastodon en tu nombre</translation>
     </message>
     <message>
         <source>Translate</source>
-        <translation type="unfinished">Traducir</translation>
+        <translation>Traducir</translation>
     </message>
     <message>
         <source>Use &lt;a href=&apos;https://www.transifex.com/dysko/tooter/&apos;&gt;Transifex&lt;/a&gt; to help with app translation to your language.</source>
-        <translation type="unfinished"></translation>
+        <translation>Usar &lt;a href=&apos;https://www.transifex.com/dysko/tooter/&apos;&gt;Transifex&lt;/a&gt; para ayudar con traducciones</translation>
     </message>
     <message>
         <source>Credits</source>
-        <translation type="unfinished">Créditos</translation>
+        <translation>Créditos</translation>
     </message>
     <message>
         <source>UI/UX design and development</source>
-        <translation type="unfinished">Diseño UI/UX y desarrollo</translation>
+        <translation>Diseño UI/UX y desarrollo</translation>
     </message>
     <message>
         <source>Visual identity</source>
-        <translation type="unfinished">Identidad visual</translation>
+        <translation>Identidad visual</translation>
     </message>
     <message>
         <source>Development and translations</source>
-        <translation type="unfinished">Desarrollo y traducciones</translation>
+        <translation>Desarrollo y traducciones</translation>
     </message>
     <message>
         <source>Occitan &amp; French translation</source>
-        <translation type="unfinished">Traducción al occitano y francés</translation>
+        <translation>Traducción al occitano y francés</translation>
     </message>
     <message>
         <source>Chinese translation</source>
-        <translation type="unfinished">Traducción al chino</translation>
+        <translation>Traducción al chino</translation>
     </message>
     <message>
         <source>Dutch translation</source>
-        <translation type="unfinished">Traducción al holandés</translation>
+        <translation>Traducción al holandés</translation>
     </message>
     <message>
         <source>Spanish translation</source>
-        <translation type="unfinished">Traducción al español</translation>
+        <translation>Traducción al español</translation>
     </message>
     <message>
         <source>Added README file</source>
-        <translation type="unfinished">Añadido archivo README</translation>
+        <translation>Añadido archivo README</translation>
     </message>
 </context>
 <context>

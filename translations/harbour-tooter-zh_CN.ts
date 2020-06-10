@@ -24,57 +24,57 @@
     <name>ConversationPage</name>
     <message>
         <source>Copy Link to Clipboard</source>
-        <translation type="unfinished">复制链接到剪切板</translation>
+        <translation>复制链接到剪切板</translation>
     </message>
     <message>
         <source>Write your warning here</source>
-        <translation type="unfinished">在此编写你的警告信息</translation>
+        <translation>在此编写你的警告信息</translation>
     </message>
     <message>
         <source>What&apos;s on your mind?</source>
-        <translation type="unfinished">有何想法?</translation>
+        <translation>有何想法?</translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished">删除</translation>
+        <translation>删除</translation>
     </message>
     <message>
         <source>Public</source>
-        <translation type="unfinished">公共区域</translation>
+        <translation>公共区域</translation>
     </message>
     <message>
         <source>Unlisted</source>
-        <translation type="unfinished">不公开</translation>
+        <translation>不公开</translation>
     </message>
     <message>
         <source>Followers-only</source>
-        <translation type="unfinished">仅关注者</translation>
+        <translation>仅关注者</translation>
     </message>
     <message>
         <source>Direct</source>
-        <translation type="unfinished">私信</translation>
+        <translation>私信</translation>
     </message>
     <message>
         <source>Toot sent!</source>
-        <translation type="unfinished"></translation>
+        <translation>已发送嘟嘟！</translation>
     </message>
 </context>
 <context>
     <name>CoverPage</name>
     <message>
         <source>New Toot</source>
-        <translation type="unfinished">新嘟嘟</translation>
+        <translation>新嘟嘟</translation>
     </message>
 </context>
 <context>
     <name>EmojiSelect</name>
     <message>
         <source>Emojis</source>
-        <translation type="unfinished">表情</translation>
+        <translation>表情</translation>
     </message>
     <message>
         <source>Tap to insert</source>
-        <translation type="unfinished">点击以插入</translation>
+        <translation>点击以插入</translation>
     </message>
 </context>
 <context>
@@ -142,7 +142,7 @@
     <name>MediaFullScreen</name>
     <message>
         <source>Error loading</source>
-        <translation type="unfinished"></translation>
+        <translation>加载错误</translation>
     </message>
 </context>
 <context>
@@ -180,7 +180,7 @@
     </message>
     <message>
         <source>New Toot</source>
-        <translation type="unfinished">新嘟嘟</translation>
+        <translation>新嘟嘟</translation>
     </message>
 </context>
 <context>
@@ -202,19 +202,19 @@
     </message>
     <message>
         <source>Followers</source>
-        <translation type="unfinished">关注者</translation>
+        <translation>关注者</translation>
     </message>
     <message>
         <source>Following</source>
-        <translation type="unfinished">关注中</translation>
+        <translation>关注中</translation>
     </message>
     <message>
         <source>Statuses</source>
-        <translation type="unfinished">状态</translation>
+        <translation>状态</translation>
     </message>
     <message>
         <source>Unfollow</source>
-        <translation type="unfinished">取消关注</translation>
+        <translation>取消关注</translation>
     </message>
     <message>
         <source>Requested</source>
@@ -222,34 +222,34 @@
     </message>
     <message>
         <source>Follow</source>
-        <translation type="unfinished">关注</translation>
+        <translation>关注</translation>
     </message>
     <message>
         <source>Unmute</source>
-        <translation type="unfinished">未静音</translation>
+        <translation>未静音</translation>
     </message>
     <message>
         <source>Mute</source>
-        <translation type="unfinished">静音</translation>
+        <translation>静音</translation>
     </message>
     <message>
         <source>Unblock</source>
-        <translation type="unfinished">解除封锁</translation>
+        <translation>解除封锁</translation>
     </message>
     <message>
         <source>Block</source>
-        <translation type="unfinished">封锁</translation>
+        <translation>封锁</translation>
     </message>
     <message>
         <source>Open in Browser</source>
-        <translation type="unfinished"></translation>
+        <translation>在浏览器打开个人简介</translation>
     </message>
 </context>
 <context>
     <name>SettingsPage</name>
     <message>
         <source>Settings</source>
-        <translation type="unfinished">设置</translation>
+        <translation>设置</translation>
     </message>
     <message>
         <source>Options</source>
@@ -257,31 +257,31 @@
     </message>
     <message>
         <source>Load Images in Toots</source>
-        <translation type="unfinished"></translation>
+        <translation>加载嘟嘟图片</translation>
     </message>
     <message>
         <source>Disable this option if you want to preserve your data connection</source>
-        <translation type="unfinished">如果你想保护你的数据连接，请禁用此选项</translation>
+        <translation>如果你想保护你的数据连接，请禁用此选项</translation>
     </message>
     <message>
         <source>Account</source>
-        <translation type="unfinished"></translation>
+        <translation>账号</translation>
     </message>
     <message>
         <source>Remove Account</source>
-        <translation type="unfinished">移除账号</translation>
+        <translation>移除账号</translation>
     </message>
     <message>
         <source>Add Account</source>
-        <translation type="unfinished">添加账号</translation>
+        <translation>添加账号</translation>
     </message>
     <message>
         <source>Deauthorize this app from using your account and remove account data from phone</source>
-        <translation type="unfinished"></translation>
+        <translation>取消授权此软件并移除你的账号</translation>
     </message>
     <message>
         <source>Authorize this app to access your Mastodon account</source>
-        <translation type="unfinished">授权此软件使用你的 Mastodon 账号</translation>
+        <translation>授权此软件使用你的 Mastodon 账号</translation>
     </message>
     <message>
         <source>Translate</source>
@@ -289,43 +289,43 @@
     </message>
     <message>
         <source>Use &lt;a href=&apos;https://www.transifex.com/dysko/tooter/&apos;&gt;Transifex&lt;/a&gt; to help with app translation to your language.</source>
-        <translation type="unfinished"></translation>
+        <translation>使用 &lt;a href=&apos;https://www.transifex.com/dysko/tooter/&apos;&gt;Transifex&lt;/a&gt; 以帮助翻译软件为你的语言.</translation>
     </message>
     <message>
         <source>Credits</source>
-        <translation type="unfinished">信誉</translation>
+        <translation>信誉</translation>
     </message>
     <message>
         <source>UI/UX design and development</source>
-        <translation type="unfinished">UI/UX设计及开发</translation>
+        <translation>UI/UX设计及开发</translation>
     </message>
     <message>
         <source>Visual identity</source>
-        <translation type="unfinished">视觉识别</translation>
+        <translation>视觉识别</translation>
     </message>
     <message>
         <source>Development and translations</source>
-        <translation type="unfinished">开发及翻译</translation>
+        <translation>开发及翻译</translation>
     </message>
     <message>
         <source>Occitan &amp; French translation</source>
-        <translation type="unfinished">奥克西坦语及法语翻译</translation>
+        <translation>奥克西坦语及法语翻译</translation>
     </message>
     <message>
         <source>Chinese translation</source>
-        <translation type="unfinished">汉语翻译</translation>
+        <translation>汉语翻译</translation>
     </message>
     <message>
         <source>Dutch translation</source>
-        <translation type="unfinished">尼德兰语翻译</translation>
+        <translation>尼德兰语翻译</translation>
     </message>
     <message>
         <source>Spanish translation</source>
-        <translation type="unfinished">西班牙语翻译</translation>
+        <translation>西班牙语翻译</translation>
     </message>
     <message>
         <source>Added README file</source>
-        <translation type="unfinished">添加 README 文件</translation>
+        <translation>添加 README 文件</translation>
     </message>
 </context>
 <context>

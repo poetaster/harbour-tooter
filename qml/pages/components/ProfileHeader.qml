@@ -127,7 +127,7 @@ Item {
             visible: (following ? true : false)
             radius: Theme.paddingSmall
             color: Theme.secondaryHighlightColor
-            width: Theme.buttonWidthExtraSmall
+            width: followingLbl.width + 2*Theme.paddingLarge
             height: parent.height
 
             Label {
@@ -145,7 +145,7 @@ Item {
             visible: (bot ? true : false)
             radius: Theme.paddingSmall
             color: Theme.secondaryHighlightColor
-            width: botLabel.width + 2*Theme.paddingLarge
+            width: botLbl.width + 2*Theme.paddingLarge
             height: parent.height
 
             Label {
@@ -158,5 +158,4 @@ Item {
             }
         }
     }
-
 }

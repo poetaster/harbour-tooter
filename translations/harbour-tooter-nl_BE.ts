@@ -21,22 +21,22 @@
     </message>
 </context>
 <context>
-    <name>Conversation</name>
+    <name>ConversationPage</name>
     <message>
-        <source>Delete</source>
-        <translation>Verwijderen</translation>
-    </message>
-    <message>
-        <source>Emojis</source>
-        <translation>Emoji’s</translation>
-    </message>
-    <message>
-        <source>Tap to insert</source>
-        <translation>Tikt voor in te voegen</translation>
+        <source>Copy Link to Clipboard</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Write your warning here</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>What&apos;s on your mind?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation type="unfinished">Verwijderen</translation>
     </message>
     <message>
         <source>Public</source>
@@ -55,23 +55,26 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>What&apos;s on your mind?</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Toot sent!</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Copy Link to Clipboard</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
-    <name>ImageFullScreen</name>
+    <name>CoverPage</name>
     <message>
-        <source>Error loading</source>
-        <translation type="unfinished"></translation>
+        <source>New Toot</source>
+        <translation type="unfinished">Nieuwen toot</translation>
+    </message>
+</context>
+<context>
+    <name>EmojiSelect</name>
+    <message>
+        <source>Emojis</source>
+        <translation type="unfinished">Emoji’s</translation>
+    </message>
+    <message>
+        <source>Tap to insert</source>
+        <translation type="unfinished">Tikt voor in te voegen</translation>
     </message>
 </context>
 <context>
@@ -136,6 +139,13 @@
     </message>
 </context>
 <context>
+    <name>MediaFullScreen</name>
+    <message>
+        <source>Error loading</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>MiniStatus</name>
     <message>
         <source>boosted</source>
@@ -168,106 +178,141 @@
         <source>please wait...</source>
         <translation>efkens geduld…</translation>
     </message>
+    <message>
+        <source>New Toot</source>
+        <translation type="unfinished">Nieuwen toot</translation>
+    </message>
 </context>
 <context>
-    <name>Profile</name>
+    <name>ProfileHeader</name>
     <message>
-        <source>Unfollow</source>
-        <translation>Ontvolgen</translation>
+        <source>Follows you</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Follow request sent!</source>
-        <translation>Volgverzoek verzonden!</translation>
+        <source>Bot</source>
+        <translation type="unfinished"></translation>
     </message>
+</context>
+<context>
+    <name>ProfilePage</name>
     <message>
-        <source>Following</source>
-        <translation>Volgend</translation>
-    </message>
-    <message>
-        <source>Mute</source>
-        <translation>Dempen</translation>
-    </message>
-    <message>
-        <source>Unmute</source>
-        <translation>Ontdempen</translation>
-    </message>
-    <message>
-        <source>Unblock</source>
-        <translation>Deblokkeren</translation>
-    </message>
-    <message>
-        <source>Block</source>
-        <translation>Blokkeren</translation>
-    </message>
-    <message>
-        <source>Statuses</source>
-        <translation>Statussen</translation>
-    </message>
-    <message>
-        <source>Favourites</source>
-        <translation>Duimen</translation>
-    </message>
-    <message>
-        <source>Follow</source>
-        <translation>Volgen</translation>
-    </message>
-    <message>
-        <source>Summary</source>
-        <translation>Samenvatting</translation>
+        <source>About</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Followers</source>
-        <translation>Volgers</translation>
+        <translation type="unfinished">Volgers</translation>
     </message>
     <message>
-        <source>Bio</source>
+        <source>Following</source>
+        <translation type="unfinished">Volgend</translation>
+    </message>
+    <message>
+        <source>Statuses</source>
+        <translation type="unfinished">Statussen</translation>
+    </message>
+    <message>
+        <source>Unfollow</source>
+        <translation type="unfinished">Ontvolgen</translation>
+    </message>
+    <message>
+        <source>Requested</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Open Profile in Browser</source>
+        <source>Follow</source>
+        <translation type="unfinished">Volgen</translation>
+    </message>
+    <message>
+        <source>Unmute</source>
+        <translation type="unfinished">Ontdempen</translation>
+    </message>
+    <message>
+        <source>Mute</source>
+        <translation type="unfinished">Dempen</translation>
+    </message>
+    <message>
+        <source>Unblock</source>
+        <translation type="unfinished">Deblokkeren</translation>
+    </message>
+    <message>
+        <source>Block</source>
+        <translation type="unfinished">Blokkeren</translation>
+    </message>
+    <message>
+        <source>Open in Browser</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
-    <name>Settings</name>
+    <name>SettingsPage</name>
     <message>
         <source>Settings</source>
-        <translation>Instellingen</translation>
+        <translation type="unfinished">Instellingen</translation>
     </message>
     <message>
-        <source>Remove Account</source>
-        <translation>Account verwijderen</translation>
+        <source>Options</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Add Account</source>
-        <translation>Account toevoegen</translation>
-    </message>
-    <message>
-        <source>Deauthorize this app and remove your account</source>
-        <translation>Trekt autorisaties van dezen app in en verwijdert uwen account</translation>
-    </message>
-    <message>
-        <source>Authorize this app to access your Mastodon account</source>
-        <translation>Autoriseert dezen app voor uwe Mastodon-account namens u te gebruiken</translation>
+        <source>Load Images in Toots</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Disable this option if you want to preserve your data connection</source>
-        <translation>Schakelt dees optie uit als ge uw verbinding wilt behouden</translation>
+        <translation type="unfinished">Schakelt dees optie uit als ge uw verbinding wilt behouden</translation>
+    </message>
+    <message>
+        <source>Account</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove Account</source>
+        <translation type="unfinished">Account verwijderen</translation>
+    </message>
+    <message>
+        <source>Add Account</source>
+        <translation type="unfinished">Account toevoegen</translation>
+    </message>
+    <message>
+        <source>Deauthorize this app from using your account and remove account data from phone</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Authorize this app to access your Mastodon account</source>
+        <translation type="unfinished">Autoriseert dezen app voor uwe Mastodon-account namens u te gebruiken</translation>
+    </message>
+    <message>
+        <source>Translate</source>
+        <translation type="unfinished">Vertalen</translation>
+    </message>
+    <message>
+        <source>Use &lt;a href=&apos;https://www.transifex.com/dysko/tooter/&apos;&gt;Transifex&lt;/a&gt; to help with app translation to your language.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Credits</source>
-        <translation>Credits</translation>
+        <translation type="unfinished">Credits</translation>
     </message>
     <message>
         <source>UI/UX design and development</source>
-        <translation>UI/UX-ontwerp en -ontwikkeling</translation>
+        <translation type="unfinished">UI/UX-ontwerp en -ontwikkeling</translation>
     </message>
     <message>
         <source>Visual identity</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Development and translations</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Occitan &amp; French translation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Chinese translation</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -280,26 +325,6 @@
     </message>
     <message>
         <source>Added README file</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Chinese translation</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Load images in toots</source>
-        <translation>Afbeeldingen in toots laden</translation>
-    </message>
-    <message>
-        <source>Translate</source>
-        <translation>Vertalen</translation>
-    </message>
-    <message>
-        <source>Use Transifex to help with app translation to your language</source>
-        <translation>Gebruikt Transifex voor te helpen met dezen app in uw taal te vertalen</translation>
-    </message>
-    <message>
-        <source>Development and translations</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -335,6 +360,10 @@
     <message>
         <source>Favorite</source>
         <translation>Duim toevoegen</translation>
+    </message>
+    <message>
+        <source>Mention</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

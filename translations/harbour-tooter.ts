@@ -21,7 +21,7 @@
     </message>
 </context>
 <context>
-    <name>Conversation</name>
+    <name>ConversationPage</name>
     <message>
         <source>Copy Link to Clipboard</source>
         <translation type="unfinished"></translation>
@@ -60,20 +60,20 @@
     </message>
 </context>
 <context>
-    <name>EmojiPage</name>
+    <name>CoverPage</name>
+    <message>
+        <source>New Toot</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>EmojiSelect</name>
     <message>
         <source>Emojis</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Tap to insert</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>ImageFullScreen</name>
-    <message>
-        <source>Error loading</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -139,6 +139,13 @@
     </message>
 </context>
 <context>
+    <name>MediaFullScreen</name>
+    <message>
+        <source>Error loading</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>MiniStatus</name>
     <message>
         <source>boosted</source>
@@ -171,71 +178,94 @@
         <source>please wait...</source>
         <translation></translation>
     </message>
+    <message>
+        <source>New Toot</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
-    <name>Profile</name>
+    <name>ProfileHeader</name>
     <message>
-        <source>Unfollow</source>
-        <translation>Unfollow</translation>
+        <source>Follows you</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Follow request sent!</source>
-        <translation>Follow request sent!</translation>
+        <source>Bot</source>
+        <translation type="unfinished"></translation>
     </message>
+</context>
+<context>
+    <name>ProfilePage</name>
     <message>
-        <source>Following</source>
-        <translation>Following</translation>
-    </message>
-    <message>
-        <source>Mute</source>
-        <translation>Mute</translation>
-    </message>
-    <message>
-        <source>Unmute</source>
-        <translation>Unmute</translation>
-    </message>
-    <message>
-        <source>Unblock</source>
-        <translation>Unblock</translation>
-    </message>
-    <message>
-        <source>Block</source>
-        <translation>Block</translation>
-    </message>
-    <message>
-        <source>Statuses</source>
-        <translation>Statuses</translation>
-    </message>
-    <message>
-        <source>Favourites</source>
-        <translation>Favourites</translation>
-    </message>
-    <message>
-        <source>Follow</source>
-        <translation>Follow</translation>
-    </message>
-    <message>
-        <source>Summary</source>
-        <translation>Summary</translation>
+        <source>About</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Followers</source>
-        <translation>Followers</translation>
+        <translation type="unfinished">Followers</translation>
     </message>
     <message>
-        <source>Bio</source>
+        <source>Following</source>
+        <translation type="unfinished">Following</translation>
+    </message>
+    <message>
+        <source>Statuses</source>
+        <translation type="unfinished">Statuses</translation>
+    </message>
+    <message>
+        <source>Unfollow</source>
+        <translation type="unfinished">Unfollow</translation>
+    </message>
+    <message>
+        <source>Requested</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Open Profile in Browser</source>
+        <source>Follow</source>
+        <translation type="unfinished">Follow</translation>
+    </message>
+    <message>
+        <source>Unmute</source>
+        <translation type="unfinished">Unmute</translation>
+    </message>
+    <message>
+        <source>Mute</source>
+        <translation type="unfinished">Mute</translation>
+    </message>
+    <message>
+        <source>Unblock</source>
+        <translation type="unfinished">Unblock</translation>
+    </message>
+    <message>
+        <source>Block</source>
+        <translation type="unfinished">Block</translation>
+    </message>
+    <message>
+        <source>Open in Browser</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
-    <name>Settings</name>
+    <name>SettingsPage</name>
     <message>
         <source>Settings</source>
         <translation type="unfinished">Settings</translation>
+    </message>
+    <message>
+        <source>Options</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Load Images in Toots</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Disable this option if you want to preserve your data connection</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Account</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Remove Account</source>
@@ -246,7 +276,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Deauthorize this app and remove your account</source>
+        <source>Deauthorize this app from using your account and remove account data from phone</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -254,7 +284,11 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Disable this option if you want to preserve your data connection</source>
+        <source>Translate</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use &lt;a href=&apos;https://www.transifex.com/dysko/tooter/&apos;&gt;Transifex&lt;/a&gt; to help with app translation to your language.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -270,7 +304,15 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Development and translations</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Occitan &amp; French translation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Chinese translation</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -283,26 +325,6 @@
     </message>
     <message>
         <source>Added README file</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Chinese translation</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Load images in toots</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Translate</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Use Transifex to help with app translation to your language</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Development and translations</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -337,6 +359,10 @@
     </message>
     <message>
         <source>Favorite</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Mention</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

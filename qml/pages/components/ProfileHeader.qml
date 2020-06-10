@@ -12,7 +12,7 @@ Item {
     property string bg: ""
 
     width: parent.width
-    height: if (following === true || bot === true) {
+    height: if (bot === true) {
                 avatarImage.height + Theme.paddingLarge*2 + infoLbl.height + Theme.paddingLarge
             } else avatarImage.height + Theme.paddingLarge*2
 
@@ -122,7 +122,7 @@ Item {
             rightMargin: Theme.paddingLarge
         }
 
-        Rectangle {
+       /* Rectangle {
             id: followingBg
             visible: (following ? true : false)
             radius: Theme.paddingSmall
@@ -138,7 +138,7 @@ Item {
                 anchors.horizontalCenter: parent.horizontalCenter
                 anchors.verticalCenter: parent.verticalCenter
             }
-        }
+        } */
 
         Rectangle {
             id: botBg

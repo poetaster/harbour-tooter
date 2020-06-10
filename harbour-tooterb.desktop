@@ -1,6 +1,6 @@
 [Desktop Entry]
 Type=Application
 X-Nemo-Application-Type=silica-qt5
-Icon=harbour-tooter
-Exec=harbour-tooter
+Icon=harbour-tooterb
+Exec=harbour-tooterb
 Name=Tooter β

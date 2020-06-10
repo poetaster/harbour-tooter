@@ -270,7 +270,9 @@ Page {
 
 		IconButton {
 			id: btnSmileys
+
             property string selection
+
             opacity: 0.7
             icon {
                 color: Theme.secondaryColor
@@ -284,9 +286,7 @@ Page {
 				right: parent.right
 				rightMargin: Theme.paddingSmall
 			}
-            onSelectionChanged: {
-                console.log(selection)
-            }
+            onSelectionChanged: { console.log(selection) }
             onClicked: pageStack.push(emojiSelect)
 		}
 

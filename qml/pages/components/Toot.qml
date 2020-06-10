@@ -85,7 +85,7 @@ BackgroundItem {
     }
 
     Image {
-        id: iconVerified
+        id: iconLocked
         visible: account_locked
         y: Theme.paddingLarge
         opacity: 0.8
@@ -108,7 +108,7 @@ BackgroundItem {
         font.pixelSize: Theme.fontSizeExtraSmall
         color: (pressed ? Theme.secondaryHighlightColor : Theme.secondaryColor)
         anchors {
-            left: iconVerified.right
+            left: iconLocked.right
             right: lblDate.left
             leftMargin: Theme.paddingMedium
             baseline: lblName.baseline

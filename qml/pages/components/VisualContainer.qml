@@ -13,30 +13,17 @@ BackgroundItem {
     height: if (myList.type === "notifications" && ( model.type === "favourite" || model.type === "reblog" )) {
                 mnu.height + miniHeader.height + Theme.paddingLarge + lblContent.height + Theme.paddingLarge + (miniStatus.visible ? miniStatus.height : 0)
             } else mnu.height + miniHeader.height + (typeof attachments !== "undefined" && attachments.count ? media.height + Theme.paddingLarge + Theme.paddingMedium: Theme.paddingLarge) + lblContent.height + Theme.paddingLarge + (miniStatus.visible ? miniStatus.height : 0) + (iconDirectMsg.visible ? iconDirectMsg.height : 0)
+
     Rectangle {
         id: bgDirect
         x: 0
         y: 0
-        visible: status_visibility == 'direct'
+        visible: status_visibility === "direct"
         width: parent.width
         height: parent.height
         opacity: 0.3
         color: Theme.highlightBackgroundColor
     }
-
-    /* Rectangle {
-        id: bgDelegate
-        x: 0
-        y: 0
-        visible: status_visibility !== 'direct'
-        width: parent.width
-        height: parent.height
-        opacity: 0.15
-        gradient: Gradient {
-                GradientStop { position: 0.7; color: "transparent" }
-                GradientStop { position: 1.0; color: Theme.highlightDimmerColor }
-        }
-    } */
 
     Rectangle {
         id: bgNotifications
@@ -120,7 +107,7 @@ BackgroundItem {
 
         Image {
             id: iconDirectMsg
-            visible: status_visibility == 'direct'
+            visible: status_visibility === "direct"
             width: Theme.iconSizeMedium
             height: width
             source: "image://theme/icon-m-mail"
@@ -271,7 +258,9 @@ BackgroundItem {
         id: mnu
 
         MenuItem {
+            id: mnuBoost
             visible: model.type !== "follow"
+            enabled: status_visibility !== "direct"
             text: typeof model.reblogged !== "undefined" && model.reblogged ? qsTr("Unboost") : qsTr("Boost")
             onClicked: {
                 var status = typeof model.reblogged !== "undefined" && model.reblogged
@@ -311,7 +300,8 @@ BackgroundItem {
         }
 
         MenuItem {
-            visible: model.type !== "follow"
+            id: mnuFavourite
+            visible: model.type !== "follow" || model.status_visibility !== "direct"
             text: typeof model.favourited !== "undefined" && model.favourited ? qsTr("Unfavorite") : qsTr("Favorite")
             onClicked: {
                 var status = typeof model.favourited !== "undefined" && model.favourited
@@ -351,6 +341,7 @@ BackgroundItem {
         }
 
         MenuItem {
+            id: mnuMention
             visible: model.type === "follow"
             text: qsTr("Mention")
             onClicked: {

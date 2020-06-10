@@ -87,7 +87,7 @@ Page {
                 if (search.charAt(0) === "@") {
                     loader.sourceComponent = userListComponent
                 } else if (search.charAt(0) === "#") {
-                    loader.sourceComponen = tagListComponent
+                    loader.sourceComponent = tagListComponent
                 } else { loader.sourceComponent = wordListComponent}
             }
 

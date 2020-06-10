@@ -9,45 +9,47 @@ Item {
 
     Label {
         id: lblName
+        text:
+            if (account_display_name === "") {
+                account_username.split('@')[0]
+            }
+            else account_display_name
+        font.weight: Font.Bold
+        font.pixelSize: Theme.fontSizeSmall
+        color: if (myList.type === "notifications" && ( model.type === "favourite" || model.type === "reblog" )) {
+                   (pressed ? Theme.secondaryHighlightColor : (!highlight ? Theme.secondaryColor : Theme.secondaryHighlightColor))
+               } else (pressed ? Theme.highlightColor : (!highlight ? Theme.primaryColor : Theme.secondaryColor))
+        truncationMode: TruncationMode.Fade
+        width: contentWidth > parent.width /2 ? parent.width /2 : contentWidth
         anchors {
             left: parent.left
             leftMargin: Theme.paddingMedium
         }
-        text:
-            if (account_display_name === "") {
-            account_username.split('@')[0]
-            }
-            else account_display_name
-        width: contentWidth > parent.width /2 ? parent.width /2 : contentWidth
-        truncationMode: TruncationMode.Fade
-        font.weight: Font.Bold
-        font.pixelSize: Theme.fontSizeSmall
-        color: (pressed ? Theme.highlightColor : Theme.primaryColor)
     }
 
     Image {
-        id: iconLocked
+        id: icnLocked
+        visible: account_locked
+        opacity: 0.8
+        source: "image://theme/icon-s-secure?" + (pressed ? Theme.highlightColor : Theme.primaryColor)
+        width: account_locked ? Theme.iconSizeExtraSmall*0.8 : 0
+        height: width
         y: Theme.paddingLarge
         anchors {
             left: lblName.right
             leftMargin: Theme.paddingSmall
             verticalCenter: lblName.verticalCenter
         }
-        visible: account_locked
-        width: account_locked ? Theme.iconSizeExtraSmall*0.8 : 0
-        opacity: 0.8
-        height: width
-        source: "image://theme/icon-s-secure?" + (pressed ? Theme.highlightColor : Theme.primaryColor)
     }
 
     Label {
         id: lblScreenName
-        truncationMode: TruncationMode.Fade
         text: '@'+account_username
         font.pixelSize: Theme.fontSizeExtraSmall
         color: (pressed ? Theme.secondaryHighlightColor : Theme.secondaryColor)
+        truncationMode: TruncationMode.Fade
         anchors {
-            left: iconLocked.right
+            left: icnLocked.right
             right: lblDate.left
             leftMargin: Theme.paddingMedium
             baseline: lblName.baseline
@@ -56,9 +58,9 @@ Item {
 
     Label {
         id: lblDate
-        color: (pressed ? Theme.highlightColor : Theme.primaryColor)
         text: Format.formatDate(created_at, new Date() - created_at < 60*60*1000 ? Formatter.DurationElapsedShort : Formatter.TimeValueTwentyFourHours)
         font.pixelSize: Theme.fontSizeExtraSmall
+        color: (pressed ? Theme.highlightColor : Theme.primaryColor)
         horizontalAlignment: Text.AlignRight
         anchors {
             right: parent.right

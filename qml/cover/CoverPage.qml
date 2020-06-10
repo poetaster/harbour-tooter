@@ -49,7 +49,7 @@ CoverBackground {
 
     Image {
         id: bg
-        source: "../images/tooterb-cover.svg"
+        source: "../images/tooter-cover.svg"
         horizontalAlignment: Image.AlignLeft
         verticalAlignment: Image.AlignBottom
         fillMode: Image.PreserveAspectFit

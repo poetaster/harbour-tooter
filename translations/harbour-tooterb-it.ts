@@ -225,11 +225,6 @@
 <context>
     <name>ProfileHeader</name>
     <message>
-        <location filename="../qml/pages/components/ProfileHeader.qml" line="135"/>
-        <source>Follows you</source>
-        <translation>Ti segue</translation>
-    </message>
-    <message>
         <location filename="../qml/pages/components/ProfileHeader.qml" line="153"/>
         <source>Bot</source>
         <translation>Bot</translation>
@@ -444,27 +439,27 @@
 <context>
     <name>VisualContainer</name>
     <message>
-        <location filename="../qml/pages/components/VisualContainer.qml" line="267"/>
+        <location filename="../qml/pages/components/VisualContainer.qml" line="268"/>
         <source>Unboost</source>
         <translation>Annulla condivisione</translation>
     </message>
     <message>
-        <location filename="../qml/pages/components/VisualContainer.qml" line="267"/>
+        <location filename="../qml/pages/components/VisualContainer.qml" line="268"/>
         <source>Boost</source>
         <translation>Condividi</translation>
     </message>
-    <message>s
-        <location filename="../qml/pages/components/VisualContainer.qml" line="308"/>
+    <message>
+        <location filename="../qml/pages/components/VisualContainer.qml" line="309"/>
         <source>Unfavorite</source>
         <translation>Annulla apprezzamento</translation>
     </message>
     <message>
-        <location filename="../qml/pages/components/VisualContainer.qml" line="308"/>
+        <location filename="../qml/pages/components/VisualContainer.qml" line="309"/>
         <source>Favorite</source>
         <translation>Apprezzato</translation>
     </message>
     <message>
-        <location filename="../qml/pages/components/VisualContainer.qml" line="349"/>
+        <location filename="../qml/pages/components/VisualContainer.qml" line="350"/>
         <source>Mention</source>
         <translation>Menzionare</translation>
     </message>

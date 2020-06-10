@@ -1,3 +1,19 @@
+*Wed Jun 11 2020 molan <mol_an@sunrise.ch> 1.0.5-0
+- fixed: show search results without entering # before term
+- fixed: non-clickable user mentions in Toots
+- fixed: Copy link to clipboard in Conversations
+- Notifications Page:  Reworked UI and context menus for notifications
+- Profile Page: Open fullscreen profile image
+- Profile Page: Show bot label
+- Profile Page: New expander for Profile details
+- Conversation Page: Possibility to hide and reopen Toot text field
+- Conversation Page: Improved display of uploaded images
+- Media Page: Adjust size of images to screen width or height
+- Media Page: Only automatically restart videos if shorter than 30 seconds
+- new Settings Page
+- bigger custom emojis in Toots
+- overall improvement of UI
+
 *Mon May 25 2020 molan <mol_an@sunrise.ch> 1.0.4-3
 - Show user profile background image (if available)
 - New Sailfish 3-styled image/video viewer page (WIP)

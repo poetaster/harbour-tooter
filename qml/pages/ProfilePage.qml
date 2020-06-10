@@ -23,6 +23,7 @@ Page {
     property int reblogs_count
     property int count_moments
     property bool locked: false
+    property bool bot: false
     property bool following: false
     property bool requested: false
     property bool followed_by: false
@@ -76,6 +77,9 @@ Page {
                 break;
             case 'locked':
                 locked = messageObject.data
+                break;
+            case 'bot':
+                bot = messageObject.data
                 break;
             case 'created_at':
                 created_at = messageObject.data

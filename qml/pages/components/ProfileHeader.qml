@@ -12,7 +12,9 @@ Item {
     property string bg: ""
 
     width: parent.width
-    height: avatarImage.height + Theme.paddingLarge*2
+    height: if (following === true || bot === true) {
+                avatarImage.height + Theme.paddingLarge*2 + infoLbl.height + Theme.paddingLarge
+            } else avatarImage.height + Theme.paddingLarge*2
 
     Rectangle {
         id: bgImage
@@ -69,6 +71,8 @@ Item {
 
     Column {
         anchors {
+            top: parent.top
+            topMargin: Theme.paddingLarge
             left: avatarImage.right
             leftMargin: Theme.paddingLarge
             right: parent.right
@@ -77,12 +81,11 @@ Item {
         }
 
         Label {
-            id: ttl
-            text:
-                if (title === "") {
-                    description.split('@')[0]
-                }
-                else title
+            id: profileTitle
+            text: if (title === "") {
+                      description.split('@')[0]
+                  }
+                  else title
             font.pixelSize: Theme.fontSizeLarge
             font.family: Theme.fontFamilyHeading
             color: Theme.highlightColor
@@ -93,6 +96,7 @@ Item {
         }
 
         Label {
+            id: profileDescription
             text: "@"+description
             font.pixelSize: Theme.fontSizeSmall
             font.family: Theme.fontFamilyHeading
@@ -101,6 +105,57 @@ Item {
             width: parent.width
             height: description === "" ? 0 : contentHeight
             horizontalAlignment: Text.AlignRight
+        }
+    }
+
+    Row {
+        id: infoLbl
+        spacing: Theme.paddingLarge
+        layoutDirection: Qt.RightToLeft
+        height: Theme.iconSizeSmall + Theme.paddingSmall
+        anchors {
+            top: avatarImage.bottom
+            topMargin: Theme.paddingLarge
+            left: parent.left
+            leftMargin: Theme.paddingLarge
+            right: parent.right
+            rightMargin: Theme.paddingLarge
+        }
+
+        Rectangle {
+            id: followingBg
+            visible: (following ? true : false)
+            radius: Theme.paddingSmall
+            color: Theme.secondaryHighlightColor
+            width: Theme.buttonWidthExtraSmall
+            height: parent.height
+
+            Label {
+                id: followingLbl
+                text: qsTr("Follows you")
+                font.pixelSize: Theme.fontSizeExtraSmall
+                color: Theme.primaryColor
+                anchors.horizontalCenter: parent.horizontalCenter
+                anchors.verticalCenter: parent.verticalCenter
+            }
+        }
+
+        Rectangle {
+            id: botBg
+            visible: (bot ? true : false)
+            radius: Theme.paddingSmall
+            color: Theme.secondaryHighlightColor
+            width: botLabel.width + 2*Theme.paddingLarge
+            height: parent.height
+
+            Label {
+                id: botLbl
+                text: qsTr("Bot")
+                font.pixelSize: Theme.fontSizeExtraSmall
+                color: Theme.primaryColor
+                anchors.horizontalCenter: parent.horizontalCenter
+                anchors.verticalCenter: parent.verticalCenter
+            }
         }
     }
 

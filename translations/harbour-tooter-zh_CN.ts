@@ -23,10 +23,6 @@
 <context>
     <name>Conversation</name>
     <message>
-        <source>Conversation</source>
-        <translation>对话</translation>
-    </message>
-    <message>
         <source>Delete</source>
         <translation>删除</translation>
     </message>
@@ -62,12 +58,20 @@
         <source>What&apos;s on your mind?</source>
         <translation>有何想法?</translation>
     </message>
+    <message>
+        <source>Toot sent!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Copy Link to Clipboard</source>
+        <translation>复制链接到剪切板</translation>
+    </message>
 </context>
 <context>
     <name>ImageFullScreen</name>
     <message>
         <source>Error loading</source>
-        <translation>加载错误</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

@@ -4,17 +4,23 @@ import harbour.tooter.Uploader 1.0
 import "../lib/API.js" as Logic
 import "./components/"
 
+
 Page {
 	id: conversationPage
-	property string type
-	property alias title: header.title
-	property alias description: header.description
-	property alias avatar: header.image
+
+    property string headerTitle: ""
+    property string type
+    property alias title: header.title
+    property alias description: header.description
+    property alias avatar: header.image
 	property string suggestedUser: ""
 	property ListModel suggestedModel
 	property string toot_id: ""
+    property string toot_url: ""
+    property string toot_uri: ""
     property int tootMaxChar: 500;
-	property ListModel mdl
+    property ListModel mdl
+
 	allowedOrientations: Orientation.All
 	onSuggestedUserChanged: {
 		console.log(suggestedUser)
@@ -59,18 +65,21 @@ Page {
 		id: header
 		visible: false
 	}
-	SilicaListView {
-		id: conversationList
+
+    SilicaListView {
+        id: myList
 		header: PageHeader {
-			title: qsTr("Conversation")
+            title: headerTitle // pageTitle pushed from MainPage.qml or VisualContainer.qml
 		}
 		clip: true
-		anchors {
-			top: parent.top
-			bottom: panel.top
-			left: parent.left
-			right: parent.right
-		}
+        anchors.top: parent.top
+        anchors.left: parent.left
+        anchors.right: parent.right
+        anchors.bottom: if (panel.open == true) {
+                            panel.top
+                        } else {
+                            hiddenPanel.top
+                        }
 		model: mdl
 		section {
 			property: 'section'
@@ -90,22 +99,53 @@ Page {
 					}
 				}
 		}
-	}
+
+        PullDownMenu {
+            id: pulleyConversation
+            visible: type === "reply" //&& toot_url !== ""
+            MenuItem {
+                text: qsTr("Copy Link to Clipboard")
+                onClicked: if (toot_url === "") {
+
+                               var test = toot_uri.split("/")
+                               console.log(toot_uri)
+                               console.log(JSON.stringify(test))
+                               console.log(JSON.stringify(test.length))
+                               if (test.length === 8 && (test[7] === "activity")) {
+                                   var urialt = toot_uri.replace("activity", "")
+                                   Clipboard.text = urialt
+                               }
+                               else Clipboard.text = toot_uri
+
+                           } else onClicked: Clipboard.text = toot_url
+            }
+        }
+    }
+
 	Rectangle {
 		id: predictionList
 		visible: false
-		anchors.bottom: panel.top
-		anchors.left: parent.left
-		anchors.right: panel.right
-		height: suggestedModel.count > 6 ? Theme.itemSizeMedium * 6 : Theme.itemSizeMedium * suggestedModel.count
-		color: Theme.highlightDimmerColor
+        color: Theme.highlightDimmerColor
+        height: parent.height - panel.height - (Theme.paddingLarge * 4.5)
+        anchors {
+            left: panel.left
+            right: panel.right
+            bottom: if (panel.open == true) {
+                        panel.top
+                    } else {
+                        hiddenPanel.top
+                    }
+        }
 
-		SilicaListView {
-			anchors.fill: parent
+        SilicaListView {
+            rotation: 180
+            anchors.fill: parent
 			model: suggestedModel
 			clip: true
-
+            quickScroll: false
+            VerticalScrollDecorator {}
 			delegate: ItemUser {
+                rotation: 180
 				onClicked: {
 					var start = toot.cursorPosition
 					while (toot.text[start] !== "@" && start > 0) {
@@ -124,26 +164,22 @@ Page {
 				}
 			}
 			onCountChanged: {
-				positionViewAtIndex(suggestedModel.count - 1, ListView.End)
+                positionViewAtBeginning(suggestedModel.count - 1, ListView.Beginning)
 			}
 		}
 	}
 
 	DockedPanel {
 		id: panel
-		open: true
-		onExpandedChanged: {
-			if (!expanded) {
-				show()
-			}
-		}
-
 		width: parent.width
-		height: progressBar.height + toot.height + (mediaModel.count ? uploadedImages.height : 0)
+        height: progressBar.height + toot.height + (mediaModel.count ? uploadedImages.height : 0)
 			+ btnContentWarning.height + Theme.paddingMedium
-			+ (warningContent.visible ? warningContent.height : 0)
-		dock: Dock.Bottom
-		Rectangle {
+            + (warningContent.visible ? warningContent.height : 0)
+        dock: Dock.Bottom
+        open: true
+        animationDuration: 200
+
+        Rectangle {
 			width: parent.width
 			height: progressBar.height
 			color: Theme.highlightBackgroundColor
@@ -154,15 +190,16 @@ Page {
 				top: parent.top
 			}
 		}
+
 		Rectangle {
 			id: progressBar
 			width: toot.text.length ? panel.width * (toot.text.length / tootMaxChar) : 0
-			height: Theme.itemSizeSmall * 0.05
+            height: Theme.itemSizeSmall * 0.05
 			color: Theme.highlightBackgroundColor
 			opacity: 0.7
 			anchors {
 				left: parent.left
-				top: parent.top
+                top: parent.top
 			}
 		}
 
@@ -171,7 +208,7 @@ Page {
 			visible: false
 			height: visible ? implicitHeight : 0
 			anchors {
-				top: parent.top
+                top: parent.top
 				topMargin: Theme.paddingMedium
 				left: parent.left
 				right: parent.right
@@ -183,10 +220,9 @@ Page {
             placeholderColor: palette.highlightColor
             color: palette.highlightColor
 			horizontalAlignment: Text.AlignLeft
-			EnterKey.onClicked: {
-				//tweet()
-			}
+			EnterKey.onClicked: {}
 		}
+
 		TextInput {
 			id: textOperations
 			visible: false
@@ -203,18 +239,19 @@ Page {
 			}
 			autoScrollEnabled: true
 			labelVisible: false
-			//focus: true
-			text: description !== "" && (description.charAt(0) == '@'
+            text: description !== "" && (description.charAt(0) === '@'
 																	 || description.charAt(
-																		 0) == '#') ? description + ' ' : ''
-            height: Math.max(270, Math.min(900, implicitHeight))
-            //height: implicitHeight
+                                                                         0) === '#') ? description + ' ' : ''
+            height: if (type !== "reply") {
+                        Math.max(conversationPage.height / 3, Math.min(conversationPage.height * 0.65, implicitHeight))
+                    }
+                    else {
+                        Math.max(conversationPage.height / 4, Math.min(conversationPage.height * 0.65, implicitHeight))
+                    }
             horizontalAlignment: Text.AlignLeft
             placeholderText: qsTr("What's on your mind?")
             font.pixelSize: Theme.fontSizeSmall
-			EnterKey.onClicked: {
-				//tweet()
-			}
+            EnterKey.onClicked: {}
 			onTextChanged: {
 				textOperations.text = toot.text
 				textOperations.cursorPosition = toot.cursorPosition
@@ -230,45 +267,51 @@ Page {
 				}
 			}
 		}
+
 		IconButton {
 			id: btnSmileys
-			property string selection
-			onSelectionChanged: {
-				console.log(selection)
-			}
 
+            property string selection
+
+            opacity: 0.7
+            icon {
+                color: Theme.secondaryColor
+                width: Theme.iconSizeSmallPlus
+                fillMode: Image.PreserveAspectFit
+                source: "../../qml/images/icon-m-emoji.svg"
+            }
 			anchors {
                 top: warningContent.bottom
 				bottom: bottom.top
 				right: parent.right
 				rightMargin: Theme.paddingSmall
 			}
-            opacity: 0.8
-            icon.source: "../../qml/images/emojiselect.svg" + (pressed ? Theme.highlightColor : (warningContent.visible ? Theme.secondaryHighlightColor : Theme.primaryColor))
-			onClicked: pageStack.push(firstWizardPage)
+            onSelectionChanged: { console.log(selection) }
+            onClicked: pageStack.push(emojiSelect)
 		}
+
 		SilicaGridView {
 			id: uploadedImages
 			width: parent.width
             anchors.top: bottom.toot
 			anchors.bottom: parent.bottom
-            height: mediaModel.count ? Theme.itemSizeSmall : 0
-			model: mediaModel
+            height: mediaModel.count ? Theme.itemSizeExtraLarge : 0
+            model: mediaModel
 			cellWidth: uploadedImages.width / 4
-            cellHeight: Theme.itemSizeSmall
+            cellHeight: Theme.itemSizeExtraLarge
 			delegate: BackgroundItem {
 				id: myDelegate
 				width: uploadedImages.cellWidth
 				height: uploadedImages.cellHeight
 				RemorseItem {
-					id: remorse
+                    id: remorse
 				}
+
 				Image {
 					anchors.fill: parent
 					fillMode: Image.PreserveAspectCrop
 					source: model.preview_url
 				}
-
 				onClicked: {
 					var idx = index
 					console.log(idx)
@@ -286,7 +329,6 @@ Page {
 					duration: 800
 				}
 			}
-
 			remove: Transition {
 				NumberAnimation {
 					property: "opacity"
@@ -303,8 +345,8 @@ Page {
 				}
 			}
 		}
-		IconButton {
 
+		IconButton {
 			id: btnContentWarning
 			anchors {
                 top: toot.bottom
@@ -316,6 +358,7 @@ Page {
 				+ (pressed ? Theme.highlightColor : (warningContent.visible ? Theme.secondaryHighlightColor : Theme.primaryColor))
 			onClicked: warningContent.visible = !warningContent.visible
 		}
+
 		IconButton {
 			id: btnAddImage
 			enabled: mediaModel.count < 4
@@ -341,21 +384,18 @@ Page {
 				})
 			}
 		}
+
 		ImageUploader {
 			id: imageUploader
-
 			onProgressChanged: {
 				console.log("progress " + progress)
 				uploadProgress.width = parent.width * progress
 			}
-
 			onSuccess: {
 				uploadProgress.width = 0
 				console.log(replyData)
-
 				mediaModel.append(JSON.parse(replyData))
 			}
-
 			onFailure: {
 				uploadProgress.width = 0
 				btnAddImage.enabled = true
@@ -363,15 +403,16 @@ Page {
 				console.log(statusText)
 			}
 		}
+
 		ComboBox {
-			id: privacy
+            id: privacy
 			anchors {
                 top: toot.bottom
                 topMargin: -Theme.paddingSmall * 1.5
 				left: btnAddImage.right
-				right: btnSend.left
-			}
-			menu: ContextMenu {
+                right: btnSend.left
+            }
+            menu: ContextMenu {
 				MenuItem {
                     text: qsTr("Public")
 				}
@@ -405,7 +446,6 @@ Page {
 					console.log(mediaModel.get(k).id)
 					media_ids.push(mediaModel.get(k).id)
 				}
-
 				var msg = {
 					"action": 'statuses',
 					"method": 'POST',
@@ -426,22 +466,23 @@ Page {
 					msg.params['spoiler_text'] = warningContent.text
 				}
 
-				worker.sendMessage(msg)
-				warningContent.text = ""
-				toot.text = ""
-				mediaModel.clear()
-                pageStack.pop()
+                worker.sendMessage(msg)
+                warningContent.text = ""
+                toot.text = ""
+                mediaModel.clear()
+                sentBanner.showText(qsTr("Toot sent!"))
 			}
 		}
 
 		Rectangle {
 			id: uploadProgress
 			color: Theme.highlightBackgroundColor
-			anchors.bottom: parent.bottom
+            anchors.bottom: parent.bottom
 			anchors.left: parent.left
-			height: 3
+            height: Theme.itemSizeSmall * 0.05
 		}
 	}
+
 	Component.onCompleted: {
 		toot.cursorPosition = toot.text.length
 		if (mdl.count > 0) {
@@ -474,157 +515,66 @@ Page {
 			"conf": Logic.conf
 		})
 	}
-	Component {
-		id: firstWizardPage
 
-		Dialog {
-			id: emoticonsDialog
-			canAccept: false //selector.currentIndex >= 0
+    BackgroundItem {
+        id: hiddenPanel
+        visible: !panel.open
+        height: Theme.paddingLarge * 0.5
+        width: parent.width
+        opacity: enabled ? 0.6 : 0.0
+        Behavior on opacity { FadeAnimator { duration: 400 } }
+        anchors {
+            horizontalCenter: parent.horizontalCenter
+            bottom: parent.bottom
+        }
 
-			//acceptDestination: conversationPage
-			onAcceptPendingChanged: {
-				if (acceptPending) {
+        MouseArea {
+            anchors.fill: parent
+            onClicked: panel.open = !panel.open
+        }
 
-					// Tell the destination page what the selected category is
-					// acceptDestinationInstance.category = selector.value
-				}
-			}
+        Rectangle {
+            id: hiddenPanelBackground
+            width: parent.width
+            height: parent.height
+            color: Theme.highlightBackgroundColor
+            opacity: 0.4
+            anchors.fill: parent
+        }
 
-			SilicaGridView {
-				id: gridView
-				anchors.fill: parent
-				cellWidth: gridView.width / 6
-				cellHeight: cellWidth
-				header: PageHeader {
-					title: qsTr("Emojis")
-					description: qsTr("Tap to insert")
-				}
-				model: ListModel {
-					ListElement { section: "smileys"; glyph: "😁" }
-					ListElement { section: "smileys"; glyph: "😂" }
-					ListElement { section: "smileys"; glyph: "😃" }
-					ListElement { section: "smileys"; glyph: "😄" }
-					ListElement { section: "smileys"; glyph: "😅" }
-					ListElement { section: "smileys"; glyph: "😆" }
-					ListElement { section: "smileys"; glyph: "😉" }
-					ListElement { section: "smileys"; glyph: "😊" }
-					ListElement { section: "smileys"; glyph: "😋" }
-					ListElement { section: "smileys"; glyph: "😌" }
-					ListElement { section: "smileys"; glyph: "😍" }
-					ListElement { section: "smileys"; glyph: "😏" }
-					ListElement { section: "smileys"; glyph: "😒" }
-					ListElement { section: "smileys"; glyph: "😓" }
-					ListElement { section: "smileys"; glyph: "😔" }
-					ListElement { section: "smileys"; glyph: "😖" }
-					ListElement { section: "smileys"; glyph: "😘" }
-					ListElement { section: "smileys"; glyph: "😚" }
-					ListElement { section: "smileys"; glyph: "😜" }
-					ListElement { section: "smileys"; glyph: "😝" }
-					ListElement { section: "smileys"; glyph: "😞" }
-					ListElement { section: "smileys"; glyph: "😠" }
-					ListElement { section: "smileys"; glyph: "😡" }
-					ListElement { section: "smileys"; glyph: "😢" }
-					ListElement { section: "smileys"; glyph: "😣" }
-					ListElement { section: "smileys"; glyph: "😤" }
-					ListElement { section: "smileys"; glyph: "😥" }
-					ListElement { section: "smileys"; glyph: "😨" }
-					ListElement { section: "smileys"; glyph: "😩" }
-					ListElement { section: "smileys"; glyph: "😪" }
-					ListElement { section: "smileys"; glyph: "😫" }
-					ListElement { section: "smileys"; glyph: "😭" }
-					ListElement { section: "smileys"; glyph: "😰" }
-					ListElement { section: "smileys"; glyph: "😱" }
-					ListElement { section: "smileys"; glyph: "😲" }
-					ListElement { section: "smileys"; glyph: "😳" }
-					ListElement { section: "smileys"; glyph: "😵" }
-					ListElement { section: "smileys"; glyph: "😷" }
-					ListElement { section: "smileys"; glyph: "😸" }
-					ListElement { section: "smileys"; glyph: "😹" }
-					ListElement { section: "smileys"; glyph: "😺" }
-					ListElement { section: "smileys"; glyph: "😻" }
-					ListElement { section: "smileys"; glyph: "😼" }
-					ListElement { section: "smileys"; glyph: "😽" }
-					ListElement { section: "smileys"; glyph: "😾" }
-					ListElement { section: "smileys"; glyph: "😿" }
-					ListElement { section: "smileys"; glyph: "🙀" }
-					ListElement { section: "smileys"; glyph: "🙅" }
-					ListElement { section: "smileys"; glyph: "🙆" }
-					ListElement { section: "smileys"; glyph: "🙇" }
-					ListElement { section: "smileys"; glyph: "🙈" }
-					ListElement { section: "smileys"; glyph: "🙉" }
-					ListElement { section: "smileys"; glyph: "🙊" }
-					ListElement { section: "smileys"; glyph: "🙋" }
-					ListElement { section: "smileys"; glyph: "🙌" }
-					ListElement { section: "smileys"; glyph: "🙍" }
-					ListElement { section: "smileys"; glyph: "🙎" }
-					ListElement { section: "smileys"; glyph: "🙏" }
+        Rectangle {
+            id: progressBarBackground
+            width: parent.width
+            height: progressBarHiddenPanel.height
+            color: Theme.highlightBackgroundColor
+            opacity: 0.2
+            anchors {
+                left: parent.left
+                right: parent.right
+                top: parent.top
+            }
+        }
 
-					ListElement { section: "Transport and map"; glyph: "🚀" }
-					ListElement { section: "Transport and map"; glyph: "🚃" }
-					ListElement { section: "Transport and map"; glyph: "🚀" }
-					ListElement { section: "Transport and map"; glyph: "🚄" }
-					ListElement { section: "Transport and map"; glyph: "🚅" }
-					ListElement { section: "Transport and map"; glyph: "🚇" }
-					ListElement { section: "Transport and map"; glyph: "🚉" }
-					ListElement { section: "Transport and map"; glyph: "🚌" }
-					ListElement { section: "Transport and map"; glyph: "🚏" }
-					ListElement { section: "Transport and map"; glyph: "🚑" }
-					ListElement { section: "Transport and map"; glyph: "🚒" }
-					ListElement { section: "Transport and map"; glyph: "🚓" }
-					ListElement { section: "Transport and map"; glyph: "🚕" }
-					ListElement { section: "Transport and map"; glyph: "🚗" }
-					ListElement { section: "Transport and map"; glyph: "🚙" }
-					ListElement { section: "Transport and map"; glyph: "🚚" }
-					ListElement { section: "Transport and map"; glyph: "🚢" }
-					ListElement { section: "Transport and map"; glyph: "🚨" }
-					ListElement { section: "Transport and map"; glyph: "🚩" }
-					ListElement { section: "Transport and map"; glyph: "🚪" }
-					ListElement { section: "Transport and map"; glyph: "🚫" }
-					ListElement { section: "Transport and map"; glyph: "🚬" }
-					ListElement { section: "Transport and map"; glyph: "🚭" }
-					ListElement { section: "Transport and map"; glyph: "🚲" }
-					ListElement { section: "Transport and map"; glyph: "🚶" }
-					ListElement { section: "Transport and map"; glyph: "🚹" }
-					ListElement { section: "Transport and map"; glyph: "🚺" }
-					ListElement { section: "Transport and map"; glyph: "🚻" }
-					ListElement { section: "Transport and map"; glyph: "🚼" }
-					ListElement { section: "Transport and map"; glyph: "🚽" }
-					ListElement { section: "Transport and map"; glyph: "🚾" }
-					ListElement { section: "Transport and map"; glyph: "🛀" }
+        Rectangle {
+            id: progressBarHiddenPanel
+            width: toot.text.length ? panel.width * (toot.text.length / tootMaxChar) : 0
+            height: Theme.itemSizeSmall * 0.05
+            color: Theme.highlightBackgroundColor
+            opacity: 0.7
+            anchors {
+                left: parent.left
+                top: parent.top
+            }
+        }
 
-					ListElement { section: "Horoscope Signs"; glyph: "♈" }
-					ListElement { section: "Horoscope Signs"; glyph: "♉" }
-					ListElement { section: "Horoscope Signs"; glyph: "♊" }
-					ListElement { section: "Horoscope Signs"; glyph: "♋" }
-					ListElement { section: "Horoscope Signs"; glyph: "♌" }
-					ListElement { section: "Horoscope Signs"; glyph: "♍" }
-					ListElement { section: "Horoscope Signs"; glyph: "♎" }
-					ListElement { section: "Horoscope Signs"; glyph: "♏" }
-					ListElement { section: "Horoscope Signs"; glyph: "♐" }
-					ListElement { section: "Horoscope Signs"; glyph: "♑" }
-					ListElement { section: "Horoscope Signs"; glyph: "♒" }
-					ListElement { section: "Horoscope Signs"; glyph: "♓" }
-				}
-				delegate: BackgroundItem {
-					width: gridView.cellWidth
-					height: gridView.cellHeight
-					Label {
-						anchors.centerIn: parent
-						color: (highlighted ? Theme.secondaryHighlightColor : Theme.secondaryColor)
-						font.pixelSize: Theme.fontSizeLarge
-						text: glyph
-					}
-					onClicked: {
-						var cursorPosition = toot.cursorPosition
-						toot.text = toot.text.substring(
-									0, cursorPosition) + model.glyph + toot.text.substring(
-									cursorPosition)
-						toot.cursorPosition = cursorPosition + model.glyph.length
-						emoticonsDialog.canAccept = true
-						emoticonsDialog.accept()
-					}
-				}
-			}
-		}
+    }
+
+    EmojiSelect {
+        id: emojiSelect
 	}
+
+    InfoBanner {
+        id: sentBanner
+    }
+
 }

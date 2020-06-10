@@ -23,10 +23,6 @@
 <context>
     <name>Conversation</name>
     <message>
-        <source>Conversation</source>
-        <translation>Conversación</translation>
-    </message>
-    <message>
         <source>Delete</source>
         <translation>Borrar</translation>
     </message>
@@ -62,12 +58,20 @@
         <source>What&apos;s on your mind?</source>
         <translation>¿En qué estás pensando?</translation>
     </message>
+    <message>
+        <source>Toot sent!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Copy Link to Clipboard</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ImageFullScreen</name>
     <message>
         <source>Error loading</source>
-        <translation>Error al cargar</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

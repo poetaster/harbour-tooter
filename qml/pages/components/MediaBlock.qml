@@ -4,10 +4,12 @@ import QtMultimedia 5.0
 
 
 Item {
+    id: holder
+
     property ListModel model
     property double wRatio : 16/9
     property double hRatio : 9/16
-    id: holder
+
     width: width
     height: height
     Component.onCompleted: {
@@ -92,6 +94,7 @@ Item {
             }
         }
     }
+
     MyImage {
         id: placeholder2
         width: 2
@@ -110,6 +113,7 @@ Item {
             }
         }
     }
+
     MyImage {
         id: placeholder3
         width: 2
@@ -128,6 +132,7 @@ Item {
             }
         }
     }
+
     MyImage {
         id: placeholder4
         width: 2
@@ -146,8 +151,5 @@ Item {
             }
         }
     }
+
 }
-
-
-
-

@@ -1,13 +1,19 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
 
+
 Item {
-    id: ministatus
+    id: miniStatus
     visible: true
     height: icon.height+Theme.paddingMedium
     width: parent.width
-    Image {
+    Icon {
         id: icon
+        visible: type.length
+        color: Theme.highlightColor
+        width: Theme.iconSizeExtraSmall
+        height: width
+        source: typeof typeIcon !== "undefined" ? typeIcon : ""
         anchors {
             top: parent.top
             topMargin: Theme.paddingMedium
@@ -15,12 +21,8 @@ Item {
             left: parent.left
             leftMargin: Theme.horizontalPageMargin + Theme.iconSizeMedium - width
         }
-        visible: type.length
-        width: Theme.iconSizeExtraSmall
-        height: width
-        source: typeof typeIcon !== "undefined" ? typeIcon : ""
-
     }
+
     Label {
         id: lblRtByName
         visible: type.length
@@ -42,12 +44,11 @@ Item {
                 action =  qsTr('followed you');
                 break;
             default:
-                ministatus.visible = false
+                miniStatus.visible = false
                 action = type;
             }
             return typeof reblog_account_username !== "undefined" ? '@' + reblog_account_username + ' ' +  action : ''
         }
-
         font.pixelSize: Theme.fontSizeExtraSmall
         color: Theme.highlightColor
     }

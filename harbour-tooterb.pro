@@ -9,7 +9,6 @@
 #   - icon definition filename in desktop file must be changed
 #   - translation filenames have to be changed
 
-# The name of your application
 TARGET = harbour-tooterb
 
 CONFIG += sailfishapp
@@ -39,21 +38,27 @@ dbus_services.files = config/ba.dysko.harbour.tooterb.service
 interfaces.path = /usr/share/dbus-1/interfaces/
 interfaces.files = config/ba.dysko.harbourb.tooterb.xml
 
-SOURCES += src/harbour-tooterb.cpp
-SOURCES += src/imageuploader.cpp
-SOURCES += src/filedownloader.cpp
-SOURCES += src/notifications.cpp
-SOURCES += src/dbusAdaptor.cpp
-SOURCES += src/dbus.cpp
+SOURCES += src/harbour-tooterb.cpp \
+    src/imageuploader.cpp \
+    src/filedownloader.cpp \
+    src/notifications.cpp \
+    src/dbusAdaptor.cpp \
+    src/dbus.cpp
 
-HEADERS += src/imageuploader.h
-HEADERS += src/filedownloader.h
-HEADERS += src/notifications.h
-HEADERS += src/dbusAdaptor.h
-HEADERS += src/dbus.h
+HEADERS += src/imageuploader.h \
+    src/filedownloader.h \
+    src/notifications.h \
+    src/dbusAdaptor.h \
+    src/dbus.h
 
 DISTFILES += qml/harbour-tooterb.qml \
+    qml/images/tooterb-cover.svg \
+    qml/pages/ConversationPage.qml \
+    qml/pages/ProfilePage.qml \
+    qml/pages/SettingsPage.qml \
     qml/pages/components/InfoBanner.qml \
+    qml/pages/components/MediaFullScreen.qml \
+    qml/pages/components/ProfileImage.qml \
     qml/pages/components/VisualContainer.qml \
     qml/pages/components/MiniStatus.qml \
     qml/pages/components/MiniHeader.qml \
@@ -63,21 +68,14 @@ DISTFILES += qml/harbour-tooterb.qml \
     qml/pages/components/ProfileHeader.qml \
     qml/pages/components/MediaBlock.qml \
     qml/pages/components/MyImage.qml \
-    qml/pages/components/ImageFullScreen.qml \
     qml/cover/CoverPage.qml \
     qml/pages/MainPage.qml \
     qml/pages/LoginPage.qml \
-    qml/pages/Conversation.qml \
     qml/pages/components/Toot.qml \
     qml/pages/Browser.qml \
-    qml/pages/Profile.qml \
-    qml/pages/Settings.qml \
     qml/lib/API.js \
-    qml/images/notification.svg \
-    qml/images/verified.svg \
-    qml/images/boosted.svg \
-    qml/images/tooterb.svg \
-    qml/images/emojiselect.svg \
+    qml/images/icon-s-following \
+    qml/images/icon-m-emoji.svg \
     qml/images/icon-m-profile.svg \
     qml/images/icon-l-profile.svg \
     qml/lib/Mastodon.js \
@@ -97,21 +95,18 @@ SAILFISHAPP_ICONS = 86x86 108x108 128x128 172x172
 # following CONFIG line
 CONFIG += sailfishapp_i18n
 
-# German translation is enabled as an example. If you aren't
-# planning to localize your app, remember to comment out the
-# following TRANSLATIONS line. And also do not forget to
-# modify the localized app name in the the .desktop file.
-TRANSLATIONS += translations/harbour-tooterb-de.ts
-TRANSLATIONS += translations/harbour-tooterb-el.ts
-TRANSLATIONS += translations/harbour-tooterb-es.ts
-TRANSLATIONS += translations/harbour-tooterb-fi.ts
-TRANSLATIONS += translations/harbour-tooterb-fr.ts
-TRANSLATIONS += translations/harbour-tooterb-nl.ts
-TRANSLATIONS += translations/harbour-tooterb-nl_BE.ts
-TRANSLATIONS += translations/harbour-tooterb-oc.ts
-TRANSLATIONS += translations/harbour-tooterb-pl.ts
-TRANSLATIONS += translations/harbour-tooterb-ru.ts
-TRANSLATIONS += translations/harbour-tooterb-sr.ts
-TRANSLATIONS += translations/harbour-tooterb-sv.ts
-TRANSLATIONS += translations/harbour-tooterb-zh_CN.ts
-TRANSLATIONS += translations/harbour-tooterb-it.ts
+TRANSLATIONS += translations/harbour-tooterb.ts \
+    translations/harbour-tooterb-de.ts \
+    translations/harbour-tooterb-el.ts \
+    translations/harbour-tooterb-es.ts \
+    translations/harbour-tooterb-fr.ts \
+    translations/harbour-tooterb-it.ts \
+    translations/harbour-tooterb-nl.ts \
+    translations/harbour-tooterb-nl_BE.ts \
+    translations/harbour-tooterb-oc.ts \
+    translations/harbour-tooterb-pl.ts \
+    translations/harbour-tooterb-ru.ts \
+    translations/harbour-tooterb-sr.ts \
+    translations/harbour-tooterb-sv.ts \
+    translations/harbour-tooterb-zh_CN.ts
+

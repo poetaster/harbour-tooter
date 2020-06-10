@@ -21,22 +21,22 @@
     </message>
 </context>
 <context>
-    <name>Conversation</name>
+    <name>ConversationPage</name>
     <message>
-        <source>Delete</source>
-        <translation>删除</translation>
-    </message>
-    <message>
-        <source>Emojis</source>
-        <translation>表情</translation>
-    </message>
-    <message>
-        <source>Tap to insert</source>
-        <translation>点击以插入</translation>
+        <source>Copy Link to Clipboard</source>
+        <translation>复制链接到剪切板</translation>
     </message>
     <message>
         <source>Write your warning here</source>
         <translation>在此编写你的警告信息</translation>
+    </message>
+    <message>
+        <source>What&apos;s on your mind?</source>
+        <translation>有何想法?</translation>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation>删除</translation>
     </message>
     <message>
         <source>Public</source>
@@ -55,23 +55,26 @@
         <translation>私信</translation>
     </message>
     <message>
-        <source>What&apos;s on your mind?</source>
-        <translation>有何想法?</translation>
-    </message>
-    <message>
         <source>Toot sent!</source>
         <translation>已发送嘟嘟！</translation>
     </message>
+</context>
+<context>
+    <name>CoverPage</name>
     <message>
-        <source>Copy Link to Clipboard</source>
-        <translation>复制链接到剪切板</translation>
+        <source>New Toot</source>
+        <translation>新嘟嘟</translation>
     </message>
 </context>
 <context>
-    <name>ImageFullScreen</name>
+    <name>EmojiSelect</name>
     <message>
-        <source>Error loading</source>
-        <translation>加载错误</translation>
+        <source>Emojis</source>
+        <translation>表情</translation>
+    </message>
+    <message>
+        <source>Tap to insert</source>
+        <translation>点击以插入</translation>
     </message>
 </context>
 <context>
@@ -136,6 +139,13 @@
     </message>
 </context>
 <context>
+    <name>MediaFullScreen</name>
+    <message>
+        <source>Error loading</source>
+        <translation>加载错误</translation>
+    </message>
+</context>
+<context>
     <name>MiniStatus</name>
     <message>
         <source>boosted</source>
@@ -168,71 +178,109 @@
         <source>please wait...</source>
         <translation>稍等片刻......</translation>
     </message>
+    <message>
+        <source>New Toot</source>
+        <translation>新嘟嘟</translation>
+    </message>
 </context>
 <context>
-    <name>Profile</name>
+    <name>ProfileHeader</name>
     <message>
-        <source>Unfollow</source>
-        <translation>取消关注</translation>
+        <source>Follows you</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Follow request sent!</source>
-        <translation>已寄出关注请求！</translation>
+        <source>Bot</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>ProfilePage</name>
+    <message>
+        <source>About</source>
+        <extracomment>If there&apos;s no good translation for &quot;About&quot;, use &quot;Details&quot; (in details about profile).</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Followers</source>
+        <extracomment>Will show as: &quot;35 Followers&quot;</extracomment>
+        <translation>关注者</translation>
     </message>
     <message>
         <source>Following</source>
+        <extracomment>Will show as: &quot;23 Following&quot;</extracomment>
         <translation>关注中</translation>
     </message>
     <message>
-        <source>Mute</source>
-        <translation>静音</translation>
+        <source>Statuses</source>
+        <extracomment>Will show as: &quot;115 Statuses&quot;</extracomment>
+        <translation>状态</translation>
+    </message>
+    <message>
+        <source>Unfollow</source>
+        <extracomment>Is a button. Keep it as short as possible.</extracomment>
+        <translation>取消关注</translation>
+    </message>
+    <message>
+        <source>Requested</source>
+        <extracomment>Is a button. Keep it as short as possible.</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Follow</source>
+        <extracomment>Is a button. Keep it as short as possible.</extracomment>
+        <translation>关注</translation>
     </message>
     <message>
         <source>Unmute</source>
+        <extracomment>Is a button. Keep it as short as possible.</extracomment>
         <translation>未静音</translation>
     </message>
     <message>
+        <source>Mute</source>
+        <extracomment>Is a button. Keep it as short as possible.</extracomment>
+        <translation>静音</translation>
+    </message>
+    <message>
         <source>Unblock</source>
+        <extracomment>Is a button. Keep it as short as possible.</extracomment>
         <translation>解除封锁</translation>
     </message>
     <message>
         <source>Block</source>
+        <extracomment>Is a button. Keep it as short as possible.</extracomment>
         <translation>封锁</translation>
     </message>
     <message>
-        <source>Statuses</source>
-        <translation>状态</translation>
-    </message>
-    <message>
-        <source>Favourites</source>
-        <translation>收藏</translation>
-    </message>
-    <message>
-        <source>Follow</source>
-        <translation>关注</translation>
-    </message>
-    <message>
-        <source>Summary</source>
-        <translation>摘要</translation>
-    </message>
-    <message>
-        <source>Followers</source>
-        <translation>关注者</translation>
-    </message>
-    <message>
-        <source>Bio</source>
-        <translation>简介</translation>
-    </message>
-    <message>
-        <source>Open Profile in Browser</source>
+        <source>Open in Browser</source>
         <translation>在浏览器打开个人简介</translation>
+    </message>
+    <message>
+        <source>Mention</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
-    <name>Settings</name>
+    <name>SettingsPage</name>
     <message>
         <source>Settings</source>
         <translation>设置</translation>
+    </message>
+    <message>
+        <source>Options</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Load Images in Toots</source>
+        <translation>加载嘟嘟图片</translation>
+    </message>
+    <message>
+        <source>Disable this option if you want to preserve your data connection</source>
+        <translation>如果你想保护你的数据连接，请禁用此选项</translation>
+    </message>
+    <message>
+        <source>Account</source>
+        <translation>账号</translation>
     </message>
     <message>
         <source>Remove Account</source>
@@ -243,7 +291,7 @@
         <translation>添加账号</translation>
     </message>
     <message>
-        <source>Deauthorize this app and remove your account</source>
+        <source>Deauthorize this app from using your account and remove account data from phone</source>
         <translation>取消授权此软件并移除你的账号</translation>
     </message>
     <message>
@@ -251,8 +299,8 @@
         <translation>授权此软件使用你的 Mastodon 账号</translation>
     </message>
     <message>
-        <source>Disable this option if you want to preserve your data connection</source>
-        <translation>如果你想保护你的数据连接，请禁用此选项</translation>
+        <source>Translate</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Credits</source>
@@ -267,8 +315,16 @@
         <translation>视觉识别</translation>
     </message>
     <message>
+        <source>Development and translations</source>
+        <translation>开发及翻译</translation>
+    </message>
+    <message>
         <source>Occitan &amp; French translation</source>
         <translation>奥克西坦语及法语翻译</translation>
+    </message>
+    <message>
+        <source>Chinese translation</source>
+        <translation>汉语翻译</translation>
     </message>
     <message>
         <source>Dutch translation</source>
@@ -283,24 +339,13 @@
         <translation>添加 README 文件</translation>
     </message>
     <message>
-        <source>Chinese translation</source>
-        <translation>汉语翻译</translation>
+        <source>Use</source>
+        <extracomment>Full sentence for translation: &quot;Use Transifex to help with app translation to your language.&quot; - The word Transifex is a link and doesn&apos;t need translation.</extracomment>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Load images in toots</source>
-        <translation>加载嘟嘟图片</translation>
-    </message>
-    <message>
-        <source>Translate</source>
-        <translation>翻译</translation>
-    </message>
-    <message>
-        <source>Use Transifex to help with app translation to your language</source>
-        <translation>使用 Transifex 以帮助翻译软件为你的语言</translation>
-    </message>
-    <message>
-        <source>Development and translations</source>
-        <translation>开发及翻译</translation>
+        <source>to help with app translation to your language.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -335,6 +380,10 @@
     <message>
         <source>Favorite</source>
         <translation>关注</translation>
+    </message>
+    <message>
+        <source>Mention</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

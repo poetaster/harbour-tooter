@@ -22,7 +22,7 @@ WorkerScript.onMessage = function(msg) {
     if (typeof msg.conf['loadImages'] !== "undefined")
         loadImages = msg.conf['loadImages']
 
-    var API = MastodonAPI({ instance: msg.conf.instance, api_user_token: msg.conf.api_user_token});
+    var API = mastodonAPI({ instance: msg.conf.instance, api_user_token: msg.conf.api_user_token});
     if (msg.method === "POST"){
         API.post(msg.action, msg.params, function(data) {
             if (msg.bgAction){
@@ -91,7 +91,7 @@ WorkerScript.onMessage = function(msg) {
                     addDataToModel (msg.model, "append", items);
                     items = [];
 
-                } else  if (data[i].hasOwnProperty("content")){
+                } else if (data[i].hasOwnProperty("content")){
                     //console.log("Is toot... parsing...")
                     item = parseToot(data[i]);
                     item['id'] = item['status_id']
@@ -190,7 +190,7 @@ function parseNotification(data){
         item = parseAccounts(item, "", data["account"])
         item = parseAccounts(item, "reblog_", data["account"])
         item['content'] = data['account']['note']
-        item['typeIcon'] = "image://theme/icon-s-installed"
+        item['typeIcon'] = "../../images/icon-s-following.svg"
         item['attachments'] = []
 
         break;
@@ -298,13 +298,13 @@ function addEmojis(item, data){
     var emoji, i;
     for (i = 0; i < data["emojis"].length; i++){
         emoji = data["emojis"][i];
-        item['content'] = item['content'].replaceAll(":"+emoji.shortcode+":", "<img src=\"" + emoji.static_url+"\" align=\"middle\" width=\"24\" height=\"24\">")
+        item['content'] = item['content'].replaceAll(":"+emoji.shortcode+":", "<img src=\"" + emoji.static_url+"\" align=\"top\" width=\"50\" height=\"50\">")
         //console.log(JSON.stringify(data["emojis"][i]))
     }
     if (data["reblog"])
         for (i = 0; i < data["reblog"]["emojis"].length; i++){
             emoji = data["reblog"]["emojis"][i];
-            item['content'] = item['content'].replaceAll(":"+emoji.shortcode+":", "<img src=\"" + emoji.static_url+"\" align=\"middle\" width=\"24\" height=\"24\">")
+            item['content'] = item['content'].replaceAll(":"+emoji.shortcode+":", "<img src=\"" + emoji.static_url+"\" align=\"top\" width=\"50\" height=\"50\">")
         }
 
     return item;

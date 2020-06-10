@@ -1,33 +1,3 @@
-/*
-  Copyright (C) 2013 Jolla Ltd.
-  Contact: Thomas Perl <thomas.perl@jollamobile.com>
-  All rights reserved.
-
-  You may use this file under the terms of BSD license as follows:
-
-  Redistribution and use in source and binary forms, with or without
-  modification, are permitted provided that the following conditions are met:
-    * Redistributions of source code must retain the above copyright
-      notice, this list of conditions and the following disclaimer.
-    * Redistributions in binary form must reproduce the above copyright
-      notice, this list of conditions and the following disclaimer in the
-      documentation and/or other materials provided with the distribution.
-    * Neither the name of the Jolla Ltd nor the
-      names of its contributors may be used to endorse or promote products
-      derived from this software without specific prior written permission.
-
-  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
-  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
-  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
-  DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDERS OR CONTRIBUTORS BE LIABLE FOR
-  ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
-  (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
-  LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
-  ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
-  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
-  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-*/
-
 import QtQuick 2.0
 import Sailfish.Silica 1.0
 import "../lib/API.js" as Logic
@@ -36,8 +6,9 @@ import "./components/"
 
 Page {
     id: mainPage
+
     property bool isFirstPage: true
-    property bool isTablet: true; //Screen.sizeCategory >= Screen.Large
+    property bool isTablet: true //Screen.sizeCategory >= Screen.Large
 
     // The effective value will be restricted by ApplicationWindow.allowedOrientations
     allowedOrientations: Orientation.All
@@ -61,7 +32,7 @@ Page {
     VisualItemModel {
         id: visualModel
         MyList{
-            id: tlHome;
+            id: tlHome
             title: qsTr("Home")
             type: "timelines/home"
             mdl: Logic.modelTLhome
@@ -69,51 +40,62 @@ Page {
             height: parent.itemHeight
             onOpenDrawer:  infoPanel.open = setDrawer
         }
+
         MyList{
-            id: tlNotifications;
+            id: tlNotifications
             title: qsTr("Notifications")
             type: "notifications"
             notifier: true
             mdl: Logic.modelTLnotifications
             width: parent.itemWidth
             height: parent.itemHeight
-            onOpenDrawer:  infoPanel.open = setDrawer
+            onOpenDrawer: infoPanel.open = setDrawer
         }
+
         MyList{
-            id: tlLocal;
+            id: tlLocal
             title: qsTr("Local")
             type: "timelines/public?local=true"
             //params: ["local", true]
             mdl: Logic.modelTLlocal
             width: parent.itemWidth
             height: parent.itemHeight
-            onOpenDrawer:  infoPanel.open = setDrawer
+            onOpenDrawer: infoPanel.open = setDrawer
         }
+
         MyList{
-            id: tlPublic;
+            id: tlPublic
             title: qsTr("Federated")
             type: "timelines/public"
             mdl: Logic.modelTLpublic
             width: parent.itemWidth
             height: parent.itemHeight
-            onOpenDrawer:  infoPanel.open = setDrawer
+            onOpenDrawer: infoPanel.open = setDrawer
         }
+
         Item {
-            id: tlSearch;
+            id: tlSearch
+
+            property ListModel mdl: ListModel {}
+            property string search
+
             width: parent.itemWidth
             height: parent.itemHeight
-            property ListModel mdl: ListModel {}
-            property string search;
             onSearchChanged: {
                 console.log(search)
                 loader.sourceComponent = loading
-                loader.sourceComponent = search.charAt(0) === "@" ? userListComponent : tagListComponent
+                if (search.charAt(0) === "@") {
+                    loader.sourceComponent = userListComponent
+                } else if (search.charAt(0) === "#") {
+                    loader.sourceComponent = tagListComponent
+                } else { loader.sourceComponent = wordListComponent}
             }
 
             Loader {
                 id: loader
                 anchors.fill: parent
             }
+
             Column {
                 id: headerContainer
                 width: tlSearch.width
@@ -133,6 +115,7 @@ Page {
                     }
                 }
             }
+
             Component {
                 id: loading
                 BusyIndicator {
@@ -141,6 +124,7 @@ Page {
                     running: true
                 }
             }
+
             Component {
                 id: tagListComponent
                 MyList {
@@ -165,6 +149,7 @@ Page {
                     }
                 }
             }
+
             Component {
                 id: userListComponent
                 MyList {
@@ -185,7 +170,7 @@ Page {
 
                     delegate: ItemUser {
                         onClicked: {
-                            pageStack.push(Qt.resolvedUrl("Profile.qml"), {
+                            pageStack.push(Qt.resolvedUrl("ProfilePage.qml"), {
                                                "display_name": model.account_display_name,
                                                "username": model.account_acct,
                                                "user_id": model.account_id,
@@ -203,10 +188,32 @@ Page {
                 }
             }
 
+            Component {
+                id: wordListComponent
+                MyList {
+                    id: view3
+                    mdl: ListModel {}
+                    width: parent.width
+                    height: parent.height
+                    onOpenDrawer:  infoPanel.open = setDrawer
+                    anchors.fill: parent
+                    currentIndex: -1 // otherwise currentItem will steal focus
+                    header:  Item {
+                        id: header
+                        width: headerContainer.width
+                        height: headerContainer.height
+                        Component.onCompleted: headerContainer.parent = header
+                    }
+
+                    delegate: VisualContainer
+                    Component.onCompleted: {
+                        view3.type = "timelines/tag/"+tlSearch.search
+                        view3.loadData("append")
+                    }
+                }
+            }
         }
-
     }
-
 
     SlideshowView {
         id: slideshow
@@ -218,12 +225,9 @@ Page {
         onCurrentIndexChanged: {
             navigation.slideshowIndexChanged(currentIndex)
         }
-
         anchors {
             fill: parent
-            leftMargin: 0
             top: parent.top
-            topMargin: 0
             rightMargin: mainPage.isPortrait ? 0 : infoPanel.visibleSize
             bottomMargin: mainPage.isPortrait ? infoPanel.visibleSize : 0
         }
@@ -233,22 +237,22 @@ Page {
     }
 
     IconButton {
-        anchors {
-            right: (mainPage.isPortrait ? parent.right : infoPanel.left)
-            bottom: (mainPage.isPortrait ? infoPanel.top : parent.bottom)
-            margins: {
-                left: Theme.paddingLarge
-                bottom: Theme.paddingLarge
-            }
-        }
-
-        id: newTweet
+        id: newToot
         width: Theme.iconSizeLarge
         height: width
         visible: !isPortrait ? true : !infoPanel.open
         icon.source: "image://theme/icon-l-add"
+        anchors {
+            right: (mainPage.isPortrait ? parent.right : infoPanel.left)
+            rightMargin: Theme.paddingLarge
+            bottom: (mainPage.isPortrait ? infoPanel.top : parent.bottom)
+            bottomMargin: Theme.paddingLarge
+        }
         onClicked: {
-            pageStack.push(Qt.resolvedUrl("Conversation.qml"), {headerTitle: qsTr("New Toot"), type: "new"})
+            pageStack.push(Qt.resolvedUrl("ConversationPage.qml"), {
+                               headerTitle: qsTr("New Toot"),
+                               type: "new"
+                           })
         }
     }
 
@@ -268,11 +272,12 @@ Page {
             navigation.navigateTo('search')
 
         } else {
-            Qt.openUrlExternally(href);
+            Qt.openUrlExternally(href)
         }
     }
+
     Component.onCompleted: {
         console.log("aaa")
     }
-}
 
+}

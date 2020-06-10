@@ -3,9 +3,11 @@ import Sailfish.Silica 1.0
 import "../../lib/API.js" as Logic
 import "."
 
+
 SilicaListView {
     id: myList
-    property string type;
+
+    property string type
     property string title
     property string vwPlaceholderText: qsTr("Loading")
     property string vwPlaceholderHint: qsTr("please wait...")
@@ -13,20 +15,20 @@ SilicaListView {
     property ListModel mdl: []
     property variant params: []
     property var locale: Qt.locale()
-    property bool autoLoadMore : true;
-    property bool loadStarted : false;
-    property int scrollOffset;
+    property bool autoLoadMore: true
+    property bool loadStarted: false
+    property int scrollOffset
     property string action: ""
     property variant vars
     property variant conf
-    property bool notifier : false;
+    property bool notifier: false
+
     model:  mdl
+
     signal notify (string what, int num)
     onNotify: {
         console.log(what + " - " + num)
     }
-
-
 
     signal openDrawer (bool setDrawer)
     onOpenDrawer: {
@@ -38,18 +40,16 @@ SilicaListView {
     }
 
 
-    BusyIndicator {
-        size: BusyIndicatorSize.Large
-        running: myList.model.count === 0 && !viewPlaceHolder.visible
-        anchors.centerIn: parent
-    }
-
     header: PageHeader {
         title: myList.title
         description: myList.description
     }
 
-
+    BusyIndicator {
+        size: BusyIndicatorSize.Large
+        running: myList.model.count === 0 && !viewPlaceHolder.visible
+        anchors.centerIn: parent
+    }
 
     ViewPlaceholder {
         id: viewPlaceHolder
@@ -62,7 +62,17 @@ SilicaListView {
         MenuItem {
             text: qsTr("Settings")
             onClicked: {
-                pageStack.push(Qt.resolvedUrl("../Settings.qml"), {})
+                pageStack.push(Qt.resolvedUrl("../SettingsPage.qml"), {})
+            }
+        }
+
+        MenuItem {
+            text: qsTr("New Toot")
+            onClicked: {
+                pageStack.push(Qt.resolvedUrl("../ConversationPage.qml"), {
+                                   //headerTitle: "New Toot",
+                                   type: "new"
+                               })
             }
         }
 
@@ -71,14 +81,6 @@ SilicaListView {
             onClicked: {
                 loadData("prepend")
             }
-        }
-    }
-    clip: true
-    section {
-        property: 'section'
-        delegate: SectionHeader  {
-            height: Theme.itemSizeExtraSmall
-            text: Format.formatDate(section, Formatter.DateMedium)
         }
     }
 
@@ -95,10 +97,9 @@ SilicaListView {
     }
 
     onCountChanged: {
-        loadStarted = false;
+        loadStarted = false
         /*contentY = scrollOffset
         console.log("CountChanged!")*/
-
     }
 
     footer: Item{
@@ -114,6 +115,7 @@ SilicaListView {
                 loadData("append")
             }
         }
+
         BusyIndicator {
             size: BusyIndicatorSize.Small
             running: loadStarted;
@@ -121,17 +123,18 @@ SilicaListView {
             anchors.horizontalCenter: parent.horizontalCenter
         }
     }
+
     onContentYChanged: {
         if (Math.abs(contentY - scrollOffset) > Theme.itemSizeMedium) {
             openDrawer(contentY - scrollOffset  > 0 ? false : true )
             scrollOffset = contentY
         }
-
         if(contentY+height > footerItem.y && !loadStarted && autoLoadMore){
             loadData("append")
-            loadStarted = true;
+            loadStarted = true
         }
     }
+
     VerticalScrollDecorator {}
 
     WorkerScript {
@@ -144,7 +147,6 @@ SilicaListView {
             if (messageObject.fireNotification && notifier){
                 Logic.notifier(messageObject.data)
             }
-
         }
     }
 
@@ -159,17 +161,18 @@ SilicaListView {
             loadData("prepend")
         }
     }
+
     function loadData(mode){
-        var p = [];
+        var p = []
         if (params.length)
             for(var i = 0; i<params.length; i++)
                 p.push(params[i])
 
         if (mode === "append" && model.count){
-            p.push({name: 'max_id', data: model.get(model.count-1).id});
+            p.push({name: 'max_id', data: model.get(model.count-1).id})
         }
         if (mode === "prepend" && model.count){
-            p.push({name:'since_id', data: model.get(0).id});
+            p.push({name:'since_id', data: model.get(0).id})
         }
 
         var msg = {
@@ -181,7 +184,7 @@ SilicaListView {
         };
         console.log(JSON.stringify(msg))
         if (type !== "")
-            worker.sendMessage(msg);
+            worker.sendMessage(msg)
     }
 
 }

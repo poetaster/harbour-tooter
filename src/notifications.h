@@ -17,7 +17,7 @@ class Notifications : public QObject
 {
     Q_OBJECT
 public:
-    explicit Notifications(QObject *parent = 0);
+    explicit Notifications(QObject *parent = nullptr);
     Q_INVOKABLE void notify(QString appName, QString summary, QString body, bool preview, QString ts, QString issuekey);
 };
 

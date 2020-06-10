@@ -30,8 +30,8 @@
 
 import QtQuick 2.0
 import Sailfish.Silica 1.0
-
 import "../lib/API.js" as Logic
+
 
 CoverBackground {
     onStatusChanged: {
@@ -46,20 +46,21 @@ CoverBackground {
             break;
         }
     }
+
     Image {
         id: bg
+        source: "../images/tooterb-cover.svg"
+        horizontalAlignment: Image.AlignLeft
+        verticalAlignment: Image.AlignBottom
+        fillMode: Image.PreserveAspectFit
         anchors {
             bottom : parent.bottom
             left: parent.left
             right: parent.right
             top: parent.top
         }
-        horizontalAlignment: Image.AlignLeft
-        verticalAlignment: Image.AlignBottom
-        fillMode: Image.PreserveAspectFit
-
-        source: "../images/tooterb.svg"
     }
+
     Timer {
         id: timer
         interval: 60*1000
@@ -70,33 +71,34 @@ CoverBackground {
 
     Image {
         id: iconNot
+        source: "image://theme/icon-s-alarm?" + Theme.highlightColor
         anchors {
             left: parent.left
             top: parent.top
             leftMargin: Theme.paddingLarge
             topMargin: Theme.paddingLarge
         }
-        source: "image://theme/icon-s-alarm?" + Theme.highlightColor
     }
+
     Label {
         id: notificationsLbl
+        text: " "
+        color: Theme.highlightColor
         anchors {
             left: iconNot.right
             leftMargin: Theme.paddingMedium
             verticalCenter: iconNot.verticalCenter
         }
-        text: " "
-        color: Theme.highlightColor
     }
 
     Label {
+        text: "Tooter β"
+        color: Theme.secondaryColor
         anchors {
             right: parent.right
             rightMargin: Theme.paddingLarge
             verticalCenter: iconNot.verticalCenter
         }
-        text: "Tooter β"
-        color: Theme.primaryColor
     }
 
     signal activateapp(string person, string notice)
@@ -112,8 +114,11 @@ CoverBackground {
         CoverAction {
             iconSource: "image://theme/icon-cover-new"
             onTriggered: {
-                pageStack.push(Qt.resolvedUrl("./../pages/Conversation.qml"), {})
-                appWindow.activate();
+                pageStack.push(Qt.resolvedUrl("./../pages/ConversationPage.qml"), {
+                                   headerTitle: qsTr("New Toot"),
+                                   type: "new"
+                               })
+                appWindow.activate()
             }
         }
     }
@@ -135,5 +140,5 @@ CoverBackground {
         notificationsLbl.text = notificationsNum;
         Logic.conf.notificationLastID = notificationLastID;
     }
-}
 
+}

@@ -2,15 +2,18 @@ import QtQuick 2.0
 import Sailfish.Silica 1.0
 import QtGraphicalEffects 1.0
 
+
 SilicaGridView {
-    signal slideshowShow(int vIndex);
-    signal slideshowIndexChanged(int vIndex);
+    id: gridView
+
+    property bool isPortrait: false
+    signal slideshowShow(int vIndex)
+    signal slideshowIndexChanged(int vIndex)
+
     onSlideshowIndexChanged: {
         navigateTo(vIndex)
     }
 
-    id: gridView
-    property bool isPortrait: false
     ListModel {
         id: listModel
         ListElement {
@@ -20,12 +23,14 @@ SilicaGridView {
             active: true
             unread: false
         }
+
         ListElement {
             icon: "image://theme/icon-m-alarm"
             slug: "notifications"
             name: "Notifications"
             active: false
         }
+
         ListElement {
             icon: "image://theme/icon-m-whereami"
             slug: "local"
@@ -33,6 +38,7 @@ SilicaGridView {
             active: false
             unread: false
         }
+
         ListElement {
             icon: "image://theme/icon-m-website"
             slug: "federated"
@@ -40,6 +46,7 @@ SilicaGridView {
             active: false
             unread: false
         }
+
         ListElement {
             icon: "image://theme/icon-m-search"
             slug: "search"
@@ -49,16 +56,13 @@ SilicaGridView {
         }
     }
     model: listModel
-    anchors.fill: parent
     currentIndex: -1
-
     cellWidth: isPortrait ? gridView.width : gridView.width / model.count
     cellHeight: isPortrait ? gridView.height/model.count : gridView.height
-
-
+    anchors.fill: parent
     delegate: BackgroundItem {
-        clip: true
         id: rectangle
+        clip: true
         width: gridView.cellWidth
         height: gridView.cellHeight
         GridView.onAdd: AddAnimation {
@@ -67,28 +71,33 @@ SilicaGridView {
         GridView.onRemove: RemoveAnimation {
             target: rectangle
         }
+
         GlassItem {
             id: effect
             visible: !isPortrait && unread
+            dimmed: true
+            color: Theme.highlightColor
             width: Theme.itemSizeMedium
             height: Theme.itemSizeMedium
-            dimmed: true
-            anchors.bottom: parent.bottom
-            anchors.bottomMargin: -height/2
-            anchors.horizontalCenter: parent.horizontalCenter
-            color: Theme.highlightColor
+            anchors {
+                bottom: parent.bottom
+                bottomMargin: -height/2
+                horizontalCenter: parent.horizontalCenter
+            }
         }
 
         GlassItem {
             id: effect2
             visible: isPortrait && unread
+            dimmed: false
+            color: Theme.highlightColor
             width: Theme.itemSizeMedium
             height: Theme.itemSizeMedium
-            dimmed: false
-            anchors.right: parent.right;
-            anchors.rightMargin: -height/2;
-            anchors.verticalCenter: parent.verticalCenter
-            color: Theme.highlightColor
+            anchors {
+                right: parent.right
+                rightMargin: -height/2
+                verticalCenter: parent.verticalCenter
+            }
         }
 
         OpacityRampEffect {
@@ -96,68 +105,59 @@ SilicaGridView {
             offset: 0.5
         }
 
-        /*Image {
-            source: model.icon + (highlighted
-                                  ? Theme.highlightColor
-                                  : (model.active ? Theme.primaryColor : Theme.secondaryHighlightColor))
-            anchors.centerIn: parent
-        }*/
         ColorOverlay {
-               anchors.fill: image
-               source: image
-               color: (highlighted ? Theme.highlightColor : (model.active ? Theme.primaryColor : Theme.secondaryHighlightColor))
-           }
+            source: image
+            color: (highlighted ? Theme.highlightColor : (model.active ? Theme.primaryColor : Theme.secondaryHighlightColor))
+            anchors.fill: image
+        }
+
         Image {
             id: image
+            visible: false
+            source: model.icon // +'?'+ (highlighted ? Theme.highlightColor : (model.active ? Theme.primaryColor : Theme.secondaryHighlightColor))
             sourceSize.width: Theme.iconSizeMedium
             sourceSize.height: Theme.iconSizeMedium
-            source: model.icon// +'?'+ (highlighted ? Theme.highlightColor : (model.active ? Theme.primaryColor : Theme.secondaryHighlightColor))
             anchors.centerIn: parent
-            visible: false
-           // smooth: true
         }
 
         Text {
-            anchors.bottom: parent.bottom
-            anchors.bottomMargin: Theme.paddingSmall
-            anchors.left: parent.left
-            anchors.right: parent.right
-            horizontalAlignment: Text.AlignHCenter
             visible: false
             text: model.name
             font.pixelSize: Theme.fontSizeExtraSmall/2
             color: (highlighted
                     ? Theme.highlightColor
                     : (model.active ? Theme.primaryColor : Theme.secondaryHighlightColor))
+            horizontalAlignment: Text.AlignHCenter
+            anchors {
+                left: parent.left
+                right: parent.right
+                bottom: parent.bottom
+                bottomMargin: Theme.paddingSmall
+            }
         }
 
         Label {
             id: label
             visible: false
-            anchors {
-                bottom: parent.bottom
-            }
-            horizontalAlignment : Text.AlignHCente
-            width: parent.width
             color: (highlighted ? Theme.highlightColor : Theme.secondaryHighlightColor)
-
             text: {
                 return model.name.toUpperCase();
             }
-
-            font {
-                pixelSize: Theme.fontSizeExtraSmall
-                family: Theme.fontFamilyHeading
-            }
+            font.pixelSize: Theme.fontSizeExtraSmall
+            font.family: Theme.fontFamilyHeading
+            width: parent.width
+            horizontalAlignment : Text.AlignHCenter
+            anchors.bottom: parent.bottom
         }
+
         onClicked: {
             slideshowShow(index)
             console.log(index)
             navigateTo(model.slug)
             effect.state = "right"
         }
-
     }
+
     function navigateTo(slug){
         for(var i = 0; i < listModel.count; i++){
             if (listModel.get(i).slug === slug || i===slug)
@@ -166,8 +166,9 @@ SilicaGridView {
                 listModel.setProperty(i, 'active', false);
         }
         console.log(slug)
-
     }
 
     VerticalScrollDecorator {}
+
+
 }

@@ -12,7 +12,7 @@ Item {
     property string bg: ""
 
     width: parent.width
-    height: icon.height + Theme.paddingLarge*2
+    height: avatarImage.height + Theme.paddingLarge*2
 
     Rectangle {
         id: bgImage
@@ -33,10 +33,10 @@ Item {
     }
 
     Image {
-        id: icon
+        id: avatarImage
         asynchronous: true
         source:
-            if (icon.status === Image.Error)
+            if (avatarImage.status === Image.Error)
                 source = "../../images/icon-l-profile.svg?" + (pressed
                                                                ? Theme.highlightColor
                                                                : Theme.primaryColor)
@@ -69,7 +69,7 @@ Item {
 
     Column {
         anchors {
-            left: icon.right
+            left: avatarImage.right
             leftMargin: Theme.paddingLarge
             right: parent.right
             rightMargin: Theme.paddingLarge

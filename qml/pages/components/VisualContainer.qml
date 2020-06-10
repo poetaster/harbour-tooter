@@ -22,7 +22,10 @@ BackgroundItem {
         width: parent.width
         height: parent.height
         opacity: 0.3
-        color: Theme.highlightBackgroundColor
+        gradient: Gradient {
+                GradientStop { position: -1.5; color: "transparent" }
+                GradientStop { position: 0.6; color: Theme.highlightBackgroundColor }
+        }
     }
 
     Rectangle {

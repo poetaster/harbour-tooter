@@ -319,6 +319,7 @@ FullscreenContentPage {
             FileDownloader.downloadFile(mediaURL, filename[filename.length-1]);
         }
     }
+
     VerticalScrollDecorator { flickable: imageFlickable }
 }
 

@@ -4,11 +4,11 @@ import QtGraphicalEffects 1.0
 
 
 BackgroundItem {
+    id: delegate
+
     signal send (string notice)
     signal navigateTo(string link)
 
-    id: delegate
-    //property string text: "0"
     width: parent.width
     height: lblText.paintedHeight + (lblText.text.length > 0 ? Theme.paddingLarge : 0 )+ lblName.paintedHeight + (type.length ? Theme.paddingLarge + iconRT.height : 0) + Theme.paddingLarge
 

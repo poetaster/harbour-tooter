@@ -170,7 +170,9 @@ Page {
 
         ExpandingSection {
             id: expandingSection1
-            title: qsTr("About")
+            title:
+                //: If there's no good translation for "About", use "Details" (in details about profile).
+                qsTr("About")
             content.sourceComponent: Column {
                 height: Math.min( txtContainer, parent.height * 0.7 )
                 spacing: Theme.paddingLarge
@@ -248,7 +250,9 @@ Page {
                     Text {
                         id: txtFollowers
                         visible: followers_count ? true : false
-                        text: followers_count+" "+qsTr("Followers")
+                        text: followers_count+" "+
+                              //: Will show as: "35 Followers"
+                              qsTr("Followers")
                         font.pixelSize: Theme.fontSizeExtraSmall
                         color: Theme.highlightColor
                         wrapMode: Text.Wrap
@@ -257,7 +261,9 @@ Page {
                     Text {
                         id: txtFollowing
                         visible: following_count ? true : false
-                        text: following_count+" "+qsTr("Following")
+                        text: following_count+" "+
+                              //: Will show as: "23 Following"
+                              qsTr("Following")
                         font.pixelSize: Theme.fontSizeExtraSmall
                         color: Theme.highlightColor
                         wrapMode: Text.Wrap
@@ -266,7 +272,9 @@ Page {
                     Text {
                         id: txtStatuses
                         visible: statuses_count ? true : false
-                        text: statuses_count+" "+qsTr("Statuses")
+                        text: statuses_count+" "+
+                              //: Will show as: "115 Statuses"
+                              qsTr("Statuses")
                         font.pixelSize: Theme.fontSizeExtraSmall
                         color: Theme.highlightColor
                         wrapMode: Text.Wrap
@@ -275,7 +283,9 @@ Page {
                     /*Text {
                         id: txtFavourites
                         visible: favourites_count ? true : false
-                        text: favourites_count+" "+qsTr("Favourites")
+                        text: favourites_count+" "+
+                            //: Will show as: "56 Favourites"
+                            qsTr("Favourites")
                         font.pixelSize: Theme.fontSizeExtraSmall
                         color: Theme.highlightColor
                         wrapMode: Text.Wrap
@@ -294,7 +304,7 @@ Page {
                         text: "Mention"
                         onClicked: {
                             pageStack.push(Qt.resolvedUrl("ConversationPage.qml"), {
-                                               headerTitle: "Mention",
+                                               headerTitle: qsTr("Mention"),
                                                description: "@"+username,
                                                type: "new"
                                            })
@@ -304,7 +314,13 @@ Page {
                     Button {
                         id: btnFollow
                         preferredWidth: Theme.buttonWidthSmall
-                        text: (following ? qsTr("Unfollow") : (requested ? qsTr("Requested") : qsTr("Follow")))
+                        text: (following ?
+                                   //: Is a button. Keep it as short as possible.
+                                   qsTr("Unfollow") : (requested ?
+                                                           //: Is a button. Keep it as short as possible.
+                                                           qsTr("Requested") :
+                                                           //: Is a button. Keep it as short as possible.
+                                                           qsTr("Follow")))
                         color: (following ? highlightColor : (requested ? palette.errorColor : palette.primaryColor))
                         onClicked: {
                             var msg = {
@@ -321,7 +337,11 @@ Page {
                     Button {
                         id: btnMute
                         preferredWidth: Theme.buttonWidthSmall
-                        text: (muting ?  qsTr("Unmute") : qsTr("Mute"))
+                        text: (muting ?
+                                   //: Is a button. Keep it as short as possible.
+                                   qsTr("Unmute") :
+                                   //: Is a button. Keep it as short as possible.
+                                   qsTr("Mute"))
                         color: (muting ? palette.errorColor : palette.primaryColor)
                         onClicked: {
                             var msg = {
@@ -337,7 +357,11 @@ Page {
                     Button {
                         id: btnBlock
                         preferredWidth: Theme.buttonWidthSmall
-                        text: (blocking ? qsTr("Unblock") : qsTr("Block") )
+                        text: (blocking ?
+                                   //: Is a button. Keep it as short as possible.
+                                   qsTr("Unblock") :
+                                   //: Is a button. Keep it as short as possible.
+                                   qsTr("Block") )
                         color: (blocking ? palette.errorColor : palette.primaryColor)
                         onClicked: {
                             var msg = {

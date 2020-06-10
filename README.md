@@ -1,4 +1,4 @@
-# Tooter [Fork]
+# Tooter β [Fork]
 
 ## About
 Tooter is Mastodon client for [Sailfish OS](https://sailfishos.org).
@@ -6,7 +6,7 @@ Tooter is Mastodon client for [Sailfish OS](https://sailfishos.org).
 This fork is being used to further develop and maintain the Tooter app by dysko ([harbour-tooter](https://github.com/dysk0/harbour-tooter)). The development branch *upstream* is being used for merge pull requests to the original project. 
 
 * Releases by dysko can be found on the Jolla store and on [OpenRepos.net](https://openrepos.net/content/dysko/tooter)
-* Releases from this forked repository (branch *master*) can be found on [OpenRepos.net](https://openrepos.net/content/molan/tooter-v-fork)
+* Releases from this forked repository (branch *master*) can be found on [OpenRepos.net](https://openrepos.net/content/molan/tooter-v)
 
 ## Build 
 Clone / download this repository and import it in your SailfishOS IDE using the harbour-tooter.pro project file. No additional configuration needed. 

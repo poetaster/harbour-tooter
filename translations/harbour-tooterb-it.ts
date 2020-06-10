@@ -28,47 +28,47 @@
 <context>
     <name>ConversationPage</name>
     <message>
-        <location filename="../qml/pages/ConversationPage.qml" line="107"/>
+        <location filename="../qml/pages/ConversationPage.qml" line="108"/>
         <source>Copy Link to Clipboard</source>
         <translation>Copia link</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ConversationPage.qml" line="219"/>
+        <location filename="../qml/pages/ConversationPage.qml" line="220"/>
         <source>Write your warning here</source>
         <translation>Contenuto avviso</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ConversationPage.qml" line="252"/>
+        <location filename="../qml/pages/ConversationPage.qml" line="253"/>
         <source>What&apos;s on your mind?</source>
         <translation>A cosa stai pensando?</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ConversationPage.qml" line="319"/>
+        <location filename="../qml/pages/ConversationPage.qml" line="320"/>
         <source>Delete</source>
         <translation>Elimina</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ConversationPage.qml" line="417"/>
+        <location filename="../qml/pages/ConversationPage.qml" line="418"/>
         <source>Public</source>
         <translation>Pubblico</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ConversationPage.qml" line="420"/>
+        <location filename="../qml/pages/ConversationPage.qml" line="421"/>
         <source>Unlisted</source>
         <translation>Non elencato</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ConversationPage.qml" line="423"/>
+        <location filename="../qml/pages/ConversationPage.qml" line="424"/>
         <source>Followers-only</source>
         <translation>Solo ai seguaci</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ConversationPage.qml" line="426"/>
+        <location filename="../qml/pages/ConversationPage.qml" line="427"/>
         <source>Direct</source>
         <translation>Diretto</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ConversationPage.qml" line="473"/>
+        <location filename="../qml/pages/ConversationPage.qml" line="474"/>
         <source>Toot sent!</source>
         <translation>Toot è stato pubblicato!</translation>
     </message>

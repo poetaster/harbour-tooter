@@ -230,7 +230,7 @@
     <message>
         <source>Unmute</source>
         <extracomment>Is a button. Keep it as short as possible.</extracomment>
-        <translation>Nicht stumm schalten</translation>
+        <translation>Nicht stumm</translation>
     </message>
     <message>
         <source>Mute</source>
@@ -240,7 +240,7 @@
     <message>
         <source>Unblock</source>
         <extracomment>Is a button. Keep it as short as possible.</extracomment>
-        <translation>Nicht blockieren</translation>
+        <translation>Zulassen</translation>
     </message>
     <message>
         <source>Block</source>

@@ -27,7 +27,7 @@ FullscreenContentPage {
     }
 
     Flickable {
-        id: videoFlickable        
+        id: videoFlickable
         visible: false
         clip: true
         contentWidth: imageContainer.width

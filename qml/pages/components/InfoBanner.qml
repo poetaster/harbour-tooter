@@ -3,7 +3,7 @@ import Sailfish.Silica 1.0
 
 
 DockedPanel {
-    id: root    
+    id: root
     dock: Dock.Top
     width: parent.width
     height: content.height
@@ -28,7 +28,7 @@ DockedPanel {
                 right: parent.right
                 rightMargin: Theme.horizontalPageMargin
                 verticalCenter: parent.verticalCenter
-                }
+            }
         }
 
         MouseArea {

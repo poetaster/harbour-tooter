@@ -23,8 +23,8 @@ BackgroundItem {
         height: parent.height
         opacity: 0.3
         gradient: Gradient {
-                GradientStop { position: -1.5; color: "transparent" }
-                GradientStop { position: 0.6; color: Theme.highlightBackgroundColor }
+            GradientStop { position: -1.5; color: "transparent" }
+            GradientStop { position: 0.6; color: Theme.highlightBackgroundColor }
         }
     }
 
@@ -37,8 +37,8 @@ BackgroundItem {
         height: parent.height
         opacity: 0.5
         gradient: Gradient {
-                GradientStop { position: -0.5; color: "transparent" }
-                GradientStop { position: 0.4; color: Theme.highlightDimmerColor }
+            GradientStop { position: -0.5; color: "transparent" }
+            GradientStop { position: 0.4; color: Theme.highlightDimmerColor }
         }
     }
 
@@ -71,8 +71,8 @@ BackgroundItem {
         onStatusChanged: {
             if (avatar.status === Image.Error)
                 source = "../../images/icon-m-profile.svg?" + (pressed
-                 ? Theme.highlightColor
-                 : Theme.primaryColor)
+                                                               ? Theme.highlightColor
+                                                               : Theme.primaryColor)
         }
 
         MouseArea {
@@ -165,8 +165,8 @@ BackgroundItem {
         textFormat: Text.RichText
         font.pixelSize: Theme.fontSizeSmall
         linkColor: if (myList.type === "notifications" && ( model.type === "favourite" || model.type === "reblog" )) {
-                   Theme.secondaryHighlightColor
-               } else Theme.highlightColor
+                       Theme.secondaryHighlightColor
+                   } else Theme.highlightColor
         wrapMode: Text.Wrap
         color: if (myList.type === "notifications" && ( model.type === "favourite" || model.type === "reblog" )) {
                    (pressed ? Theme.secondaryHighlightColor : (!highlight ? Theme.secondaryColor : Theme.secondaryHighlightColor))
@@ -304,7 +304,7 @@ BackgroundItem {
 
         MenuItem {
             id: mnuFavourite
-            visible: model.type !== "follow" || model.status_visibility !== "direct"
+            visible: model.type !== "follow"
             text: typeof model.favourited !== "undefined" && model.favourited ? qsTr("Unfavorite") : qsTr("Favorite")
             onClicked: {
                 var status = typeof model.favourited !== "undefined" && model.favourited

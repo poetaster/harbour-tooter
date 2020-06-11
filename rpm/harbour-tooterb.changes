@@ -1,4 +1,4 @@
-*Wed Jun 11 2020 molan <mol_an@sunrise.ch> 1.0.5-0
+*Thu Jun 11 2020 molan <mol_an@sunrise.ch> 1.0.5-0
 - fixed: show search results without entering # before term
 - fixed: non-clickable user mentions in Toots
 - fixed: Copy link to clipboard in Conversations

@@ -9,7 +9,6 @@
 #   - icon definition filename in desktop file must be changed
 #   - translation filenames have to be changed
 
-# The name of your application
 TARGET = harbour-tooter
 
 CONFIG += sailfishapp
@@ -39,18 +38,18 @@ dbus_services.files = config/ba.dysko.harbour.tooter.service
 interfaces.path = /usr/share/dbus-1/interfaces/
 interfaces.files = config/ba.dysko.harbour.tooter.xml
 
-SOURCES += src/harbour-tooter.cpp
-SOURCES += src/imageuploader.cpp
-SOURCES += src/filedownloader.cpp
-SOURCES += src/notifications.cpp
-SOURCES += src/dbusAdaptor.cpp
-SOURCES += src/dbus.cpp
+SOURCES += src/harbour-tooter.cpp \
+    src/imageuploader.cpp \
+    src/filedownloader.cpp \
+    src/notifications.cpp \
+    src/dbusAdaptor.cpp \
+    src/dbus.cpp
 
-HEADERS += src/imageuploader.h
-HEADERS += src/filedownloader.h
-HEADERS += src/notifications.h
-HEADERS += src/dbusAdaptor.h
-HEADERS += src/dbus.h
+HEADERS += src/imageuploader.h \
+    src/filedownloader.h \
+    src/notifications.h \
+    src/dbusAdaptor.h \
+    src/dbus.h
 
 DISTFILES += qml/harbour-tooter.qml \
     qml/images/tooter-cover.svg \
@@ -94,23 +93,19 @@ SAILFISHAPP_ICONS = 86x86 108x108 128x128 172x172
 
 # to disable building translations every time, comment out the
 # following CONFIG line
-# CONFIG += sailfishapp_i18n
+CONFIG += sailfishapp_i18n
 
-# German translation is enabled as an example. If you aren't
-# planning to localize your app, remember to comment out the
-# following TRANSLATIONS line. And also do not forget to
-# modify the localized app name in the the .desktop file.
-TRANSLATIONS += translations/harbour-tooter-de.ts
-TRANSLATIONS += translations/harbour-tooter-el.ts
-TRANSLATIONS += translations/harbour-tooter-es.ts
-TRANSLATIONS += translations/harbour-tooter-fi.ts
-TRANSLATIONS += translations/harbour-tooter-fr.ts
-TRANSLATIONS += translations/harbour-tooter-nl.ts
-TRANSLATIONS += translations/harbour-tooter-nl_BE.ts
-TRANSLATIONS += translations/harbour-tooter-oc.ts
-TRANSLATIONS += translations/harbour-tooter-pl.ts
-TRANSLATIONS += translations/harbour-tooter-ru.ts
-TRANSLATIONS += translations/harbour-tooter-sr.ts
-TRANSLATIONS += translations/harbour-tooter-sv.ts
-TRANSLATIONS += translations/harbour-tooter-zh_CN.ts
-TRANSLATIONS += translations/harbour-tooter-it.ts
+TRANSLATIONS += translations/harbour-tooter.ts \
+    translations/harbour-tooter-de.ts \
+    translations/harbour-tooter-el.ts \
+    translations/harbour-tooter-es.ts \
+    translations/harbour-tooter-fr.ts \
+    translations/harbour-tooter-it.ts \
+    translations/harbour-tooter-nl.ts \
+    translations/harbour-tooter-nl_BE.ts \
+    translations/harbour-tooter-oc.ts \
+    translations/harbour-tooter-pl.ts \
+    translations/harbour-tooter-ru.ts \
+    translations/harbour-tooter-sr.ts \
+    translations/harbour-tooter-sv.ts \
+    translations/harbour-tooter-zh_CN.ts

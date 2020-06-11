@@ -21,22 +21,22 @@
     </message>
 </context>
 <context>
-    <name>Conversation</name>
+    <name>ConversationPage</name>
     <message>
-        <source>Delete</source>
-        <translation>Löschen</translation>
-    </message>
-    <message>
-        <source>Emojis</source>
-        <translation>Emojis</translation>
-    </message>
-    <message>
-        <source>Tap to insert</source>
-        <translation>Tippen um einzufügen</translation>
+        <source>Copy Link to Clipboard</source>
+        <translation>Link kopieren</translation>
     </message>
     <message>
         <source>Write your warning here</source>
         <translation>Inhaltswarnung</translation>
+    </message>
+    <message>
+        <source>What&apos;s on your mind?</source>
+        <translation>Was gibt&apos;s Neues?</translation>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation>Löschen</translation>
     </message>
     <message>
         <source>Public</source>
@@ -55,23 +55,26 @@
         <translation>Direktnachricht</translation>
     </message>
     <message>
-        <source>What&apos;s on your mind?</source>
-        <translation>Was gibt&apos;s Neues?</translation>
-    </message>
-    <message>
         <source>Toot sent!</source>
         <translation>Toot gesendet!</translation>
     </message>
+</context>
+<context>
+    <name>CoverPage</name>
     <message>
-        <source>Copy Link to Clipboard</source>
-        <translation>Link kopieren</translation>
+        <source>New Toot</source>
+        <translation>Neuer Toot</translation>
     </message>
 </context>
 <context>
-    <name>ImageFullScreen</name>
+    <name>EmojiSelect</name>
     <message>
-        <source>Error loading</source>
-        <translation>Ladefehler</translation>
+        <source>Emojis</source>
+        <translation>Emojis</translation>
+    </message>
+    <message>
+        <source>Tap to insert</source>
+        <translation>Tippen um einzufügen</translation>
     </message>
 </context>
 <context>
@@ -136,6 +139,13 @@
     </message>
 </context>
 <context>
+    <name>MediaFullScreen</name>
+    <message>
+        <source>Error loading</source>
+        <translation>Ladefehler</translation>
+    </message>
+</context>
+<context>
     <name>MiniStatus</name>
     <message>
         <source>boosted</source>
@@ -168,71 +178,109 @@
         <source>please wait...</source>
         <translation>bitte warten...</translation>
     </message>
+    <message>
+        <source>New Toot</source>
+        <translation>Neuer Toot</translation>
+    </message>
 </context>
 <context>
-    <name>Profile</name>
+    <name>ProfileHeader</name>
     <message>
-        <source>Unfollow</source>
-        <translation>Entfolgen</translation>
+        <source>Follows you</source>
+        <translation>Folgt dir</translation>
     </message>
     <message>
-        <source>Follow request sent!</source>
-        <translation>Folge-Anfrage gesendet!</translation>
+        <source>Bot</source>
+        <translation>Bot</translation>
+    </message>
+</context>
+<context>
+    <name>ProfilePage</name>
+    <message>
+        <source>About</source>
+        <extracomment>If there&apos;s no good translation for &quot;About&quot;, use &quot;Details&quot; (in details about profile).</extracomment>
+        <translation>Details</translation>
+    </message>
+    <message>
+        <source>Followers</source>
+        <extracomment>Will show as: &quot;35 Followers&quot;</extracomment>
+        <translation>Folgende</translation>
     </message>
     <message>
         <source>Following</source>
+        <extracomment>Will show as: &quot;23 Following&quot;</extracomment>
         <translation>Folgt</translation>
     </message>
     <message>
-        <source>Mute</source>
-        <translation>Stummschalten</translation>
+        <source>Statuses</source>
+        <extracomment>Will show as: &quot;115 Statuses&quot;</extracomment>
+        <translation>Beiträge</translation>
+    </message>
+    <message>
+        <source>Unfollow</source>
+        <extracomment>Is a button. Keep it as short as possible.</extracomment>
+        <translation>Entfolgen</translation>
+    </message>
+    <message>
+        <source>Requested</source>
+        <extracomment>Is a button. Keep it as short as possible.</extracomment>
+        <translation>Angefragt</translation>
+    </message>
+    <message>
+        <source>Follow</source>
+        <extracomment>Is a button. Keep it as short as possible.</extracomment>
+        <translation>Folgen</translation>
     </message>
     <message>
         <source>Unmute</source>
-        <translation>Nicht stummschalten</translation>
+        <extracomment>Is a button. Keep it as short as possible.</extracomment>
+        <translation>Nicht stumm schalten</translation>
+    </message>
+    <message>
+        <source>Mute</source>
+        <extracomment>Is a button. Keep it as short as possible.</extracomment>
+        <translation>Stumm schalten</translation>
     </message>
     <message>
         <source>Unblock</source>
+        <extracomment>Is a button. Keep it as short as possible.</extracomment>
         <translation>Nicht blockieren</translation>
     </message>
     <message>
         <source>Block</source>
+        <extracomment>Is a button. Keep it as short as possible.</extracomment>
         <translation>Blockieren</translation>
     </message>
     <message>
-        <source>Statuses</source>
-        <translation>Beiträge</translation>
+        <source>Open in Browser</source>
+        <translation>Im Browser öffnen</translation>
     </message>
     <message>
-        <source>Favourites</source>
-        <translation>Favoriten</translation>
-    </message>
-    <message>
-        <source>Follow</source>
-        <translation>Folgen</translation>
-    </message>
-    <message>
-        <source>Summary</source>
-        <translation>Zusammenfassung</translation>
-    </message>
-    <message>
-        <source>Followers</source>
-        <translation>Folgende</translation>
-    </message>
-    <message>
-        <source>Bio</source>
-        <translation>Bio</translation>
-    </message>
-    <message>
-        <source>Open Profile in Browser</source>
-        <translation>Profil im Browser öffnen</translation>
+        <source>Mention</source>
+        <translation>Erwähnen</translation>
     </message>
 </context>
 <context>
-    <name>Settings</name>
+    <name>SettingsPage</name>
     <message>
         <source>Settings</source>
         <translation>Einstellungen</translation>
+    </message>
+    <message>
+        <source>Options</source>
+        <translation>Optionen</translation>
+    </message>
+    <message>
+        <source>Load Images in Toots</source>
+        <translation>Bilder in Toots laden</translation>
+    </message>
+    <message>
+        <source>Disable this option if you want to preserve your data connection</source>
+        <translation>Diese Option deaktivieren um Datenvolumen zu sparen</translation>
+    </message>
+    <message>
+        <source>Account</source>
+        <translation>Konto</translation>
     </message>
     <message>
         <source>Remove Account</source>
@@ -243,7 +291,7 @@
         <translation>Konto hinzufügen</translation>
     </message>
     <message>
-        <source>Deauthorize this app and remove your account</source>
+        <source>Deauthorize this app from using your account and remove account data from phone</source>
         <translation>Konto entfernen und für diese Anwendung deaktivieren</translation>
     </message>
     <message>
@@ -251,8 +299,8 @@
         <translation>Zugriff durch diese Anwendung auf eigenes Mastodon-Konto erlauben</translation>
     </message>
     <message>
-        <source>Disable this option if you want to preserve your data connection</source>
-        <translation>Diese Option deaktivieren um Datenvolumen zu sparen</translation>
+        <source>Translate</source>
+        <translation>Übersetzungen</translation>
     </message>
     <message>
         <source>Credits</source>
@@ -267,8 +315,16 @@
         <translation>Visuelle Identität</translation>
     </message>
     <message>
+        <source>Development and translations</source>
+        <translation>Entwicklung und Übersetzungen</translation>
+    </message>
+    <message>
         <source>Occitan &amp; French translation</source>
         <translation>Französische Übersetzung</translation>
+    </message>
+    <message>
+        <source>Chinese translation</source>
+        <translation>Chinesische Übersetzung</translation>
     </message>
     <message>
         <source>Dutch translation</source>
@@ -283,24 +339,13 @@
         <translation>Erstellung README-Datei</translation>
     </message>
     <message>
-        <source>Chinese translation</source>
-        <translation>Chinesische Übersetzung</translation>
+        <source>Use</source>
+        <extracomment>Full sentence for translation: &quot;Use Transifex to help with app translation to your language.&quot; - The word Transifex is a link and doesn&apos;t need translation.</extracomment>
+        <translation>Benutze</translation>
     </message>
     <message>
-        <source>Load images in toots</source>
-        <translation>Bilder in Toots laden</translation>
-    </message>
-    <message>
-        <source>Translate</source>
-        <translation>Übersetzungen</translation>
-    </message>
-    <message>
-        <source>Use Transifex to help with app translation to your language</source>
-        <translation>Transifex benutzen um bei den Übersetzungen mitzuhelfen</translation>
-    </message>
-    <message>
-        <source>Development and translations</source>
-        <translation>Entwicklung und Übersetzungen</translation>
+        <source>to help with app translation to your language.</source>
+        <translation>um bei den Übersetzungen mitzuhelfen.</translation>
     </message>
 </context>
 <context>
@@ -335,6 +380,10 @@
     <message>
         <source>Favorite</source>
         <translation>Favorisieren</translation>
+    </message>
+    <message>
+        <source>Mention</source>
+        <translation>Erwähnen</translation>
     </message>
 </context>
 </TS>

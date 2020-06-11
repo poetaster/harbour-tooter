@@ -4,7 +4,7 @@ import Sailfish.Silica 1.0
 FullscreenContentPage {
     id: profileImage
 
-        property string image: ""
+    property string image: ""
 
     allowedOrientations: Orientation.All
 

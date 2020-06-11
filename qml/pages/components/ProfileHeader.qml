@@ -122,7 +122,7 @@ Item {
             rightMargin: Theme.paddingLarge
         }
 
-       /* Rectangle {
+        /* Rectangle {
             id: followingBg
             visible: (following ? true : false)
             radius: Theme.paddingSmall

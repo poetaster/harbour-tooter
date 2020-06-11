@@ -47,27 +47,6 @@ Page {
 		}
 	}
 
-    PullDownMenu {
-        id: pulleyConversation
-        visible: type === "reply"
-        MenuItem {
-            text: qsTr("Copy Link to Clipboard")
-            onClicked: if (toot_url === "") {
-
-                           var test = toot_uri.split("/")
-                           console.log(toot_uri)
-                           console.log(JSON.stringify(test))
-                           console.log(JSON.stringify(test.length))
-                           if (test.length === 8 && (test[7] === "activity")) {
-                               var urialt = toot_uri.replace("activity", "")
-                               Clipboard.text = urialt
-                           }
-                           else Clipboard.text = toot_uri
-
-                       } else onClicked: Clipboard.text = toot_url
-        }
-    }
-
 	ListModel {
 		id: mediaModel
 		onCountChanged: {
@@ -121,6 +100,27 @@ Page {
 					}
 				}
 		}
+
+        PullDownMenu {
+            id: pulleyConversation
+            visible: type === "reply"
+            MenuItem {
+                text: qsTr("Copy Link to Clipboard")
+                onClicked: if (toot_url === "") {
+
+                               var test = toot_uri.split("/")
+                               console.log(toot_uri)
+                               console.log(JSON.stringify(test))
+                               console.log(JSON.stringify(test.length))
+                               if (test.length === 8 && (test[7] === "activity")) {
+                                   var urialt = toot_uri.replace("activity", "")
+                                   Clipboard.text = urialt
+                               }
+                               else Clipboard.text = toot_uri
+
+                           } else onClicked: Clipboard.text = toot_url
+            }
+        }
     }
 
 	Rectangle {

@@ -2,11 +2,14 @@ import QtQuick 2.0
 import Sailfish.Silica 1.0
 import QtMultimedia 5.0
 
-Page {
-    id: imagePage
+
+FullscreenContentPage {
+    id: mediaPage
+
     property string type: ""
     property string previewURL: ""
     property string mediaURL: ""
+
     allowedOrientations: Orientation.All
     Component.onCompleted: function(){
         console.log(type)
@@ -14,31 +17,35 @@ Page {
         console.log(mediaURL)
         if (type != 'gifv' && type != 'video') {
             imagePreview.source = mediaURL
-            imageFlickable.visible = true;
+            imageFlickable.visible = true
         } else {
             video.source = mediaURL
             video.fillMode = VideoOutput.PreserveAspectFit
             video.play()
-            videoFlickable.visible = true;
+            videoFlickable.visible = true
         }
     }
+
     Flickable {
         id: videoFlickable
         visible: false
-        anchors.fill: parent
-        contentWidth: imageContainer.width; contentHeight: imageContainer.height
         clip: true
+        contentWidth: imageContainer.width
+        contentHeight: imageContainer.height
+        anchors.fill: parent
+
         Image {
             id: videoPreview
             fillMode: Image.PreserveAspectFit
             anchors.fill: parent
             source: previewURL
         }
+
         Video {
             id: video
             anchors.fill: parent
             onErrorStringChanged: function(){
-                videoError.visible = true;
+                videoError.visible = true
             }
             onStatusChanged: {
                 console.log(status)
@@ -49,10 +56,8 @@ Page {
                 case MediaPlayer.EndOfMedia:
                     console.log("EndOfMedia")
                     return;
-
                 }
             }
-
             onPlaybackStateChanged: {
                 console.log(playbackState)
                 switch (playbackState){
@@ -63,12 +68,10 @@ Page {
                     playerIcon.icon.source = "image://theme/icon-m-play"
                     return;
                 case MediaPlayer.StoppedState:
-                    playerIcon.icon.source = "image://theme/icon-m-stop"
+                    playerIcon.icon.source = "image://theme/icon-m-reload"
                     return;
                 }
             }
-
-
             onPositionChanged: function(){
                 //console.log(duration)
                 //console.log(bufferProgress)
@@ -79,18 +82,23 @@ Page {
                     playerProgress.minimumValue = 0
                     playerProgress.value = position
                 }
+            }
+            onStopped: function() {
+                if (video.duration < 30000)
+                    video.play()
+                else
+                    video.stop()
+            }
 
-            }
-            onStopped: function(){
-                play()
-            }
             IconButton {
                 id: playerIcon
-                anchors.left: parent.left
-                anchors.bottom: parent.bottom
-                anchors.leftMargin: Theme.paddingLarge
-                anchors.bottomMargin: Theme.paddingMedium
                 icon.source: "image://theme/icon-m-play"
+                anchors {
+                    left: parent.left
+                    bottom: parent.bottom
+                    leftMargin: Theme.horizontalPageMargin
+                    bottomMargin: Theme.horizontalPageMargin
+                }
                 onClicked: function() {
                     if (video.playbackState === MediaPlayer.PlayingState)
                         video.pause()
@@ -100,50 +108,17 @@ Page {
             }
 
             ProgressBar {
-                indeterminate: true
                 id: playerProgress
-                anchors.left: playerIcon.right
-                anchors.right: videoDlBtn.left
-
-                anchors.verticalCenter: playerIcon.verticalCenter
-                anchors.leftMargin: 0
-                anchors.bottomMargin: Theme.paddingMedium
-            }
-            IconButton {
-                id: videoDlBtn
-                visible: true
-                anchors.right: parent.right
-                anchors.bottom: parent.bottom
-                anchors.rightMargin: Theme.paddingLarge
-                anchors.bottomMargin: Theme.paddingMedium
-                //width: Theme.iconSizeMedium+Theme.paddingMedium*2
-                icon.source: "image://theme/icon-m-cloud-download"
-                onClicked: {
-                    var filename = mediaURL.split("/");
-                    FileDownloader.downloadFile(mediaURL, filename[filename.length-1]);
+                indeterminate: true
+                width: 400
+                anchors {
+                    verticalCenter: playerIcon.verticalCenter
+                    left: playerIcon.right
+                    right: parent.right
+                    rightMargin: Theme.horizontalPageMargin + Theme.iconSizeMedium
+                    bottomMargin: Theme.horizontalPageMargin
                 }
             }
-            Rectangle {
-                visible: videoError.text != ""
-                anchors.left: parent.left
-                anchors.right: parent.right
-                anchors.bottom: parent.bottom
-                color: Theme.highlightDimmerColor
-                height: videoError.height + 2*Theme.paddingMedium
-                width: parent.width
-                Label {
-                    anchors.centerIn: parent
-                    id: videoError
-                    width: parent.width - 2*Theme.paddingMedium
-                    wrapMode: Text.WordWrap
-                    height: contentHeight
-                    visible: false;
-                    font.pixelSize: Theme.fontSizeSmall;
-                    text: video.errorString
-                    color: Theme.highlightColor
-                }
-            }
-
 
             MouseArea {
                 anchors.fill: parent
@@ -154,17 +129,43 @@ Page {
                         video.play()
                 }
             }
+
+            Rectangle {
+                visible: videoError.text != ""
+                anchors.left: parent.left
+                anchors.right: parent.right
+                anchors.bottom: parent.bottom
+                color: Theme.highlightDimmerColor
+                height: videoError.height + 2*Theme.paddingMedium
+                width: parent.width
+
+                Label {
+                    id: videoError
+                    visible: false
+                    text: video.errorString
+                    font.pixelSize: Theme.fontSizeSmall
+                    color: Theme.highlightColor
+                    wrapMode: Text.Wrap
+                    width: parent.width - 2*Theme.paddingMedium
+                    height: contentHeight
+                    anchors.centerIn: parent
+                }
+            }
+
         }
     }
+
 
     Flickable {
         id: imageFlickable
         visible: false
-        anchors.fill: parent
-        contentWidth: imageContainer.width; contentHeight: imageContainer.height
+        contentWidth: imageContainer.width
+        contentHeight: imageContainer.height
         clip: true
-        onHeightChanged: if (imagePreview.status === Image.Ready) imagePreview.fitToScreen();
-
+        anchors.fill: parent
+        onHeightChanged: if (imagePreview.status === Image.Ready) {
+                             imagePreview.fitToScreen()
+                         }
 
         Item {
             id: imageContainer
@@ -177,18 +178,17 @@ Page {
                 property real prevScale
 
                 function fitToScreen() {
-                    scale = Math.min(imageFlickable.width / width, imageFlickable.height / height, 1)
+                    scale = Math.min(imageFlickable.width / width, imageFlickable.height / height, imageFlickable.width, imageFlickable.height)
                     pinchArea.minScale = scale
                     prevScale = scale
                 }
 
-                anchors.centerIn: parent
                 fillMode: Image.PreserveAspectFit
                 cache: true
                 asynchronous: true
-                sourceSize.height: 1000;
-                smooth: false
-
+                sourceSize.width: mediaPage.width
+                smooth: true
+                anchors.centerIn: parent
                 onStatusChanged: {
                     if (status == Image.Ready) {
                         fitToScreen()
@@ -221,15 +221,16 @@ Page {
 
         PinchArea {
             id: pinchArea
-            opacity: 0.3
+
             property real minScale: 1.0
             property real maxScale: 3.0
 
+            opacity: 0.3
             anchors.fill: parent
             enabled: imagePreview.status === Image.Ready
             pinch.target: imagePreview
             pinch.minimumScale: minScale * 0.5 // This is to create "bounce back effect"
-            pinch.maximumScale: maxScale * 1.5 // when over zoomed
+            pinch.maximumScale: maxScale * 1.5 // when over zoomed}
 
             onPinchFinished: {
                 imageFlickable.returnToBounds()
@@ -242,6 +243,7 @@ Page {
                     bounceBackAnimation.start()
                 }
             }
+
             NumberAnimation {
                 id: bounceBackAnimation
                 target: imagePreview
@@ -267,39 +269,57 @@ Page {
 
         Component {
             id: loadingIndicator
-
             Item {
+                width: mediaPage.width
                 height: childrenRect.height
-                width: imagePage.width
 
                 ProgressCircle {
                     id: imageLoadingIndicator
-                    anchors.horizontalCenter: parent.horizontalCenter
                     progressValue: imagePreview.progress
+                    progressColor: inAlternateCycle ? Theme.highlightColor : Theme.highlightDimmerColor
+                    backgroundColor: inAlternateCycle ? Theme.highlightDimmerColor : Theme.highlightColor
+                    anchors.horizontalCenter: parent.horizontalCenter
                 }
             }
         }
     }
+
     Component {
         id: failedLoading
         Text {
-            font.pixelSize: Theme.fontSizeSmall;
             text: qsTr("Error loading")
+            font.pixelSize: Theme.fontSizeSmall;
             color: Theme.highlightColor
         }
     }
+
     IconButton {
-        visible: true
-        anchors.right: parent.right
-        anchors.bottom: parent.bottom
-        anchors.rightMargin: Theme.paddingLarge
-        anchors.bottomMargin: Theme.paddingMedium
-        //width: Theme.iconSizeMedium+Theme.paddingMedium*2
+        id: dismissBtn
+        icon.source: "image://theme/icon-m-dismiss"
+        anchors {
+            top: parent.top
+            topMargin: Theme.horizontalPageMargin
+            right: parent.right
+            rightMargin: Theme.horizontalPageMargin
+        }
+        onClicked: pageStack.pop()
+    }
+
+    IconButton {
+        id: mediaDlBtn
+        anchors {
+            right: parent.right
+            rightMargin: Theme.horizontalPageMargin
+            bottom: parent.bottom
+            bottomMargin: Theme.horizontalPageMargin
+        }
         icon.source: "image://theme/icon-m-cloud-download"
         onClicked: {
             var filename = mediaURL.split("/");
             FileDownloader.downloadFile(mediaURL, filename[filename.length-1]);
         }
     }
+
     VerticalScrollDecorator { flickable: imageFlickable }
 }
+

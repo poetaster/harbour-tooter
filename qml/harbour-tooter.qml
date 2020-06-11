@@ -33,23 +33,26 @@ import Sailfish.Silica 1.0
 import "pages"
 import "./lib/API.js" as Logic
 
-ApplicationWindow
-{
+ApplicationWindow {
     id: appWindow
-    //initialPage: Component { FirstPage { } }
-    cover: Qt.resolvedUrl("cover/CoverPage.qml")
     allowedOrientations: defaultAllowedOrientations
+    cover: Qt.resolvedUrl("cover/CoverPage.qml")
     Component.onCompleted: {
-        var obj = {};
-        Logic.mediator.installTo(obj);
-        obj.subscribe('confLoaded', function(){
+        var obj = {}
+        Logic.mediator.installTo(obj)
+        obj.subscribe('confLoaded', function() {
             console.log('confLoaded');
             //console.log(JSON.stringify(Logic.conf))
             if (!Logic.conf['notificationLastID'])
-                Logic.conf['notificationLastID'] = 0;
+                Logic.conf['notificationLastID'] = 0
+
             if (Logic.conf['instance']) {
-                Logic.api = new Logic.MastodonAPI({ instance: Logic.conf['instance'], api_user_token: "" });
+                Logic.api = Logic.mastodonAPI({
+                                                  "instance": Logic.conf['instance'],
+                                                  "api_user_token": ""
+                                              })
             }
+
             if (Logic.conf['login']) {
                 //Logic.conf['notificationLastID'] = 0
                 Logic.api.setConfig("api_user_token", Logic.conf['api_user_token'])
@@ -57,17 +60,12 @@ ApplicationWindow
                 Logic.api.get('instance', [], function(data) {
                     console.log(JSON.stringify(data))
                     pageStack.push(Qt.resolvedUrl("./pages/MainPage.qml"), {})
-                });
-
-                //
-                //
+                })
                 //pageStack.push(Qt.resolvedUrl("./pages/Conversation.qml"), {})
             } else {
                 pageStack.push(Qt.resolvedUrl("./pages/LoginPage.qml"), {})
             }
-
-
-        });
+        })
         Logic.init()
     }
 
@@ -75,19 +73,19 @@ ApplicationWindow
         //Logic.conf.notificationLastID = 0;
         Logic.saveData()
     }
-    Connections
-        {
-            target: Dbus
-            onViewtoot:
-            {
-                console.log(key, "dbus onViewtoot")
-            }
-            onActivateapp:
-            {
-                console.log ("dbus activate app")
-                pageStack.pop(pageStack.find( function(page){ return (page._depth === 0) }))
-                activate()
-            }
-        }
-}
 
+    Connections {
+        target: Dbus
+        onViewtoot: {
+            console.log(key, "dbus onViewtoot")
+        }
+        onActivateapp: {
+            console.log ("dbus activate app")
+            pageStack.pop(pageStack.find( function(page) {
+                return (page._depth === 0)
+            }))
+            activate()
+        }
+    }
+
+}

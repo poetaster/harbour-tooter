@@ -35,8 +35,8 @@ import "./lib/API.js" as Logic
 
 ApplicationWindow {
     id: appWindow
-    cover: Qt.resolvedUrl("cover/CoverPage.qml")
     allowedOrientations: defaultAllowedOrientations
+    cover: Qt.resolvedUrl("cover/CoverPage.qml")
     Component.onCompleted: {
         var obj = {}
         Logic.mediator.installTo(obj)
@@ -44,26 +44,26 @@ ApplicationWindow {
             console.log('confLoaded');
             //console.log(JSON.stringify(Logic.conf))
             if (!Logic.conf['notificationLastID'])
-                    Logic.conf['notificationLastID'] = 0
+                Logic.conf['notificationLastID'] = 0
 
             if (Logic.conf['instance']) {
-                    Logic.api = Logic.mastodonAPI({
-                        "instance": Logic.conf['instance'],
-                        "api_user_token": ""
-                    })
+                Logic.api = Logic.mastodonAPI({
+                                                  "instance": Logic.conf['instance'],
+                                                  "api_user_token": ""
+                                              })
             }
 
             if (Logic.conf['login']) {
-                    //Logic.conf['notificationLastID'] = 0
-                    Logic.api.setConfig("api_user_token", Logic.conf['api_user_token'])
-                    //accounts/verify_credentials
-                    Logic.api.get('instance', [], function(data) {
-                        console.log(JSON.stringify(data))
-                        pageStack.push(Qt.resolvedUrl("./pages/MainPage.qml"), {})
-                    })
-                    //pageStack.push(Qt.resolvedUrl("./pages/Conversation.qml"), {})
+                //Logic.conf['notificationLastID'] = 0
+                Logic.api.setConfig("api_user_token", Logic.conf['api_user_token'])
+                //accounts/verify_credentials
+                Logic.api.get('instance', [], function(data) {
+                    console.log(JSON.stringify(data))
+                    pageStack.push(Qt.resolvedUrl("./pages/MainPage.qml"), {})
+                })
+                //pageStack.push(Qt.resolvedUrl("./pages/Conversation.qml"), {})
             } else {
-                    pageStack.push(Qt.resolvedUrl("./pages/LoginPage.qml"), {})
+                pageStack.push(Qt.resolvedUrl("./pages/LoginPage.qml"), {})
             }
         })
         Logic.init()
@@ -73,6 +73,7 @@ ApplicationWindow {
         //Logic.conf.notificationLastID = 0;
         Logic.saveData()
     }
+
     Connections {
         target: Dbus
         onViewtoot: {

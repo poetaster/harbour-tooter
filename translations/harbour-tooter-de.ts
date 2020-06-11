@@ -186,10 +186,6 @@
 <context>
     <name>ProfileHeader</name>
     <message>
-        <source>Follows you</source>
-        <translation>Folgt dir</translation>
-    </message>
-    <message>
         <source>Bot</source>
         <translation>Bot</translation>
     </message>

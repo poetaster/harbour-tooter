@@ -439,27 +439,27 @@
 <context>
     <name>VisualContainer</name>
     <message>
-        <location filename="../qml/pages/components/VisualContainer.qml" line="268"/>
+        <location filename="../qml/pages/components/VisualContainer.qml" line="270"/>
         <source>Unboost</source>
         <translation>Annulla condivisione</translation>
     </message>
     <message>
-        <location filename="../qml/pages/components/VisualContainer.qml" line="268"/>
+        <location filename="../qml/pages/components/VisualContainer.qml" line="270"/>
         <source>Boost</source>
         <translation>Condividi</translation>
     </message>
     <message>
-        <location filename="../qml/pages/components/VisualContainer.qml" line="309"/>
+        <location filename="../qml/pages/components/VisualContainer.qml" line="311"/>
         <source>Unfavorite</source>
         <translation>Annulla apprezzamento</translation>
     </message>
     <message>
-        <location filename="../qml/pages/components/VisualContainer.qml" line="309"/>
+        <location filename="../qml/pages/components/VisualContainer.qml" line="311"/>
         <source>Favorite</source>
         <translation>Apprezzato</translation>
     </message>
     <message>
-        <location filename="../qml/pages/components/VisualContainer.qml" line="350"/>
+        <location filename="../qml/pages/components/VisualContainer.qml" line="352"/>
         <source>Mention</source>
         <translation>Menzionare</translation>
     </message>

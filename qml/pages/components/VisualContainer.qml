@@ -246,7 +246,9 @@ BackgroundItem {
 
     MediaBlock {
         id: media
-        visible: myList.type !== "notifications" && ( model.type !== "favourite" || model.type !== "reblog" )
+        visible: if (myList.type === "notifications" && ( type === "favourite" || type === "reblog" )) {
+                     false
+                 } else true
         model: typeof attachments !== "undefined" ? attachments : Qt.createQmlObject('import QtQuick 2.0; ListModel {   }', Qt.application, 'InternalQmlObject');
         height: Theme.iconSizeExtraLarge * 2
         anchors {

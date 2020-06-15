@@ -104,10 +104,10 @@ Page {
         PullDownMenu {
             id: pulleyConversation
             visible: type === "reply"
+
             MenuItem {
                 text: qsTr("Copy Link to Clipboard")
                 onClicked: if (toot_url === "") {
-
                                var test = toot_uri.split("/")
                                console.log(toot_uri)
                                console.log(JSON.stringify(test))
@@ -117,9 +117,17 @@ Page {
                                    Clipboard.text = urialt
                                }
                                else Clipboard.text = toot_uri
-
-                           } else onClicked: Clipboard.text = toot_url
+                           } else Clipboard.text = toot_url
             }
+
+            MenuItem {
+                text: !panel.open ? qsTr("Reply") : qsTr("Hide Reply")
+                visible: type == "reply"
+                onClicked: if (!panel.open) {
+                               panel.open = true
+                           } else panel.open = false
+            }
+
         }
     }
 
@@ -177,8 +185,11 @@ Page {
 			+ btnContentWarning.height + Theme.paddingMedium
             + (warningContent.visible ? warningContent.height : 0)
         dock: Dock.Bottom
-        open: true
-        animationDuration: 200
+        open: if (type == "new") {
+                  true
+              } else false
+
+        animationDuration: 300
 
         Rectangle {
 			width: parent.width
@@ -520,7 +531,7 @@ Page {
     BackgroundItem {
         id: hiddenPanel
         visible: !panel.open
-        height: Theme.paddingLarge * 0.5
+        height: Theme.paddingLarge * 0.7
         width: parent.width
         opacity: enabled ? 0.6 : 0.0
         Behavior on opacity { FadeAnimator { duration: 400 } }

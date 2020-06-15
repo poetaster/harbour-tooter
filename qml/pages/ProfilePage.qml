@@ -301,7 +301,7 @@ Page {
                     Button {
                         id: btnMention
                         preferredWidth: Theme.buttonWidthSmall
-                        text: "Mention"
+                        text: qsTr("Mention")
                         onClicked: {
                             pageStack.push(Qt.resolvedUrl("ConversationPage.qml"), {
                                                headerTitle: qsTr("Mention"),

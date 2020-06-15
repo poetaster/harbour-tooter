@@ -179,6 +179,7 @@ Page {
                                            })
                         }
                     }
+
                     Component.onCompleted: {
                         view2.type = "accounts/search"
                         view2.params = []
@@ -256,7 +257,7 @@ Page {
         }
     }
 
-    function onLinkActivated(href){
+    function onLinkActivated(href) {
         var test = href.split("/")
         console.log(href)
         console.log(JSON.stringify(test))

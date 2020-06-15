@@ -51,12 +51,16 @@ BackgroundItem {
         anchors.leftMargin: Theme.paddingLarge
         anchors.verticalCenter: parent.verticalCenter
         height: account_acct.height + display_name.height
+
         Label {
             id: display_name
-            text: model.account_display_name+" "
-            color: !pressed ?  Theme.primaryColor : Theme.highlightColor
+            text: if (model.account_display_name + " ") {
+                      model.account_username.split("@")[0] + " "
+                  } else model.account_display_name
+            color: !pressed ? Theme.primaryColor : Theme.highlightColor
             font.pixelSize: Theme.fontSizeSmall
         }
+
         Label {
             id: account_acct
             text: "@"+model.account_acct
@@ -65,12 +69,13 @@ BackgroundItem {
             font.pixelSize: Theme.fontSizeExtraSmall
         }
     }
-    onClicked: openUser({
+
+    onClicked: openUser( {
                             "display_name": model.account_display_name,
                             "username": model.account_acct,
                             "user_id": model.account_id,
                             "profileImage": model.account_avatar,
                             "profileBackground": model.account_header
-                        })
+                        } )
 
 }

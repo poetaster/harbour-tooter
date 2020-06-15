@@ -8,18 +8,18 @@ import "./components/"
 Page {
 	id: conversationPage
 
-    property string headerTitle: ""
     property string type
-    property alias title: header.title
-    property alias description: header.description
-    property alias avatar: header.image
+    property string description: ""
+    property string headerTitle: ""
 	property string suggestedUser: ""
 	property ListModel suggestedModel
 	property string toot_id: ""
     property string toot_url: ""
     property string toot_uri: ""
     property int tootMaxChar: 500;
-    property bool bot: false
+    property bool bot: false //otherwise ReferenceError ProfileHeader.qml
+    property bool followed_by: false //otherwise ReferenceError ProfileHeader.qml
+    property bool locked: false //otherwise ReferenceError ProfileHeader.qml
     property ListModel mdl
 
 	allowedOrientations: Orientation.All

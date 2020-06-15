@@ -132,7 +132,6 @@ function parseAccounts(collection, prefix, data){
     res[prefix + 'account_username'] = data["username"]
     res[prefix + 'account_acct'] = data["acct"]
     res[prefix + 'account_display_name'] = data["display_name"]
-    res[prefix + 'account_discoverable'] = data["discoverable"]
     res[prefix + 'account_locked'] = data["locked"]
     res[prefix + 'account_created_at'] = data["created_at"]
     res[prefix + 'account_avatar'] = data["avatar"]
@@ -152,7 +151,7 @@ function parseNotification(data){
     switch (item['type']){
     case "mention":
         if (!data.status) {
-          break;
+            break;
         }
 
         item = parseToot(data.status)
@@ -257,10 +256,10 @@ function parseToot (data){
         item = parseAccounts(item, "", data["account"])
     }
     item['content'] = data['content']
-        .replaceAll('</span><span class="invisible">', '')
-        .replaceAll('<span class="invisible">', '')
-        .replaceAll('</span><span class="ellipsis">', '')
-        .replaceAll('class=""', '');
+    .replaceAll('</span><span class="invisible">', '')
+    .replaceAll('<span class="invisible">', '')
+    .replaceAll('</span><span class="ellipsis">', '')
+    .replaceAll('class=""', '');
     item['attachments'] = [];
 
 
@@ -274,7 +273,7 @@ function parseToot (data){
             id: attachments['id'],
             type: attachments['type'],
             url: attachments['remote_url'] && typeof attachments['remote_url'] == "string" ? attachments['remote_url'] : attachments['url'] ,
-                                                   preview_url: loadImages ? attachments['preview_url'] : ''
+            preview_url: loadImages ? attachments['preview_url'] : ''
         }
         item['attachments'].push(tmp)
     }

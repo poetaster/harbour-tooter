@@ -84,7 +84,7 @@ BackgroundItem {
                                    "user_id": model.account_id,
                                    "profileImage": model.account_avatar,
                                    "profileBackground": model.account_header
-                               })
+                               } )
             }
         }
 
@@ -371,17 +371,15 @@ BackgroundItem {
     }
 
     onClicked: {
-        var m = Qt.createQmlObject('import QtQuick 2.0; ListModel {   }', Qt.application, 'InternalQmlObject');
+        var m = Qt.createQmlObject('import QtQuick 2.0; ListModel { }', Qt.application, 'InternalQmlObject');
         if (typeof mdl !== "undefined")
             m.append(mdl.get(index))
         pageStack.push(Qt.resolvedUrl("../ConversationPage.qml"), {
-                           headerTitle: "Conversation",
-                           toot_id: status_id,
-                           toot_url: status_url,
-                           toot_uri: status_uri,
-                           title: account_display_name,
-                           description: '@'+account_acct,
-                           avatar: account_avatar,
+                           headerTitle: qsTr("Conversation"),
+                           "toot_id": status_id,
+                           "toot_url": status_url,
+                           "toot_uri": status_uri,
+                           "description": '@'+account_acct,
                            mdl: m,
                            type: "reply"
                        })

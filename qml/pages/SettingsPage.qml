@@ -31,7 +31,6 @@ Page {
                 text: qsTr("Load Images in Toots")
                 description: qsTr("Disable this option if you want to preserve your data connection")
                 icon.source: "image://theme/icon-m-image"
-                enabled: true
                 checked: typeof Logic.conf['loadImages'] !== "undefined" && Logic.conf['loadImages']
                 onClicked: {
                     Logic.conf['loadImages'] = checked
@@ -97,11 +96,8 @@ Page {
                         font.pixelSize: Theme.fontSizeExtraSmall
                         wrapMode: Text.Wrap
                         color: Theme.highlightColor
-                        anchors {
-                            left: parent.left
-                            right: parent.right
-                            rightMargin: Theme.paddingLarge + icnRemoveAccount
-                        }
+                        width: parent.width - Theme.paddingMedium
+                        anchors.left: parent.left
                     }
                 }
             }

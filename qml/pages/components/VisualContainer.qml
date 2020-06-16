@@ -83,7 +83,14 @@ BackgroundItem {
                                    "username": model.account_acct,
                                    "user_id": model.account_id,
                                    "profileImage": model.account_avatar,
-                                   "profileBackground": model.account_header
+                                   "profileBackground": model.account_header,
+                                   "note": model.account_note,
+                                   "url": model.account_url,
+                                   "followers_count": model.account_followers_count,
+                                   "following_count": model.account_following_count,
+                                   "statuses_count": model.account_statuses_count,
+                                   "locked": model.account_locked,
+                                   "bot": model.account_bot
                                } )
             }
         }
@@ -145,6 +152,26 @@ BackgroundItem {
                 visible: typeof status_reblog !== "undefined" && status_reblog
                 width: Theme.iconSizeSmall
                 height: width
+            }
+
+            MouseArea {
+                anchors.fill: parent
+                onClicked: {
+                    pageStack.push(Qt.resolvedUrl("../ProfilePage.qml"), {
+                                       "display_name": model.reblog_account_display_name,
+                                       "username": model.reblog_account_acct,
+                                       "user_id": model.reblog_account_id,
+                                       "profileImage": model.reblog_account_avatar,
+                                       "profileBackground": model.account_header,
+                                       "note": model.reblog_account_note,
+                                       "url": model.reblog_account_url,
+                                       "followers_count": model.reblog_account_followers_count,
+                                       "following_count": model.reblog_account_following_count,
+                                       "statuses_count": model.reblog_account_statuses_count,
+                                       "locked": model.reblog_account_locked,
+                                       "bot": model.reblog_account_bot
+                                   } )
+                }
             }
         }
     }
@@ -247,13 +274,13 @@ BackgroundItem {
         visible: if (myList.type === "notifications" && ( type === "favourite" || type === "reblog" )) {
                      false
                  } else true
-        model: typeof attachments !== "undefined" ? attachments : Qt.createQmlObject('import QtQuick 2.0; ListModel {   }', Qt.application, 'InternalQmlObject');
+        model: typeof attachments !== "undefined" ? attachments : Qt.createQmlObject('import QtQuick 2.0; ListModel { }', Qt.application, 'InternalQmlObject');
         height: Theme.iconSizeExtraLarge * 2
         anchors {
             left: lblContent.left
             right: lblContent.right
             top: lblContent.bottom
-            topMargin: Theme.paddingSmall
+            topMargin: Theme.paddingMedium
             bottomMargin: Theme.paddingLarge
         }
     }
@@ -275,7 +302,7 @@ BackgroundItem {
                                        "bgAction": true,
                                        "action" : "statuses/"+model.status_id+"/" + (status ? "unreblog" : "reblog")
                                    })
-                model.reblogs_count = !status ? model.reblogs_count+1 : (model.reblogs_count > 0 ? model.reblogs_count-1 : model.reblogs_count);
+                model.status_reblogs_count = !status ? model.status_reblogs_count+1 : (model.status_reblogs_count > 0 ? model.status_reblogs_count-1 : model.status_reblogs_count);
                 model.reblogged = !model.reblogged
             }
 
@@ -292,7 +319,7 @@ BackgroundItem {
             }
 
             Label {
-                text: reblogs_count
+                text: status_reblogs_count // from API.js
                 font.pixelSize: Theme.fontSizeExtraSmall
                 color: !model.reblogged ? Theme.highlightColor : Theme.primaryColor
                 anchors {
@@ -316,7 +343,7 @@ BackgroundItem {
                                        "bgAction": true,
                                        "action" : "statuses/"+model.status_id+"/" + (status ? "unfavourite" : "favourite")
                                    })
-                model.favourites_count = !status ? model.favourites_count+1 : (model.favourites_count > 0 ? model.favourites_count-1 : model.favourites_count);
+                model.status_favourites_count = !status ? model.status_favourites_count+1 : (model.status_favourites_count > 0 ? model.status_favourites_count-1 : model.status_favourites_count);
                 model.favourited = !model.favourited
             }
 
@@ -333,7 +360,7 @@ BackgroundItem {
             }
 
             Label {
-                text: favourites_count
+                text: status_favourites_count // from API.js
                 font.pixelSize: Theme.fontSizeExtraSmall
                 color: !model.favourited ? Theme.highlightColor : Theme.primaryColor
                 anchors {
@@ -386,8 +413,9 @@ BackgroundItem {
     }
     onPressAndHold: {
         console.log(JSON.stringify(mdl.get(index)))
-        mnu.show(delegate)
+        mnu.open(delegate)
     }
+
     onDoubleClicked: {
         console.log("double click")
     }

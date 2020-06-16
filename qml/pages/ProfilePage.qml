@@ -19,14 +19,11 @@ Page {
     property int statuses_count
     property int following_count
     property int followers_count
-    property int favourites_count
-    property int reblogs_count
-    property int count_moments
     property bool locked: false
     property bool bot: false
     property bool following: false
-    property bool requested: false
     property bool followed_by: false
+    property bool requested: false
     property bool blocking: false
     property bool muting: false
     property bool domain_blocking: false
@@ -57,12 +54,12 @@ Page {
 
             if(messageObject.action === "accounts/relationships/"){
                 console.log(JSON.stringify(messageObject))
-                following= messageObject.data.following
-                requested= messageObject.data.requested
-                followed_by= messageObject.data.followed_by
-                blocking= messageObject.data.blocking
-                muting= messageObject.data.muting
-                domain_blocking= messageObject.data.domain_blocking
+                following = messageObject.data.following
+                requested = messageObject.data.requested
+                followed_by = messageObject.data.followed_by
+                blocking = messageObject.data.blocking
+                muting = messageObject.data.muting
+                domain_blocking = messageObject.data.domain_blocking
             }
             switch (messageObject.key) {
             case 'followers_count':
@@ -119,15 +116,18 @@ Page {
         if (user_id) {
             msg = {
                 'action'    : "accounts/relationships/",
-                'params'    : [ {name: "id", data: user_id}],
+                'params'    : [ {name: "id", data: user_id} ],
                 'conf'      : Logic.conf
             }
             worker.sendMessage(msg)
-            msg = {
+
+            // reason for crashes when opening ProfilePage.qml
+           /* msg = {
                 'action'    : "accounts/"+user_id,
                 'conf'      : Logic.conf
             }
-            worker.sendMessage(msg)
+            worker.sendMessage(msg) */
+
         } else {
             var instance = Logic.conf['instance'].split("//")
             msg = {
@@ -249,7 +249,7 @@ Page {
 
                     Text {
                         id: txtFollowers
-                        visible: followers_count ? true : false
+                        visible: true //followers_count ? true : false
                         text: followers_count+" "+
                               //: Will show as: "35 Followers"
                               qsTr("Followers")
@@ -260,7 +260,7 @@ Page {
 
                     Text {
                         id: txtFollowing
-                        visible: following_count ? true : false
+                        visible: true //following_count ? true : false
                         text: following_count+" "+
                               //: Will show as: "23 Following"
                               qsTr("Following")
@@ -271,7 +271,7 @@ Page {
 
                     Text {
                         id: txtStatuses
-                        visible: statuses_count ? true : false
+                        visible: true //statuses_count ? true : false
                         text: statuses_count+" "+
                               //: Will show as: "115 Statuses"
                               qsTr("Statuses")
@@ -279,17 +279,6 @@ Page {
                         color: Theme.highlightColor
                         wrapMode: Text.Wrap
                     }
-
-                    /*Text {
-                        id: txtFavourites
-                        visible: favourites_count ? true : false
-                        text: favourites_count+" "+
-                            //: Will show as: "56 Favourites"
-                            qsTr("Favourites")
-                        font.pixelSize: Theme.fontSizeExtraSmall
-                        color: Theme.highlightColor
-                        wrapMode: Text.Wrap
-                    } */
                 }
 
                 Item {  // dummy item for spacing

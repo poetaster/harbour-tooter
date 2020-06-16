@@ -170,13 +170,15 @@ Page {
 						+ textOperations.text.substring(textOperations.selectionEnd).trim()
 
 					toot.cursorPosition = toot.text.indexOf('@' + model.account_acct)
-				}
-			}
-			onCountChanged: {
-                positionViewAtBeginning(suggestedModel.count - 1, ListView.Beginning)
-			}
-		}
-	}
+                }
+            }
+            onCountChanged: {
+                if (count > 0) {
+                    positionViewAtBeginning(suggestedModel.count - 1, ListView.Beginning)
+                }
+            }
+        }
+    }
 
 	DockedPanel {
 		id: panel

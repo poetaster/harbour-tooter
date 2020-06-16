@@ -175,7 +175,14 @@ Page {
                                                "username": model.account_acct,
                                                "user_id": model.account_id,
                                                "profileImage": model.account_avatar,
-                                               "profileBackground": model.account_header
+                                               "profileBackground": model.account_header,
+                                               "note": model.account_note,
+                                               "url": model.account_url,
+                                               "followers_count": model.account_followers_count,
+                                               "following_count": model.account_following_count,
+                                               "statuses_count": model.account_statuses_count,
+                                               "locked": model.account_locked,
+                                               "bot": model.account_bot
                                            })
                         }
                     }

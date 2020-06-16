@@ -18,6 +18,7 @@ BackgroundItem {
         anchors.left: parent.left
         anchors.leftMargin: Theme.horizontalPageMargin
         color: Theme.highlightDimmerColor
+
         Image {
             id: img
             opacity: status === Image.Ready ? 1.0 : 0.0
@@ -41,7 +42,14 @@ BackgroundItem {
                                           "username": model.account_acct,
                                           "user_id": model.account_id,
                                           "profileImage": model.account_avatar,
-                                          "profileBackground": model.account_header
+                                          "profileBackground": model.account_header,
+                                          "note": model.account_note,
+                                          "url": model.account_url,
+                                          "followers_count": model.account_followers_count,
+                                          "following_count": model.account_following_count,
+                                          "statuses_count": model.account_statuses_count,
+                                          "locked": model.account_locked,
+                                          "bot": model.account_bot
                                       })
         }
     }
@@ -54,7 +62,7 @@ BackgroundItem {
 
         Label {
             id: display_name
-            text: if (model.account_display_name + " ") {
+            text: if (model.account_display_name === "") {
                       model.account_username.split("@")[0] + " "
                   } else model.account_display_name
             color: !pressed ? Theme.primaryColor : Theme.highlightColor
@@ -75,7 +83,14 @@ BackgroundItem {
                             "username": model.account_acct,
                             "user_id": model.account_id,
                             "profileImage": model.account_avatar,
-                            "profileBackground": model.account_header
+                            "profileBackground": model.account_header,
+                            "note": model.account_note,
+                            "url": model.account_url,
+                            "followers_count": model.account_followers_count,
+                            "following_count": model.account_following_count,
+                            "statuses_count": model.account_statuses_count,
+                            "locked": model.account_locked,
+                            "bot": model.account_bot
                         } )
 
 }

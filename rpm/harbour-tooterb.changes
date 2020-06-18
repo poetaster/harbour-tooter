@@ -1,3 +1,16 @@
+*Thu Jun 18 2020 molan <mol_an@sunrise.ch> 1.0.6-0
+- Fix app crash when open some Profile pages
+- Fix sometimes missing favourite / reblog counts
+- Fix various QML warnings, replace deprecated Silica items
+- Add save to Bookmarks feature
+- Add Follows you / Locked / Bot / Group labels to Profile Page header
+- Add Bot icon to user display name
+- Add clicking on reblog-avatar opens reblog user profile
+- Remove Locked icon from user display name
+- Further improved Notification Page / general UI
+- Code refactoring & other changes under the hood
+- Translation updates
+
 *Fri Jun 12 2020 molan <mol_an@sunrise.ch> 1.0.5-1
 - [hotfix] fix missing images in mentions on Notification page
 

@@ -1,7 +1,7 @@
 Name: harbour-tooterb
 Summary: Tooter β
-Version: 1.0.5
-Release: 1
+Version: 1.0.6
+Release: 0
 # The contents of the Group field should be one of the groups listed here:
 # https://github.com/mer-tools/spectacle/blob/master/data/GROUPS
 Group: Qt/Qt

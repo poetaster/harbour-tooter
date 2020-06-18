@@ -119,12 +119,13 @@ BackgroundItem {
             }
         }
 
-        Image {
+        Icon {
             id: iconDirectMsg
             visible: status_visibility === "direct"
             width: Theme.iconSizeMedium
             height: width
-            source: "../../images/icon-m-mail.svg?"
+            source: "image://theme/icon-m-mail?"
+            color: Theme.primaryColor
             anchors {
                 horizontalCenter: avatar.horizontalCenter
                 top: avatar.bottom

@@ -445,43 +445,43 @@
 <context>
     <name>VisualContainer</name>
     <message>
-        <location filename="../qml/pages/components/VisualContainer.qml" line="312"/>
+        <location filename="../qml/pages/components/VisualContainer.qml" line="313"/>
         <source>Unboost</source>
         <translation>Annulla condivisione</translation>
     </message>
     <message>
-        <location filename="../qml/pages/components/VisualContainer.qml" line="312"/>
+        <location filename="../qml/pages/components/VisualContainer.qml" line="313"/>
         <source>Boost</source>
         <translation>Condividi</translation>
     </message>
     <message>
-        <location filename="../qml/pages/components/VisualContainer.qml" line="353"/>
+        <location filename="../qml/pages/components/VisualContainer.qml" line="354"/>
         <source>Unfavorite</source>
         <translation>Annulla apprezzamento</translation>
     </message>
     <message>
-        <location filename="../qml/pages/components/VisualContainer.qml" line="353"/>
+        <location filename="../qml/pages/components/VisualContainer.qml" line="354"/>
         <source>Favorite</source>
         <translation>Apprezzato</translation>
     </message>
     <message>
-        <location filename="../qml/pages/components/VisualContainer.qml" line="394"/>
+        <location filename="../qml/pages/components/VisualContainer.qml" line="395"/>
         <source>Remove Bookmark</source>
         <translation>Elimina segnalibro</translation>
     </message>
     <message>
-        <location filename="../qml/pages/components/VisualContainer.qml" line="394"/>
+        <location filename="../qml/pages/components/VisualContainer.qml" line="395"/>
         <source>Bookmark</source>
         <translation>Aggiungi segnalibro</translation>
     </message>
     <message>
-        <location filename="../qml/pages/components/VisualContainer.qml" line="424"/>
-        <location filename="../qml/pages/components/VisualContainer.qml" line="427"/>
+        <location filename="../qml/pages/components/VisualContainer.qml" line="425"/>
+        <location filename="../qml/pages/components/VisualContainer.qml" line="428"/>
         <source>Mention</source>
         <translation>Menzionare</translation>
     </message>
     <message>
-        <location filename="../qml/pages/components/VisualContainer.qml" line="453"/>
+        <location filename="../qml/pages/components/VisualContainer.qml" line="454"/>
         <source>Conversation</source>
         <translation>Conversazione</translation>
     </message>

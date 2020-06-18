@@ -14,6 +14,7 @@ BackgroundItem {
                 mnu.height + miniHeader.height + Theme.paddingLarge + lblContent.height + Theme.paddingLarge + (miniStatus.visible ? miniStatus.height : 0)
             } else mnu.height + miniHeader.height + (typeof attachments !== "undefined" && attachments.count ? media.height + Theme.paddingLarge + Theme.paddingMedium: Theme.paddingLarge) + lblContent.height + Theme.paddingLarge + (miniStatus.visible ? miniStatus.height : 0) + (iconDirectMsg.visible ? iconDirectMsg.height : 0)
 
+    // Background for Direct Messages in Notification View
     Rectangle {
         id: bgDirect
         x: 0
@@ -28,7 +29,8 @@ BackgroundItem {
         }
     }
 
-    Rectangle {
+    // Background for reblogs and favourited statuses in Notification View
+    /* Rectangle {
         id: bgNotifications
         x: 0
         y: 0
@@ -40,9 +42,9 @@ BackgroundItem {
             GradientStop { position: -0.5; color: "transparent" }
             GradientStop { position: 0.4; color: Theme.highlightDimmerColor }
         }
-    }
+    } */
 
-    MiniStatus {
+    MiniStatus { // Element showing reblog- or favourite status on top of Toot
         id: miniStatus
         anchors {
             leftMargin: Theme.horizontalPageMargin
@@ -52,6 +54,7 @@ BackgroundItem {
         }
     }
 
+    // Account avatar
     Image {
         id: avatar
         visible: true
@@ -83,8 +86,16 @@ BackgroundItem {
                                    "username": model.account_acct,
                                    "user_id": model.account_id,
                                    "profileImage": model.account_avatar,
-                                   "profileBackground": model.account_header
-                               })
+                                   "profileBackground": model.account_header,
+                                   "note": model.account_note,
+                                   "url": model.account_url,
+                                   "followers_count": model.account_followers_count,
+                                   "following_count": model.account_following_count,
+                                   "statuses_count": model.account_statuses_count,
+                                   "locked": model.account_locked,
+                                   "bot": model.account_bot,
+                                   "group": model.account_group
+                               } )
             }
         }
 
@@ -113,7 +124,7 @@ BackgroundItem {
             visible: status_visibility === "direct"
             width: Theme.iconSizeMedium
             height: width
-            source: "image://theme/icon-m-mail"
+            source: "../../images/icon-m-mail.svg?"
             anchors {
                 horizontalCenter: avatar.horizontalCenter
                 top: avatar.bottom
@@ -146,39 +157,68 @@ BackgroundItem {
                 width: Theme.iconSizeSmall
                 height: width
             }
+
+            MouseArea {
+                anchors.fill: parent
+                onClicked: {
+                    pageStack.push(Qt.resolvedUrl("../ProfilePage.qml"), {
+                                       "display_name": model.reblog_account_display_name,
+                                       "username": model.reblog_account_acct,
+                                       "user_id": model.reblog_account_id,
+                                       "profileImage": model.reblog_account_avatar,
+                                       "profileBackground": model.account_header,
+                                       "note": model.reblog_account_note,
+                                       "url": model.reblog_account_url,
+                                       "followers_count": model.reblog_account_followers_count,
+                                       "following_count": model.reblog_account_following_count,
+                                       "statuses_count": model.reblog_account_statuses_count,
+                                       "locked": model.reblog_account_locked,
+                                       "bot": model.reblog_account_bot,
+                                       "group": model.reblog_account_group
+                                   } )
+                }
+            }
         }
     }
 
+    // Display name, username, date of Toot
     MiniHeader {
         id: miniHeader
         anchors {
             top: avatar.top
             left: avatar.right
+            leftMargin: Theme.paddingMedium
             right: parent.right
+            rightMargin: Theme.horizontalPageMargin
         }
     }
 
-    Text  {
+    // Toot content
+    Label  {
         id: lblContent
+
         visible: model.type !== "follow"
-        text: content.replace(new RegExp("<a ", 'g'), '<a style="text-decoration: none; color:'+(pressed ?  Theme.secondaryColor : Theme.highlightColor)+'" ')
-        textFormat: Text.RichText
+        text: if (myList.type === "notifications" && ( model.type === "favourite" || model.type === "reblog" )) {
+                  content
+              } else content.replace(new RegExp("<a ", 'g'), '<a style="text-decoration: none; color:'+(pressed ?  Theme.secondaryColor : Theme.highlightColor)+'" ')
+        textFormat: myList.type === "notifications" && ( model.type === "favourite" || model.type === "reblog" ) ? Text.StyledText : Text.RichText
         font.pixelSize: Theme.fontSizeSmall
-        linkColor: if (myList.type === "notifications" && ( model.type === "favourite" || model.type === "reblog" )) {
-                       Theme.secondaryHighlightColor
-                   } else Theme.highlightColor
         wrapMode: Text.Wrap
+        truncationMode: TruncationMode.Elide
         color: if (myList.type === "notifications" && ( model.type === "favourite" || model.type === "reblog" )) {
                    (pressed ? Theme.secondaryHighlightColor : (!highlight ? Theme.secondaryColor : Theme.secondaryHighlightColor))
                } else (pressed ? Theme.highlightColor : (!highlight ? Theme.primaryColor : Theme.secondaryColor))
+        linkColor: if (myList.type === "notifications" && ( model.type === "favourite" || model.type === "reblog" )) {
+                       Theme.secondaryHighlightColor
+                   } else Theme.highlightColor
         height: if (model.type === "follow") {
                     Theme.paddingLarge
-                } else content.length ? (contentWarningLabel.paintedHeight > paintedHeight ? contentWarningLabel.paintedHeight : paintedHeight) : 0
+                } else if (myList.type === "notifications" && ( model.type === "favourite" || model.type === "reblog" )) {
+                    Math.min( implicitHeight, Theme.itemSizeExtraLarge * 1.5 )
+                } else content.length ? ( contentWarningLabel.paintedHeight > paintedHeight ? contentWarningLabel.paintedHeight : paintedHeight ) : 0
         anchors {
             left: miniHeader.left
-            leftMargin: Theme.paddingMedium
             right: miniHeader.right
-            rightMargin: Theme.horizontalPageMargin
             top: miniHeader.bottom
             topMargin: Theme.paddingSmall
             bottomMargin: Theme.paddingLarge
@@ -210,8 +250,9 @@ BackgroundItem {
             }
         }
 
+        // Content warning cover for Toots
         Rectangle {
-            radius: 2
+            id: contentWarningBg
             color: Theme.highlightDimmerColor
             visible: status_spoiler_text.length > 0
             anchors.fill: parent
@@ -244,22 +285,24 @@ BackgroundItem {
         }
     }
 
+    // Displays media in Toots
     MediaBlock {
         id: media
         visible: if (myList.type === "notifications" && ( type === "favourite" || type === "reblog" )) {
                      false
                  } else true
-        model: typeof attachments !== "undefined" ? attachments : Qt.createQmlObject('import QtQuick 2.0; ListModel {   }', Qt.application, 'InternalQmlObject');
+        model: typeof attachments !== "undefined" ? attachments : Qt.createQmlObject('import QtQuick 2.0; ListModel { }', Qt.application, 'InternalQmlObject')
         height: Theme.iconSizeExtraLarge * 2
         anchors {
-            left: lblContent.left
-            right: lblContent.right
+            left: miniHeader.left
+            right: miniHeader.right
             top: lblContent.bottom
-            topMargin: Theme.paddingSmall
+            topMargin: Theme.paddingMedium
             bottomMargin: Theme.paddingLarge
         }
     }
 
+    // Context menu for Toots
     ContextMenu {
         id: mnu
 
@@ -277,11 +320,11 @@ BackgroundItem {
                                        "bgAction": true,
                                        "action" : "statuses/"+model.status_id+"/" + (status ? "unreblog" : "reblog")
                                    })
-                model.reblogs_count = !status ? model.reblogs_count+1 : (model.reblogs_count > 0 ? model.reblogs_count-1 : model.reblogs_count);
+                model.status_reblogs_count = !status ? model.status_reblogs_count+1 : (model.status_reblogs_count > 0 ? model.status_reblogs_count-1 : model.status_reblogs_count);
                 model.reblogged = !model.reblogged
             }
 
-            Image {
+            Icon {
                 id: icRT
                 source: "image://theme/icon-s-retweet?" + (!model.reblogged ? Theme.highlightColor : Theme.primaryColor)
                 width: Theme.iconSizeExtraSmall
@@ -294,7 +337,7 @@ BackgroundItem {
             }
 
             Label {
-                text: reblogs_count
+                text: status_reblogs_count // from API.js
                 font.pixelSize: Theme.fontSizeExtraSmall
                 color: !model.reblogged ? Theme.highlightColor : Theme.primaryColor
                 anchors {
@@ -308,9 +351,9 @@ BackgroundItem {
         MenuItem {
             id: mnuFavourite
             visible: model.type !== "follow"
-            text: typeof model.favourited !== "undefined" && model.favourited ? qsTr("Unfavorite") : qsTr("Favorite")
+            text: typeof model.status_favourited !== "undefined" && model.status_favourited ? qsTr("Unfavorite") : qsTr("Favorite")
             onClicked: {
-                var status = typeof model.favourited !== "undefined" && model.favourited
+                var status = typeof model.status_favourited !== "undefined" && model.status_favourited
                 worker.sendMessage({
                                        "conf"   : Logic.conf,
                                        "params" : [],
@@ -318,26 +361,26 @@ BackgroundItem {
                                        "bgAction": true,
                                        "action" : "statuses/"+model.status_id+"/" + (status ? "unfavourite" : "favourite")
                                    })
-                model.favourites_count = !status ? model.favourites_count+1 : (model.favourites_count > 0 ? model.favourites_count-1 : model.favourites_count);
-                model.favourited = !model.favourited
+                model.status_favourites_count = !status ? model.status_favourites_count+1 : (model.status_favourites_count > 0 ? model.status_favourites_count-1 : model.status_favourites_count);
+                model.status_favourited = !model.status_favourited
             }
 
-            Image {
+            Icon {
                 id: icFA
+                source: "image://theme/icon-s-favorite?" + (!model.status_favourited ? Theme.highlightColor : Theme.primaryColor)
+                width: Theme.iconSizeExtraSmall
+                height: width
                 anchors {
                     leftMargin: Theme.horizontalPageMargin
                     left: parent.left
                     verticalCenter: parent.verticalCenter
                 }
-                width: Theme.iconSizeExtraSmall
-                height: width
-                source: "image://theme/icon-s-favorite?" + (!model.favourited ? Theme.highlightColor : Theme.primaryColor)
             }
 
             Label {
-                text: favourites_count
+                text: status_favourites_count
                 font.pixelSize: Theme.fontSizeExtraSmall
-                color: !model.favourited ? Theme.highlightColor : Theme.primaryColor
+                color: !model.status_favourited ? Theme.highlightColor : Theme.primaryColor
                 anchors {
                     left: icFA.right
                     leftMargin: Theme.paddingMedium
@@ -347,53 +390,82 @@ BackgroundItem {
         }
 
         MenuItem {
+            id: mnuBookmark
+            visible: model.type !== "follow"
+            text: typeof model.status_bookmarked !== "undefined" && model.status_bookmarked ? qsTr("Remove Bookmark") : qsTr("Bookmark")
+            onClicked: {
+                var status = typeof model.status_bookmarked !== "undefined" && model.status_bookmarked
+                worker.sendMessage({
+                                       "conf"   : Logic.conf,
+                                       "params" : [],
+                                       "method" : "POST",
+                                       "bgAction": true,
+                                       "action" : "statuses/"+model.status_id+"/" + (status ? "unbookmark" : "bookmark")
+                                   })
+                model.status_bookmarked = !model.status_bookmarked
+            }
+
+            Icon {
+                source: "../../images/icon-s-bookmark.svg?"
+                color: !model.status_bookmarked ? Theme.highlightColor : Theme.primaryColor
+                width: Theme.iconSizeExtraSmall
+                height: width
+                anchors {
+                    left: parent.left
+                    leftMargin: Theme.horizontalPageMargin + Theme.paddingMedium
+                    verticalCenter: parent.verticalCenter
+                }
+            }
+        }
+
+
+        MenuItem {
             id: mnuMention
             visible: model.type === "follow"
             text: qsTr("Mention")
             onClicked: {
                 pageStack.push(Qt.resolvedUrl("../ConversationPage.qml"), {
-                                   headerTitle: "Mention",
+                                   headerTitle: qsTr("Mention"),
                                    description: "@"+reblog_account_acct,
                                    type: "new"
                                })
             }
 
-            Image {
+            Icon {
                 id: icMT
+                source: "image://theme/icon-s-chat?" + (!model.status_favourited ? Theme.highlightColor : Theme.primaryColor)
+                width: Theme.iconSizeExtraSmall
+                height: width
                 anchors {
-                    leftMargin: Theme.horizontalPageMargin
+                    leftMargin: Theme.horizontalPageMargin + Theme.paddingMedium
                     left: parent.left
                     verticalCenter: parent.verticalCenter
                 }
-                width: Theme.iconSizeExtraSmall
-                height: width
-                source: "image://theme/icon-s-chat?" + (!model.favourited ? Theme.highlightColor : Theme.primaryColor)
             }
         }
     }
 
+    // Open ConversationPage and show other Toots in thread (if available)
     onClicked: {
-        var m = Qt.createQmlObject('import QtQuick 2.0; ListModel {   }', Qt.application, 'InternalQmlObject');
+        var m = Qt.createQmlObject('import QtQuick 2.0; ListModel { }', Qt.application, 'InternalQmlObject');
         if (typeof mdl !== "undefined")
             m.append(mdl.get(index))
         pageStack.push(Qt.resolvedUrl("../ConversationPage.qml"), {
-                           headerTitle: "Conversation",
-                           toot_id: status_id,
-                           toot_url: status_url,
-                           toot_uri: status_uri,
-                           title: account_display_name,
-                           description: '@'+account_acct,
-                           avatar: account_avatar,
+                           headerTitle: qsTr("Conversation"),
+                           "toot_id": status_id,
+                           "toot_url": status_url,
+                           "toot_uri": status_uri,
+                           "description": '@'+account_acct,
                            mdl: m,
                            type: "reply"
                        })
     }
     onPressAndHold: {
         console.log(JSON.stringify(mdl.get(index)))
-        mnu.show(delegate)
+        mnu.open(delegate)
     }
+
     onDoubleClicked: {
         console.log("double click")
     }
-
 }

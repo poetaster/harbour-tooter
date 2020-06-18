@@ -1,5 +1,8 @@
 Qt.include("Mastodon.js")
+
+
 var loadImages = true;
+
 WorkerScript.onMessage = function(msg) {
     console.log("Action > " + msg.action)
     console.log("Model > " + msg.model)
@@ -9,16 +12,17 @@ WorkerScript.onMessage = function(msg) {
 
     // order notifications in ASC order
     function orderNotifications(items){
-        for (var i = items.length-1; i > 0; i--){
+        for (var i = items.length-1; i > 0; i--) {
             if (items[i].id > 0 ) //msg.conf.notificationLastID)
                 WorkerScript.sendMessage({ 'fireNotification': true, "data": items[i]})
         }
     }
 
-    if (!msg.conf || !msg.conf.login){
+    if (!msg.conf || !msg.conf.login) {
         console.log("Not loggedin")
         return;
     }
+
     if (typeof msg.conf['loadImages'] !== "undefined")
         loadImages = msg.conf['loadImages']
 
@@ -27,7 +31,7 @@ WorkerScript.onMessage = function(msg) {
         API.post(msg.action, msg.params, function(data) {
             if (msg.bgAction){
                 console.log(JSON.stringify(data))
-            } else if (msg.action === "statuses"){
+            } else if (msg.action === "statuses") {
                 // status posted
                 if(msg.model){
                     var item = parseToot(data);
@@ -59,7 +63,7 @@ WorkerScript.onMessage = function(msg) {
 
                 } else if(msg.action === "notifications") {
                     // notification
-                    //console.log("Is notification... parsing...")
+                    // console.log("Is notification... parsing...")
                     console.log(JSON.stringify(data[i]))
                     item = parseNotification(data[i]);
                     items.push(item)
@@ -90,14 +94,13 @@ WorkerScript.onMessage = function(msg) {
                     }
                     addDataToModel (msg.model, "append", items);
                     items = [];
-
                 } else if (data[i].hasOwnProperty("content")){
-                    //console.log("Is toot... parsing...")
+                    // console.log("Is toot... parsing...")
                     item = parseToot(data[i]);
                     item['id'] = item['status_id']
                     items.push(item)
                 } else {
-                    WorkerScript.sendMessage({ 'action': msg.action, 'success': true,  key: i, "data": data[i]})
+                    WorkerScript.sendMessage({ 'action': msg.action, 'success': true,  key: i, "data": data[i] })
                 }
             }
         }
@@ -108,40 +111,55 @@ WorkerScript.onMessage = function(msg) {
     });
 }
 
-
-
 //WorkerScript.sendMessage({ 'notifyNewItems': length - i })
-function addDataToModel (model, mode, items){
+function addDataToModel (model, mode, items) {
     var length = items.length;
     console.log("Fetched > " +length)
 
     if (mode === "append") {
         model.append(items)
     } else if (mode === "prepend") {
-        for(var i = length-1; i >= 0 ; i--){
+        for(var i = length-1; i >= 0 ; i--) {
             model.insert(0,items[i])
         }
     }
 
     model.sync()
 }
-function parseAccounts(collection, prefix, data){
-    var res = collection;
 
+// Get Account Data: Represents a user of Mastodon and their associated profile.
+function parseAccounts(collection, prefix, data) {
+
+    var res = collection;
+    // Base attributes
     res[prefix + 'account_id'] = data["id"]
     res[prefix + 'account_username'] = data["username"]
     res[prefix + 'account_acct'] = data["acct"]
+    res[prefix + 'account_url'] = data["url"]
+    // Display attributes
     res[prefix + 'account_display_name'] = data["display_name"]
-    res[prefix + 'account_discoverable'] = data["discoverable"]
-    res[prefix + 'account_locked'] = data["locked"]
-    res[prefix + 'account_created_at'] = data["created_at"]
+    res[prefix + 'account_note'] = data["note"]
     res[prefix + 'account_avatar'] = data["avatar"]
     res[prefix + 'account_header'] = data["header"]
+    res[prefix + 'account_locked'] = data["locked"]
+    //res[prefix + 'account_emojis'] = data["emojis"]
+    res[prefix + 'account_discoverable'] = data["discoverable"]
+    // Statistical attributes
+    res[prefix + 'account_created_at'] = data["created_at"]
+    res[prefix + 'account_statuses_count'] = data["statuses_count"]
+    res[prefix + 'account_followers_count'] = data["followers_count"]
+    res[prefix + 'account_following_count'] = data["following_count"]
+    // Optional attributes
+    //res[prefix + 'account_fields'] = data["fields"]
+    res[prefix + 'account_bot'] = data["bot"]
+    res[prefix + 'account_group'] = data["group"]
+    res[prefix + 'account_source'] = data["source"]
 
-    // console.log(JSON.stringify(res))
+    //console.log(JSON.stringify(res))
     return (res);
 }
 
+// Get Notification Data
 function parseNotification(data){
     //console.log(JSON.stringify(data))
     var item = {
@@ -152,31 +170,30 @@ function parseNotification(data){
     switch (item['type']){
     case "mention":
         if (!data.status) {
-          break;
+            break;
         }
-
         item = parseToot(data.status)
         item['typeIcon'] = "image://theme/icon-s-retweet"
         item['typeIcon'] = "image://theme/icon-s-alarm"
-        item['type'] = "mention";
+        item['type'] = "mention"
         break;
+
     case "reblog":
         if (!data.status) {
             break;
         }
-
         item = parseToot(data.status)
         item = parseAccounts(item, "reblog_", data["account"])
         item = parseAccounts(item, "", data["status"]["account"])
-        item['status_reblog'] = true;
-        item['type'] = "reblog";
+        item['status_reblog'] = true
+        item['type'] = "reblog"
         item['typeIcon'] = "image://theme/icon-s-retweet"
         break;
+
     case "favourite":
         if (!data.status) {
             break;
         }
-
         item = parseToot(data.status)
         item = parseAccounts(item, "reblog_", data["account"])
         item = parseAccounts(item, "", data["status"]["account"])
@@ -185,15 +202,16 @@ function parseNotification(data){
         item['type'] = "favourite";
         //item['retweetScreenName'] = item['reblog_account_username'];
         break;
+
     case "follow":
         item['type'] = "follow";
         item = parseAccounts(item, "", data["account"])
         item = parseAccounts(item, "reblog_", data["account"])
         item['content'] = data['account']['note']
-        item['typeIcon'] = "../../images/icon-s-following.svg"
+        item['typeIcon'] = "../../images/icon-s-follow.svg"
         item['attachments'] = []
-
         break;
+
     default:
         item['typeIcon'] = "image://theme/icon-s-sailfish"
     }
@@ -216,70 +234,76 @@ function collect() {
     }
     return ret;
 }
-function getDate(dateStr){
+
+function getDate(dateStr) {
     var ts = new Date(dateStr);
     return new Date(ts.getFullYear(), ts.getMonth(), ts.getDate(), 0, 0, 0)
 }
-function parseToot (data){
+
+// Get Status / Toot Data
+function parseToot (data) {
     var i = 0;
     var item = {};
 
     item['type'] = "toot"
     item['highlight'] = false
     item['status_id'] = data["id"]
-    item['status_uri'] = data["uri"]
-    item['status_url'] = data["url"]
-    item['status_in_reply_to_id'] = data["in_reply_to_id"]
-    item['status_in_reply_to_account_id'] = data["in_reply_to_account_id"]
-    item['status_reblog'] = data["reblog"] ? true : false
-    item['status_content'] = data["content"]
-    item['status_created_at'] = item['created_at'] = new Date(data["created_at"]);
-    item['section'] = getDate(data["created_at"]);
-    item['reblogs_count'] = data["reblogs_count"]
-    item['favourites_count'] = data["favourites_count"]
-    item['reblogged'] = data["reblogged"]
-    item['favourited'] = data["favourited"]
-    item['bookmarked'] = data["bookmarked"]
+    item['status_created_at'] = item['created_at'] = new Date(data["created_at"])
     item['status_sensitive'] = data["sensitive"]
     item['status_spoiler_text'] = data["spoiler_text"]
     item['status_visibility'] = data["visibility"]
+    item['status_language'] = data["language"]
 
-    if(item['status_reblog']){
+    item['status_uri'] = data["uri"]
+    item['status_url'] = data["url"]
+    item['status_replies_count'] = data["replies_count"]
+    item['status_reblogs_count'] = data["reblogs_count"]
+    item['status_favourites_count'] = data["favourites_count"]
+    item['status_favourited'] = data["favourited"]
+    item['status_reblogged'] = data["reblogged"]
+    item['status_bookmarked'] = data["bookmarked"]
+
+    item['status_content'] = data["content"]
+    item['status_in_reply_to_id'] = data["in_reply_to_id"]
+    item['status_in_reply_to_account_id'] = data["in_reply_to_account_id"]
+    item['status_reblog'] = data["reblog"] ? true : false
+    item['section'] = getDate(data["created_at"])
+
+    // If Toot is a Reblog
+    if(item['status_reblog']) {
         item['type'] = "reblog";
         item['typeIcon'] = "image://theme/icon-s-retweet"
         item['status_id'] = data["reblog"]["id"];
         item['status_spoiler_text'] = data["reblog"]["spoiler_text"]
         item['status_sensitive'] = data["reblog"]["sensitive"]
-        item['emojis'] = data["reblog"]["emojis"];
         item = parseAccounts(item, "", data['reblog']["account"])
         item = parseAccounts(item, "reblog_", data["account"])
     } else {
         item = parseAccounts(item, "", data["account"])
     }
     item['content'] = data['content']
-        .replaceAll('</span><span class="invisible">', '')
-        .replaceAll('<span class="invisible">', '')
-        .replaceAll('</span><span class="ellipsis">', '')
-        .replaceAll('class=""', '');
+    .replaceAll('</span><span class="invisible">', '')
+    .replaceAll('<span class="invisible">', '')
+    .replaceAll('</span><span class="ellipsis">', '')
+    .replaceAll('class=""', '');
     item['attachments'] = [];
 
-
-
-
-    for(i = 0; i < data['media_attachments'].length ; i++){
+    // Media attachements in Toots
+    for(i = 0; i < data['media_attachments'].length ; i++) {
         var attachments = data['media_attachments'][i];
         item['content'] = item['content'].replaceAll(attachments['text_url'], '')
         var tmp = {
             id: attachments['id'],
-            id: attachments['id'],
             type: attachments['type'],
             url: attachments['remote_url'] && typeof attachments['remote_url'] == "string" ? attachments['remote_url'] : attachments['url'] ,
-                                                   preview_url: loadImages ? attachments['preview_url'] : ''
+            preview_url: loadImages ? attachments['preview_url'] : ''
         }
         item['attachments'].push(tmp)
     }
-    if(item['status_reblog']){
-        for(i = 0; i < data['reblog']['media_attachments'].length ; i++){
+
+    // Media attachements in Reblogs
+    if(item['status_reblog']) {
+        for(i = 0; i < data['reblog']['media_attachments'].length ; i++) {
             var attachments = data['reblog']['media_attachments'][i];
             item['content'] = item['content'].replaceAll(attachments['text_url'], '')
             var tmp = {
@@ -291,18 +315,20 @@ function parseToot (data){
             item['attachments'].push(tmp)
         }
     }
+
     return addEmojis(item, data);
 }
 
-function addEmojis(item, data){
+// Display function for custom Emojis in Toots
+function addEmojis(item, data) {
     var emoji, i;
-    for (i = 0; i < data["emojis"].length; i++){
+    for (i = 0; i < data["emojis"].length; i++) {
         emoji = data["emojis"][i];
         item['content'] = item['content'].replaceAll(":"+emoji.shortcode+":", "<img src=\"" + emoji.static_url+"\" align=\"top\" width=\"50\" height=\"50\">")
         //console.log(JSON.stringify(data["emojis"][i]))
     }
     if (data["reblog"])
-        for (i = 0; i < data["reblog"]["emojis"].length; i++){
+        for (i = 0; i < data["reblog"]["emojis"].length; i++) {
             emoji = data["reblog"]["emojis"][i];
             item['content'] = item['content'].replaceAll(":"+emoji.shortcode+":", "<img src=\"" + emoji.static_url+"\" align=\"top\" width=\"50\" height=\"50\">")
         }

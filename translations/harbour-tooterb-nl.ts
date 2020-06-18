@@ -24,15 +24,16 @@
     <name>ConversationPage</name>
     <message>
         <source>Copy Link to Clipboard</source>
+        <extracomment>Use the translation of &quot;Copy Link&quot; for a shorter PullDownMenu label</extracomment>
         <translation>Linkadres kopiëren</translation>
     </message>
     <message>
         <source>Write your warning here</source>
-        <translation type="unfinished"></translation>
+        <translation>Waarschuwingstekst</translation>
     </message>
     <message>
         <source>What&apos;s on your mind?</source>
-        <translation type="unfinished"></translation>
+        <translation>Wat wil je kwijt?</translation>
     </message>
     <message>
         <source>Delete</source>
@@ -40,23 +41,32 @@
     </message>
     <message>
         <source>Public</source>
-        <translation type="unfinished"></translation>
+        <translation>Openbaar</translation>
     </message>
     <message>
         <source>Unlisted</source>
-        <translation type="unfinished"></translation>
+        <translation>Minder openbaar</translation>
     </message>
     <message>
         <source>Followers-only</source>
-        <translation type="unfinished"></translation>
+        <translation>Alleen volgers</translation>
     </message>
     <message>
         <source>Direct</source>
-        <translation type="unfinished"></translation>
+        <translation>Direct</translation>
     </message>
     <message>
         <source>Toot sent!</source>
-        <translation type="unfinished"></translation>
+        <translation>Toot verzonden!</translation>
+    </message>
+    <message>
+        <source>Reply</source>
+        <extracomment>&quot;Reply&quot; will show the Toot text entry Panel. &quot;Hide Reply&quot; closes it. Alternative: Use &quot;Close Reply&quot;</extracomment>
+        <translation>Antwoord</translation>
+    </message>
+    <message>
+        <source>Hide Reply</source>
+        <translation>Antwoord verbergen</translation>
     </message>
 </context>
 <context>
@@ -96,7 +106,7 @@
     </message>
     <message>
         <source>Enter a valid Mastodon instance URL</source>
-        <translation type="unfinished"></translation>
+        <translation>Geldig Mastodon URL</translation>
     </message>
     <message>
         <source>Mastodon is a free, open-source social network. A decentralized alternative to commercial platforms, it avoids the risks of a single company monopolizing your communication. Pick a server that you trust — whichever you choose, you can interact with everyone else. Anyone can run their own Mastodon instance and participate in the social network seamlessly.</source>
@@ -189,6 +199,14 @@
         <source>Bot</source>
         <translation>Bot</translation>
     </message>
+    <message>
+        <source>Follows you</source>
+        <translation>Volgt jou</translation>
+    </message>
+    <message>
+        <source>Group</source>
+        <translation>Groep</translation>
+    </message>
 </context>
 <context>
     <name>ProfilePage</name>
@@ -253,7 +271,7 @@
     </message>
     <message>
         <source>Mention</source>
-        <translation type="unfinished">Vermelden</translation>
+        <translation>Vermelden</translation>
     </message>
 </context>
 <context>
@@ -345,21 +363,6 @@
     </message>
 </context>
 <context>
-    <name>Toot</name>
-    <message>
-        <source>boosted</source>
-        <translation>boostte</translation>
-    </message>
-    <message>
-        <source>favourited</source>
-        <translation>maakte favoriet</translation>
-    </message>
-    <message>
-        <source>followed you</source>
-        <translation>volgde jou</translation>
-    </message>
-</context>
-<context>
     <name>VisualContainer</name>
     <message>
         <source>Unboost</source>
@@ -380,6 +383,18 @@
     <message>
         <source>Mention</source>
         <translation>Vermelden</translation>
+    </message>
+    <message>
+        <source>Conversation</source>
+        <translation>Conversatie</translation>
+    </message>
+    <message>
+        <source>Remove Bookmark</source>
+        <translation>Bookmarken</translation>
+    </message>
+    <message>
+        <source>Bookmark</source>
+        <translation>Bladwijzer verwijderen</translation>
     </message>
 </context>
 </TS>

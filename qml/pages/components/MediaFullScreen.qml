@@ -11,7 +11,7 @@ FullscreenContentPage {
     property string mediaURL: ""
 
     allowedOrientations: Orientation.All
-    Component.onCompleted: function(){
+    Component.onCompleted: function() {
         console.log(type)
         console.log(previewURL)
         console.log(mediaURL)
@@ -44,7 +44,7 @@ FullscreenContentPage {
         Video {
             id: video
             anchors.fill: parent
-            onErrorStringChanged: function(){
+            onErrorStringChanged: function() {
                 videoError.visible = true
             }
             onStatusChanged: {
@@ -60,7 +60,7 @@ FullscreenContentPage {
             }
             onPlaybackStateChanged: {
                 console.log(playbackState)
-                switch (playbackState){
+                switch (playbackState) {
                 case MediaPlayer.PlayingState:
                     playerIcon.icon.source = "image://theme/icon-m-pause"
                     return;
@@ -72,7 +72,7 @@ FullscreenContentPage {
                     return;
                 }
             }
-            onPositionChanged: function(){
+            onPositionChanged: function() {
                 //console.log(duration)
                 //console.log(bufferProgress)
                 //console.log(position)
@@ -84,7 +84,7 @@ FullscreenContentPage {
                 }
             }
             onStopped: function() {
-                if (video.duration < 30000)
+                if (type != 'video')
                     video.play()
                 else
                     video.stop()
@@ -151,7 +151,6 @@ FullscreenContentPage {
                     anchors.centerIn: parent
                 }
             }
-
         }
     }
 
@@ -288,7 +287,7 @@ FullscreenContentPage {
         id: failedLoading
         Text {
             text: qsTr("Error loading")
-            font.pixelSize: Theme.fontSizeSmall;
+            font.pixelSize: Theme.fontSizeSmall
             color: Theme.highlightColor
         }
     }
@@ -315,11 +314,10 @@ FullscreenContentPage {
         }
         icon.source: "image://theme/icon-m-cloud-download"
         onClicked: {
-            var filename = mediaURL.split("/");
-            FileDownloader.downloadFile(mediaURL, filename[filename.length-1]);
+            var filename = mediaURL.split("/")
+            FileDownloader.downloadFile(mediaURL, filename[filename.length-1])
         }
     }
 
     VerticalScrollDecorator { flickable: imageFlickable }
 }
-

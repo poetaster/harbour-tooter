@@ -24,6 +24,7 @@
     <name>ConversationPage</name>
     <message>
         <source>Copy Link to Clipboard</source>
+        <extracomment>Use the translation of &quot;Copy Link&quot; for a shorter PullDownMenu label</extracomment>
         <translation>Copiar enlace al portapapeles</translation>
     </message>
     <message>
@@ -57,6 +58,15 @@
     <message>
         <source>Toot sent!</source>
         <translation>¡Toot enviado!</translation>
+    </message>
+    <message>
+        <source>Reply</source>
+        <extracomment>&quot;Reply&quot; will show the Toot text entry Panel. &quot;Hide Reply&quot; closes it. Alternative: Use &quot;Close Reply&quot;</extracomment>
+        <translation>Respuesta</translation>
+    </message>
+    <message>
+        <source>Hide Reply</source>
+        <translation>Cerrar respuesta</translation>
     </message>
 </context>
 <context>
@@ -189,6 +199,14 @@
         <source>Bot</source>
         <translation>Bot</translation>
     </message>
+    <message>
+        <source>Follows you</source>
+        <translation>Te sigue</translation>
+    </message>
+    <message>
+        <source>Group</source>
+        <translation>Grupo</translation>
+    </message>
 </context>
 <context>
     <name>ProfilePage</name>
@@ -220,7 +238,7 @@
     <message>
         <source>Requested</source>
         <extracomment>Is a button. Keep it as short as possible.</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Requerido</translation>
     </message>
     <message>
         <source>Follow</source>
@@ -253,7 +271,7 @@
     </message>
     <message>
         <source>Mention</source>
-        <translation type="unfinished"></translation>
+        <translation>Mencionar</translation>
     </message>
 </context>
 <context>
@@ -345,21 +363,6 @@
     </message>
 </context>
 <context>
-    <name>Toot</name>
-    <message>
-        <source>boosted</source>
-        <translation>retooteó</translation>
-    </message>
-    <message>
-        <source>favourited</source>
-        <translation>marcó como favorito</translation>
-    </message>
-    <message>
-        <source>followed you</source>
-        <translation>te empezó a seguir</translation>
-    </message>
-</context>
-<context>
     <name>VisualContainer</name>
     <message>
         <source>Unboost</source>
@@ -379,7 +382,19 @@
     </message>
     <message>
         <source>Mention</source>
-        <translation type="unfinished"></translation>
+        <translation>Mencionar</translation>
+    </message>
+    <message>
+        <source>Conversation</source>
+        <translation>Conversación</translation>
+    </message>
+    <message>
+        <source>Remove Bookmark</source>
+        <translation>Eliminar marcador</translation>
+    </message>
+    <message>
+        <source>Bookmark</source>
+        <translation>Marcador</translation>
     </message>
 </context>
 </TS>

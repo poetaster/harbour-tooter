@@ -89,11 +89,13 @@ var tootParser = function(data){
     ret.avatar_static = data.account.avatar_static
 
     ret.favourited = data.favourited ? true : false
-    ret.favourites_count = data.favourites_count ? data.favourites_count : 0
+    ret.status_favourites_count = data.favourites_count ? data.favourites_count : 0
 
     ret.reblog = data.reblog ? true : false
     ret.reblogged = data.reblogged ? true : false
-    ret.reblogs_count = data.reblogs_count ? data.reblogs_count : false
+    ret.status_reblogs_count = data.reblogs_count ? data.reblogs_count : false
+
+    ret.bookmarked = data.bookmarked ? true : false
 
     ret.muted = data.muted ? true : false
     ret.sensitive = data.sensitive ? true : false

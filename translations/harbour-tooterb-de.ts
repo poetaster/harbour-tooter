@@ -24,6 +24,7 @@
     <name>ConversationPage</name>
     <message>
         <source>Copy Link to Clipboard</source>
+        <extracomment>Use the translation of &quot;Copy Link&quot; for a shorter PullDownMenu label</extracomment>
         <translation>Link kopieren</translation>
     </message>
     <message>
@@ -57,6 +58,15 @@
     <message>
         <source>Toot sent!</source>
         <translation>Toot gesendet!</translation>
+    </message>
+    <message>
+        <source>Reply</source>
+        <extracomment>&quot;Reply&quot; will show the Toot text entry Panel. &quot;Hide Reply&quot; closes it. Alternative: Use &quot;Close Reply&quot;</extracomment>
+        <translation>Antworten</translation>
+    </message>
+    <message>
+        <source>Hide Reply</source>
+        <translation>Antwort verbergen</translation>
     </message>
 </context>
 <context>
@@ -188,6 +198,14 @@
     <message>
         <source>Bot</source>
         <translation>Bot</translation>
+    </message>
+    <message>
+        <source>Follows you</source>
+        <translation>Folgt dir</translation>
+    </message>
+    <message>
+        <source>Group</source>
+        <translation>Gruppe</translation>
     </message>
 </context>
 <context>
@@ -345,21 +363,6 @@
     </message>
 </context>
 <context>
-    <name>Toot</name>
-    <message>
-        <source>boosted</source>
-        <translation>hat geteilt</translation>
-    </message>
-    <message>
-        <source>favourited</source>
-        <translation>hat favorisiert</translation>
-    </message>
-    <message>
-        <source>followed you</source>
-        <translation>folgt dir</translation>
-    </message>
-</context>
-<context>
     <name>VisualContainer</name>
     <message>
         <source>Unboost</source>
@@ -380,6 +383,18 @@
     <message>
         <source>Mention</source>
         <translation>Erwähnen</translation>
+    </message>
+    <message>
+        <source>Conversation</source>
+        <translation>Konversation</translation>
+    </message>
+    <message>
+        <source>Remove Bookmark</source>
+        <translation>Lesezeichen entfernen</translation>
+    </message>
+    <message>
+        <source>Bookmark</source>
+        <translation>Lesezeichen</translation>
     </message>
 </context>
 </TS>

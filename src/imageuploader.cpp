@@ -11,15 +11,15 @@
 //static const QUrl IMGUR_UPLOAD_URL("https://httpbin.org/post");
 //static const QUrl IMGUR_UPLOAD_URL();
 
-ImageUploader::ImageUploader(QObject *parent) : QObject(parent), m_networkAccessManager(0), m_reply(0) {
+ImageUploader::ImageUploader(QObject *parent) : QObject(parent), m_networkAccessManager(nullptr), m_reply(nullptr) {
     m_networkAccessManager = new QNetworkAccessManager(this);
 }
 
 ImageUploader::~ImageUploader() {
-    if (m_reply != 0) {
+    if (m_reply != nullptr) {
         m_reply->disconnect();
         m_reply->deleteLater();
-        m_reply = 0;
+        m_reply = nullptr;
     }
 }
 
@@ -58,10 +58,10 @@ void ImageUploader::upload() {
         return;
     }
 
-    if (m_reply != 0) {
+    if (m_reply != nullptr) {
         m_reply->disconnect();
         m_reply->deleteLater();
-        m_reply = 0;
+        m_reply = nullptr;
     }
 
     /*QFileInfo fileInfo(QUrl(m_fileName).toLocalFile());
@@ -146,6 +146,6 @@ void ImageUploader::replyFinished() {
     }
 
     m_reply->deleteLater();
-    m_reply = 0;
+    m_reply = nullptr;
     postdata.clear();
 }

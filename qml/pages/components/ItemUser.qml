@@ -18,6 +18,7 @@ BackgroundItem {
         anchors.left: parent.left
         anchors.leftMargin: Theme.horizontalPageMargin
         color: Theme.highlightDimmerColor
+
         Image {
             id: img
             opacity: status === Image.Ready ? 1.0 : 0.0
@@ -30,7 +31,7 @@ BackgroundItem {
             size: BusyIndicatorSize.Small
             opacity: img.status === Image.Ready ? 0.0 : 1.0
             Behavior on opacity { FadeAnimator {} }
-            running: avatar.status !== Image.Ready;
+            running: avatar.status !== Image.Ready
             anchors.centerIn: parent
         }
 
@@ -41,36 +42,70 @@ BackgroundItem {
                                           "username": model.account_acct,
                                           "user_id": model.account_id,
                                           "profileImage": model.account_avatar,
-                                          "profileBackground": model.account_header
+                                          "profileBackground": model.account_header,
+                                          "note": model.account_note,
+                                          "url": model.account_url,
+                                          "followers_count": model.account_followers_count,
+                                          "following_count": model.account_following_count,
+                                          "statuses_count": model.account_statuses_count,
+                                          "locked": model.account_locked,
+                                          "bot": model.account_bot
                                       })
         }
     }
 
-    Column {
+    Item {
         anchors.left: avatar.right
         anchors.leftMargin: Theme.paddingLarge
         anchors.verticalCenter: parent.verticalCenter
         height: account_acct.height + display_name.height
+
         Label {
             id: display_name
-            text: model.account_display_name+" "
-            color: !pressed ?  Theme.primaryColor : Theme.highlightColor
+            text: account_display_name ? account_display_name : account_username.split('@')[0]
+            color: !pressed ? Theme.primaryColor : Theme.highlightColor
             font.pixelSize: Theme.fontSizeSmall
+            anchors.top: parent.top
+
         }
+
+        Image {
+            id: icnBot
+            visible: account_bot
+            source: "../../images/icon-s-bot.svg?" + ( pressed ? Theme.highlightColor : Theme.primaryColor )
+            width: account_bot ? Theme.iconSizeExtraSmall : 0
+            height: width
+            y: Theme.paddingLarge
+            anchors {
+                left: display_name.right
+                leftMargin: Theme.paddingSmall
+                verticalCenter: display_name.verticalCenter
+            }
+        }
+
         Label {
             id: account_acct
             text: "@"+model.account_acct
             color: !pressed ?  Theme.secondaryColor : Theme.secondaryHighlightColor
             anchors.leftMargin: Theme.paddingMedium
             font.pixelSize: Theme.fontSizeExtraSmall
+            anchors.top: display_name.bottom
         }
     }
-    onClicked: openUser({
+
+    onClicked: openUser( {
                             "display_name": model.account_display_name,
                             "username": model.account_acct,
                             "user_id": model.account_id,
                             "profileImage": model.account_avatar,
-                            "profileBackground": model.account_header
-                        })
-
+                            "profileBackground": model.account_header,
+                            "note": model.account_note,
+                            "url": model.account_url,
+                            "followers_count": model.account_followers_count,
+                            "following_count": model.account_following_count,
+                            "statuses_count": model.account_statuses_count,
+                            "locked": model.account_locked,
+                            "bot": model.account_bot,
+                            "group": model.account_group
+                        } )
 }

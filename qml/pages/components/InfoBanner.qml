@@ -55,5 +55,4 @@ DockedPanel {
             stop()
         }
     }
-
 }

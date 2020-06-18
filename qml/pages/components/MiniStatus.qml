@@ -26,13 +26,8 @@ Item {
     Label {
         id: lblRtByName
         visible: type.length
-        anchors {
-            left: icon.right
-            leftMargin: Theme.paddingMedium
-            verticalCenter: icon.verticalCenter
-        }
         text: {
-            var action = "";
+            var action = ""
             switch(type){
             case "reblog":
                 action =  qsTr('boosted');
@@ -47,9 +42,14 @@ Item {
                 miniStatus.visible = false
                 action = type;
             }
-            return typeof reblog_account_username !== "undefined" ? '@' + reblog_account_username + ' ' +  action : ''
+            return typeof reblog_account_username !== "undefined" ? "@" + reblog_account_username + " " +  action : " "
         }
         font.pixelSize: Theme.fontSizeExtraSmall
         color: Theme.highlightColor
+        anchors {
+            left: icon.right
+            leftMargin: Theme.paddingMedium
+            verticalCenter: icon.verticalCenter
+        }
     }
 }

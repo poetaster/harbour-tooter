@@ -24,5 +24,4 @@ FullscreenContentPage {
         }
         onClicked: pageStack.pop()
     }
-
 }

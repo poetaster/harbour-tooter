@@ -12,9 +12,7 @@ Item {
     property string bg: ""
 
     width: parent.width
-    height: if (bot === true) {
-                avatarImage.height + Theme.paddingLarge*2 + infoLbl.height + Theme.paddingLarge
-            } else avatarImage.height + Theme.paddingLarge*2
+    height: avatarImage.height + Theme.paddingLarge*3 + infoLbl.height
 
     Rectangle {
         id: bgImage
@@ -29,7 +27,6 @@ Item {
             asynchronous: true
             fillMode: Image.PreserveAspectCrop
             source: bg
-            opacity: 0.8
             anchors.fill: parent
         }
     }
@@ -37,19 +34,18 @@ Item {
     Image {
         id: avatarImage
         asynchronous: true
-        source:
-            if (avatarImage.status === Image.Error)
-                source = "../../images/icon-l-profile.svg?" + (pressed
-                                                               ? Theme.highlightColor
-                                                               : Theme.primaryColor)
-            else image
-        width: description === "" ? Theme.iconSizeMedium : Theme.iconSizeLarge
+        source: if (avatarImage.status === Image.Error)
+                    source = "../../images/icon-l-profile.svg?" + (pressed
+                                                                   ? Theme.highlightColor
+                                                                   : Theme.primaryColor)
+                else image
+        width: Theme.iconSizeLarge
         height: width
         anchors {
             left: parent.left
-            leftMargin: Theme.paddingLarge
+            leftMargin: Theme.horizontalPageMargin
             top: parent.top
-            topMargin: Theme.paddingLarge
+            topMargin: Theme.paddingLarge * 1.5
         }
 
         Button {
@@ -74,18 +70,15 @@ Item {
             top: parent.top
             topMargin: Theme.paddingLarge
             left: avatarImage.right
-            leftMargin: Theme.paddingLarge
+            leftMargin: Theme.horizontalPageMargin
             right: parent.right
-            rightMargin: Theme.paddingLarge
+            rightMargin: Theme.horizontalPageMargin
             verticalCenter: parent.verticalCenter
         }
 
         Label {
             id: profileTitle
-            text: if (title === "") {
-                      description.split('@')[0]
-                  }
-                  else title
+            text: title ? title : description.split('@')[0]
             font.pixelSize: Theme.fontSizeLarge
             font.family: Theme.fontFamilyHeading
             color: Theme.highlightColor
@@ -112,19 +105,37 @@ Item {
         id: infoLbl
         spacing: Theme.paddingLarge
         layoutDirection: Qt.RightToLeft
-        height: Theme.iconSizeSmall + Theme.paddingSmall
+        height: followed_by || locked || bot || group ? Theme.iconSizeSmall + Theme.paddingSmall : 0
         anchors {
             top: avatarImage.bottom
-            topMargin: Theme.paddingLarge
+            topMargin: Theme.paddingMedium
             left: parent.left
-            leftMargin: Theme.paddingLarge
+            leftMargin: Theme.horizontalPageMargin
             right: parent.right
-            rightMargin: Theme.paddingLarge
+            rightMargin: Theme.horizontalPageMargin
         }
 
-        /* Rectangle {
+        Rectangle {
+            id: groupBg
+            visible: (group ? true : false)
+            radius: Theme.paddingSmall
+            color: Theme.secondaryHighlightColor
+            width: groupLbl.width + 2*Theme.paddingLarge
+            height: parent.height
+
+            Label {
+                id: groupLbl
+                text: qsTr("Group")
+                font.pixelSize: Theme.fontSizeExtraSmall
+                color: Theme.primaryColor
+                anchors.horizontalCenter: parent.horizontalCenter
+                anchors.verticalCenter: parent.verticalCenter
+            }
+        }
+
+        Rectangle {
             id: followingBg
-            visible: (following ? true : false)
+            visible: (followed_by ? true : false)
             radius: Theme.paddingSmall
             color: Theme.secondaryHighlightColor
             width: followingLbl.width + 2*Theme.paddingLarge
@@ -138,7 +149,26 @@ Item {
                 anchors.horizontalCenter: parent.horizontalCenter
                 anchors.verticalCenter: parent.verticalCenter
             }
-        } */
+        }
+
+        Rectangle {
+            id: lockedBg
+            visible: (locked ? true : false)
+            radius: Theme.paddingSmall
+            color: Theme.secondaryHighlightColor
+            width: lockedImg.width + 2*Theme.paddingLarge
+            height: parent.height
+
+            HighlightImage {
+                id: lockedImg
+                source: "image://theme/icon-s-secure?"
+                width: Theme.fontSizeExtraSmall
+                height: width
+                color: Theme.primaryColor
+                anchors.horizontalCenter: lockedBg.horizontalCenter
+                anchors.verticalCenter: lockedBg.verticalCenter
+            }
+        }
 
         Rectangle {
             id: botBg

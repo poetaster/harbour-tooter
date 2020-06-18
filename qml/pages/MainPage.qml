@@ -10,7 +10,6 @@ Page {
     property bool isFirstPage: true
     property bool isTablet: true //Screen.sizeCategory >= Screen.Large
 
-    // The effective value will be restricted by ApplicationWindow.allowedOrientations
     allowedOrientations: Orientation.All
 
     DockedPanel {
@@ -19,6 +18,7 @@ Page {
         width: mainPage.isPortrait ? parent.width : Theme.itemSizeLarge
         height: mainPage.isPortrait ? Theme.itemSizeLarge : parent.height
         dock: mainPage.isPortrait ? Dock.Bottom : Dock.Right
+
         Navigation {
             id: navigation
             isPortrait: !mainPage.isPortrait
@@ -31,6 +31,7 @@ Page {
 
     VisualItemModel {
         id: visualModel
+
         MyList{
             id: tlHome
             title: qsTr("Home")
@@ -88,7 +89,7 @@ Page {
                     loader.sourceComponent = userListComponent
                 } else if (search.charAt(0) === "#") {
                     loader.sourceComponent = tagListComponent
-                } else { loader.sourceComponent = wordListComponent}
+                } else loader.sourceComponent = wordListComponent
             }
 
             Loader {
@@ -102,6 +103,7 @@ Page {
                 PageHeader {
                     title: qsTr("Search")
                 }
+
                 SearchField {
                     id: searchField
                     width: parent.width
@@ -175,10 +177,19 @@ Page {
                                                "username": model.account_acct,
                                                "user_id": model.account_id,
                                                "profileImage": model.account_avatar,
-                                               "profileBackground": model.account_header
+                                               "profileBackground": model.account_header,
+                                               "note": model.account_note,
+                                               "url": model.account_url,
+                                               "followers_count": model.account_followers_count,
+                                               "following_count": model.account_following_count,
+                                               "statuses_count": model.account_statuses_count,
+                                               "locked": model.account_locked,
+                                               "bot": model.account_bot,
+                                               "group": model.account_group
                                            })
                         }
                     }
+
                     Component.onCompleted: {
                         view2.type = "accounts/search"
                         view2.params = []
@@ -256,7 +267,7 @@ Page {
         }
     }
 
-    function onLinkActivated(href){
+    function onLinkActivated(href) {
         var test = href.split("/")
         console.log(href)
         console.log(JSON.stringify(test))
@@ -279,5 +290,4 @@ Page {
     Component.onCompleted: {
         console.log("aaa")
     }
-
 }

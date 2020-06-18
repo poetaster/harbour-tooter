@@ -93,7 +93,8 @@ BackgroundItem {
                                    "following_count": model.account_following_count,
                                    "statuses_count": model.account_statuses_count,
                                    "locked": model.account_locked,
-                                   "bot": model.account_bot
+                                   "bot": model.account_bot,
+                                   "group": model.account_group
                                } )
             }
         }
@@ -123,7 +124,7 @@ BackgroundItem {
             visible: status_visibility === "direct"
             width: Theme.iconSizeMedium
             height: width
-            source: "image://theme/icon-m-mail"
+            source: "../../images/icon-m-mail.svg?"
             anchors {
                 horizontalCenter: avatar.horizontalCenter
                 top: avatar.bottom
@@ -172,7 +173,8 @@ BackgroundItem {
                                        "following_count": model.reblog_account_following_count,
                                        "statuses_count": model.reblog_account_statuses_count,
                                        "locked": model.reblog_account_locked,
-                                       "bot": model.reblog_account_bot
+                                       "bot": model.reblog_account_bot,
+                                       "group": model.reblog_account_group
                                    } )
                 }
             }
@@ -213,7 +215,7 @@ BackgroundItem {
                     Theme.paddingLarge
                 } else if (myList.type === "notifications" && ( model.type === "favourite" || model.type === "reblog" )) {
                     Math.min( implicitHeight, Theme.itemSizeExtraLarge * 1.5 )
-                } else content.length ? (contentWarningLabel.paintedHeight > paintedHeight ? contentWarningLabel.paintedHeight : paintedHeight) : 0
+                } else content.length ? ( contentWarningLabel.paintedHeight > paintedHeight ? contentWarningLabel.paintedHeight : paintedHeight ) : 0
         anchors {
             left: miniHeader.left
             right: miniHeader.right
@@ -249,6 +251,7 @@ BackgroundItem {
 
         // Content warning cover for Toots
         Rectangle {
+            id: contentWarningBg
             color: Theme.highlightDimmerColor
             visible: status_spoiler_text.length > 0
             anchors.fill: parent
@@ -320,7 +323,7 @@ BackgroundItem {
                 model.reblogged = !model.reblogged
             }
 
-            Image {
+            Icon {
                 id: icRT
                 source: "image://theme/icon-s-retweet?" + (!model.reblogged ? Theme.highlightColor : Theme.primaryColor)
                 width: Theme.iconSizeExtraSmall
@@ -347,9 +350,9 @@ BackgroundItem {
         MenuItem {
             id: mnuFavourite
             visible: model.type !== "follow"
-            text: typeof model.favourited !== "undefined" && model.favourited ? qsTr("Unfavorite") : qsTr("Favorite")
+            text: typeof model.status_favourited !== "undefined" && model.status_favourited ? qsTr("Unfavorite") : qsTr("Favorite")
             onClicked: {
-                var status = typeof model.favourited !== "undefined" && model.favourited
+                var status = typeof model.status_favourited !== "undefined" && model.status_favourited
                 worker.sendMessage({
                                        "conf"   : Logic.conf,
                                        "params" : [],
@@ -358,25 +361,25 @@ BackgroundItem {
                                        "action" : "statuses/"+model.status_id+"/" + (status ? "unfavourite" : "favourite")
                                    })
                 model.status_favourites_count = !status ? model.status_favourites_count+1 : (model.status_favourites_count > 0 ? model.status_favourites_count-1 : model.status_favourites_count);
-                model.favourited = !model.favourited
+                model.status_favourited = !model.status_favourited
             }
 
-            Image {
+            Icon {
                 id: icFA
+                source: "image://theme/icon-s-favorite?" + (!model.status_favourited ? Theme.highlightColor : Theme.primaryColor)
+                width: Theme.iconSizeExtraSmall
+                height: width
                 anchors {
                     leftMargin: Theme.horizontalPageMargin
                     left: parent.left
                     verticalCenter: parent.verticalCenter
                 }
-                width: Theme.iconSizeExtraSmall
-                height: width
-                source: "image://theme/icon-s-favorite?" + (!model.favourited ? Theme.highlightColor : Theme.primaryColor)
             }
 
             Label {
-                text: status_favourites_count // from API.js
+                text: status_favourites_count
                 font.pixelSize: Theme.fontSizeExtraSmall
-                color: !model.favourited ? Theme.highlightColor : Theme.primaryColor
+                color: !model.status_favourited ? Theme.highlightColor : Theme.primaryColor
                 anchors {
                     left: icFA.right
                     leftMargin: Theme.paddingMedium
@@ -384,6 +387,36 @@ BackgroundItem {
                 }
             }
         }
+
+        MenuItem {
+            id: mnuBookmark
+            visible: model.type !== "follow"
+            text: typeof model.status_bookmarked !== "undefined" && model.status_bookmarked ? qsTr("Remove Bookmark") : qsTr("Bookmark")
+            onClicked: {
+                var status = typeof model.status_bookmarked !== "undefined" && model.status_bookmarked
+                worker.sendMessage({
+                                       "conf"   : Logic.conf,
+                                       "params" : [],
+                                       "method" : "POST",
+                                       "bgAction": true,
+                                       "action" : "statuses/"+model.status_id+"/" + (status ? "unbookmark" : "bookmark")
+                                   })
+                model.status_bookmarked = !model.status_bookmarked
+            }
+
+            Icon {
+                source: "../../images/icon-s-bookmark.svg?"
+                color: !model.status_bookmarked ? Theme.highlightColor : Theme.primaryColor
+                width: Theme.iconSizeExtraSmall
+                height: width
+                anchors {
+                    left: parent.left
+                    leftMargin: Theme.horizontalPageMargin + Theme.paddingMedium
+                    verticalCenter: parent.verticalCenter
+                }
+            }
+        }
+
 
         MenuItem {
             id: mnuMention
@@ -397,16 +430,16 @@ BackgroundItem {
                                })
             }
 
-            Image {
+            Icon {
                 id: icMT
+                source: "image://theme/icon-s-chat?" + (!model.status_favourited ? Theme.highlightColor : Theme.primaryColor)
+                width: Theme.iconSizeExtraSmall
+                height: width
                 anchors {
-                    leftMargin: Theme.horizontalPageMargin
+                    leftMargin: Theme.horizontalPageMargin + Theme.paddingMedium
                     left: parent.left
                     verticalCenter: parent.verticalCenter
                 }
-                width: Theme.iconSizeExtraSmall
-                height: width
-                source: "image://theme/icon-s-chat?" + (!model.favourited ? Theme.highlightColor : Theme.primaryColor)
             }
         }
     }

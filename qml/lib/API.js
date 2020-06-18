@@ -95,6 +95,8 @@ var tootParser = function(data){
     ret.reblogged = data.reblogged ? true : false
     ret.status_reblogs_count = data.reblogs_count ? data.reblogs_count : false
 
+    ret.bookmarked = data.bookmarked ? true : false
+
     ret.muted = data.muted ? true : false
     ret.sensitive = data.sensitive ? true : false
     ret.visibility = data.visibility ? data.visibility : false

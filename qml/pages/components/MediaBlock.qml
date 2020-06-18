@@ -32,8 +32,8 @@ Item {
             break;
 
         case 2:
-            placeholder1.visible = true;
-            placeholder2.visible = true;
+            placeholder1.visible = true
+            placeholder2.visible = true
             placeholder1.width = (holder.width-Theme.paddingSmall)/2
             placeholder1.height = placeholder1.width
             placeholder2.width = placeholder1.width
@@ -43,10 +43,10 @@ Item {
             break;
 
         case 3:
-            placeholder1.visible = true;
-            placeholder2.visible = true;
-            placeholder3.visible = true;
-            placeholder4.visible = false;
+            placeholder1.visible = true
+            placeholder2.visible = true
+            placeholder3.visible = true
+            placeholder4.visible = false
 
             placeholder1.width = holder.width - Theme.paddingSmall - Theme.itemSizeLarge;
             placeholder1.height = Theme.itemSizeLarge*2+Theme.paddingSmall
@@ -59,16 +59,16 @@ Item {
             break;
 
         case 4:
-            placeholder1.visible = true;
-            placeholder2.visible = true;
-            placeholder3.visible = true;
-            placeholder4.visible = true;
+            placeholder1.visible = true
+            placeholder2.visible = true
+            placeholder3.visible = true
+            placeholder4.visible = true
 
             placeholder1.width = placeholder2.width = placeholder3.width = placeholder4.width =  (holder.width - 3*Theme.paddingSmall)/4
             placeholder1.height = placeholder2.height = placeholder3.height = placeholder4.height = Theme.itemSizeLarge*2+Theme.paddingSmall
-            placeholder2.x = 1*(placeholder1.width)+ 1*Theme.paddingSmall;
-            placeholder3.x = 2*(placeholder1.width)+ 2*Theme.paddingSmall;
-            placeholder4.x = 3*(placeholder1.width)+ 3*Theme.paddingSmall;
+            placeholder2.x = 1*(placeholder1.width)+ 1*Theme.paddingSmall
+            placeholder3.x = 2*(placeholder1.width)+ 2*Theme.paddingSmall
+            placeholder4.x = 3*(placeholder1.width)+ 3*Theme.paddingSmall
 
             holder.height = placeholder1.height            
             break;

@@ -203,6 +203,10 @@
         <source>Follows you</source>
         <translation>Vous suit</translation>
     </message>
+    <message>
+        <source>Group</source>
+        <translation>Groupe</translation>
+    </message>
 </context>
 <context>
     <name>ProfilePage</name>
@@ -383,6 +387,14 @@
     <message>
         <source>Conversation</source>
         <translation>Conversation</translation>
+    </message>
+    <message>
+        <source>Remove Bookmark</source>
+        <translation>Retirer marque-page</translation>
+    </message>
+    <message>
+        <source>Bookmark</source>
+        <translation>Ajouter aux marque-pages</translation>
     </message>
 </context>
 </TS>

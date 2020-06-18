@@ -31,7 +31,7 @@ BackgroundItem {
             size: BusyIndicatorSize.Small
             opacity: img.status === Image.Ready ? 0.0 : 1.0
             Behavior on opacity { FadeAnimator {} }
-            running: avatar.status !== Image.Ready;
+            running: avatar.status !== Image.Ready
             anchors.centerIn: parent
         }
 
@@ -105,6 +105,7 @@ BackgroundItem {
                             "following_count": model.account_following_count,
                             "statuses_count": model.account_statuses_count,
                             "locked": model.account_locked,
-                            "bot": model.account_bot
+                            "bot": model.account_bot,
+                            "group": model.account_group
                         } )
 }

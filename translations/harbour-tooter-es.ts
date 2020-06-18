@@ -62,11 +62,11 @@
     <message>
         <source>Reply</source>
         <extracomment>&quot;Reply&quot; will show the Toot text entry Panel. &quot;Hide Reply&quot; closes it. Alternative: Use &quot;Close Reply&quot;</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Respuesta</translation>
     </message>
     <message>
         <source>Hide Reply</source>
-        <translation type="unfinished"></translation>
+        <translation>Cerrar respuesta</translation>
     </message>
 </context>
 <context>
@@ -201,7 +201,11 @@
     </message>
     <message>
         <source>Follows you</source>
-        <translation type="unfinished"></translation>
+        <translation>Te sigue</translation>
+    </message>
+    <message>
+        <source>Group</source>
+        <translation>Grupo</translation>
     </message>
 </context>
 <context>
@@ -234,7 +238,7 @@
     <message>
         <source>Requested</source>
         <extracomment>Is a button. Keep it as short as possible.</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Requerido</translation>
     </message>
     <message>
         <source>Follow</source>
@@ -267,7 +271,7 @@
     </message>
     <message>
         <source>Mention</source>
-        <translation type="unfinished"></translation>
+        <translation>Mencionar</translation>
     </message>
 </context>
 <context>
@@ -378,11 +382,19 @@
     </message>
     <message>
         <source>Mention</source>
-        <translation type="unfinished"></translation>
+        <translation>Mencionar</translation>
     </message>
     <message>
         <source>Conversation</source>
-        <translation type="unfinished"></translation>
+        <translation>Conversación</translation>
+    </message>
+    <message>
+        <source>Remove Bookmark</source>
+        <translation>Eliminar marcador</translation>
+    </message>
+    <message>
+        <source>Bookmark</source>
+        <translation>Marcador</translation>
     </message>
 </context>
 </TS>

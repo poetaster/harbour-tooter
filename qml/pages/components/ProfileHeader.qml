@@ -12,7 +12,7 @@ Item {
     property string bg: ""
 
     width: parent.width
-    height: avatarImage.height + Theme.paddingLarge*3 + infoLbl.height + Theme.paddingLarge
+    height: avatarImage.height + Theme.paddingLarge*3 + infoLbl.height
 
     Rectangle {
         id: bgImage
@@ -27,7 +27,6 @@ Item {
             asynchronous: true
             fillMode: Image.PreserveAspectCrop
             source: bg
-            opacity: 0.8
             anchors.fill: parent
         }
     }
@@ -40,11 +39,11 @@ Item {
                                                                    ? Theme.highlightColor
                                                                    : Theme.primaryColor)
                 else image
-        width: description === "" ? Theme.iconSizeMedium : Theme.iconSizeLarge
+        width: Theme.iconSizeLarge
         height: width
         anchors {
             left: parent.left
-            leftMargin: Theme.paddingLarge
+            leftMargin: Theme.horizontalPageMargin
             top: parent.top
             topMargin: Theme.paddingLarge * 1.5
         }
@@ -69,11 +68,11 @@ Item {
     Column {
         anchors {
             top: parent.top
-            topMargin: Theme.paddingLarge * 1.5
+            topMargin: Theme.paddingLarge
             left: avatarImage.right
-            leftMargin: Theme.paddingLarge
+            leftMargin: Theme.horizontalPageMargin
             right: parent.right
-            rightMargin: Theme.paddingLarge
+            rightMargin: Theme.horizontalPageMargin
             verticalCenter: parent.verticalCenter
         }
 
@@ -106,14 +105,32 @@ Item {
         id: infoLbl
         spacing: Theme.paddingLarge
         layoutDirection: Qt.RightToLeft
-        height: followed_by || locked || bot ? Theme.iconSizeSmall + Theme.paddingSmall : 0
+        height: followed_by || locked || bot || group ? Theme.iconSizeSmall + Theme.paddingSmall : 0
         anchors {
             top: avatarImage.bottom
-            topMargin: Theme.paddingLarge
+            topMargin: Theme.paddingMedium
             left: parent.left
-            leftMargin: Theme.paddingLarge
+            leftMargin: Theme.horizontalPageMargin
             right: parent.right
-            rightMargin: Theme.paddingLarge
+            rightMargin: Theme.horizontalPageMargin
+        }
+
+        Rectangle {
+            id: groupBg
+            visible: (group ? true : false)
+            radius: Theme.paddingSmall
+            color: Theme.secondaryHighlightColor
+            width: groupLbl.width + 2*Theme.paddingLarge
+            height: parent.height
+
+            Label {
+                id: groupLbl
+                text: qsTr("Group")
+                font.pixelSize: Theme.fontSizeExtraSmall
+                color: Theme.primaryColor
+                anchors.horizontalCenter: parent.horizontalCenter
+                anchors.verticalCenter: parent.verticalCenter
+            }
         }
 
         Rectangle {

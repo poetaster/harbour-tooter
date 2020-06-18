@@ -152,6 +152,7 @@ function parseAccounts(collection, prefix, data) {
     // Optional attributes
     //res[prefix + 'account_fields'] = data["fields"]
     res[prefix + 'account_bot'] = data["bot"]
+    res[prefix + 'account_group'] = data["group"]
     res[prefix + 'account_source'] = data["source"]
 
     //console.log(JSON.stringify(res))

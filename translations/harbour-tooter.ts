@@ -62,11 +62,11 @@
     <message>
         <source>Reply</source>
         <extracomment>&quot;Reply&quot; will show the Toot text entry Panel. &quot;Hide Reply&quot; closes it. Alternative: Use &quot;Close Reply&quot;</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Reply</translation>
     </message>
     <message>
         <source>Hide Reply</source>
-        <translation type="unfinished"></translation>
+        <translation>Hide Reply</translation>
     </message>
 </context>
 <context>
@@ -201,7 +201,11 @@
     </message>
     <message>
         <source>Follows you</source>
-        <translation type="unfinished"></translation>
+        <translation>Follows you</translation>
+    </message>
+    <message>
+        <source>Group</source>
+        <translation>Group</translation>
     </message>
 </context>
 <context>
@@ -382,7 +386,15 @@
     </message>
     <message>
         <source>Conversation</source>
-        <translation type="unfinished"></translation>
+        <translation>Conversation</translation>
+    </message>
+    <message>
+        <source>Remove Bookmark</source>
+        <translation>Remove Bookmark</translation>
+    </message>
+    <message>
+        <source>Bookmark</source>
+        <translation>Bookmark</translation>
     </message>
 </context>
 </TS>

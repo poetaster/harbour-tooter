@@ -21,6 +21,7 @@ Page {
     property int followers_count
     property bool locked: false
     property bool bot: false
+    property bool group: false
     property bool following: false
     property bool followed_by: false
     property bool requested: false
@@ -68,16 +69,9 @@ Page {
             case 'following_count':
                 following_count = messageObject.data
                 break;
-            case 'acct':
-                // line below was commented out, reason unknown
-                // username = messageObject.data
-                break;
-            case 'locked':
-                locked = messageObject.data
-                break;
-            case 'bot':
-                bot = messageObject.data
-                break;
+            /* case 'acct':
+                username = messageObject.data
+                break; */
             case 'created_at':
                 created_at = messageObject.data
                 break;
@@ -99,10 +93,7 @@ Page {
                 break;
             case 'blocking':
                 blocking = messageObject.data
-                followers_count = followers_count + (blocking ? -1 : 0)
-                break;
-            case 'followed_by':
-                followed_by = messageObject.data
+                // followers_count = followers_count + (blocking ? -1 : 0)
                 break;
             }
         }
@@ -120,13 +111,6 @@ Page {
                 'conf'      : Logic.conf
             }
             worker.sendMessage(msg)
-
-            // reason for crashes when opening ProfilePage.qml
-           /* msg = {
-                'action'    : "accounts/"+user_id,
-                'conf'      : Logic.conf
-            }
-            worker.sendMessage(msg) */
 
         } else {
             var instance = Logic.conf['instance'].split("//")
@@ -160,13 +144,10 @@ Page {
         }
     }
 
-    ExpandingSectionGroup {  // ProfilePage ExpandingSection
+    // ProfilePage ExpandingSection
+    ExpandingSectionGroup {
         id: profileExpander
-        anchors {
-            bottom: parent.bottom
-            left: parent.left
-            right: parent.right
-        }
+        anchors.bottom: parent.bottom
 
         ExpandingSection {
             id: expandingSection1
@@ -174,13 +155,12 @@ Page {
                 //: If there's no good translation for "About", use "Details" (in details about profile).
                 qsTr("About")
             content.sourceComponent: Column {
-                height: Math.min( txtContainer, parent.height * 0.7 )
                 spacing: Theme.paddingLarge
 
                 Item {
                     id: txtContainer
                     width: parent.width
-                    height: Math.min( txtNote.height, parent.height * 0.55 )
+                    height: profilePage.isPortrait ? Math.min( txtNote.height, parent.height * 0.5 ) :  Math.min( txtNote.height, parent.height * 0.2 )
                     visible: {
                         if ((note.text === "") || ( note.text === "<p></p>" )) {
                             false

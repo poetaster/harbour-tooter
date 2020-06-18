@@ -184,7 +184,8 @@ Page {
                                                "following_count": model.account_following_count,
                                                "statuses_count": model.account_statuses_count,
                                                "locked": model.account_locked,
-                                               "bot": model.account_bot
+                                               "bot": model.account_bot,
+                                               "group": model.account_group
                                            })
                         }
                     }

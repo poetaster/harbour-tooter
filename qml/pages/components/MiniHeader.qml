@@ -20,10 +20,11 @@ Item {
         anchors.left: parent.left
     }
 
-    Image {
+    Icon {
         id: icnBot
         visible: account_bot
         source: "../../images/icon-s-bot.svg?" + ( pressed ? Theme.highlightColor : Theme.primaryColor )
+        color: Theme.primaryColor
         width: account_bot ? Theme.iconSizeExtraSmall * 1.3 : 0
         height: width
         y: Theme.paddingLarge

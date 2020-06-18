@@ -4,23 +4,23 @@
 <context>
     <name>API</name>
     <message>
-        <location filename="../qml/lib/API.js" line="156"/>
+        <location filename="../qml/lib/API.js" line="158"/>
         <source>favourited</source>
         <translation>ha apprezzato</translation>
     </message>
     <message>
-        <location filename="../qml/lib/API.js" line="167"/>
+        <location filename="../qml/lib/API.js" line="169"/>
         <source>followed you</source>
         <translation>ha iniziato a seguirti</translation>
     </message>
     <message>
-        <location filename="../qml/lib/API.js" line="177"/>
+        <location filename="../qml/lib/API.js" line="179"/>
         <source>boosted</source>
         <translation>ha condiviso</translation>
     </message>
     <message>
-        <location filename="../qml/lib/API.js" line="187"/>
         <location filename="../qml/lib/API.js" line="189"/>
+        <location filename="../qml/lib/API.js" line="191"/>
         <source>said</source>
         <translation>ha detto</translation>
     </message>
@@ -28,59 +28,59 @@
 <context>
     <name>ConversationPage</name>
     <message>
-        <location filename="../qml/pages/ConversationPage.qml" line="110"/>
+        <location filename="../qml/pages/ConversationPage.qml" line="111"/>
         <source>Copy Link to Clipboard</source>
         <extracomment>Use the translation of &quot;Copy Link&quot; for a shorter PullDownMenu label</extracomment>
         <translation>Copia link</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ConversationPage.qml" line="126"/>
+        <location filename="../qml/pages/ConversationPage.qml" line="127"/>
         <source>Reply</source>
         <extracomment>&quot;Reply&quot; will show the Toot text entry Panel. &quot;Hide Reply&quot; closes it. Alternative: Use &quot;Close Reply&quot;</extracomment>
         <translation>Risposta</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ConversationPage.qml" line="126"/>
+        <location filename="../qml/pages/ConversationPage.qml" line="127"/>
         <source>Hide Reply</source>
         <translation>Chiudere Risposta</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ConversationPage.qml" line="235"/>
+        <location filename="../qml/pages/ConversationPage.qml" line="234"/>
         <source>Write your warning here</source>
         <translation>Contenuto avviso</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ConversationPage.qml" line="268"/>
+        <location filename="../qml/pages/ConversationPage.qml" line="267"/>
         <source>What&apos;s on your mind?</source>
         <translation>A cosa stai pensando?</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ConversationPage.qml" line="335"/>
+        <location filename="../qml/pages/ConversationPage.qml" line="334"/>
         <source>Delete</source>
         <translation>Elimina</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ConversationPage.qml" line="433"/>
+        <location filename="../qml/pages/ConversationPage.qml" line="432"/>
         <source>Public</source>
         <translation>Pubblico</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ConversationPage.qml" line="436"/>
+        <location filename="../qml/pages/ConversationPage.qml" line="435"/>
         <source>Unlisted</source>
         <translation>Non elencato</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ConversationPage.qml" line="439"/>
+        <location filename="../qml/pages/ConversationPage.qml" line="438"/>
         <source>Followers-only</source>
         <translation>Solo ai seguaci</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ConversationPage.qml" line="442"/>
+        <location filename="../qml/pages/ConversationPage.qml" line="441"/>
         <source>Direct</source>
         <translation>Diretto</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ConversationPage.qml" line="489"/>
+        <location filename="../qml/pages/ConversationPage.qml" line="488"/>
         <source>Toot sent!</source>
         <translation>Toot è stato pubblicato!</translation>
     </message>
@@ -175,7 +175,7 @@
         <translation>@utente o #termine</translation>
     </message>
     <message>
-        <location filename="../qml/pages/MainPage.qml" line="263"/>
+        <location filename="../qml/pages/MainPage.qml" line="264"/>
         <source>New Toot</source>
         <translation>Nuovo toot</translation>
     </message>
@@ -238,12 +238,17 @@
 <context>
     <name>ProfileHeader</name>
     <message>
-        <location filename="../qml/pages/components/ProfileHeader.qml" line="129"/>
+        <location filename="../qml/pages/components/ProfileHeader.qml" line="128"/>
+        <source>Group</source>
+        <translation>Gruppo</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/components/ProfileHeader.qml" line="146"/>
         <source>Follows you</source>
         <translation>Ti segue</translation>
     </message>
     <message>
-        <location filename="../qml/pages/components/ProfileHeader.qml" line="166"/>
+        <location filename="../qml/pages/components/ProfileHeader.qml" line="183"/>
         <source>Bot</source>
         <translation>Bot</translation>
     </message>
@@ -251,79 +256,79 @@
 <context>
     <name>ProfilePage</name>
     <message>
-        <location filename="../qml/pages/ProfilePage.qml" line="175"/>
+        <location filename="../qml/pages/ProfilePage.qml" line="156"/>
         <source>About</source>
         <extracomment>If there&apos;s no good translation for &quot;About&quot;, use &quot;Details&quot; (in details about profile).</extracomment>
         <translation>Dettagli</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ProfilePage.qml" line="255"/>
+        <location filename="../qml/pages/ProfilePage.qml" line="235"/>
         <source>Followers</source>
         <extracomment>Will show as: &quot;35 Followers&quot;</extracomment>
         <translation>Seguaci</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ProfilePage.qml" line="266"/>
+        <location filename="../qml/pages/ProfilePage.qml" line="246"/>
         <source>Following</source>
         <extracomment>Will show as: &quot;23 Following&quot;</extracomment>
         <translation>Segue</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ProfilePage.qml" line="277"/>
+        <location filename="../qml/pages/ProfilePage.qml" line="257"/>
         <source>Statuses</source>
         <extracomment>Will show as: &quot;115 Statuses&quot;</extracomment>
         <translation>Toots</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ProfilePage.qml" line="293"/>
-        <location filename="../qml/pages/ProfilePage.qml" line="296"/>
+        <location filename="../qml/pages/ProfilePage.qml" line="273"/>
+        <location filename="../qml/pages/ProfilePage.qml" line="276"/>
         <source>Mention</source>
         <translation>Menzionare</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ProfilePage.qml" line="308"/>
+        <location filename="../qml/pages/ProfilePage.qml" line="288"/>
         <source>Unfollow</source>
         <extracomment>Is a button. Keep it as short as possible.</extracomment>
         <translation>Smetti di seguire</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ProfilePage.qml" line="310"/>
+        <location filename="../qml/pages/ProfilePage.qml" line="290"/>
         <source>Requested</source>
         <extracomment>Is a button. Keep it as short as possible.</extracomment>
         <translation>Richiesto</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ProfilePage.qml" line="312"/>
+        <location filename="../qml/pages/ProfilePage.qml" line="292"/>
         <source>Follow</source>
         <extracomment>Is a button. Keep it as short as possible.</extracomment>
         <translation>Segui</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ProfilePage.qml" line="331"/>
+        <location filename="../qml/pages/ProfilePage.qml" line="311"/>
         <source>Unmute</source>
         <extracomment>Is a button. Keep it as short as possible.</extracomment>
         <translation>Non silenziare</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ProfilePage.qml" line="333"/>
+        <location filename="../qml/pages/ProfilePage.qml" line="313"/>
         <source>Mute</source>
         <extracomment>Is a button. Keep it as short as possible.</extracomment>
         <translation>Silenzia</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ProfilePage.qml" line="351"/>
+        <location filename="../qml/pages/ProfilePage.qml" line="331"/>
         <source>Unblock</source>
         <extracomment>Is a button. Keep it as short as possible.</extracomment>
         <translation>Sblocca</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ProfilePage.qml" line="353"/>
+        <location filename="../qml/pages/ProfilePage.qml" line="333"/>
         <source>Block</source>
         <extracomment>Is a button. Keep it as short as possible.</extracomment>
         <translation>Blocca</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ProfilePage.qml" line="369"/>
+        <location filename="../qml/pages/ProfilePage.qml" line="349"/>
         <source>Open in Browser</source>
         <translation>Aprire nel browser</translation>
     </message>
@@ -440,33 +445,43 @@
 <context>
     <name>VisualContainer</name>
     <message>
-        <location filename="../qml/pages/components/VisualContainer.qml" line="309"/>
+        <location filename="../qml/pages/components/VisualContainer.qml" line="312"/>
         <source>Unboost</source>
         <translation>Annulla condivisione</translation>
     </message>
     <message>
-        <location filename="../qml/pages/components/VisualContainer.qml" line="309"/>
+        <location filename="../qml/pages/components/VisualContainer.qml" line="312"/>
         <source>Boost</source>
         <translation>Condividi</translation>
     </message>
     <message>
-        <location filename="../qml/pages/components/VisualContainer.qml" line="350"/>
+        <location filename="../qml/pages/components/VisualContainer.qml" line="353"/>
         <source>Unfavorite</source>
         <translation>Annulla apprezzamento</translation>
     </message>
     <message>
-        <location filename="../qml/pages/components/VisualContainer.qml" line="350"/>
+        <location filename="../qml/pages/components/VisualContainer.qml" line="353"/>
         <source>Favorite</source>
         <translation>Apprezzato</translation>
     </message>
     <message>
-        <location filename="../qml/pages/components/VisualContainer.qml" line="391"/>
         <location filename="../qml/pages/components/VisualContainer.qml" line="394"/>
+        <source>Remove Bookmark</source>
+        <translation>Elimina segnalibro</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/components/VisualContainer.qml" line="394"/>
+        <source>Bookmark</source>
+        <translation>Aggiungi segnalibro</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/components/VisualContainer.qml" line="424"/>
+        <location filename="../qml/pages/components/VisualContainer.qml" line="427"/>
         <source>Mention</source>
         <translation>Menzionare</translation>
     </message>
     <message>
-        <location filename="../qml/pages/components/VisualContainer.qml" line="420"/>
+        <location filename="../qml/pages/components/VisualContainer.qml" line="453"/>
         <source>Conversation</source>
         <translation>Conversazione</translation>
     </message>

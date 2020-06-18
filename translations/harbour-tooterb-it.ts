@@ -65,12 +65,12 @@
         <translation>Pubblico</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ConversationPage.qml" line="435"/>s
+        <location filename="../qml/pages/ConversationPage.qml" line="435"/>
         <source>Unlisted</source>
         <translation>Non elencato</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ConversationPage.qml" line="438"/>s
+        <location filename="../qml/pages/ConversationPage.qml" line="438"/>
         <source>Followers-only</source>
         <translation>Solo ai seguaci</translation>
     </message>
@@ -445,43 +445,43 @@
 <context>
     <name>VisualContainer</name>
     <message>
-        <location filename="../qml/pages/components/VisualContainer.qml" line="312"/>
+        <location filename="../qml/pages/components/VisualContainer.qml" line="314"/>
         <source>Unboost</source>
         <translation>Annulla condivisione</translation>
     </message>
     <message>
-        <location filename="../qml/pages/components/VisualContainer.qml" line="312"/>
+        <location filename="../qml/pages/components/VisualContainer.qml" line="314"/>
         <source>Boost</source>
         <translation>Condividi</translation>
     </message>
     <message>
-        <location filename="../qml/pages/components/VisualContainer.qml" line="353"/>
+        <location filename="../qml/pages/components/VisualContainer.qml" line="355"/>
         <source>Unfavorite</source>
         <translation>Annulla apprezzamento</translation>
     </message>
     <message>
-        <location filename="../qml/pages/components/VisualContainer.qml" line="353"/>
+        <location filename="../qml/pages/components/VisualContainer.qml" line="355"/>
         <source>Favorite</source>
         <translation>Apprezzato</translation>
     </message>
     <message>
-        <location filename="../qml/pages/components/VisualContainer.qml" line="394"/>
+        <location filename="../qml/pages/components/VisualContainer.qml" line="396"/>
         <source>Remove Bookmark</source>
         <translation>Elimina segnalibro</translation>
     </message>
     <message>
-        <location filename="../qml/pages/components/VisualContainer.qml" line="394"/>
+        <location filename="../qml/pages/components/VisualContainer.qml" line="396"/>
         <source>Bookmark</source>
         <translation>Aggiungi segnalibro</translation>
     </message>
     <message>
-        <location filename="../qml/pages/components/VisualContainer.qml" line="424"/>
-        <location filename="../qml/pages/components/VisualContainer.qml" line="427"/>
+        <location filename="../qml/pages/components/VisualContainer.qml" line="426"/>
+        <location filename="../qml/pages/components/VisualContainer.qml" line="429"/>
         <source>Mention</source>
         <translation>Menzionare</translation>
     </message>
     <message>
-        <location filename="../qml/pages/components/VisualContainer.qml" line="453"/>
+        <location filename="../qml/pages/components/VisualContainer.qml" line="455"/>
         <source>Conversation</source>
         <translation>Conversazione</translation>
     </message>

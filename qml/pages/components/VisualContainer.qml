@@ -14,6 +14,7 @@ BackgroundItem {
                 mnu.height + miniHeader.height + Theme.paddingLarge + lblContent.height + Theme.paddingLarge + (miniStatus.visible ? miniStatus.height : 0)
             } else mnu.height + miniHeader.height + (typeof attachments !== "undefined" && attachments.count ? media.height + Theme.paddingLarge + Theme.paddingMedium: Theme.paddingLarge) + lblContent.height + Theme.paddingLarge + (miniStatus.visible ? miniStatus.height : 0) + (iconDirectMsg.visible ? iconDirectMsg.height : 0)
 
+    // Background for Direct Messages in Notification View
     Rectangle {
         id: bgDirect
         x: 0
@@ -28,7 +29,8 @@ BackgroundItem {
         }
     }
 
-    Rectangle {
+    // Background for reblogs and favourited statuses in Notification View
+    /* Rectangle {
         id: bgNotifications
         x: 0
         y: 0
@@ -40,9 +42,9 @@ BackgroundItem {
             GradientStop { position: -0.5; color: "transparent" }
             GradientStop { position: 0.4; color: Theme.highlightDimmerColor }
         }
-    }
+    } */
 
-    MiniStatus {
+    MiniStatus { // Element showing reblog- or favourite status on top of Toot
         id: miniStatus
         anchors {
             leftMargin: Theme.horizontalPageMargin
@@ -52,6 +54,7 @@ BackgroundItem {
         }
     }
 
+    // Account avatar
     Image {
         id: avatar
         visible: true
@@ -176,36 +179,44 @@ BackgroundItem {
         }
     }
 
+    // Display name, username, date of Toot
     MiniHeader {
         id: miniHeader
         anchors {
             top: avatar.top
             left: avatar.right
+            leftMargin: Theme.paddingMedium
             right: parent.right
+            rightMargin: Theme.horizontalPageMargin
         }
     }
 
-    Text  {
+    // Toot content
+    Label  {
         id: lblContent
+
         visible: model.type !== "follow"
-        text: content.replace(new RegExp("<a ", 'g'), '<a style="text-decoration: none; color:'+(pressed ?  Theme.secondaryColor : Theme.highlightColor)+'" ')
-        textFormat: Text.RichText
+        text: if (myList.type === "notifications" && ( model.type === "favourite" || model.type === "reblog" )) {
+                  content
+              } else content.replace(new RegExp("<a ", 'g'), '<a style="text-decoration: none; color:'+(pressed ?  Theme.secondaryColor : Theme.highlightColor)+'" ')
+        textFormat: myList.type === "notifications" && ( model.type === "favourite" || model.type === "reblog" ) ? Text.StyledText : Text.RichText
         font.pixelSize: Theme.fontSizeSmall
-        linkColor: if (myList.type === "notifications" && ( model.type === "favourite" || model.type === "reblog" )) {
-                       Theme.secondaryHighlightColor
-                   } else Theme.highlightColor
         wrapMode: Text.Wrap
+        truncationMode: TruncationMode.Elide
         color: if (myList.type === "notifications" && ( model.type === "favourite" || model.type === "reblog" )) {
                    (pressed ? Theme.secondaryHighlightColor : (!highlight ? Theme.secondaryColor : Theme.secondaryHighlightColor))
                } else (pressed ? Theme.highlightColor : (!highlight ? Theme.primaryColor : Theme.secondaryColor))
+        linkColor: if (myList.type === "notifications" && ( model.type === "favourite" || model.type === "reblog" )) {
+                       Theme.secondaryHighlightColor
+                   } else Theme.highlightColor
         height: if (model.type === "follow") {
                     Theme.paddingLarge
+                } else if (myList.type === "notifications" && ( model.type === "favourite" || model.type === "reblog" )) {
+                    Math.min( implicitHeight, Theme.itemSizeExtraLarge * 1.5 )
                 } else content.length ? (contentWarningLabel.paintedHeight > paintedHeight ? contentWarningLabel.paintedHeight : paintedHeight) : 0
         anchors {
             left: miniHeader.left
-            leftMargin: Theme.paddingMedium
             right: miniHeader.right
-            rightMargin: Theme.horizontalPageMargin
             top: miniHeader.bottom
             topMargin: Theme.paddingSmall
             bottomMargin: Theme.paddingLarge
@@ -236,6 +247,7 @@ BackgroundItem {
             }
         }
 
+        // Content warning cover for Toots
         Rectangle {
             color: Theme.highlightDimmerColor
             visible: status_spoiler_text.length > 0
@@ -269,22 +281,24 @@ BackgroundItem {
         }
     }
 
+    // Displays media in Toots
     MediaBlock {
         id: media
         visible: if (myList.type === "notifications" && ( type === "favourite" || type === "reblog" )) {
                      false
                  } else true
-        model: typeof attachments !== "undefined" ? attachments : Qt.createQmlObject('import QtQuick 2.0; ListModel { }', Qt.application, 'InternalQmlObject');
+        model: typeof attachments !== "undefined" ? attachments : Qt.createQmlObject('import QtQuick 2.0; ListModel { }', Qt.application, 'InternalQmlObject')
         height: Theme.iconSizeExtraLarge * 2
         anchors {
-            left: lblContent.left
-            right: lblContent.right
+            left: miniHeader.left
+            right: miniHeader.right
             top: lblContent.bottom
             topMargin: Theme.paddingMedium
             bottomMargin: Theme.paddingLarge
         }
     }
 
+    // Context menu for Toots
     ContextMenu {
         id: mnu
 
@@ -377,7 +391,7 @@ BackgroundItem {
             text: qsTr("Mention")
             onClicked: {
                 pageStack.push(Qt.resolvedUrl("../ConversationPage.qml"), {
-                                   headerTitle: "Mention",
+                                   headerTitle: qsTr("Mention"),
                                    description: "@"+reblog_account_acct,
                                    type: "new"
                                })
@@ -397,6 +411,7 @@ BackgroundItem {
         }
     }
 
+    // Open ConversationPage and show other Toots in thread (if available)
     onClicked: {
         var m = Qt.createQmlObject('import QtQuick 2.0; ListModel { }', Qt.application, 'InternalQmlObject');
         if (typeof mdl !== "undefined")
@@ -419,5 +434,4 @@ BackgroundItem {
     onDoubleClicked: {
         console.log("double click")
     }
-
 }

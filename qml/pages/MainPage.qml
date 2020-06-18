@@ -10,7 +10,6 @@ Page {
     property bool isFirstPage: true
     property bool isTablet: true //Screen.sizeCategory >= Screen.Large
 
-    // The effective value will be restricted by ApplicationWindow.allowedOrientations
     allowedOrientations: Orientation.All
 
     DockedPanel {
@@ -19,6 +18,7 @@ Page {
         width: mainPage.isPortrait ? parent.width : Theme.itemSizeLarge
         height: mainPage.isPortrait ? Theme.itemSizeLarge : parent.height
         dock: mainPage.isPortrait ? Dock.Bottom : Dock.Right
+
         Navigation {
             id: navigation
             isPortrait: !mainPage.isPortrait
@@ -31,6 +31,7 @@ Page {
 
     VisualItemModel {
         id: visualModel
+
         MyList{
             id: tlHome
             title: qsTr("Home")
@@ -88,7 +89,7 @@ Page {
                     loader.sourceComponent = userListComponent
                 } else if (search.charAt(0) === "#") {
                     loader.sourceComponent = tagListComponent
-                } else { loader.sourceComponent = wordListComponent}
+                } else loader.sourceComponent = wordListComponent
             }
 
             Loader {
@@ -102,6 +103,7 @@ Page {
                 PageHeader {
                     title: qsTr("Search")
                 }
+
                 SearchField {
                     id: searchField
                     width: parent.width
@@ -287,5 +289,4 @@ Page {
     Component.onCompleted: {
         console.log("aaa")
     }
-
 }

@@ -24,6 +24,7 @@
     <name>ConversationPage</name>
     <message>
         <source>Copy Link to Clipboard</source>
+        <extracomment>Use the translation of &quot;Copy Link&quot; for a shorter PullDownMenu label</extracomment>
         <translation>Copier le lien</translation>
     </message>
     <message>
@@ -57,6 +58,15 @@
     <message>
         <source>Toot sent!</source>
         <translation>Pouet envoyé !</translation>
+    </message>
+    <message>
+        <source>Reply</source>
+        <extracomment>&quot;Reply&quot; will show the Toot text entry Panel. &quot;Hide Reply&quot; closes it. Alternative: Use &quot;Close Reply&quot;</extracomment>
+        <translation>Répondre</translation>
+    </message>
+    <message>
+        <source>Hide Reply</source>
+        <translation>Fermer Répondre</translation>
     </message>
 </context>
 <context>
@@ -188,6 +198,10 @@
     <message>
         <source>Bot</source>
         <translation>Bot</translation>
+    </message>
+    <message>
+        <source>Follows you</source>
+        <translation>Vous suit</translation>
     </message>
 </context>
 <context>
@@ -345,21 +359,6 @@
     </message>
 </context>
 <context>
-    <name>Toot</name>
-    <message>
-        <source>boosted</source>
-        <translation>a partagé</translation>
-    </message>
-    <message>
-        <source>favourited</source>
-        <translation>a ajouté à ses favoris</translation>
-    </message>
-    <message>
-        <source>followed you</source>
-        <translation>vous suit</translation>
-    </message>
-</context>
-<context>
     <name>VisualContainer</name>
     <message>
         <source>Unboost</source>
@@ -380,6 +379,10 @@
     <message>
         <source>Mention</source>
         <translation>Mentionner</translation>
+    </message>
+    <message>
+        <source>Conversation</source>
+        <translation>Conversation</translation>
     </message>
 </context>
 </TS>

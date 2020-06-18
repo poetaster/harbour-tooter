@@ -169,6 +169,4 @@ SilicaGridView {
     }
 
     VerticalScrollDecorator {}
-
-
 }

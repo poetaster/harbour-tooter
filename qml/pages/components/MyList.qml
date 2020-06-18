@@ -128,7 +128,7 @@ SilicaListView {
             openDrawer(contentY - scrollOffset  > 0 ? false : true )
             scrollOffset = contentY
         }
-        if(contentY+height > footerItem.y && !loadStarted && autoLoadMore){
+        if(contentY+height > footerItem.y && !loadStarted && autoLoadMore) {
             loadData("append")
             loadStarted = true
         }
@@ -161,16 +161,16 @@ SilicaListView {
         }
     }
 
-    function loadData(mode){
+    function loadData(mode) {
         var p = []
         if (params.length)
             for(var i = 0; i<params.length; i++)
                 p.push(params[i])
 
-        if (mode === "append" && model.count){
+        if (mode === "append" && model.count) {
             p.push({name: 'max_id', data: model.get(model.count-1).id})
         }
-        if (mode === "prepend" && model.count){
+        if (mode === "prepend" && model.count) {
             p.push({name:'since_id', data: model.get(0).id})
         }
 
@@ -185,5 +185,4 @@ SilicaListView {
         if (type !== "")
             worker.sendMessage(msg)
     }
-
 }

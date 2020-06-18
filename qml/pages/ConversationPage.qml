@@ -106,6 +106,7 @@ Page {
             visible: type === "reply"
 
             MenuItem {
+                //: Use the translation of "Copy Link" for a shorter PullDownMenu label
                 text: qsTr("Copy Link to Clipboard")
                 onClicked: if (toot_url === "") {
                                var test = toot_uri.split("/")
@@ -121,6 +122,7 @@ Page {
             }
 
             MenuItem {
+                //: "Reply" will show the Toot text entry Panel. "Hide Reply" closes it. Alternative: Use "Close Reply"
                 text: !panel.open ? qsTr("Reply") : qsTr("Hide Reply")
                 visible: type == "reply"
                 onClicked: if (!panel.open) {
@@ -590,5 +592,4 @@ Page {
     InfoBanner {
         id: sentBanner
     }
-
 }

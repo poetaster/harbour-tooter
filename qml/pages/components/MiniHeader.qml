@@ -9,30 +9,22 @@ Item {
 
     Label {
         id: lblName
-        text:
-            if (account_display_name === "") {
-                account_username.split('@')[0]
-            }
-            else account_display_name
+        text: account_display_name ? account_display_name : account_username.split('@')[0]
         font.weight: Font.Bold
         font.pixelSize: Theme.fontSizeSmall
-        color: if (myList.type === "notifications" && ( model.type === "favourite" || model.type === "reblog" )) {
-                   (pressed ? Theme.secondaryHighlightColor : (!highlight ? Theme.secondaryColor : Theme.secondaryHighlightColor))
-               } else (pressed ? Theme.highlightColor : (!highlight ? Theme.primaryColor : Theme.secondaryColor))
+        color: if ( myList.type === "notifications" && ( model.type === "favourite" || model.type === "reblog" )) {
+                   ( pressed ? Theme.secondaryHighlightColor : (!highlight ? Theme.secondaryColor : Theme.secondaryHighlightColor ))
+               } else ( pressed ? Theme.highlightColor : ( !highlight ? Theme.primaryColor : Theme.secondaryColor ))
         truncationMode: TruncationMode.Fade
         width: contentWidth > parent.width /2 ? parent.width /2 : contentWidth
-        anchors {
-            left: parent.left
-            leftMargin: Theme.paddingMedium
-        }
+        anchors.left: parent.left
     }
 
     Image {
-        id: icnLocked
-        visible: account_locked
-        opacity: 0.8
-        source: "image://theme/icon-s-secure?" + (pressed ? Theme.highlightColor : Theme.primaryColor)
-        width: account_locked ? Theme.iconSizeExtraSmall*0.8 : 0
+        id: icnBot
+        visible: account_bot
+        source: "../../images/icon-s-bot.svg?" + ( pressed ? Theme.highlightColor : Theme.primaryColor )
+        width: account_bot ? Theme.iconSizeExtraSmall * 1.3 : 0
         height: width
         y: Theme.paddingLarge
         anchors {
@@ -44,15 +36,30 @@ Item {
 
     Label {
         id: lblScreenName
+        visible: model.type !== "follow"
         text: '@'+account_username
         font.pixelSize: Theme.fontSizeExtraSmall
-        color: (pressed ? Theme.secondaryHighlightColor : Theme.secondaryColor)
+        color: ( pressed ? Theme.secondaryHighlightColor : Theme.secondaryColor )
         truncationMode: TruncationMode.Fade
         anchors {
-            left: icnLocked.right
+            left: icnBot ? icnBot.right : icnLocked.right
+            leftMargin: Theme.paddingSmall
             right: lblDate.left
-            leftMargin: Theme.paddingMedium
-            baseline: lblName.baseline
+            rightMargin: Theme.paddingMedium
+            verticalCenter: lblName.verticalCenter
+        }
+    }
+
+    Label {
+        id: lblScreenNameFollow
+        visible: model.type === "follow" && myList.type === "notifications"
+        text: '@'+account_username
+        font.pixelSize: Theme.fontSizeExtraSmall
+        color: ( pressed ? Theme.secondaryHighlightColor : Theme.secondaryColor )
+        truncationMode: TruncationMode.Fade
+        anchors {
+            left: parent.left
+            top: lblName.bottom
         }
     }
 
@@ -60,13 +67,11 @@ Item {
         id: lblDate
         text: Format.formatDate(created_at, new Date() - created_at < 60*60*1000 ? Formatter.DurationElapsedShort : Formatter.TimeValueTwentyFourHours)
         font.pixelSize: Theme.fontSizeExtraSmall
-        color: (pressed ? Theme.highlightColor : Theme.primaryColor)
+        color: ( pressed ? Theme.highlightColor : Theme.secondaryColor )
         horizontalAlignment: Text.AlignRight
         anchors {
             right: parent.right
-            rightMargin: Theme.horizontalPageMargin
-            baseline: lblName.baseline
+            verticalCenter: lblName.verticalCenter
         }
     }
-
 }

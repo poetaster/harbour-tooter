@@ -37,7 +37,7 @@ Page {
                 }
             }
 
-            SectionHeader { text: qsTr("Account")}
+            SectionHeader { text: qsTr("Account") }
 
             Item {
                 id: removeAccount
@@ -249,5 +249,4 @@ Page {
             }
         }
     }
-
 }

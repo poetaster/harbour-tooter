@@ -161,6 +161,4 @@ Component {
             VerticalScrollDecorator {flickable: listEmojis }
         }
     }
-
-
 }

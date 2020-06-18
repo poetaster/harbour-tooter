@@ -54,7 +54,7 @@ BackgroundItem {
         }
     }
 
-    Column {
+    Item {
         anchors.left: avatar.right
         anchors.leftMargin: Theme.paddingLarge
         anchors.verticalCenter: parent.verticalCenter
@@ -62,11 +62,25 @@ BackgroundItem {
 
         Label {
             id: display_name
-            text: if (model.account_display_name === "") {
-                      model.account_username.split("@")[0] + " "
-                  } else model.account_display_name
+            text: account_display_name ? account_display_name : account_username.split('@')[0]
             color: !pressed ? Theme.primaryColor : Theme.highlightColor
             font.pixelSize: Theme.fontSizeSmall
+            anchors.top: parent.top
+
+        }
+
+        Image {
+            id: icnBot
+            visible: account_bot
+            source: "../../images/icon-s-bot.svg?" + ( pressed ? Theme.highlightColor : Theme.primaryColor )
+            width: account_bot ? Theme.iconSizeExtraSmall : 0
+            height: width
+            y: Theme.paddingLarge
+            anchors {
+                left: display_name.right
+                leftMargin: Theme.paddingSmall
+                verticalCenter: display_name.verticalCenter
+            }
         }
 
         Label {
@@ -75,6 +89,7 @@ BackgroundItem {
             color: !pressed ?  Theme.secondaryColor : Theme.secondaryHighlightColor
             anchors.leftMargin: Theme.paddingMedium
             font.pixelSize: Theme.fontSizeExtraSmall
+            anchors.top: display_name.bottom
         }
     }
 
@@ -92,5 +107,4 @@ BackgroundItem {
                             "locked": model.account_locked,
                             "bot": model.account_bot
                         } )
-
 }

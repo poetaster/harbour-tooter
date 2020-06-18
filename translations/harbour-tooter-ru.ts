@@ -24,6 +24,7 @@
     <name>ConversationPage</name>
     <message>
         <source>Copy Link to Clipboard</source>
+        <extracomment>Use the translation of &quot;Copy Link&quot; for a shorter PullDownMenu label</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -56,6 +57,15 @@
     </message>
     <message>
         <source>Toot sent!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Reply</source>
+        <extracomment>&quot;Reply&quot; will show the Toot text entry Panel. &quot;Hide Reply&quot; closes it. Alternative: Use &quot;Close Reply&quot;</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hide Reply</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -187,6 +197,10 @@
     <name>ProfileHeader</name>
     <message>
         <source>Bot</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Follows you</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -345,21 +359,6 @@
     </message>
 </context>
 <context>
-    <name>Toot</name>
-    <message>
-        <source>boosted</source>
-        <translation>росту</translation>
-    </message>
-    <message>
-        <source>favourited</source>
-        <translation>имеет любимый</translation>
-    </message>
-    <message>
-        <source>followed you</source>
-        <translation>следую за тобой</translation>
-    </message>
-</context>
-<context>
     <name>VisualContainer</name>
     <message>
         <source>Unboost</source>
@@ -379,6 +378,10 @@
     </message>
     <message>
         <source>Mention</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Conversation</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

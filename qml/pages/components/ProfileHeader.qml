@@ -12,9 +12,7 @@ Item {
     property string bg: ""
 
     width: parent.width
-    height: if (bot === true || locked === true || followed_by === true) {
-                avatarImage.height + Theme.paddingLarge*2 + infoLbl.height + Theme.paddingLarge
-            } else avatarImage.height + Theme.paddingLarge*2
+    height: avatarImage.height + Theme.paddingLarge*3 + infoLbl.height + Theme.paddingLarge
 
     Rectangle {
         id: bgImage
@@ -37,19 +35,18 @@ Item {
     Image {
         id: avatarImage
         asynchronous: true
-        source:
-            if (avatarImage.status === Image.Error)
-                source = "../../images/icon-l-profile.svg?" + (pressed
-                                                               ? Theme.highlightColor
-                                                               : Theme.primaryColor)
-            else image
+        source: if (avatarImage.status === Image.Error)
+                    source = "../../images/icon-l-profile.svg?" + (pressed
+                                                                   ? Theme.highlightColor
+                                                                   : Theme.primaryColor)
+                else image
         width: description === "" ? Theme.iconSizeMedium : Theme.iconSizeLarge
         height: width
         anchors {
             left: parent.left
             leftMargin: Theme.paddingLarge
             top: parent.top
-            topMargin: Theme.paddingLarge
+            topMargin: Theme.paddingLarge * 1.5
         }
 
         Button {
@@ -72,7 +69,7 @@ Item {
     Column {
         anchors {
             top: parent.top
-            topMargin: Theme.paddingLarge
+            topMargin: Theme.paddingLarge * 1.5
             left: avatarImage.right
             leftMargin: Theme.paddingLarge
             right: parent.right
@@ -82,10 +79,7 @@ Item {
 
         Label {
             id: profileTitle
-            text: if (title === "") {
-                      description.split('@')[0]
-                  }
-                  else title
+            text: title ? title : description.split('@')[0]
             font.pixelSize: Theme.fontSizeLarge
             font.family: Theme.fontFamilyHeading
             color: Theme.highlightColor
@@ -112,7 +106,7 @@ Item {
         id: infoLbl
         spacing: Theme.paddingLarge
         layoutDirection: Qt.RightToLeft
-        height: Theme.iconSizeSmall + Theme.paddingSmall
+        height: followed_by || locked || bot ? Theme.iconSizeSmall + Theme.paddingSmall : 0
         anchors {
             top: avatarImage.bottom
             topMargin: Theme.paddingLarge

@@ -73,6 +73,7 @@ DISTFILES += qml/harbour-tooter.qml \
     qml/pages/LoginPage.qml \
     qml/pages/Browser.qml \
     qml/lib/API.js \
+    qml/images/icon-s-bot.svg \
     qml/images/icon-s-following \
     qml/images/icon-m-emoji.svg \
     qml/images/icon-m-profile.svg \

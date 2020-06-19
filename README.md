@@ -1,4 +1,4 @@
-# Tooter β [Fork]
+# Tooter β [Fork] <img width="50" title="Page Home" src="https://openrepos.net/sites/default/files/styles/thumbnail/public/packages/10743/icon-harbour-tooter.png">
 
 ## About
 Tooter is Mastodon client for [Sailfish OS](https://sailfishos.org).

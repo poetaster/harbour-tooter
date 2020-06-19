@@ -363,35 +363,35 @@
     <name>VisualContainer</name>
     <message>
         <source>Unboost</source>
-        <translation>Annuler le partage</translation>
+        <translation>Annulla condivisione</translation>
     </message>
     <message>
         <source>Boost</source>
-        <translation>Partager</translation>
+        <translation>Condividi</translation>
     </message>
     <message>
         <source>Unfavorite</source>
-        <translation>Retirer des favoris</translation>
+        <translation>Annulla apprezzamento</translation>
     </message>
     <message>
         <source>Favorite</source>
-        <translation>Ajouter aux favoris</translation>
+        <translation>Apprezzato</translation>
     </message>
     <message>
         <source>Mention</source>
-        <translation>Mentionner</translation>
+        <translation>Menzionare</translation>
     </message>
     <message>
         <source>Conversation</source>
-        <translation>Conversation</translation>
+        <translation>Conversazione</translation>
     </message>
     <message>
         <source>Remove Bookmark</source>
-        <translation>Retirer marque-page</translation>
+        <translation>Elimina segnalibro</translation>
     </message>
     <message>
         <source>Bookmark</source>
-        <translation>Ajouter aux marque-pages</translation>
+        <translation>Aggiungi segnalibro</translation>
     </message>
 </context>
 </TS>

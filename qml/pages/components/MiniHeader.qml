@@ -16,22 +16,10 @@ Item {
                    ( pressed ? Theme.secondaryHighlightColor : (!highlight ? Theme.secondaryColor : Theme.secondaryHighlightColor ))
                } else ( pressed ? Theme.highlightColor : ( !highlight ? Theme.primaryColor : Theme.secondaryColor ))
         truncationMode: TruncationMode.Fade
-        width: contentWidth > parent.width /2 ? parent.width /2 : contentWidth
-        anchors.left: parent.left
-    }
-
-    Icon {
-        id: icnBot
-        visible: account_bot
-        source: "../../images/icon-s-bot.svg?" + ( pressed ? Theme.highlightColor : Theme.primaryColor )
-        color: Theme.primaryColor
-        width: account_bot ? Theme.iconSizeExtraSmall * 1.3 : 0
-        height: width
-        y: Theme.paddingLarge
+        width: myList.type !== "follow" ? ( contentWidth > parent.width /2 ? parent.width /2 : contentWidth ) : parent.width - Theme.paddingMedium
         anchors {
-            left: lblName.right
-            leftMargin: Theme.paddingSmall
-            verticalCenter: lblName.verticalCenter
+            left: parent.left
+            leftMargin: Theme.paddingMedium
         }
     }
 
@@ -43,8 +31,8 @@ Item {
         color: ( pressed ? Theme.secondaryHighlightColor : Theme.secondaryColor )
         truncationMode: TruncationMode.Fade
         anchors {
-            left: icnBot ? icnBot.right : icnLocked.right
-            leftMargin: Theme.paddingSmall
+            left: lblName.right
+            leftMargin: Theme.paddingMedium
             right: lblDate.left
             rightMargin: Theme.paddingMedium
             verticalCenter: lblName.verticalCenter
@@ -53,13 +41,15 @@ Item {
 
     Label {
         id: lblScreenNameFollow
-        visible: model.type === "follow" && myList.type === "notifications"
+        visible: model.type === "follow"
         text: '@'+account_username
         font.pixelSize: Theme.fontSizeExtraSmall
         color: ( pressed ? Theme.secondaryHighlightColor : Theme.secondaryColor )
+        width: parent.width - Theme.paddingMedium
         truncationMode: TruncationMode.Fade
         anchors {
             left: parent.left
+            leftMargin: Theme.paddingMedium
             top: lblName.bottom
         }
     }
@@ -72,6 +62,7 @@ Item {
         horizontalAlignment: Text.AlignRight
         anchors {
             right: parent.right
+            rightMargin: Theme.horizontalPageMargin
             verticalCenter: lblName.verticalCenter
         }
     }

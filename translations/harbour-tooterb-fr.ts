@@ -66,7 +66,7 @@
     </message>
     <message>
         <source>Hide Reply</source>
-        <translation>Fermer Répondre</translation>
+        <translation>Masquer la réponse</translation>
     </message>
 </context>
 <context>
@@ -318,6 +318,7 @@
     </message>
     <message>
         <source>Credits</source>
+        <extracomment>Translation alternative: &quot;Development&quot;</extracomment>
         <translation>Développement</translation>
     </message>
     <message>
@@ -347,10 +348,6 @@
     <message>
         <source>Spanish translation</source>
         <translation>Traduction espagnole</translation>
-    </message>
-    <message>
-        <source>Added README file</source>
-        <translation>Fichier README ajouté</translation>
     </message>
     <message>
         <source>Use</source>

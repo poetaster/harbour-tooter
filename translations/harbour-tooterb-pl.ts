@@ -318,6 +318,7 @@
     </message>
     <message>
         <source>Credits</source>
+        <extracomment>Translation alternative: &quot;Development&quot;</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -346,10 +347,6 @@
     </message>
     <message>
         <source>Spanish translation</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Added README file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

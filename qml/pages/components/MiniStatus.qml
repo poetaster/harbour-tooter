@@ -7,6 +7,7 @@ Item {
     visible: true
     height: icon.height+Theme.paddingMedium
     width: parent.width
+
     Icon {
         id: icon
         visible: type.length
@@ -27,7 +28,7 @@ Item {
         id: lblRtByName
         visible: type.length
         text: {
-            var action = ""
+            var action = "";
             switch(type){
             case "reblog":
                 action =  qsTr('boosted');
@@ -42,7 +43,7 @@ Item {
                 miniStatus.visible = false
                 action = type;
             }
-            return typeof reblog_account_username !== "undefined" ? "@" + reblog_account_username + " " +  action : " "
+            return typeof reblog_account_username !== "undefined" ? '@' + reblog_account_username + " " +  action : " "
         }
         font.pixelSize: Theme.fontSizeExtraSmall
         color: Theme.highlightColor

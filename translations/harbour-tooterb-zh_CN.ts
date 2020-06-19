@@ -318,6 +318,7 @@
     </message>
     <message>
         <source>Credits</source>
+        <extracomment>Translation alternative: &quot;Development&quot;</extracomment>
         <translation>信誉</translation>
     </message>
     <message>
@@ -347,10 +348,6 @@
     <message>
         <source>Spanish translation</source>
         <translation>西班牙语翻译</translation>
-    </message>
-    <message>
-        <source>Added README file</source>
-        <translation>添加 README 文件</translation>
     </message>
     <message>
         <source>Use</source>

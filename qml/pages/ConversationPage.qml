@@ -222,12 +222,6 @@ Page {
             id: warningContent
             visible: false
             height: visible ? implicitHeight : 0
-            anchors {
-                top: parent.top
-                topMargin: Theme.paddingMedium
-                left: parent.left
-                right: parent.right
-            }
             autoScrollEnabled: true
             labelVisible: false
             font.pixelSize: Theme.fontSizeSmall
@@ -235,6 +229,12 @@ Page {
             placeholderColor: palette.highlightColor
             color: palette.highlightColor
             horizontalAlignment: Text.AlignLeft
+            anchors {
+                top: parent.top
+                topMargin: Theme.paddingMedium
+                left: parent.left
+                right: parent.right
+            }
             EnterKey.onClicked: {}
         }
 
@@ -245,13 +245,6 @@ Page {
 
         TextArea {
             id: toot
-            anchors {
-                top: warningContent.bottom
-                topMargin: Theme.paddingMedium
-                left: parent.left
-                right: parent.right
-                rightMargin: Theme.paddingLarge * 2
-            }
             autoScrollEnabled: true
             labelVisible: false
             text: description !== "" && (description.charAt(0) === '@'
@@ -266,6 +259,13 @@ Page {
             horizontalAlignment: Text.AlignLeft
             placeholderText: qsTr("What's on your mind?")
             font.pixelSize: Theme.fontSizeSmall
+            anchors {
+                top: warningContent.bottom
+                topMargin: Theme.paddingMedium
+                left: parent.left
+                right: parent.right
+                rightMargin: Theme.paddingLarge * 2
+            }
             EnterKey.onClicked: {}
             onTextChanged: {
                 textOperations.text = toot.text

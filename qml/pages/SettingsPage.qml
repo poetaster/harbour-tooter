@@ -70,7 +70,7 @@ Page {
                     Button {
                         id: btnRemoveAccount
                         text: Logic.conf['login'] ? qsTr("Remove Account") : qsTr("Add Account")
-                        width: Theme.buttonWidthMedium
+                        preferredWidth: Theme.buttonWidthMedium
                         anchors.horizontalCenter: parent.horizontalCenter
                         onClicked: {
                             remorsePopup.execute(btnRemoveAccount.text, function() {
@@ -125,6 +125,7 @@ Page {
             }
 
             SectionHeader {
+                //: Translation alternative: "Development"
                 text:  qsTr("Credits")
             }
 
@@ -147,17 +148,17 @@ Page {
                         }
 
                         ListElement {
-                            name: "Miodrag Nikolić"
-                            desc: qsTr("Visual identity")
-                            mastodon: ""
-                            mail: "micotakis@gmail.com"
-                        }
-
-                        ListElement {
                             name: "Molan"
                             desc: qsTr("Development and translations")
                             mastodon: "molan@fosstodon.org"
                             mail: ""
+                        }
+
+                        ListElement {
+                            name: "Miodrag Nikolić"
+                            desc: qsTr("Visual identity")
+                            mastodon: ""
+                            mail: "micotakis@gmail.com"
                         }
 
                         ListElement {
@@ -187,13 +188,6 @@ Page {
                             mastodon: ""
                             mail: ""
                         }
-
-                        ListElement {
-                            name: "Mohamed-Touhami MAHDI"
-                            desc: qsTr("Added README file")
-                            mastodon: "dragnucs@touha.me"
-                            mail: "touhami@touha.me"
-                        }
                     }
 
                     Item {
@@ -210,7 +204,7 @@ Page {
                             }
                             onClicked: {
                                 if (model.mastodon !== ""){
-                                    var m = Qt.createQmlObject('import QtQuick 2.0; ListModel {   }', Qt.application, 'InternalQmlObject');
+                                    var m = Qt.createQmlObject('import QtQuick 2.0; ListModel { }', Qt.application, 'InternalQmlObject');
                                     pageStack.push(Qt.resolvedUrl("ConversationPage.qml"), {
                                                        headerTitle: "Mention",
                                                        description: '@'+model.mastodon,

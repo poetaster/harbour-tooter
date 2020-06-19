@@ -29,22 +29,8 @@ BackgroundItem {
         }
     }
 
-    // Background for reblogs and favourited statuses in Notification View
-    /* Rectangle {
-        id: bgNotifications
-        x: 0
-        y: 0
-        visible: myList.type === "notifications" && ( model.type === "favourite" || model.type === "reblog" )
-        width: parent.width
-        height: parent.height
-        opacity: 0.5
-        gradient: Gradient {
-            GradientStop { position: -0.5; color: "transparent" }
-            GradientStop { position: 0.4; color: Theme.highlightDimmerColor }
-        }
-    } */
-
-    MiniStatus { // Element showing reblog- or favourite status on top of Toot
+    // Element showing reblog, favourite, follow status on top of Toot
+    MiniStatus {
         id: miniStatus
         anchors {
             leftMargin: Theme.horizontalPageMargin
@@ -99,24 +85,12 @@ BackgroundItem {
             }
         }
 
+        // Avatar dimmer for facourite and reblog notifications
         Rectangle {
             visible: myList.type === "notifications" && ( model.type === "favourite" || model.type === "reblog" )
             opacity: 0.5
             color: Theme.highlightDimmerColor
             anchors.fill: avatar
-        }
-
-        Image {
-            id: iconTR
-            visible: typeof status_reblogged !== "undefined" && status_reblogged
-            width: Theme.iconSizeExtraSmall
-            height: width
-            source: "image://theme/icon-s-retweet"
-            anchors {
-                top: avatar.bottom
-                topMargin: Theme.paddingMedium
-                left: avatar.left
-            }
         }
 
         Icon {
@@ -188,16 +162,13 @@ BackgroundItem {
         anchors {
             top: avatar.top
             left: avatar.right
-            leftMargin: Theme.paddingMedium
             right: parent.right
-            rightMargin: Theme.horizontalPageMargin
         }
     }
 
     // Toot content
     Label  {
         id: lblContent
-
         visible: model.type !== "follow"
         text: if (myList.type === "notifications" && ( model.type === "favourite" || model.type === "reblog" )) {
                   content
@@ -219,7 +190,9 @@ BackgroundItem {
                 } else content.length ? ( contentWarningLabel.paintedHeight > paintedHeight ? contentWarningLabel.paintedHeight : paintedHeight ) : 0
         anchors {
             left: miniHeader.left
+            leftMargin: Theme.paddingMedium
             right: miniHeader.right
+            rightMargin: Theme.horizontalPageMargin
             top: miniHeader.bottom
             topMargin: Theme.paddingSmall
             bottomMargin: Theme.paddingLarge
@@ -294,8 +267,8 @@ BackgroundItem {
         model: typeof attachments !== "undefined" ? attachments : Qt.createQmlObject('import QtQuick 2.0; ListModel { }', Qt.application, 'InternalQmlObject')
         height: Theme.iconSizeExtraLarge * 2
         anchors {
-            left: miniHeader.left
-            right: miniHeader.right
+            left: lblContent.left
+            right: lblContent.right
             top: lblContent.bottom
             topMargin: Theme.paddingMedium
             bottomMargin: Theme.paddingLarge
@@ -406,6 +379,7 @@ BackgroundItem {
             }
 
             Icon {
+                id: icBM
                 source: "../../images/icon-s-bookmark.svg?"
                 color: !model.status_bookmarked ? Theme.highlightColor : Theme.primaryColor
                 width: Theme.iconSizeExtraSmall
@@ -437,8 +411,8 @@ BackgroundItem {
                 width: Theme.iconSizeExtraSmall
                 height: width
                 anchors {
-                    leftMargin: Theme.horizontalPageMargin + Theme.paddingMedium
                     left: parent.left
+                    leftMargin: Theme.horizontalPageMargin + Theme.paddingMedium
                     verticalCenter: parent.verticalCenter
                 }
             }

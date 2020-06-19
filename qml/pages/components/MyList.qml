@@ -84,7 +84,7 @@ SilicaListView {
         }
     }
 
-    delegate: VisualContainer { }
+    delegate: VisualContainer {}
 
     add: Transition {
         NumberAnimation { property: "opacity"; from: 0; to: 1.0; duration: 800 }

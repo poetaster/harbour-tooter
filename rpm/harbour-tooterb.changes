@@ -1,3 +1,6 @@
+*Fri Jun 18 2020 molan <mol_an@sunrise.ch> 1.0.6-3
+- Fix broken reblog indication
+
 *Fri Jun 18 2020 molan <mol_an@sunrise.ch> 1.0.6-2
 - Fix reported small UI issue
 - Updated translations

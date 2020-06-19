@@ -283,9 +283,9 @@ BackgroundItem {
             id: mnuBoost
             visible: model.type !== "follow"
             enabled: status_visibility !== "direct"
-            text: typeof model.reblogged !== "undefined" && model.reblogged ? qsTr("Unboost") : qsTr("Boost")
+            text: typeof model.status_reblogged !== "undefined" && model.status_reblogged ? qsTr("Unboost") : qsTr("Boost")
             onClicked: {
-                var status = typeof model.reblogged !== "undefined" && model.reblogged
+                var status = typeof model.status_reblogged !== "undefined" && model.status_reblogged
                 worker.sendMessage({
                                        "conf"   : Logic.conf,
                                        "params" : [],
@@ -294,12 +294,12 @@ BackgroundItem {
                                        "action" : "statuses/"+model.status_id+"/" + (status ? "unreblog" : "reblog")
                                    })
                 model.status_reblogs_count = !status ? model.status_reblogs_count+1 : (model.status_reblogs_count > 0 ? model.status_reblogs_count-1 : model.status_reblogs_count);
-                model.reblogged = !model.reblogged
+                model.status_reblogged = !model.status_reblogged
             }
 
             Icon {
                 id: icRT
-                source: "image://theme/icon-s-retweet?" + (!model.reblogged ? Theme.highlightColor : Theme.primaryColor)
+                source: "image://theme/icon-s-retweet?" + (!model.status_reblogged ? Theme.highlightColor : Theme.primaryColor)
                 width: Theme.iconSizeExtraSmall
                 height: width
                 anchors {
@@ -312,7 +312,7 @@ BackgroundItem {
             Label {
                 text: status_reblogs_count // from API.js
                 font.pixelSize: Theme.fontSizeExtraSmall
-                color: !model.reblogged ? Theme.highlightColor : Theme.primaryColor
+                color: !model.status_reblogged ? Theme.highlightColor : Theme.primaryColor
                 anchors {
                     left: icRT.right
                     leftMargin: Theme.paddingMedium

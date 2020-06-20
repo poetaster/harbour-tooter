@@ -12,8 +12,8 @@ This fork is being used to further develop and maintain the Tooter app by dysko 
 Clone / download this repository and import it into your SailfishOS IDE using the harbour-tooter.pro project file. No additional configuration needed. 
 
 ## Repository branches:
-* master: default (Beta release version, harbour-tooterb)
-* upstream: used to send changes to upstream repository (harbour-tooter)
+* master: release branch which includes specifics for harbour-tooterb (Tooter β)
+* upstream: main development branch which is used to send changes to the upstream repository (harbour-tooter)
 
 ## Contributions
 Contributions to this project are very welcome, since there are still many things which can be done for Tooter. If you already know what you want to add or fix, please make a Pull Request (PR) with your proposal. Your PR should include an explanation or a change log summary. Merging will not be allowed until the PR has been reviewed.

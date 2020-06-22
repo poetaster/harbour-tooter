@@ -197,7 +197,7 @@
     <name>ProfileHeader</name>
     <message>
         <source>Bot</source>
-        <translation><机器人/translation>
+        <translation>机器人</translation>
     </message>
     <message>
         <source>Follows you</source>

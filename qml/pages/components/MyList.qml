@@ -29,7 +29,6 @@ SilicaListView {
     onNotify: {
         console.log(what + " - " + num)
     }
-
     signal openDrawer (bool setDrawer)
     onOpenDrawer: {
         //console.log("Open drawer: " + setDrawer)
@@ -38,7 +37,6 @@ SilicaListView {
     onSend: {
         console.log("LIST send signal emitted with notice: " + notice)
     }
-
 
     header: PageHeader {
         title: myList.title
@@ -77,7 +75,7 @@ SilicaListView {
         }
 
         MenuItem {
-            text: qsTr("Load more")
+            text: qsTr("Reload")
             onClicked: {
                 loadData("prepend")
             }
@@ -101,7 +99,7 @@ SilicaListView {
         console.log("CountChanged!")*/
     }
 
-    footer: Item{
+    footer: Item {
         visible: autoLoadMore
         width: parent.width
         height: Theme.itemSizeLarge
@@ -181,6 +179,7 @@ SilicaListView {
             'mode'      : mode,
             'conf'      : Logic.conf
         };
+
         console.log(JSON.stringify(msg))
         if (type !== "")
             worker.sendMessage(msg)

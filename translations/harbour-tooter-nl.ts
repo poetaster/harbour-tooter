@@ -36,10 +36,6 @@
         <translation>Wat wil je kwijt?</translation>
     </message>
     <message>
-        <source>Delete</source>
-        <translation>Verwijderen</translation>
-    </message>
-    <message>
         <source>Public</source>
         <translation>Openbaar</translation>
     </message>
@@ -173,10 +169,6 @@
 <context>
     <name>MyList</name>
     <message>
-        <source>Load more</source>
-        <translation>Meer laden</translation>
-    </message>
-    <message>
         <source>Settings</source>
         <translation>Instellingen</translation>
     </message>
@@ -191,6 +183,10 @@
     <message>
         <source>New Toot</source>
         <translation>Nieuwe Toot</translation>
+    </message>
+    <message>
+        <source>Reload</source>
+        <translation>Herladen</translation>
     </message>
 </context>
 <context>

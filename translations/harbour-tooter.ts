@@ -36,10 +36,6 @@
         <translation>What&apos;s on your mind?</translation>
     </message>
     <message>
-        <source>Delete</source>
-        <translation>Delete</translation>
-    </message>
-    <message>
         <source>Public</source>
         <translation>Public</translation>
     </message>
@@ -173,10 +169,6 @@
 <context>
     <name>MyList</name>
     <message>
-        <source>Load more</source>
-        <translation>Load more</translation>
-    </message>
-    <message>
         <source>Settings</source>
         <translation>Settings</translation>
     </message>
@@ -191,6 +183,10 @@
     <message>
         <source>New Toot</source>
         <translation>New Toot</translation>
+    </message>
+    <message>
+        <source>Reload</source>
+        <translation type="unfinished">Reload</translation>
     </message>
 </context>
 <context>

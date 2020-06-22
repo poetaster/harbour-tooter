@@ -36,10 +36,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Delete</source>
-        <translation>Escafar</translation>
-    </message>
-    <message>
         <source>Public</source>
         <translation type="unfinished"></translation>
     </message>
@@ -173,10 +169,6 @@
 <context>
     <name>MyList</name>
     <message>
-        <source>Load more</source>
-        <translation>Cargar mai</translation>
-    </message>
-    <message>
         <source>Settings</source>
         <translation>Parmètres</translation>
     </message>
@@ -191,6 +183,10 @@
     <message>
         <source>New Toot</source>
         <translation>Nòu Tut</translation>
+    </message>
+    <message>
+        <source>Reload</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

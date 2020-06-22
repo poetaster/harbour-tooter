@@ -36,10 +36,6 @@
         <translation>有何想法?</translation>
     </message>
     <message>
-        <source>Delete</source>
-        <translation>删除</translation>
-    </message>
-    <message>
         <source>Public</source>
         <translation>公共区域</translation>
     </message>
@@ -62,11 +58,11 @@
     <message>
         <source>Reply</source>
         <extracomment>&quot;Reply&quot; will show the Toot text entry Panel. &quot;Hide Reply&quot; closes it. Alternative: Use &quot;Close Reply&quot;</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>回复</translation>
     </message>
     <message>
         <source>Hide Reply</source>
-        <translation type="unfinished"></translation>
+        <translation>隐藏回复</translation>
     </message>
 </context>
 <context>
@@ -173,10 +169,6 @@
 <context>
     <name>MyList</name>
     <message>
-        <source>Load more</source>
-        <translation>加载更多</translation>
-    </message>
-    <message>
         <source>Settings</source>
         <translation>设置</translation>
     </message>
@@ -192,20 +184,24 @@
         <source>New Toot</source>
         <translation>新嘟嘟</translation>
     </message>
+    <message>
+        <source>Reload</source>
+        <translation>重新加载</translation>
+    </message>
 </context>
 <context>
     <name>ProfileHeader</name>
     <message>
         <source>Bot</source>
-        <translation type="unfinished"></translation>
+        <translation>机器人</translation>
     </message>
     <message>
         <source>Follows you</source>
-        <translation type="unfinished"></translation>
+        <translation>关注你</translation>
     </message>
     <message>
         <source>Group</source>
-        <translation type="unfinished"></translation>
+        <translation>群组</translation>
     </message>
 </context>
 <context>
@@ -213,7 +209,7 @@
     <message>
         <source>About</source>
         <extracomment>If there&apos;s no good translation for &quot;About&quot;, use &quot;Details&quot; (in details about profile).</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>关于</translation>
     </message>
     <message>
         <source>Followers</source>
@@ -238,7 +234,7 @@
     <message>
         <source>Requested</source>
         <extracomment>Is a button. Keep it as short as possible.</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>请求</translation>
     </message>
     <message>
         <source>Follow</source>
@@ -271,7 +267,7 @@
     </message>
     <message>
         <source>Mention</source>
-        <translation type="unfinished"></translation>
+        <translation>提及</translation>
     </message>
 </context>
 <context>
@@ -282,7 +278,7 @@
     </message>
     <message>
         <source>Options</source>
-        <translation type="unfinished"></translation>
+        <translation>选项</translation>
     </message>
     <message>
         <source>Load Images in Toots</source>
@@ -314,7 +310,7 @@
     </message>
     <message>
         <source>Translate</source>
-        <translation type="unfinished"></translation>
+        <translation>翻译</translation>
     </message>
     <message>
         <source>Credits</source>
@@ -352,11 +348,11 @@
     <message>
         <source>Use</source>
         <extracomment>Full sentence for translation: &quot;Use Transifex to help with app translation to your language.&quot; - The word Transifex is a link and doesn&apos;t need translation.</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>使用</translation>
     </message>
     <message>
         <source>to help with app translation to your language.</source>
-        <translation type="unfinished"></translation>
+        <translation>以帮助翻译软件为你使用的语言.</translation>
     </message>
 </context>
 <context>
@@ -379,19 +375,19 @@
     </message>
     <message>
         <source>Mention</source>
-        <translation type="unfinished"></translation>
+        <translation>提及</translation>
     </message>
     <message>
         <source>Conversation</source>
-        <translation type="unfinished"></translation>
+        <translation>对话</translation>
     </message>
     <message>
         <source>Remove Bookmark</source>
-        <translation type="unfinished"></translation>
+        <translation>移除收藏</translation>
     </message>
     <message>
         <source>Bookmark</source>
-        <translation type="unfinished"></translation>
+        <translation>收藏</translation>
     </message>
 </context>
 </TS>

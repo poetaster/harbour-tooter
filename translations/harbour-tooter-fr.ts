@@ -36,10 +36,6 @@
         <translation>Qu&apos;avez-vous en tête?</translation>
     </message>
     <message>
-        <source>Delete</source>
-        <translation>Supprimer</translation>
-    </message>
-    <message>
         <source>Public</source>
         <translation>Public</translation>
     </message>
@@ -173,10 +169,6 @@
 <context>
     <name>MyList</name>
     <message>
-        <source>Load more</source>
-        <translation>Charger plus</translation>
-    </message>
-    <message>
         <source>Settings</source>
         <translation>Paramètres</translation>
     </message>
@@ -191,6 +183,10 @@
     <message>
         <source>New Toot</source>
         <translation>Nouveau pouet</translation>
+    </message>
+    <message>
+        <source>Reload</source>
+        <translation>Recharger</translation>
     </message>
 </context>
 <context>

@@ -11,12 +11,14 @@ Item {
     property string mediaURL: ""
 
     Rectangle {
-        opacity: 0.2
+        opacity: 0.4
         color: Theme.highlightDimmerColor
         anchors.fill: parent
     }
 
     Image {
+        opacity: status !== Image.Ready ? 1.0 : 0.0
+        Behavior on opacity { FadeAnimator {} }
         source: "image://theme/icon-m-image"
         anchors.centerIn: parent
     }
@@ -75,7 +77,7 @@ Item {
         Rectangle {
             id: mediaWarning
             color: Theme.highlightDimmerColor
-            visible: typeof status_sensitive != 'undefined' && status_sensitive ? true : false
+            visible: typeof status_sensitive != "undefined" && status_sensitive ? true : false
             anchors.fill: parent
 
             Image {

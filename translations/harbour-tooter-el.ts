@@ -36,10 +36,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Delete</source>
-        <translation>Διαγραφή</translation>
-    </message>
-    <message>
         <source>Public</source>
         <translation type="unfinished"></translation>
     </message>
@@ -114,7 +110,7 @@
     </message>
     <message>
         <source>Reload</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Επαναφόρτωση</translation>
     </message>
 </context>
 <context>
@@ -173,10 +169,6 @@
 <context>
     <name>MyList</name>
     <message>
-        <source>Load more</source>
-        <translation>Φόρτωση περισσοτέρων</translation>
-    </message>
-    <message>
         <source>Settings</source>
         <translation>Ρυθμίσεις</translation>
     </message>
@@ -191,6 +183,10 @@
     <message>
         <source>New Toot</source>
         <translation>Νέος</translation>
+    </message>
+    <message>
+        <source>Reload</source>
+        <translation type="unfinished">Επαναφόρτωση</translation>
     </message>
 </context>
 <context>

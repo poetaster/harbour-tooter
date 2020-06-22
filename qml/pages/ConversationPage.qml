@@ -9,13 +9,13 @@ Page {
     id: conversationPage
 
     property string type
-    property string description: ""
+    property string username: ""
     property string headerTitle: ""
     property string suggestedUser: ""
     property ListModel suggestedModel
-    property string toot_id: ""
-    property string toot_url: ""
-    property string toot_uri: ""
+    property string status_id: ""
+    property string status_url: ""
+    property string status_uri: ""
     property int tootMaxChar: 500;
     property bool bot: false //otherwise ReferenceError ProfileHeader.qml
     property bool followed_by: false //otherwise ReferenceError ProfileHeader.qml
@@ -63,11 +63,6 @@ Page {
         }
     }
 
-    ProfileHeader {
-        id: header
-        visible: false
-    }
-
     SilicaListView {
         id: myList
         header: PageHeader {
@@ -95,7 +90,7 @@ Page {
         onCountChanged: {
             if (mdl)
                 for (var i = 0; i < mdl.count; i++) {
-                    if (mdl.get(i).status_id === toot_id) {
+                    if (mdl.get(i).status_id === status_id) {
                         console.log(mdl.get(i).status_id)
                         positionViewAtIndex(i, ListView.Center)
                     }
@@ -109,17 +104,17 @@ Page {
             MenuItem {
                 //: Use the translation of "Copy Link" for a shorter PullDownMenu label
                 text: qsTr("Copy Link to Clipboard")
-                onClicked: if (toot_url === "") {
-                               var test = toot_uri.split("/")
-                               console.log(toot_uri)
+                onClicked: if (status_url === "") {
+                               var test = status_uri.split("/")
+                               console.log(status_uri)
                                console.log(JSON.stringify(test))
                                console.log(JSON.stringify(test.length))
                                if (test.length === 8 && (test[7] === "activity")) {
-                                   var urialt = toot_uri.replace("activity", "")
+                                   var urialt = status_uri.replace("activity", "")
                                    Clipboard.text = urialt
                                }
-                               else Clipboard.text = toot_uri
-                           } else Clipboard.text = toot_url
+                               else Clipboard.text = status_uri
+                           } else Clipboard.text = status_url
             }
 
             MenuItem {
@@ -247,9 +242,9 @@ Page {
             id: toot
             autoScrollEnabled: true
             labelVisible: false
-            text: description !== "" && (description.charAt(0) === '@'
-                                         || description.charAt(
-                                             0) === '#') ? description + ' ' : ''
+            text: username !== "" && (username.charAt(0) === '@'
+                                         || username.charAt(
+                                             0) === '#') ? username + ' ' : ''
             height: if (type !== "reply") {
                         Math.max(conversationPage.height / 3, Math.min(conversationPage.height * 0.65, implicitHeight))
                     }
@@ -320,6 +315,9 @@ Page {
                 height: uploadedImages.cellHeight
                 RemorseItem {
                     id: remorse
+                    cancelText: ""
+
+
                 }
 
                 Image {
@@ -331,7 +329,7 @@ Page {
                     var idx = index
                     console.log(idx)
                     //mediaModel.remove(idx)
-                    remorse.execute(myDelegate, qsTr("Delete"), function () {
+                    remorse.execute(myDelegate, "", function () {
                         mediaModel.remove(idx)
                     })
                 }
@@ -377,14 +375,14 @@ Page {
         IconButton {
             id: btnAddImage
             enabled: mediaModel.count < 4
+            icon.source: "image://theme/icon-s-attach?"
+                         + (pressed ? Theme.highlightColor : (warningContent.visible ? Theme.secondaryHighlightColor : Theme.primaryColor))
             anchors {
                 top: toot.bottom
                 topMargin: -Theme.paddingSmall * 1.5
                 left: btnContentWarning.right
                 leftMargin: Theme.paddingSmall
             }
-            icon.source: "image://theme/icon-s-attach?"
-                         + (pressed ? Theme.highlightColor : (warningContent.visible ? Theme.secondaryHighlightColor : Theme.primaryColor))
             onClicked: {
                 btnAddImage.enabled = false
                 var once = true
@@ -447,13 +445,13 @@ Page {
             id: btnSend
             icon.source: "image://theme/icon-m-send?"
                          + (pressed ? Theme.highlightColor : Theme.primaryColor)
+            enabled: toot.text !== "" && toot.text.length < tootMaxChar && uploadProgress.width == 0
             anchors {
                 top: toot.bottom
                 topMargin: -Theme.paddingSmall * 1.5
                 right: parent.right
                 rightMargin: Theme.paddingSmall
             }
-            enabled: toot.text !== "" && toot.text.length < tootMaxChar && uploadProgress.width == 0
             onClicked: {
                 var visibility = ["public", "unlisted", "private", "direct"]
                 var media_ids = []
@@ -473,8 +471,8 @@ Page {
                     },
                     "conf": Logic.conf
                 }
-                if (toot_id)
-                    msg.params['in_reply_to_id'] = (toot_id) + ""
+                if (status_id)
+                    msg.params['in_reply_to_id'] = (status_id) + ""
 
                 if (warningContent.visible && warningContent.text.length > 0) {
                     msg.params['sensitive'] = 1
@@ -492,9 +490,9 @@ Page {
         Rectangle {
             id: uploadProgress
             color: Theme.highlightBackgroundColor
+            height: Theme.itemSizeSmall * 0.05
             anchors.bottom: parent.bottom
             anchors.left: parent.left
-            height: Theme.itemSizeSmall * 0.05
         }
     }
 

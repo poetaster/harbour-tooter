@@ -309,7 +309,7 @@ Page {
             height: mediaModel.count ? Theme.itemSizeExtraLarge : 0
             model: mediaModel
             cellWidth: uploadedImages.width / 4
-            cellHeight: Theme.itemSizeExtraLarge
+            cellHeight: isPortrait ? cellWidth : Theme.itemSizeExtraLarge
             delegate: BackgroundItem {
                 id: myDelegate
                 width: uploadedImages.cellWidth

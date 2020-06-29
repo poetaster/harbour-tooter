@@ -33,6 +33,7 @@
     </message>
     <message>
         <source>What&apos;s on your mind?</source>
+        <extracomment>placeholderText in Toot text panel</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -76,11 +77,11 @@
     <name>EmojiSelect</name>
     <message>
         <source>Emojis</source>
-        <translation>Emoji</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Tap to insert</source>
-        <translation>Κτυπήστε για εισαγωγή</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -117,31 +118,31 @@
     <name>MainPage</name>
     <message>
         <source>Home</source>
-        <translation>Οικοσελίδα</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Notifications</source>
-        <translation>Ειδοποιήσεις</translation>
-    </message>
-    <message>
-        <source>New Toot</source>
-        <translation>Νέος</translation>
-    </message>
-    <message>
-        <source>Search</source>
-        <translation>Αναζήτηση</translation>
-    </message>
-    <message>
-        <source>@user or #term</source>
-        <translation>@χρήστη ή #όρος</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Local</source>
-        <translation>Τοπικός</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Federated</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Search</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>@user or #term</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>New Toot</source>
+        <translation type="unfinished">Νέος</translation>
     </message>
 </context>
 <context>
@@ -188,6 +189,10 @@
         <source>Reload</source>
         <translation type="unfinished">Επαναφόρτωση</translation>
     </message>
+    <message>
+        <source>Open in Browser</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ProfileHeader</name>
@@ -214,22 +219,26 @@
     <message>
         <source>Followers</source>
         <extracomment>Will show as: &quot;35 Followers&quot;</extracomment>
-        <translation>Σας ακολουθούν</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Following</source>
         <extracomment>Will show as: &quot;23 Following&quot;</extracomment>
-        <translation>Σε παρακολούθηση</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Statuses</source>
         <extracomment>Will show as: &quot;115 Statuses&quot;</extracomment>
-        <translation>Κατάσταση</translation>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Mention</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Unfollow</source>
         <extracomment>Is a button. Keep it as short as possible.</extracomment>
-        <translation>Αναίρεση παρακολούθησης</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Requested</source>
@@ -239,34 +248,26 @@
     <message>
         <source>Follow</source>
         <extracomment>Is a button. Keep it as short as possible.</extracomment>
-        <translation>Παρακολούθηση</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Unmute</source>
         <extracomment>Is a button. Keep it as short as possible.</extracomment>
-        <translation>Αναίρεση σίγασης</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Mute</source>
         <extracomment>Is a button. Keep it as short as possible.</extracomment>
-        <translation>Σίγαση</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Unblock</source>
         <extracomment>Is a button. Keep it as short as possible.</extracomment>
-        <translation>Αναίρεση φραγής</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Block</source>
         <extracomment>Is a button. Keep it as short as possible.</extracomment>
-        <translation>Φραγή</translation>
-    </message>
-    <message>
-        <source>Open in Browser</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Mention</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

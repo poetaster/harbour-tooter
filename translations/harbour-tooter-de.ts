@@ -33,6 +33,7 @@
     </message>
     <message>
         <source>What&apos;s on your mind?</source>
+        <extracomment>placeholderText in Toot text panel</extracomment>
         <translation>Was gibt&apos;s Neues?</translation>
     </message>
     <message>
@@ -76,11 +77,11 @@
     <name>EmojiSelect</name>
     <message>
         <source>Emojis</source>
-        <translation>Emojis</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Tap to insert</source>
-        <translation>Tippen um einzufügen</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -117,38 +118,38 @@
     <name>MainPage</name>
     <message>
         <source>Home</source>
-        <translation>Home</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Notifications</source>
-        <translation>Benachrichtigungen</translation>
-    </message>
-    <message>
-        <source>New Toot</source>
-        <translation>Neuer Toot</translation>
-    </message>
-    <message>
-        <source>Search</source>
-        <translation>Suche</translation>
-    </message>
-    <message>
-        <source>@user or #term</source>
-        <translation>@Benutzer oder #Ausdruck</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Local</source>
-        <translation>Lokal</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Federated</source>
-        <translation>Föderation</translation>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Search</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>@user or #term</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>New Toot</source>
+        <translation type="unfinished">Neuer Toot</translation>
     </message>
 </context>
 <context>
     <name>MediaFullScreen</name>
     <message>
         <source>Error loading</source>
-        <translation>Ladefehler</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -188,6 +189,10 @@
         <source>Reload</source>
         <translation>Neu laden</translation>
     </message>
+    <message>
+        <source>Open in Browser</source>
+        <translation type="unfinished">Im Browser öffnen</translation>
+    </message>
 </context>
 <context>
     <name>ProfileHeader</name>
@@ -209,65 +214,61 @@
     <message>
         <source>About</source>
         <extracomment>If there&apos;s no good translation for &quot;About&quot;, use &quot;Details&quot; (in details about profile).</extracomment>
-        <translation>Details</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Followers</source>
         <extracomment>Will show as: &quot;35 Followers&quot;</extracomment>
-        <translation>Folgende</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Following</source>
         <extracomment>Will show as: &quot;23 Following&quot;</extracomment>
-        <translation>Folgt</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Statuses</source>
         <extracomment>Will show as: &quot;115 Statuses&quot;</extracomment>
-        <translation>Beiträge</translation>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Mention</source>
+        <translation type="unfinished">Erwähnen</translation>
     </message>
     <message>
         <source>Unfollow</source>
         <extracomment>Is a button. Keep it as short as possible.</extracomment>
-        <translation>Entfolgen</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Requested</source>
         <extracomment>Is a button. Keep it as short as possible.</extracomment>
-        <translation>Angefragt</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Follow</source>
         <extracomment>Is a button. Keep it as short as possible.</extracomment>
-        <translation>Folgen</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Unmute</source>
         <extracomment>Is a button. Keep it as short as possible.</extracomment>
-        <translation>Nicht stumm schalten</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Mute</source>
         <extracomment>Is a button. Keep it as short as possible.</extracomment>
-        <translation>Stumm schalten</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Unblock</source>
         <extracomment>Is a button. Keep it as short as possible.</extracomment>
-        <translation>Nicht blockieren</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Block</source>
         <extracomment>Is a button. Keep it as short as possible.</extracomment>
-        <translation>Blockieren</translation>
-    </message>
-    <message>
-        <source>Open in Browser</source>
-        <translation>Im Browser öffnen</translation>
-    </message>
-    <message>
-        <source>Mention</source>
-        <translation>Erwähnen</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

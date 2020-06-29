@@ -79,7 +79,7 @@ Item {
         }
     }
 
-    MyImage {
+    MyMedia {
         id: placeholder1
         width: 2
         height: 1
@@ -98,7 +98,7 @@ Item {
         }
     }
 
-    MyImage {
+    MyMedia {
         id: placeholder2
         width: 2
         height: 1
@@ -117,7 +117,7 @@ Item {
         }
     }
 
-    MyImage {
+    MyMedia {
         id: placeholder3
         width: 2
         height: 1
@@ -136,7 +136,7 @@ Item {
         }
     }
 
-    MyImage {
+    MyMedia {
         id: placeholder4
         width: 2
         height: 1

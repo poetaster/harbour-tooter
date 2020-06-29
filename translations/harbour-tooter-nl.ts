@@ -33,6 +33,7 @@
     </message>
     <message>
         <source>What&apos;s on your mind?</source>
+        <extracomment>placeholderText in Toot text panel</extracomment>
         <translation>Wat wil je kwijt?</translation>
     </message>
     <message>
@@ -76,11 +77,11 @@
     <name>EmojiSelect</name>
     <message>
         <source>Emojis</source>
-        <translation>Emojis</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Tap to insert</source>
-        <translation>Tikken om in te voegen</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -117,31 +118,31 @@
     <name>MainPage</name>
     <message>
         <source>Home</source>
-        <translation>Thuis</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Notifications</source>
-        <translation>Meldingen</translation>
-    </message>
-    <message>
-        <source>New Toot</source>
-        <translation>Nieuwe Toot</translation>
-    </message>
-    <message>
-        <source>Search</source>
-        <translation>Zoeken</translation>
-    </message>
-    <message>
-        <source>@user or #term</source>
-        <translation>@user of #term</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Local</source>
-        <translation>Lokaal</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Federated</source>
-        <translation>Gefedereerd</translation>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Search</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>@user or #term</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>New Toot</source>
+        <translation type="unfinished">Nieuwe Toot</translation>
     </message>
 </context>
 <context>
@@ -188,6 +189,10 @@
         <source>Reload</source>
         <translation>Herladen</translation>
     </message>
+    <message>
+        <source>Open in Browser</source>
+        <translation type="unfinished">Open een Browser</translation>
+    </message>
 </context>
 <context>
     <name>ProfileHeader</name>
@@ -209,65 +214,61 @@
     <message>
         <source>About</source>
         <extracomment>If there&apos;s no good translation for &quot;About&quot;, use &quot;Details&quot; (in details about profile).</extracomment>
-        <translation>Gegevens</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Followers</source>
         <extracomment>Will show as: &quot;35 Followers&quot;</extracomment>
-        <translation>Volgers</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Following</source>
         <extracomment>Will show as: &quot;23 Following&quot;</extracomment>
-        <translation>Volgend</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Statuses</source>
         <extracomment>Will show as: &quot;115 Statuses&quot;</extracomment>
-        <translation>Statussen</translation>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Mention</source>
+        <translation type="unfinished">Vermelden</translation>
     </message>
     <message>
         <source>Unfollow</source>
         <extracomment>Is a button. Keep it as short as possible.</extracomment>
-        <translation>Ontvolgen</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Requested</source>
         <extracomment>Is a button. Keep it as short as possible.</extracomment>
-        <translation>Gevraagd</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Follow</source>
         <extracomment>Is a button. Keep it as short as possible.</extracomment>
-        <translation>Volgen</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Unmute</source>
         <extracomment>Is a button. Keep it as short as possible.</extracomment>
-        <translation>Ontdempen</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Mute</source>
         <extracomment>Is a button. Keep it as short as possible.</extracomment>
-        <translation>Dempen</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Unblock</source>
         <extracomment>Is a button. Keep it as short as possible.</extracomment>
-        <translation>Deblokkeren</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Block</source>
         <extracomment>Is a button. Keep it as short as possible.</extracomment>
-        <translation>Blokkeren</translation>
-    </message>
-    <message>
-        <source>Open in Browser</source>
-        <translation>Open een Browser</translation>
-    </message>
-    <message>
-        <source>Mention</source>
-        <translation>Vermelden</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

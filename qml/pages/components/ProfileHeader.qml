@@ -35,9 +35,7 @@ Item {
         id: avatarImage
         asynchronous: true
         source: if (avatarImage.status === Image.Error)
-                    source = "../../images/icon-l-profile.svg?" + (pressed
-                                                                   ? Theme.highlightColor
-                                                                   : Theme.primaryColor)
+                    source = "../../images/icon-l-profile.svg?" + Theme.primaryColor
                 else image
         width: Theme.iconSizeLarge
         height: width

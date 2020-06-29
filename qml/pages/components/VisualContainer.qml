@@ -9,7 +9,6 @@ BackgroundItem {
     signal send (string notice)
     signal navigateTo(string link)
 
-    width: parent.width
     height: if (myList.type === "notifications" && ( model.type === "favourite" || model.type === "reblog" )) {
                 mnu.height + miniHeader.height + Theme.paddingLarge + lblContent.height + Theme.paddingLarge + (miniStatus.visible ? miniStatus.height : 0)
             } else mnu.height + miniHeader.height + (typeof attachments !== "undefined" && attachments.count ? media.height + Theme.paddingLarge + Theme.paddingMedium: Theme.paddingLarge) + lblContent.height + Theme.paddingLarge + (miniStatus.visible ? miniStatus.height : 0) + (iconDirectMsg.visible ? iconDirectMsg.height : 0)
@@ -58,9 +57,7 @@ BackgroundItem {
         }
         onStatusChanged: {
             if (avatar.status === Image.Error)
-                source = "../../images/icon-m-profile.svg?" + (pressed
-                                                               ? Theme.highlightColor
-                                                               : Theme.primaryColor)
+                source = "../../images/icon-m-profile.svg?" + Theme.primaryColor
         }
 
         MouseArea {
@@ -97,7 +94,7 @@ BackgroundItem {
             visible: status_visibility === "direct"
             width: Theme.iconSizeMedium
             height: width
-            source: "image://theme/icon-m-mail?"
+            source: "image://theme/icon-m-mail?" + Theme.primaryColor
             color: Theme.primaryColor
             anchors {
                 horizontalCenter: avatar.horizontalCenter
@@ -266,7 +263,9 @@ BackgroundItem {
         height: Theme.iconSizeExtraLarge * 2
         anchors {
             left: lblContent.left
+            leftMargin: isPortrait ? 0 : Theme.itemSizeSmall
             right: lblContent.right
+            rightMargin: isPortrait ? 0 : Theme.itemSizeLarge
             top: lblContent.bottom
             topMargin: Theme.paddingMedium
             bottomMargin: Theme.paddingLarge

@@ -33,6 +33,7 @@
     </message>
     <message>
         <source>What&apos;s on your mind?</source>
+        <extracomment>placeholderText in Toot text panel</extracomment>
         <translation>О чём думаете?</translation>
     </message>
     <message>
@@ -76,11 +77,11 @@
     <name>EmojiSelect</name>
     <message>
         <source>Emojis</source>
-        <translation>Cмайликов</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Tap to insert</source>
-        <translation>Нажмите, чтобы вставить</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -117,38 +118,38 @@
     <name>MainPage</name>
     <message>
         <source>Home</source>
-        <translation>Главная</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Notifications</source>
-        <translation>Уведомления</translation>
-    </message>
-    <message>
-        <source>New Toot</source>
-        <translation>Новый</translation>
-    </message>
-    <message>
-        <source>Search</source>
-        <translation>Поиск</translation>
-    </message>
-    <message>
-        <source>@user or #term</source>
-        <translation>@пользователь или #срок</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Local</source>
-        <translation>Локальный</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Federated</source>
-        <translation>Федеративные</translation>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Search</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>@user or #term</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>New Toot</source>
+        <translation type="unfinished">Новый</translation>
     </message>
 </context>
 <context>
     <name>MediaFullScreen</name>
     <message>
         <source>Error loading</source>
-        <translation>Ошибка загрузки</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -188,6 +189,10 @@
         <source>Reload</source>
         <translation>Перезагрузить</translation>
     </message>
+    <message>
+        <source>Open in Browser</source>
+        <translation type="unfinished">Открыть в браузере</translation>
+    </message>
 </context>
 <context>
     <name>ProfileHeader</name>
@@ -209,65 +214,61 @@
     <message>
         <source>About</source>
         <extracomment>If there&apos;s no good translation for &quot;About&quot;, use &quot;Details&quot; (in details about profile).</extracomment>
-        <translation>О профиль</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Followers</source>
         <extracomment>Will show as: &quot;35 Followers&quot;</extracomment>
-        <translation>Читают</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Following</source>
         <extracomment>Will show as: &quot;23 Following&quot;</extracomment>
-        <translation>Следующий</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Statuses</source>
         <extracomment>Will show as: &quot;115 Statuses&quot;</extracomment>
-        <translation>Статусы</translation>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Mention</source>
+        <translation type="unfinished">Упоминание</translation>
     </message>
     <message>
         <source>Unfollow</source>
         <extracomment>Is a button. Keep it as short as possible.</extracomment>
-        <translation>Отписаться</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Requested</source>
         <extracomment>Is a button. Keep it as short as possible.</extracomment>
-        <translation>Запрошенный</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Follow</source>
         <extracomment>Is a button. Keep it as short as possible.</extracomment>
-        <translation>Следить</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Unmute</source>
         <extracomment>Is a button. Keep it as short as possible.</extracomment>
-        <translation>Нет безгласный</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Mute</source>
         <extracomment>Is a button. Keep it as short as possible.</extracomment>
-        <translation>Безгласный</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Unblock</source>
         <extracomment>Is a button. Keep it as short as possible.</extracomment>
-        <translation>Открыть</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Block</source>
         <extracomment>Is a button. Keep it as short as possible.</extracomment>
-        <translation>Блокировать</translation>
-    </message>
-    <message>
-        <source>Open in Browser</source>
-        <translation>Открыть в браузере</translation>
-    </message>
-    <message>
-        <source>Mention</source>
-        <translation>Упоминание</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

@@ -12,7 +12,7 @@ class ImageUploader : public QObject
     Q_PROPERTY(qreal progress READ progress NOTIFY progressChanged)
 
 public:
-    explicit ImageUploader(QObject *parent = 0);
+    explicit ImageUploader(QObject *parent = nullptr);
     ~ImageUploader();
 
     Q_INVOKABLE void setFile(const QString &fileName);

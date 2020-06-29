@@ -2,18 +2,23 @@ import QtQuick 2.0
 import Sailfish.Silica 1.0
 
 
-Component {
-    id: emojiComponent
-
-    Dialog {
-        id: emoticonsDialog
-        canAccept: false //selector.currentIndex >= 0
-        onAcceptPendingChanged: {
-            if (acceptPending) {
-                // Tell the destination page what the selected category is
-                // acceptDestinationInstance.category = selector.value
-            }
+Dialog {
+    id: emojiDialog
+    anchors.top: parent.top
+    allowedOrientations: Orientation.All
+    canAccept: false //selector.currentIndex >= 0
+    onAcceptPendingChanged: {
+        if (acceptPending) {
+            // Tell the destination page what the selected category is
+            // acceptDestinationInstance.category = selector.value
         }
+    }
+
+    Column {
+        id: emojiColumn
+        spacing: Theme.paddingLarge
+        width: parent.width
+        height: parent.height
 
         SilicaGridView {
             id: gridView
@@ -21,9 +26,10 @@ Component {
                 title: qsTr("Emojis")
                 description: qsTr("Tap to insert")
             }
-            cellWidth: gridView.width / 6
+            cellWidth: isPortrait ? gridView.width / 6 : gridView.width / 10
             cellHeight: cellWidth
-            anchors.fill: parent
+            width: parent.width
+            height: parent.height
             model: ListModel {
                 ListElement { section: "smileys"; glyph: "😁" }
                 ListElement { section: "smileys"; glyph: "😂" }
@@ -137,6 +143,7 @@ Component {
                 ListElement { section: "Horoscope Signs"; glyph: "♒" }
                 ListElement { section: "Horoscope Signs"; glyph: "♓" }
             }
+
             delegate: BackgroundItem {
                 width: gridView.cellWidth
                 height: gridView.cellHeight
@@ -153,12 +160,11 @@ Component {
                                 0, cursorPosition) + model.glyph + toot.text.substring(
                                 cursorPosition)
                     toot.cursorPosition = cursorPosition + model.glyph.length
-                    emoticonsDialog.canAccept = true
-                    emoticonsDialog.accept()
+                    emojiDialog.canAccept = true
+                    emojiDialog.accept()
                 }
             }
-
-            VerticalScrollDecorator {flickable: listEmojis }
+            VerticalScrollDecorator { flickable: listEmojis }
         }
     }
 }

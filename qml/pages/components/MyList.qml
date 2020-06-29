@@ -9,8 +9,6 @@ SilicaListView {
 
     property string type
     property string title
-    property string vwPlaceholderText: qsTr("Loading")
-    property string vwPlaceholderHint: qsTr("please wait...")
     property string description
     property ListModel mdl: []
     property variant params: []
@@ -52,13 +50,16 @@ SilicaListView {
     ViewPlaceholder {
         id: viewPlaceHolder
         enabled: model.count === 0
-        text: vwPlaceholderText
-        hintText: vwPlaceholderHint
+        text: qsTr("Loading")
+        hintText: qsTr("please wait...")
+        anchors.centerIn: parent
     }
 
     PullDownMenu {
+
         MenuItem {
             text: qsTr("Settings")
+            visible: !profilePage
             onClicked: {
                 pageStack.push(Qt.resolvedUrl("../SettingsPage.qml"), {})
             }
@@ -66,11 +67,20 @@ SilicaListView {
 
         MenuItem {
             text: qsTr("New Toot")
+            visible: !profilePage
             onClicked: {
                 pageStack.push(Qt.resolvedUrl("../ConversationPage.qml"), {
                                    headerTitle: qsTr("New Toot"),
                                    type: "new"
                                })
+            }
+        }
+
+        MenuItem {
+            text: qsTr("Open in Browser")
+            visible: !mainPage
+            onClicked: {
+                Qt.openUrlExternally(url)
             }
         }
 

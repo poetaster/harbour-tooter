@@ -242,18 +242,19 @@ Page {
             id: toot
             autoScrollEnabled: true
             labelVisible: false
+            //: placeholderText in Toot text panel
+            placeholderText: qsTr("What's on your mind?")
+            font.pixelSize: Theme.fontSizeSmall
             text: username !== "" && (username.charAt(0) === '@'
                                          || username.charAt(
                                              0) === '#') ? username + ' ' : ''
             height: if (type !== "reply") {
-                        Math.max(conversationPage.height / 3, Math.min(conversationPage.height * 0.65, implicitHeight))
+                        isPortrait ? Math.max(conversationPage.height / 3, Math.min(conversationPage.height * 0.65, implicitHeight)) : Math.max(conversationPage.height / 2, Math.min(conversationPage.height * 0.65, implicitHeight))
                     }
                     else {
-                        Math.max(conversationPage.height / 4, Math.min(conversationPage.height * 0.65, implicitHeight))
+                        isPortrait ? Math.max(conversationPage.height / 4, Math.min(conversationPage.height * 0.65, implicitHeight)) : Math.max(conversationPage.height / 2.5, Math.min(conversationPage.height * 0.65, implicitHeight))
                     }
             horizontalAlignment: Text.AlignLeft
-            placeholderText: qsTr("What's on your mind?")
-            font.pixelSize: Theme.fontSizeSmall
             anchors {
                 top: warningContent.bottom
                 topMargin: Theme.paddingMedium
@@ -297,7 +298,7 @@ Page {
                 rightMargin: Theme.paddingSmall
             }
             onSelectionChanged: { console.log(selection) }
-            onClicked: pageStack.push(emojiSelect)
+            onClicked: pageStack.push(emojiDialog)
         }
 
         SilicaGridView {
@@ -583,7 +584,7 @@ Page {
     }
 
     EmojiSelect {
-        id: emojiSelect
+        id: emojiDialog
     }
 
     InfoBanner {

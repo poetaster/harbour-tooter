@@ -17,7 +17,7 @@ SilicaGridView {
     ListModel {
         id: listModel
         ListElement {
-            icon: "image://theme/icon-m-home"
+            icon: "image://theme/icon-m-home?"
             slug: "home"
             name: "Home"
             active: true
@@ -25,14 +25,14 @@ SilicaGridView {
         }
 
         ListElement {
-            icon: "image://theme/icon-m-alarm"
+            icon: "image://theme/icon-m-alarm?"
             slug: "notifications"
             name: "Notifications"
             active: false
         }
 
         ListElement {
-            icon: "image://theme/icon-m-whereami"
+            icon: "image://theme/icon-m-whereami?"
             slug: "local"
             name: "Local"
             active: false
@@ -40,7 +40,7 @@ SilicaGridView {
         }
 
         ListElement {
-            icon: "image://theme/icon-m-website"
+            icon: "image://theme/icon-m-website?"
             slug: "federated"
             name: "Federated"
             active: false
@@ -48,7 +48,7 @@ SilicaGridView {
         }
 
         ListElement {
-            icon: "image://theme/icon-m-search"
+            icon: "image://theme/icon-m-search?"
             slug: "search"
             name: "Search"
             active: false
@@ -100,54 +100,19 @@ SilicaGridView {
             }
         }
 
-        OpacityRampEffect {
-            sourceItem: label
-            offset: 0.5
-        }
-
-        ColorOverlay {
-            source: image
-            color: (highlighted ? Theme.highlightColor : (model.active ? Theme.primaryColor : Theme.secondaryHighlightColor))
-            anchors.fill: image
-        }
-
         Image {
             id: image
             visible: false
-            source: model.icon // +'?'+ (highlighted ? Theme.highlightColor : (model.active ? Theme.primaryColor : Theme.secondaryHighlightColor))
+            source: model.icon
             sourceSize.width: Theme.iconSizeMedium
             sourceSize.height: Theme.iconSizeMedium
             anchors.centerIn: parent
         }
 
-        Text {
-            visible: false
-            text: model.name
-            font.pixelSize: Theme.fontSizeExtraSmall/2
-            color: (highlighted
-                    ? Theme.highlightColor
-                    : (model.active ? Theme.primaryColor : Theme.secondaryHighlightColor))
-            horizontalAlignment: Text.AlignHCenter
-            anchors {
-                left: parent.left
-                right: parent.right
-                bottom: parent.bottom
-                bottomMargin: Theme.paddingSmall
-            }
-        }
-
-        Label {
-            id: label
-            visible: false
-            color: (highlighted ? Theme.highlightColor : Theme.secondaryHighlightColor)
-            text: {
-                return model.name.toUpperCase();
-            }
-            font.pixelSize: Theme.fontSizeExtraSmall
-            font.family: Theme.fontFamilyHeading
-            width: parent.width
-            horizontalAlignment : Text.AlignHCenter
-            anchors.bottom: parent.bottom
+        ColorOverlay {
+            source: image
+            color: (highlighted ? Theme.highlightColor : (model.active ? Theme.secondaryHighlightColor : Theme.primaryColor))
+            anchors.fill: image
         }
 
         onClicked: {

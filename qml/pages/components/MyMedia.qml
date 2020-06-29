@@ -4,7 +4,7 @@ import QtMultimedia 5.0
 
 
 Item {
-    id: myImage
+    id: myMedia
 
     property string type : ""
     property string previewURL: ""
@@ -17,9 +17,26 @@ Item {
     }
 
     Image {
-        opacity: status !== Image.Ready ? 1.0 : 0.0
+        visible: type == 'image'
+        opacity: img.status === Image.Ready ? 0.0 : 1.0
         Behavior on opacity { FadeAnimator {} }
-        source: "image://theme/icon-m-image"
+        source: "image://theme/icon-m-image?"
+        anchors.centerIn: parent
+    }
+
+    Image {
+        visible: type == 'video' || type == "gifv"
+        opacity: img.status === Image.Ready ? 0.0 : 1.0
+        Behavior on opacity { FadeAnimator {} }
+        source: "image://theme/icon-m-file-video?"
+        anchors.centerIn: parent
+    }
+
+    Image {
+        visible: type == 'audio'
+        opacity: img.status === Image.Ready ? 0.0 : 1.0
+        Behavior on opacity { FadeAnimator {} }
+        source: "image://theme/icon-m-file-audio?"
         anchors.centerIn: parent
     }
 
@@ -33,6 +50,7 @@ Item {
 
     Image {
         id: img
+        visible: type != 'audio'
         asynchronous: true
         opacity: status === Image.Ready ? 1.0 : 0.0
         Behavior on opacity { FadeAnimator {} }
@@ -61,7 +79,7 @@ Item {
         Image {
             id: videoIcon
             visible: type === "video" || type === "gifv"
-            source: "image://theme/icon-l-play"
+            source: "image://theme/icon-l-play?"
             anchors.centerIn: parent
         }
 

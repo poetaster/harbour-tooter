@@ -265,7 +265,7 @@ BackgroundItem {
             left: lblContent.left
             leftMargin: isPortrait ? 0 : Theme.itemSizeSmall
             right: lblContent.right
-            rightMargin: isPortrait ? 0 : Theme.itemSizeLarge
+            rightMargin: isPortrait ? 0 : Theme.itemSizeLarge * 1.4
             top: lblContent.bottom
             topMargin: Theme.paddingMedium
             bottomMargin: Theme.paddingLarge

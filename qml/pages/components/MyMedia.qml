@@ -34,7 +34,7 @@ Item {
 
     Image {
         visible: type == 'audio'
-        opacity: img.status === Image.Ready ? 0.0 : 1.0
+        //opacity: img.status === Image.Ready ? 0.0 : 1.0
         Behavior on opacity { FadeAnimator {} }
         source: "image://theme/icon-m-file-audio?"
         anchors.centerIn: parent
@@ -85,24 +85,25 @@ Item {
 
         BusyIndicator {
             id: mediaLoader
+            visible: type != 'audio'
             size: BusyIndicatorSize.Large
             running: img.status !== Image.Ready
             opacity: img.status === Image.Ready ? 0.0 : 1.0
-            anchors.verticalCenter: parent.verticalCenter
-            anchors.horizontalCenter: parent.horizontalCenter
+            anchors {
+                verticalCenter: parent.verticalCenter
+                horizontalCenter: parent.horizontalCenter
+            }
         }
 
         Rectangle {
             id: mediaWarning
             color: Theme.highlightDimmerColor
             visible: typeof status_sensitive != "undefined" && status_sensitive ? true : false
-            anchors.fill: parent
-
             Image {
                 source: "image://theme/icon-l-attention?"+Theme.highlightColor
                 anchors.centerIn: parent
             }
-
+            anchors.fill: parent
             MouseArea {
                 anchors.fill: parent
                 onClicked: parent.visible = false

@@ -48,9 +48,9 @@ Item {
         width: parent.width - Theme.paddingMedium
         truncationMode: TruncationMode.Fade
         anchors {
+            top: lblName.bottom
             left: parent.left
             leftMargin: Theme.paddingMedium
-            top: lblName.bottom
         }
     }
 

@@ -26,10 +26,7 @@ Page {
     allowedOrientations: Orientation.All
     onSuggestedUserChanged: {
         console.log(suggestedUser)
-        suggestedModel = Qt.createQmlObject(
-                    'import QtQuick 2.0; ListModel {   }',
-                    Qt.application, 'InternalQmlObject'
-                    )
+        suggestedModel = Qt.createQmlObject( 'import QtQuick 2.0; ListModel {   }', Qt.application, 'InternalQmlObject' )
         predictionList.visible = false
         if (suggestedUser.length > 0) {
             var msg = {
@@ -58,9 +55,7 @@ Page {
     WorkerScript {
         id: worker
         source: "../lib/Worker.js"
-        onMessage: {
-            console.log(JSON.stringify(messageObject))
-        }
+        onMessage: { console.log(JSON.stringify(messageObject)) }
     }
 
     SilicaListView {
@@ -85,8 +80,7 @@ Page {
                 text: Format.formatDate(section, Formatter.DateMedium)
             }
         }
-        delegate: VisualContainer {
-        }
+        delegate: VisualContainer {}
         onCountChanged: {
             if (mdl)
                 for (var i = 0; i < mdl.count; i++) {
@@ -121,11 +115,8 @@ Page {
                 //: "Reply" will show the Toot text entry Panel. "Hide Reply" closes it. Alternative: Use "Close Reply"
                 text: !panel.open ? qsTr("Reply") : qsTr("Hide Reply")
                 visible: type == "reply"
-                onClicked: if (!panel.open) {
-                               panel.open = true
-                           } else panel.open = false
+                onClicked: !panel.open ? panel.open = true : panel.open = false
             }
-
         }
     }
 
@@ -137,20 +128,16 @@ Page {
         anchors {
             left: panel.left
             right: panel.right
-            bottom: if (panel.open == true) {
-                        panel.top
-                    } else {
-                        hiddenPanel.top
-                    }
+            bottom: panel.open == true ? panel.top : hiddenPanel.top
         }
 
         SilicaListView {
-            rotation: 180
+            id: predictionResults
+            rotation: 180 // shows best matching result on the bottom
             anchors.fill: parent
             model: suggestedModel
             clip: true
             quickScroll: false
-            VerticalScrollDecorator {}
             delegate: ItemUser {
                 rotation: 180
                 onClicked: {
@@ -166,7 +153,6 @@ Page {
                             + model.account_acct
                             + ' '
                             + textOperations.text.substring(textOperations.selectionEnd).trim()
-
                     toot.cursorPosition = toot.text.indexOf('@' + model.account_acct)
                 }
             }
@@ -175,21 +161,20 @@ Page {
                     positionViewAtBeginning(suggestedModel.count - 1, ListView.Beginning)
                 }
             }
+
+            VerticalScrollDecorator {}
         }
     }
 
     DockedPanel {
         id: panel
         width: parent.width
-        height: progressBar.height + toot.height + (mediaModel.count ? uploadedImages.height : 0)
-                + btnContentWarning.height + Theme.paddingMedium
-                + (warningContent.visible ? warningContent.height : 0)
+        height: progressBar.height + toot.height + (mediaModel.count ? uploadedImages.height : 0) + btnContentWarning.height + Theme.paddingMedium + (warningContent.visible ? warningContent.height : 0)
         dock: Dock.Bottom
         open: true
 
-        animationDuration: 300
-
         Rectangle {
+            id: progressBarBg
             width: parent.width
             height: progressBar.height
             color: Theme.highlightBackgroundColor
@@ -220,17 +205,18 @@ Page {
             autoScrollEnabled: true
             labelVisible: false
             font.pixelSize: Theme.fontSizeSmall
+            //: placeholderText in Toot content warning panel
             placeholderText: qsTr("Write your warning here")
             placeholderColor: palette.highlightColor
             color: palette.highlightColor
             horizontalAlignment: Text.AlignLeft
+            EnterKey.onClicked: {}
             anchors {
                 top: parent.top
                 topMargin: Theme.paddingMedium
                 left: parent.left
                 right: parent.right
             }
-            EnterKey.onClicked: {}
         }
 
         TextInput {
@@ -270,7 +256,6 @@ Page {
                 textOperations.select(
                             textOperations.selectionStart ? textOperations.selectionStart - 1 : 0,
                             textOperations.selectionEnd)
-                //console.log(textOperations.text.substr(textOperations.selectionStart, textOperations.selectionEnd))
                 console.log(toot.text.length)
                 suggestedUser = ""
                 if (textOperations.selectedText.charAt(0) === "@") {
@@ -317,8 +302,6 @@ Page {
                 RemorseItem {
                     id: remorse
                     cancelText: ""
-
-
                 }
 
                 Image {
@@ -362,22 +345,20 @@ Page {
 
         IconButton {
             id: btnContentWarning
+            icon.source: "image://theme/icon-s-warning?" + ( pressed ? Theme.highlightColor : (warningContent.visible ? Theme.secondaryHighlightColor : Theme.primaryColor) )
+            onClicked: warningContent.visible = !warningContent.visible
             anchors {
                 top: toot.bottom
                 topMargin: -Theme.paddingSmall * 1.5
                 left: parent.left
                 leftMargin: Theme.paddingMedium
             }
-            icon.source: "image://theme/icon-s-warning?"
-                         + (pressed ? Theme.highlightColor : (warningContent.visible ? Theme.secondaryHighlightColor : Theme.primaryColor))
-            onClicked: warningContent.visible = !warningContent.visible
         }
 
         IconButton {
             id: btnAddImage
             enabled: mediaModel.count < 4
-            icon.source: "image://theme/icon-s-attach?"
-                         + (pressed ? Theme.highlightColor : (warningContent.visible ? Theme.secondaryHighlightColor : Theme.primaryColor))
+            icon.source: "image://theme/icon-s-attach?" + ( pressed ? Theme.highlightColor : (warningContent.visible ? Theme.secondaryHighlightColor : Theme.primaryColor) )
             anchors {
                 top: toot.bottom
                 topMargin: -Theme.paddingSmall * 1.5
@@ -387,7 +368,7 @@ Page {
             onClicked: {
                 btnAddImage.enabled = false
                 var once = true
-                var imagePicker = pageStack.push("Sailfish.Pickers.ImagePickerPage", {"allowedOrientations": Orientation.All})
+                var imagePicker = pageStack.push("Sailfish.Pickers.ImagePickerPage", { "allowedOrientations": Orientation.All })
                 imagePicker.selectedContentChanged.connect(function () {
                     var imagePath = imagePicker.selectedContent
                     console.log(imagePath)
@@ -420,12 +401,6 @@ Page {
 
         ComboBox {
             id: privacy
-            anchors {
-                top: toot.bottom
-                topMargin: -Theme.paddingSmall * 1.5
-                left: btnAddImage.right
-                right: btnSend.left
-            }
             menu: ContextMenu {
                 MenuItem {
                     text: qsTr("Public")
@@ -440,12 +415,17 @@ Page {
                     text: qsTr("Direct")
                 }
             }
+            anchors {
+                top: toot.bottom
+                topMargin: -Theme.paddingSmall * 1.5
+                left: btnAddImage.right
+                right: btnSend.left
+            }
         }
 
         IconButton {
             id: btnSend
-            icon.source: "image://theme/icon-m-send?"
-                         + (pressed ? Theme.highlightColor : Theme.primaryColor)
+            icon.source: "image://theme/icon-m-send?" + (pressed ? Theme.highlightColor : Theme.primaryColor)
             enabled: toot.text !== "" && toot.text.length < tootMaxChar && uploadProgress.width == 0
             anchors {
                 top: toot.bottom
@@ -492,8 +472,10 @@ Page {
             id: uploadProgress
             color: Theme.highlightBackgroundColor
             height: Theme.itemSizeSmall * 0.05
-            anchors.bottom: parent.bottom
-            anchors.left: parent.left
+            anchors {
+                bottom: parent.bottom
+                left: parent.left
+            }
         }
     }
 
@@ -563,9 +545,9 @@ Page {
             color: Theme.highlightBackgroundColor
             opacity: 0.2
             anchors {
+                top: parent.top
                 left: parent.left
                 right: parent.right
-                top: parent.top
             }
         }
 
@@ -576,8 +558,8 @@ Page {
             color: Theme.highlightBackgroundColor
             opacity: 0.7
             anchors {
-                left: parent.left
                 top: parent.top
+                left: parent.left
             }
         }
 

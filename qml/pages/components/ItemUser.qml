@@ -18,7 +18,6 @@ BackgroundItem {
         anchors.left: parent.left
         anchors.leftMargin: Theme.horizontalPageMargin
 
-
         Image {
             id: img
             opacity: status === Image.Ready ? 1.0 : 0.0
@@ -56,7 +55,7 @@ BackgroundItem {
     }
 
     Item {
-        id: userdescription
+        id: userDescription
         height: account_acct.height + display_name.height
         anchors.left: avatar.right
         anchors.leftMargin: Theme.paddingLarge
@@ -72,7 +71,6 @@ BackgroundItem {
             truncationMode: TruncationMode.Fade
             width: parent.width - Theme.paddingMedium
             anchors.top: parent.top
-
         }
 
         Label {

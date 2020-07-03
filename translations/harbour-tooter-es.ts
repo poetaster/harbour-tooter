@@ -29,6 +29,7 @@
     </message>
     <message>
         <source>Write your warning here</source>
+        <extracomment>placeholderText in Toot content warning panel</extracomment>
         <translation>Escribe aquí tu advertencia</translation>
     </message>
     <message>

@@ -5,8 +5,8 @@ import Sailfish.Silica 1.0
 Item {
     id: miniStatus
     visible: true
-    height: icon.height+Theme.paddingMedium
     width: parent.width
+    height: icon.height+Theme.paddingMedium
 
     Icon {
         id: icon
@@ -18,9 +18,9 @@ Item {
         anchors {
             top: parent.top
             topMargin: Theme.paddingMedium
-            bottomMargin: Theme.paddingMedium
             left: parent.left
             leftMargin: Theme.horizontalPageMargin + Theme.iconSizeMedium - width
+            bottomMargin: Theme.paddingMedium
         }
     }
 

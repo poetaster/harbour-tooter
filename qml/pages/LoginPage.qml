@@ -81,10 +81,10 @@ Page {
                 wrapMode: Text.WordWrap
                 width: parent.width
                 anchors {
-                    left: parent.left
-                    right: parent.right
                     topMargin: Theme.paddingMedium
+                    left: parent.left
                     leftMargin: Theme.horizontalPageMargin
+                    right: parent.right
                     rightMargin: Theme.horizontalPageMargin
                 }
             }

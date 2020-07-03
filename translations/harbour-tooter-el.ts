@@ -29,6 +29,7 @@
     </message>
     <message>
         <source>Write your warning here</source>
+        <extracomment>placeholderText in Toot content warning panel</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -118,15 +119,15 @@
     <name>MainPage</name>
     <message>
         <source>Home</source>
-        <translation type="unfinished"></translation>
+        <translation>Οικοσελίδα</translation>
     </message>
     <message>
         <source>Notifications</source>
-        <translation type="unfinished"></translation>
+        <translation>Ειδοποιήσεις</translation>
     </message>
     <message>
         <source>Local</source>
-        <translation type="unfinished"></translation>
+        <translation>Τοπικός</translation>
     </message>
     <message>
         <source>Federated</source>
@@ -134,15 +135,15 @@
     </message>
     <message>
         <source>Search</source>
-        <translation type="unfinished"></translation>
+        <translation>Αναζήτηση</translation>
     </message>
     <message>
         <source>@user or #term</source>
-        <translation type="unfinished"></translation>
+        <translation>@χρήστη ή #όρος</translation>
     </message>
     <message>
         <source>New Toot</source>
-        <translation type="unfinished">Νέος</translation>
+        <translation>Νέος</translation>
     </message>
 </context>
 <context>
@@ -187,7 +188,7 @@
     </message>
     <message>
         <source>Reload</source>
-        <translation type="unfinished">Επαναφόρτωση</translation>
+        <translation>Φόρτωση περισσοτέρων</translation>
     </message>
     <message>
         <source>Open in Browser</source>
@@ -219,26 +220,26 @@
     <message>
         <source>Followers</source>
         <extracomment>Will show as: &quot;35 Followers&quot;</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Σας ακολουθούν</translation>
     </message>
     <message>
         <source>Following</source>
         <extracomment>Will show as: &quot;23 Following&quot;</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Σε παρακολούθηση</translation>
     </message>
     <message>
         <source>Statuses</source>
         <extracomment>Will show as: &quot;115 Statuses&quot;</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Κατάσταση</translation>
     </message>
     <message>
         <source>Mention</source>
-        <translation type="unfinished"></translation>
+        <translation>Φραγή</translation>
     </message>
     <message>
         <source>Unfollow</source>
         <extracomment>Is a button. Keep it as short as possible.</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Αναίρεση παρακολούθησης</translation>
     </message>
     <message>
         <source>Requested</source>
@@ -248,22 +249,22 @@
     <message>
         <source>Follow</source>
         <extracomment>Is a button. Keep it as short as possible.</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Παρακολούθηση</translation>
     </message>
     <message>
         <source>Unmute</source>
         <extracomment>Is a button. Keep it as short as possible.</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Αναίρεση σίγασης</translation>
     </message>
     <message>
         <source>Mute</source>
         <extracomment>Is a button. Keep it as short as possible.</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Σίγαση</translation>
     </message>
     <message>
         <source>Unblock</source>
         <extracomment>Is a button. Keep it as short as possible.</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Αναίρεση φραγής</translation>
     </message>
     <message>
         <source>Block</source>
@@ -376,7 +377,7 @@
     </message>
     <message>
         <source>Mention</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Φραγή</translation>
     </message>
     <message>
         <source>Conversation</source>

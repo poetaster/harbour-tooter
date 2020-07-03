@@ -182,7 +182,7 @@ Page {
                             id: txtNote
                             text: note
                             textFormat: Text.StyledText
-                            color: Theme.highlightColor
+                            color: Theme.secondaryHighlightColor
                             font.pixelSize: Theme.fontSizeExtraSmall
                             linkColor: Theme.secondaryColor
                             wrapMode: Text.Wrap
@@ -256,7 +256,7 @@ Page {
                               //: Will show as: "115 Statuses"
                               qsTr("Statuses")
                         font.pixelSize: Theme.fontSizeExtraSmall
-                        color: Theme.primaryColor
+                        color: pressed ?  Theme.highlightColor : Theme.primaryColor
                         wrapMode: Text.Wrap
 
                         MouseArea {
@@ -305,7 +305,6 @@ Page {
                                 'conf'      : Logic.conf
                             };
                             worker.sendMessage(msg);
-                            // to-do: create notification banner "Follow request sent!"
                         }
                     }
 
@@ -344,8 +343,8 @@ Page {
                                 'params'    : [],
                                 'action'    : "accounts/" + user_id + (blocking ? '/unblock':'/block'),
                                 'conf'      : Logic.conf
-                            };
-                            worker.sendMessage(msg);
+                            }
+                            worker.sendMessage(msg)
                         }
                     }
                 }

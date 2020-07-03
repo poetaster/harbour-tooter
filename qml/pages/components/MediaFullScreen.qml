@@ -287,23 +287,23 @@ FullscreenContentPage {
 
         IconButton {
             y: Theme.paddingLarge
+            icon.source: "image://theme/icon-m-dismiss"
+            onClicked: pageStack.pop()
             anchors {
                 right: parent.right
                 rightMargin: Theme.horizontalPageMargin
             }
-            icon.source: "image://theme/icon-m-dismiss"
-            onClicked: pageStack.pop()
         }
 
         IconButton {
             id: mediaDlBtn
+            icon.source: "image://theme/icon-m-cloud-download"
             anchors {
                 right: parent.right
                 rightMargin: Theme.horizontalPageMargin
                 bottom: parent.bottom
                 bottomMargin: Theme.horizontalPageMargin
             }
-            icon.source: "image://theme/icon-m-cloud-download"
             onClicked: {
                 var filename = mediaURL.split("/")
                 FileDownloader.downloadFile(mediaURL, filename[filename.length-1])
@@ -327,7 +327,6 @@ FullscreenContentPage {
                 } else {
                     video.play()
                     hideTimer.start()
-
                 }
             }
         }
@@ -354,7 +353,6 @@ FullscreenContentPage {
                 overlayIcons.active = !overlayIcons.active
             }
         }
-
     }
 
     VerticalScrollDecorator { flickable: imageFlickable }

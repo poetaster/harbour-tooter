@@ -188,7 +188,7 @@ SilicaListView {
             'model'     : model,
             'mode'      : mode,
             'conf'      : Logic.conf
-        };
+        }
 
         console.log(JSON.stringify(msg))
         if (type !== "")

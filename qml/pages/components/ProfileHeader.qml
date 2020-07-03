@@ -181,8 +181,10 @@ Item {
                 text: qsTr("Bot")
                 font.pixelSize: Theme.fontSizeExtraSmall
                 color: Theme.primaryColor
-                anchors.horizontalCenter: parent.horizontalCenter
-                anchors.verticalCenter: parent.verticalCenter
+                anchors {
+                    horizontalCenter: parent.horizontalCenter
+                    verticalCenter: parent.verticalCenter
+                }
             }
         }
     }

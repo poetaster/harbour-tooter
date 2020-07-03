@@ -198,7 +198,6 @@ BackgroundItem {
             console.log(link)
             console.log(JSON.stringify(test))
             console.log(JSON.stringify(test.length))
-
             if (test.length === 5 && (test[3] === "tags" || test[3] === "tag") ) {
                 pageStack.pop(pageStack.find(function(page) {
                     var check = page.isFirstPage === true;
@@ -341,8 +340,8 @@ BackgroundItem {
                 width: Theme.iconSizeSmall
                 height: width
                 anchors {
-                    leftMargin: Theme.horizontalPageMargin
                     left: parent.left
+                    leftMargin: Theme.horizontalPageMargin
                     verticalCenter: parent.verticalCenter
                 }
             }
@@ -388,7 +387,6 @@ BackgroundItem {
                 }
             }
         }
-
 
         MenuItem {
             id: mnuMention

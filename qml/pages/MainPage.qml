@@ -135,7 +135,7 @@ Page {
                     mdl: ListModel {}
                     width: parent.width
                     height: parent.height
-                    onOpenDrawer:  infoPanel.open = setDrawer
+                    onOpenDrawer: isPortrait ? infoPanel.open = setDrawer : infoPanel.open = true
                     anchors.fill: parent
                     currentIndex: -1 // otherwise currentItem will steal focus
                     header:  Item {
@@ -234,6 +234,7 @@ Page {
         itemWidth: isTablet ? Math.round(parent.width) : parent.width
         itemHeight: height
         clip: true
+        model: visualModel
         onCurrentIndexChanged: {
             navigation.slideshowIndexChanged(currentIndex)
         }
@@ -243,7 +244,6 @@ Page {
             rightMargin: isPortrait ? 0 : infoPanel.visibleSize
             bottomMargin: isPortrait ? infoPanel.visibleSize : 0
         }
-        model: visualModel
         Component.onCompleted: {
         }
     }

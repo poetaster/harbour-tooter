@@ -16,8 +16,7 @@ CONFIG += sailfishapp
 QT += network dbus sql
 QT += multimedia
 CONFIG += link_pkgconfig
-PKGCONFIG += sailfishapp
-PKGCONFIG += \
+PKGCONFIG += sailfishapp \
     nemonotifications-qt5
 
 DEFINES += "APPVERSION=\\\"$${SPECVERSION}\\\""

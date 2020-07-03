@@ -160,7 +160,6 @@ function parseAccounts(collection, prefix, data) {
     //res[prefix + 'account_fields'] = data["fields"]
     res[prefix + 'account_bot'] = data["bot"]
     res[prefix + 'account_group'] = data["group"]
-    res[prefix + 'account_source'] = data["source"]
 
     //console.log(JSON.stringify(res))
     return (res);
@@ -228,7 +227,7 @@ function parseNotification(data){
     return item;
 }
 
-/** Function: ?? */
+/** Function: */
 function collect() {
     var ret = {};
     var len = arguments.length;
@@ -261,7 +260,6 @@ function parseToot (data) {
     item['status_spoiler_text'] = data["spoiler_text"]
     item['status_visibility'] = data["visibility"]
     item['status_language'] = data["language"]
-
     item['status_uri'] = data["uri"]
     item['status_url'] = data["url"]
     item['status_replies_count'] = data["replies_count"]
@@ -270,10 +268,8 @@ function parseToot (data) {
     item['status_favourited'] = data["favourited"]
     item['status_reblogged'] = data["reblogged"]
     item['status_bookmarked'] = data["bookmarked"]
-
     item['status_content'] = data["content"]
     item['attachments'] = data['media_attachments']
-
     item['status_in_reply_to_id'] = data["in_reply_to_id"]
     item['status_in_reply_to_account_id'] = data["in_reply_to_account_id"]
     item['status_reblog'] = data["reblog"] ? true : false
@@ -283,16 +279,19 @@ function parseToot (data) {
     if(item['status_reblog']) {
         item['type'] = "reblog";
         item['typeIcon'] = "image://theme/icon-s-retweet"
-        item['status_id'] = data["reblog"]["id"];
-        item['status_spoiler_text'] = data["reblog"]["spoiler_text"]
+        item['status_id'] = data["reblog"]["id"]
         item['status_sensitive'] = data["reblog"]["sensitive"]
+        item['status_spoiler_text'] = data["reblog"]["spoiler_text"]
+        item['status_replies_count'] = data["reblog"]["replies_count"]
+        item['status_reblogs_count'] = data["reblog"]["reblogs_count"]
+        item['status_favourites_count'] = data["reblog"]["favourites_count"]
         item = parseAccounts(item, "", data['reblog']["account"])
         item = parseAccounts(item, "reblog_", data["account"])
     } else {
         item = parseAccounts(item, "", data["account"])
     }
 
-    /** Replace HTML content */
+    /** Replace HTML content in Toots */
     item['content'] = data['content']
     .replaceAll('</span><span class="invisible">', '')
     .replaceAll('<span class="invisible">', '')
@@ -301,7 +300,7 @@ function parseToot (data) {
 
     /** Media attachements in Toots */
     item['attachments'] = [];
-    for(i = 0; i < data['media_attachments'].length ; i++) {
+    for(i = 0; i < data['media_attachments'].length; i++) {
         var attachments = data['media_attachments'][i];
         item['content'] = item['content'].replaceAll(attachments['text_url'], '')
         var tmp = {

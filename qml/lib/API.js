@@ -38,7 +38,7 @@ var init = function(){
             tx.executeSql('CREATE TABLE IF NOT EXISTS settings ('
                           + ' key TEXT UNIQUE, '
                           + ' value TEXT '
-                          +');');
+                          + ');');
             //tx.executeSql('INSERT INTO settings (key, value) VALUES (?, ?)', ["conf", "{}"]);
         });
         db.changeVersion('', '0.1', function(tx) {

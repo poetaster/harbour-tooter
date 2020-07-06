@@ -175,14 +175,6 @@
         <translation>设置</translation>
     </message>
     <message>
-        <source>Loading</source>
-        <translation>加载中</translation>
-    </message>
-    <message>
-        <source>please wait...</source>
-        <translation>稍等片刻......</translation>
-    </message>
-    <message>
         <source>New Toot</source>
         <translation>新嘟嘟</translation>
     </message>
@@ -193,6 +185,10 @@
     <message>
         <source>Open in Browser</source>
         <translation type="unfinished">在浏览器打开个人简介</translation>
+    </message>
+    <message>
+        <source>Loading...</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

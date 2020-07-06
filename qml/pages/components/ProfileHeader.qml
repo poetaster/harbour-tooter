@@ -16,10 +16,10 @@ Item {
 
     Rectangle {
         id: bgImage
-        opacity: 0.2
+        opacity: 0.7
         gradient: Gradient {
-            GradientStop { position: 0.0; color: Theme.highlightBackgroundColor }
-            GradientStop { position: 1.0; color: Theme.highlightBackgroundColor }
+            GradientStop { position: 0.0; color: Theme.highlightDimmerColor }
+            GradientStop { position: 2.0; color: Theme.highlightBackgroundColor }
         }
         anchors.fill: parent
 
@@ -27,6 +27,7 @@ Item {
             asynchronous: true
             fillMode: Image.PreserveAspectCrop
             source: bg
+            opacity: 0.6
             anchors.fill: parent
         }
     }

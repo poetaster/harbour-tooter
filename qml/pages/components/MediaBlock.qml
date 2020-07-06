@@ -14,7 +14,7 @@ Item {
     height: height
     Component.onCompleted: {
         if (model && model.count && model.get(0).type === "video") {
-            while (model.count>1){
+            while (model.count>1) {
                 model.remove(model.count-1)
             }
             //console.log(JSON.stringify(model.get(0)))

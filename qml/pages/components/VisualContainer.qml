@@ -18,7 +18,7 @@ BackgroundItem {
         id: bgDirect
         x: 0
         y: 0
-        visible: status_visibility === "direct"
+        visible: model.status_visibility === "direct"
         width: parent.width
         height: parent.height
         opacity: 0.3
@@ -188,7 +188,7 @@ BackgroundItem {
             left: miniHeader.left
             leftMargin: Theme.paddingMedium
             right: miniHeader.right
-            rightMargin: Theme.horizontalPageMargin
+            rightMargin: Theme.horizontalPageMargin + Theme.paddingLarge
             top: miniHeader.bottom
             topMargin: Theme.paddingSmall
             bottomMargin: Theme.paddingLarge
@@ -255,16 +255,14 @@ BackgroundItem {
     // Displays media in Toots
     MediaBlock {
         id: media
-        visible: if (myList.type === "notifications" && ( type === "favourite" || type === "reblog" )) {
-                     false
-                 } else true
+        visible: (myList.type === "notifications" && ( type === "favourite" || type === "reblog" )) ? false : true
         model: typeof attachments !== "undefined" ? attachments : Qt.createQmlObject('import QtQuick 2.0; ListModel { }', Qt.application, 'InternalQmlObject')
         height: Theme.iconSizeExtraLarge * 2
         anchors {
             left: lblContent.left
             leftMargin: isPortrait ? 0 : Theme.itemSizeSmall
             right: lblContent.right
-            rightMargin: isPortrait ? 0 : Theme.itemSizeLarge * 1.4
+            rightMargin: isPortrait ? 0 : Theme.itemSizeLarge * 1.2
             top: lblContent.bottom
             topMargin: Theme.paddingMedium
             bottomMargin: Theme.paddingLarge
@@ -278,7 +276,7 @@ BackgroundItem {
         MenuItem {
             id: mnuBoost
             visible: model.type !== "follow"
-            enabled: status_visibility !== "direct"
+            enabled: model.status_visibility !== "direct"
             text: typeof model.status_reblogged !== "undefined" && model.status_reblogged ? qsTr("Unboost") : qsTr("Boost")
             onClicked: {
                 var status = typeof model.status_reblogged !== "undefined" && model.status_reblogged

@@ -175,14 +175,6 @@
         <translation>Einstellungen</translation>
     </message>
     <message>
-        <source>Loading</source>
-        <translation>Wird geladen</translation>
-    </message>
-    <message>
-        <source>please wait...</source>
-        <translation>bitte warten...</translation>
-    </message>
-    <message>
         <source>New Toot</source>
         <translation>Neuer Toot</translation>
     </message>
@@ -193,6 +185,10 @@
     <message>
         <source>Open in Browser</source>
         <translation>Im Browser öffnen</translation>
+    </message>
+    <message>
+        <source>Loading...</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

@@ -175,14 +175,6 @@
         <translation>Paramètres</translation>
     </message>
     <message>
-        <source>Loading</source>
-        <translation>Chargement</translation>
-    </message>
-    <message>
-        <source>please wait...</source>
-        <translation>patientez...</translation>
-    </message>
-    <message>
         <source>New Toot</source>
         <translation>Nouveau pouet</translation>
     </message>
@@ -193,6 +185,10 @@
     <message>
         <source>Open in Browser</source>
         <translation>Ouvrir dans le navigateur</translation>
+    </message>
+    <message>
+        <source>Loading...</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

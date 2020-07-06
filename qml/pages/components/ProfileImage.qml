@@ -16,12 +16,12 @@ FullscreenContentPage {
 
     IconButton {
         icon.source: "image://theme/icon-m-dismiss"
+        onClicked: pageStack.pop()
         anchors {
             top: profileImage.top
             topMargin: Theme.horizontalPageMargin
             right: parent.right
             rightMargin: Theme.horizontalPageMargin
         }
-        onClicked: pageStack.pop()
     }
 }

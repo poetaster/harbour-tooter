@@ -175,14 +175,6 @@
         <translation>Подешавања</translation>
     </message>
     <message>
-        <source>Loading</source>
-        <translation>Učitavanje</translation>
-    </message>
-    <message>
-        <source>please wait...</source>
-        <translation>молимо вас, сачекајте...</translation>
-    </message>
-    <message>
         <source>New Toot</source>
         <translation>Novi toot</translation>
     </message>
@@ -192,6 +184,10 @@
     </message>
     <message>
         <source>Open in Browser</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Loading...</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

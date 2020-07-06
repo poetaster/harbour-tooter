@@ -175,14 +175,6 @@
         <translation>Inställningar</translation>
     </message>
     <message>
-        <source>Loading</source>
-        <translation>Laddar</translation>
-    </message>
-    <message>
-        <source>please wait...</source>
-        <translation>Vänligen vänta...</translation>
-    </message>
-    <message>
         <source>New Toot</source>
         <translation>Ny toot</translation>
     </message>
@@ -192,6 +184,10 @@
     </message>
     <message>
         <source>Open in Browser</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Loading...</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

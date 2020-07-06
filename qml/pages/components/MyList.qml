@@ -41,22 +41,16 @@ SilicaListView {
         description: myList.description
     }
 
-    BusyIndicator {
-        size: BusyIndicatorSize.Large
-        running: myList.model.count === 0 && !viewPlaceHolder.visible
-        anchors.centerIn: parent
-    }
-
-    ViewPlaceholder {
-        id: viewPlaceHolder
-        enabled: model.count === 0
-        text: qsTr("Loading")
-        hintText: qsTr("please wait...")
-        anchors.centerIn: parent
+    BusyLabel {
+        id: loadStatusList
+        running: model.count === 0
+        anchors {
+            horizontalCenter: parent.horizontalCenter
+            verticalCenter: parent.verticalCenter
+        }
     }
 
     PullDownMenu {
-
         MenuItem {
             text: qsTr("Settings")
             visible: !profilePage
@@ -124,10 +118,13 @@ SilicaListView {
         }
 
         BusyIndicator {
+            running: loadStarted
+            visible: loadStatusList.running ? false : true
             size: BusyIndicatorSize.Small
-            running: loadStarted;
-            anchors.verticalCenter: parent.verticalCenter
-            anchors.horizontalCenter: parent.horizontalCenter
+            anchors {
+                verticalCenter: parent.verticalCenter
+                horizontalCenter: parent.horizontalCenter
+            }
         }
     }
 
@@ -171,10 +168,10 @@ SilicaListView {
 
     function loadData(mode) {
         var p = []
-        if (params.length)
+        if (params.length) {
             for(var i = 0; i<params.length; i++)
                 p.push(params[i])
-
+        }
         if (mode === "append" && model.count) {
             p.push({name: 'max_id', data: model.get(model.count-1).id})
         }

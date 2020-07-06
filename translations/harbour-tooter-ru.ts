@@ -175,14 +175,6 @@
         <translation>Настройки</translation>
     </message>
     <message>
-        <source>Loading</source>
-        <translation>Загрузка</translation>
-    </message>
-    <message>
-        <source>please wait...</source>
-        <translation>Пожалуйста, подождите...</translation>
-    </message>
-    <message>
         <source>New Toot</source>
         <translation>Новый</translation>
     </message>
@@ -193,6 +185,10 @@
     <message>
         <source>Open in Browser</source>
         <translation type="unfinished">Открыть в браузере</translation>
+    </message>
+    <message>
+        <source>Loading...</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

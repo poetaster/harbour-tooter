@@ -16,7 +16,7 @@ Page {
     property string status_id: ""
     property string status_url: ""
     property string status_uri: ""
-    property int tootMaxChar: 500;
+    property int tootMaxChar: 500
     property bool bot: false //otherwise ReferenceError ProfileHeader.qml
     property bool followed_by: false //otherwise ReferenceError ProfileHeader.qml
     property bool locked: false //otherwise ReferenceError ProfileHeader.qml
@@ -60,6 +60,7 @@ Page {
 
     SilicaListView {
         id: myList
+
         header: PageHeader {
             title: headerTitle // pageTitle pushed from MainPage.qml or VisualContainer.qml
         }

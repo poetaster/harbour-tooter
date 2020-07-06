@@ -175,14 +175,6 @@
         <translation>Instellingen</translation>
     </message>
     <message>
-        <source>Loading</source>
-        <translation>Laden</translation>
-    </message>
-    <message>
-        <source>please wait...</source>
-        <translation>even geduld…</translation>
-    </message>
-    <message>
         <source>New Toot</source>
         <translation>Nieuwe Toot</translation>
     </message>
@@ -193,6 +185,10 @@
     <message>
         <source>Open in Browser</source>
         <translation type="unfinished">Open een Browser</translation>
+    </message>
+    <message>
+        <source>Loading...</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

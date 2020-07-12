@@ -66,6 +66,10 @@
         <source>Hide Reply</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Open in Browser</source>
+        <translation type="unfinished">Otwarte w przeglądarce</translation>
+    </message>
 </context>
 <context>
     <name>CoverPage</name>
@@ -78,11 +82,11 @@
     <name>EmojiSelect</name>
     <message>
         <source>Emojis</source>
-        <translation type="unfinished"></translation>
+        <translation>Emoji</translation>
     </message>
     <message>
         <source>Tap to insert</source>
-        <translation type="unfinished"></translation>
+        <translation>Dotknij aby wstawić</translation>
     </message>
 </context>
 <context>
@@ -96,7 +100,7 @@
     <name>LoginPage</name>
     <message>
         <source>Login</source>
-        <translation type="unfinished"></translation>
+        <translation>Login</translation>
     </message>
     <message>
         <source>Instance</source>
@@ -119,31 +123,31 @@
     <name>MainPage</name>
     <message>
         <source>Home</source>
-        <translation type="unfinished"></translation>
+        <translation>Strona główna</translation>
     </message>
     <message>
         <source>Notifications</source>
-        <translation type="unfinished"></translation>
+        <translation>Powiadomienia</translation>
     </message>
     <message>
         <source>Local</source>
-        <translation type="unfinished"></translation>
+        <translation>Lokalne</translation>
     </message>
     <message>
         <source>Federated</source>
-        <translation type="unfinished"></translation>
+        <translation>Globalne</translation>
     </message>
     <message>
         <source>Search</source>
-        <translation type="unfinished"></translation>
+        <translation>Szukaj</translation>
     </message>
     <message>
         <source>@user or #term</source>
-        <translation type="unfinished"></translation>
+        <translation>@użytkownik lub #tag</translation>
     </message>
     <message>
         <source>New Toot</source>
-        <translation type="unfinished">Nowy wpis</translation>
+        <translation>Nowy wpis</translation>
     </message>
 </context>
 <context>
@@ -184,11 +188,11 @@
     </message>
     <message>
         <source>Open in Browser</source>
-        <translation type="unfinished"></translation>
+        <translation>Otwarte w przeglądarce</translation>
     </message>
     <message>
-        <source>Loading...</source>
-        <translation type="unfinished"></translation>
+        <source>Nothing found</source>
+        <translation>Nic nie znaleziono</translation>
     </message>
 </context>
 <context>
@@ -221,7 +225,7 @@
     <message>
         <source>Following</source>
         <extracomment>Will show as: &quot;23 Following&quot;</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Śledzisz</translation>
     </message>
     <message>
         <source>Statuses</source>
@@ -235,7 +239,7 @@
     <message>
         <source>Unfollow</source>
         <extracomment>Is a button. Keep it as short as possible.</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Przestań śledzić</translation>
     </message>
     <message>
         <source>Requested</source>
@@ -255,7 +259,7 @@
     <message>
         <source>Mute</source>
         <extracomment>Is a button. Keep it as short as possible.</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Wycisz</translation>
     </message>
     <message>
         <source>Unblock</source>

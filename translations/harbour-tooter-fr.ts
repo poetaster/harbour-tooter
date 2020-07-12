@@ -66,6 +66,10 @@
         <source>Hide Reply</source>
         <translation>Masquer la réponse</translation>
     </message>
+    <message>
+        <source>Open in Browser</source>
+        <translation>Ouvrir dans le navigateur</translation>
+    </message>
 </context>
 <context>
     <name>CoverPage</name>
@@ -187,8 +191,8 @@
         <translation>Ouvrir dans le navigateur</translation>
     </message>
     <message>
-        <source>Loading...</source>
-        <translation type="unfinished"></translation>
+        <source>Nothing found</source>
+        <translation>Rien trouvé</translation>
     </message>
 </context>
 <context>

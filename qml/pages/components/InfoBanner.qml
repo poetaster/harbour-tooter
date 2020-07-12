@@ -5,8 +5,9 @@ import Sailfish.Silica 1.0
 DockedPanel {
     id: root
     dock: Dock.Top
-    width: parent.width
+    width: isPortrait ? parent.width : Theme.buttonWidthLarge * 1.5
     height: content.height
+    anchors.horizontalCenter: parent.horizontalCenter
 
     Rectangle {
         id: content

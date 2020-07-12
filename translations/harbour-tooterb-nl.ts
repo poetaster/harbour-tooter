@@ -29,15 +29,13 @@
     </message>
     <message>
         <source>Write your warning here</source>
+        <extracomment>placeholderText in Toot content warning panel</extracomment>
         <translation>Waarschuwingstekst</translation>
     </message>
     <message>
         <source>What&apos;s on your mind?</source>
+        <extracomment>placeholderText in Toot text panel</extracomment>
         <translation>Wat wil je kwijt?</translation>
-    </message>
-    <message>
-        <source>Delete</source>
-        <translation>Verwijderen</translation>
     </message>
     <message>
         <source>Public</source>
@@ -67,6 +65,10 @@
     <message>
         <source>Hide Reply</source>
         <translation>Antwoord verbergen</translation>
+    </message>
+    <message>
+        <source>Open in Browser</source>
+        <translation>Open een Browser</translation>
     </message>
 </context>
 <context>
@@ -128,8 +130,12 @@
         <translation>Meldingen</translation>
     </message>
     <message>
-        <source>New Toot</source>
-        <translation>Nieuwe Toot</translation>
+        <source>Local</source>
+        <translation>Lokaal</translation>
+    </message>
+    <message>
+        <source>Federated</source>
+        <translation>Gefedereerd</translation>
     </message>
     <message>
         <source>Search</source>
@@ -140,19 +146,15 @@
         <translation>@user of #term</translation>
     </message>
     <message>
-        <source>Local</source>
-        <translation>Lokaal</translation>
-    </message>
-    <message>
-        <source>Federated</source>
-        <translation>Gefedereerd</translation>
+        <source>New Toot</source>
+        <translation>Nieuwe Toot</translation>
     </message>
 </context>
 <context>
     <name>MediaFullScreen</name>
     <message>
         <source>Error loading</source>
-        <translation type="unfinished"></translation>
+        <translation>Laadfout</translation>
     </message>
 </context>
 <context>
@@ -173,24 +175,24 @@
 <context>
     <name>MyList</name>
     <message>
-        <source>Load more</source>
-        <translation>Meer laden</translation>
-    </message>
-    <message>
         <source>Settings</source>
         <translation>Instellingen</translation>
     </message>
     <message>
-        <source>Loading</source>
-        <translation>Laden</translation>
-    </message>
-    <message>
-        <source>please wait...</source>
-        <translation>even geduld…</translation>
-    </message>
-    <message>
         <source>New Toot</source>
         <translation>Nieuwe Toot</translation>
+    </message>
+    <message>
+        <source>Reload</source>
+        <translation>Herladen</translation>
+    </message>
+    <message>
+        <source>Open in Browser</source>
+        <translation>Open een Browser</translation>
+    </message>
+    <message>
+        <source>Nothing found</source>
+        <translation>Niets gevonden</translation>
     </message>
 </context>
 <context>
@@ -231,6 +233,10 @@
         <translation>Statussen</translation>
     </message>
     <message>
+        <source>Mention</source>
+        <translation>Vermelden</translation>
+    </message>
+    <message>
         <source>Unfollow</source>
         <extracomment>Is a button. Keep it as short as possible.</extracomment>
         <translation>Ontvolgen</translation>
@@ -264,14 +270,6 @@
         <source>Block</source>
         <extracomment>Is a button. Keep it as short as possible.</extracomment>
         <translation>Blokkeren</translation>
-    </message>
-    <message>
-        <source>Open in Browser</source>
-        <translation>Open een Browser</translation>
-    </message>
-    <message>
-        <source>Mention</source>
-        <translation>Vermelden</translation>
     </message>
 </context>
 <context>
@@ -327,7 +325,7 @@
     </message>
     <message>
         <source>Visual identity</source>
-        <translation type="unfinished"></translation>
+        <translation>Visuele identiteit</translation>
     </message>
     <message>
         <source>Development and translations</source>
@@ -335,19 +333,19 @@
     </message>
     <message>
         <source>Occitan &amp; French translation</source>
-        <translation type="unfinished"></translation>
+        <translation>Occitaanse &amp; Franse vertaling</translation>
     </message>
     <message>
         <source>Chinese translation</source>
-        <translation type="unfinished"></translation>
+        <translation>Chinese vertaling</translation>
     </message>
     <message>
         <source>Dutch translation</source>
-        <translation type="unfinished"></translation>
+        <translation>Nederlandse vertaling</translation>
     </message>
     <message>
         <source>Spanish translation</source>
-        <translation type="unfinished"></translation>
+        <translation>Spaanse vertaling</translation>
     </message>
     <message>
         <source>Use</source>

@@ -8,28 +8,37 @@ import "./components/"
 Page {
     id: conversationPage
 
-    property string type
-    property string description: ""
-    property string headerTitle: ""
-    property string suggestedUser: ""
     property ListModel suggestedModel
-    property string toot_id: ""
-    property string toot_url: ""
-    property string toot_uri: ""
-    property int tootMaxChar: 500;
+    property ListModel mdl
+    property int tootMaxChar: 500
     property bool bot: false //otherwise ReferenceError ProfileHeader.qml
     property bool followed_by: false //otherwise ReferenceError ProfileHeader.qml
     property bool locked: false //otherwise ReferenceError ProfileHeader.qml
     property bool group: false //otherwise ReferenceError ProfileHeader.qml
-    property ListModel mdl
+    property string type
+    property string username: ""
+    property string headerTitle: ""
+    property string suggestedUser: ""
+    property string status_id: ""
+    property string status_url: ""
+    property string status_uri: ""
+    property string status_link:
+        if (status_url === "") {
+            var test = status_uri.split("/")
+            console.log(status_uri)
+            console.log(JSON.stringify(test))
+            console.log(JSON.stringify(test.length))
+            if (test.length === 8 && (test[7] === "activity")) {
+                var urialt = status_uri.replace("activity", "")
+                status_link = urialt
+            }
+            else status_link = status_uri
+        } else status_link = status_url
 
     allowedOrientations: Orientation.All
     onSuggestedUserChanged: {
         console.log(suggestedUser)
-        suggestedModel = Qt.createQmlObject(
-                    'import QtQuick 2.0; ListModel {   }',
-                    Qt.application, 'InternalQmlObject'
-                    )
+        suggestedModel = Qt.createQmlObject( 'import QtQuick 2.0; ListModel {   }', Qt.application, 'InternalQmlObject' )
         predictionList.visible = false
         if (suggestedUser.length > 0) {
             var msg = {
@@ -58,18 +67,12 @@ Page {
     WorkerScript {
         id: worker
         source: "../lib/Worker.js"
-        onMessage: {
-            console.log(JSON.stringify(messageObject))
-        }
-    }
-
-    ProfileHeader {
-        id: header
-        visible: false
+        onMessage: { console.log(JSON.stringify(messageObject)) }
     }
 
     SilicaListView {
         id: myList
+
         header: PageHeader {
             title: headerTitle // pageTitle pushed from MainPage.qml or VisualContainer.qml
         }
@@ -90,12 +93,11 @@ Page {
                 text: Format.formatDate(section, Formatter.DateMedium)
             }
         }
-        delegate: VisualContainer {
-        }
+        delegate: VisualContainer {}
         onCountChanged: {
             if (mdl)
                 for (var i = 0; i < mdl.count; i++) {
-                    if (mdl.get(i).status_id === toot_id) {
+                    if (mdl.get(i).status_id === status_id) {
                         console.log(mdl.get(i).status_id)
                         positionViewAtIndex(i, ListView.Center)
                     }
@@ -107,30 +109,24 @@ Page {
             visible: type === "reply"
 
             MenuItem {
+                text: qsTr("Open in Browser")
+                onClicked: {
+                    Qt.openUrlExternally(status_link)
+                }
+            }
+
+            MenuItem {
                 //: Use the translation of "Copy Link" for a shorter PullDownMenu label
                 text: qsTr("Copy Link to Clipboard")
-                onClicked: if (toot_url === "") {
-                               var test = toot_uri.split("/")
-                               console.log(toot_uri)
-                               console.log(JSON.stringify(test))
-                               console.log(JSON.stringify(test.length))
-                               if (test.length === 8 && (test[7] === "activity")) {
-                                   var urialt = toot_uri.replace("activity", "")
-                                   Clipboard.text = urialt
-                               }
-                               else Clipboard.text = toot_uri
-                           } else Clipboard.text = toot_url
+                onClicked: Clipboard.text = status_link
             }
 
             MenuItem {
                 //: "Reply" will show the Toot text entry Panel. "Hide Reply" closes it. Alternative: Use "Close Reply"
                 text: !panel.open ? qsTr("Reply") : qsTr("Hide Reply")
                 visible: type == "reply"
-                onClicked: if (!panel.open) {
-                               panel.open = true
-                           } else panel.open = false
+                onClicked: !panel.open ? panel.open = true : panel.open = false
             }
-
         }
     }
 
@@ -142,20 +138,16 @@ Page {
         anchors {
             left: panel.left
             right: panel.right
-            bottom: if (panel.open == true) {
-                        panel.top
-                    } else {
-                        hiddenPanel.top
-                    }
+            bottom: panel.open == true ? panel.top : hiddenPanel.top
         }
 
         SilicaListView {
-            rotation: 180
+            id: predictionResults
+            rotation: 180 // shows best matching result on the bottom
             anchors.fill: parent
             model: suggestedModel
             clip: true
             quickScroll: false
-            VerticalScrollDecorator {}
             delegate: ItemUser {
                 rotation: 180
                 onClicked: {
@@ -171,7 +163,6 @@ Page {
                             + model.account_acct
                             + ' '
                             + textOperations.text.substring(textOperations.selectionEnd).trim()
-
                     toot.cursorPosition = toot.text.indexOf('@' + model.account_acct)
                 }
             }
@@ -180,21 +171,20 @@ Page {
                     positionViewAtBeginning(suggestedModel.count - 1, ListView.Beginning)
                 }
             }
+
+            VerticalScrollDecorator {}
         }
     }
 
     DockedPanel {
         id: panel
         width: parent.width
-        height: progressBar.height + toot.height + (mediaModel.count ? uploadedImages.height : 0)
-                + btnContentWarning.height + Theme.paddingMedium
-                + (warningContent.visible ? warningContent.height : 0)
+        height: progressBar.height + toot.height + (mediaModel.count ? uploadedImages.height : 0) + btnContentWarning.height + Theme.paddingMedium + (warningContent.visible ? warningContent.height : 0)
         dock: Dock.Bottom
         open: true
 
-        animationDuration: 300
-
         Rectangle {
+            id: progressBarBg
             width: parent.width
             height: progressBar.height
             color: Theme.highlightBackgroundColor
@@ -225,17 +215,18 @@ Page {
             autoScrollEnabled: true
             labelVisible: false
             font.pixelSize: Theme.fontSizeSmall
+            //: placeholderText in Toot content warning panel
             placeholderText: qsTr("Write your warning here")
             placeholderColor: palette.highlightColor
             color: palette.highlightColor
             horizontalAlignment: Text.AlignLeft
+            EnterKey.onClicked: {}
             anchors {
                 top: parent.top
                 topMargin: Theme.paddingMedium
                 left: parent.left
                 right: parent.right
             }
-            EnterKey.onClicked: {}
         }
 
         TextInput {
@@ -247,18 +238,19 @@ Page {
             id: toot
             autoScrollEnabled: true
             labelVisible: false
-            text: description !== "" && (description.charAt(0) === '@'
-                                         || description.charAt(
-                                             0) === '#') ? description + ' ' : ''
-            height: if (type !== "reply") {
-                        Math.max(conversationPage.height / 3, Math.min(conversationPage.height * 0.65, implicitHeight))
-                    }
-                    else {
-                        Math.max(conversationPage.height / 4, Math.min(conversationPage.height * 0.65, implicitHeight))
-                    }
-            horizontalAlignment: Text.AlignLeft
+            //: placeholderText in Toot text panel
             placeholderText: qsTr("What's on your mind?")
             font.pixelSize: Theme.fontSizeSmall
+            text: username !== "" && (username.charAt(0) === '@'
+                                         || username.charAt(
+                                             0) === '#') ? username + ' ' : ''
+            height: if (type !== "reply") {
+                        isPortrait ? Math.max(conversationPage.height / 3, Math.min(conversationPage.height * 0.65, implicitHeight)) : Math.max(conversationPage.height / 2, Math.min(conversationPage.height * 0.65, implicitHeight))
+                    }
+                    else {
+                        isPortrait ? Math.max(conversationPage.height / 4, Math.min(conversationPage.height * 0.65, implicitHeight)) : Math.max(conversationPage.height / 2.5, Math.min(conversationPage.height * 0.65, implicitHeight))
+                    }
+            horizontalAlignment: Text.AlignLeft
             anchors {
                 top: warningContent.bottom
                 topMargin: Theme.paddingMedium
@@ -274,7 +266,6 @@ Page {
                 textOperations.select(
                             textOperations.selectionStart ? textOperations.selectionStart - 1 : 0,
                             textOperations.selectionEnd)
-                //console.log(textOperations.text.substr(textOperations.selectionStart, textOperations.selectionEnd))
                 console.log(toot.text.length)
                 suggestedUser = ""
                 if (textOperations.selectedText.charAt(0) === "@") {
@@ -302,7 +293,7 @@ Page {
                 rightMargin: Theme.paddingSmall
             }
             onSelectionChanged: { console.log(selection) }
-            onClicked: pageStack.push(emojiSelect)
+            onClicked: pageStack.push(emojiDialog)
         }
 
         SilicaGridView {
@@ -313,13 +304,14 @@ Page {
             height: mediaModel.count ? Theme.itemSizeExtraLarge : 0
             model: mediaModel
             cellWidth: uploadedImages.width / 4
-            cellHeight: Theme.itemSizeExtraLarge
+            cellHeight: isPortrait ? cellWidth : Theme.itemSizeExtraLarge
             delegate: BackgroundItem {
                 id: myDelegate
                 width: uploadedImages.cellWidth
                 height: uploadedImages.cellHeight
                 RemorseItem {
                     id: remorse
+                    cancelText: ""
                 }
 
                 Image {
@@ -331,7 +323,7 @@ Page {
                     var idx = index
                     console.log(idx)
                     //mediaModel.remove(idx)
-                    remorse.execute(myDelegate, qsTr("Delete"), function () {
+                    remorse.execute(myDelegate, "", function () {
                         mediaModel.remove(idx)
                     })
                 }
@@ -363,32 +355,30 @@ Page {
 
         IconButton {
             id: btnContentWarning
+            icon.source: "image://theme/icon-s-warning?" + ( pressed ? Theme.highlightColor : (warningContent.visible ? Theme.secondaryHighlightColor : Theme.primaryColor) )
+            onClicked: warningContent.visible = !warningContent.visible
             anchors {
                 top: toot.bottom
                 topMargin: -Theme.paddingSmall * 1.5
                 left: parent.left
                 leftMargin: Theme.paddingMedium
             }
-            icon.source: "image://theme/icon-s-warning?"
-                         + (pressed ? Theme.highlightColor : (warningContent.visible ? Theme.secondaryHighlightColor : Theme.primaryColor))
-            onClicked: warningContent.visible = !warningContent.visible
         }
 
         IconButton {
             id: btnAddImage
             enabled: mediaModel.count < 4
+            icon.source: "image://theme/icon-s-attach?" + ( pressed ? Theme.highlightColor : (warningContent.visible ? Theme.secondaryHighlightColor : Theme.primaryColor) )
             anchors {
                 top: toot.bottom
                 topMargin: -Theme.paddingSmall * 1.5
                 left: btnContentWarning.right
                 leftMargin: Theme.paddingSmall
             }
-            icon.source: "image://theme/icon-s-attach?"
-                         + (pressed ? Theme.highlightColor : (warningContent.visible ? Theme.secondaryHighlightColor : Theme.primaryColor))
             onClicked: {
                 btnAddImage.enabled = false
                 var once = true
-                var imagePicker = pageStack.push("Sailfish.Pickers.ImagePickerPage", {"allowedOrientations": Orientation.All})
+                var imagePicker = pageStack.push("Sailfish.Pickers.ImagePickerPage", { "allowedOrientations": Orientation.All })
                 imagePicker.selectedContentChanged.connect(function () {
                     var imagePath = imagePicker.selectedContent
                     console.log(imagePath)
@@ -421,12 +411,6 @@ Page {
 
         ComboBox {
             id: privacy
-            anchors {
-                top: toot.bottom
-                topMargin: -Theme.paddingSmall * 1.5
-                left: btnAddImage.right
-                right: btnSend.left
-            }
             menu: ContextMenu {
                 MenuItem {
                     text: qsTr("Public")
@@ -441,19 +425,24 @@ Page {
                     text: qsTr("Direct")
                 }
             }
+            anchors {
+                top: toot.bottom
+                topMargin: -Theme.paddingSmall * 1.5
+                left: btnAddImage.right
+                right: btnSend.left
+            }
         }
 
         IconButton {
             id: btnSend
-            icon.source: "image://theme/icon-m-send?"
-                         + (pressed ? Theme.highlightColor : Theme.primaryColor)
+            icon.source: "image://theme/icon-m-send?" + (pressed ? Theme.highlightColor : Theme.primaryColor)
+            enabled: toot.text !== "" && toot.text.length < tootMaxChar && uploadProgress.width == 0
             anchors {
                 top: toot.bottom
                 topMargin: -Theme.paddingSmall * 1.5
                 right: parent.right
                 rightMargin: Theme.paddingSmall
             }
-            enabled: toot.text !== "" && toot.text.length < tootMaxChar && uploadProgress.width == 0
             onClicked: {
                 var visibility = ["public", "unlisted", "private", "direct"]
                 var media_ids = []
@@ -473,8 +462,8 @@ Page {
                     },
                     "conf": Logic.conf
                 }
-                if (toot_id)
-                    msg.params['in_reply_to_id'] = (toot_id) + ""
+                if (status_id)
+                    msg.params['in_reply_to_id'] = (status_id) + ""
 
                 if (warningContent.visible && warningContent.text.length > 0) {
                     msg.params['sensitive'] = 1
@@ -492,9 +481,11 @@ Page {
         Rectangle {
             id: uploadProgress
             color: Theme.highlightBackgroundColor
-            anchors.bottom: parent.bottom
-            anchors.left: parent.left
             height: Theme.itemSizeSmall * 0.05
+            anchors {
+                bottom: parent.bottom
+                left: parent.left
+            }
         }
     }
 
@@ -564,9 +555,9 @@ Page {
             color: Theme.highlightBackgroundColor
             opacity: 0.2
             anchors {
+                top: parent.top
                 left: parent.left
                 right: parent.right
-                top: parent.top
             }
         }
 
@@ -577,15 +568,15 @@ Page {
             color: Theme.highlightBackgroundColor
             opacity: 0.7
             anchors {
-                left: parent.left
                 top: parent.top
+                left: parent.left
             }
         }
 
     }
 
     EmojiSelect {
-        id: emojiSelect
+        id: emojiDialog
     }
 
     InfoBanner {

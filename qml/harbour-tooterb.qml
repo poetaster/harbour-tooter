@@ -87,5 +87,4 @@ ApplicationWindow {
             activate()
         }
     }
-
 }

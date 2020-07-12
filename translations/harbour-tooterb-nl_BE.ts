@@ -29,15 +29,13 @@
     </message>
     <message>
         <source>Write your warning here</source>
+        <extracomment>placeholderText in Toot content warning panel</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>What&apos;s on your mind?</source>
+        <extracomment>placeholderText in Toot text panel</extracomment>
         <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Delete</source>
-        <translation>Verwijderen</translation>
     </message>
     <message>
         <source>Public</source>
@@ -68,6 +66,10 @@
         <source>Hide Reply</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Open in Browser</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>CoverPage</name>
@@ -80,7 +82,7 @@
     <name>EmojiSelect</name>
     <message>
         <source>Emojis</source>
-        <translation>Emoji’s</translation>
+        <translation>Emojis</translation>
     </message>
     <message>
         <source>Tap to insert</source>
@@ -128,8 +130,12 @@
         <translation>Meldingen</translation>
     </message>
     <message>
-        <source>New Toot</source>
-        <translation>Nieuwen toot</translation>
+        <source>Local</source>
+        <translation>Lokaal</translation>
+    </message>
+    <message>
+        <source>Federated</source>
+        <translation>Gefedereerd</translation>
     </message>
     <message>
         <source>Search</source>
@@ -140,12 +146,8 @@
         <translation>@gebruiker of #term</translation>
     </message>
     <message>
-        <source>Local</source>
-        <translation>Lokaal</translation>
-    </message>
-    <message>
-        <source>Federated</source>
-        <translation>Gefedereerd</translation>
+        <source>New Toot</source>
+        <translation>Nieuwen toot</translation>
     </message>
 </context>
 <context>
@@ -173,24 +175,24 @@
 <context>
     <name>MyList</name>
     <message>
-        <source>Load more</source>
-        <translation>Meer laden</translation>
-    </message>
-    <message>
         <source>Settings</source>
         <translation>Instellingen</translation>
     </message>
     <message>
-        <source>Loading</source>
-        <translation>Laden</translation>
-    </message>
-    <message>
-        <source>please wait...</source>
-        <translation>efkens geduld…</translation>
-    </message>
-    <message>
         <source>New Toot</source>
         <translation>Nieuwen toot</translation>
+    </message>
+    <message>
+        <source>Reload</source>
+        <translation>Herladen</translation>
+    </message>
+    <message>
+        <source>Open in Browser</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Nothing found</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -231,6 +233,10 @@
         <translation>Statussen</translation>
     </message>
     <message>
+        <source>Mention</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Unfollow</source>
         <extracomment>Is a button. Keep it as short as possible.</extracomment>
         <translation>Ontvolgen</translation>
@@ -264,14 +270,6 @@
         <source>Block</source>
         <extracomment>Is a button. Keep it as short as possible.</extracomment>
         <translation>Blokkeren</translation>
-    </message>
-    <message>
-        <source>Open in Browser</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Mention</source>
-        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

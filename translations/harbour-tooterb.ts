@@ -29,15 +29,13 @@
     </message>
     <message>
         <source>Write your warning here</source>
+        <extracomment>placeholderText in Toot content warning panel</extracomment>
         <translation>Write your warning here</translation>
     </message>
     <message>
         <source>What&apos;s on your mind?</source>
+        <extracomment>placeholderText in Toot text panel</extracomment>
         <translation>What&apos;s on your mind?</translation>
-    </message>
-    <message>
-        <source>Delete</source>
-        <translation>Delete</translation>
     </message>
     <message>
         <source>Public</source>
@@ -67,6 +65,10 @@
     <message>
         <source>Hide Reply</source>
         <translation>Hide Reply</translation>
+    </message>
+    <message>
+        <source>Open in Browser</source>
+        <translation>Open in Browser</translation>
     </message>
 </context>
 <context>
@@ -121,31 +123,31 @@
     <name>MainPage</name>
     <message>
         <source>Home</source>
-        <translation></translation>
+        <translation>Home</translation>
     </message>
     <message>
         <source>Notifications</source>
-        <translation></translation>
-    </message>
-    <message>
-        <source>New Toot</source>
-        <translation></translation>
-    </message>
-    <message>
-        <source>Search</source>
-        <translation></translation>
-    </message>
-    <message>
-        <source>@user or #term</source>
-        <translation></translation>
+        <translation>Notifications</translation>
     </message>
     <message>
         <source>Local</source>
-        <translation></translation>
+        <translation>Local</translation>
     </message>
     <message>
         <source>Federated</source>
-        <translation></translation>
+        <translation>Federated</translation>
+    </message>
+    <message>
+        <source>Search</source>
+        <translation>Search</translation>
+    </message>
+    <message>
+        <source>@user or #term</source>
+        <translation>@user or #term</translation>
+    </message>
+    <message>
+        <source>New Toot</source>
+        <translation>New Toot</translation>
     </message>
 </context>
 <context>
@@ -173,24 +175,24 @@
 <context>
     <name>MyList</name>
     <message>
-        <source>Load more</source>
-        <translation>Load more</translation>
-    </message>
-    <message>
         <source>Settings</source>
         <translation>Settings</translation>
     </message>
     <message>
-        <source>Loading</source>
-        <translation></translation>
-    </message>
-    <message>
-        <source>please wait...</source>
-        <translation></translation>
-    </message>
-    <message>
         <source>New Toot</source>
         <translation>New Toot</translation>
+    </message>
+    <message>
+        <source>Reload</source>
+        <translation>Reload</translation>
+    </message>
+    <message>
+        <source>Open in Browser</source>
+        <translation>Open in Browser</translation>
+    </message>
+    <message>
+        <source>Nothing found</source>
+        <translation>Nothing found</translation>
     </message>
 </context>
 <context>
@@ -231,6 +233,10 @@
         <translation>Statuses</translation>
     </message>
     <message>
+        <source>Mention</source>
+        <translation>Mention</translation>
+    </message>
+    <message>
         <source>Unfollow</source>
         <extracomment>Is a button. Keep it as short as possible.</extracomment>
         <translation>Unfollow</translation>
@@ -264,14 +270,6 @@
         <source>Block</source>
         <extracomment>Is a button. Keep it as short as possible.</extracomment>
         <translation>Block</translation>
-    </message>
-    <message>
-        <source>Open in Browser</source>
-        <translation>Open in Browser</translation>
-    </message>
-    <message>
-        <source>Mention</source>
-        <translation>Mention</translation>
     </message>
 </context>
 <context>

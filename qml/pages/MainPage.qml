@@ -12,14 +12,15 @@ Page {
 
     allowedOrientations: Orientation.All
 
+    // Docked Navigation panel
     DockedPanel {
         id: infoPanel
         open: true
-        width: mainPage.isPortrait ? parent.width : Theme.itemSizeLarge
-        height: mainPage.isPortrait ? Theme.itemSizeLarge : parent.height
-        dock: mainPage.isPortrait ? Dock.Bottom : Dock.Right
+        width: isPortrait ? parent.width : Theme.itemSizeLarge
+        height: isPortrait ? Theme.itemSizeLarge : parent.height
+        dock: isPortrait ? Dock.Bottom : Dock.Right
 
-        Navigation {
+        NavigationPanel {
             id: navigation
             isPortrait: !mainPage.isPortrait
             onSlideshowShow: {
@@ -32,46 +33,46 @@ Page {
     VisualItemModel {
         id: visualModel
 
-        MyList{
+        MyList {
             id: tlHome
             title: qsTr("Home")
             type: "timelines/home"
             mdl: Logic.modelTLhome
-            width: parent.itemWidth
+            width: isPortrait ? parent.itemWidth : parent.itemWidth - Theme.itemSizeLarge
             height: parent.itemHeight
-            onOpenDrawer:  infoPanel.open = setDrawer
+            onOpenDrawer: isPortrait ? infoPanel.open = setDrawer : infoPanel.open = true
         }
 
-        MyList{
+        MyList {
             id: tlNotifications
             title: qsTr("Notifications")
             type: "notifications"
             notifier: true
             mdl: Logic.modelTLnotifications
-            width: parent.itemWidth
+            width: isPortrait ? parent.itemWidth : parent.itemWidth - Theme.itemSizeLarge
             height: parent.itemHeight
-            onOpenDrawer: infoPanel.open = setDrawer
+            onOpenDrawer: isPortrait ? infoPanel.open = setDrawer : infoPanel.open = true
         }
 
-        MyList{
+        MyList {
             id: tlLocal
             title: qsTr("Local")
             type: "timelines/public?local=true"
             //params: ["local", true]
             mdl: Logic.modelTLlocal
-            width: parent.itemWidth
+            width: isPortrait ? parent.itemWidth : parent.itemWidth - Theme.itemSizeLarge
             height: parent.itemHeight
-            onOpenDrawer: infoPanel.open = setDrawer
+            onOpenDrawer: isPortrait ? infoPanel.open = setDrawer : infoPanel.open = true
         }
 
-        MyList{
+        MyList {
             id: tlPublic
             title: qsTr("Federated")
             type: "timelines/public"
             mdl: Logic.modelTLpublic
-            width: parent.itemWidth
+            width: isPortrait ? parent.itemWidth : parent.itemWidth - Theme.itemSizeLarge
             height: parent.itemHeight
-            onOpenDrawer: infoPanel.open = setDrawer
+            onOpenDrawer: isPortrait ? infoPanel.open = setDrawer : infoPanel.open = true
         }
 
         Item {
@@ -80,7 +81,7 @@ Page {
             property ListModel mdl: ListModel {}
             property string search
 
-            width: parent.itemWidth
+            width: isPortrait ? parent.itemWidth : parent.itemWidth - Theme.itemSizeLarge
             height: parent.itemHeight
             onSearchChanged: {
                 console.log(search)
@@ -134,7 +135,7 @@ Page {
                     mdl: ListModel {}
                     width: parent.width
                     height: parent.height
-                    onOpenDrawer:  infoPanel.open = setDrawer
+                    onOpenDrawer: isPortrait ? infoPanel.open = setDrawer : infoPanel.open = true
                     anchors.fill: parent
                     currentIndex: -1 // otherwise currentItem will steal focus
                     header:  Item {
@@ -233,16 +234,16 @@ Page {
         itemWidth: isTablet ? Math.round(parent.width) : parent.width
         itemHeight: height
         clip: true
+        model: visualModel
         onCurrentIndexChanged: {
             navigation.slideshowIndexChanged(currentIndex)
         }
         anchors {
             fill: parent
             top: parent.top
-            rightMargin: mainPage.isPortrait ? 0 : infoPanel.visibleSize
-            bottomMargin: mainPage.isPortrait ? infoPanel.visibleSize : 0
+            rightMargin: isPortrait ? 0 : infoPanel.visibleSize
+            bottomMargin: isPortrait ? infoPanel.visibleSize : 0
         }
-        model: visualModel
         Component.onCompleted: {
         }
     }
@@ -255,7 +256,7 @@ Page {
         icon.source: "image://theme/icon-l-add"
         anchors {
             right: (mainPage.isPortrait ? parent.right : infoPanel.left)
-            rightMargin: Theme.paddingLarge
+            rightMargin: isPortrait ? Theme.paddingLarge : Theme.paddingLarge * 0.8
             bottom: (mainPage.isPortrait ? infoPanel.top : parent.bottom)
             bottomMargin: Theme.paddingLarge
         }

@@ -9,6 +9,7 @@ var mediator = (function(){
         mediator.channels[channel].push({ context : this, callback : fn });
         return this;
     };
+
     var publish = function(channel){
         if(!mediator.channels[channel]) return false;
         var args = Array.prototype.slice.call(arguments, 1);
@@ -18,6 +19,7 @@ var mediator = (function(){
         };
         return this;
     };
+
     return {
         channels : {},
         publish : publish,
@@ -28,6 +30,7 @@ var mediator = (function(){
         }
     };
 }());
+
 var init = function(){
     console.log("db.version: "+db.version);
     if(db.version === '') {
@@ -35,7 +38,7 @@ var init = function(){
             tx.executeSql('CREATE TABLE IF NOT EXISTS settings ('
                           + ' key TEXT UNIQUE, '
                           + ' value TEXT '
-                          +');');
+                          + ');');
             //tx.executeSql('INSERT INTO settings (key, value) VALUES (?, ?)', ["conf", "{}"]);
         });
         db.changeVersion('', '0.1', function(tx) {
@@ -103,6 +106,7 @@ var tootParser = function(data){
 
     console.log(ret)
 }
+
 var test = 1;
 
 Qt.include("Mastodon.js")
@@ -161,6 +165,7 @@ var notifier = function(item){
             key: item.id
         }
         break;
+
     case "follow":
         msg = {
             urgency: "critical",
@@ -182,6 +187,7 @@ var notifier = function(item){
             key: item.id
         }
         break;
+
     case "mention":
         msg = {
             urgency: "critical",
@@ -193,6 +199,7 @@ var notifier = function(item){
             key: item.id
         }
         break;
+
     default:
         //console.log(JSON.stringify(messageObject.data))
         return;

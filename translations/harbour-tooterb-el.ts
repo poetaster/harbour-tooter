@@ -29,15 +29,13 @@
     </message>
     <message>
         <source>Write your warning here</source>
+        <extracomment>placeholderText in Toot content warning panel</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>What&apos;s on your mind?</source>
+        <extracomment>placeholderText in Toot text panel</extracomment>
         <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Delete</source>
-        <translation>Διαγραφή</translation>
     </message>
     <message>
         <source>Public</source>
@@ -66,6 +64,10 @@
     </message>
     <message>
         <source>Hide Reply</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Open in Browser</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -114,7 +116,7 @@
     </message>
     <message>
         <source>Reload</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Επαναφόρτωση</translation>
     </message>
 </context>
 <context>
@@ -128,8 +130,12 @@
         <translation>Ειδοποιήσεις</translation>
     </message>
     <message>
-        <source>New Toot</source>
-        <translation>Νέος</translation>
+        <source>Local</source>
+        <translation>Τοπικός</translation>
+    </message>
+    <message>
+        <source>Federated</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Search</source>
@@ -140,12 +146,8 @@
         <translation>@χρήστη ή #όρος</translation>
     </message>
     <message>
-        <source>Local</source>
-        <translation>Τοπικός</translation>
-    </message>
-    <message>
-        <source>Federated</source>
-        <translation type="unfinished"></translation>
+        <source>New Toot</source>
+        <translation>Νέος</translation>
     </message>
 </context>
 <context>
@@ -173,24 +175,24 @@
 <context>
     <name>MyList</name>
     <message>
-        <source>Load more</source>
-        <translation>Φόρτωση περισσοτέρων</translation>
-    </message>
-    <message>
         <source>Settings</source>
         <translation>Ρυθμίσεις</translation>
     </message>
     <message>
-        <source>Loading</source>
-        <translation>Φόρτωση</translation>
+        <source>New Toot</source>
+        <translation>Νέος</translation>
     </message>
     <message>
-        <source>please wait...</source>
+        <source>Reload</source>
+        <translation>Φόρτωση περισσοτέρων</translation>
+    </message>
+    <message>
+        <source>Open in Browser</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>New Toot</source>
-        <translation>Νέος</translation>
+        <source>Nothing found</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -231,6 +233,10 @@
         <translation>Κατάσταση</translation>
     </message>
     <message>
+        <source>Mention</source>
+        <translation>Φραγή</translation>
+    </message>
+    <message>
         <source>Unfollow</source>
         <extracomment>Is a button. Keep it as short as possible.</extracomment>
         <translation>Αναίρεση παρακολούθησης</translation>
@@ -264,14 +270,6 @@
         <source>Block</source>
         <extracomment>Is a button. Keep it as short as possible.</extracomment>
         <translation>Φραγή</translation>
-    </message>
-    <message>
-        <source>Open in Browser</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Mention</source>
-        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -379,7 +377,7 @@
     </message>
     <message>
         <source>Mention</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Φραγή</translation>
     </message>
     <message>
         <source>Conversation</source>

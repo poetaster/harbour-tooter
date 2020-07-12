@@ -10,15 +10,13 @@ BackgroundItem {
     width: parent.width
     height: Theme.itemSizeMedium
 
-    Rectangle {
+    Item {
         id: avatar
-        color: "transparent"
         width: Theme.itemSizeExtraSmall
         height: width
         anchors.verticalCenter: parent.verticalCenter
         anchors.left: parent.left
         anchors.leftMargin: Theme.horizontalPageMargin
-
 
         Image {
             id: img
@@ -50,13 +48,14 @@ BackgroundItem {
                                           "following_count": model.account_following_count,
                                           "statuses_count": model.account_statuses_count,
                                           "locked": model.account_locked,
-                                          "bot": model.account_bot
+                                          "bot": model.account_bot,
+                                          "group": model.account_group
                                       })
         }
     }
 
     Item {
-        id: userdescription
+        id: userDescription
         height: account_acct.height + display_name.height
         anchors.left: avatar.right
         anchors.leftMargin: Theme.paddingLarge
@@ -72,7 +71,6 @@ BackgroundItem {
             truncationMode: TruncationMode.Fade
             width: parent.width - Theme.paddingMedium
             anchors.top: parent.top
-
         }
 
         Label {

@@ -14,9 +14,9 @@ TARGET = harbour-tooterb
 CONFIG += sailfishapp
 
 QT += network dbus sql
+QT += multimedia
 CONFIG += link_pkgconfig
-PKGCONFIG += sailfishapp
-PKGCONFIG += \
+PKGCONFIG += sailfishapp \
     nemonotifications-qt5
 
 DEFINES += "APPVERSION=\\\"$${SPECVERSION}\\\""
@@ -58,16 +58,16 @@ DISTFILES += qml/harbour-tooterb.qml \
     qml/pages/SettingsPage.qml \
     qml/pages/components/InfoBanner.qml \
     qml/pages/components/MediaFullScreen.qml \
+    qml/pages/components/MyMedia.qml \
+    qml/pages/components/NavigationPanel.qml \
     qml/pages/components/ProfileImage.qml \
     qml/pages/components/VisualContainer.qml \
     qml/pages/components/MiniStatus.qml \
     qml/pages/components/MiniHeader.qml \
     qml/pages/components/ItemUser.qml \
     qml/pages/components/MyList.qml \
-    qml/pages/components/Navigation.qml \
     qml/pages/components/ProfileHeader.qml \
     qml/pages/components/MediaBlock.qml \
-    qml/pages/components/MyImage.qml \
     qml/cover/CoverPage.qml \
     qml/pages/MainPage.qml \
     qml/pages/LoginPage.qml \

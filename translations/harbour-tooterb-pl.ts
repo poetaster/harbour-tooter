@@ -29,15 +29,13 @@
     </message>
     <message>
         <source>Write your warning here</source>
+        <extracomment>placeholderText in Toot content warning panel</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>What&apos;s on your mind?</source>
+        <extracomment>placeholderText in Toot text panel</extracomment>
         <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Delete</source>
-        <translation>Usuń</translation>
     </message>
     <message>
         <source>Public</source>
@@ -67,6 +65,10 @@
     <message>
         <source>Hide Reply</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Open in Browser</source>
+        <translation type="unfinished">Otwarte w przeglądarce</translation>
     </message>
 </context>
 <context>
@@ -98,7 +100,7 @@
     <name>LoginPage</name>
     <message>
         <source>Login</source>
-        <translation type="unfinished"></translation>
+        <translation>Login</translation>
     </message>
     <message>
         <source>Instance</source>
@@ -114,7 +116,7 @@
     </message>
     <message>
         <source>Reload</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Załaduj ponownie</translation>
     </message>
 </context>
 <context>
@@ -128,8 +130,12 @@
         <translation>Powiadomienia</translation>
     </message>
     <message>
-        <source>New Toot</source>
-        <translation>Nowy wpis</translation>
+        <source>Local</source>
+        <translation>Lokalne</translation>
+    </message>
+    <message>
+        <source>Federated</source>
+        <translation>Globalne</translation>
     </message>
     <message>
         <source>Search</source>
@@ -140,12 +146,8 @@
         <translation>@użytkownik lub #tag</translation>
     </message>
     <message>
-        <source>Local</source>
-        <translation>Lokalne</translation>
-    </message>
-    <message>
-        <source>Federated</source>
-        <translation>Globalne</translation>
+        <source>New Toot</source>
+        <translation>Nowy wpis</translation>
     </message>
 </context>
 <context>
@@ -173,24 +175,24 @@
 <context>
     <name>MyList</name>
     <message>
-        <source>Load more</source>
-        <translation>Załaduj więcej</translation>
-    </message>
-    <message>
         <source>Settings</source>
         <translation>Ustawienia</translation>
     </message>
     <message>
-        <source>Loading</source>
-        <translation>Ładowanie</translation>
-    </message>
-    <message>
-        <source>please wait...</source>
-        <translation>proszę czekać…</translation>
-    </message>
-    <message>
         <source>New Toot</source>
         <translation>Nowy wpis</translation>
+    </message>
+    <message>
+        <source>Reload</source>
+        <translation>Załaduj ponownie</translation>
+    </message>
+    <message>
+        <source>Open in Browser</source>
+        <translation>Otwarte w przeglądarce</translation>
+    </message>
+    <message>
+        <source>Nothing found</source>
+        <translation>Nic nie znaleziono</translation>
     </message>
 </context>
 <context>
@@ -231,6 +233,10 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Mention</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Unfollow</source>
         <extracomment>Is a button. Keep it as short as possible.</extracomment>
         <translation>Przestań śledzić</translation>
@@ -263,14 +269,6 @@
     <message>
         <source>Block</source>
         <extracomment>Is a button. Keep it as short as possible.</extracomment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Open in Browser</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Mention</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

@@ -8,7 +8,6 @@
 #include <QtCore/QFile>
 #include <QtCore/QFileInfo>
 
-//static const QUrl IMGUR_UPLOAD_URL("https://httpbin.org/post");
 //static const QUrl IMGUR_UPLOAD_URL();
 
 ImageUploader::ImageUploader(QObject *parent) : QObject(parent), m_networkAccessManager(nullptr), m_reply(nullptr) {
@@ -101,11 +100,7 @@ void ImageUploader::upload() {
 
     //imagePart.setHeader(QNetworkRequest::ContentTypeHeader, QVariant(fileInfo));
 
-
-
     //POST data
-
-
 
     QNetworkRequest request(m_uploadUrl);
     request.setRawHeader("Authorization", m_authorizationHeader);
@@ -113,8 +108,6 @@ void ImageUploader::upload() {
     multiPart->setParent(m_reply);
     connect(m_reply, SIGNAL(uploadProgress(qint64,qint64)), this, SLOT(uploadProgress(qint64,qint64)));
     connect(m_reply, SIGNAL(finished()), this, SLOT(replyFinished()));
-
-
 
     //connect(m_reply, SIGNAL(uploadProgress(qint64,qint64)), this, SLOT(uploadProgress(qint64,qint64)));
     //connect(m_reply, SIGNAL(finished()), this, SLOT(replyFinished()));*/

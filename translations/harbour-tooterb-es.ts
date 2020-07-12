@@ -29,15 +29,13 @@
     </message>
     <message>
         <source>Write your warning here</source>
+        <extracomment>placeholderText in Toot content warning panel</extracomment>
         <translation>Escribe aquí tu advertencia</translation>
     </message>
     <message>
         <source>What&apos;s on your mind?</source>
+        <extracomment>placeholderText in Toot text panel</extracomment>
         <translation>¿En qué estás pensando?</translation>
-    </message>
-    <message>
-        <source>Delete</source>
-        <translation>Borrar</translation>
     </message>
     <message>
         <source>Public</source>
@@ -67,6 +65,10 @@
     <message>
         <source>Hide Reply</source>
         <translation>Cerrar respuesta</translation>
+    </message>
+    <message>
+        <source>Open in Browser</source>
+        <translation>Abrir en el navegador</translation>
     </message>
 </context>
 <context>
@@ -128,8 +130,12 @@
         <translation>Notificaciones</translation>
     </message>
     <message>
-        <source>New Toot</source>
-        <translation>Nuevo toot</translation>
+        <source>Local</source>
+        <translation>Local</translation>
+    </message>
+    <message>
+        <source>Federated</source>
+        <translation>Federada</translation>
     </message>
     <message>
         <source>Search</source>
@@ -140,12 +146,8 @@
         <translation>@usuario o #término</translation>
     </message>
     <message>
-        <source>Local</source>
-        <translation>Local</translation>
-    </message>
-    <message>
-        <source>Federated</source>
-        <translation>Federada</translation>
+        <source>New Toot</source>
+        <translation>Nuevo toot</translation>
     </message>
 </context>
 <context>
@@ -173,24 +175,24 @@
 <context>
     <name>MyList</name>
     <message>
-        <source>Load more</source>
-        <translation>Cargar más</translation>
-    </message>
-    <message>
         <source>Settings</source>
         <translation>Ajustes</translation>
     </message>
     <message>
-        <source>Loading</source>
-        <translation>Cargando</translation>
-    </message>
-    <message>
-        <source>please wait...</source>
-        <translation>por favor, espera...</translation>
-    </message>
-    <message>
         <source>New Toot</source>
         <translation>Nuevo toot</translation>
+    </message>
+    <message>
+        <source>Reload</source>
+        <translation>Volver a cargar</translation>
+    </message>
+    <message>
+        <source>Open in Browser</source>
+        <translation>Abrir en el navegador</translation>
+    </message>
+    <message>
+        <source>Nothing found</source>
+        <translation>No encontrado nada</translation>
     </message>
 </context>
 <context>
@@ -231,6 +233,10 @@
         <translation>Estados</translation>
     </message>
     <message>
+        <source>Mention</source>
+        <translation>Mencionar</translation>
+    </message>
+    <message>
         <source>Unfollow</source>
         <extracomment>Is a button. Keep it as short as possible.</extracomment>
         <translation>Dejar de seguir</translation>
@@ -264,14 +270,6 @@
         <source>Block</source>
         <extracomment>Is a button. Keep it as short as possible.</extracomment>
         <translation>Bloquear</translation>
-    </message>
-    <message>
-        <source>Open in Browser</source>
-        <translation>Abrir en el navegador</translation>
-    </message>
-    <message>
-        <source>Mention</source>
-        <translation>Mencionar</translation>
     </message>
 </context>
 <context>

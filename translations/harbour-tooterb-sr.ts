@@ -29,15 +29,13 @@
     </message>
     <message>
         <source>Write your warning here</source>
+        <extracomment>placeholderText in Toot content warning panel</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>What&apos;s on your mind?</source>
+        <extracomment>placeholderText in Toot text panel</extracomment>
         <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Delete</source>
-        <translation>Обриши</translation>
     </message>
     <message>
         <source>Public</source>
@@ -66,6 +64,10 @@
     </message>
     <message>
         <source>Hide Reply</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Open in Browser</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -114,7 +116,7 @@
     </message>
     <message>
         <source>Reload</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">учитај још</translation>
     </message>
 </context>
 <context>
@@ -128,8 +130,12 @@
         <translation>Обавјештење</translation>
     </message>
     <message>
-        <source>New Toot</source>
-        <translation>Novi toot</translation>
+        <source>Local</source>
+        <translation>Локална</translation>
+    </message>
+    <message>
+        <source>Federated</source>
+        <translation>Федеративна</translation>
     </message>
     <message>
         <source>Search</source>
@@ -140,12 +146,8 @@
         <translation>@korisnik ili #pojam</translation>
     </message>
     <message>
-        <source>Local</source>
-        <translation>Локална</translation>
-    </message>
-    <message>
-        <source>Federated</source>
-        <translation>Федеративна</translation>
+        <source>New Toot</source>
+        <translation>Novi toot</translation>
     </message>
 </context>
 <context>
@@ -173,24 +175,24 @@
 <context>
     <name>MyList</name>
     <message>
-        <source>Load more</source>
-        <translation>учитај још</translation>
-    </message>
-    <message>
         <source>Settings</source>
         <translation>Подешавања</translation>
     </message>
     <message>
-        <source>Loading</source>
-        <translation>Učitavanje</translation>
-    </message>
-    <message>
-        <source>please wait...</source>
-        <translation>молимо вас, сачекајте...</translation>
-    </message>
-    <message>
         <source>New Toot</source>
         <translation>Novi toot</translation>
+    </message>
+    <message>
+        <source>Reload</source>
+        <translation>учитај још</translation>
+    </message>
+    <message>
+        <source>Open in Browser</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Nothing found</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -231,6 +233,10 @@
         <translation>Статуси</translation>
     </message>
     <message>
+        <source>Mention</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Unfollow</source>
         <extracomment>Is a button. Keep it as short as possible.</extracomment>
         <translation>Одпрати</translation>
@@ -264,14 +270,6 @@
         <source>Block</source>
         <extracomment>Is a button. Keep it as short as possible.</extracomment>
         <translation>Блокирати</translation>
-    </message>
-    <message>
-        <source>Open in Browser</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Mention</source>
-        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

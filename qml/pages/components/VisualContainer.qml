@@ -9,7 +9,6 @@ BackgroundItem {
     signal send (string notice)
     signal navigateTo(string link)
 
-    width: parent.width
     height: if (myList.type === "notifications" && ( model.type === "favourite" || model.type === "reblog" )) {
                 mnu.height + miniHeader.height + Theme.paddingLarge + lblContent.height + Theme.paddingLarge + (miniStatus.visible ? miniStatus.height : 0)
             } else mnu.height + miniHeader.height + (typeof attachments !== "undefined" && attachments.count ? media.height + Theme.paddingLarge + Theme.paddingMedium: Theme.paddingLarge) + lblContent.height + Theme.paddingLarge + (miniStatus.visible ? miniStatus.height : 0) + (iconDirectMsg.visible ? iconDirectMsg.height : 0)
@@ -19,7 +18,7 @@ BackgroundItem {
         id: bgDirect
         x: 0
         y: 0
-        visible: status_visibility === "direct"
+        visible: model.status_visibility === "direct"
         width: parent.width
         height: parent.height
         opacity: 0.3
@@ -43,7 +42,6 @@ BackgroundItem {
     // Account avatar
     Image {
         id: avatar
-        visible: true
         opacity: status === Image.Ready ? 1.0 : 0.0
         Behavior on opacity { FadeAnimator {} }
         asynchronous: true
@@ -59,9 +57,7 @@ BackgroundItem {
         }
         onStatusChanged: {
             if (avatar.status === Image.Error)
-                source = "../../images/icon-m-profile.svg?" + (pressed
-                                                               ? Theme.highlightColor
-                                                               : Theme.primaryColor)
+                source = "../../images/icon-m-profile.svg?" + Theme.primaryColor
         }
 
         MouseArea {
@@ -98,7 +94,7 @@ BackgroundItem {
             visible: status_visibility === "direct"
             width: Theme.iconSizeMedium
             height: width
-            source: "image://theme/icon-m-mail?"
+            source: "image://theme/icon-m-mail?" + Theme.primaryColor
             color: Theme.primaryColor
             anchors {
                 horizontalCenter: avatar.horizontalCenter
@@ -192,7 +188,7 @@ BackgroundItem {
             left: miniHeader.left
             leftMargin: Theme.paddingMedium
             right: miniHeader.right
-            rightMargin: Theme.horizontalPageMargin
+            rightMargin: Theme.horizontalPageMargin + Theme.paddingMedium
             top: miniHeader.bottom
             topMargin: Theme.paddingSmall
             bottomMargin: Theme.paddingLarge
@@ -202,7 +198,6 @@ BackgroundItem {
             console.log(link)
             console.log(JSON.stringify(test))
             console.log(JSON.stringify(test.length))
-
             if (test.length === 5 && (test[3] === "tags" || test[3] === "tag") ) {
                 pageStack.pop(pageStack.find(function(page) {
                     var check = page.isFirstPage === true;
@@ -255,21 +250,20 @@ BackgroundItem {
                 anchors.fill: parent
                 onClicked: parent.visible = false
             }
-
         }
     }
 
     // Displays media in Toots
     MediaBlock {
         id: media
-        visible: if (myList.type === "notifications" && ( type === "favourite" || type === "reblog" )) {
-                     false
-                 } else true
+        visible: (myList.type === "notifications" && ( type === "favourite" || type === "reblog" )) ? false : true
         model: typeof attachments !== "undefined" ? attachments : Qt.createQmlObject('import QtQuick 2.0; ListModel { }', Qt.application, 'InternalQmlObject')
         height: Theme.iconSizeExtraLarge * 2
         anchors {
             left: lblContent.left
+            leftMargin: isPortrait ? 0 : Theme.itemSizeSmall
             right: lblContent.right
+            rightMargin: isPortrait ? 0 : Theme.itemSizeLarge * 1.2
             top: lblContent.bottom
             topMargin: Theme.paddingMedium
             bottomMargin: Theme.paddingLarge
@@ -283,7 +277,7 @@ BackgroundItem {
         MenuItem {
             id: mnuBoost
             visible: model.type !== "follow"
-            enabled: status_visibility !== "direct"
+            enabled: model.status_visibility !== "direct"
             text: typeof model.status_reblogged !== "undefined" && model.status_reblogged ? qsTr("Unboost") : qsTr("Boost")
             onClicked: {
                 var status = typeof model.status_reblogged !== "undefined" && model.status_reblogged
@@ -301,7 +295,7 @@ BackgroundItem {
             Icon {
                 id: icRT
                 source: "image://theme/icon-s-retweet?" + (!model.status_reblogged ? Theme.highlightColor : Theme.primaryColor)
-                width: Theme.iconSizeExtraSmall
+                width: Theme.iconSizeSmall
                 height: width
                 anchors {
                     leftMargin: Theme.horizontalPageMargin
@@ -311,8 +305,8 @@ BackgroundItem {
             }
 
             Label {
-                text: status_reblogs_count // from API.js
-                font.pixelSize: Theme.fontSizeExtraSmall
+                text: status_reblogs_count
+                font.pixelSize: Theme.fontSizeSmall
                 color: !model.status_reblogged ? Theme.highlightColor : Theme.primaryColor
                 anchors {
                     left: icRT.right
@@ -342,18 +336,18 @@ BackgroundItem {
             Icon {
                 id: icFA
                 source: "image://theme/icon-s-favorite?" + (!model.status_favourited ? Theme.highlightColor : Theme.primaryColor)
-                width: Theme.iconSizeExtraSmall
+                width: Theme.iconSizeSmall
                 height: width
                 anchors {
-                    leftMargin: Theme.horizontalPageMargin
                     left: parent.left
+                    leftMargin: Theme.horizontalPageMargin
                     verticalCenter: parent.verticalCenter
                 }
             }
 
             Label {
                 text: status_favourites_count
-                font.pixelSize: Theme.fontSizeExtraSmall
+                font.pixelSize: Theme.fontSizeSmall
                 color: !model.status_favourited ? Theme.highlightColor : Theme.primaryColor
                 anchors {
                     left: icFA.right
@@ -383,7 +377,7 @@ BackgroundItem {
                 id: icBM
                 source: "../../images/icon-s-bookmark.svg?"
                 color: !model.status_bookmarked ? Theme.highlightColor : Theme.primaryColor
-                width: Theme.iconSizeExtraSmall
+                width: Theme.iconSizeSmall
                 height: width
                 anchors {
                     left: parent.left
@@ -392,7 +386,6 @@ BackgroundItem {
                 }
             }
         }
-
 
         MenuItem {
             id: mnuMention
@@ -409,7 +402,7 @@ BackgroundItem {
             Icon {
                 id: icMT
                 source: "image://theme/icon-s-chat?" + (!model.status_favourited ? Theme.highlightColor : Theme.primaryColor)
-                width: Theme.iconSizeExtraSmall
+                width: Theme.iconSizeSmall
                 height: width
                 anchors {
                     left: parent.left
@@ -420,21 +413,39 @@ BackgroundItem {
         }
     }
 
-    // Open ConversationPage and show other Toots in thread (if available)
+    // Open ConversationPage and show other Toots in thread (if available) or ProfilePage if new Follower
     onClicked: {
         var m = Qt.createQmlObject('import QtQuick 2.0; ListModel { }', Qt.application, 'InternalQmlObject');
         if (typeof mdl !== "undefined")
             m.append(mdl.get(index))
-        pageStack.push(Qt.resolvedUrl("../ConversationPage.qml"), {
-                           headerTitle: qsTr("Conversation"),
-                           "toot_id": status_id,
-                           "toot_url": status_url,
-                           "toot_uri": status_uri,
-                           "description": '@'+account_acct,
-                           mdl: m,
-                           type: "reply"
-                       })
+
+        if (model.type !== "follow") {
+            pageStack.push(Qt.resolvedUrl("../ConversationPage.qml"), {
+                               headerTitle: qsTr("Conversation"),
+                               "status_id": status_id,
+                               "status_url": status_url,
+                               "status_uri": status_uri,
+                               "username": '@'+account_acct,
+                               mdl: m,
+                               type: "reply"
+                           })
+        } else pageStack.push(Qt.resolvedUrl("../ProfilePage.qml"), {
+                                  "display_name": model.account_display_name,
+                                  "username": model.account_acct,
+                                  "user_id": model.account_id,
+                                  "profileImage": model.account_avatar,
+                                  "profileBackground": model.account_header,
+                                  "note": model.account_note,
+                                  "url": model.account_url,
+                                  "followers_count": model.account_followers_count,
+                                  "following_count": model.account_following_count,
+                                  "statuses_count": model.account_statuses_count,
+                                  "locked": model.account_locked,
+                                  "bot": model.account_bot,
+                                  "group": model.account_group
+                              } )
     }
+
     onPressAndHold: {
         console.log(JSON.stringify(mdl.get(index)))
         mnu.open(delegate)

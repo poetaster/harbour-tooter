@@ -9,8 +9,6 @@ SilicaListView {
 
     property string type
     property string title
-    property string vwPlaceholderText: qsTr("Loading")
-    property string vwPlaceholderHint: qsTr("please wait...")
     property string description
     property ListModel mdl: []
     property variant params: []
@@ -29,7 +27,6 @@ SilicaListView {
     onNotify: {
         console.log(what + " - " + num)
     }
-
     signal openDrawer (bool setDrawer)
     onOpenDrawer: {
         //console.log("Open drawer: " + setDrawer)
@@ -39,28 +36,41 @@ SilicaListView {
         console.log("LIST send signal emitted with notice: " + notice)
     }
 
-
     header: PageHeader {
         title: myList.title
         description: myList.description
     }
 
-    BusyIndicator {
-        size: BusyIndicatorSize.Large
-        running: myList.model.count === 0 && !viewPlaceHolder.visible
-        anchors.centerIn: parent
+    BusyLabel {
+        id: myListBusyLabel
+        running: model.count === 0
+        anchors {
+            horizontalCenter: parent.horizontalCenter
+            verticalCenter: parent.verticalCenter
+        }
+
+        Timer {
+            interval: 5000
+            running: true
+            onTriggered: {
+                myListBusyLabel.visible = false
+                loadStatusPlaceholder.visible = true
+            }
+        }
     }
 
     ViewPlaceholder {
-        id: viewPlaceHolder
+        id: loadStatusPlaceholder
+        visible: false
         enabled: model.count === 0
-        text: vwPlaceholderText
-        hintText: vwPlaceholderHint
+        text: qsTr("Nothing found")
     }
 
     PullDownMenu {
+        id: mainPulleyMenu
         MenuItem {
             text: qsTr("Settings")
+            visible: !profilePage
             onClicked: {
                 pageStack.push(Qt.resolvedUrl("../SettingsPage.qml"), {})
             }
@@ -68,6 +78,7 @@ SilicaListView {
 
         MenuItem {
             text: qsTr("New Toot")
+            visible: !profilePage
             onClicked: {
                 pageStack.push(Qt.resolvedUrl("../ConversationPage.qml"), {
                                    headerTitle: qsTr("New Toot"),
@@ -77,7 +88,15 @@ SilicaListView {
         }
 
         MenuItem {
-            text: qsTr("Load more")
+            text: qsTr("Open in Browser")
+            visible: !mainPage
+            onClicked: {
+                Qt.openUrlExternally(url)
+            }
+        }
+
+        MenuItem {
+            text: qsTr("Reload")
             onClicked: {
                 loadData("prepend")
             }
@@ -101,7 +120,7 @@ SilicaListView {
         console.log("CountChanged!")*/
     }
 
-    footer: Item{
+    footer: Item {
         visible: autoLoadMore
         width: parent.width
         height: Theme.itemSizeLarge
@@ -116,10 +135,13 @@ SilicaListView {
         }
 
         BusyIndicator {
+            running: loadStarted
+            visible: myListBusyLabel.running ? false : true
             size: BusyIndicatorSize.Small
-            running: loadStarted;
-            anchors.verticalCenter: parent.verticalCenter
-            anchors.horizontalCenter: parent.horizontalCenter
+            anchors {
+                verticalCenter: parent.verticalCenter
+                horizontalCenter: parent.horizontalCenter
+            }
         }
     }
 
@@ -163,10 +185,10 @@ SilicaListView {
 
     function loadData(mode) {
         var p = []
-        if (params.length)
+        if (params.length) {
             for(var i = 0; i<params.length; i++)
                 p.push(params[i])
-
+        }
         if (mode === "append" && model.count) {
             p.push({name: 'max_id', data: model.get(model.count-1).id})
         }
@@ -180,7 +202,8 @@ SilicaListView {
             'model'     : model,
             'mode'      : mode,
             'conf'      : Logic.conf
-        };
+        }
+
         console.log(JSON.stringify(msg))
         if (type !== "")
             worker.sendMessage(msg)

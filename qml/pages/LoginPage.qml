@@ -50,10 +50,10 @@ Page {
                                                       conf.login = false;
 
                                                       /*conf['login'] = false;
-                                        conf['mastodon_client_id'] = data['mastodon_client_id'];
-                                        conf['mastodon_client_secret'] = data['mastodon_client_secret'];
-                                        conf['mastodon_client_redirect_uri'] = data['mastodon_client_redirect_uri'];
-                                        delete Logic.conf;*/
+                                                        conf['mastodon_client_id'] = data['mastodon_client_id'];
+                                                        conf['mastodon_client_secret'] = data['mastodon_client_secret'];
+                                                        conf['mastodon_client_redirect_uri'] = data['mastodon_client_redirect_uri'];
+                                                        delete Logic.conf;*/
                                                       Logic.conf = conf;
                                                       console.log(JSON.stringify(conf))
                                                       console.log(JSON.stringify(Logic.conf))
@@ -72,38 +72,35 @@ Page {
                                                   );
                 }
             }
+
             Label {
+                id: serviceDescr
+                text: qsTr("Mastodon is a free, open-source social network. A decentralized alternative to commercial platforms, it avoids the risks of a single company monopolizing your communication. Pick a server that you trust — whichever you choose, you can interact with everyone else. Anyone can run their own Mastodon instance and participate in the social network seamlessly.")
+                font.pixelSize: Theme.fontSizeExtraSmall
+                color: Theme.highlightColor
+                wrapMode: Text.WordWrap
+                width: parent.width
                 anchors {
-                    left: parent.left
-                    right: parent.right
                     topMargin: Theme.paddingMedium
+                    left: parent.left
                     leftMargin: Theme.horizontalPageMargin
+                    right: parent.right
                     rightMargin: Theme.horizontalPageMargin
                 }
-
-                width: parent.width
-                wrapMode: Text.WordWrap
-                color: Theme.highlightColor
-                font.pixelSize: Theme.fontSizeExtraSmall
-                text: qsTr("Mastodon is a free, open-source social network. A decentralized alternative to commercial platforms, it avoids the risks of a single company monopolizing your communication. Pick a server that you trust — whichever you choose, you can interact with everyone else. Anyone can run their own Mastodon instance and participate in the social network seamlessly.")
             }
-
-
         }
-
     }
 
     SilicaWebView {
         id: webView
         visible: false
+        opacity: 0
         anchors {
             top: parent.top
             left: parent.left
             right: parent.right
             bottom: parent.bottom
         }
-
-        opacity: 0
         onLoadingChanged: {
             console.log(url)
             if (
@@ -154,6 +151,7 @@ Page {
         }
 
         FadeAnimation on opacity {}
+
         PullDownMenu {
             MenuItem {
                 text: qsTr("Reload")

@@ -10,7 +10,7 @@ WorkerScript.onMessage = function(msg) {
     console.log("Conf > " + JSON.stringify(msg.conf))
     console.log("Params > " + JSON.stringify(msg.params))
 
-    // order notifications in ASC order
+    /** order notifications in ASC order */
     function orderNotifications(items){
         for (var i = items.length-1; i > 0; i--) {
             if (items[i].id > 0 ) //msg.conf.notificationLastID)
@@ -18,14 +18,17 @@ WorkerScript.onMessage = function(msg) {
         }
     }
 
+    /** Logged-in status */
     if (!msg.conf || !msg.conf.login) {
         console.log("Not loggedin")
         return;
     }
 
+    /** Load images */
     if (typeof msg.conf['loadImages'] !== "undefined")
         loadImages = msg.conf['loadImages']
 
+    /** POST statuses */
     var API = mastodonAPI({ instance: msg.conf.instance, api_user_token: msg.conf.api_user_token});
     if (msg.method === "POST"){
         API.post(msg.action, msg.params, function(data) {
@@ -63,7 +66,7 @@ WorkerScript.onMessage = function(msg) {
 
                 } else if(msg.action === "notifications") {
                     // notification
-                    // console.log("Is notification... parsing...")
+                    console.log("Get notification list")
                     console.log(JSON.stringify(data[i]))
                     item = parseNotification(data[i]);
                     items.push(item)
@@ -73,7 +76,9 @@ WorkerScript.onMessage = function(msg) {
                     console.log("ancestors")
                     for (var j = 0; j < data[i].length; j ++) {
                         item = parseToot(data[i][j]);
-                        item['id'] = item['status_id']
+                        item['id'] = item['status_id'];
+                        if (typeof item['attachments'] === "undefined")
+                            item['attachments'] = [];
                         items.push(item)
                         console.log(JSON.stringify(data[i][j]))
                     }
@@ -82,7 +87,7 @@ WorkerScript.onMessage = function(msg) {
 
                     //console.log(JSON.stringify(i))
                 } else if(msg.action.indexOf("statuses") >-1 && msg.action.indexOf("context") >-1 && i === "descendants") {
-                    // status ancestors toots - conversation
+                    // status descendants toots - conversation
                     console.log("descendants")
                     for (var j = 0; j < data[i].length; j ++) {
                         item = parseToot(data[i][j]);
@@ -94,16 +99,19 @@ WorkerScript.onMessage = function(msg) {
                     }
                     addDataToModel (msg.model, "append", items);
                     items = [];
+
                 } else if (data[i].hasOwnProperty("content")){
-                    // console.log("Is toot... parsing...")
+                    //console.log("Get Toot")
                     item = parseToot(data[i]);
                     item['id'] = item['status_id']
                     items.push(item)
+
                 } else {
                     WorkerScript.sendMessage({ 'action': msg.action, 'success': true,  key: i, "data": data[i] })
                 }
             }
         }
+
         if(msg.model && items.length)
             addDataToModel(msg.model, msg.mode, items)
         /*if(msg.action === "notifications")
@@ -123,11 +131,10 @@ function addDataToModel (model, mode, items) {
             model.insert(0,items[i])
         }
     }
-
     model.sync()
 }
 
-// Get Account Data: Represents a user of Mastodon and their associated profile.
+/** Function: Get Account Data */
 function parseAccounts(collection, prefix, data) {
 
     var res = collection;
@@ -153,13 +160,12 @@ function parseAccounts(collection, prefix, data) {
     //res[prefix + 'account_fields'] = data["fields"]
     res[prefix + 'account_bot'] = data["bot"]
     res[prefix + 'account_group'] = data["group"]
-    res[prefix + 'account_source'] = data["source"]
 
     //console.log(JSON.stringify(res))
     return (res);
 }
 
-// Get Notification Data
+/** Function: Get Notification Data */
 function parseNotification(data){
     //console.log(JSON.stringify(data))
     var item = {
@@ -168,12 +174,12 @@ function parseNotification(data){
         attachments: []
     };
     switch (item['type']){
+
     case "mention":
         if (!data.status) {
             break;
         }
         item = parseToot(data.status)
-        item['typeIcon'] = "image://theme/icon-s-retweet"
         item['typeIcon'] = "image://theme/icon-s-alarm"
         item['type'] = "mention"
         break;
@@ -197,19 +203,18 @@ function parseNotification(data){
         item = parseToot(data.status)
         item = parseAccounts(item, "reblog_", data["account"])
         item = parseAccounts(item, "", data["status"]["account"])
-        item['status_reblog'] = true;
+        item['status_reblog'] = true
+        item['type'] = "favourite"
         item['typeIcon'] = "image://theme/icon-s-favorite"
-        item['type'] = "favourite";
-        //item['retweetScreenName'] = item['reblog_account_username'];
         break;
 
     case "follow":
         item['type'] = "follow";
         item = parseAccounts(item, "", data["account"])
         item = parseAccounts(item, "reblog_", data["account"])
-        item['content'] = data['account']['note']
+        //item['content'] = data['account']['note']
         item['typeIcon'] = "../../images/icon-s-follow.svg"
-        item['attachments'] = []
+        //item['attachments'] = []
         break;
 
     default:
@@ -222,6 +227,7 @@ function parseNotification(data){
     return item;
 }
 
+/** Function: */
 function collect() {
     var ret = {};
     var len = arguments.length;
@@ -235,12 +241,13 @@ function collect() {
     return ret;
 }
 
+/** Function: Get Status date */
 function getDate(dateStr) {
     var ts = new Date(dateStr);
     return new Date(ts.getFullYear(), ts.getMonth(), ts.getDate(), 0, 0, 0)
 }
 
-// Get Status / Toot Data
+/** Function: Get Status data */
 function parseToot (data) {
     var i = 0;
     var item = {};
@@ -253,7 +260,6 @@ function parseToot (data) {
     item['status_spoiler_text'] = data["spoiler_text"]
     item['status_visibility'] = data["visibility"]
     item['status_language'] = data["language"]
-
     item['status_uri'] = data["uri"]
     item['status_url'] = data["url"]
     item['status_replies_count'] = data["replies_count"]
@@ -262,34 +268,39 @@ function parseToot (data) {
     item['status_favourited'] = data["favourited"]
     item['status_reblogged'] = data["reblogged"]
     item['status_bookmarked'] = data["bookmarked"]
-
     item['status_content'] = data["content"]
+    item['attachments'] = data['media_attachments']
     item['status_in_reply_to_id'] = data["in_reply_to_id"]
     item['status_in_reply_to_account_id'] = data["in_reply_to_account_id"]
     item['status_reblog'] = data["reblog"] ? true : false
     item['section'] = getDate(data["created_at"])
 
-    // If Toot is a Reblog
+    /** If Toot is a Reblog */
     if(item['status_reblog']) {
         item['type'] = "reblog";
         item['typeIcon'] = "image://theme/icon-s-retweet"
-        item['status_id'] = data["reblog"]["id"];
-        item['status_spoiler_text'] = data["reblog"]["spoiler_text"]
+        item['status_id'] = data["reblog"]["id"]
         item['status_sensitive'] = data["reblog"]["sensitive"]
+        item['status_spoiler_text'] = data["reblog"]["spoiler_text"]
+        item['status_replies_count'] = data["reblog"]["replies_count"]
+        item['status_reblogs_count'] = data["reblog"]["reblogs_count"]
+        item['status_favourites_count'] = data["reblog"]["favourites_count"]
         item = parseAccounts(item, "", data['reblog']["account"])
         item = parseAccounts(item, "reblog_", data["account"])
     } else {
         item = parseAccounts(item, "", data["account"])
     }
+
+    /** Replace HTML content in Toots */
     item['content'] = data['content']
     .replaceAll('</span><span class="invisible">', '')
     .replaceAll('<span class="invisible">', '')
     .replaceAll('</span><span class="ellipsis">', '')
     .replaceAll('class=""', '');
-    item['attachments'] = [];
 
-    // Media attachements in Toots
-    for(i = 0; i < data['media_attachments'].length ; i++) {
+    /** Media attachements in Toots */
+    item['attachments'] = [];
+    for(i = 0; i < data['media_attachments'].length; i++) {
         var attachments = data['media_attachments'][i];
         item['content'] = item['content'].replaceAll(attachments['text_url'], '')
         var tmp = {
@@ -301,7 +312,7 @@ function parseToot (data) {
         item['attachments'].push(tmp)
     }
 
-    // Media attachements in Reblogs
+    /** Media attachements in Reblogs */
     if(item['status_reblog']) {
         for(i = 0; i < data['reblog']['media_attachments'].length ; i++) {
             var attachments = data['reblog']['media_attachments'][i];
@@ -319,7 +330,7 @@ function parseToot (data) {
     return addEmojis(item, data);
 }
 
-// Display function for custom Emojis in Toots
+/** Function: Display custom Emojis in Toots */
 function addEmojis(item, data) {
     var emoji, i;
     for (i = 0; i < data["emojis"].length; i++) {

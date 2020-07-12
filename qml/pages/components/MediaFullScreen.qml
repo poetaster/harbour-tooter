@@ -1,6 +1,6 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
-import QtMultimedia 5.0
+import QtMultimedia 5.6
 
 
 FullscreenContentPage {
@@ -21,15 +21,17 @@ FullscreenContentPage {
         } else {
             video.source = mediaURL
             video.fillMode = VideoOutput.PreserveAspectFit
-            video.play()
             videoFlickable.visible = true
+            playerIcon.visible = true
+            playerProgress.visible = true
+            video.play()
+            hideTimer.start()
         }
     }
 
-    Flickable {
+    SilicaFlickable {
         id: videoFlickable
         visible: false
-        clip: true
         contentWidth: imageContainer.width
         contentHeight: imageContainer.height
         anchors.fill: parent
@@ -49,7 +51,7 @@ FullscreenContentPage {
             }
             onStatusChanged: {
                 console.log(status)
-                switch (status){
+                switch (status) {
                 case MediaPlayer.Loading:
                     console.log("loading")
                     return;
@@ -84,49 +86,27 @@ FullscreenContentPage {
                 }
             }
             onStopped: function() {
-                if (type != 'video')
+                if (type == 'gifv') {
                     video.play()
-                else
+                } else {
                     video.stop()
-            }
-
-            IconButton {
-                id: playerIcon
-                icon.source: "image://theme/icon-m-play"
-                anchors {
-                    left: parent.left
-                    bottom: parent.bottom
-                    leftMargin: Theme.horizontalPageMargin
-                    bottomMargin: Theme.horizontalPageMargin
-                }
-                onClicked: function() {
-                    if (video.playbackState === MediaPlayer.PlayingState)
-                        video.pause()
-                    else
-                        video.play()
+                    overlayIcons.active = true
+                    hideTimer.stop()
                 }
             }
 
-            ProgressBar {
-                id: playerProgress
-                indeterminate: true
-                width: 400
-                anchors {
-                    verticalCenter: playerIcon.verticalCenter
-                    left: playerIcon.right
-                    right: parent.right
-                    rightMargin: Theme.horizontalPageMargin + Theme.iconSizeMedium
-                    bottomMargin: Theme.horizontalPageMargin
-                }
-            }
 
             MouseArea {
                 anchors.fill: parent
                 onClicked: function() {
-                    if (video.playbackState === MediaPlayer.PlayingState)
+                    if (video.playbackState === MediaPlayer.PlayingState) {
                         video.pause()
-                    else
+                        overlayIcons.active = true
+                        hideTimer.stop()
+                    } else {
                         video.play()
+                        hideTimer.start()
+                    }
                 }
             }
 
@@ -155,12 +135,11 @@ FullscreenContentPage {
     }
 
 
-    Flickable {
+    SilicaFlickable {
         id: imageFlickable
         visible: false
         contentWidth: imageContainer.width
         contentHeight: imageContainer.height
-        clip: true
         anchors.fill: parent
         onHeightChanged: if (imagePreview.status === Image.Ready) {
                              imagePreview.fitToScreen()
@@ -224,7 +203,6 @@ FullscreenContentPage {
             property real minScale: 1.0
             property real maxScale: 3.0
 
-            opacity: 0.3
             anchors.fill: parent
             enabled: imagePreview.status === Image.Ready
             pinch.target: imagePreview
@@ -249,6 +227,11 @@ FullscreenContentPage {
                 duration: 250
                 property: "scale"
                 from: imagePreview.scale
+            }
+
+            MouseArea {
+                anchors.fill: parent
+                onClicked: overlayIcons.active = !overlayIcons.active
             }
         }
     }
@@ -292,32 +275,86 @@ FullscreenContentPage {
         }
     }
 
-    IconButton {
-        id: dismissBtn
-        icon.source: "image://theme/icon-m-dismiss"
-        anchors {
-            top: parent.top
-            topMargin: Theme.horizontalPageMargin
-            right: parent.right
-            rightMargin: Theme.horizontalPageMargin
-        }
-        onClicked: pageStack.pop()
-    }
+    Item {
+        id: overlayIcons
 
-    IconButton {
-        id: mediaDlBtn
-        anchors {
-            right: parent.right
-            rightMargin: Theme.horizontalPageMargin
-            bottom: parent.bottom
-            bottomMargin: Theme.horizontalPageMargin
+        property bool active: true
+
+        enabled: active
+        anchors.fill: parent
+        opacity: active ? 1.0 : 0.0
+        Behavior on opacity { FadeAnimator {}}
+
+        IconButton {
+            y: Theme.paddingLarge
+            icon.source: "image://theme/icon-m-dismiss"
+            onClicked: pageStack.pop()
+            anchors {
+                right: parent.right
+                rightMargin: Theme.horizontalPageMargin
+            }
         }
-        icon.source: "image://theme/icon-m-cloud-download"
-        onClicked: {
-            var filename = mediaURL.split("/")
-            FileDownloader.downloadFile(mediaURL, filename[filename.length-1])
+
+        IconButton {
+            id: mediaDlBtn
+            icon.source: "image://theme/icon-m-cloud-download"
+            anchors {
+                right: parent.right
+                rightMargin: Theme.horizontalPageMargin
+                bottom: parent.bottom
+                bottomMargin: Theme.horizontalPageMargin
+            }
+            onClicked: {
+                var filename = mediaURL.split("/")
+                FileDownloader.downloadFile(mediaURL, filename[filename.length-1])
+            }
+        }
+
+        IconButton {
+            id: playerIcon
+            visible: false
+            icon.source: "image://theme/icon-m-play"
+            anchors {
+                left: parent.left
+                bottom: parent.bottom
+                leftMargin: Theme.horizontalPageMargin
+                bottomMargin: Theme.horizontalPageMargin
+            }
+            onClicked: function() {
+                if (video.playbackState === MediaPlayer.PlayingState) {
+                    video.pause()
+                    hideTimer.stop()
+                } else {
+                    video.play()
+                    hideTimer.start()
+                }
+            }
+        }
+
+        ProgressBar {
+            id: playerProgress
+            visible: false
+            indeterminate: true
+            width: 400
+            anchors {
+                verticalCenter: playerIcon.verticalCenter
+                left: playerIcon.right
+                right: parent.right
+                rightMargin: Theme.horizontalPageMargin + Theme.iconSizeMedium
+                bottomMargin: Theme.horizontalPageMargin
+            }
+        }
+
+        Timer {
+            id: hideTimer
+            running: false
+            interval: 2000
+            onTriggered: {
+                overlayIcons.active = !overlayIcons.active
+            }
         }
     }
 
     VerticalScrollDecorator { flickable: imageFlickable }
 }
+

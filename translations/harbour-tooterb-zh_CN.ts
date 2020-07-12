@@ -29,15 +29,13 @@
     </message>
     <message>
         <source>Write your warning here</source>
+        <extracomment>placeholderText in Toot content warning panel</extracomment>
         <translation>在此编写你的警告信息</translation>
     </message>
     <message>
         <source>What&apos;s on your mind?</source>
+        <extracomment>placeholderText in Toot text panel</extracomment>
         <translation>有何想法?</translation>
-    </message>
-    <message>
-        <source>Delete</source>
-        <translation>删除</translation>
     </message>
     <message>
         <source>Public</source>
@@ -67,6 +65,10 @@
     <message>
         <source>Hide Reply</source>
         <translation>隐藏回复</translation>
+    </message>
+    <message>
+        <source>Open in Browser</source>
+        <translation>在浏览器打开个人简介</translation>
     </message>
 </context>
 <context>
@@ -128,8 +130,12 @@
         <translation>通知</translation>
     </message>
     <message>
-        <source>New Toot</source>
-        <translation>新嘟嘟</translation>
+        <source>Local</source>
+        <translation>本地</translation>
+    </message>
+    <message>
+        <source>Federated</source>
+        <translation>联合</translation>
     </message>
     <message>
         <source>Search</source>
@@ -140,12 +146,8 @@
         <translation>@用户或#项目</translation>
     </message>
     <message>
-        <source>Local</source>
-        <translation>本地</translation>
-    </message>
-    <message>
-        <source>Federated</source>
-        <translation>联合</translation>
+        <source>New Toot</source>
+        <translation>新嘟嘟</translation>
     </message>
 </context>
 <context>
@@ -173,24 +175,24 @@
 <context>
     <name>MyList</name>
     <message>
-        <source>Load more</source>
-        <translation>加载更多</translation>
-    </message>
-    <message>
         <source>Settings</source>
         <translation>设置</translation>
     </message>
     <message>
-        <source>Loading</source>
-        <translation>加载中</translation>
-    </message>
-    <message>
-        <source>please wait...</source>
-        <translation>稍等片刻......</translation>
-    </message>
-    <message>
         <source>New Toot</source>
         <translation>新嘟嘟</translation>
+    </message>
+    <message>
+        <source>Reload</source>
+        <translation>重新加载</translation>
+    </message>
+    <message>
+        <source>Open in Browser</source>
+        <translation>在浏览器打开个人简介</translation>
+    </message>
+    <message>
+        <source>Nothing found</source>
+        <translation>没有发现任何东西</translation>
     </message>
 </context>
 <context>
@@ -231,6 +233,10 @@
         <translation>状态</translation>
     </message>
     <message>
+        <source>Mention</source>
+        <translation>提及</translation>
+    </message>
+    <message>
         <source>Unfollow</source>
         <extracomment>Is a button. Keep it as short as possible.</extracomment>
         <translation>取消关注</translation>
@@ -264,14 +270,6 @@
         <source>Block</source>
         <extracomment>Is a button. Keep it as short as possible.</extracomment>
         <translation>封锁</translation>
-    </message>
-    <message>
-        <source>Open in Browser</source>
-        <translation>在浏览器打开个人简介</translation>
-    </message>
-    <message>
-        <source>Mention</source>
-        <translation>提及</translation>
     </message>
 </context>
 <context>
@@ -356,7 +354,7 @@
     </message>
     <message>
         <source>to help with app translation to your language.</source>
-        <translation>以帮助翻译软件为你使用的语言</translation>
+        <translation>以帮助翻译软件为你使用的语言.</translation>
     </message>
 </context>
 <context>

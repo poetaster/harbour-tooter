@@ -10,10 +10,12 @@ var mastodonAPI = function(config) {
             // modify initial config afterwards
             config[key] = value;
         },
+
         getConfig: function(key) {
             //get config key
             return config[key];
         },
+
         get: function (endpoint) {
             // for GET API calls
             // can be called with two or three parameters
@@ -67,6 +69,7 @@ var mastodonAPI = function(config) {
             }
             http.send();
         },
+
         post: function (endpoint) {
             // for POST API calls
             var postData, callback;
@@ -113,6 +116,7 @@ var mastodonAPI = function(config) {
                        }
                    });*/
         },
+
         delete: function (endpoint, callback) {
             // for DELETE API calls.
             $.ajax({
@@ -125,6 +129,7 @@ var mastodonAPI = function(config) {
                        }
                    });
         },
+
         stream: function (streamType, onData) {
             // Event Stream Support
             // websocket streaming is undocumented. i had to reverse engineer the fucking web client.
@@ -132,7 +137,7 @@ var mastodonAPI = function(config) {
             // user for your local home TL and notifications
             // public for your federated TL
             // public:local for your home TL
-            // hashtag&tag=fuckdonaldtrump for the stream of #fuckdonaldtrump
+            // hashtag&tag=mastodonrocks for the stream of #mastodonrocks
             // callback gets called whenever new data ist recieved
             // callback { event: (eventtype), payload: {mastodon object as described in the api docs} }
             // eventtype could be notification (=notification) or update (= new toot in TL)
@@ -147,12 +152,10 @@ var mastodonAPI = function(config) {
                 onData(event);
             };
             es.onmessage = listener;
-
-
         },
+
         registerApplication: function (client_name, redirect_uri, scopes, website, callback) {
             //register a new application
-
             // OAuth Auth flow:
             // First register the application
             // 2) get a access code from a user (using the link, generation function below!)
@@ -191,10 +194,12 @@ var mastodonAPI = function(config) {
             }
             http.send(params);
         },
+
         generateAuthLink: function (client_id, redirect_uri, responseType, scopes) {
             return config.instance + "/oauth/authorize?client_id=" + client_id + "&redirect_uri=" + redirect_uri +
                     "&response_type=" + responseType + "&scope=" + scopes.join("+");
         },
+
         getAccessTokenFromAuthCode: function (client_id, client_secret, redirect_uri, code, callback) {
             /*$.ajax({
                        url: config.instance + "/oauth/token",

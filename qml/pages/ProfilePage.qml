@@ -182,9 +182,9 @@ Page {
                             id: txtNote
                             text: note
                             textFormat: Text.StyledText
-                            color: Theme.secondaryColor
+                            color: Theme.secondaryHighlightColor
                             font.pixelSize: Theme.fontSizeExtraSmall
-                            linkColor: Theme.highlightColor
+                            linkColor: Theme.secondaryColor
                             wrapMode: Text.Wrap
                             width: parent.width - ( 2 * Theme.horizontalPageMargin )
                             anchors.horizontalCenter: parent.horizontalCenter
@@ -227,37 +227,43 @@ Page {
                     anchors.leftMargin: Theme.paddingLarge
                     anchors.rightMargin: Theme.paddingLarge
 
-                    Text {
+                    Label {
                         id: txtFollowers
                         visible: true //followers_count ? true : false
                         text: followers_count+" "+
                               //: Will show as: "35 Followers"
                               qsTr("Followers")
                         font.pixelSize: Theme.fontSizeExtraSmall
-                        color: Theme.highlightColor
+                        color: Theme.primaryColor
                         wrapMode: Text.Wrap
                     }
 
-                    Text {
+                    Label {
                         id: txtFollowing
                         visible: true //following_count ? true : false
                         text: following_count+" "+
                               //: Will show as: "23 Following"
                               qsTr("Following")
                         font.pixelSize: Theme.fontSizeExtraSmall
-                        color: Theme.highlightColor
+                        color: Theme.primaryColor
                         wrapMode: Text.Wrap
                     }
 
-                    Text {
+                   Label {
                         id: txtStatuses
                         visible: true //statuses_count ? true : false
                         text: statuses_count+" "+
                               //: Will show as: "115 Statuses"
                               qsTr("Statuses")
                         font.pixelSize: Theme.fontSizeExtraSmall
-                        color: Theme.highlightColor
+                        color: pressed ?  Theme.highlightColor : Theme.primaryColor
                         wrapMode: Text.Wrap
+
+                        MouseArea {
+                            anchors.fill: parent
+                            onClicked: expandingSection1.expanded = false
+                        }
+
                     }
                 }
 
@@ -299,7 +305,6 @@ Page {
                                 'conf'      : Logic.conf
                             };
                             worker.sendMessage(msg);
-                            // to-do: create notification banner "Follow request sent!"
                         }
                     }
 
@@ -338,19 +343,9 @@ Page {
                                 'params'    : [],
                                 'action'    : "accounts/" + user_id + (blocking ? '/unblock':'/block'),
                                 'conf'      : Logic.conf
-                            };
-                            worker.sendMessage(msg);
+                            }
+                            worker.sendMessage(msg)
                         }
-                    }
-                }
-
-                Button {
-                    id: btnBrowser
-                    text: qsTr("Open in Browser")
-                    preferredWidth: Theme.buttonWidthMedium
-                    anchors.horizontalCenter: parent.horizontalCenter
-                    onClicked: {
-                        Qt.openUrlExternally(url)
                     }
                 }
 

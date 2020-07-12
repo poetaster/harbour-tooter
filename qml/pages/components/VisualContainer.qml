@@ -188,7 +188,7 @@ BackgroundItem {
             left: miniHeader.left
             leftMargin: Theme.paddingMedium
             right: miniHeader.right
-            rightMargin: Theme.horizontalPageMargin + Theme.paddingLarge
+            rightMargin: Theme.horizontalPageMargin + Theme.paddingMedium
             top: miniHeader.bottom
             topMargin: Theme.paddingSmall
             bottomMargin: Theme.paddingLarge

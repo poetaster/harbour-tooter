@@ -1,70 +1,69 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
 
+
 Item {
-    id: miniheader
+    id: miniHeader
     height: lblName.height
     width: parent.width
 
     Label {
         id: lblName
+        text: account_display_name ? account_display_name : account_username.split('@')[0]
+        font.weight: Font.Bold
+        font.pixelSize: Theme.fontSizeSmall
+        color: if ( myList.type === "notifications" && ( model.type === "favourite" || model.type === "reblog" )) {
+                   ( pressed ? Theme.secondaryHighlightColor : (!highlight ? Theme.secondaryColor : Theme.secondaryHighlightColor ))
+               } else ( pressed ? Theme.highlightColor : ( !highlight ? Theme.primaryColor : Theme.secondaryColor ))
+        truncationMode: TruncationMode.Fade
+        width: myList.type !== "follow" ? ( contentWidth > parent.width /2 ? parent.width /2 : contentWidth ) : parent.width - Theme.paddingMedium
         anchors {
             left: parent.left
             leftMargin: Theme.paddingMedium
         }
-        text:
-            if (account_display_name === "") {
-            account_username.split('@')[0]
-            }
-            else account_display_name
-        width: contentWidth > parent.width /2 ? parent.width /2 : contentWidth
-        truncationMode: TruncationMode.Fade
-        font.weight: Font.Bold
-        font.pixelSize: Theme.fontSizeSmall
-        color: (pressed ? Theme.highlightColor : Theme.primaryColor)
-    }
-
-    Image {
-        id: iconVerified
-        y: Theme.paddingLarge
-        anchors {
-            left: lblName.right
-            leftMargin: Theme.paddingSmall
-            verticalCenter: lblName.verticalCenter
-        }
-        visible: account_locked
-        width: account_locked ? Theme.iconSizeExtraSmall*0.8 : 0
-        opacity: 0.8
-        height: width
-        source: "image://theme/icon-s-secure?" + (pressed
-                                                  ? Theme.highlightColor
-                                                  : Theme.primaryColor)
     }
 
     Label {
         id: lblScreenName
-        anchors {
-            left: iconVerified.right
-            right: lblDate.left
-            leftMargin: Theme.paddingMedium
-            baseline: lblName.baseline
-        }
-        truncationMode: TruncationMode.Fade
+        visible: model.type !== "follow"
         text: '@'+account_username
         font.pixelSize: Theme.fontSizeExtraSmall
-        color: (pressed ? Theme.secondaryHighlightColor : Theme.secondaryColor)
+        color: ( pressed ? Theme.secondaryHighlightColor : Theme.secondaryColor )
+        truncationMode: TruncationMode.Fade
+        anchors {
+            left: lblName.right
+            leftMargin: Theme.paddingMedium
+            right: lblDate.left
+            rightMargin: Theme.paddingMedium
+            verticalCenter: lblName.verticalCenter
+        }
     }
-    Label {
 
+    Label {
+        id: lblScreenNameFollow
+        visible: model.type === "follow"
+        text: '@'+account_username
+        font.pixelSize: Theme.fontSizeExtraSmall
+        color: ( pressed ? Theme.secondaryHighlightColor : Theme.secondaryColor )
+        width: parent.width - Theme.paddingMedium
+        truncationMode: TruncationMode.Fade
+        anchors {
+            top: lblName.bottom
+            left: parent.left
+            leftMargin: Theme.paddingMedium
+        }
+    }
+
+    Label {
         id: lblDate
-        color: (pressed ? Theme.highlightColor : Theme.primaryColor)
         text: Format.formatDate(created_at, new Date() - created_at < 60*60*1000 ? Formatter.DurationElapsedShort : Formatter.TimeValueTwentyFourHours)
         font.pixelSize: Theme.fontSizeExtraSmall
+        color: ( pressed ? Theme.highlightColor : Theme.secondaryColor )
         horizontalAlignment: Text.AlignRight
         anchors {
             right: parent.right
-            baseline: lblName.baseline
             rightMargin: Theme.horizontalPageMargin
+            verticalCenter: lblName.verticalCenter
         }
     }
 }

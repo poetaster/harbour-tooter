@@ -21,21 +21,20 @@
     </message>
 </context>
 <context>
-    <name>Conversation</name>
+    <name>ConversationPage</name>
     <message>
-        <source>Delete</source>
-        <translation>Radera</translation>
-    </message>
-    <message>
-        <source>Emojis</source>
-        <translation>Emojis</translation>
-    </message>
-    <message>
-        <source>Tap to insert</source>
-        <translation>Tryck för att infoga</translation>
+        <source>Copy Link to Clipboard</source>
+        <extracomment>Use the translation of &quot;Copy Link&quot; for a shorter PullDownMenu label</extracomment>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Write your warning here</source>
+        <extracomment>placeholderText in Toot content warning panel</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>What&apos;s on your mind?</source>
+        <extracomment>placeholderText in Toot text panel</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -55,23 +54,39 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>What&apos;s on your mind?</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Toot sent!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Copy Link to Clipboard</source>
+        <source>Reply</source>
+        <extracomment>&quot;Reply&quot; will show the Toot text entry Panel. &quot;Hide Reply&quot; closes it. Alternative: Use &quot;Close Reply&quot;</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hide Reply</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Open in Browser</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
-    <name>ImageFullScreen</name>
+    <name>CoverPage</name>
     <message>
-        <source>Error loading</source>
-        <translation type="unfinished"></translation>
+        <source>New Toot</source>
+        <translation>Ny toot</translation>
+    </message>
+</context>
+<context>
+    <name>EmojiSelect</name>
+    <message>
+        <source>Emojis</source>
+        <translation>Emojis</translation>
+    </message>
+    <message>
+        <source>Tap to insert</source>
+        <translation>Tryck för att infoga</translation>
     </message>
 </context>
 <context>
@@ -101,7 +116,7 @@
     </message>
     <message>
         <source>Reload</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Ladda mer</translation>
     </message>
 </context>
 <context>
@@ -115,8 +130,12 @@
         <translation>Notifieringar</translation>
     </message>
     <message>
-        <source>New Toot</source>
-        <translation>Ny toot</translation>
+        <source>Local</source>
+        <translation>Lokalt</translation>
+    </message>
+    <message>
+        <source>Federated</source>
+        <translation>Förenade</translation>
     </message>
     <message>
         <source>Search</source>
@@ -127,12 +146,15 @@
         <translation>@user eller #term</translation>
     </message>
     <message>
-        <source>Local</source>
-        <translation>Lokalt</translation>
+        <source>New Toot</source>
+        <translation>Ny toot</translation>
     </message>
+</context>
+<context>
+    <name>MediaFullScreen</name>
     <message>
-        <source>Federated</source>
-        <translation>Förenade</translation>
+        <source>Error loading</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -153,86 +175,124 @@
 <context>
     <name>MyList</name>
     <message>
-        <source>Load more</source>
-        <translation>Ladda mer</translation>
-    </message>
-    <message>
         <source>Settings</source>
         <translation>Inställningar</translation>
     </message>
     <message>
-        <source>Loading</source>
-        <translation>Laddar</translation>
+        <source>New Toot</source>
+        <translation>Ny toot</translation>
     </message>
     <message>
-        <source>please wait...</source>
-        <translation>Vänligen vänta...</translation>
+        <source>Reload</source>
+        <translation>Ladda mer</translation>
+    </message>
+    <message>
+        <source>Open in Browser</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Nothing found</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
-    <name>Profile</name>
+    <name>ProfileHeader</name>
     <message>
-        <source>Unfollow</source>
-        <translation>Sluta följa</translation>
+        <source>Bot</source>
+        <translation>Bot</translation>
     </message>
     <message>
-        <source>Follow request sent!</source>
-        <translation>Följarförfrågan har skickats!</translation>
+        <source>Follows you</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Group</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>ProfilePage</name>
+    <message>
+        <source>About</source>
+        <extracomment>If there&apos;s no good translation for &quot;About&quot;, use &quot;Details&quot; (in details about profile).</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Followers</source>
+        <extracomment>Will show as: &quot;35 Followers&quot;</extracomment>
+        <translation>Följare</translation>
     </message>
     <message>
         <source>Following</source>
+        <extracomment>Will show as: &quot;23 Following&quot;</extracomment>
         <translation>Följer</translation>
     </message>
     <message>
-        <source>Mute</source>
-        <translation>Tysta</translation>
+        <source>Statuses</source>
+        <extracomment>Will show as: &quot;115 Statuses&quot;</extracomment>
+        <translation>Statusar</translation>
+    </message>
+    <message>
+        <source>Mention</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Unfollow</source>
+        <extracomment>Is a button. Keep it as short as possible.</extracomment>
+        <translation>Sluta följa</translation>
+    </message>
+    <message>
+        <source>Requested</source>
+        <extracomment>Is a button. Keep it as short as possible.</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Follow</source>
+        <extracomment>Is a button. Keep it as short as possible.</extracomment>
+        <translation>Följ</translation>
     </message>
     <message>
         <source>Unmute</source>
+        <extracomment>Is a button. Keep it as short as possible.</extracomment>
         <translation>Avtysta</translation>
     </message>
     <message>
+        <source>Mute</source>
+        <extracomment>Is a button. Keep it as short as possible.</extracomment>
+        <translation>Tysta</translation>
+    </message>
+    <message>
         <source>Unblock</source>
+        <extracomment>Is a button. Keep it as short as possible.</extracomment>
         <translation>Avblockera</translation>
     </message>
     <message>
         <source>Block</source>
+        <extracomment>Is a button. Keep it as short as possible.</extracomment>
         <translation>Blockera</translation>
-    </message>
-    <message>
-        <source>Statuses</source>
-        <translation>Statusar</translation>
-    </message>
-    <message>
-        <source>Favourites</source>
-        <translation>Favoriter</translation>
-    </message>
-    <message>
-        <source>Follow</source>
-        <translation>Följ</translation>
-    </message>
-    <message>
-        <source>Summary</source>
-        <translation>Översikt</translation>
-    </message>
-    <message>
-        <source>Followers</source>
-        <translation>Följare</translation>
-    </message>
-    <message>
-        <source>Bio</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Open Profile in Browser</source>
-        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
-    <name>Settings</name>
+    <name>SettingsPage</name>
     <message>
         <source>Settings</source>
         <translation>Inställningar</translation>
+    </message>
+    <message>
+        <source>Options</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Load Images in Toots</source>
+        <translation>Ladda bilder i toots</translation>
+    </message>
+    <message>
+        <source>Disable this option if you want to preserve your data connection</source>
+        <translation>Inaktivera det här alternativet om du vill behålla din dataanslutning</translation>
+    </message>
+    <message>
+        <source>Account</source>
+        <translation>Konto</translation>
     </message>
     <message>
         <source>Remove Account</source>
@@ -243,19 +303,20 @@
         <translation>Lägg till konto</translation>
     </message>
     <message>
-        <source>Deauthorize this app and remove your account</source>
-        <translation>Avauktorisera  denna app och radera ditt konto</translation>
+        <source>Deauthorize this app from using your account and remove account data from phone</source>
+        <translation>Avauktorisera denna app och radera ditt konto</translation>
     </message>
     <message>
         <source>Authorize this app to access your Mastodon account</source>
         <translation>Godkänn denna app att använda ditt Mastodon-konto på dina vägnar</translation>
     </message>
     <message>
-        <source>Disable this option if you want to preserve your data connection</source>
-        <translation>Inaktivera det här alternativet om du vill behålla din dataanslutning</translation>
+        <source>Translate</source>
+        <translation>Översätt</translation>
     </message>
     <message>
         <source>Credits</source>
+        <extracomment>Translation alternative: &quot;Development&quot;</extracomment>
         <translation>Erkännanden</translation>
     </message>
     <message>
@@ -267,7 +328,15 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Development and translations</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Occitan &amp; French translation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Chinese translation</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -279,43 +348,13 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Added README file</source>
-        <translation type="unfinished"></translation>
+        <source>Use</source>
+        <extracomment>Full sentence for translation: &quot;Use Transifex to help with app translation to your language.&quot; - The word Transifex is a link and doesn&apos;t need translation.</extracomment>
+        <translation>Använd</translation>
     </message>
     <message>
-        <source>Chinese translation</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Load images in toots</source>
-        <translation>Ladda bilder i toots</translation>
-    </message>
-    <message>
-        <source>Translate</source>
-        <translation>Översätt</translation>
-    </message>
-    <message>
-        <source>Use Transifex to help with app translation to your language</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Development and translations</source>
-        <translation>Använd Transifex för att hjälpa med app-översättningar till ditt språk</translation>
-    </message>
-</context>
-<context>
-    <name>Toot</name>
-    <message>
-        <source>boosted</source>
-        <translation>puffade</translation>
-    </message>
-    <message>
-        <source>favourited</source>
-        <translation>favoriserad</translation>
-    </message>
-    <message>
-        <source>followed you</source>
-        <translation>följer dig</translation>
+        <source>to help with app translation to your language.</source>
+        <translation>för att hjälpa med app-översättningar till ditt språk.</translation>
     </message>
 </context>
 <context>
@@ -335,6 +374,22 @@
     <message>
         <source>Favorite</source>
         <translation>Favorisera</translation>
+    </message>
+    <message>
+        <source>Mention</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Conversation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove Bookmark</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Bookmark</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

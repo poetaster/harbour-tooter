@@ -24,7 +24,7 @@ class FileDownloader : public QObject
 {
     Q_OBJECT
 public:
-    explicit FileDownloader(QQmlEngine *engine, QObject *parent = 0);
+    explicit FileDownloader(QQmlEngine *engine, QObject *parent = nullptr);
     Q_INVOKABLE void downloadFile(QUrl url, QString filename);
     Q_INVOKABLE void open(QString filename);
 

@@ -3,17 +3,19 @@
 // do whatever you want with it
 // but please don't hurt it (and keep this header)
 
-var MastodonAPI = function(config) {
+var mastodonAPI = function(config) {
     var apiBase = config.instance + "/api/v1/";
     return {
         setConfig: function (key, value) {
             // modify initial config afterwards
             config[key] = value;
         },
+
         getConfig: function(key) {
             //get config key
             return config[key];
         },
+
         get: function (endpoint) {
             // for GET API calls
             // can be called with two or three parameters
@@ -56,8 +58,8 @@ var MastodonAPI = function(config) {
             http.setRequestHeader("Connection", "close");
 
             http.onreadystatechange = function() { // Call a function when the state changes.
-                if (http.readyState == 4) {
-                    if (http.status == 200) {
+                if (http.readyState === 4) {
+                    if (http.status === 200) {
                         console.log("Successful GET API request to " +apiBase+endpoint);
                         callback(JSON.parse(http.response),http.status)
                     } else {
@@ -67,6 +69,7 @@ var MastodonAPI = function(config) {
             }
             http.send();
         },
+
         post: function (endpoint) {
             // for POST API calls
             var postData, callback;
@@ -91,8 +94,8 @@ var MastodonAPI = function(config) {
             http.setRequestHeader("Connection", "close");
 
             http.onreadystatechange = function() { // Call a function when the state changes.
-                if (http.readyState == 4) {
-                    if (http.status == 200) {
+                if (http.readyState === 4) {
+                    if (http.status === 200) {
                         console.log("Successful POST API request to " +apiBase+endpoint);
                         callback(JSON.parse(http.response),http.status)
                     } else {
@@ -113,6 +116,7 @@ var MastodonAPI = function(config) {
                        }
                    });*/
         },
+
         delete: function (endpoint, callback) {
             // for DELETE API calls.
             $.ajax({
@@ -125,6 +129,7 @@ var MastodonAPI = function(config) {
                        }
                    });
         },
+
         stream: function (streamType, onData) {
             // Event Stream Support
             // websocket streaming is undocumented. i had to reverse engineer the fucking web client.
@@ -132,7 +137,7 @@ var MastodonAPI = function(config) {
             // user for your local home TL and notifications
             // public for your federated TL
             // public:local for your home TL
-            // hashtag&tag=fuckdonaldtrump for the stream of #fuckdonaldtrump
+            // hashtag&tag=mastodonrocks for the stream of #mastodonrocks
             // callback gets called whenever new data ist recieved
             // callback { event: (eventtype), payload: {mastodon object as described in the api docs} }
             // eventtype could be notification (=notification) or update (= new toot in TL)
@@ -147,12 +152,10 @@ var MastodonAPI = function(config) {
                 onData(event);
             };
             es.onmessage = listener;
-
-
         },
+
         registerApplication: function (client_name, redirect_uri, scopes, website, callback) {
             //register a new application
-
             // OAuth Auth flow:
             // First register the application
             // 2) get a access code from a user (using the link, generation function below!)
@@ -180,8 +183,8 @@ var MastodonAPI = function(config) {
             http.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 
             http.onreadystatechange = function() { // Call a function when the state changes.
-                if (http.readyState == 4) {
-                    if (http.status == 200) {
+                if (http.readyState === 4) {
+                    if (http.status === 200) {
                         console.log("Registered Application: " + http.response);
                         callback(http.response)
                     } else {
@@ -191,10 +194,12 @@ var MastodonAPI = function(config) {
             }
             http.send(params);
         },
+
         generateAuthLink: function (client_id, redirect_uri, responseType, scopes) {
             return config.instance + "/oauth/authorize?client_id=" + client_id + "&redirect_uri=" + redirect_uri +
                     "&response_type=" + responseType + "&scope=" + scopes.join("+");
         },
+
         getAccessTokenFromAuthCode: function (client_id, client_secret, redirect_uri, code, callback) {
             /*$.ajax({
                        url: config.instance + "/oauth/token",
@@ -221,8 +226,8 @@ var MastodonAPI = function(config) {
             http.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 
             http.onreadystatechange = function() { // Call a function when the state changes.
-                if (http.readyState == 4) {
-                    if (http.status == 200) {
+                if (http.readyState === 4) {
+                    if (http.status === 200) {
                         console.log("Got Token: " + http.response);
                         callback(http.response)
                     } else {
@@ -236,7 +241,7 @@ var MastodonAPI = function(config) {
 };
 
 // node.js
-if (typeof module !== 'undefined') { module.exports = MastodonAPI; };
+if (typeof module !== 'undefined') { module.exports = mastodonAPI; };
 
 String.prototype.replaceAll = function(search, replacement) {
     var target = this;

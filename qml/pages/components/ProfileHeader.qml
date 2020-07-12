@@ -1,83 +1,192 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
 
+
 Item {
-    id: header
-    property int value: 0;
-    property string title: "";
-    property string description: "";
-    property string image: "";
-    property string bg: "";
+    id: profileHeader
+
+    property int value: 0
+    property string title: ""
+    property string description: ""
+    property string image: ""
+    property string bg: ""
+
     width: parent.width
-    height: icon.height + Theme.paddingLarge*2
+    height: isPortrait ? (avatarImage.height + Theme.paddingLarge*3 + infoLbl.height) : (avatarImage.height + Theme.paddingLarge*2.5 + infoLbl.height)
 
     Rectangle {
         id: bgImage
-        anchors.fill: parent
-        opacity: 0.2
+        opacity: 0.7
         gradient: Gradient {
-            GradientStop { position: 0.0; color: Theme.highlightBackgroundColor }
-            GradientStop { position: 1.0; color: Theme.highlightBackgroundColor }
+            GradientStop { position: 0.0; color: Theme.highlightDimmerColor }
+            GradientStop { position: 2.0; color: Theme.highlightBackgroundColor }
         }
+        anchors.fill: parent
+
         Image {
-            anchors.fill: bgImage
             asynchronous: true
             fillMode: Image.PreserveAspectCrop
             source: bg
-            opacity: 0.8
-        }
-    }
-    Image {
-        id: icon
-        anchors {
-            left: parent.left
-            leftMargin: Theme.paddingLarge
-            top: parent.top
-            topMargin: Theme.paddingLarge
-        }
-        asynchronous: true
-        width: description === "" ? Theme.iconSizeMedium : Theme.iconSizeLarge
-        height: width
-        source:
-        if (icon.status === Image.Error)
-            source = "../../images/icon-l-profile.svg?" + (pressed
-             ? Theme.highlightColor
-             : Theme.primaryColor)
-        else image
-    }
-    Column {
-        anchors {
-            left: icon.right
-            leftMargin: Theme.paddingLarge
-            right: parent.right
-            rightMargin: Theme.paddingLarge
-            verticalCenter: parent.verticalCenter
-        }
-        Label {
-            id: ttl
-            text:
-                if (title === "") {
-                    description.split('@')[0]
-                }
-                else title
-            height: contentHeight
-            color: Theme.highlightColor
-            font.pixelSize: Theme.fontSizeLarge
-            font.family: Theme.fontFamilyHeading
-            horizontalAlignment: Text.AlignRight
-            truncationMode: TruncationMode.Fade
-            width: parent.width
-        }
-        Label {
-            height: description === "" ? 0 : contentHeight
-            text: "@"+description
-            color: Theme.secondaryHighlightColor
-            font.pixelSize: Theme.fontSizeSmall
-            font.family: Theme.fontFamilyHeading
-            horizontalAlignment: Text.AlignRight
-            truncationMode: TruncationMode.Fade
-            width: parent.width
+            opacity: 0.6
+            anchors.fill: parent
         }
     }
 
+    Image {
+        id: avatarImage
+        asynchronous: true
+        source: if (avatarImage.status === Image.Error)
+                    source = "../../images/icon-l-profile.svg?" + Theme.primaryColor
+                else image
+        width: isPortrait ? Theme.iconSizeLarge : Theme.iconSizeExtraLarge
+        height: width
+        anchors {
+            left: parent.left
+            leftMargin: Theme.horizontalPageMargin
+            top: parent.top
+            topMargin: Theme.paddingLarge * 1.5
+        }
+
+        Button {
+            id: imageButton
+            opacity: 0
+            width: Theme.iconSizeExtraLarge * 1.2
+            anchors {
+                top: parent.top
+                left: parent.left
+                bottom: parent.bottom
+            }
+            onClicked: {
+                pageStack.push(Qt.resolvedUrl("ProfileImage.qml"), {
+                                   "image": image
+                               })
+            }
+        }
+    }
+
+    Column {
+        anchors {
+            top: parent.top
+            topMargin: Theme.paddingLarge
+            left: avatarImage.right
+            leftMargin: Theme.horizontalPageMargin
+            right: parent.right
+            rightMargin: Theme.horizontalPageMargin
+            verticalCenter: parent.verticalCenter
+        }
+
+        Label {
+            id: profileTitle
+            text: title ? title : description.split('@')[0]
+            font.pixelSize: Theme.fontSizeLarge
+            font.family: Theme.fontFamilyHeading
+            color: Theme.highlightColor
+            truncationMode: TruncationMode.Fade
+            width: parent.width
+            height: contentHeight
+            horizontalAlignment: Text.AlignRight
+        }
+
+        Label {
+            id: profileDescription
+            text: "@"+description
+            font.pixelSize: Theme.fontSizeSmall
+            font.family: Theme.fontFamilyHeading
+            color: Theme.secondaryHighlightColor
+            truncationMode: TruncationMode.Fade
+            width: parent.width
+            height: contentHeight
+            horizontalAlignment: Text.AlignRight
+        }
+    }
+
+    Row {
+        id: infoLbl
+        spacing: Theme.paddingLarge
+        layoutDirection: Qt.RightToLeft
+        height: followed_by || locked || bot || group ? Theme.iconSizeSmall + Theme.paddingSmall : 0
+        anchors {
+            top: avatarImage.bottom
+            topMargin: isPortrait ? Theme.paddingMedium : 0
+            left: parent.left
+            leftMargin: Theme.horizontalPageMargin
+            right: parent.right
+            rightMargin: Theme.horizontalPageMargin
+        }
+
+        Rectangle {
+            id: groupBg
+            visible: (group ? true : false)
+            radius: Theme.paddingSmall
+            color: Theme.secondaryHighlightColor
+            width: groupLbl.width + 2*Theme.paddingLarge
+            height: parent.height
+
+            Label {
+                id: groupLbl
+                text: qsTr("Group")
+                font.pixelSize: Theme.fontSizeExtraSmall
+                color: Theme.primaryColor
+                anchors.horizontalCenter: parent.horizontalCenter
+                anchors.verticalCenter: parent.verticalCenter
+            }
+        }
+
+        Rectangle {
+            id: followingBg
+            visible: (followed_by ? true : false)
+            radius: Theme.paddingSmall
+            color: Theme.secondaryHighlightColor
+            width: followingLbl.width + 2*Theme.paddingLarge
+            height: parent.height
+
+            Label {
+                id: followingLbl
+                text: qsTr("Follows you")
+                font.pixelSize: Theme.fontSizeExtraSmall
+                color: Theme.primaryColor
+                anchors.horizontalCenter: parent.horizontalCenter
+                anchors.verticalCenter: parent.verticalCenter
+            }
+        }
+
+        Rectangle {
+            id: lockedBg
+            visible: (locked ? true : false)
+            radius: Theme.paddingSmall
+            color: Theme.secondaryHighlightColor
+            width: lockedImg.width + 2*Theme.paddingLarge
+            height: parent.height
+
+            HighlightImage {
+                id: lockedImg
+                source: "image://theme/icon-s-secure?"
+                width: Theme.fontSizeExtraSmall
+                height: width
+                color: Theme.primaryColor
+                anchors.horizontalCenter: lockedBg.horizontalCenter
+                anchors.verticalCenter: lockedBg.verticalCenter
+            }
+        }
+
+        Rectangle {
+            id: botBg
+            visible: (bot ? true : false)
+            radius: Theme.paddingSmall
+            color: Theme.secondaryHighlightColor
+            width: botLbl.width + 2*Theme.paddingLarge
+            height: parent.height
+
+            Label {
+                id: botLbl
+                text: qsTr("Bot")
+                font.pixelSize: Theme.fontSizeExtraSmall
+                color: Theme.primaryColor
+                anchors {
+                    horizontalCenter: parent.horizontalCenter
+                    verticalCenter: parent.verticalCenter
+                }
+            }
+        }
+    }
 }

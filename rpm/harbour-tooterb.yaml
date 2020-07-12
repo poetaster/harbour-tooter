@@ -1,7 +1,7 @@
 Name: harbour-tooterb
 Summary: Tooter β
-Version: 1.0.4
-Release: 3
+Version: 1.0.7
+Release: 0
 # The contents of the Group field should be one of the groups listed here:
 # https://github.com/mer-tools/spectacle/blob/master/data/GROUPS
 Group: Qt/Qt
@@ -25,12 +25,14 @@ PkgConfigBR:
   - Qt5Core
   - Qt5Qml
   - Qt5Quick
+  - Qt5DBus
+  - Qt5Multimedia
   - nemonotifications-qt5
-
+  - openssl
 
 # Build dependencies without a pkgconfig setup can be listed here
-# PkgBR:
-#   - package-needed-to-build
+#  PkgBR:
+#    - qt5-qtmultimedia-plugin-mediaservice-gstmediaplayer
 
 # Runtime dependencies which are not automatically detected
 Requires:

@@ -1,68 +1,57 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
-import QtMultimedia 5.0
+import QtMultimedia 5.6
+
 
 FullscreenContentPage {
-    id: imagePage
+    id: mediaPage
+
     property string type: ""
     property string previewURL: ""
     property string mediaURL: ""
+
     allowedOrientations: Orientation.All
-    Component.onCompleted: function(){
+    Component.onCompleted: function() {
         console.log(type)
         console.log(previewURL)
         console.log(mediaURL)
         if (type != 'gifv' && type != 'video') {
             imagePreview.source = mediaURL
-            imageFlickable.visible = true;
+            imageFlickable.visible = true
         } else {
             video.source = mediaURL
             video.fillMode = VideoOutput.PreserveAspectFit
+            videoFlickable.visible = true
+            playerIcon.visible = true
+            playerProgress.visible = true
             video.play()
-            videoFlickable.visible = true;
+            hideTimer.start()
         }
     }
 
-    Item {
-        id: overlay
-        z: 100
-        property bool active: true
-        enabled: active
-        anchors.fill: parent
-        opacity: active ? 1.0 : 0.0
-        Behavior on opacity { FadeAnimator {}}
-        IconButton {
-            y: Theme.paddingLarge
-            anchors {
-                right: parent.right
-                rightMargin: Theme.horizontalPageMargin
-            }
-            icon.source: "image://theme/icon-m-dismiss"
-            onClicked: pageStack.pop()
-        }
-    }
-
-    Flickable {
+    SilicaFlickable {
         id: videoFlickable
         visible: false
+        contentWidth: imageContainer.width
+        contentHeight: imageContainer.height
         anchors.fill: parent
-        contentWidth: imageContainer.width; contentHeight: imageContainer.height
-        clip: true
+
         Image {
             id: videoPreview
             fillMode: Image.PreserveAspectFit
             anchors.fill: parent
             source: previewURL
         }
+
         Video {
             id: video
             anchors.fill: parent
-            onErrorStringChanged: function(){
-                videoError.visible = true;
+            onErrorStringChanged: function() {
+                videoError.visible = true
             }
             onStatusChanged: {
                 console.log(status)
-                switch (status){
+                switch (status) {
                 case MediaPlayer.Loading:
                     console.log("loading")
                     return;
@@ -71,10 +60,9 @@ FullscreenContentPage {
                     return;
                 }
             }
-
             onPlaybackStateChanged: {
                 console.log(playbackState)
-                switch (playbackState){
+                switch (playbackState) {
                 case MediaPlayer.PlayingState:
                     playerIcon.icon.source = "image://theme/icon-m-pause"
                     return;
@@ -82,12 +70,11 @@ FullscreenContentPage {
                     playerIcon.icon.source = "image://theme/icon-m-play"
                     return;
                 case MediaPlayer.StoppedState:
-                    playerIcon.icon.source = "image://theme/icon-m-stop"
+                    playerIcon.icon.source = "image://theme/icon-m-reload"
                     return;
                 }
             }
-
-            onPositionChanged: function(){
+            onPositionChanged: function() {
                 //console.log(duration)
                 //console.log(bufferProgress)
                 //console.log(position)
@@ -97,51 +84,32 @@ FullscreenContentPage {
                     playerProgress.minimumValue = 0
                     playerProgress.value = position
                 }
-
+            }
+            onStopped: function() {
+                if (type == 'gifv') {
+                    video.play()
+                } else {
+                    video.stop()
+                    overlayIcons.active = true
+                    hideTimer.stop()
+                }
             }
 
-            onStopped: function(){
-                play()
-            }
 
-            IconButton {
-                id: playerIcon
-                anchors.left: parent.left
-                anchors.bottom: parent.bottom
-                anchors.leftMargin: Theme.paddingLarge
-                anchors.bottomMargin: Theme.paddingLarge*1.5
-                icon.source: "image://theme/icon-m-play"
+            MouseArea {
+                anchors.fill: parent
                 onClicked: function() {
-                    if (video.playbackState === MediaPlayer.PlayingState)
+                    if (video.playbackState === MediaPlayer.PlayingState) {
                         video.pause()
-                    else
+                        overlayIcons.active = true
+                        hideTimer.stop()
+                    } else {
                         video.play()
+                        hideTimer.start()
+                    }
                 }
             }
 
-            ProgressBar {
-                indeterminate: true
-                id: playerProgress
-                anchors.left: playerIcon.right
-                anchors.right: videoDlBtn.left
-                anchors.verticalCenter: playerIcon.verticalCenter
-                anchors.leftMargin: 0
-                anchors.bottomMargin: Theme.paddingLarge*1.5
-            }
-            IconButton {
-                id: videoDlBtn
-                visible: true
-                anchors.right: parent.right
-                anchors.bottom: parent.bottom
-                anchors.rightMargin: Theme.paddingLarge
-                anchors.bottomMargin: Theme.paddingLarge*1.5
-                icon.source: "image://theme/icon-m-device-download"
-                icon.opacity: 0.0
-                onClicked: {
-                    var filename = mediaURL.split("/");
-                    FileDownloader.downloadFile(mediaURL, filename[filename.length-1]);
-                }
-            }
             Rectangle {
                 visible: videoError.text != ""
                 anchors.left: parent.left
@@ -150,39 +118,32 @@ FullscreenContentPage {
                 color: Theme.highlightDimmerColor
                 height: videoError.height + 2*Theme.paddingMedium
                 width: parent.width
+
                 Label {
-                    anchors.centerIn: parent
                     id: videoError
-                    width: parent.width - 2*Theme.paddingMedium
-                    wrapMode: Text.Wrap
-                    height: contentHeight
-                    visible: false;
-                    font.pixelSize: Theme.fontSizeSmall;
+                    visible: false
                     text: video.errorString
+                    font.pixelSize: Theme.fontSizeSmall
                     color: Theme.highlightColor
-                }
-            }
-
-
-            MouseArea {
-                anchors.fill: parent
-                onClicked: function() {
-                    if (video.playbackState === MediaPlayer.PlayingState)
-                        video.pause()
-                    else
-                        video.play()
+                    wrapMode: Text.Wrap
+                    width: parent.width - 2*Theme.paddingMedium
+                    height: contentHeight
+                    anchors.centerIn: parent
                 }
             }
         }
     }
 
-    Flickable {
+
+    SilicaFlickable {
         id: imageFlickable
         visible: false
+        contentWidth: imageContainer.width
+        contentHeight: imageContainer.height
         anchors.fill: parent
-        contentWidth: imageContainer.width; contentHeight: imageContainer.height
-        clip: true
-        onHeightChanged: if (imagePreview.status === Image.Ready) imagePreview.fitToScreen();
+        onHeightChanged: if (imagePreview.status === Image.Ready) {
+                             imagePreview.fitToScreen()
+                         }
 
         Item {
             id: imageContainer
@@ -191,18 +152,21 @@ FullscreenContentPage {
 
             Image {
                 id: imagePreview
+
                 property real prevScale
+
                 function fitToScreen() {
-                    scale = Math.min(imageFlickable.width / width, imageFlickable.height / height, 1)
+                    scale = Math.min(imageFlickable.width / width, imageFlickable.height / height, imageFlickable.width, imageFlickable.height)
                     pinchArea.minScale = scale
                     prevScale = scale
                 }
-                anchors.centerIn: parent
+
                 fillMode: Image.PreserveAspectFit
                 cache: true
                 asynchronous: true
-                sourceSize.height: 1000;
-                smooth: false
+                sourceSize.width: mediaPage.width
+                smooth: true
+                anchors.centerIn: parent
                 onStatusChanged: {
                     if (status == Image.Ready) {
                         fitToScreen()
@@ -235,14 +199,15 @@ FullscreenContentPage {
 
         PinchArea {
             id: pinchArea
-            opacity: 0.3
+
             property real minScale: 1.0
             property real maxScale: 3.0
+
             anchors.fill: parent
             enabled: imagePreview.status === Image.Ready
             pinch.target: imagePreview
             pinch.minimumScale: minScale * 0.5 // This is to create "bounce back effect"
-            pinch.maximumScale: maxScale * 1.5 // when over zoomed
+            pinch.maximumScale: maxScale * 1.5 // when over zoomed}
 
             onPinchFinished: {
                 imageFlickable.returnToBounds()
@@ -255,12 +220,18 @@ FullscreenContentPage {
                     bounceBackAnimation.start()
                 }
             }
+
             NumberAnimation {
                 id: bounceBackAnimation
                 target: imagePreview
                 duration: 250
                 property: "scale"
                 from: imagePreview.scale
+            }
+
+            MouseArea {
+                anchors.fill: parent
+                onClicked: overlayIcons.active = !overlayIcons.active
             }
         }
     }
@@ -281,35 +252,109 @@ FullscreenContentPage {
         Component {
             id: loadingIndicator
             Item {
+                width: mediaPage.width
                 height: childrenRect.height
-                width: imagePage.width
+
                 ProgressCircle {
                     id: imageLoadingIndicator
-                    anchors.horizontalCenter: parent.horizontalCenter
                     progressValue: imagePreview.progress
+                    progressColor: inAlternateCycle ? Theme.highlightColor : Theme.highlightDimmerColor
+                    backgroundColor: inAlternateCycle ? Theme.highlightDimmerColor : Theme.highlightColor
+                    anchors.horizontalCenter: parent.horizontalCenter
                 }
             }
         }
     }
+
     Component {
         id: failedLoading
         Text {
-            font.pixelSize: Theme.fontSizeSmall;
             text: qsTr("Error loading")
+            font.pixelSize: Theme.fontSizeSmall
             color: Theme.highlightColor
         }
     }
-    IconButton {
-        visible: true
-        anchors.right: parent.right
-        anchors.bottom: parent.bottom
-        anchors.rightMargin: Theme.paddingLarge
-        anchors.bottomMargin: Theme.paddingLarge*1.5
-        icon.source: "image://theme/icon-m-device-download"
-        onClicked: {
-            var filename = mediaURL.split("/");
-            FileDownloader.downloadFile(mediaURL, filename[filename.length-1]);
+
+    Item {
+        id: overlayIcons
+
+        property bool active: true
+
+        enabled: active
+        anchors.fill: parent
+        opacity: active ? 1.0 : 0.0
+        Behavior on opacity { FadeAnimator {}}
+
+        IconButton {
+            y: Theme.paddingLarge
+            icon.source: "image://theme/icon-m-dismiss"
+            onClicked: pageStack.pop()
+            anchors {
+                right: parent.right
+                rightMargin: Theme.horizontalPageMargin
+            }
+        }
+
+        IconButton {
+            id: mediaDlBtn
+            icon.source: "image://theme/icon-m-cloud-download"
+            anchors {
+                right: parent.right
+                rightMargin: Theme.horizontalPageMargin
+                bottom: parent.bottom
+                bottomMargin: Theme.horizontalPageMargin
+            }
+            onClicked: {
+                var filename = mediaURL.split("/")
+                FileDownloader.downloadFile(mediaURL, filename[filename.length-1])
+            }
+        }
+
+        IconButton {
+            id: playerIcon
+            visible: false
+            icon.source: "image://theme/icon-m-play"
+            anchors {
+                left: parent.left
+                bottom: parent.bottom
+                leftMargin: Theme.horizontalPageMargin
+                bottomMargin: Theme.horizontalPageMargin
+            }
+            onClicked: function() {
+                if (video.playbackState === MediaPlayer.PlayingState) {
+                    video.pause()
+                    hideTimer.stop()
+                } else {
+                    video.play()
+                    hideTimer.start()
+                }
+            }
+        }
+
+        ProgressBar {
+            id: playerProgress
+            visible: false
+            indeterminate: true
+            width: 400
+            anchors {
+                verticalCenter: playerIcon.verticalCenter
+                left: playerIcon.right
+                right: parent.right
+                rightMargin: Theme.horizontalPageMargin + Theme.iconSizeMedium
+                bottomMargin: Theme.horizontalPageMargin
+            }
+        }
+
+        Timer {
+            id: hideTimer
+            running: false
+            interval: 2000
+            onTriggered: {
+                overlayIcons.active = !overlayIcons.active
+            }
         }
     }
+
     VerticalScrollDecorator { flickable: imageFlickable }
 }
+

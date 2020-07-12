@@ -1,34 +1,32 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
 
+
 Item {
-    id: ministatus
+    id: miniStatus
     visible: true
-    height: icon.height+Theme.paddingMedium
     width: parent.width
-    Image {
+    height: icon.height+Theme.paddingMedium
+
+    Icon {
         id: icon
-        anchors {
-            top: parent.top
-            topMargin: Theme.paddingMedium
-            bottomMargin: Theme.paddingMedium
-            left: parent.left
-            leftMargin: Theme.horizontalPageMargin + Theme.iconSizeMedium - width
-        }
         visible: type.length
+        color: Theme.highlightColor
         width: Theme.iconSizeExtraSmall
         height: width
         source: typeof typeIcon !== "undefined" ? typeIcon : ""
-
+        anchors {
+            top: parent.top
+            topMargin: Theme.paddingMedium
+            left: parent.left
+            leftMargin: Theme.horizontalPageMargin + Theme.iconSizeMedium - width
+            bottomMargin: Theme.paddingMedium
+        }
     }
+
     Label {
         id: lblRtByName
         visible: type.length
-        anchors {
-            left: icon.right
-            leftMargin: Theme.paddingMedium
-            verticalCenter: icon.verticalCenter
-        }
         text: {
             var action = "";
             switch(type){
@@ -42,13 +40,17 @@ Item {
                 action =  qsTr('followed you');
                 break;
             default:
-                ministatus.visible = false
+                miniStatus.visible = false
                 action = type;
             }
-            return typeof reblog_account_username !== "undefined" ? '@' + reblog_account_username + ' ' +  action : ''
+            return typeof reblog_account_username !== "undefined" ? '@' + reblog_account_username + " " +  action : " "
         }
-
         font.pixelSize: Theme.fontSizeExtraSmall
         color: Theme.highlightColor
+        anchors {
+            left: icon.right
+            leftMargin: Theme.paddingMedium
+            verticalCenter: icon.verticalCenter
+        }
     }
 }

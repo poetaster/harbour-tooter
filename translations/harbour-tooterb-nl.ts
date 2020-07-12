@@ -21,11 +21,65 @@
     </message>
 </context>
 <context>
-    <name>Conversation</name>
+    <name>ConversationPage</name>
     <message>
-        <source>Delete</source>
-        <translation>Verwijderen</translation>
+        <source>Copy Link to Clipboard</source>
+        <extracomment>Use the translation of &quot;Copy Link&quot; for a shorter PullDownMenu label</extracomment>
+        <translation>Linkadres kopiëren</translation>
     </message>
+    <message>
+        <source>Write your warning here</source>
+        <extracomment>placeholderText in Toot content warning panel</extracomment>
+        <translation>Waarschuwingstekst</translation>
+    </message>
+    <message>
+        <source>What&apos;s on your mind?</source>
+        <extracomment>placeholderText in Toot text panel</extracomment>
+        <translation>Wat wil je kwijt?</translation>
+    </message>
+    <message>
+        <source>Public</source>
+        <translation>Openbaar</translation>
+    </message>
+    <message>
+        <source>Unlisted</source>
+        <translation>Minder openbaar</translation>
+    </message>
+    <message>
+        <source>Followers-only</source>
+        <translation>Alleen volgers</translation>
+    </message>
+    <message>
+        <source>Direct</source>
+        <translation>Direct</translation>
+    </message>
+    <message>
+        <source>Toot sent!</source>
+        <translation>Toot verzonden!</translation>
+    </message>
+    <message>
+        <source>Reply</source>
+        <extracomment>&quot;Reply&quot; will show the Toot text entry Panel. &quot;Hide Reply&quot; closes it. Alternative: Use &quot;Close Reply&quot;</extracomment>
+        <translation>Antwoord</translation>
+    </message>
+    <message>
+        <source>Hide Reply</source>
+        <translation>Antwoord verbergen</translation>
+    </message>
+    <message>
+        <source>Open in Browser</source>
+        <translation>Open een Browser</translation>
+    </message>
+</context>
+<context>
+    <name>CoverPage</name>
+    <message>
+        <source>New Toot</source>
+        <translation>Nieuwe Toot</translation>
+    </message>
+</context>
+<context>
+    <name>EmojiSelect</name>
     <message>
         <source>Emojis</source>
         <translation>Emojis</translation>
@@ -33,45 +87,6 @@
     <message>
         <source>Tap to insert</source>
         <translation>Tikken om in te voegen</translation>
-    </message>
-    <message>
-        <source>Write your warning here</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Public</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Unlisted</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Followers-only</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Direct</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>What&apos;s on your mind?</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Toot sent!</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Copy Link to Clipboard</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>ImageFullScreen</name>
-    <message>
-        <source>Error loading</source>
-        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -93,7 +108,7 @@
     </message>
     <message>
         <source>Enter a valid Mastodon instance URL</source>
-        <translation type="unfinished"></translation>
+        <translation>Geldig Mastodon URL</translation>
     </message>
     <message>
         <source>Mastodon is a free, open-source social network. A decentralized alternative to commercial platforms, it avoids the risks of a single company monopolizing your communication. Pick a server that you trust — whichever you choose, you can interact with everyone else. Anyone can run their own Mastodon instance and participate in the social network seamlessly.</source>
@@ -115,8 +130,12 @@
         <translation>Meldingen</translation>
     </message>
     <message>
-        <source>New Toot</source>
-        <translation>Nieuwe Toot</translation>
+        <source>Local</source>
+        <translation>Lokaal</translation>
+    </message>
+    <message>
+        <source>Federated</source>
+        <translation>Gefedereerd</translation>
     </message>
     <message>
         <source>Search</source>
@@ -127,12 +146,15 @@
         <translation>@user of #term</translation>
     </message>
     <message>
-        <source>Local</source>
-        <translation>Lokaal</translation>
+        <source>New Toot</source>
+        <translation>Nieuwe Toot</translation>
     </message>
+</context>
+<context>
+    <name>MediaFullScreen</name>
     <message>
-        <source>Federated</source>
-        <translation>Gefedereerd</translation>
+        <source>Error loading</source>
+        <translation>Laadfout</translation>
     </message>
 </context>
 <context>
@@ -153,86 +175,124 @@
 <context>
     <name>MyList</name>
     <message>
-        <source>Load more</source>
-        <translation>Meer laden</translation>
-    </message>
-    <message>
         <source>Settings</source>
         <translation>Instellingen</translation>
     </message>
     <message>
-        <source>Loading</source>
-        <translation>Laden</translation>
+        <source>New Toot</source>
+        <translation>Nieuwe Toot</translation>
     </message>
     <message>
-        <source>please wait...</source>
-        <translation>even geduld…</translation>
+        <source>Reload</source>
+        <translation>Herladen</translation>
+    </message>
+    <message>
+        <source>Open in Browser</source>
+        <translation>Open een Browser</translation>
+    </message>
+    <message>
+        <source>Nothing found</source>
+        <translation>Niets gevonden</translation>
     </message>
 </context>
 <context>
-    <name>Profile</name>
+    <name>ProfileHeader</name>
     <message>
-        <source>Unfollow</source>
-        <translation>Ontvolgen</translation>
+        <source>Bot</source>
+        <translation>Bot</translation>
     </message>
     <message>
-        <source>Follow request sent!</source>
-        <translation>Volgverzoek verstuurd!</translation>
+        <source>Follows you</source>
+        <translation>Volgt jou</translation>
+    </message>
+    <message>
+        <source>Group</source>
+        <translation>Groep</translation>
+    </message>
+</context>
+<context>
+    <name>ProfilePage</name>
+    <message>
+        <source>About</source>
+        <extracomment>If there&apos;s no good translation for &quot;About&quot;, use &quot;Details&quot; (in details about profile).</extracomment>
+        <translation>Gegevens</translation>
+    </message>
+    <message>
+        <source>Followers</source>
+        <extracomment>Will show as: &quot;35 Followers&quot;</extracomment>
+        <translation>Volgers</translation>
     </message>
     <message>
         <source>Following</source>
+        <extracomment>Will show as: &quot;23 Following&quot;</extracomment>
         <translation>Volgend</translation>
     </message>
     <message>
-        <source>Mute</source>
-        <translation>Dempen</translation>
+        <source>Statuses</source>
+        <extracomment>Will show as: &quot;115 Statuses&quot;</extracomment>
+        <translation>Statussen</translation>
+    </message>
+    <message>
+        <source>Mention</source>
+        <translation>Vermelden</translation>
+    </message>
+    <message>
+        <source>Unfollow</source>
+        <extracomment>Is a button. Keep it as short as possible.</extracomment>
+        <translation>Ontvolgen</translation>
+    </message>
+    <message>
+        <source>Requested</source>
+        <extracomment>Is a button. Keep it as short as possible.</extracomment>
+        <translation>Gevraagd</translation>
+    </message>
+    <message>
+        <source>Follow</source>
+        <extracomment>Is a button. Keep it as short as possible.</extracomment>
+        <translation>Volgen</translation>
     </message>
     <message>
         <source>Unmute</source>
+        <extracomment>Is a button. Keep it as short as possible.</extracomment>
         <translation>Ontdempen</translation>
     </message>
     <message>
+        <source>Mute</source>
+        <extracomment>Is a button. Keep it as short as possible.</extracomment>
+        <translation>Dempen</translation>
+    </message>
+    <message>
         <source>Unblock</source>
+        <extracomment>Is a button. Keep it as short as possible.</extracomment>
         <translation>Deblokkeren</translation>
     </message>
     <message>
         <source>Block</source>
+        <extracomment>Is a button. Keep it as short as possible.</extracomment>
         <translation>Blokkeren</translation>
-    </message>
-    <message>
-        <source>Statuses</source>
-        <translation>Statussen</translation>
-    </message>
-    <message>
-        <source>Favourites</source>
-        <translation>Favorieten</translation>
-    </message>
-    <message>
-        <source>Follow</source>
-        <translation>Volgen</translation>
-    </message>
-    <message>
-        <source>Summary</source>
-        <translation>Samenvatting</translation>
-    </message>
-    <message>
-        <source>Followers</source>
-        <translation>Volgers</translation>
-    </message>
-    <message>
-        <source>Bio</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Open Profile in Browser</source>
-        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
-    <name>Settings</name>
+    <name>SettingsPage</name>
     <message>
         <source>Settings</source>
         <translation>Instellingen</translation>
+    </message>
+    <message>
+        <source>Options</source>
+        <translation>Opties</translation>
+    </message>
+    <message>
+        <source>Load Images in Toots</source>
+        <translation>Laden afbeeldingen in toots</translation>
+    </message>
+    <message>
+        <source>Disable this option if you want to preserve your data connection</source>
+        <translation>Schakel deze optie uit als je je dataverbinding wilt behouden</translation>
+    </message>
+    <message>
+        <source>Account</source>
+        <translation>Account</translation>
     </message>
     <message>
         <source>Remove Account</source>
@@ -243,7 +303,7 @@
         <translation>Toevoegen account</translation>
     </message>
     <message>
-        <source>Deauthorize this app and remove your account</source>
+        <source>Deauthorize this app from using your account and remove account data from phone</source>
         <translation>Trek autorisaties van deze app in en verwijder je account</translation>
     </message>
     <message>
@@ -251,11 +311,12 @@
         <translation>Autoriseer deze app om je Mastodon namens jou te gebruiken</translation>
     </message>
     <message>
-        <source>Disable this option if you want to preserve your data connection</source>
-        <translation>Schakel deze optie uit als je je dataverbinding wilt behouden</translation>
+        <source>Translate</source>
+        <translation>Vertalen</translation>
     </message>
     <message>
         <source>Credits</source>
+        <extracomment>Translation alternative: &quot;Development&quot;</extracomment>
         <translation>Credits</translation>
     </message>
     <message>
@@ -264,58 +325,36 @@
     </message>
     <message>
         <source>Visual identity</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Occitan &amp; French translation</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Dutch translation</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Spanish translation</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Added README file</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Chinese translation</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Load images in toots</source>
-        <translation>Laden afbeeldingen in toots</translation>
-    </message>
-    <message>
-        <source>Translate</source>
-        <translation>Vertalen</translation>
-    </message>
-    <message>
-        <source>Use Transifex to help with app translation to your language</source>
-        <translation>Gebruik Transifex om deze app te helpen vertalen in jouw taal</translation>
+        <translation>Visuele identiteit</translation>
     </message>
     <message>
         <source>Development and translations</source>
         <translation>Ontwikkeling en vertalingen</translation>
     </message>
-</context>
-<context>
-    <name>Toot</name>
     <message>
-        <source>boosted</source>
-        <translation>boostte</translation>
+        <source>Occitan &amp; French translation</source>
+        <translation>Occitaanse &amp; Franse vertaling</translation>
     </message>
     <message>
-        <source>favourited</source>
-        <translation>maakte favoriet</translation>
+        <source>Chinese translation</source>
+        <translation>Chinese vertaling</translation>
     </message>
     <message>
-        <source>followed you</source>
-        <translation>volgde jou</translation>
+        <source>Dutch translation</source>
+        <translation>Nederlandse vertaling</translation>
+    </message>
+    <message>
+        <source>Spanish translation</source>
+        <translation>Spaanse vertaling</translation>
+    </message>
+    <message>
+        <source>Use</source>
+        <extracomment>Full sentence for translation: &quot;Use Transifex to help with app translation to your language.&quot; - The word Transifex is a link and doesn&apos;t need translation.</extracomment>
+        <translation>Gebruik</translation>
+    </message>
+    <message>
+        <source>to help with app translation to your language.</source>
+        <translation>om deze app te helpen vertalen in jouw taal.</translation>
     </message>
 </context>
 <context>
@@ -335,6 +374,22 @@
     <message>
         <source>Favorite</source>
         <translation>Markeren als favoriet</translation>
+    </message>
+    <message>
+        <source>Mention</source>
+        <translation>Vermelden</translation>
+    </message>
+    <message>
+        <source>Conversation</source>
+        <translation>Conversatie</translation>
+    </message>
+    <message>
+        <source>Remove Bookmark</source>
+        <translation>Bookmarken</translation>
+    </message>
+    <message>
+        <source>Bookmark</source>
+        <translation>Bladwijzer verwijderen</translation>
     </message>
 </context>
 </TS>

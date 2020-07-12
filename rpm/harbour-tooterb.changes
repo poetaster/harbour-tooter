@@ -1,3 +1,53 @@
+*Sun Jul 12 2020 molan <mol_an@sunrise.ch> 1.0.7-0
+- Fix missing / wrong reblog and favourite counts in Retoots (issue #90)
+- Added full landscape support
+- Added new Pulley Menu options
+- Improved Toot context menu
+- Improved media page
+- Improved loading indicators
+- Small changes for some UI-elements
+- New Emojis
+- New translated strings
+
+*Fri Jun 18 2020 molan <mol_an@sunrise.ch> 1.0.6-3
+- Fix broken reblog indication
+
+*Fri Jun 18 2020 molan <mol_an@sunrise.ch> 1.0.6-2
+- Fix reported small UI issue
+- Updated translations
+
+*Thu Jun 18 2020 molan <mol_an@sunrise.ch> 1.0.6-1
+- Fix app crash when open some Profile pages
+- Fix sometimes missing favourite / reblog counts
+- Fix various QML warnings, replace deprecated Silica items
+- Add save to Bookmarks feature
+- Add Follows you / Locked / Bot / Group labels to Profile Page header
+- Add Bot icon to user display name
+- Add clicking on reblog-avatar opens reblog user profile
+- Remove Locked icon from user display name
+- Further improved Notification Page / general UI
+- Code refactoring & other changes under the hood
+- Translation updates
+
+*Fri Jun 12 2020 molan <mol_an@sunrise.ch> 1.0.5-1
+- [hotfix] fix missing images in mentions on Notification page
+
+*Thu Jun 11 2020 molan <mol_an@sunrise.ch> 1.0.5-0
+- fixed: show search results without entering # before term
+- fixed: non-clickable user mentions in Toots
+- fixed: Copy link to clipboard in Conversations
+- Notifications Page:  Reworked UI and context menus for notifications
+- Profile Page: Open fullscreen profile image
+- Profile Page: Show bot label
+- Profile Page: New expander for Profile details
+- Conversation Page: Possibility to hide and reopen Toot text field
+- Conversation Page: Improved display of uploaded images
+- Media Page: Adjust size of images to screen width or height
+- Media Page: Only automatically restart videos if shorter than 30 seconds
+- new Settings Page
+- bigger custom emojis in Toots
+- overall improvement of UI
+
 *Mon May 25 2020 molan <mol_an@sunrise.ch> 1.0.4-3
 - Show user profile background image (if available)
 - New Sailfish 3-styled image/video viewer page (WIP)

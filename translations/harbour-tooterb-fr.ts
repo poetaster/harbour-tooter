@@ -21,22 +21,21 @@
     </message>
 </context>
 <context>
-    <name>Conversation</name>
+    <name>ConversationPage</name>
     <message>
-        <source>Delete</source>
-        <translation>Supprimer</translation>
-    </message>
-    <message>
-        <source>Emojis</source>
-        <translation>Emojis</translation>
-    </message>
-    <message>
-        <source>Tap to insert</source>
-        <translation>Appuyez pour insérer</translation>
+        <source>Copy Link to Clipboard</source>
+        <extracomment>Use the translation of &quot;Copy Link&quot; for a shorter PullDownMenu label</extracomment>
+        <translation>Copier le lien</translation>
     </message>
     <message>
         <source>Write your warning here</source>
+        <extracomment>placeholderText in Toot content warning panel</extracomment>
         <translation>Rédigez votre alerte ici</translation>
+    </message>
+    <message>
+        <source>What&apos;s on your mind?</source>
+        <extracomment>placeholderText in Toot text panel</extracomment>
+        <translation>Qu&apos;avez-vous en tête?</translation>
     </message>
     <message>
         <source>Public</source>
@@ -55,23 +54,39 @@
         <translation>Direct</translation>
     </message>
     <message>
-        <source>What&apos;s on your mind?</source>
-        <translation>Qu&apos;avez-vous en tête?</translation>
-    </message>
-    <message>
         <source>Toot sent!</source>
         <translation>Pouet envoyé !</translation>
     </message>
     <message>
-        <source>Copy Link to Clipboard</source>
-        <translation>Copier le lien</translation>
+        <source>Reply</source>
+        <extracomment>&quot;Reply&quot; will show the Toot text entry Panel. &quot;Hide Reply&quot; closes it. Alternative: Use &quot;Close Reply&quot;</extracomment>
+        <translation>Répondre</translation>
+    </message>
+    <message>
+        <source>Hide Reply</source>
+        <translation>Masquer la réponse</translation>
+    </message>
+    <message>
+        <source>Open in Browser</source>
+        <translation>Ouvrir dans le navigateur</translation>
     </message>
 </context>
 <context>
-    <name>ImageFullScreen</name>
+    <name>CoverPage</name>
     <message>
-        <source>Error loading</source>
-        <translation type="unfinished"></translation>
+        <source>New Toot</source>
+        <translation>Nouveau pouet</translation>
+    </message>
+</context>
+<context>
+    <name>EmojiSelect</name>
+    <message>
+        <source>Emojis</source>
+        <translation>Emojis</translation>
+    </message>
+    <message>
+        <source>Tap to insert</source>
+        <translation>Appuyez pour insérer</translation>
     </message>
 </context>
 <context>
@@ -115,8 +130,12 @@
         <translation>Notifications</translation>
     </message>
     <message>
-        <source>New Toot</source>
-        <translation>Nouveau pouet</translation>
+        <source>Local</source>
+        <translation>Fil public local</translation>
+    </message>
+    <message>
+        <source>Federated</source>
+        <translation>Fil public global</translation>
     </message>
     <message>
         <source>Search</source>
@@ -127,12 +146,15 @@
         <translation>@personne ou #terme</translation>
     </message>
     <message>
-        <source>Local</source>
-        <translation>Fil public local</translation>
+        <source>New Toot</source>
+        <translation>Nouveau pouet</translation>
     </message>
+</context>
+<context>
+    <name>MediaFullScreen</name>
     <message>
-        <source>Federated</source>
-        <translation>Fil public global</translation>
+        <source>Error loading</source>
+        <translation>Erreur au chargement</translation>
     </message>
 </context>
 <context>
@@ -153,86 +175,124 @@
 <context>
     <name>MyList</name>
     <message>
-        <source>Load more</source>
-        <translation>Charger plus</translation>
-    </message>
-    <message>
         <source>Settings</source>
         <translation>Paramètres</translation>
     </message>
     <message>
-        <source>Loading</source>
-        <translation>Chargement</translation>
+        <source>New Toot</source>
+        <translation>Nouveau pouet</translation>
     </message>
     <message>
-        <source>please wait...</source>
-        <translation>patientez...</translation>
+        <source>Reload</source>
+        <translation>Recharger</translation>
+    </message>
+    <message>
+        <source>Open in Browser</source>
+        <translation>Ouvrir dans le navigateur</translation>
+    </message>
+    <message>
+        <source>Nothing found</source>
+        <translation>Rien trouvé</translation>
     </message>
 </context>
 <context>
-    <name>Profile</name>
+    <name>ProfileHeader</name>
     <message>
-        <source>Unfollow</source>
-        <translation>Ne plus suivre</translation>
+        <source>Bot</source>
+        <translation>Bot</translation>
     </message>
     <message>
-        <source>Follow request sent!</source>
-        <translation>Demande d’abonnement envoyée !</translation>
+        <source>Follows you</source>
+        <translation>Vous suit</translation>
+    </message>
+    <message>
+        <source>Group</source>
+        <translation>Groupe</translation>
+    </message>
+</context>
+<context>
+    <name>ProfilePage</name>
+    <message>
+        <source>About</source>
+        <extracomment>If there&apos;s no good translation for &quot;About&quot;, use &quot;Details&quot; (in details about profile).</extracomment>
+        <translation>Détails</translation>
+    </message>
+    <message>
+        <source>Followers</source>
+        <extracomment>Will show as: &quot;35 Followers&quot;</extracomment>
+        <translation>Abonné(e)s</translation>
     </message>
     <message>
         <source>Following</source>
+        <extracomment>Will show as: &quot;23 Following&quot;</extracomment>
         <translation>Abonnements</translation>
     </message>
     <message>
-        <source>Mute</source>
-        <translation>Masquer</translation>
+        <source>Statuses</source>
+        <extracomment>Will show as: &quot;115 Statuses&quot;</extracomment>
+        <translation>Pouets</translation>
+    </message>
+    <message>
+        <source>Mention</source>
+        <translation>Mentionner</translation>
+    </message>
+    <message>
+        <source>Unfollow</source>
+        <extracomment>Is a button. Keep it as short as possible.</extracomment>
+        <translation>Ne plus suivre</translation>
+    </message>
+    <message>
+        <source>Requested</source>
+        <extracomment>Is a button. Keep it as short as possible.</extracomment>
+        <translation>Demandé</translation>
+    </message>
+    <message>
+        <source>Follow</source>
+        <extracomment>Is a button. Keep it as short as possible.</extracomment>
+        <translation>Suivre</translation>
     </message>
     <message>
         <source>Unmute</source>
+        <extracomment>Is a button. Keep it as short as possible.</extracomment>
         <translation>Démasquer</translation>
     </message>
     <message>
+        <source>Mute</source>
+        <extracomment>Is a button. Keep it as short as possible.</extracomment>
+        <translation>Masquer</translation>
+    </message>
+    <message>
         <source>Unblock</source>
+        <extracomment>Is a button. Keep it as short as possible.</extracomment>
         <translation>Débloquer</translation>
     </message>
     <message>
         <source>Block</source>
+        <extracomment>Is a button. Keep it as short as possible.</extracomment>
         <translation>Bloquer</translation>
-    </message>
-    <message>
-        <source>Statuses</source>
-        <translation>Pouets</translation>
-    </message>
-    <message>
-        <source>Favourites</source>
-        <translation>Favoris</translation>
-    </message>
-    <message>
-        <source>Follow</source>
-        <translation>Suivre</translation>
-    </message>
-    <message>
-        <source>Summary</source>
-        <translation>Résumé</translation>
-    </message>
-    <message>
-        <source>Followers</source>
-        <translation>Abonné(e)s</translation>
-    </message>
-    <message>
-        <source>Bio</source>
-        <translation>Bio</translation>
-    </message>
-    <message>
-        <source>Open Profile in Browser</source>
-        <translation>Ouvrir dans le navigateur</translation>
     </message>
 </context>
 <context>
-    <name>Settings</name>
+    <name>SettingsPage</name>
     <message>
         <source>Settings</source>
         <translation>Paramètres</translation>
+    </message>
+    <message>
+        <source>Options</source>
+        <translation>Options</translation>
+    </message>
+    <message>
+        <source>Load Images in Toots</source>
+        <translation>Charger images dans les pouets</translation>
+    </message>
+    <message>
+        <source>Disable this option if you want to preserve your data connection</source>
+        <translation>Désactiver cette option pour économiser des données mobiles</translation>
+    </message>
+    <message>
+        <source>Account</source>
+        <translation>Compte</translation>
     </message>
     <message>
         <source>Remove Account</source>
@@ -243,7 +303,7 @@
         <translation>Ajouter compte</translation>
     </message>
     <message>
-        <source>Deauthorize this app and remove your account</source>
+        <source>Deauthorize this app from using your account and remove account data from phone</source>
         <translation>Désautoriser cette application et enlever votre compte</translation>
     </message>
     <message>
@@ -251,11 +311,12 @@
         <translation>Autoriser l’accès à votre compte pour cette application</translation>
     </message>
     <message>
-        <source>Disable this option if you want to preserve your data connection</source>
-        <translation>Désactiver cette option pour économiser des données mobiles</translation>
+        <source>Translate</source>
+        <translation>Traduire</translation>
     </message>
     <message>
         <source>Credits</source>
+        <extracomment>Translation alternative: &quot;Development&quot;</extracomment>
         <translation>Développement</translation>
     </message>
     <message>
@@ -267,8 +328,16 @@
         <translation>Identité visuelle</translation>
     </message>
     <message>
+        <source>Development and translations</source>
+        <translation>Développement et traductions</translation>
+    </message>
+    <message>
         <source>Occitan &amp; French translation</source>
         <translation>Traduction français</translation>
+    </message>
+    <message>
+        <source>Chinese translation</source>
+        <translation>Traduction chinoise</translation>
     </message>
     <message>
         <source>Dutch translation</source>
@@ -279,43 +348,13 @@
         <translation>Traduction espagnole</translation>
     </message>
     <message>
-        <source>Chinese translation</source>
-        <translation>Traduction chinoise</translation>
+        <source>Use</source>
+        <extracomment>Full sentence for translation: &quot;Use Transifex to help with app translation to your language.&quot; - The word Transifex is a link and doesn&apos;t need translation.</extracomment>
+        <translation>Utiliser</translation>
     </message>
     <message>
-        <source>Added README file</source>
-        <translation>Fichier README ajouté</translation>
-    </message>
-    <message>
-        <source>Load images in toots</source>
-        <translation>Charger images dans les pouets</translation>
-    </message>
-    <message>
-        <source>Translate</source>
-        <translation>Traduire</translation>
-    </message>
-    <message>
-        <source>Use Transifex to help with app translation to your language</source>
-        <translation>Utiliser Transifex pour aider à traduire cette application</translation>
-    </message>
-    <message>
-        <source>Development and translations</source>
-        <translation>Développement et traductions</translation>
-    </message>
-</context>
-<context>
-    <name>Toot</name>
-    <message>
-        <source>boosted</source>
-        <translation>a partagé</translation>
-    </message>
-    <message>
-        <source>favourited</source>
-        <translation>a ajouté à ses favoris</translation>
-    </message>
-    <message>
-        <source>followed you</source>
-        <translation>vous suit</translation>
+        <source>to help with app translation to your language.</source>
+        <translation>pour aider à traduire cette application.</translation>
     </message>
 </context>
 <context>
@@ -335,6 +374,22 @@
     <message>
         <source>Favorite</source>
         <translation>Ajouter aux favoris</translation>
+    </message>
+    <message>
+        <source>Mention</source>
+        <translation>Mentionner</translation>
+    </message>
+    <message>
+        <source>Conversation</source>
+        <translation>Conversation</translation>
+    </message>
+    <message>
+        <source>Remove Bookmark</source>
+        <translation>Retirer marque-page</translation>
+    </message>
+    <message>
+        <source>Bookmark</source>
+        <translation>Ajouter aux marque-pages</translation>
     </message>
 </context>
 </TS>

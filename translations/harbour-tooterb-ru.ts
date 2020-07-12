@@ -21,11 +21,65 @@
     </message>
 </context>
 <context>
-    <name>Conversation</name>
+    <name>ConversationPage</name>
     <message>
-        <source>Delete</source>
-        <translation>Удалить</translation>
+        <source>Copy Link to Clipboard</source>
+        <extracomment>Use the translation of &quot;Copy Link&quot; for a shorter PullDownMenu label</extracomment>
+        <translation>Копировать ссылку</translation>
     </message>
+    <message>
+        <source>Write your warning here</source>
+        <extracomment>placeholderText in Toot content warning panel</extracomment>
+        <translation>Текст предупреждения</translation>
+    </message>
+    <message>
+        <source>What&apos;s on your mind?</source>
+        <extracomment>placeholderText in Toot text panel</extracomment>
+        <translation>О чём думаете?</translation>
+    </message>
+    <message>
+        <source>Public</source>
+        <translation>Публичный</translation>
+    </message>
+    <message>
+        <source>Unlisted</source>
+        <translation>Скрытый</translation>
+    </message>
+    <message>
+        <source>Followers-only</source>
+        <translation>Приватный</translation>
+    </message>
+    <message>
+        <source>Direct</source>
+        <translation>Адресованный</translation>
+    </message>
+    <message>
+        <source>Toot sent!</source>
+        <translation>Поста отправлено!</translation>
+    </message>
+    <message>
+        <source>Reply</source>
+        <extracomment>&quot;Reply&quot; will show the Toot text entry Panel. &quot;Hide Reply&quot; closes it. Alternative: Use &quot;Close Reply&quot;</extracomment>
+        <translation>Ответ</translation>
+    </message>
+    <message>
+        <source>Hide Reply</source>
+        <translation>Скрыть ответ</translation>
+    </message>
+    <message>
+        <source>Open in Browser</source>
+        <translation>Открыть в браузере</translation>
+    </message>
+</context>
+<context>
+    <name>CoverPage</name>
+    <message>
+        <source>New Toot</source>
+        <translation>Новый</translation>
+    </message>
+</context>
+<context>
+    <name>EmojiSelect</name>
     <message>
         <source>Emojis</source>
         <translation>Cмайликов</translation>
@@ -33,45 +87,6 @@
     <message>
         <source>Tap to insert</source>
         <translation>Нажмите, чтобы вставить</translation>
-    </message>
-    <message>
-        <source>Write your warning here</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Public</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Unlisted</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Followers-only</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Direct</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>What&apos;s on your mind?</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Toot sent!</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Copy Link to Clipboard</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>ImageFullScreen</name>
-    <message>
-        <source>Error loading</source>
-        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -85,11 +100,11 @@
     <name>LoginPage</name>
     <message>
         <source>Login</source>
-        <translation type="unfinished"></translation>
+        <translation>Авторизоваться</translation>
     </message>
     <message>
         <source>Instance</source>
-        <translation type="unfinished"></translation>
+        <translation>Экземпляра</translation>
     </message>
     <message>
         <source>Enter a valid Mastodon instance URL</source>
@@ -101,7 +116,7 @@
     </message>
     <message>
         <source>Reload</source>
-        <translation type="unfinished"></translation>
+        <translation>Перезарядка</translation>
     </message>
 </context>
 <context>
@@ -115,8 +130,12 @@
         <translation>Уведомления</translation>
     </message>
     <message>
-        <source>New Toot</source>
-        <translation>Новый</translation>
+        <source>Local</source>
+        <translation>Локальны</translation>
+    </message>
+    <message>
+        <source>Federated</source>
+        <translation>Федеративные</translation>
     </message>
     <message>
         <source>Search</source>
@@ -127,12 +146,15 @@
         <translation>@пользователь или #срок</translation>
     </message>
     <message>
-        <source>Local</source>
-        <translation>Локальный</translation>
+        <source>New Toot</source>
+        <translation>Новый</translation>
     </message>
+</context>
+<context>
+    <name>MediaFullScreen</name>
     <message>
-        <source>Federated</source>
-        <translation>Федеративные</translation>
+        <source>Error loading</source>
+        <translation>Ошибка при загрузке</translation>
     </message>
 </context>
 <context>
@@ -153,86 +175,124 @@
 <context>
     <name>MyList</name>
     <message>
-        <source>Load more</source>
-        <translation>Загрузи больше</translation>
-    </message>
-    <message>
         <source>Settings</source>
         <translation>Настройки</translation>
     </message>
     <message>
-        <source>Loading</source>
-        <translation>Загрузка</translation>
+        <source>New Toot</source>
+        <translation>Новый</translation>
     </message>
     <message>
-        <source>please wait...</source>
-        <translation>Пожалуйста, подождите...</translation>
+        <source>Reload</source>
+        <translation>Перезагрузить</translation>
+    </message>
+    <message>
+        <source>Open in Browser</source>
+        <translation>Открыть в браузере</translation>
+    </message>
+    <message>
+        <source>Nothing found</source>
+        <translation>Ничего не найдено</translation>
     </message>
 </context>
 <context>
-    <name>Profile</name>
+    <name>ProfileHeader</name>
     <message>
-        <source>Unfollow</source>
-        <translation>Отписаться</translation>
+        <source>Bot</source>
+        <translation>бот</translation>
     </message>
     <message>
-        <source>Follow request sent!</source>
-        <translation>Следуйте запрошенному запросу!</translation>
+        <source>Follows you</source>
+        <translation>Подписан(а) на вас</translation>
+    </message>
+    <message>
+        <source>Group</source>
+        <translation>Группа</translation>
+    </message>
+</context>
+<context>
+    <name>ProfilePage</name>
+    <message>
+        <source>About</source>
+        <extracomment>If there&apos;s no good translation for &quot;About&quot;, use &quot;Details&quot; (in details about profile).</extracomment>
+        <translation>Подробности</translation>
+    </message>
+    <message>
+        <source>Followers</source>
+        <extracomment>Will show as: &quot;35 Followers&quot;</extracomment>
+        <translation>Читают</translation>
     </message>
     <message>
         <source>Following</source>
+        <extracomment>Will show as: &quot;23 Following&quot;</extracomment>
         <translation>Следующий</translation>
     </message>
     <message>
-        <source>Mute</source>
-        <translation>Безгласный</translation>
+        <source>Statuses</source>
+        <extracomment>Will show as: &quot;115 Statuses&quot;</extracomment>
+        <translation>Статусы</translation>
+    </message>
+    <message>
+        <source>Mention</source>
+        <translation>Упоминание</translation>
+    </message>
+    <message>
+        <source>Unfollow</source>
+        <extracomment>Is a button. Keep it as short as possible.</extracomment>
+        <translation>Отписаться</translation>
+    </message>
+    <message>
+        <source>Requested</source>
+        <extracomment>Is a button. Keep it as short as possible.</extracomment>
+        <translation>Запрошенный</translation>
+    </message>
+    <message>
+        <source>Follow</source>
+        <extracomment>Is a button. Keep it as short as possible.</extracomment>
+        <translation>Следить</translation>
     </message>
     <message>
         <source>Unmute</source>
+        <extracomment>Is a button. Keep it as short as possible.</extracomment>
         <translation>Нет безгласный</translation>
     </message>
     <message>
+        <source>Mute</source>
+        <extracomment>Is a button. Keep it as short as possible.</extracomment>
+        <translation>Безгласный</translation>
+    </message>
+    <message>
         <source>Unblock</source>
+        <extracomment>Is a button. Keep it as short as possible.</extracomment>
         <translation>Открыть</translation>
     </message>
     <message>
         <source>Block</source>
+        <extracomment>Is a button. Keep it as short as possible.</extracomment>
         <translation>Блокировать</translation>
-    </message>
-    <message>
-        <source>Statuses</source>
-        <translation>Статусы</translation>
-    </message>
-    <message>
-        <source>Favourites</source>
-        <translation>Избранные</translation>
-    </message>
-    <message>
-        <source>Follow</source>
-        <translation>Следить</translation>
-    </message>
-    <message>
-        <source>Summary</source>
-        <translation>Резюме</translation>
-    </message>
-    <message>
-        <source>Followers</source>
-        <translation>Читают</translation>
-    </message>
-    <message>
-        <source>Bio</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Open Profile in Browser</source>
-        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
-    <name>Settings</name>
+    <name>SettingsPage</name>
     <message>
         <source>Settings</source>
         <translation>Настройки</translation>
+    </message>
+    <message>
+        <source>Options</source>
+        <translation>Параметры</translation>
+    </message>
+    <message>
+        <source>Load Images in Toots</source>
+        <translation>Загружать изображения</translation>
+    </message>
+    <message>
+        <source>Disable this option if you want to preserve your data connection</source>
+        <translation>Отключите эту опцию, если вы хотите сохранить подключение к данным</translation>
+    </message>
+    <message>
+        <source>Account</source>
+        <translation>Aккаунт</translation>
     </message>
     <message>
         <source>Remove Account</source>
@@ -243,7 +303,7 @@
         <translation>Добавить аккаунт</translation>
     </message>
     <message>
-        <source>Deauthorize this app and remove your account</source>
+        <source>Deauthorize this app from using your account and remove account data from phone</source>
         <translation>удалить учетную запись с устройства</translation>
     </message>
     <message>
@@ -251,11 +311,12 @@
         <translation>Уполномочить это приложение использовать свою учетную запись Mastodon от вашего имени</translation>
     </message>
     <message>
-        <source>Disable this option if you want to preserve your data connection</source>
-        <translation>Отключите эту опцию, если вы хотите сохранить подключение к данным</translation>
+        <source>Translate</source>
+        <translation>Переведите</translation>
     </message>
     <message>
         <source>Credits</source>
+        <extracomment>Translation alternative: &quot;Development&quot;</extracomment>
         <translation>Зачет</translation>
     </message>
     <message>
@@ -264,58 +325,36 @@
     </message>
     <message>
         <source>Visual identity</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Occitan &amp; French translation</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Dutch translation</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Spanish translation</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Added README file</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Chinese translation</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Load images in toots</source>
-        <translation>Загружать изображения</translation>
-    </message>
-    <message>
-        <source>Translate</source>
-        <translation>Переведите</translation>
-    </message>
-    <message>
-        <source>Use Transifex to help with app translation to your language</source>
-        <translation>Используйте Transifex, чтобы помочь с переводом приложения на ваш язык</translation>
+        <translation>Визуальная идентичность</translation>
     </message>
     <message>
         <source>Development and translations</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>Toot</name>
-    <message>
-        <source>boosted</source>
-        <translation>росту</translation>
+        <translation>Разработка и переводы</translation>
     </message>
     <message>
-        <source>favourited</source>
-        <translation>имеет любимый</translation>
+        <source>Occitan &amp; French translation</source>
+        <translation>французский перевод</translation>
     </message>
     <message>
-        <source>followed you</source>
-        <translation>следую за тобой</translation>
+        <source>Chinese translation</source>
+        <translation>Китайский перевод</translation>
+    </message>
+    <message>
+        <source>Dutch translation</source>
+        <translation>Голландский перевод</translation>
+    </message>
+    <message>
+        <source>Spanish translation</source>
+        <translation>Испанский перевод</translation>
+    </message>
+    <message>
+        <source>Use</source>
+        <extracomment>Full sentence for translation: &quot;Use Transifex to help with app translation to your language.&quot; - The word Transifex is a link and doesn&apos;t need translation.</extracomment>
+        <translation>Используйте</translation>
+    </message>
+    <message>
+        <source>to help with app translation to your language.</source>
+        <translation>чтобы помочь с переводом приложения на ваш язык.</translation>
     </message>
 </context>
 <context>
@@ -335,6 +374,22 @@
     <message>
         <source>Favorite</source>
         <translation>Избранные</translation>
+    </message>
+    <message>
+        <source>Mention</source>
+        <translation>Упоминание</translation>
+    </message>
+    <message>
+        <source>Conversation</source>
+        <translation>беседа</translation>
+    </message>
+    <message>
+        <source>Remove Bookmark</source>
+        <translation>Убрать из закладок</translation>
+    </message>
+    <message>
+        <source>Bookmark</source>
+        <translation>Добавить в закладки</translation>
     </message>
 </context>
 </TS>

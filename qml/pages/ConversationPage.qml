@@ -8,20 +8,32 @@ import "./components/"
 Page {
     id: conversationPage
 
-    property string type
-    property string username: ""
-    property string headerTitle: ""
-    property string suggestedUser: ""
     property ListModel suggestedModel
-    property string status_id: ""
-    property string status_url: ""
-    property string status_uri: ""
+    property ListModel mdl
     property int tootMaxChar: 500
     property bool bot: false //otherwise ReferenceError ProfileHeader.qml
     property bool followed_by: false //otherwise ReferenceError ProfileHeader.qml
     property bool locked: false //otherwise ReferenceError ProfileHeader.qml
     property bool group: false //otherwise ReferenceError ProfileHeader.qml
-    property ListModel mdl
+    property string type
+    property string username: ""
+    property string headerTitle: ""
+    property string suggestedUser: ""
+    property string status_id: ""
+    property string status_url: ""
+    property string status_uri: ""
+    property string status_link:
+        if (status_url === "") {
+            var test = status_uri.split("/")
+            console.log(status_uri)
+            console.log(JSON.stringify(test))
+            console.log(JSON.stringify(test.length))
+            if (test.length === 8 && (test[7] === "activity")) {
+                var urialt = status_uri.replace("activity", "")
+                status_link = urialt
+            }
+            else status_link = status_uri
+        } else status_link = status_url
 
     allowedOrientations: Orientation.All
     onSuggestedUserChanged: {
@@ -97,19 +109,16 @@ Page {
             visible: type === "reply"
 
             MenuItem {
+                text: qsTr("Open in Browser")
+                onClicked: {
+                    Qt.openUrlExternally(status_link)
+                }
+            }
+
+            MenuItem {
                 //: Use the translation of "Copy Link" for a shorter PullDownMenu label
                 text: qsTr("Copy Link to Clipboard")
-                onClicked: if (status_url === "") {
-                               var test = status_uri.split("/")
-                               console.log(status_uri)
-                               console.log(JSON.stringify(test))
-                               console.log(JSON.stringify(test.length))
-                               if (test.length === 8 && (test[7] === "activity")) {
-                                   var urialt = status_uri.replace("activity", "")
-                                   Clipboard.text = urialt
-                               }
-                               else Clipboard.text = status_uri
-                           } else Clipboard.text = status_url
+                onClicked: Clipboard.text = status_link
             }
 
             MenuItem {

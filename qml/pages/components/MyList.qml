@@ -42,15 +42,32 @@ SilicaListView {
     }
 
     BusyLabel {
-        id: loadStatusList
+        id: myListBusyLabel
         running: model.count === 0
         anchors {
             horizontalCenter: parent.horizontalCenter
             verticalCenter: parent.verticalCenter
         }
+
+        Timer {
+            interval: 5000
+            running: true
+            onTriggered: {
+                myListBusyLabel.visible = false
+                loadStatusPlaceholder.visible = true
+            }
+        }
+    }
+
+    ViewPlaceholder {
+        id: loadStatusPlaceholder
+        visible: false
+        enabled: model.count === 0
+        text: qsTr("Nothing found")
     }
 
     PullDownMenu {
+        id: mainPulleyMenu
         MenuItem {
             text: qsTr("Settings")
             visible: !profilePage
@@ -119,7 +136,7 @@ SilicaListView {
 
         BusyIndicator {
             running: loadStarted
-            visible: loadStatusList.running ? false : true
+            visible: myListBusyLabel.running ? false : true
             size: BusyIndicatorSize.Small
             anchors {
                 verticalCenter: parent.verticalCenter

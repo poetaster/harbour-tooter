@@ -85,7 +85,7 @@ Page {
             height: parent.itemHeight
             onSearchChanged: {
                 console.log(search)
-                //loader.sourceComponent = loading
+                loader.sourceComponent = loading
                 if (search.charAt(0) === "@") {
                     loader.sourceComponent = userListComponent
                 } else if (search.charAt(0) === "#") {
@@ -119,14 +119,14 @@ Page {
                 }
             }
 
-//            Component {
-//                id: loading
-//                BusyIndicator {
-//                    size: BusyIndicatorSize.Large
-//                    anchors.centerIn: parent
-//                    running: true
-//                }
-//            }
+            Component {
+                id: loading
+                BusyIndicator {
+                    size: BusyIndicatorSize.Large
+                    anchors.centerIn: parent
+                    running: true
+                }
+            }
 
             Component {
                 id: tagListComponent

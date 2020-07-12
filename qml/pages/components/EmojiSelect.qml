@@ -20,8 +20,6 @@ Dialog {
         width: parent.width
         height: parent.height
 
-        VerticalScrollDecorator { flickable: gridView}
-
         SilicaGridView {
             id: gridView
             header: PageHeader {
@@ -266,6 +264,7 @@ Dialog {
                     emojiDialog.accept()
                 }
             }
+            VerticalScrollDecorator { flickable: gridView }
         }
     }
 }

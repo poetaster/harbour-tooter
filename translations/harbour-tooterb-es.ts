@@ -284,7 +284,7 @@
     </message>
     <message>
         <source>Load Images in Toots</source>
-        <translation>Cargar imágenes en messages</translation>
+        <translation>Cargar imágenes en toots</translation>
     </message>
     <message>
         <source>Disable this option if you want to preserve your data connection</source>

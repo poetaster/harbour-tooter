@@ -1,6 +1,8 @@
 import QtQuick 2.0
-import QtWebKit 3.0
+// import QtWebKit 3.0
 import Sailfish.Silica 1.0
+import Sailfish.WebView 1.0
+import Sailfish.WebEngine 1.0
 import "../lib/API.js" as Logic
 
 
@@ -90,17 +92,23 @@ Page {
             }
         }
     }
-
-    SilicaWebView {
+    WebView {
         id: webView
+
+        /* This will probably be required from 4.4 on. */
+        Component.onCompleted: {
+            WebEngineSettings.setPreference("security.disable_cors_checks", true, WebEngineSettings.BoolPref)
+            WebEngineSettings.setPreference("security.fileuri.strict_origin_policy", false, WebEngineSettings.BoolPref)
+        }
         visible: false
-        opacity: 0
+        //opacity: 0
         anchors {
             top: parent.top
             left: parent.left
             right: parent.right
             bottom: parent.bottom
         }
+
         onLoadingChanged: {
             console.log(url)
             if (
@@ -136,7 +144,7 @@ Page {
             }
 
 
-            switch (loadRequest.status)
+            /*switch (loadRequest.status)
             {
             case WebView.LoadSucceededStatus:
                 opacity = 1
@@ -147,7 +155,7 @@ Page {
             default:
                 //opacity = 0
                 break
-            }
+            }*/
         }
 
         FadeAnimation on opacity {}

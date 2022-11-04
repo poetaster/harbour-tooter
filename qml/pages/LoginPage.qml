@@ -1,12 +1,33 @@
 import QtQuick 2.0
-// import QtWebKit 3.0
 import Sailfish.Silica 1.0
 import Sailfish.WebView 1.0
 import Sailfish.WebEngine 1.0
+import io.thp.pyotherside 1.5
 import "../lib/API.js" as Logic
 
 
 Page {
+
+    // Python connections and signals, callable from QML side
+    // This is not ideal but keeps the page from erroring out on redirect
+    Python {
+        id: py
+        Component.onCompleted: {
+            addImportPath(Qt.resolvedUrl('../lib/'));
+            importModule('server', function () {});
+
+              setHandler('finished', function(newvalue) {
+                  console.debug(newvalue)
+              });
+            startDownload();
+        }
+        function startDownload() {
+            call('server.downloader.serve', function() {});
+            console.debug("called")
+
+        }
+   }
+
     id: loginPage
     // The effective value will be restricted by ApplicationWindow.allowedOrientations
     allowedOrientations: Orientation.All
@@ -41,7 +62,7 @@ Page {
                 EnterKey.onClicked: {
                     Logic.api = Logic.mastodonAPI({ instance: instance.text, api_user_token: "" });
                     Logic.api.registerApplication("Tooter",
-                                                  'http://localhost/harbour-tooter', // redirect uri, we will need this later on
+                                                  'http://localhost:8000/index.html', // redirect uri, we will need this later on
                                                   ["read", "write", "follow"], //scopes
                                                   "http://grave-design.com/harbour-tooter", //website on the login screen
                                                   function(data) {
@@ -100,6 +121,28 @@ Page {
             WebEngineSettings.setPreference("security.disable_cors_checks", true, WebEngineSettings.BoolPref)
             WebEngineSettings.setPreference("security.fileuri.strict_origin_policy", false, WebEngineSettings.BoolPref)
         }
+        onViewInitialized: {
+            //webview.loadFrameScript(Qt.resolvedUrl("../html/framescript.js"));
+            //webview.addMessageListener("webview:action");
+            //webview.runJavaScript("return latlon('" + lat + "','" + lon + "')");
+        }
+
+        onRecvAsyncMessage: {
+            console.log('async changed: ' + url)
+            console.debug(message)
+            switch (message) {
+            case "embed:contentOrientationChanged":
+                break
+            case "webview:action":
+                if ( data.topic != lon ) {
+                    //webview.runJavaScript("return latlon('" + lat + "','" + lon + "')");
+                    //if (debug) console.debug(data.topic)
+                    //if (debug) console.debug(data.also)
+                    //if (debug) console.debug(data.src)
+                }
+                break
+            }
+        }
         visible: false
         //opacity: 0
         anchors {
@@ -110,10 +153,10 @@ Page {
         }
 
         onLoadingChanged: {
-            console.log(url)
+            console.log('loading changed: ' + url)
             if (
-                    (url+"").substr(0, 37) === 'http://localhost/harbour-tooter?code=' ||
-                    (url+"").substr(0, 38) === 'https://localhost/harbour-tooter?code='
+                    (url+"").substr(0, 38) === 'http://localhost:8000/index.html?code=' ||
+                    (url+"").substr(0, 39) === 'https://localhost:8000/index.html?code='
                     ) {
                 visible = false;
 

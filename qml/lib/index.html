@@ -1,0 +1,26 @@
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, user-scalable=no"/>
+    <style>
+        body { font-family: sans-serif; background-color:black;}
+        button { width: 32%; font-size: 20px; height: 40px; }
+        #output { width: 100%; text-align: center; font-size: 120px; }
+    </style>
+
+
+    <script type="text/javascript">
+        function action(topic) {
+            var output = document.getElementById('output');
+            output.textContent = {"one": "1", "two": "2", "three": "3"}[topic]
+        }
+        function send(topic) {
+            var customEvent = new CustomEvent("framescript:log",
+                {detail: { topic: topic}});
+            document.dispatchEvent(customEvent);
+        }
+    </script>
+</head>
+<body>
+    <div id="output"><p>Login Complete</p></div>
+</body>
+</html>

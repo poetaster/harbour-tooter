@@ -13,11 +13,11 @@ Name:       harbour-tooterb
 %{!?qtc_make:%define qtc_make make}
 %{?qtc_builddir:%define _builddir %qtc_builddir}
 Summary:    Tooter β
-Version:    1.0.7
-Release:    0
+Version:    1.0.8
+Release:    2
 Group:      Qt/Qt
-License:    LICENSE
-URL:        http://example.org/
+License:    GPLv3
+URL:        https://grave-design.com/harbour-tooter/
 Source0:    %{name}-%{version}.tar.bz2
 Source100:  harbour-tooterb.yaml
 Requires:   sailfishsilica-qt5 >= 0.10.9
@@ -36,6 +36,18 @@ BuildRequires:  desktop-file-utils
 %description
 Tooter Beta is a native client for Mastodon network instances.
 
+%if "%{?vendor}" == "chum"
+PackageName: Tooter Beta
+Type: desktop-application
+Categories:
+ - Network
+PackagerName: Mark Washeim (poetaster)
+Custom:
+ - Repo: https://github.com/molan-git/harbour-tooter
+Icon: https://raw.githubusercontent.com/poetaster/harbour-tooter/master/icons/256x256/harbour-tooterb.png
+Url:
+  Homepage: https://github.com/molan-git/harbour-tooter
+%endif
 
 %prep
 %setup -q -n %{name}-%{version}

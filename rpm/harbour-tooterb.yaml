@@ -27,7 +27,8 @@ PkgConfigBR:
   - Qt5Quick
   - Qt5DBus
   - Qt5Multimedia
-  - nemonotifications-qt5
+  #- nemonotifications-qt5 nemo-qml-plugin-notifications-qt5
+  - nemo-qml-plugin-notifications-qt5-devel
   - openssl
 
 # Build dependencies without a pkgconfig setup can be listed here

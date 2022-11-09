@@ -268,7 +268,7 @@ function parseToot (data) {
     item['status_favourited'] = data["favourited"]
     item['status_reblogged'] = data["reblogged"]
     item['status_bookmarked'] = data["bookmarked"]
-    item['status_content'] = data["content"]
+    item['content'] = data["content"]
     item['attachments'] = data['media_attachments']
     item['status_in_reply_to_id'] = data["in_reply_to_id"]
     item['status_in_reply_to_account_id'] = data["in_reply_to_account_id"]
@@ -285,6 +285,7 @@ function parseToot (data) {
         item['status_replies_count'] = data["reblog"]["replies_count"]
         item['status_reblogs_count'] = data["reblog"]["reblogs_count"]
         item['status_favourites_count'] = data["reblog"]["favourites_count"]
+        item['content'] = data["reblog"]["content"]
         item = parseAccounts(item, "", data['reblog']["account"])
         item = parseAccounts(item, "reblog_", data["account"])
     } else {
@@ -292,7 +293,7 @@ function parseToot (data) {
     }
 
     /** Replace HTML content in Toots */
-    item['content'] = data['content']
+    item['content'] = item['content']
     .replaceAll('</span><span class="invisible">', '')
     .replaceAll('<span class="invisible">', '')
     .replaceAll('</span><span class="ellipsis">', '')

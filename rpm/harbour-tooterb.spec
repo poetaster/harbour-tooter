@@ -14,7 +14,7 @@ Name:       harbour-tooterb
 %{?qtc_builddir:%define _builddir %qtc_builddir}
 Summary:    Tooter β
 Version:    1.0.8
-Release:    2
+Release:    3
 Group:      Qt/Qt
 License:    GPLv3
 URL:        https://grave-design.com/harbour-tooter/
@@ -23,6 +23,7 @@ Source100:  harbour-tooterb.yaml
 Requires:   sailfishsilica-qt5 >= 0.10.9
 Requires:   nemo-qml-plugin-configuration-qt5
 Requires:   nemo-qml-plugin-notifications-qt5
+BuildRequires:  qt5-qttools-linguist
 BuildRequires:  pkgconfig(sailfishapp) >= 1.0.2
 BuildRequires:  pkgconfig(Qt5Core)
 BuildRequires:  pkgconfig(Qt5Qml)

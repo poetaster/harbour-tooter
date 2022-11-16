@@ -19,7 +19,6 @@ Group:      Qt/Qt
 License:    GPLv3
 URL:        https://grave-design.com/harbour-tooter/
 Source0:    %{name}-%{version}.tar.bz2
-Source100:  harbour-tooterb.yaml
 Requires:   sailfishsilica-qt5 >= 0.10.9
 Requires:   nemo-qml-plugin-configuration-qt5
 Requires:   nemo-qml-plugin-notifications-qt5

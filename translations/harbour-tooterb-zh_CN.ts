@@ -149,6 +149,10 @@
         <source>New Toot</source>
         <translation>新嘟嘟</translation>
     </message>
+    <message>
+        <source>Bookmarks</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MediaFullScreen</name>

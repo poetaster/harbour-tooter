@@ -6,7 +6,7 @@ import "./components/"
 
 Page {
     id: mainPage
-
+    property bool debug: false
     property bool isFirstPage: true
     property bool isTablet: true //Screen.sizeCategory >= Screen.Large
 
@@ -24,7 +24,8 @@ Page {
             id: navigation
             isPortrait: !mainPage.isPortrait
             onSlideshowShow: {
-                console.log(vIndex)
+                if (debug) console.log(vIndex)
+
                 slideshow.positionViewAtIndex(vIndex, ListView.SnapToItem)
             }
         }
@@ -74,6 +75,15 @@ Page {
             height: parent.itemHeight
             onOpenDrawer: isPortrait ? infoPanel.open = setDrawer : infoPanel.open = true
         }
+        MyList {
+            id: tlBookmarks
+            title: qsTr("Bookmarks")
+            type: "bookmarks"
+            mdl: Logic.modelTLbookmarks
+            width: isPortrait ? parent.itemWidth : parent.itemWidth - Theme.itemSizeLarge
+            height: parent.itemHeight
+            onOpenDrawer: isPortrait ? infoPanel.open = setDrawer : infoPanel.open = true
+        }
 
         Item {
             id: tlSearch
@@ -84,7 +94,7 @@ Page {
             width: isPortrait ? parent.itemWidth : parent.itemWidth - Theme.itemSizeLarge
             height: parent.itemHeight
             onSearchChanged: {
-                console.log(search)
+                if (debug) console.log(search)
                 loader.sourceComponent = loading
                 if (search.charAt(0) === "@") {
                     loader.sourceComponent = userListComponent
@@ -114,7 +124,7 @@ Page {
                     EnterKey.onClicked: {
                         tlSearch.search = text.toLowerCase().trim()
                         focus = false
-                        console.log(text)
+                        if (debug) console.log(text)
                     }
                 }
             }
@@ -270,17 +280,21 @@ Page {
 
     function onLinkActivated(href) {
         var test = href.split("/")
-        console.log(href)
-        console.log(JSON.stringify(test))
-        console.log(JSON.stringify(test.length))
+        debug = true
+        if (debug) {
+                console.log(href)
+                console.log(JSON.stringify(test))
+                console.log(JSON.stringify(test.length))
+        }
         if (test.length === 5 && (test[3] === "tags" || test[3] === "tag") ) {
             tlSearch.search = "#"+decodeURIComponent(test[4])
-            slideshow.positionViewAtIndex(4, ListView.SnapToItem)
+            slideshow.positionViewAtIndex(5, ListView.SnapToItem)
             navigation.navigateTo('search')
+            console.log("search tag")
 
         } else if (test.length === 4 && test[3][0] === "@" ) {
             tlSearch.search = decodeURIComponent("@"+test[3].substring(1)+"@"+test[2])
-            slideshow.positionViewAtIndex(4, ListView.SnapToItem)
+            slideshow.positionViewAtIndex(5, ListView.SnapToItem)
             navigation.navigateTo('search')
 
         } else {
@@ -289,6 +303,6 @@ Page {
     }
 
     Component.onCompleted: {
-        console.log("aaa")
+        //console.log("aaa")
     }
 }

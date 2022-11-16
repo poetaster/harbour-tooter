@@ -151,7 +151,7 @@
     </message>
     <message>
         <source>Bookmarks</source>
-        <translation type="unfinished"></translation>
+        <translation>Bookmarken</translation>
     </message>
 </context>
 <context>

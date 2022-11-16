@@ -87,7 +87,6 @@ DISTFILES += qml/harbour-tooterb.qml \
     rpm/harbour-tooterb.changes \
     rpm/harbour-tooterb.changes.run.in \
     rpm/harbour-tooterb.spec \
-    rpm/harbour-tooterb.yaml \
     translations/*.ts \
     harbour-tooterb.desktop
 

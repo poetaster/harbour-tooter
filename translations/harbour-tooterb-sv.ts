@@ -25,50 +25,50 @@
     <message>
         <source>Copy Link to Clipboard</source>
         <extracomment>Use the translation of &quot;Copy Link&quot; for a shorter PullDownMenu label</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Kopiera länk till urklipp</translation>
     </message>
     <message>
         <source>Write your warning here</source>
         <extracomment>placeholderText in Toot content warning panel</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Skriv din varningstext här</translation>
     </message>
     <message>
         <source>What&apos;s on your mind?</source>
         <extracomment>placeholderText in Toot text panel</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Vad tänker du på?</translation>
     </message>
     <message>
         <source>Public</source>
-        <translation type="unfinished"></translation>
+        <translation>Allmän</translation>
     </message>
     <message>
         <source>Unlisted</source>
-        <translation type="unfinished"></translation>
+        <translation>Olistad</translation>
     </message>
     <message>
         <source>Followers-only</source>
-        <translation type="unfinished"></translation>
+        <translation>Endast följare</translation>
     </message>
     <message>
         <source>Direct</source>
-        <translation type="unfinished"></translation>
+        <translation>Direkt</translation>
     </message>
     <message>
         <source>Toot sent!</source>
-        <translation type="unfinished"></translation>
+        <translation>Toot skickad!</translation>
     </message>
     <message>
         <source>Reply</source>
         <extracomment>&quot;Reply&quot; will show the Toot text entry Panel. &quot;Hide Reply&quot; closes it. Alternative: Use &quot;Close Reply&quot;</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Svara</translation>
     </message>
     <message>
         <source>Hide Reply</source>
-        <translation type="unfinished"></translation>
+        <translation>Dölj svar</translation>
     </message>
     <message>
         <source>Open in Browser</source>
-        <translation type="unfinished"></translation>
+        <translation>Öppna i webbläsaren</translation>
     </message>
 </context>
 <context>
@@ -104,19 +104,19 @@
     </message>
     <message>
         <source>Instance</source>
-        <translation type="unfinished"></translation>
+        <translation>Instans</translation>
     </message>
     <message>
         <source>Enter a valid Mastodon instance URL</source>
-        <translation>Fyll i URL till Mastodoninstans</translation>
+        <translation>Ange en giltig URL till Mastodoninstans</translation>
     </message>
     <message>
         <source>Mastodon is a free, open-source social network. A decentralized alternative to commercial platforms, it avoids the risks of a single company monopolizing your communication. Pick a server that you trust — whichever you choose, you can interact with everyone else. Anyone can run their own Mastodon instance and participate in the social network seamlessly.</source>
-        <translation>Mastodon är ett fritt och öppet socialt nätverk byggt på öppen källkod. Ett decentraliserat alternativ till kommersiella plattformar, vilket undviker att ett ensamt företag monopoliserar din kommunikation. Välj en server du litar på --- beroende på vilken du väljer, kan du interagera med alla andra. Vem som helst kan köra deras egen Mastodoninstans och delta i nätverket. Även du!</translation>
+        <translation>Mastodon är ett fritt socialt nätverk byggt på öppen källkod. Ett decentraliserat alternativ till kommersiella plattformar. Det undviker riskerna med att ett enda företag monopoliserar din kommunikation. Välj en server som du litar på, oavsett vad du väljer kan du interagera med alla andra. Vem som helst kan köra sin egen Mastodon-instans och delta i det sociala nätverket sömlöst.</translation>
     </message>
     <message>
         <source>Reload</source>
-        <translation type="unfinished">Ladda mer</translation>
+        <translation>Läs in igen</translation>
     </message>
 </context>
 <context>
@@ -151,14 +151,14 @@
     </message>
     <message>
         <source>Bookmarks</source>
-        <translation type="unfinished"></translation>
+        <translation>Bokmärken</translation>
     </message>
 </context>
 <context>
     <name>MediaFullScreen</name>
     <message>
         <source>Error loading</source>
-        <translation type="unfinished"></translation>
+        <translation>Fel vid inläsning</translation>
     </message>
 </context>
 <context>
@@ -188,15 +188,15 @@
     </message>
     <message>
         <source>Reload</source>
-        <translation>Ladda mer</translation>
+        <translation>Läs in igen</translation>
     </message>
     <message>
         <source>Open in Browser</source>
-        <translation type="unfinished"></translation>
+        <translation>Öppna i webbläsaren</translation>
     </message>
     <message>
         <source>Nothing found</source>
-        <translation type="unfinished"></translation>
+        <translation>Inget hittades</translation>
     </message>
 </context>
 <context>
@@ -207,11 +207,11 @@
     </message>
     <message>
         <source>Follows you</source>
-        <translation type="unfinished"></translation>
+        <translation>Följer dig</translation>
     </message>
     <message>
         <source>Group</source>
-        <translation type="unfinished"></translation>
+        <translation>Grupp</translation>
     </message>
 </context>
 <context>
@@ -219,7 +219,7 @@
     <message>
         <source>About</source>
         <extracomment>If there&apos;s no good translation for &quot;About&quot;, use &quot;Details&quot; (in details about profile).</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Om</translation>
     </message>
     <message>
         <source>Followers</source>
@@ -234,11 +234,11 @@
     <message>
         <source>Statuses</source>
         <extracomment>Will show as: &quot;115 Statuses&quot;</extracomment>
-        <translation>Statusar</translation>
+        <translation>Status</translation>
     </message>
     <message>
         <source>Mention</source>
-        <translation type="unfinished"></translation>
+        <translation>Omnämnande</translation>
     </message>
     <message>
         <source>Unfollow</source>
@@ -248,7 +248,7 @@
     <message>
         <source>Requested</source>
         <extracomment>Is a button. Keep it as short as possible.</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Efterfrågad</translation>
     </message>
     <message>
         <source>Follow</source>
@@ -258,7 +258,7 @@
     <message>
         <source>Unmute</source>
         <extracomment>Is a button. Keep it as short as possible.</extracomment>
-        <translation>Avtysta</translation>
+        <translation>Frigör</translation>
     </message>
     <message>
         <source>Mute</source>
@@ -284,15 +284,15 @@
     </message>
     <message>
         <source>Options</source>
-        <translation type="unfinished"></translation>
+        <translation>Alternativ</translation>
     </message>
     <message>
         <source>Load Images in Toots</source>
-        <translation>Ladda bilder i toots</translation>
+        <translation>Läs in bilder i tootar</translation>
     </message>
     <message>
         <source>Disable this option if you want to preserve your data connection</source>
-        <translation>Inaktivera det här alternativet om du vill behålla din dataanslutning</translation>
+        <translation>Inaktivera det här alternativet om du vill bevara din dataanslutning</translation>
     </message>
     <message>
         <source>Account</source>
@@ -300,7 +300,7 @@
     </message>
     <message>
         <source>Remove Account</source>
-        <translation>Radera konto</translation>
+        <translation>Ta bort konto</translation>
     </message>
     <message>
         <source>Add Account</source>
@@ -308,11 +308,11 @@
     </message>
     <message>
         <source>Deauthorize this app from using your account and remove account data from phone</source>
-        <translation>Avauktorisera denna app och radera ditt konto</translation>
+        <translation>Avauktorisera denna app och ta bort din kontodata från telefonen</translation>
     </message>
     <message>
         <source>Authorize this app to access your Mastodon account</source>
-        <translation>Godkänn denna app att använda ditt Mastodon-konto på dina vägnar</translation>
+        <translation>Auktorisera denna app att använda ditt Mastodon-konto</translation>
     </message>
     <message>
         <source>Translate</source>
@@ -329,27 +329,27 @@
     </message>
     <message>
         <source>Visual identity</source>
-        <translation type="unfinished"></translation>
+        <translation>Visuell identitet</translation>
     </message>
     <message>
         <source>Development and translations</source>
-        <translation type="unfinished"></translation>
+        <translation>Utveckling och översättningar</translation>
     </message>
     <message>
         <source>Occitan &amp; French translation</source>
-        <translation type="unfinished"></translation>
+        <translation>Occitan &amp; Fransk översättning</translation>
     </message>
     <message>
         <source>Chinese translation</source>
-        <translation type="unfinished"></translation>
+        <translation>Kinesisk översättning</translation>
     </message>
     <message>
         <source>Dutch translation</source>
-        <translation type="unfinished"></translation>
+        <translation>Nederländsk översättning</translation>
     </message>
     <message>
         <source>Spanish translation</source>
-        <translation type="unfinished"></translation>
+        <translation>Spansk översättning</translation>
     </message>
     <message>
         <source>Use</source>
@@ -358,7 +358,7 @@
     </message>
     <message>
         <source>to help with app translation to your language.</source>
-        <translation>för att hjälpa med app-översättningar till ditt språk.</translation>
+        <translation>för att hjälpa till med app-översättning till ditt språk.</translation>
     </message>
 </context>
 <context>
@@ -381,19 +381,19 @@
     </message>
     <message>
         <source>Mention</source>
-        <translation type="unfinished"></translation>
+        <translation>Omnämnande</translation>
     </message>
     <message>
         <source>Conversation</source>
-        <translation type="unfinished"></translation>
+        <translation>Konversation</translation>
     </message>
     <message>
         <source>Remove Bookmark</source>
-        <translation type="unfinished"></translation>
+        <translation>Ta bort bokmärke</translation>
     </message>
     <message>
         <source>Bookmark</source>
-        <translation type="unfinished"></translation>
+        <translation>Bokmärk</translation>
     </message>
 </context>
 </TS>

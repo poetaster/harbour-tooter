@@ -17,7 +17,7 @@ Version:    1.0.9
 Release:    1
 Group:      Qt/Qt
 License:    GPLv3
-URL:        https://grave-design.com/harbour-tooter/
+URL:        https://github.com/poetaster/harbour-tooter#readme
 Source0:    %{name}-%{version}.tar.bz2
 Requires:   sailfishsilica-qt5 >= 0.10.9
 Requires:   nemo-qml-plugin-configuration-qt5
@@ -43,10 +43,10 @@ Categories:
  - Network
 PackagerName: Mark Washeim (poetaster)
 Custom:
- - Repo: https://github.com/molan-git/harbour-tooter
+ - Repo: https://github.com/poetaster/harbour-tooter
 Icon: https://raw.githubusercontent.com/poetaster/harbour-tooter/master/icons/256x256/harbour-tooterb.png
 Url:
-  Homepage: https://github.com/molan-git/harbour-tooter
+  Homepage: https://github.com/poetaster/harbour-tooter
 %endif
 
 %prep

@@ -64,7 +64,7 @@ Page {
                     Logic.api.registerApplication("Tooter",
                                                   'http://localhost:8000/index.html', // redirect uri, we will need this later on
                                                   ["read", "write", "follow"], //scopes
-                                                  "http://grave-design.com/harbour-tooter", //website on the login screen
+                                                  "https://github.com/poetaster/harbour-tooter#readme", //website on the login screen
                                                   function(data) {
 
                                                       console.log(data)

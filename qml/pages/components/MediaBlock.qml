@@ -10,14 +10,17 @@ Item {
     property double wRatio : 16/9
     property double hRatio : 9/16
 
+    property bool debug: true
     width: width
     height: height
     Component.onCompleted: {
+        console.log("MB: " + JSON.stringify(model.get(0)))
         if (model && model.count && model.get(0).type === "video") {
+            //console.log("Mediablock")
+            //console.log(JSON.stringify(model.get(0).type))
             while (model.count>1) {
                 model.remove(model.count-1)
             }
-            //console.log(JSON.stringify(model.get(0)))
         }
         var count = 0
         if (model && model.count)
@@ -89,6 +92,8 @@ Item {
                 type = model.get(0).type
                 previewURL = model.get(0).preview_url
                 mediaURL = model.get(0).url
+                url = model.get(0).url
+                if(debug) console.log( model.get(0).url )
                 height = Theme.itemSizeLarge
                 return true
             } else {
@@ -108,6 +113,8 @@ Item {
                 type = model.get(1).type
                 previewURL = model.get(1).preview_url
                 mediaURL = model.get(1).url
+                url = model.get(0).url
+                if(debug) console.log( model.get(1).url )
                 height = Theme.itemSizeLarge
                 return true
             } else {
@@ -127,6 +134,7 @@ Item {
                 type = model.get(2).type
                 previewURL = model.get(2).preview_url
                 mediaURL = model.get(2).url
+                url = model.get(0).url
                 height = Theme.itemSizeLarge
                 return true
             } else {
@@ -146,6 +154,7 @@ Item {
                 type = model.get(3).type
                 previewURL = model.get(3).preview_url
                 mediaURL = model.get(3).url
+                url = model.get(0).url
                 height = Theme.itemSizeLarge
                 return true
             } else {

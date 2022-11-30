@@ -290,7 +290,7 @@ Page {
             tlSearch.search = "#"+decodeURIComponent(test[4])
             slideshow.positionViewAtIndex(5, ListView.SnapToItem)
             navigation.navigateTo('search')
-            console.log("search tag")
+            if (debug) console.log("search tag")
 
         } else if (test.length === 4 && test[3][0] === "@" ) {
             tlSearch.search = decodeURIComponent("@"+test[3].substring(1)+"@"+test[2])

@@ -6,6 +6,8 @@ import "../../lib/API.js" as Logic
 BackgroundItem {
     id: delegate
 
+    property bool debug:false
+
     signal send (string notice)
     signal navigateTo(string link)
 
@@ -195,9 +197,11 @@ BackgroundItem {
         }
         onLinkActivated: {
             var test = link.split("/")
-            console.log(link)
-            console.log(JSON.stringify(test))
-            console.log(JSON.stringify(test.length))
+            if (debug) {
+                console.log(link)
+                console.log(JSON.stringify(test))
+                console.log(JSON.stringify(test.length))
+            }
             if (test.length === 5 && (test[3] === "tags" || test[3] === "tag") ) {
                 pageStack.pop(pageStack.find(function(page) {
                     var check = page.isFirstPage === true;
@@ -447,11 +451,11 @@ BackgroundItem {
     }
 
     onPressAndHold: {
-        console.log(JSON.stringify(mdl.get(index)))
+        if (debug) console.log(JSON.stringify(mdl.get(index)))
         mnu.open(delegate)
     }
 
     onDoubleClicked: {
-        console.log("double click")
+        if (debug) console.log("double click")
     }
 }

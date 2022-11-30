@@ -7,6 +7,7 @@ import "."
 SilicaListView {
     id: myList
 
+    property bool debug:false
     property string type
     property string title
     property string description
@@ -25,7 +26,7 @@ SilicaListView {
 
     signal notify (string what, int num)
     onNotify: {
-        console.log(what + " - " + num)
+        if(debug) console.log(what + " - " + num)
     }
     signal openDrawer (bool setDrawer)
     onOpenDrawer: {
@@ -33,7 +34,7 @@ SilicaListView {
     }
     signal send (string notice)
     onSend: {
-        console.log("LIST send signal emitted with notice: " + notice)
+        if (debug) console.log("LIST send signal emitted with notice: " + notice)
     }
 
     header: PageHeader {
@@ -178,7 +179,7 @@ SilicaListView {
     Timer {
         triggeredOnStart: false; interval: 5*60*1000; running: true; repeat: true
         onTriggered: {
-            console.log(title + ' ' +Date().toString())
+            if(debug) console.log(title + ' ' +Date().toString())
             loadData("prepend")
         }
     }
@@ -204,7 +205,7 @@ SilicaListView {
             'conf'      : Logic.conf
         }
 
-        console.log(JSON.stringify(msg))
+        if (debug) console.log(JSON.stringify(msg))
         if (type !== "")
             worker.sendMessage(msg)
     }

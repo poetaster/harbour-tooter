@@ -9,6 +9,7 @@ FullscreenContentPage {
     property string type: ""
     property string previewURL: ""
     property string mediaURL: ""
+    property string url: ""
 
     allowedOrientations: Orientation.All
     Component.onCompleted: function() {
@@ -18,6 +19,13 @@ FullscreenContentPage {
         if (type != 'gifv' && type != 'video') {
             imagePreview.source = mediaURL
             imageFlickable.visible = true
+        } else if( type == 'audio'){
+            video.source = url
+            videoFlickable.visible = true
+            playerIcon.visible = true
+            playerProgress.visible = true
+            video.play()
+            hideTimer.start()
         } else {
             video.source = mediaURL
             video.fillMode = VideoOutput.PreserveAspectFit

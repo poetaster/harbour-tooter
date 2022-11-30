@@ -9,6 +9,7 @@ Item {
     property string type : ""
     property string previewURL: ""
     property string mediaURL: ""
+    property string url: ""
 
     Rectangle {
         opacity: 0.4
@@ -31,13 +32,36 @@ Item {
         source: "image://theme/icon-m-file-video?"
         anchors.centerIn: parent
     }
-
-    Image {
+    Text {
+        anchors{
+            topMargin: 10
+        }
+        id: audioUrl
         visible: type == 'audio'
-        //opacity: img.status === Image.Ready ? 0.0 : 1.0
+        text: "<a href='" + url + "'>" + 'Audio file' + '</a>'
+        font.pixelSize: Theme.fontSizeLarge
+    }
+
+
+    //Image {
+    MediaItem {
+        id: audioContent
+        visible: type == 'audio'
+        opacity: img.status === Image.Ready ? 0.0 : 1.0
         Behavior on opacity { FadeAnimator {} }
-        source: "image://theme/icon-m-file-audio?"
+        mimeType: 'audio/mp3'
+        url: url
+        //source: "image://theme/icon-m-file-audio?"
         anchors.centerIn: parent
+        /*MouseArea {
+            anchors.fill: parent
+            onClicked: {
+                pageStack.push(Qt.resolvedUrl("./MediaFullScreen.qml"), {
+                                   "url": url,
+                                   "type": type
+                               })
+            }
+        }*/
     }
 
     Rectangle {
@@ -107,6 +131,20 @@ Item {
             MouseArea {
                 anchors.fill: parent
                 onClicked: parent.visible = false
+            }
+        }
+        IconButton {
+            id: mediaDlBtn
+            icon.source: "image://theme/icon-m-cloud-download"
+            anchors {
+                right: parent.right
+                rightMargin: Theme.horizontalPageMargin
+                bottom: parent.bottom
+                bottomMargin: Theme.horizontalPageMargin
+            }
+            onClicked: {
+                var filename = url.split("/")
+                FileDownloader.downloadFile(url, filename[filename.length-1])
             }
         }
     }

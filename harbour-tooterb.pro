@@ -68,6 +68,7 @@ DISTFILES += qml/harbour-tooterb.qml \
     qml/pages/components/MyList.qml \
     qml/pages/components/ProfileHeader.qml \
     qml/pages/components/MediaBlock.qml \
+    qml/pages/components/MediaItem.qml \
     qml/cover/CoverPage.qml \
     qml/pages/MainPage.qml \
     qml/pages/LoginPage.qml \

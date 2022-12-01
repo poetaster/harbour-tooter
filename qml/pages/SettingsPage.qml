@@ -153,6 +153,12 @@ Page {
                             mastodon: "molan@fosstodon.org"
                             mail: ""
                         }
+                        ListElement {
+                            name: "poetaster"
+                            desc: qsTr("Development")
+                            mastodon: "postaster@mastodon.gamedev.place"
+                            mail: "blueprint@poetaster.de"
+                        }
 
                         ListElement {
                             name: "Miodrag Nikolić"

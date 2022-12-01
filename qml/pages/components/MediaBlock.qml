@@ -10,11 +10,12 @@ Item {
     property double wRatio : 16/9
     property double hRatio : 9/16
 
-    property bool debug: true
+    property bool debug: false
     width: width
     height: height
     Component.onCompleted: {
-        console.log("MB: " + JSON.stringify(model.get(0)))
+        if(debug) console.log("MB: " + JSON.stringify(model.get(0)))
+
         if (model && model.count && model.get(0).type === "video") {
             //console.log("Mediablock")
             //console.log(JSON.stringify(model.get(0).type))

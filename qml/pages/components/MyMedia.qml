@@ -1,6 +1,6 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
-import QtMultimedia 5.0
+import QtMultimedia 5.6
 
 
 Item {
@@ -32,7 +32,8 @@ Item {
         source: "image://theme/icon-m-file-video?"
         anchors.centerIn: parent
     }
-    Text {
+
+    /*Text {
         anchors{
             topMargin: 10
         }
@@ -40,28 +41,29 @@ Item {
         visible: type == 'audio'
         text: "<a href='" + url + "'>" + 'Audio file' + '</a>'
         font.pixelSize: Theme.fontSizeLarge
-    }
+    }*/
 
 
-    //Image {
     MediaItem {
         id: audioContent
         visible: type == 'audio'
         opacity: img.status === Image.Ready ? 0.0 : 1.0
         Behavior on opacity { FadeAnimator {} }
         mimeType: 'audio/mp3'
-        url: url
+        url: mediaURL
+        mediaUrl: mediaURL
         //source: "image://theme/icon-m-file-audio?"
         anchors.centerIn: parent
         /*MouseArea {
             anchors.fill: parent
             onClicked: {
-                pageStack.push(Qt.resolvedUrl("./MediaFullScreen.qml"), {
+                pageStack.push(Qt.resolvedUrl("./MediaItem.qml"), {
                                    "url": url,
-                                   "type": type
+                                   "type": type,
+                                   "mimeType": type
                                })
             }
-        }*/
+        } */
     }
 
     Rectangle {
@@ -91,6 +93,7 @@ Item {
 
         MouseArea {
             anchors.fill: parent
+            visible: type != 'audio'
             onClicked: {
                 pageStack.push(Qt.resolvedUrl("./MediaFullScreen.qml"), {
                                    "previewURL": previewURL,
@@ -133,7 +136,7 @@ Item {
                 onClicked: parent.visible = false
             }
         }
-        IconButton {
+        /*IconButton {
             id: mediaDlBtn
             icon.source: "image://theme/icon-m-cloud-download"
             anchors {
@@ -146,6 +149,6 @@ Item {
                 var filename = url.split("/")
                 FileDownloader.downloadFile(url, filename[filename.length-1])
             }
-        }
+        }*/
     }
 }

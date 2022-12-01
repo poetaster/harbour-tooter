@@ -10,12 +10,15 @@ FullscreenContentPage {
     property string previewURL: ""
     property string mediaURL: ""
     property string url: ""
+    property bool debug: false
 
     allowedOrientations: Orientation.All
     Component.onCompleted: function() {
-        console.log(type)
-        console.log(previewURL)
-        console.log(mediaURL)
+        if (debug) {
+            console.log(type)
+            console.log(previewURL)
+            console.log(mediaURL)
+        }
         if (type != 'gifv' && type != 'video') {
             imagePreview.source = mediaURL
             imageFlickable.visible = true
@@ -58,18 +61,18 @@ FullscreenContentPage {
                 videoError.visible = true
             }
             onStatusChanged: {
-                console.log(status)
+                if(debug) console.log(status)
                 switch (status) {
                 case MediaPlayer.Loading:
-                    console.log("loading")
+                    if(debug) console.log("loading")
                     return;
                 case MediaPlayer.EndOfMedia:
-                    console.log("EndOfMedia")
+                    if (debug) console.log("EndOfMedia")
                     return;
                 }
             }
             onPlaybackStateChanged: {
-                console.log(playbackState)
+               if (debug) console.log(playbackState)
                 switch (playbackState) {
                 case MediaPlayer.PlayingState:
                     playerIcon.icon.source = "image://theme/icon-m-pause"

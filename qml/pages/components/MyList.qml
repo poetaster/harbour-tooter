@@ -7,7 +7,7 @@ import "."
 SilicaListView {
     id: myList
 
-    property bool debug:false
+    property bool debug: false
     property string type
     property string title
     property string description
@@ -164,7 +164,7 @@ SilicaListView {
         source: "../../lib/Worker.js"
         onMessage: {
             if (messageObject.error){
-                console.log(JSON.stringify(messageObject))
+                if (debug) console.log(JSON.stringify(messageObject))
             }
             if (messageObject.fireNotification && notifier){
                 Logic.notifier(messageObject.data)

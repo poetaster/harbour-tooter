@@ -375,6 +375,10 @@
         <source>to help with app translation to your language.</source>
         <translation>per ajudar a traduire l’aplicacion dins vòstra lenga.</translation>
     </message>
+    <message>
+        <source>Development</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>VisualContainer</name>

@@ -7,6 +7,7 @@ import "../lib/API.js" as Logic
 
 
 Page {
+     property bool debug: false
 
     // Python connections and signals, callable from QML side
     // This is not ideal but keeps the page from erroring out on redirect
@@ -17,13 +18,13 @@ Page {
             importModule('server', function () {});
 
               setHandler('finished', function(newvalue) {
-                  console.debug(newvalue)
+                  if(debug) console.debug(newvalue)
               });
             startDownload();
         }
         function startDownload() {
             call('server.downloader.serve', function() {});
-            console.debug("called")
+            if (debug) console.debug("called")
 
         }
    }
@@ -67,7 +68,7 @@ Page {
                                                   "https://github.com/poetaster/harbour-tooter#readme", //website on the login screen
                                                   function(data) {
 
-                                                      console.log(data)
+                                                      if (debug) console.log(data)
                                                       var conf = JSON.parse(data)
                                                       conf.instance = instance.text;
                                                       conf.login = false;
@@ -78,8 +79,8 @@ Page {
                                                         conf['mastodon_client_redirect_uri'] = data['mastodon_client_redirect_uri'];
                                                         delete Logic.conf;*/
                                                       Logic.conf = conf;
-                                                      console.log(JSON.stringify(conf))
-                                                      console.log(JSON.stringify(Logic.conf))
+                                                      if(debug) console.log(JSON.stringify(conf))
+                                                      if(debug) console.log(JSON.stringify(Logic.conf))
                                                       // we got our application
 
                                                       // our user to it!
@@ -88,7 +89,7 @@ Page {
                                                                                            "code", // oauth method
                                                                                            ["read", "write", "follow"] //scopes
                                                                                            );
-                                                      console.log(url)
+                                                      if(debug) console.log(url)
                                                       webView.url = url
                                                       webView.visible = true
                                                   }
@@ -128,8 +129,8 @@ Page {
         }
 
         onRecvAsyncMessage: {
-            console.log('async changed: ' + url)
-            console.debug(message)
+            if(debug) console.log('async changed: ' + url)
+            if(debug) console.debug(message)
             switch (message) {
             case "embed:contentOrientationChanged":
                 break
@@ -153,7 +154,7 @@ Page {
         }
 
         onLoadingChanged: {
-            console.log('loading changed: ' + url)
+            if(debug) console.log('loading changed: ' + url)
             if (
                     (url+"").substr(0, 38) === 'http://localhost:8000/index.html?code=' ||
                     (url+"").substr(0, 39) === 'https://localhost:8000/index.html?code='
@@ -165,7 +166,7 @@ Page {
 
                 var authCode = vars["code"];
 
-                console.log(authCode)
+                if(debug) console.log(authCode)
 
                 Logic.api.getAccessTokenFromAuthCode(
                             Logic.conf["client_id"],
@@ -174,10 +175,10 @@ Page {
                             authCode,
                             function(data) {
                                 // AAAND DATA CONTAINS OUR TOKEN!
-                                console.log(data)
+                                if(debug) console.log(data)
                                 data = JSON.parse(data)
-                                console.log(JSON.stringify(data))
-                                console.log(JSON.stringify(data.access_token))
+                                if(debug) console.log(JSON.stringify(data))
+                                if(debug) console.log(JSON.stringify(data.access_token))
                                 Logic.conf["api_user_token"] = data.access_token
                                 Logic.conf["login"] = true;
                                 Logic.api.setConfig("api_user_token", Logic.conf["api_user_token"])

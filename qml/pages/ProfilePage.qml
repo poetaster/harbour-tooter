@@ -29,12 +29,13 @@ Page {
     property bool muting: false
     property bool domain_blocking: false
     property date created_at
+    property bool debug: false
 
     WorkerScript {
         id: worker
         source: "../lib/Worker.js"
         onMessage: {
-            console.log(JSON.stringify(messageObject))
+            if (debug) console.log(JSON.stringify(messageObject))
             if(messageObject.action.indexOf("accounts/search") > -1 ){
                 user_id = messageObject.data.id
                 followers_count = messageObject.data.followers_count
@@ -54,7 +55,7 @@ Page {
             }
 
             if(messageObject.action === "accounts/relationships/"){
-                console.log(JSON.stringify(messageObject))
+                if (debug) console.log(JSON.stringify(messageObject))
                 following = messageObject.data.following
                 requested = messageObject.data.requested
                 followed_by = messageObject.data.followed_by
@@ -190,9 +191,9 @@ Page {
                             anchors.horizontalCenter: parent.horizontalCenter
                             onLinkActivated: {
                                 var test = link.split("/")
-                                console.log(link)
-                                console.log(JSON.stringify(test))
-                                console.log(JSON.stringify(test.length))
+                                if (debug) console.log(link)
+                                if (debug) console.log(JSON.stringify(test))
+                                if (debug) console.log(JSON.stringify(test.length))
                                 if (test.length === 5 && (test[3] === "tags" || test[3] === "tag") ) {
                                     pageStack.pop(pageStack.find(function(page) {
                                         var check = page.isFirstPage === true;

@@ -135,23 +135,18 @@ Page {
             case "embed:contentOrientationChanged":
                 break
             case "webview:action":
-                if ( data.topic != lon ) {
-                    //webview.runJavaScript("return latlon('" + lat + "','" + lon + "')");
-                    //if (debug) console.debug(data.topic)
-                    //if (debug) console.debug(data.also)
-                    //if (debug) console.debug(data.src)
-                }
                 break
             }
         }
         visible: false
         //opacity: 0
-        anchors {
+        anchors.fill:  parent
+        /*{
             top: parent.top
             left: parent.left
             right: parent.right
             bottom: parent.bottom
-        }
+        }*/
 
         onLoadingChanged: {
             if(debug) console.log('loading changed: ' + url)

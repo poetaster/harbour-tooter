@@ -4,6 +4,7 @@ Qt.include("Mastodon.js")
 var loadImages = true;
 // used to dedupe on append/insert
 var knownIds = [];
+var max_id ;
 
 WorkerScript.onMessage = function(msg) {
 /*
@@ -13,10 +14,10 @@ WorkerScript.onMessage = function(msg) {
     console.log("Conf > " + JSON.stringify(msg.conf))
     console.log("Params > " + JSON.stringify(msg.params))
 */
+    // this is not elegant. it's max_id and ids from MyList
     if (msg.params[1]) {
-        // console.log(JSON.stringify(msg.params[1]["data"]))
+        max_id = msg.params[0]["data"]
         knownIds = msg.params[1]["data"]
-        //console.log(knownIds[0])
     }
 
     /** order notifications in ASC order */
@@ -29,7 +30,7 @@ WorkerScript.onMessage = function(msg) {
 
     /** Logged-in status */
     if (!msg.conf || !msg.conf.login) {
-        console.log("Not loggedin")
+        //console.log("Not loggedin")
         return;
     }
 
@@ -42,7 +43,7 @@ WorkerScript.onMessage = function(msg) {
     if (msg.method === "POST"){
         API.post(msg.action, msg.params, function(data) {
             if (msg.bgAction){
-                console.log(JSON.stringify(data))
+                //console.log(JSON.stringify(data))
             } else if (msg.action === "statuses") {
                 // status posted
                 if(msg.model){
@@ -80,7 +81,7 @@ WorkerScript.onMessage = function(msg) {
 
                 } else if(msg.action === "notifications") {
                     // notification
-                    console.log("Get notification list")
+                    //console.log("Get notification list")
                     //console.log(JSON.stringify(data[i]))
                     item = parseNotification(data[i]);
                     items.push(item);
@@ -117,7 +118,7 @@ WorkerScript.onMessage = function(msg) {
                     items = [];
 
                 } else if (data[i].hasOwnProperty("content")){
-                    console.log("Get Toot")
+                    //console.log("Get Toot")
                     item = parseToot(data[i]);
                     item['id'] = item['status_id']
                     items.push(item);
@@ -143,29 +144,27 @@ WorkerScript.onMessage = function(msg) {
 function addDataToModel (model, mode, items) {
 
     var length = items.length;
+    console.log("Fetched > " +length + " in " + mode)
     var i
-    var inti = 0
-    console.log("Fetched > " +length)
-
     if (mode === "append") {
-        for(i = length-1; i >= 0 ; i--) {
-            if ( knownIds.indexOf( items[i]["id"]) === -1) {
-                model.append(items[i])
-                inti++
-            }
+        for(i = 0; i <= length-1; i++) {
+           if ( knownIds.indexOf( items[i]["id"]) === -1) {
+                console.log("max: " + max_id + " i: " +  items[i]["id"] + " known: " +  knownIds[0])
+                if ( items[i]["id"] < max_id && items[i]["id"] < knownIds[0]) {
+                    model.append(items[i])
+                } else  {
+                    model.insert(0,items[i])
+                }
+           }
         }
-        // don't sync unless we have updates
-        if (inti > 0 ) model.sync()
-
     } else if (mode === "prepend") {
         for(i = length-1; i >= 0 ; i--) {
             if ( knownIds.indexOf( items[i]["id"]) === -1) {
-                inti++
                 model.insert(0,items[i])
             }
         }
-        if (inti > 0 ) model.sync()
     }
+    model.sync()
 }
 function findDuplicate(arr,val) {
         for(var i=0; i < arr.length; i++){

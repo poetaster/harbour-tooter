@@ -12,7 +12,6 @@ SilicaListView {
     property string title
     property string description
     property ListModel mdl: []
-    property ListModel tempMdl: []
     property variant params: []
     property var locale: Qt.locale()
     property bool autoLoadMore: true
@@ -119,9 +118,9 @@ SilicaListView {
     }
 
     onCountChanged: {
-
+        if (debug) console.log("count changed on: " + title)
         //deDouble()
-        loadStarted = false
+        //loadStarted = false
 
         /*contentY = scrollOffset
         console.log("CountChanged!")*/
@@ -158,10 +157,8 @@ SilicaListView {
             scrollOffset = contentY
         }
         if(contentY+height > footerItem.y && !loadStarted && autoLoadMore) {
-            if (! deduping) {
                 loadData("append")
                 loadStarted = true
-            }
         }
     }
 
@@ -175,21 +172,25 @@ SilicaListView {
             //if (debug) console.log(JSON.stringify(messageObject))
             if (messageObject.error){
                 if (debug) console.log(JSON.stringify(messageObject))
+            } else {
+                loadStarted = false
             }
+
             if (messageObject.fireNotification && notifier){
                 Logic.notifier(messageObject.data)
             }
             // temporary debugging measure
             // should be resolved within loadData()
             if (messageObject.updatedAll){
-                //if (model.count > 30) deDouble()
+                if (model.count > 30) deDouble()
+                loadStarted = false
             }
         }
     }
 
     Component.onCompleted: {
         loadData("prepend")
-        if (debug) console.log("MyList completed")
+        if (debug) console.log("MyList completed: " + title)
     }
 
     Timer {
@@ -221,9 +222,9 @@ SilicaListView {
         for(i = 0 ; i < model.count ; i++) {
             ids.push(model.get(i).id)
             uniqueItems =  removeDuplicates(ids)
-            //if (debug) console.log(model.get(i).id)
-        }
 
+        }
+        //if (debug) console.log(ids)
         if (debug) console.log(uniqueItems.length)
 
         if ( uniqueItems.length < model.count) {
@@ -246,6 +247,7 @@ SilicaListView {
 
         deduping = false
     }
+
     /* utility function because this version of qt doesn't support modern javascript
      *
      */
@@ -265,7 +267,7 @@ SilicaListView {
 
     function loadData(mode) {
 
-        if (debug) console.log('loadData called')
+        if (debug) console.log('loadData called: ' + mode + " in " + title)
         // since the worker adds Duplicates
         // we pass in current ids in the model
         // and skip those on insert append in the worker
@@ -290,7 +292,7 @@ SilicaListView {
         if (model.count) {
             p.push({name:'ids', data: uniqueIds})
         }
-        if (debug) console.log(JSON.stringify(uniqueIds))
+        //if (debug) console.log(JSON.stringify(uniqueIds))
 
         var msg = {
             'action'    : type,
@@ -305,3 +307,4 @@ SilicaListView {
             worker.sendMessage(msg)
     }
 }
+

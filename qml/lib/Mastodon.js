@@ -46,10 +46,11 @@ var mastodonAPI = function(config) {
                     }
                 }
             }
+            queryStringAppend += "limit=12"
             // ajax function
             var http = new XMLHttpRequest()
             var url = apiBase + endpoint;
-            console.log(queryStringAppend)
+            console.log(apiBase + endpoint + queryStringAppend)
             http.open("GET", apiBase + endpoint + queryStringAppend, true);
 
             // Send the proper header information along with the request

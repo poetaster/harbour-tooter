@@ -213,6 +213,10 @@
         <source>Nothing found</source>
         <translation>Nic nie znaleziono</translation>
     </message>
+    <message>
+        <source>Clear</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ProfileHeader</name>

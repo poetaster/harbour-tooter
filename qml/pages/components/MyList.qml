@@ -78,7 +78,12 @@ SilicaListView {
                 pageStack.push(Qt.resolvedUrl("../SettingsPage.qml"), {})
             }
         }
-
+        MenuItem {
+            text: qsTr("Clear")
+            onClicked: {
+                clearLast()
+            }
+        }
         MenuItem {
             text: qsTr("New Toot")
             visible: !profilePage
@@ -156,9 +161,9 @@ SilicaListView {
             openDrawer(contentY - scrollOffset  > 0 ? false : true )
             scrollOffset = contentY
         }
-        if(contentY+height > footerItem.y && !loadStarted && autoLoadMore) {
-                loadData("append")
+        if(contentY+height > footerItem.y && !deduping && !loadStarted && autoLoadMore) {
                 loadStarted = true
+                loadData("append")
         }
     }
 
@@ -182,7 +187,8 @@ SilicaListView {
             // temporary debugging measure
             // should be resolved within loadData()
             if (messageObject.updatedAll){
-                if (model.count > 30) deDouble()
+                if (debug) console.log("Got em all.")
+                if (model.count > 20) deDouble()
                 loadStarted = false
             }
         }
@@ -194,15 +200,29 @@ SilicaListView {
     }
 
     Timer {
-        triggeredOnStart: false; interval: 5*60*1000; running: true; repeat: true
+        triggeredOnStart: false;
+        interval: {
+            var listInterval = Math.floor(Math.random() * 60)*10*1000
+            if( title === "Home" ) listInterval = 20*60*1000
+            if( title === "Local" ) listInterval = 10*60*1000
+            if( title === "Federated" ) listInterval = 30*60*1000
+            if( title === "Bookmarks" ) listInterval = 40*60*1000
+            if( title === "Notifications" ) listInterval = 12*60*1000
+
+            if(debug) console.log(title + ' interval: ' + listInterval)
+            return listInterval
+            }
+        running: true;
+        repeat: true
         onTriggered: {
-            if(debug) console.log(title + ' ' +Date().toString())
+            if(debug) console.log(title + ' ' + Date().toString())
             // let's avoid pre and appending at the same time!
             if ( ! loadStarted && ! deduping ) loadData("prepend")
         }
     }
 
     /*
+    * NOT actually doing deduping :)
     * utility called on updates to model to remove remove Duplicates:
     * the dupes are probably a result of improper syncing of the models
     * this is temporary and can probaly be removed because of the
@@ -226,8 +246,16 @@ SilicaListView {
         }
         //if (debug) console.log(ids)
         if (debug) console.log(uniqueItems.length)
+        if (debug) console.log( "maxminusone?:" + model.get(model.count - 2).id )
+        if (debug) console.log( "max?:" + model.get(model.count - 1).id )
 
         if ( uniqueItems.length < model.count) {
+
+            // it seems that only the last one, is an issue
+            /*if (model.get(model.count - 1).id > model.get(model.count - 2).id){
+                model.remove(model.count - 1,1)
+            }*/
+
             if (debug) console.log(model.count)
             for(j = 0; j <= uniqueItems.length - 1 ; j++) {
                 seenIt = 0
@@ -261,6 +289,23 @@ SilicaListView {
             return unique;
     }
 
+
+    /* utility to clear last, debugging
+     *
+     */
+
+    function clearLast() {
+        var msg = {
+            'action'    : "CLEAR",
+            'model'     : model,
+            'conf'      : Logic.conf
+        }
+
+        //if (debug) console.log(JSON.stringify(msg))
+        if (model.count)
+            worker.sendMessage(msg)
+    }
+
     /* Principle load function, uses websocket's worker.js
     *
     */
@@ -288,11 +333,15 @@ SilicaListView {
         if (mode === "prepend" && model.count) {
             p.push({name:'since_id', data: model.get(0).id})
         }
-
+        //if (debug) console.log(JSON.stringify(uniqueIds))
+        if(title === "Local") {
+            type = "timelines/public"
+            p.push({name:'local', data: "true"})
+        }
+        // we push the ids via params which we remove in the WorkerScript
         if (model.count) {
             p.push({name:'ids', data: uniqueIds})
         }
-        //if (debug) console.log(JSON.stringify(uniqueIds))
 
         var msg = {
             'action'    : type,

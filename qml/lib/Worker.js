@@ -5,6 +5,7 @@ var loadImages = true;
 // used to dedupe on append/insert
 var knownIds = [];
 var max_id ;
+var since_id;
 
 WorkerScript.onMessage = function(msg) {
 /*
@@ -16,9 +17,22 @@ WorkerScript.onMessage = function(msg) {
 */
     // this is not elegant. it's max_id and ids from MyList
     if (msg.params[1]) {
-        max_id = msg.params[0]["data"]
-        knownIds = msg.params[1]["data"]
+        if ( msg.params[0]["name"] === "max_id" ) {
+            max_id = msg.params[0]["data"]
+        } else {
+            since_id = msg.params[0]["data"]
+        }
+        // we don't want to pass it onto the backend
+        if ( msg.params[1]["name"] === "ids" ) {
+            knownIds = msg.params[1]["data"]
+            msg.params.pop()
+        }
+        if ( msg.params[2]["name"] === "ids" ) {
+            knownIds = msg.params[2]["data"]
+            msg.params.pop()
+        }
     }
+
 
     /** order notifications in ASC order */
     function orderNotifications(items){
@@ -130,30 +144,31 @@ WorkerScript.onMessage = function(msg) {
             }
         }
 
-        console.log("Get em all?")
         if(msg.model && items.length) {
             addDataToModel(msg.model, msg.mode, items)
-            WorkerScript.sendMessage({ 'updatedAll': true})
         }
         /*if(msg.action === "notifications")
             orderNotifications(items)*/
+        console.log("Get em all?")
+        WorkerScript.sendMessage({ 'updatedAll': true})
     });
 }
 
 //WorkerScript.sendMessage({ 'notifyNewItems': length - i })
+
 function addDataToModel (model, mode, items) {
 
     var length = items.length;
     console.log("Fetched > " +length + " in " + mode)
     var i
     if (mode === "append") {
+
         for(i = 0; i <= length-1; i++) {
            if ( knownIds.indexOf( items[i]["id"]) === -1) {
-                console.log("max: " + max_id + " i: " +  items[i]["id"] + " known: " +  knownIds[0])
-                if ( items[i]["id"] < max_id && items[i]["id"] < knownIds[0]) {
+                if ( items[i]["id"] < max_id ) {
                     model.append(items[i])
-                } else  {
-                    model.insert(0,items[i])
+                } else {
+                    console.log("max: " + max_id + " i: " +  items[i]["id"] + " known: " +  knownIds[knownIds.length-1])
                 }
            }
         }

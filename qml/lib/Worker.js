@@ -162,7 +162,8 @@ function addDataToModel (model, mode, items) {
     console.log("Fetched > " +length + " in " + mode)
     var i
     if (mode === "append") {
-
+        model.append(items)
+        /*
         for(i = 0; i <= length-1; i++) {
            if ( knownIds.indexOf( items[i]["id"]) === -1) {
                 if ( items[i]["id"] < max_id ) {
@@ -172,6 +173,7 @@ function addDataToModel (model, mode, items) {
                 }
            }
         }
+        */
     } else if (mode === "prepend") {
         for(i = length-1; i >= 0 ; i--) {
             if ( knownIds.indexOf( items[i]["id"]) === -1) {

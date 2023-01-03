@@ -15,6 +15,7 @@ WorkerScript.onMessage = function(msg) {
     console.log("Conf > " + JSON.stringify(msg.conf))
     console.log("Params > " + JSON.stringify(msg.params))
 */
+
     // this is not elegant. it's max_id and ids from MyList
     if (msg.params[1]) {
         if ( msg.params[0]["name"] === "max_id" ) {
@@ -54,6 +55,7 @@ WorkerScript.onMessage = function(msg) {
 
     /** POST statuses */
     var API = mastodonAPI({ instance: msg.conf.instance, api_user_token: msg.conf.api_user_token});
+
     if (msg.method === "POST"){
         API.post(msg.action, msg.params, function(data) {
             if (msg.bgAction){
@@ -78,10 +80,10 @@ WorkerScript.onMessage = function(msg) {
         return;
     }
 
-    API.get(msg.action, msg.params,  function(data) {
-        var items = [];
+    API.get(msg.action, msg.params, function(data) {
 
-        //console.log(msg.ids)
+        var items = [];
+        //console.log(data)
 
         for (var i in data) {
             var item;
@@ -146,9 +148,14 @@ WorkerScript.onMessage = function(msg) {
 
         if(msg.model && items.length) {
             addDataToModel(msg.model, msg.mode, items)
+        } else {
+	   // for some reason, home chokes.
+	   console.log( "items.length = " + items.length)
         }
+
         /*if(msg.action === "notifications")
             orderNotifications(items)*/
+
         console.log("Get em all?")
         WorkerScript.sendMessage({ 'updatedAll': true})
     });
@@ -160,25 +167,25 @@ function addDataToModel (model, mode, items) {
 
     var length = items.length;
     console.log("Fetched > " +length + " in " + mode)
+    console.log("ids > " + knownIds.length )
     var i
     if (mode === "append") {
-        model.append(items)
-        /*
         for(i = 0; i <= length-1; i++) {
            if ( knownIds.indexOf( items[i]["id"]) === -1) {
-                if ( items[i]["id"] < max_id ) {
-                    model.append(items[i])
-                } else {
-                    console.log("max: " + max_id + " i: " +  items[i]["id"] + " known: " +  knownIds[knownIds.length-1])
-                }
-           }
+                model.append(items[i])
+           } else {
+		console.log("nope: " + items[i]["id"] )
+	   }
         }
-        */
+        
+        //model.append(items)
+
     } else if (mode === "prepend") {
         for(i = length-1; i >= 0 ; i--) {
-            if ( knownIds.indexOf( items[i]["id"]) === -1) {
+            model.insert(0,items[i])
+            /*if ( knownIds.indexOf( items[i]["id"]) === -1) {
                 model.insert(0,items[i])
-            }
+            }*/
         }
     }
     model.sync()

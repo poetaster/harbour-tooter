@@ -7,7 +7,7 @@ import "."
 SilicaListView {
     id: myList
 
-    property bool debug: false
+    property bool debug: true
     property string type
     property string title
     property string description
@@ -76,12 +76,6 @@ SilicaListView {
             visible: !profilePage
             onClicked: {
                 pageStack.push(Qt.resolvedUrl("../SettingsPage.qml"), {})
-            }
-        }
-        MenuItem {
-            text: qsTr("Clear")
-            onClicked: {
-                clearLast()
             }
         }
         MenuItem {
@@ -173,11 +167,10 @@ SilicaListView {
         id: worker
         source: "../../lib/Worker.js"
         onMessage: {
-            //if (debug) console.log("worker says")
-            //if (debug) console.log(JSON.stringify(messageObject))
             if (messageObject.error){
                 if (debug) console.log(JSON.stringify(messageObject))
             } else {
+                if (debug) console.log(JSON.stringify(messageObject))
                 loadStarted = false
             }
 
@@ -188,7 +181,7 @@ SilicaListView {
             // should be resolved within loadData()
             if (messageObject.updatedAll){
                 if (debug) console.log("Got em all.")
-                if (model.count > 20) deDouble()
+                if (model.count > 12) deDouble()
                 loadStarted = false
             }
         }
@@ -289,22 +282,6 @@ SilicaListView {
             return unique;
     }
 
-
-    /* utility to clear last, debugging
-     *
-     */
-
-    function clearLast() {
-        var msg = {
-            'action'    : "CLEAR",
-            'model'     : model,
-            'conf'      : Logic.conf
-        }
-
-        //if (debug) console.log(JSON.stringify(msg))
-        if (model.count)
-            worker.sendMessage(msg)
-    }
 
     /* Principle load function, uses websocket's worker.js
     *

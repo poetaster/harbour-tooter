@@ -18,6 +18,7 @@ SilicaListView {
     property bool loadStarted: false
     property int scrollOffset
     property string action: ""
+    property string linkprev: ""
     property variant vars
     property variant conf
     property bool notifier: false
@@ -177,13 +178,20 @@ SilicaListView {
             if (messageObject.fireNotification && notifier){
                 Logic.notifier(messageObject.data)
             }
+
             // temporary debugging measure
-            // should be resolved within loadData()
             if (messageObject.updatedAll){
                 if (debug) console.log("Got em all.")
-                if (model.count > 12) deDouble()
+                if (model.count > 20) deDouble()
                 loadStarted = false
             }
+	    if (messageObject.Header) {
+                //if (debug) console.log(JSON.stringify(messageObject))
+		var matches = /max_id=([0-9]+)/.exec(messageObject.Header);
+		var link = matches[0].split("=")[1];
+                if (debug) console.log("link: " + link)
+		linkprev = link
+	    }	
         }
     }
 
@@ -195,6 +203,8 @@ SilicaListView {
     Timer {
         triggeredOnStart: false;
         interval: {
+
+	    /* this is hamfisted */
             var listInterval = Math.floor(Math.random() * 60)*10*1000
             if( title === "Home" ) listInterval = 20*60*1000
             if( title === "Local" ) listInterval = 10*60*1000
@@ -203,6 +213,7 @@ SilicaListView {
             if( title === "Notifications" ) listInterval = 12*60*1000
 
             if(debug) console.log(title + ' interval: ' + listInterval)
+
             return listInterval
             }
         running: true;
@@ -305,7 +316,12 @@ SilicaListView {
                 p.push(params[i])
         }
         if (mode === "append" && model.count) {
-            p.push({name: 'max_id', data: model.get(model.count-1).id})
+	    // for some types, max_id is obtained from link header
+	    if ( linkprev === "" ) {
+                p.push({name: 'max_id', data: model.get(model.count-1).id})
+	    } else {
+		p.push({name: 'max_id', data: linkprev})
+	    }
         }
         if (mode === "prepend" && model.count) {
             p.push({name:'since_id', data: model.get(0).id})

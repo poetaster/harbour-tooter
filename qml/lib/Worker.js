@@ -17,6 +17,7 @@ WorkerScript.onMessage = function(msg) {
 */
 
     // this is not elegant. it's max_id and ids from MyList
+
     if (msg.params[1]) {
         if ( msg.params[0]["name"] === "max_id" ) {
             max_id = msg.params[0]["data"]
@@ -53,8 +54,23 @@ WorkerScript.onMessage = function(msg) {
     if (typeof msg.conf['loadImages'] !== "undefined")
         loadImages = msg.conf['loadImages']
 
-    /** POST statuses */
+
+    /* init API statuses */
+
     var API = mastodonAPI({ instance: msg.conf.instance, api_user_token: msg.conf.api_user_token});
+
+    /* for some actions 
+    * we have to retrieve the Link  header
+    */
+
+    if (msg.action === "bookmarks"){
+        API.getLink(msg.action, msg.params, function(data) {
+            console.log(JSON.stringify(data))
+            WorkerScript.sendMessage({ 'Header': data })
+        });
+    }
+
+    /** POST statuses */
 
     if (msg.method === "POST"){
         API.post(msg.action, msg.params, function(data) {
@@ -101,7 +117,6 @@ WorkerScript.onMessage = function(msg) {
                     //console.log(JSON.stringify(data[i]))
                     item = parseNotification(data[i]);
                     items.push(item);
-
 
                 } else if(msg.action.indexOf("statuses") >-1 && msg.action.indexOf("context") >-1 && i === "ancestors") {
                     // status ancestors toots - conversation
@@ -157,6 +172,7 @@ WorkerScript.onMessage = function(msg) {
             orderNotifications(items)*/
 
         console.log("Get em all?")
+
         WorkerScript.sendMessage({ 'updatedAll': true})
     });
 }
@@ -166,9 +182,12 @@ WorkerScript.onMessage = function(msg) {
 function addDataToModel (model, mode, items) {
 
     var length = items.length;
+
     console.log("Fetched > " +length + " in " + mode)
     console.log("ids > " + knownIds.length )
+
     var i
+
     if (mode === "append") {
         for(i = 0; i <= length-1; i++) {
            if ( knownIds.indexOf( items[i]["id"]) === -1) {
@@ -190,6 +209,7 @@ function addDataToModel (model, mode, items) {
     }
     model.sync()
 }
+
 function findDuplicate(arr,val) {
         for(var i=0; i < arr.length; i++){
             if( arr.indexOf(val) === -1 )  {
@@ -198,7 +218,8 @@ function findDuplicate(arr,val) {
         }
         return false;
 }
-/** Function: Get Account Data */
+
+/* Function: Get Account Data */
 function parseAccounts(collection, prefix, data) {
 
     var res = collection;

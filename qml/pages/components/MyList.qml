@@ -7,7 +7,7 @@ import "."
 SilicaListView {
     id: myList
 
-    property bool debug: true
+    property bool debug: false
     property string type
     property string title
     property string description

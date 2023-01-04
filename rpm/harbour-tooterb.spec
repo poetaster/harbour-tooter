@@ -13,7 +13,7 @@ Name:       harbour-tooterb
 %{!?qtc_make:%define qtc_make make}
 %{?qtc_builddir:%define _builddir %qtc_builddir}
 Summary:    Tooter β
-Version:    1.1.1
+Version:    1.1.2
 Release:    1
 Group:      Qt/Qt
 License:    GPLv3
@@ -22,6 +22,8 @@ Source0:    %{name}-%{version}.tar.bz2
 Requires:   sailfishsilica-qt5 >= 0.10.9
 Requires:   nemo-qml-plugin-configuration-qt5
 Requires:   nemo-qml-plugin-notifications-qt5
+Requires:   pyotherside-qml-plugin-python3-qt5
+
 BuildRequires:  qt5-qttools-linguist
 BuildRequires:  pkgconfig(sailfishapp) >= 1.0.2
 BuildRequires:  pkgconfig(Qt5Core)

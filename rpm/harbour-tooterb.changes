@@ -1,3 +1,43 @@
+* Thu Jan 4 2023 Mark Washeim <blueprint@poetaster.de> 1.1.2
+- Add conditional append all for search when no knownIds  Workers.js
+- Add linkprev/next for bookmarks (and follows, etc) MyList
+- getLink method in Mastodon.js HEAD requests for Link
+
+* Fri Dec 23 2022 Mark Washeim <blueprint@poetaster.de> 1.1.1
+- This is an interim release that should not have been released
+
+* Fri Dec 2 2022 Mark Washeim <blueprint@poetaster.de> 1.1.0
+- Added some more debug flags to stop spewing the console.
+- Added self to credits.
+- Added MediaItem display for audio and Integrated MediaItem into MediaBlock/MyMedia elements.
+- Add additional; media element for audio.
+- Merge pull request #16 from cintema/patch-2
+- Merge pull request #15 from cintema/patch-1
+- Update harbour-tooterb.spec
+- Update LoginPage.qml
+- Merge pull request #5 from eson57/patch-2
+- Update harbour-tooterb-sv.ts
+
+* Wed Nov 16 2022 Mark Washeim <blueprint@poetaster.de> 1.0.9
+- Forgot to remove the yaml from spec. duh.
+- Boost release.
+- Update translations, partially for new bookmarks view.
+- Remove yaml since it's just in the way.
+- Added navigation elements and model for bookmarks.
+
+* Mon Nov 14 2022 Mark Washeim <blueprint@poetaster.de> 1.0.8-3
+- Had neglected linguist include which is required for building on obs
+
+* Wed Nov 9 2022 Mark Washeim <blueprint@poetaster.de> 1.0.8-2
+- Added minimal info to spec/yaml to include a release in chum.
+- Merge pull request #100 from poetaster/master
+- Merge pull request #99 from juanro49/master
+- Fix reblog content view
+
+* Wed Nov 9 2022 Mark Washeim <blueprint@poetaster.de> 1.0.8
+- Add python server for callbacks
+- Add new WebView to better render callbacks
+
 *Sun Jul 12 2020 molan <mol_an@sunrise.ch> 1.0.7-0
 - Fix missing / wrong reblog and favourite counts in Retoots (issue #90)
 - Added full landscape support

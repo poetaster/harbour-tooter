@@ -18,7 +18,10 @@ SilicaListView {
     property bool loadStarted: false
     property int scrollOffset
     property string action: ""
+    // should consider better names or
+    // using min_ & max_id
     property string linkprev: ""
+    property string linknext: ""
     property variant vars
     property variant conf
     property bool notifier: false
@@ -172,7 +175,7 @@ SilicaListView {
                 if (debug) console.log(JSON.stringify(messageObject))
             } else {
                 if (debug) console.log(JSON.stringify(messageObject))
-                loadStarted = false
+                // loadStarted = false
             }
 
             if (messageObject.fireNotification && notifier){
@@ -185,13 +188,21 @@ SilicaListView {
                 if (model.count > 20) deDouble()
                 loadStarted = false
             }
-	    if (messageObject.Header) {
-                //if (debug) console.log(JSON.stringify(messageObject))
-		var matches = /max_id=([0-9]+)/.exec(messageObject.Header);
-		var link = matches[0].split("=")[1];
-                if (debug) console.log("link: " + link)
-		linkprev = link
-	    }	
+
+            // the api  is stupid
+            if (messageObject.LinkHeader) {
+                // <https://mastodon.gamedev.place/api/v1/bookmarks?max_id=11041>; rel=\"next\",
+                // <https://mastodon.gamedev.place/api/v1/bookmarks?min_id=14158>; rel=\"prev\""
+
+                var matches = /max_id=([0-9]+)/.exec(messageObject.LinkHeader);
+                var maxlink = matches[0].split("=")[1];
+                var matches = /min_id=([0-9]+)/.exec(messageObject.LinkHeader);
+                var minlink = matches[0].split("=")[1];
+                if (debug) console.log("maxlink: " + maxlink)
+                if (debug) console.log("minlink: " + minlink)
+                linkprev = maxlink
+                linknext = minlink
+            }
         }
     }
 
@@ -204,7 +215,10 @@ SilicaListView {
         triggeredOnStart: false;
         interval: {
 
-	    /* this is hamfisted */
+            /*
+            * Varied calls so that server isn't hit
+            * simultaenously ... this is hamfisted
+            */
             var listInterval = Math.floor(Math.random() * 60)*10*1000
             if( title === "Home" ) listInterval = 20*60*1000
             if( title === "Local" ) listInterval = 10*60*1000
@@ -250,8 +264,8 @@ SilicaListView {
         }
         //if (debug) console.log(ids)
         if (debug) console.log(uniqueItems.length)
-        if (debug) console.log( "maxminusone?:" + model.get(model.count - 2).id )
-        if (debug) console.log( "max?:" + model.get(model.count - 1).id )
+        if (debug) console.log( "max-one?:" + model.get(model.count - 2).id )
+        if (debug) console.log( "max:" + model.get(model.count - 1).id )
 
         if ( uniqueItems.length < model.count) {
 
@@ -315,17 +329,27 @@ SilicaListView {
             for(var i = 0; i<params.length; i++)
                 p.push(params[i])
         }
+
+        /*
+        * for some types, min_id, max_id
+        * is obtained from link header
+        */
+
         if (mode === "append" && model.count) {
-	    // for some types, max_id is obtained from link header
-	    if ( linkprev === "" ) {
+            if ( linkprev === "" ) {
                 p.push({name: 'max_id', data: model.get(model.count-1).id})
-	    } else {
-		p.push({name: 'max_id', data: linkprev})
-	    }
+            } else {
+                p.push({name: 'max_id', data: linkprev})
+            }
         }
         if (mode === "prepend" && model.count) {
-            p.push({name:'since_id', data: model.get(0).id})
+            if ( linknext === "" ) {
+                p.push({name:'since_id', data: model.get(0).id})
+            } else {
+                p.push({name: 'min_id', data: linknext})
+            }
         }
+
         //if (debug) console.log(JSON.stringify(uniqueIds))
         if(title === "Local") {
             type = "timelines/public"

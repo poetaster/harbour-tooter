@@ -17,7 +17,8 @@ var mastodonAPI = function(config) {
         },
 
 	/*
-	* function to retrieve the Link header 
+    * function to retrieve the Link header
+    * using HEAD, so bookmarks has head followed by GET
 	*/
 	
         getLink: function (endpoint) {

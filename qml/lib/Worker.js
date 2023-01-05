@@ -1,6 +1,6 @@
 Qt.include("Mastodon.js")
 
-
+var debug = true;
 var loadImages = true;
 // used to dedupe on append/insert
 var knownIds = [];
@@ -59,14 +59,16 @@ WorkerScript.onMessage = function(msg) {
 
     var API = mastodonAPI({ instance: msg.conf.instance, api_user_token: msg.conf.api_user_token});
 
-    /* for some actions 
+    /*
+    * HEAD call for some actions
     * we have to retrieve the Link  header
+    * this falls through and continues for GET
     */
 
     if (msg.action === "bookmarks"){
         API.getLink(msg.action, msg.params, function(data) {
-            console.log(JSON.stringify(data))
-            WorkerScript.sendMessage({ 'Header': data })
+            if (debug) console.log(JSON.stringify(data))
+            WorkerScript.sendMessage({ 'LinkHeader': data })
         });
     }
 
@@ -182,26 +184,27 @@ WorkerScript.onMessage = function(msg) {
 function addDataToModel (model, mode, items) {
 
     var length = items.length;
-
-    console.log("Fetched > " +length + " in " + mode)
-    console.log("ids > " + knownIds.length )
-
     var i
+
+    if (debug) console.log("Fetched > " +length + " in " + mode)
+    if (debug) console.log("ids > " + knownIds.length )
 
     if (mode === "append") {
         for(i = 0; i <= length-1; i++) {
            if ( knownIds.indexOf( items[i]["id"]) === -1) {
                 model.append(items[i])
            } else {
-		console.log("nope: " + items[i]["id"] )
-	   }
-        }
-        
-        //model.append(items)
+               console.log("nope: " + items[i]["id"] )
+          }
+       }
+       // search does not use ids
+       if ( knownIds.length < 1 ) model.append(items)
 
     } else if (mode === "prepend") {
         for(i = length-1; i >= 0 ; i--) {
+
             model.insert(0,items[i])
+
             /*if ( knownIds.indexOf( items[i]["id"]) === -1) {
                 model.insert(0,items[i])
             }*/

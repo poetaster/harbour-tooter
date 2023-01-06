@@ -1,12 +1,10 @@
 name: Build RPMs
 
 on:
-  push:
+  release:
+    types: [published]
     tags:
-      - 'v*'
-    branches:
-      - master
-  pull_request:
+      - '1.1*'
     branches:
       - master
   workflow_dispatch:

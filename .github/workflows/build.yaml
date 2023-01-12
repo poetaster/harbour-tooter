@@ -1,12 +1,8 @@
 name: Build RPMs
 
 on:
-  release:
-    types: [published]
-    tags:
-      - '1.1*'
-    branches:
-      - master
+  tags:
+    - '1.*'
   workflow_dispatch:
 
 env:

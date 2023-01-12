@@ -1,9 +1,9 @@
 name: Build RPMs
 
 on:
-  tags:
-    - '1.*'
-  workflow_dispatch:
+  push:
+    tags:
+      - "1.*"
 
 env:
   OS_VERSION: 4.4.0.68

@@ -149,12 +149,31 @@
         <source>New Toot</source>
         <translation>新嘟嘟</translation>
     </message>
+    <message>
+        <source>Bookmarks</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MediaFullScreen</name>
     <message>
         <source>Error loading</source>
         <translation>加载错误</translation>
+    </message>
+</context>
+<context>
+    <name>MediaItem</name>
+    <message>
+        <source>Image</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Video</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>PDF document</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -355,6 +374,10 @@
     <message>
         <source>to help with app translation to your language.</source>
         <translation>以帮助翻译软件为你使用的语言.</translation>
+    </message>
+    <message>
+        <source>Development</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

@@ -68,6 +68,7 @@ DISTFILES += qml/harbour-tooterb.qml \
     qml/pages/components/MyList.qml \
     qml/pages/components/ProfileHeader.qml \
     qml/pages/components/MediaBlock.qml \
+    qml/pages/components/MediaItem.qml \
     qml/cover/CoverPage.qml \
     qml/pages/MainPage.qml \
     qml/pages/LoginPage.qml \
@@ -87,7 +88,6 @@ DISTFILES += qml/harbour-tooterb.qml \
     rpm/harbour-tooterb.changes \
     rpm/harbour-tooterb.changes.run.in \
     rpm/harbour-tooterb.spec \
-    rpm/harbour-tooterb.yaml \
     translations/*.ts \
     harbour-tooterb.desktop
 

@@ -13,16 +13,18 @@ Name:       harbour-tooterb
 %{!?qtc_make:%define qtc_make make}
 %{?qtc_builddir:%define _builddir %qtc_builddir}
 Summary:    Tooter β
-Version:    1.0.7
-Release:    0
+Version:    1.1.3
+Release:    1
 Group:      Qt/Qt
-License:    LICENSE
-URL:        http://example.org/
+License:    GPLv3
+URL:        https://github.com/poetaster/harbour-tooter#readme
 Source0:    %{name}-%{version}.tar.bz2
-Source100:  harbour-tooterb.yaml
 Requires:   sailfishsilica-qt5 >= 0.10.9
 Requires:   nemo-qml-plugin-configuration-qt5
 Requires:   nemo-qml-plugin-notifications-qt5
+Requires:   pyotherside-qml-plugin-python3-qt5
+
+BuildRequires:  qt5-qttools-linguist
 BuildRequires:  pkgconfig(sailfishapp) >= 1.0.2
 BuildRequires:  pkgconfig(Qt5Core)
 BuildRequires:  pkgconfig(Qt5Qml)
@@ -36,6 +38,19 @@ BuildRequires:  desktop-file-utils
 %description
 Tooter Beta is a native client for Mastodon network instances.
 
+%if "%{?vendor}" == "chum"
+PackageName: Tooter Beta
+Type: desktop-application
+Categories:
+ - Network
+PackagerName: Mark Washeim (poetaster)
+Custom:
+ - Repo: https://github.com/molan-git/harbour-tooter
+ - PackagingRepo: https://github.com/poetaster/harbour-tooter
+Icon: https://raw.githubusercontent.com/poetaster/harbour-tooter/master/icons/256x256/harbour-tooterb.png
+Url:
+ - Bugtracker: https://github.com/poetaster/harbour-tooter/issues
+%endif
 
 %prep
 %setup -q -n %{name}-%{version}

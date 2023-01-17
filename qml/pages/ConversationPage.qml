@@ -8,6 +8,7 @@ import "./components/"
 Page {
     id: conversationPage
 
+    property bool debug: false
     property ListModel suggestedModel
     property ListModel mdl
     property int tootMaxChar: 500
@@ -25,9 +26,11 @@ Page {
     property string status_link:
         if (status_url === "") {
             var test = status_uri.split("/")
-            console.log(status_uri)
-            console.log(JSON.stringify(test))
-            console.log(JSON.stringify(test.length))
+            if (debug) {
+                console.log(status_uri)
+                console.log(JSON.stringify(test))
+                console.log(JSON.stringify(test.length))
+            }
             if (test.length === 8 && (test[7] === "activity")) {
                 var urialt = status_uri.replace("activity", "")
                 status_link = urialt
@@ -37,7 +40,7 @@ Page {
 
     allowedOrientations: Orientation.All
     onSuggestedUserChanged: {
-        console.log(suggestedUser)
+        //console.log(suggestedUser)
         suggestedModel = Qt.createQmlObject( 'import QtQuick 2.0; ListModel {   }', Qt.application, 'InternalQmlObject' )
         predictionList.visible = false
         if (suggestedUser.length > 0) {
@@ -67,7 +70,9 @@ Page {
     WorkerScript {
         id: worker
         source: "../lib/Worker.js"
-        onMessage: { console.log(JSON.stringify(messageObject)) }
+        onMessage: {
+            //console.log(JSON.stringify(messageObject))
+        }
     }
 
     SilicaListView {
@@ -98,7 +103,7 @@ Page {
             if (mdl)
                 for (var i = 0; i < mdl.count; i++) {
                     if (mdl.get(i).status_id === status_id) {
-                        console.log(mdl.get(i).status_id)
+                        //console.log(mdl.get(i).status_id)
                         positionViewAtIndex(i, ListView.Center)
                     }
                 }
@@ -266,7 +271,7 @@ Page {
                 textOperations.select(
                             textOperations.selectionStart ? textOperations.selectionStart - 1 : 0,
                             textOperations.selectionEnd)
-                console.log(toot.text.length)
+                //console.log(toot.text.length)
                 suggestedUser = ""
                 if (textOperations.selectedText.charAt(0) === "@") {
                     suggestedUser = textOperations.selectedText.trim().substring(1)
@@ -292,7 +297,9 @@ Page {
                 right: parent.right
                 rightMargin: Theme.paddingSmall
             }
-            onSelectionChanged: { console.log(selection) }
+            onSelectionChanged: {
+                //console.log(selection)
+            }
             onClicked: pageStack.push(emojiDialog)
         }
 
@@ -321,7 +328,7 @@ Page {
                 }
                 onClicked: {
                     var idx = index
-                    console.log(idx)
+                    //console.log(idx)
                     //mediaModel.remove(idx)
                     remorse.execute(myDelegate, "", function () {
                         mediaModel.remove(idx)
@@ -381,7 +388,9 @@ Page {
                 var imagePicker = pageStack.push("Sailfish.Pickers.ImagePickerPage", { "allowedOrientations": Orientation.All })
                 imagePicker.selectedContentChanged.connect(function () {
                     var imagePath = imagePicker.selectedContent
-                    console.log(imagePath)
+
+                   // console.log(imagePath)
+
                     imageUploader.setUploadUrl(Logic.conf.instance + "/api/v1/media")
                     imageUploader.setFile(imagePath)
                     imageUploader.setAuthorizationHeader(Logic.conf.api_user_token)
@@ -393,19 +402,19 @@ Page {
         ImageUploader {
             id: imageUploader
             onProgressChanged: {
-                console.log("progress " + progress)
+                // console.log("progress " + progress)
                 uploadProgress.width = parent.width * progress
             }
             onSuccess: {
                 uploadProgress.width = 0
-                console.log(replyData)
+                //console.log(replyData)
                 mediaModel.append(JSON.parse(replyData))
             }
             onFailure: {
                 uploadProgress.width = 0
                 btnAddImage.enabled = true
-                console.log(status)
-                console.log(statusText)
+                //console.log(status)
+                //console.log(statusText)
             }
         }
 
@@ -447,7 +456,7 @@ Page {
                 var visibility = ["public", "unlisted", "private", "direct"]
                 var media_ids = []
                 for (var k = 0; k < mediaModel.count; k++) {
-                    console.log(mediaModel.get(k).id)
+                    // console.log(mediaModel.get(k).id)
                     media_ids.push(mediaModel.get(k).id)
                 }
                 var msg = {
@@ -511,7 +520,7 @@ Page {
             privacy.currentIndex = setIndex
         }
 
-        console.log(JSON.stringify())
+        // console.log(JSON.stringify())
 
         worker.sendMessage({
                                "action": 'statuses/' + mdl.get(0).status_id + '/context',

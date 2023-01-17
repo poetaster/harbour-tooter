@@ -16,6 +16,58 @@ var mastodonAPI = function(config) {
             return config[key];
         },
 
+	/*
+    * function to retrieve the Link header
+    * using HEAD, so bookmarks has head followed by GET
+	*/
+	
+        getLink: function (endpoint) {
+            // variables
+            var queryData, callback,
+                    queryStringAppend = "?";
+
+            // check with which arguments we're supplied
+            if (typeof arguments[1] === "function") {
+                queryData = {};
+                callback = arguments[1];
+            } else {
+                queryData = arguments[1];
+                callback = arguments[2];
+            }
+            // build queryData Object into a URL Query String
+            for (var i in queryData) {
+                if (queryData.hasOwnProperty(i)) {
+                    if (typeof queryData[i] === "string") {
+                        queryStringAppend += queryData[i] + "&";
+                    } else if (typeof queryData[i] === "object") {
+                        queryStringAppend += queryData[i].name + "="+ queryData[i].data + "&";
+                    }
+                }
+            }
+            var http = new XMLHttpRequest()
+            var url = apiBase + endpoint;
+            console.log("HEAD" + apiBase + endpoint + queryStringAppend)
+
+            http.open("HEAD", apiBase + endpoint + queryStringAppend, true);
+            // Send the proper header information along with the request
+            http.setRequestHeader("Authorization", "Bearer " + config.api_user_token);
+            http.setRequestHeader("Content-Type", "application/json");
+            http.setRequestHeader("Connection", "close");
+
+            http.onreadystatechange = function() { 
+                if (http.readyState === 4) {
+                    if (http.status === 200) {
+                        callback( http.getResponseHeader("Link") , http.status)
+                        console.log("Successful HEAD API request to " +apiBase+endpoint);
+                    } else {
+                        console.log("error: " + http.status)
+                    }
+		}
+            }
+            http.send();
+
+	},
+
         get: function (endpoint) {
             // for GET API calls
             // can be called with two or three parameters
@@ -46,10 +98,11 @@ var mastodonAPI = function(config) {
                     }
                 }
             }
+            //queryStringAppend += "limit=20"
             // ajax function
             var http = new XMLHttpRequest()
             var url = apiBase + endpoint;
-            console.log(queryStringAppend)
+            console.log(apiBase + endpoint + queryStringAppend)
             http.open("GET", apiBase + endpoint + queryStringAppend, true);
 
             // Send the proper header information along with the request
@@ -60,8 +113,8 @@ var mastodonAPI = function(config) {
             http.onreadystatechange = function() { // Call a function when the state changes.
                 if (http.readyState === 4) {
                     if (http.status === 200) {
-                        console.log("Successful GET API request to " +apiBase+endpoint);
                         callback(JSON.parse(http.response),http.status)
+                        console.log("Successful GET API request to " +apiBase+endpoint);
                     } else {
                         console.log("error: " + http.status)
                     }
@@ -219,7 +272,7 @@ var mastodonAPI = function(config) {
             var http = new XMLHttpRequest()
             var url = config.instance + "/oauth/token";
             var params = 'client_id=' + client_id + '&client_secret=' + client_secret + '&redirect_uri=' + redirect_uri + '&grant_type=authorization_code&code=' + code;
-            console.log(params)
+            // console.log(params)
             http.open("POST", url, true);
 
             // Send the proper header information along with the request

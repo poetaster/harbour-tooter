@@ -67,6 +67,8 @@ ApplicationWindow {
             }
         })
         Logic.init()
+
+
     }
 
     Component.onDestruction: {

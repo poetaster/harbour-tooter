@@ -1,14 +1,40 @@
 Qt.include("Mastodon.js")
 
-
+var debug = true;
 var loadImages = true;
+// used to dedupe on append/insert
+var knownIds = [];
+var max_id ;
+var since_id;
 
 WorkerScript.onMessage = function(msg) {
+/*
     console.log("Action > " + msg.action)
     console.log("Model > " + msg.model)
     console.log("Mode > " + msg.mode)
     console.log("Conf > " + JSON.stringify(msg.conf))
     console.log("Params > " + JSON.stringify(msg.params))
+*/
+
+    // this is not elegant. it's max_id and ids from MyList
+
+    if (msg.params[1]) {
+        if ( msg.params[0]["name"] === "max_id" ) {
+            max_id = msg.params[0]["data"]
+        } else {
+            since_id = msg.params[0]["data"]
+        }
+        // we don't want to pass it onto the backend
+        if ( msg.params[1]["name"] === "ids" ) {
+            knownIds = msg.params[1]["data"]
+            msg.params.pop()
+        }
+        if ( msg.params[2]["name"] === "ids" ) {
+            knownIds = msg.params[2]["data"]
+            msg.params.pop()
+        }
+    }
+
 
     /** order notifications in ASC order */
     function orderNotifications(items){
@@ -20,7 +46,7 @@ WorkerScript.onMessage = function(msg) {
 
     /** Logged-in status */
     if (!msg.conf || !msg.conf.login) {
-        console.log("Not loggedin")
+        //console.log("Not loggedin")
         return;
     }
 
@@ -28,12 +54,30 @@ WorkerScript.onMessage = function(msg) {
     if (typeof msg.conf['loadImages'] !== "undefined")
         loadImages = msg.conf['loadImages']
 
-    /** POST statuses */
+
+    /* init API statuses */
+
     var API = mastodonAPI({ instance: msg.conf.instance, api_user_token: msg.conf.api_user_token});
+
+    /*
+    * HEAD call for some actions
+    * we have to retrieve the Link  header
+    * this falls through and continues for GET
+    */
+
+    if (msg.action === "bookmarks"){
+        API.getLink(msg.action, msg.params, function(data) {
+            if (debug) console.log(JSON.stringify(data))
+            WorkerScript.sendMessage({ 'LinkHeader': data })
+        });
+    }
+
+    /** POST statuses */
+
     if (msg.method === "POST"){
         API.post(msg.action, msg.params, function(data) {
             if (msg.bgAction){
-                console.log(JSON.stringify(data))
+                //console.log(JSON.stringify(data))
             } else if (msg.action === "statuses") {
                 // status posted
                 if(msg.model){
@@ -45,7 +89,7 @@ WorkerScript.onMessage = function(msg) {
             } else {
                 for (var i in data) {
                     if (data.hasOwnProperty(i)) {
-                        console.log(JSON.stringify(data[i]))
+                        //console.log(JSON.stringify(data[i]))
                         WorkerScript.sendMessage({ 'action': msg.action, 'success': true,  key: i, "data": data[i]})
                     }
                 }
@@ -55,21 +99,26 @@ WorkerScript.onMessage = function(msg) {
     }
 
     API.get(msg.action, msg.params, function(data) {
+
         var items = [];
+        //console.log(data)
+
         for (var i in data) {
             var item;
             if (data.hasOwnProperty(i)) {
                 if(msg.action === "accounts/search") {
                     item = parseAccounts([], "", data[i]);
-                    console.log(JSON.stringify(data[i]))
+                    //console.log(JSON.stringify(data[i]))
+                    console.log("has own data")
+
                     items.push(item)
 
                 } else if(msg.action === "notifications") {
                     // notification
-                    console.log("Get notification list")
-                    console.log(JSON.stringify(data[i]))
+                    //console.log("Get notification list")
+                    //console.log(JSON.stringify(data[i]))
                     item = parseNotification(data[i]);
-                    items.push(item)
+                    items.push(item);
 
                 } else if(msg.action.indexOf("statuses") >-1 && msg.action.indexOf("context") >-1 && i === "ancestors") {
                     // status ancestors toots - conversation
@@ -79,8 +128,9 @@ WorkerScript.onMessage = function(msg) {
                         item['id'] = item['status_id'];
                         if (typeof item['attachments'] === "undefined")
                             item['attachments'] = [];
-                        items.push(item)
-                        console.log(JSON.stringify(data[i][j]))
+                        // don't permit doubles
+                        items.push(item);
+                        //console.log(JSON.stringify(data[i][j]))
                     }
                     addDataToModel (msg.model, "prepend", items);
                     items = [];
@@ -94,8 +144,8 @@ WorkerScript.onMessage = function(msg) {
                         item['id'] = item['status_id'];
                         if (typeof item['attachments'] === "undefined")
                             item['attachments'] = [];
-                        items.push(item)
-                        console.log(JSON.stringify(data[i][j]))
+                        items.push(item);
+                        //console.log(JSON.stringify(data[i][j]))
                     }
                     addDataToModel (msg.model, "append", items);
                     items = [];
@@ -104,7 +154,8 @@ WorkerScript.onMessage = function(msg) {
                     //console.log("Get Toot")
                     item = parseToot(data[i]);
                     item['id'] = item['status_id']
-                    items.push(item)
+                    items.push(item);
+
 
                 } else {
                     WorkerScript.sendMessage({ 'action': msg.action, 'success': true,  key: i, "data": data[i] })
@@ -112,29 +163,66 @@ WorkerScript.onMessage = function(msg) {
             }
         }
 
-        if(msg.model && items.length)
+        if(msg.model && items.length) {
             addDataToModel(msg.model, msg.mode, items)
+        } else {
+	   // for some reason, home chokes.
+	   console.log( "items.length = " + items.length)
+        }
+
         /*if(msg.action === "notifications")
             orderNotifications(items)*/
+
+        console.log("Get em all?")
+
+        WorkerScript.sendMessage({ 'updatedAll': true})
     });
 }
 
 //WorkerScript.sendMessage({ 'notifyNewItems': length - i })
+
 function addDataToModel (model, mode, items) {
+
     var length = items.length;
-    console.log("Fetched > " +length)
+    var i
+
+    if (debug) console.log("Fetched > " +length + " in " + mode)
+    if (debug) console.log("ids > " + knownIds.length )
 
     if (mode === "append") {
-        model.append(items)
+        for(i = 0; i <= length-1; i++) {
+           if ( knownIds.indexOf( items[i]["id"]) === -1) {
+                model.append(items[i])
+           } else {
+               console.log("nope: " + items[i]["id"] )
+          }
+       }
+       // search does not use ids
+       if ( knownIds.length < 1 ) model.append(items)
+
     } else if (mode === "prepend") {
-        for(var i = length-1; i >= 0 ; i--) {
+        for(i = length-1; i >= 0 ; i--) {
+
             model.insert(0,items[i])
+
+            /*if ( knownIds.indexOf( items[i]["id"]) === -1) {
+                model.insert(0,items[i])
+            }*/
         }
     }
     model.sync()
 }
 
-/** Function: Get Account Data */
+function findDuplicate(arr,val) {
+        for(var i=0; i < arr.length; i++){
+            if( arr.indexOf(val) === -1 )  {
+               return true;
+            }
+        }
+        return false;
+}
+
+/* Function: Get Account Data */
 function parseAccounts(collection, prefix, data) {
 
     var res = collection;

@@ -149,12 +149,31 @@
         <source>New Toot</source>
         <translation>Neuer Toot</translation>
     </message>
+    <message>
+        <source>Bookmarks</source>
+        <translation>Lesezeichen</translation>
+    </message>
 </context>
 <context>
     <name>MediaFullScreen</name>
     <message>
         <source>Error loading</source>
         <translation>Ladefehler</translation>
+    </message>
+</context>
+<context>
+    <name>MediaItem</name>
+    <message>
+        <source>Image</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Video</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>PDF document</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -355,6 +374,10 @@
     <message>
         <source>to help with app translation to your language.</source>
         <translation>um bei den Übersetzungen mitzuhelfen.</translation>
+    </message>
+    <message>
+        <source>Development</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

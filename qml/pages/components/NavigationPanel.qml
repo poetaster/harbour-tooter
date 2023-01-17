@@ -38,7 +38,6 @@ SilicaGridView {
             active: false
             unread: false
         }
-
         ListElement {
             icon: "image://theme/icon-m-website?"
             slug: "federated"
@@ -47,6 +46,14 @@ SilicaGridView {
             unread: false
         }
 
+        ListElement {
+            icon: "../../images/icon-s-bookmark.svg?"
+            //icon: "image://theme/icon-s-bookmark"
+            slug: "bookmarks"
+            name: "Bookmarks"
+            active: false
+            unread: false
+        }
         ListElement {
             icon: "image://theme/icon-m-search?"
             slug: "search"

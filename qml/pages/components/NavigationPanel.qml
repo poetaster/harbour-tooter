@@ -47,8 +47,8 @@ SilicaGridView {
         }
 
         ListElement {
-            icon: "../../images/icon-s-bookmark.svg?"
-            //icon: "image://theme/icon-s-bookmark"
+            icon: "../../images/icon-m-bookmark.svg?"
+            //icon: "image://theme/icon-m-bookmark"
             slug: "bookmarks"
             name: "Bookmarks"
             active: false

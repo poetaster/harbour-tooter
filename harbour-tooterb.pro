@@ -78,6 +78,7 @@ DISTFILES += qml/harbour-tooterb.qml \
     qml/lib/index.html \
     qml/images/icon-s-following \
     qml/images/icon-s-bookmark \
+    qml/images/icon-m-bookmark \
     qml/images/icon-m-emoji.svg \
     qml/images/icon-m-profile.svg \
     qml/images/icon-l-profile.svg \
@@ -111,4 +112,3 @@ TRANSLATIONS += translations/harbour-tooterb.ts \
     translations/harbour-tooterb-sr.ts \
     translations/harbour-tooterb-sv.ts \
     translations/harbour-tooterb-zh_CN.ts
-

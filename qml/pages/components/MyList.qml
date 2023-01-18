@@ -350,11 +350,16 @@ SilicaListView {
             }
         }
 
-        //if (debug) console.log(JSON.stringify(uniqueIds))
+        // to keep the number of params the same for all requests
+        // always set local
+
         if(title === "Local") {
             type = "timelines/public"
             p.push({name:'local', data: "true"})
+        } else {
+            p.push({name:'local', data: "false"})
         }
+
         // we push the ids via params which we remove in the WorkerScript
         if (model.count) {
             p.push({name:'ids', data: uniqueIds})

@@ -377,7 +377,7 @@
     </message>
     <message>
         <source>Development</source>
-        <translation type="unfinished"></translation>
+        <translation>Development</translation>
     </message>
 </context>
 <context>

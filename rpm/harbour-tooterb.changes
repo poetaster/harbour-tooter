@@ -1,3 +1,10 @@
+* Thu Jan 18 2023  Alain Molteni <mol_an@sunrise.ch> 1.1.4-2
+- Fixes for home not updating & search (by poetaster)
+- added page to display saved Bookmarks (by poetaster)
+- added custom Bookmarks icon
+- updated translations (de, fr, it, nl, ru)
+- added 64-bit release
+
 * Thu Jan 5 2023  Mark Washeim <blueprint@poetaster.de> 1.1.3
 - Add changes from gitlogs (++) Bump for tag release.
 - Add conditional append all for search when no knownIds

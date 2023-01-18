@@ -151,7 +151,7 @@
     </message>
     <message>
         <source>Bookmarks</source>
-        <translation type="unfinished"></translation>
+        <translation>Закладки</translation>
     </message>
 </context>
 <context>
@@ -165,15 +165,15 @@
     <name>MediaItem</name>
     <message>
         <source>Image</source>
-        <translation type="unfinished"></translation>
+        <translation>Изображение</translation>
     </message>
     <message>
         <source>Video</source>
-        <translation type="unfinished"></translation>
+        <translation>Видео</translation>
     </message>
     <message>
         <source>PDF document</source>
-        <translation type="unfinished"></translation>
+        <translation>PDF Документ</translation>
     </message>
 </context>
 <context>
@@ -377,7 +377,7 @@
     </message>
     <message>
         <source>Development</source>
-        <translation type="unfinished"></translation>
+        <translation>Разработка</translation>
     </message>
 </context>
 <context>

@@ -158,19 +158,11 @@ Page {
                     delegate: VisualContainer
                     Component.onCompleted: {
                         view.type = "timelines/tag/"+tlSearch.search.substring(1)
-                        var ids = []
-                        view.params = []
-                        view.params.push({name: 'limit', data: "20" });
-                        /* we push the ids via params which we remove in the WorkerScript
-                        * see: MyList:loadData() and should move */
                         if (mdl.count) {
-                            for(var i = 0 ; i < mdl.count ; i++) {
-                                ids.push(mdl.get(i).id)
-                                //if (debug) console.log(model.get(i).id)
-                            }
-                            view.params.push({name: 'ids', data: ids });
+                            view.loadData("append")
+                        } else {
+                            view.loadData("prepend")
                         }
-                        view.loadData("append")
                     }
                 }
             }
@@ -241,20 +233,12 @@ Page {
 
                     delegate: VisualContainer
                     Component.onCompleted: {
-                        var ids = []
-                        view3.params = []
-                        view3.params.push({name: 'limit', data: "20" });
-                        /* we push the ids via params which we remove in the WorkerScript
-                        * see: MyList:loadData() and should move */
-                        if (mdl.count) {
-                            for(var i = 0 ; i < mdl.count ; i++) {
-                                ids.push(mdl.get(i).id)
-                                //if (debug) console.log(model.get(i).id)
-                            }
-                            view3.params.push({name: 'ids', data: ids });
-                        }
                         view3.type = "timelines/tag/"+tlSearch.search
-                        view3.loadData("prepend")
+                        if (mdl.count) {
+                            view3.loadData("append")
+                        } else {
+                            view3.loadData("prepend")
+                        }
                     }
                 }
             }

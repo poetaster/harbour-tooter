@@ -1,6 +1,6 @@
 Qt.include("Mastodon.js")
 
-var debug = true;
+var debug = false;
 var loadImages = true;
 // used to dedupe on append/insert
 var knownIds = [];
@@ -62,7 +62,9 @@ WorkerScript.onMessage = function(msg) {
     * this falls through and continues for GET
     */
 
-    if (msg.action === "bookmarks" || ( msg.action === "timelines/home" && msg.mode === "append") ){
+    if (msg.action === "bookmarks" ||
+            ( msg.action === "timelines/home" && msg.mode === "append") ||
+            ( msg.action.indexOf("timelines/tag/") !== -1 ) ){
         API.getLink(msg.action, msg.params, function(data) {
             if (debug) console.log(JSON.stringify(data))
             WorkerScript.sendMessage({ 'LinkHeader': data })

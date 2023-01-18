@@ -8,27 +8,24 @@ var max_id ;
 var since_id;
 
 WorkerScript.onMessage = function(msg) {
-/*
-    console.log("Action > " + msg.action)
-    console.log("Model > " + msg.model)
-    console.log("Mode > " + msg.mode)
-    console.log("Conf > " + JSON.stringify(msg.conf))
-    console.log("Params > " + JSON.stringify(msg.params))
-*/
+
+    if (debug) console.log("Action > " + msg.action)
+    if (debug) console.log("Mode > " + msg.mode)
 
     // this is not elegant. it's max_id and ids from MyList
-
-    if (msg.params[1]) {
+    // we should always get max_id on append
+    if (msg.mode === "append") {
         if ( msg.params[0]["name"] === "max_id" ) {
             max_id = msg.params[0]["data"]
-        } else {
-            since_id = msg.params[0]["data"]
         }
-        // we don't want to pass it onto the backend
-        if ( msg.params[1]["name"] === "ids" ) {
-            knownIds = msg.params[1]["data"]
-            msg.params.pop()
-        }
+    } else if ( msg.mode === "prepend" && msg.params[0]) {
+
+       // prepend could be min_id or since_id
+       since_id = msg.params[0]["data"]
+
+    }
+    // ids are always the last param
+    if (msg.params[2]) {
         if ( msg.params[2]["name"] === "ids" ) {
             knownIds = msg.params[2]["data"]
             msg.params.pop()
@@ -65,7 +62,7 @@ WorkerScript.onMessage = function(msg) {
     * this falls through and continues for GET
     */
 
-    if (msg.action === "bookmarks"){
+    if (msg.action === "bookmarks" || ( msg.action === "timelines/home" && msg.mode === "append") ){
         API.getLink(msg.action, msg.params, function(data) {
             if (debug) console.log(JSON.stringify(data))
             WorkerScript.sendMessage({ 'LinkHeader': data })

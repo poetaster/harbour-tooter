@@ -14,7 +14,7 @@ WorkerScript.onMessage = function(msg) {
 
     // this is not elegant. it's max_id and ids from MyList
     // we should always get max_id on append
-    if (msg.mode === "append") {
+    if (msg.mode === "append" && msg.params[0]) {
         if ( msg.params[0]["name"] === "max_id" ) {
             max_id = msg.params[0]["data"]
         }

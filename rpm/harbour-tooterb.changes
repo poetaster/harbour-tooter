@@ -1,4 +1,7 @@
-* Thu Jan 18 2023  Alain Molteni <mol_an@sunrise.ch> 1.1.4-2
+* Thu Jan 19 2023  Alain Molteni <mol_an@sunrise.ch> 1.1.5
+- Hotfix broken toot sending
+
+* Wed Jan 18 2023  Alain Molteni <mol_an@sunrise.ch> 1.1.4-2
 - Fixes for home not updating & search (by poetaster)
 - added page to display saved Bookmarks (by poetaster)
 - added custom Bookmarks icon

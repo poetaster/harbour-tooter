@@ -43,7 +43,7 @@ PackageName: Tooter Beta
 Type: desktop-application
 Categories:
  - Network
-PackagerName: Mark Washeim (poetaster)
+PackagerName: Alain Molteni (molan)
 Custom:
  - Repo: https://github.com/molan-git/harbour-tooter
  - PackagingRepo: https://github.com/poetaster/harbour-tooter

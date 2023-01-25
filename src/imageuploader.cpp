@@ -25,6 +25,9 @@ ImageUploader::~ImageUploader() {
 void ImageUploader::setFile(const QString &fileName) {
     m_fileName = fileName;
 }
+void ImageUploader::setMime(const QString &mimeType) {
+    m_mimeType = mimeType;
+}
 
 void ImageUploader::setParameters(const QString &album, const QString &title, const QString &description) {
     //if (!album.isEmpty()) {
@@ -92,7 +95,8 @@ void ImageUploader::upload() {
     }*/
 
     //QByteArray fileData = file.readAll().toBase64();
-    imagePart.setHeader(QNetworkRequest::ContentTypeHeader, QVariant("image/jpeg"));
+    //imagePart.setHeader(QNetworkRequest::ContentTypeHeader, QVariant("image/jpeg"));
+    imagePart.setHeader(QNetworkRequest::ContentTypeHeader, QVariant(m_mimeType));
     imagePart.setHeader(QNetworkRequest::ContentDispositionHeader, QVariant(QString("form-data; name=\"file\"; filename=\"%1\"").arg(fileInfo.fileName()).toLatin1()));
     imagePart.setBodyDevice(file);
     file->setParent(multiPart);

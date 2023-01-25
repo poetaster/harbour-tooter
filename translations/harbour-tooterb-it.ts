@@ -165,15 +165,15 @@
     <name>MediaItem</name>
     <message>
         <source>Image</source>
-        <translation type="unfinished"></translation>
+        <translation>immagine</translation>
     </message>
     <message>
         <source>Video</source>
-        <translation type="unfinished"></translation>
+        <translation>video</translation>
     </message>
     <message>
         <source>PDF document</source>
-        <translation type="unfinished"></translation>
+        <translation>documento PDF</translation>
     </message>
 </context>
 <context>
@@ -377,7 +377,7 @@
     </message>
     <message>
         <source>Development</source>
-        <translation type="unfinished"></translation>
+        <translation>Sviluppo</translation>
     </message>
 </context>
 <context>

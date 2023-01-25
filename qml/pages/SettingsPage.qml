@@ -148,11 +148,12 @@ Page {
                         }
 
                         ListElement {
-                            name: "Molan"
+                            name: "molan"
                             desc: qsTr("Development and translations")
                             mastodon: "molan@fosstodon.org"
-                            mail: ""
+                            mail: "mol_an@sunrise.ch"
                         }
+
                         ListElement {
                             name: "poetaster"
                             desc: qsTr("Development")

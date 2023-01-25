@@ -1,5 +1,6 @@
-import QtQuick 2.0
+import QtQuick 2.6
 import Sailfish.Silica 1.0
+import Sailfish.Pickers 1.0
 import harbour.tooterb.Uploader 1.0
 import "../lib/API.js" as Logic
 import "./components/"
@@ -37,6 +38,17 @@ Page {
             }
             else status_link = status_uri
         } else status_link = status_url
+
+
+
+    // This function is used by the upload Pickers
+    function fileUpload(file,mime) {
+        imageUploader.setUploadUrl(Logic.conf.instance + "/api/v1/media")
+        imageUploader.setFile(file)
+        imageUploader.setMime(mime)
+        imageUploader.setAuthorizationHeader(Logic.conf.api_user_token)
+        imageUploader.upload()
+    }
 
     allowedOrientations: Orientation.All
     onSuggestedUserChanged: {
@@ -375,7 +387,7 @@ Page {
         IconButton {
             id: btnAddImage
             enabled: mediaModel.count < 4
-            icon.source: "image://theme/icon-s-attach?" + ( pressed ? Theme.highlightColor : (warningContent.visible ? Theme.secondaryHighlightColor : Theme.primaryColor) )
+            icon.source: "image://theme/icon-m-file-image?" + ( pressed ? Theme.highlightColor : (warningContent.visible ? Theme.secondaryHighlightColor : Theme.primaryColor) )
             anchors {
                 top: toot.bottom
                 topMargin: -Theme.paddingSmall * 1.5
@@ -385,20 +397,79 @@ Page {
             onClicked: {
                 btnAddImage.enabled = false
                 var once = true
-                var imagePicker = pageStack.push("Sailfish.Pickers.ImagePickerPage", { "allowedOrientations": Orientation.All })
-                imagePicker.selectedContentChanged.connect(function () {
-                    var imagePath = imagePicker.selectedContent
-
-                   // console.log(imagePath)
-
-                    imageUploader.setUploadUrl(Logic.conf.instance + "/api/v1/media")
-                    imageUploader.setFile(imagePath)
-                    imageUploader.setAuthorizationHeader(Logic.conf.api_user_token)
-                    imageUploader.upload()
-                })
+                pageStack.push(imagePickerPage)
             }
         }
 
+        IconButton {
+            id: btnAddMusic
+            enabled: mediaModel.count < 4
+            icon.source: "image://theme/icon-m-file-audio?" + ( pressed ? Theme.highlightColor : (warningContent.visible ? Theme.secondaryHighlightColor : Theme.primaryColor) )
+            anchors {
+                top: toot.bottom
+                topMargin: -Theme.paddingSmall * 1.5
+                left: btnAddImage.right
+                leftMargin: Theme.paddingSmall
+            }
+            onClicked: {
+                btnAddMusic.enabled = false
+                var once = true
+                pageStack.push(musicPickerPage)
+            }
+        }
+        IconButton {
+            id: btnAddVideo
+            enabled: mediaModel.count < 4
+            icon.source: "image://theme/icon-m-file-video?" + ( pressed ? Theme.highlightColor : (warningContent.visible ? Theme.secondaryHighlightColor : Theme.primaryColor) )
+            anchors {
+                top: toot.bottom
+                topMargin: -Theme.paddingSmall * 1.5
+                left: btnAddMusic.right
+                leftMargin: Theme.paddingSmall
+            }
+            onClicked: {
+                btnAddVideo.enabled = false
+                var once = true
+                pageStack.push(videoPickerPage)
+            }
+        }
+        Component {
+            id: musicPickerPage
+            MusicPickerPage {
+                onSelectedContentPropertiesChanged: {
+                    var imagePath = selectedContentProperties.url
+                    var mimeType = selectedContentProperties.mimeType
+                    fileUpload(imagePath,mimeType)
+                    /*
+                    imageUploader.setUploadUrl(Logic.conf.instance + "/api/v1/media")
+                    imageUploader.setFile(imagePath)
+                    imageUploader.setMime(mimeType)
+                    imageUploader.setAuthorizationHeader(Logic.conf.api_user_token)
+                    imageUploader.upload()
+                    */
+                }
+            }
+        }
+        Component {
+            id: imagePickerPage
+            ImagePickerPage {
+                onSelectedContentPropertiesChanged: {
+                    var imagePath = selectedContentProperties.url
+                    var mimeType = selectedContentProperties.mimeType
+                    fileUpload(imagePath,mimeType)
+                }
+            }
+        }
+        Component {
+            id: videoPickerPage
+            VideoPickerPage {
+                onSelectedContentPropertiesChanged: {
+                    var imagePath = selectedContentProperties.url
+                    var mimeType = selectedContentProperties.mimeType
+                    fileUpload(imagePath,mimeType)
+                }
+            }
+        }
         ImageUploader {
             id: imageUploader
             onProgressChanged: {
@@ -413,6 +484,8 @@ Page {
             onFailure: {
                 uploadProgress.width = 0
                 btnAddImage.enabled = true
+                btnAddMusic.enabled = true
+                btnAddVideo.enabled = true
                 //console.log(status)
                 //console.log(statusText)
             }
@@ -437,7 +510,7 @@ Page {
             anchors {
                 top: toot.bottom
                 topMargin: -Theme.paddingSmall * 1.5
-                left: btnAddImage.right
+                left: btnAddVideo.right
                 right: btnSend.left
             }
         }

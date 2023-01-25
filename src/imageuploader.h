@@ -16,6 +16,7 @@ public:
     ~ImageUploader();
 
     Q_INVOKABLE void setFile(const QString &fileName);
+    Q_INVOKABLE void setMime(const QString &mimeType);
     Q_INVOKABLE void setAuthorizationHeader(const QString &authorizationHeader);
     Q_INVOKABLE void setUploadUrl(const QString &userAgent);
     Q_INVOKABLE void setParameters(const QString &album,  const QString &title, const QString &description);
@@ -37,6 +38,7 @@ private:
     QNetworkAccessManager *m_networkAccessManager;
 
     QString m_fileName;
+    QString m_mimeType;
     QByteArray m_authorizationHeader;
     QString m_uploadUrl;
     QByteArray postdata;

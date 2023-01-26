@@ -1,3 +1,22 @@
+* Thu Jan 26 2023 Mark Washeim <blueprint@poetaster.de> - 1.1.6-2
+- [Release] obs fix, broken changes
+- [Release] changes spacing issues
+
+* Wed Jan 25 2023 Mark Washeim <blueprint@poetaster.de> - 1.1.6
+- [Release] This release adds uploads for other filetypes and removes the hardcoded mimetype
+- [Feature] modified image uploader to serve other mimetypes, added pickers
+- [Fix] hot fix for a breaks tooting bug
+
+* Thu Jan 19 2023 Mark Washeim <blueprint@poetaster.de> - 1.1.5
+- [Release] hot bug fix, broken tooting
+- [Release] 1.1.5 fixes a bug which stops tooting!
+- [Fix] hot fix for a breaks tooting bug.
+
+* Wed Jan 18 2023 Mark Washeim <blueprint@poetaster.de> - 1.1.4
+- [Fix] Home loading and search deduping release
+- [Fix] search for tags and persons added header call for max/min and prepend on first call.
+- [Issue]: # 26. timelines/home on append uses the link header for min/max id
+
 * Thu Jan 5 2023  Mark Washeim <blueprint@poetaster.de> 1.1.3
 - Add changes from gitlogs (++) Bump for tag release.
 - Add conditional append all for search when no knownIds

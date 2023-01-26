@@ -53,7 +53,7 @@
 - Add python server for callbacks
 - Add new WebView to better render callbacks
 
-*Sun Jul 12 2020 molan <mol_an@sunrise.ch> 1.0.7-0
+* Sun Jul 12 2020 molan <mol_an@sunrise.ch> 1.0.7-0
 - Fix missing / wrong reblog and favourite counts in Retoots (issue #90)
 - Added full landscape support
 - Added new Pulley Menu options
@@ -64,14 +64,14 @@
 - New Emojis
 - New translated strings
 
-*Fri Jun 18 2020 molan <mol_an@sunrise.ch> 1.0.6-3
+* Fri Jun 18 2020 molan <mol_an@sunrise.ch> 1.0.6-3
 - Fix broken reblog indication
 
-*Fri Jun 18 2020 molan <mol_an@sunrise.ch> 1.0.6-2
+* Fri Jun 18 2020 molan <mol_an@sunrise.ch> 1.0.6-2
 - Fix reported small UI issue
 - Updated translations
 
-*Thu Jun 18 2020 molan <mol_an@sunrise.ch> 1.0.6-1
+* Thu Jun 18 2020 molan <mol_an@sunrise.ch> 1.0.6-1
 - Fix app crash when open some Profile pages
 - Fix sometimes missing favourite / reblog counts
 - Fix various QML warnings, replace deprecated Silica items
@@ -84,10 +84,10 @@
 - Code refactoring & other changes under the hood
 - Translation updates
 
-*Fri Jun 12 2020 molan <mol_an@sunrise.ch> 1.0.5-1
+* Fri Jun 12 2020 molan <mol_an@sunrise.ch> 1.0.5-1
 - [hotfix] fix missing images in mentions on Notification page
 
-*Thu Jun 11 2020 molan <mol_an@sunrise.ch> 1.0.5-0
+* Thu Jun 11 2020 molan <mol_an@sunrise.ch> 1.0.5-0
 - fixed: show search results without entering # before term
 - fixed: non-clickable user mentions in Toots
 - fixed: Copy link to clipboard in Conversations
@@ -103,7 +103,7 @@
 - bigger custom emojis in Toots
 - overall improvement of UI
 
-*Mon May 25 2020 molan <mol_an@sunrise.ch> 1.0.4-3
+* Mon May 25 2020 molan <mol_an@sunrise.ch> 1.0.4-3
 - Show user profile background image (if available)
 - New Sailfish 3-styled image/video viewer page (WIP)
 - Added "Toot sent!" notification banner
@@ -111,7 +111,7 @@
 - Distiction between "New Toot" and "Conversation" page
 - some small fixes
 
-*Mon May 11 2020 molan <mol_an@sunrise.ch> 1.0.4-2
+* Mon May 11 2020 molan <mol_an@sunrise.ch> 1.0.4-2
 - Beta release by molan
 - Login / Settings Page: Small changes in text wording
 - Login Page: Use of correct label coloring and text alignment

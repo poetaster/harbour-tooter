@@ -63,7 +63,7 @@ WorkerScript.onMessage = function(msg) {
     */
 
     if (msg.action === "bookmarks" ||
-            ( msg.action === "timelines/home" && msg.mode === "append") ||
+            //( msg.action === "timelines/home" && msg.mode === "append") ||
             ( msg.action.indexOf("timelines/tag/") !== -1 ) ){
         API.getLink(msg.action, msg.params, function(data) {
             if (debug) console.log(JSON.stringify(data))
@@ -201,12 +201,10 @@ function addDataToModel (model, mode, items) {
 
     } else if (mode === "prepend") {
         for(i = length-1; i >= 0 ; i--) {
-
-            model.insert(0,items[i])
-
-            /*if ( knownIds.indexOf( items[i]["id"]) === -1) {
+            //model.insert(0,items[i])
+            if ( knownIds.indexOf( items[i]["id"]) === -1) {
                 model.insert(0,items[i])
-            }*/
+            }
         }
     }
     model.sync()

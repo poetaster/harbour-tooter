@@ -13,8 +13,8 @@ Name:       harbour-tooterb
 %{!?qtc_make:%define qtc_make make}
 %{?qtc_builddir:%define _builddir %qtc_builddir}
 Summary:    Tooter β
-Version:    1.1.6
-Release:    3
+Version:    1.1.7
+Release:    1
 Group:      Qt/Qt
 License:    GPLv3
 URL:        https://github.com/poetaster/harbour-tooter#readme
@@ -39,14 +39,13 @@ BuildRequires:  desktop-file-utils
 Tooter Beta is a native client for Mastodon network instances.
 
 %if "%{?vendor}" == "chum"
-PackageName: Tooter Beta
+PackageName: Tooter β
 Type: desktop-application
 Categories:
  - Network
-PackagerName: Alain Molteni (molan)
+PackagerName: Mark Washeim (poetaster)
 Custom:
- - Repo: https://github.com/molan-git/harbour-tooter
- - PackagingRepo: https://github.com/poetaster/harbour-tooter
+ - Repo: https://github.com/poetaster/harbour-tooter
 Icon: https://raw.githubusercontent.com/poetaster/harbour-tooter/master/icons/256x256/harbour-tooterb.png
 Url:
  - Bugtracker: https://github.com/poetaster/harbour-tooter/issues

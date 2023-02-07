@@ -343,7 +343,12 @@ SilicaListView {
             }
         }
         if (mode === "prepend" && model.count) {
-            p.push({name:'since_id', data: model.get(0).id})
+            if ( linknext === "" ) {
+                p.push({name:'since_id', data: model.get(0).id})
+            } else {
+                p.push({name: 'since_id', data: linknext})
+            }
+            //p.push({name:'since_id', data: model.get(0).id})
         }
 
         // to keep the number of params the same for all requests

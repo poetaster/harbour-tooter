@@ -22,7 +22,6 @@ Source0:    %{name}-%{version}.tar.bz2
 Requires:   sailfishsilica-qt5 >= 0.10.9
 Requires:   nemo-qml-plugin-configuration-qt5
 Requires:   nemo-qml-plugin-notifications-qt5
-Requires:   pyotherside-qml-plugin-python3-qt5
 Requires:   amber-web-authorization
 
 BuildRequires:  qt5-qttools-linguist

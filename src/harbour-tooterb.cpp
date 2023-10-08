@@ -18,6 +18,7 @@
 #include "notifications.h"
 #include "dbus.h"
 
+
 int main(int argc, char *argv[])
 {
     QScopedPointer<QGuiApplication> app(SailfishApp::application(argc, argv));

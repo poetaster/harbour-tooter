@@ -5,8 +5,7 @@ Icon=harbour-tooterb
 Exec=harbour-tooterb
 Name=Tooter β
 
-#[X-Sailjail]
-#OrganizationName=de.poetaster
-#ApplicationName=harbour-tooterb
-#Permissions=Compatibility;Internet;Camera;Audio;MediaIndexing;RemovableMedia;UserDirs
-
+[X-Sailjail]
+OrganizationName=de.poetaster
+ApplicationName=harbour-tooterb
+Permissions=Compatibility;Internet;Audio;MediaIndexing;RemovableMedia;UserDirs

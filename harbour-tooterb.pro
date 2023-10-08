@@ -74,8 +74,6 @@ DISTFILES += qml/harbour-tooterb.qml \
     qml/pages/LoginPage.qml \
     qml/pages/Browser.qml \
     qml/lib/API.js \
-    qml/lib/server.py \
-    qml/lib/index.html \
     qml/images/icon-s-following \
     qml/images/icon-s-bookmark \
     qml/images/icon-m-bookmark \

@@ -3,13 +3,11 @@ import Sailfish.Silica 1.0
 import Amber.Web.Authorization 1.0
 import "../lib/API.js" as Logic
 
-
-
-
 Page {
      property bool debug: false
 
     id: loginPage
+
     // The effective value will be restricted by ApplicationWindow.allowedOrientations
     allowedOrientations: Orientation.All
 
@@ -78,6 +76,7 @@ Page {
                                                       Logic.conf = conf;
                                                       if(debug) console.log(JSON.stringify(conf))
                                                       if(debug) console.log(JSON.stringify(Logic.conf))
+
                                                       // we got our application
 
                                                       mastodonOAuth.clientId = conf["client_id"]

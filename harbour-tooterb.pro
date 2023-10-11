@@ -84,8 +84,8 @@ DISTFILES += qml/harbour-tooterb.qml \
     qml/lib/Worker.js \
     config/icon-lock-harbour-tooterb.png \
     config/x-harbour.tooterb.activity.conf \
+    rpm/harbour-tooterb.changes.run \
     rpm/harbour-tooterb.changes \
-    rpm/harbour-tooterb.changes.run.in \
     rpm/harbour-tooterb.spec \
     translations/*.ts \
     harbour-tooterb.desktop

@@ -114,10 +114,6 @@
         <source>Mastodon is a free, open-source social network. A decentralized alternative to commercial platforms, it avoids the risks of a single company monopolizing your communication. Pick a server that you trust — whichever you choose, you can interact with everyone else. Anyone can run their own Mastodon instance and participate in the social network seamlessly.</source>
         <translation>Mastodon è un servizio di rete sociale in software libero, costituito in una federazione d&apos;istanze. Mastodon fa parte del più ampio Fediverso, permettendo ai suoi utenti di interagire anche con utenti su diverse piattaforme aperte che supportano lo stesso protocollo.</translation>
     </message>
-    <message>
-        <source>Reload</source>
-        <translation>Ricarica</translation>
-    </message>
 </context>
 <context>
     <name>MainPage</name>

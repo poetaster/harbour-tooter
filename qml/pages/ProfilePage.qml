@@ -29,7 +29,7 @@ Page {
     property bool muting: false
     property bool domain_blocking: false
     property date created_at
-    property bool debug: false
+    property bool debug: true
 
     WorkerScript {
         id: worker
@@ -162,13 +162,13 @@ Page {
                     id: txtContainer
                     width: parent.width
                     height: profilePage.isPortrait ? Math.min( txtNote.height, parent.height * 0.5 ) :  Math.min( txtNote.height, parent.height * 0.2 )
-                    visible: {
+                    /*visible: {
                         if ((note.text === "") || ( note.text === "<p></p>" )) {
                             false
                         } else {
                             true
                         }
-                    }
+                    }*/
 
                     SilicaFlickable {
                         id: txtFlickable

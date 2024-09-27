@@ -53,7 +53,7 @@ Page {
             TextField {
                 id: instance
                 focus: true
-                label: qsTr("Enter a valid Mastodon instance URL")
+                label: qsTr("Enter a valid Mastodon instance URL (will open a web browser for Authentication)")
                 text: "https://"
                 width: parent.width
                 validator: RegExpValidator { regExp: /^(ftp|http|https):\/\/[^ "]+$/ }

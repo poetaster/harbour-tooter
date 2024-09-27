@@ -107,12 +107,12 @@
         <translation>Instans</translation>
     </message>
     <message>
-        <source>Enter a valid Mastodon instance URL</source>
-        <translation>Ange en giltig URL till Mastodoninstans</translation>
-    </message>
-    <message>
         <source>Mastodon is a free, open-source social network. A decentralized alternative to commercial platforms, it avoids the risks of a single company monopolizing your communication. Pick a server that you trust — whichever you choose, you can interact with everyone else. Anyone can run their own Mastodon instance and participate in the social network seamlessly.</source>
         <translation>Mastodon är ett fritt socialt nätverk byggt på öppen källkod. Ett decentraliserat alternativ till kommersiella plattformar. Det undviker riskerna med att ett enda företag monopoliserar din kommunikation. Välj en server som du litar på, oavsett vad du väljer kan du interagera med alla andra. Vem som helst kan köra sin egen Mastodon-instans och delta i det sociala nätverket sömlöst.</translation>
+    </message>
+    <message>
+        <source>Enter a valid Mastodon instance URL (will open a web browser for Authentication)</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

@@ -10,7 +10,7 @@ Item {
     property double wRatio : 16/9
     property double hRatio : 9/16
 
-    property bool debug: false
+    property bool debug: true
     width: width
     height: height
     Component.onCompleted: {
@@ -114,7 +114,7 @@ Item {
                 type = model.get(1).type
                 previewURL = model.get(1).preview_url
                 mediaURL = model.get(1).url
-                url = model.get(0).url
+                url = model.get(1).url
                 if(debug) console.log( model.get(1).url )
                 height = Theme.itemSizeLarge
                 return true
@@ -135,7 +135,7 @@ Item {
                 type = model.get(2).type
                 previewURL = model.get(2).preview_url
                 mediaURL = model.get(2).url
-                url = model.get(0).url
+                url = model.get(2).url
                 height = Theme.itemSizeLarge
                 return true
             } else {
@@ -155,7 +155,7 @@ Item {
                 type = model.get(3).type
                 previewURL = model.get(3).preview_url
                 mediaURL = model.get(3).url
-                url = model.get(0).url
+                url = model.get(3).url
                 height = Theme.itemSizeLarge
                 return true
             } else {

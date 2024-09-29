@@ -46,9 +46,17 @@ Categories:
 PackagerName: Mark Washeim (poetaster)
 Custom:
  - Repo: https://github.com/poetaster/harbour-tooter
-Icon: https://raw.githubusercontent.com/poetaster/harbour-tooter/master/icons/256x256/harbour-tooterb.png
+PackageIcon: https://raw.githubusercontent.com/poetaster/harbour-tooter/master/icons/256x256/harbour-tooterb.png
 Url:
  - Bugtracker: https://github.com/poetaster/harbour-tooter/issues
+Screenshots:
+ - https://github.com/poetaster/harbour-tooter/raw/master/screenshots/screenshot1.png
+ - https://github.com/poetaster/harbour-tooter/raw/master/screenshots/screenshot2.png
+ - https://github.com/poetaster/harbour-tooter/raw/master/screenshots/screenshot3.png
+Links:
+  Homepage: https://github.com/poetaster/harbour-tooter
+  Bugtracker: https://github.com/poetaster/harbour-tooter/issues
+  Donation: https://liberapay.com/poetaster
 %endif
 
 %prep

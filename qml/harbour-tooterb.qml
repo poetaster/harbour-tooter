@@ -41,7 +41,7 @@ ApplicationWindow {
         var obj = {}
         Logic.mediator.installTo(obj)
         obj.subscribe('confLoaded', function() {
-            console.log('confLoaded');
+            //console.log('confLoaded');
             //console.log(JSON.stringify(Logic.conf))
             if (!Logic.conf['notificationLastID'])
                 Logic.conf['notificationLastID'] = 0
@@ -58,7 +58,7 @@ ApplicationWindow {
                 Logic.api.setConfig("api_user_token", Logic.conf['api_user_token'])
                 //accounts/verify_credentials
                 Logic.api.get('instance', [], function(data) {
-                    console.log(JSON.stringify(data))
+                   // console.log(JSON.stringify(data))
                     pageStack.push(Qt.resolvedUrl("./pages/MainPage.qml"), {})
                 })
                 //pageStack.push(Qt.resolvedUrl("./pages/Conversation.qml"), {})
@@ -79,10 +79,10 @@ ApplicationWindow {
     Connections {
         target: Dbus
         onViewtoot: {
-            console.log(key, "dbus onViewtoot")
+            //console.log(key, "dbus onViewtoot")
         }
         onActivateapp: {
-            console.log ("dbus activate app")
+            //console.log ("dbus activate app")
             pageStack.pop(pageStack.find( function(page) {
                 return (page._depth === 0)
             }))

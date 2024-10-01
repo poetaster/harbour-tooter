@@ -10,7 +10,7 @@ Item {
     property double wRatio : 16/9
     property double hRatio : 9/16
 
-    property bool debug: true
+    property bool debug: false
     width: width
     height: height
     Component.onCompleted: {

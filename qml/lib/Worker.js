@@ -385,6 +385,7 @@ function parseToot (data) {
     .replaceAll('class=""', '');
 
     /** Media attachements in Toots */
+    /*
     item['attachments'] = [];
     for(i = 0; i < data['media_attachments'].length; i++) {
         var attachments = data['media_attachments'][i];
@@ -398,7 +399,7 @@ function parseToot (data) {
         item['attachments'].push(tmp)
     }
 
-    /** Media attachements in Reblogs */
+    // Media attachements in Reblogs
     if(item['status_reblog']) {
         for(i = 0; i < data['reblog']['media_attachments'].length ; i++) {
             var attachments = data['reblog']['media_attachments'][i];
@@ -411,7 +412,7 @@ function parseToot (data) {
             }
             item['attachments'].push(tmp)
         }
-    }
+    }*/
 
     return addEmojis(item, data);
 }

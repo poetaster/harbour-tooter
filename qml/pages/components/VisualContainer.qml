@@ -419,7 +419,7 @@ BackgroundItem {
 
     // Open ConversationPage and show other Toots in thread (if available) or ProfilePage if new Follower
     onClicked: {
-        var m = Qt.createQmlObject('import QtQuick 2.0; ListModel { }', Qt.application, 'InternalQmlObject');
+        var m = Qt.createQmlObject('import QtQuick 2.0; ListModel { dynamicRoles:true }', Qt.application, 'InternalQmlObject');
         if (typeof mdl !== "undefined")
             m.append(mdl.get(index))
 

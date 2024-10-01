@@ -35,14 +35,14 @@ Page {
                 scopes: ["read", "write", "follow"]
                 redirectListener.port: 7538
 
-                onErrorOccurred: console.log("Mastodon OAuth2 Error: " + error.code + " = " + error.message + " : " + error.httpCode)
+                onErrorOccurred: if (debug) console.log("Mastodon OAuth2 Error: " + error.code + " = " + error.message + " : " + error.httpCode)
 
                 onReceivedAuthorizationCode: {
-                    console.log("Got auth code, about to request token.")
+                    if (debug) console.log("Got auth code, about to request token.")
                 }
 
                 onReceivedAccessToken: {
-                    console.log("Got access token: " + token.access_token)
+                    if (debug) console.log("Got access token: " + token.access_token)
                     Logic.conf["api_user_token"] = token.access_token
                                 Logic.conf["login"] = true;
                                 Logic.api.setConfig("api_user_token", Logic.conf["api_user_token"])

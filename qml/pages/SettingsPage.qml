@@ -160,12 +160,17 @@ Page {
                             mastodon: "postaster@mastodon.gamedev.place"
                             mail: "blueprint@poetaster.de"
                         }
-
                         ListElement {
                             name: "Miodrag Nikolić"
                             desc: qsTr("Visual identity")
                             mastodon: ""
                             mail: "micotakis@gmail.com"
+                        }
+                        ListElement {
+                            name: "Jozef Mlich"
+                            desc: qsTr("Documentation")
+                            mastodon: "@jmlich@fosstodon.org"
+                            mail: ""
                         }
 
                         ListElement {

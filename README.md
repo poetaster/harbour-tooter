@@ -1,4 +1,4 @@
-# Tooter β <img width="50" title="Page Home" src="https://openrepos.net/sites/default/files/styles/thumbnail/public/packages/10743/icon-harbour-tooter.png">
+# Tooter β <img width="50" title="Page Home" src="https://github.com/poetaster/harbour-tooter/raw/master/icons/86x86/harbour-tooterb.png">
 
 ## About
 Tooter is Mastodon client for [Sailfish OS](https://sailfishos.org).
@@ -20,7 +20,8 @@ Clone / download this repository and import it into your SailfishOS IDE using th
 Contributions to this project are very welcome, since there are still many things which can be done for Tooter. If you already know what you want to add or fix, please make a Pull Request (PR) with your proposal. Your PR should include an explanation or a change log summary. Merging will not be allowed until the PR has been reviewed.
 
 ## Screenshots
-<img width="200" title="Page Home" src="https://telegra.ph/file/710bba46d9f818e0f88ab.png"> <img width="200" title="Page Profile" src="https://telegra.ph/file/c5b504f637c874861eeee.png"> <img width="200" title="Page Conversation" src="https://telegra.ph/file/c9584f8d68c89827c53e5.png"> 
+
+<img width="200" title="Page Home" src="https://github.com/poetaster/harbour-tooter/raw/master/screenshots/screenshot1.png"> <img width="200" title="Page Profile" src="https://github.com/poetaster/harbour-tooter/raw/master/screenshots/screenshot2.png"> <img width="200" title="Page Conversation" src="https://github.com/poetaster/harbour-tooter/raw/master/screenshots/screenshot3.png">
 
 ## License
 Licensed under GNU GPLv3

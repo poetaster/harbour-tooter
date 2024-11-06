@@ -77,14 +77,14 @@ SilicaListView {
         id: mainPulleyMenu
         MenuItem {
             text: qsTr("Settings")
-            visible: !profilePage
+            visible: ! parent.profilePage
             onClicked: {
                 pageStack.push(Qt.resolvedUrl("../SettingsPage.qml"), {})
             }
         }
         MenuItem {
             text: qsTr("New Toot")
-            visible: !profilePage
+            visible: ! parent.profilePage
             onClicked: {
                 pageStack.push(Qt.resolvedUrl("../ConversationPage.qml"), {
                                    headerTitle: qsTr("New Toot"),

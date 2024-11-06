@@ -385,7 +385,7 @@ function parseToot (data) {
     .replaceAll('class=""', '');
 
     /** Media attachements in Toots */
-
+    
     item['attachments'] = [];
     for(i = 0; i < data['media_attachments'].length; i++) {
         var attachments = data['media_attachments'][i];

@@ -38,10 +38,10 @@ CoverBackground {
         switch (status ){
         case PageStatus.Activating:
             console.log("PageStatus.Activating")
-            timer.triggered()
+            //timer.triggered()
             break;
         case PageStatus.Inactive:
-            timer.triggered()
+            //timer.triggered()
             console.log("PageStatus.Inactive")
             break;
         }

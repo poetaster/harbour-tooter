@@ -375,6 +375,10 @@
         <source>Development</source>
         <translation>Sviluppo</translation>
     </message>
+    <message>
+        <source>Documentation</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>VisualContainer</name>

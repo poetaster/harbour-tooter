@@ -63,6 +63,8 @@ Page {
                     MenuItem { text: "Mastodon" }
                     MenuItem { text: "Pixelfed" }
                 }
+                Component.onCompleted: Logic.conf.type = currentIndex
+                onCurrentIndexChanged: Logic.conf.type = currentIndex
             }
             
             TextField {

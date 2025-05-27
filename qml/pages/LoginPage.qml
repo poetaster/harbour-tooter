@@ -35,6 +35,12 @@ Page {
                 scopes: ["read", "write", "follow"]
                 redirectListener.port: 7538
 
+                // Workaround for Pixelfed
+                redirectUri: Logic.conf.type === 1 ? ' ' : redirectListener.uri
+                customParameters: Logic.conf.type === 1 ?
+                                      ({redirect_uris: "http://127.0.0.1:7538"})
+                                    : ({})
+
                 onErrorOccurred: if (debug) console.log("Mastodon OAuth2 Error: " + error.code + " = " + error.message + " : " + error.httpCode)
 
                 onReceivedAuthorizationCode: {
@@ -44,11 +50,20 @@ Page {
                 onReceivedAccessToken: {
                     if (debug) console.log("Got access token: " + token.access_token)
                     Logic.conf["api_user_token"] = token.access_token
-                                Logic.conf["login"] = true;
-                                Logic.api.setConfig("api_user_token", Logic.conf["api_user_token"])
-                                pageStack.replace(Qt.resolvedUrl("MainPage.qml"), {})
-                            }
+                    Logic.conf["login"] = true;
+                    Logic.api.setConfig("api_user_token", Logic.conf["api_user_token"])
+                    pageStack.replace(Qt.resolvedUrl("MainPage.qml"), {})
                 }
+            }
+
+            ComboBox {
+                id: typeBox
+                label: qsTr("Type")
+                menu: ContextMenu {
+                    MenuItem { text: "Mastodon" }
+                    MenuItem { text: "Pixelfed" }
+                }
+            }
             
             TextField {
                 id: instance
@@ -67,10 +82,10 @@ Page {
                                                   ["read", "write", "follow"], //scopes
                                                   "https://github.com/poetaster/harbour-tooter#readme", //website on the login screen
                                                   function(data) {
-
                                                       if (debug) console.log(data)
                                                       var conf = JSON.parse(data)
                                                       conf.instance = instance.text;
+                                                      conf.type = typeBox.currentIndex
                                                       conf.login = false;
 
                                                       Logic.conf = conf;
@@ -82,6 +97,7 @@ Page {
                                                       mastodonOAuth.clientId = conf["client_id"]
                                                       mastodonOAuth.clientSecret = conf["client_secret"];
 
+                                                      mastodonOAuth.redirectListener.startListening() // Workaround for Pixelfed
                                                       mastodonOAuth.authorizeInBrowser()
                                                   }
                                                   );

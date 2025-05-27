@@ -403,6 +403,7 @@ Page {
 
         IconButton {
             id: btnAddMusic
+            visible: Logic.conf.type !== 1
             enabled: mediaModel.count < 4
             icon.source: "image://theme/icon-m-file-audio?" + ( pressed ? Theme.highlightColor : (warningContent.visible ? Theme.secondaryHighlightColor : Theme.primaryColor) )
             anchors {
@@ -424,7 +425,7 @@ Page {
             anchors {
                 top: toot.bottom
                 topMargin: -Theme.paddingSmall * 1.5
-                left: btnAddMusic.right
+                left: btnAddMusic.visible ? btnAddMusic.right : btnAddMusic.left
                 leftMargin: Theme.paddingSmall
             }
             onClicked: {

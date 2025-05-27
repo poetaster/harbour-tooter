@@ -200,6 +200,13 @@ Page {
                             mastodon: ""
                             mail: ""
                         }
+
+                        ListElement {
+                            name: "roundedrectangle"
+                            desc: qsTr("Pixelfed support")
+                            mastodon: "roundedrectangle@techhub.social"
+                            mail: ""
+                        }
                     }
 
                     Item {

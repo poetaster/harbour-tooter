@@ -226,7 +226,7 @@ Page {
                                     var m = Qt.createQmlObject('import QtQuick 2.0; ListModel { }', Qt.application, 'InternalQmlObject');
                                     pageStack.push(Qt.resolvedUrl("ConversationPage.qml"), {
                                                        headerTitle: "Mention",
-                                                       description: '@'+model.mastodon,
+                                                       username: '@'+model.mastodon,
                                                        type: "new"
                                                    })
                                 } else {

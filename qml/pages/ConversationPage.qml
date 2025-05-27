@@ -519,7 +519,7 @@ Page {
         IconButton {
             id: btnSend
             icon.source: "image://theme/icon-m-send?" + (pressed ? Theme.highlightColor : Theme.primaryColor)
-            enabled: (toot.text !== "" || mediaModel.count > 0) && toot.text.length < tootMaxChar && uploadProgress.width == 0 && (Logic.conf.type === 1 ? (mediaModel.count > 0) : true)
+            enabled: (toot.text !== "" || mediaModel.count > 0) && toot.text.length < tootMaxChar && uploadProgress.width == 0 && ((Logic.conf.type === 1 && type !== "reply") ? (mediaModel.count > 0) : true)
             anchors {
                 top: toot.bottom
                 topMargin: -Theme.paddingSmall * 1.5

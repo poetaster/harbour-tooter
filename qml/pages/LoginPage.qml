@@ -85,11 +85,13 @@ Page {
                                                   function(data) {
                                                       if (debug) console.log(data)
                                                       var conf = JSON.parse(data)
-                                                      conf.instance = instance.text;
-                                                      conf.type = typeBox.currentIndex
-                                                      conf.login = false;
 
-                                                      Logic.conf = conf;
+                                                      Logic.conf = {
+                                                          api_user_token: conf.api_user_token,
+                                                          instance: instance.text,
+                                                          type: typeBox.currentIndex,
+                                                          login: false,
+                                                      };
                                                       if(debug) console.log(JSON.stringify(conf))
                                                       if(debug) console.log(JSON.stringify(Logic.conf))
 

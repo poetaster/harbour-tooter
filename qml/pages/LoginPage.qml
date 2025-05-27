@@ -36,8 +36,9 @@ Page {
                 redirectListener.port: 7538
 
                 // Workaround for Pixelfed
-                redirectUri: Logic.conf.type === 1 ? ' ' : redirectListener.uri
-                customParameters: Logic.conf.type === 1 ?
+                // For some reason Logic.conf.type does not send signal when it is changed, so we use the value from combo box
+                redirectUri: typeBox.currentIndex === 1 ? ' ' : redirectListener.uri
+                customParameters: typeBox.currentIndex === 1 ?
                                       ({redirect_uris: "http://127.0.0.1:7538"})
                                     : ({})
 
@@ -63,8 +64,6 @@ Page {
                     MenuItem { text: "Mastodon" }
                     MenuItem { text: "Pixelfed" }
                 }
-                Component.onCompleted: Logic.conf.type = currentIndex
-                onCurrentIndexChanged: Logic.conf.type = currentIndex
             }
             
             TextField {

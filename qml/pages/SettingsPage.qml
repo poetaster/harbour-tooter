@@ -78,6 +78,7 @@ Page {
                                     Logic.conf['login'] = false
                                     Logic.conf['instance'] = null;
                                     Logic.conf['api_user_token'] = null;
+                                    Logic.conf['type'] = null
                                 }
                                 pageStack.push(Qt.resolvedUrl("LoginPage.qml"))
                             })

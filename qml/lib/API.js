@@ -31,6 +31,11 @@ var mediator = (function(){
     };
 }());
 
+function getActiveAccount() {
+    // not sure if this can be used for dynamic qobject properties
+    return conf.accounts[conf.activeAccount] || {}
+}
+
 var init = function(){
     console.log("db.version: "+db.version);
     if(db.version === '') {

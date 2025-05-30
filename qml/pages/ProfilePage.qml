@@ -47,7 +47,7 @@ Page {
 
                 var msg = {
                     'action'    : "accounts/relationships/",
-                    'params'    : [ {name: Logic.conf.type === 1 ? "id[]" : "id", data: user_id}],
+                    'params'    : [ {name: Logic.getActiveAccount().type === 1 ? "id[]" : "id", data: user_id}],
                     'conf'      : Logic.conf
                 };
                 worker.sendMessage(msg);
@@ -108,13 +108,13 @@ Page {
         if (user_id) {
             msg = {
                 'action'    : "accounts/relationships/",
-                'params'    : [ {name: Logic.conf.type === 1 ? "id[]" : "id", data: user_id} ],
+                'params'    : [ {name: Logic.getActiveAccount().type === 1 ? "id[]" : "id", data: user_id} ],
                 'conf'      : Logic.conf
             }
             worker.sendMessage(msg)
 
         } else {
-            var instance = Logic.conf['instance'].split("//")
+            var instance = Logic.getActiveAccount()['instance'].split("//")
             msg = {
                 'action'    : "accounts/search?limit=1&q="+username.replace("@"+instance[1], ""),
                 'conf'      : Logic.conf

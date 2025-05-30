@@ -41,8 +41,10 @@ WorkerScript.onMessage = function(msg) {
         }
     }
 
+    var account = msg.conf && msg.conf.accounts ? msg.conf.accounts[msg.conf.activeAccount] : undefined
+
     /** Logged-in status */
-    if (!msg.conf || !msg.conf.login) {
+    if (!account || !account.login) {
         //console.log("Not loggedin")
         return;
     }
@@ -54,7 +56,7 @@ WorkerScript.onMessage = function(msg) {
 
     /* init API statuses */
 
-    var API = mastodonAPI({ instance: msg.conf.instance, api_user_token: msg.conf.api_user_token});
+    var API = mastodonAPI({ instance: account.instance, api_user_token: account.api_user_token});
 
     /*
     * HEAD call for some actions

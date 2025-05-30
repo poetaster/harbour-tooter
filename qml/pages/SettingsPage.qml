@@ -39,10 +39,100 @@ Page {
 
             SectionHeader { text: qsTr("Account") }
 
+            signal activeAccountChanged
+
+            Repeater {
+                model: Logic.conf.accounts
+                Item {
+                    id: removeAccount
+                    width: parent.width
+                    height: clnRemoveAccount.height + Theme.paddingLarge
+                    anchors {
+                        left: parent.left
+                        leftMargin: Theme.horizontalPageMargin
+                        right: parent.right
+                        rightMargin: Theme.paddingLarge
+                    }
+
+                    Icon {
+                        id: icnRemoveAccount
+                        color: Theme.highlightColor
+                        width: Theme.iconSizeMedium
+                        fillMode: Image.PreserveAspectFit
+                        source: "image://theme/icon-m-contact"
+                        anchors.right: parent.right
+                    }
+
+                    Column {
+                        id: clnRemoveAccount
+                        spacing: Theme.paddingMedium
+                        anchors {
+                            left: parent.left
+                            right: icnRemoveAccount.left
+                        }
+
+                        SectionHeader {
+                            text: index + modelData.api_user_token
+                            height: implicitHeight
+                            wrapMode: Text.Wrap
+                        }
+
+                        Button {
+                            id: activateButton
+                            text: qsTr("Activate")
+                            enabled: index !== Logic.conf.activeAccount
+                            onClicked: {
+                                Logic.conf.activeAccount = index
+                                column.activeAccountChanged()
+                                Logic.api.setConfig("instance", modelData.instance)
+                                Logic.api.setConfig("api_user_token", modelData.api_user_token)
+                            }
+
+                            Connections {
+                                target: column
+                                onActiveAccountChanged: activateButton.enabled = index !== Logic.conf.activeAccount
+                            }
+                        }
+
+                        Button {
+                            id: btnRemoveAccount
+                            text: qsTr("Remove Account")
+                            preferredWidth: Theme.buttonWidthMedium
+                            anchors.horizontalCenter: parent.horizontalCenter
+                            onClicked: {
+                                remorsePopup.execute(btnRemoveAccount.text, function() {
+                                    Logic.conf.accounts.splice(index, 1)
+                                    if (Logic.conf.accounts.length == 0) {
+                                        Logic.conf.activeAccount = null
+                                        pageStack.push(Qt.resolvedUrl("LoginPage.qml"))
+                                    } else
+                                        Logic.conf.activeAccount = Logic.conf.accounts.length - 1
+                                })
+                            }
+
+                            Timer {
+                                interval: 4700
+                                onTriggered: parent.busy = false
+                            }
+                        }
+
+                        Label {
+                            id: txtRemoveAccount
+                            text: qsTr("Deauthorize this app from using your account and remove account data from phone")
+                            font.pixelSize: Theme.fontSizeExtraSmall
+                            wrapMode: Text.Wrap
+                            color: Theme.highlightColor
+                            width: parent.width - Theme.paddingMedium
+                            anchors.left: parent.left
+                        }
+                    }
+                }
+            }
+
             Item {
-                id: removeAccount
+                id: addAccount
                 width: parent.width
-                height: txtRemoveAccount.height + btnRemoveAccount.height + Theme.paddingLarge
+                height: clnAddAccount.height + Theme.paddingLarge
                 anchors {
                     left: parent.left
                     leftMargin: Theme.horizontalPageMargin
@@ -51,49 +141,40 @@ Page {
                 }
 
                 Icon {
-                    id: icnRemoveAccount
+                    id: icnAddAccount
                     color: Theme.highlightColor
                     width: Theme.iconSizeMedium
                     fillMode: Image.PreserveAspectFit
-                    source: Logic.conf['login'] ? "image://theme/icon-m-contact" : "image://theme/icon-m-add"
+                    source: "image://theme/icon-m-add"
                     anchors.right: parent.right
                 }
 
                 Column {
-                    id: clnRemoveAccount
+                    id: clnAddAccount
                     spacing: Theme.paddingMedium
                     anchors {
                         left: parent.left
-                        right: icnRemoveAccount.left
+                        right: icnAddAccount.left
                     }
 
                     Button {
-                        id: btnRemoveAccount
-                        text: Logic.conf['login'] ? qsTr("Remove Account") : qsTr("Add Account")
+                        id: btnAddAccount
+                        text: qsTr("Add Account")
                         preferredWidth: Theme.buttonWidthMedium
                         anchors.horizontalCenter: parent.horizontalCenter
                         onClicked: {
-                            remorsePopup.execute(btnRemoveAccount.text, function() {
-                                if (Logic.conf['login']) {
-                                    Logic.conf['login'] = false
-                                    Logic.conf['instance'] = null;
-                                    Logic.conf['api_user_token'] = null;
-                                    Logic.conf['type'] = null
-                                }
-                                pageStack.push(Qt.resolvedUrl("LoginPage.qml"))
-                            })
+                            pageStack.push(Qt.resolvedUrl("LoginPage.qml"))
                         }
 
                         Timer {
-                            id: timer1
                             interval: 4700
                             onTriggered: parent.busy = false
                         }
                     }
 
                     Label {
-                        id: txtRemoveAccount
-                        text: Logic.conf['login'] ? qsTr("Deauthorize this app from using your account and remove account data from phone") : qsTr("Authorize this app to access your Mastodon account")
+                        id: txtAddAccount
+                        text: qsTr("Authorize this app to access your Mastodon account")
                         font.pixelSize: Theme.fontSizeExtraSmall
                         wrapMode: Text.Wrap
                         color: Theme.highlightColor

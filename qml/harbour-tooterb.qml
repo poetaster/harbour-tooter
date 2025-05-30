@@ -45,8 +45,23 @@ ApplicationWindow {
             //console.log(JSON.stringify(Logic.conf))
             if (!Logic.conf['notificationLastID'])
                 Logic.conf['notificationLastID'] = 0
-            if (!('type' in Logic.conf))
-                Logic.conf.type = 0
+            if (!Logic.conf['accounts'])
+                Logic.conf['accounts'] = []
+
+            var oldAccountParameters = ['api_user_token', 'instance', 'login']
+            if (oldAccountParameters.every(function(el) { return el in Logic.conf })) {
+                if (!('type' in Logic.conf))
+                    Logic.conf.type = 0
+                oldAccountParameters.push('type')
+
+                var account = {}
+                oldAccountParameters.forEach(function(el) {
+                    account[el] = Logic.conf[el]
+                    Logic.conf[el] = null
+                })
+                Logic.conf.accounts.push(account)
+                Logic.conf.activeAccount = Logic.conf.accounts.length - 1
+            }
 
             if (Logic.conf['instance']) {
                 Logic.api = Logic.mastodonAPI({

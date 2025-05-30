@@ -69,7 +69,7 @@ function saveData() {
     db.transaction(function(tx) {
         for (var key in conf) {
             if (conf.hasOwnProperty(key)){
-                console.log(key + "\t>\t"+conf[key]);
+                console.log(key + "\t>\t"+JSON.stringify(conf[key]));
                 if (typeof conf[key] === "object" && conf[key] === null) {
                     tx.executeSql('DELETE FROM settings WHERE key=? ', [key])
                 } else {

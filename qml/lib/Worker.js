@@ -108,7 +108,7 @@ WorkerScript.onMessage = function(msg) {
             var item;
             if (data.hasOwnProperty(i)) {
                 if(msg.action === "accounts/search") {
-                    item = parseAccounts([], "", data[i]);
+                    item = parseAccounts({}, "", data[i]);
                     //console.log(JSON.stringify(data[i]))
                     console.log("has own data")
 

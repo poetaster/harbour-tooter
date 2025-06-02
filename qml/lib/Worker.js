@@ -12,6 +12,8 @@ WorkerScript.onMessage = function(msg) {
     if (debug) console.log("Action > " + msg.action)
     if (debug) console.log("Mode > " + msg.mode)
 
+    msg.params = msg.params || []
+
     // this is not elegant. it's max_id and ids from MyList
     // we should always get max_id on append
     if (msg.mode === "append" && msg.params[0]) {

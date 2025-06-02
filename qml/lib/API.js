@@ -123,6 +123,11 @@ var modelTLnotifications = Qt.createQmlObject('import QtQuick 2.0; ListModel {  
 var modelTLsearch = Qt.createQmlObject('import QtQuick 2.0; ListModel {   }', Qt.application, 'InternalQmlObject');
 var modelTLbookmarks = Qt.createQmlObject('import QtQuick 2.0; ListModel {   }', Qt.application, 'InternalQmlObject');
 
+function clearModels() {
+    [modelTLhome, modelTLpublic, modelTLlocal, modelTLnotifications, modelTLsearch, modelTLbookmarks]
+        .forEach(function(m) { m.clear() })
+}
+
 var notificationsList = []
 
 var notificationGenerator = function(item){

@@ -52,7 +52,7 @@ Page {
 
                 Logic.api.setConfig("instance", account.instance)
                 Logic.api.setConfig("api_user_token", account.api_user_token)
-                console.log(JSON.stringify(account))
+                Logic.clearModels()
 
                 pageStack.pop(null, PageStackAction.Immediate)
                 pageStack.replace(Qt.resolvedUrl("MainPage.qml"), null, PageStackAction.Immediate)

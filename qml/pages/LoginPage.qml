@@ -55,6 +55,7 @@ Page {
                     account["login"] = true
                     Logic.api.setConfig("api_user_token", account["api_user_token"])
                     pageStack.clear()
+                    Logic.clearModels()
                     pageStack.push(Qt.resolvedUrl("MainPage.qml"))
                 }
             }

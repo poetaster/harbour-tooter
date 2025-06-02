@@ -204,7 +204,7 @@ Page {
 
                         ListElement {
                             name: "roundedrectangle"
-                            desc: qsTr("Pixelfed support")
+                            desc: qsTr("Development")
                             mastodon: "roundedrectangle@techhub.social"
                             mail: ""
                         }

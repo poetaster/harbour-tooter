@@ -54,7 +54,8 @@ Page {
                     account["api_user_token"] = token.access_token
                     account["login"] = true
                     Logic.api.setConfig("api_user_token", account["api_user_token"])
-                    pageStack.replace(Qt.resolvedUrl("MainPage.qml"), {})
+                    pageStack.clear()
+                    pageStack.push(Qt.resolvedUrl("MainPage.qml"))
                 }
             }
 

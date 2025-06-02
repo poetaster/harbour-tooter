@@ -2,11 +2,13 @@ import QtQuick 2.0
 import Sailfish.Silica 1.0
 
 
-BackgroundItem {
+ListItem {
     id: delegate
 
+    property bool textHighlighted
+
     width: parent.width
-    height: Theme.itemSizeMedium
+    contentHeight: Theme.itemSizeMedium
 
     Item {
         id: avatar
@@ -64,7 +66,7 @@ BackgroundItem {
         Label {
             id: display_name
             text: model.account_display_name ? model.account_display_name : model.account_username.split('@')[0]
-            color: !highlighted ? Theme.primaryColor : Theme.highlightColor
+            color: highlighted || textHighlighted ? Theme.highlightColor : Theme.primaryColor
             font.pixelSize: Theme.fontSizeSmall
             truncationMode: TruncationMode.Fade
             width: parent.width - Theme.paddingMedium
@@ -74,7 +76,7 @@ BackgroundItem {
         Label {
             id: account_acct
             text: "@"+model.account_acct
-            color: !highlighted ?  Theme.secondaryColor : Theme.secondaryHighlightColor
+            color: highlighted || textHighlighted ? Theme.secondaryHighlightColor : Theme.secondaryColor
             anchors.leftMargin: Theme.paddingMedium
             font.pixelSize: Theme.fontSizeExtraSmall
             truncationMode: TruncationMode.Fade

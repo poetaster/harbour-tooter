@@ -5,8 +5,6 @@ import Sailfish.Silica 1.0
 BackgroundItem {
     id: delegate
 
-    signal openUser (string notice)
-
     width: parent.width
     height: Theme.itemSizeMedium
 
@@ -84,20 +82,4 @@ BackgroundItem {
             anchors.top: display_name.bottom
         }
     }
-
-    onClicked: openUser( {
-                            "display_name": model.account_display_name,
-                            "username": model.account_acct,
-                            "user_id": model.account_id,
-                            "profileImage": model.account_avatar,
-                            "profileBackground": model.account_header,
-                            "note": model.account_note,
-                            "url": model.account_url,
-                            "followers_count": model.account_followers_count,
-                            "following_count": model.account_following_count,
-                            "statuses_count": model.account_statuses_count,
-                            "locked": model.account_locked,
-                            "bot": model.account_bot,
-                            "group": model.account_group
-                        } )
 }

@@ -6,12 +6,24 @@ import QtGraphicalEffects 1.0
 SilicaGridView {
     id: gridView
 
-    property bool isPortrait: false
+    property bool isPortrait: true
     signal slideshowShow(int vIndex)
     signal slideshowIndexChanged(int vIndex)
 
+    property var dockedPanelMouseArea
+    readonly property real menuHeight: headerItem.implicitHeight
+    readonly property var menuItem: headerItem._menuItem
+
     onSlideshowIndexChanged: {
         navigateTo(vIndex)
+    }
+
+    header: ListItem {
+        width: parent.width
+        contentHeight: 0
+        menu: Component { ContextMenu {
+            // ...
+        } }
     }
 
     ListModel {
@@ -64,8 +76,8 @@ SilicaGridView {
     }
     model: listModel
     currentIndex: -1
-    cellWidth: isPortrait ? gridView.width : gridView.width / model.count
-    cellHeight: isPortrait ? gridView.height/model.count : gridView.height
+    cellWidth: isPortrait ? gridView.width / model.count : gridView.width
+    cellHeight: (gridView.height - headerItem.implicitHeight) / (isPortrait ? 1 : model.count)
     anchors.fill: parent
     delegate: BackgroundItem {
         id: rectangle
@@ -81,7 +93,7 @@ SilicaGridView {
 
         GlassItem {
             id: effect
-            visible: !isPortrait && unread
+            visible: isPortrait && unread
             dimmed: true
             color: Theme.highlightColor
             width: Theme.itemSizeMedium
@@ -95,7 +107,7 @@ SilicaGridView {
 
         GlassItem {
             id: effect2
-            visible: isPortrait && unread
+            visible: !isPortrait && unread
             dimmed: false
             color: Theme.highlightColor
             width: Theme.itemSizeMedium
@@ -128,6 +140,8 @@ SilicaGridView {
             navigateTo(model.slug)
             effect.state = "right"
         }
+
+        onPressAndHold: if (isPortrait) headerItem.openMenu()
     }
 
     function navigateTo(slug){
@@ -141,4 +155,17 @@ SilicaGridView {
     }
 
     VerticalScrollDecorator {}
+
+    Connections {
+        target: dockedPanelMouseArea
+        onPositionChanged: if (menuItem)
+            menuItem._updatePosition(menuItem._contentColumn.mapFromItem(dockedPanelMouseArea, dockedPanelMouseArea.mouseX, dockedPanelMouseArea.mouseY).y)
+        onReleased: if (menuItem) menuItem.released(mouse)
+    }
+
+    Binding {
+        target: dockedPanelMouseArea
+        property: 'enabled'
+        value: !headerItem.menuOpen
+    }
 }

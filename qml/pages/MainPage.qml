@@ -17,12 +17,13 @@ Page {
         id: infoPanel
         open: true
         width: isPortrait ? parent.width : Theme.itemSizeLarge
-        height: isPortrait ? Theme.itemSizeLarge : parent.height
+        height: isPortrait ? (Theme.itemSizeLarge + navigation.menuHeight) : parent.height
         dock: isPortrait ? Dock.Bottom : Dock.Right
 
         NavigationPanel {
             id: navigation
-            isPortrait: !mainPage.isPortrait
+            isPortrait: mainPage.isPortrait
+            dockedPanelMouseArea: parent
             onSlideshowShow: {
                 if (debug) console.log(vIndex)
 

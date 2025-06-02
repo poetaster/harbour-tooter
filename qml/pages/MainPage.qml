@@ -310,6 +310,19 @@ Page {
         }
     }
 
+    WorkerScript {
+        id: worker
+        source: "../lib/Worker.js"
+        onMessage: {
+            if (debug) console.log(JSON.stringify(messageObject))
+            if (messageObject.action === "accounts/verify_credentials") {
+                Logic.getActiveAccount().userInfo = messageObject.data
+            }
+        }
+
+        Component.onCompleted: sendMessage({action: "accounts/verify_credentials", conf: Logic.conf})
+    }
+
     Component.onCompleted: {
         //console.log("aaa")
     }

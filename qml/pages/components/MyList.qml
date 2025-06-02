@@ -95,7 +95,7 @@ SilicaListView {
 
         MenuItem {
             text: qsTr("Open in Browser")
-            visible: !mainPage
+            visible: typeof mainPage === 'undefined'
             onClicked: {
                 Qt.openUrlExternally(url)
             }

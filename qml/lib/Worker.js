@@ -103,6 +103,11 @@ WorkerScript.onMessage = function(msg) {
 
     API.get(msg.action, msg.params, function(data) {
 
+        if (msg.action === "accounts/verify_credentials") {
+            WorkerScript.sendMessage({action: msg.action, success: true, data: parseAccounts({}, '', data)})
+            return
+        }
+
         var items = [];
         //console.log(data)
 

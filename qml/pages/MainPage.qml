@@ -317,6 +317,8 @@ Page {
             if (debug) console.log(JSON.stringify(messageObject))
             if (messageObject.action === "accounts/verify_credentials") {
                 Logic.getActiveAccount().userInfo = messageObject.data
+                Logic.getActiveAccount().userInfo.account_acct += "@" + (Logic.getActiveAccount()['instance'].split("//")[1])
+                delete Logic.getActiveAccount().userInfo.account_id
             }
         }
 

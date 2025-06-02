@@ -103,23 +103,23 @@ Page {
     // The effective value will be restricted by ApplicationWindow.allowedOrientations
     allowedOrientations: Orientation.All
     Component.onCompleted: {
-        var msg
-
         if (user_id) {
-            msg = {
+            worker.sendMessage({
                 'action'    : "accounts/relationships/",
                 'params'    : [ {name: "id[]", data: user_id} ],
                 'conf'      : Logic.conf
-            }
-            worker.sendMessage(msg)
+            })
 
         } else {
-            var instance = Logic.getActiveAccount()['instance'].split("//")
-            msg = {
-                'action'    : "accounts/search?limit=1&q="+username.replace("@"+instance[1], ""),
+            var user = username
+            if (user.indexOf('@') == 0)
+                user = user.slice(1)
+            user = user.replace('@'+Logic.getActiveAccount().instance.split('//')[1], "")
+
+            worker.sendMessage({
+                'action'    : "accounts/search?limit=1&q=" + user + '&resolve=' + (user.indexOf('@') > -1),
                 'conf'      : Logic.conf
-            }
-            worker.sendMessage(msg)
+            })
         }
     }
 

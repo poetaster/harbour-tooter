@@ -285,7 +285,7 @@ Page {
 
                         ListElement {
                             name: "roundedrectangle"
-                            desc: qsTr("Pixelfed support")
+                            desc: qsTr("Development")
                             mastodon: "roundedrectangle@techhub.social"
                             mail: ""
                         }
@@ -307,7 +307,7 @@ Page {
                                 if (model.mastodon !== ""){
                                     var m = Qt.createQmlObject('import QtQuick 2.0; ListModel { }', Qt.application, 'InternalQmlObject');
                                     pageStack.push(Qt.resolvedUrl("ConversationPage.qml"), {
-                                                       headerTitle: "Mention",
+                                                       headerTitle: qsTr("Mention"),
                                                        username: '@'+model.mastodon,
                                                        type: "new"
                                                    })

@@ -281,7 +281,7 @@ Page {
                         onClicked: {
                             pageStack.push(Qt.resolvedUrl("ConversationPage.qml"), {
                                                headerTitle: qsTr("Mention"),
-                                               description: "@"+username,
+                                               username: "@"+username,
                                                type: "new"
                                            })
                         }

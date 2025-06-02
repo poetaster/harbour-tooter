@@ -64,7 +64,7 @@ BackgroundItem {
         Label {
             id: display_name
             text: model.account_display_name ? model.account_display_name : model.account_username.split('@')[0]
-            color: !pressed ? Theme.primaryColor : Theme.highlightColor
+            color: !highlighted ? Theme.primaryColor : Theme.highlightColor
             font.pixelSize: Theme.fontSizeSmall
             truncationMode: TruncationMode.Fade
             width: parent.width - Theme.paddingMedium
@@ -74,7 +74,7 @@ BackgroundItem {
         Label {
             id: account_acct
             text: "@"+model.account_acct
-            color: !pressed ?  Theme.secondaryColor : Theme.secondaryHighlightColor
+            color: !highlighted ?  Theme.secondaryColor : Theme.secondaryHighlightColor
             anchors.leftMargin: Theme.paddingMedium
             font.pixelSize: Theme.fontSizeExtraSmall
             truncationMode: TruncationMode.Fade

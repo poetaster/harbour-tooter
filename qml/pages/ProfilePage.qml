@@ -115,9 +115,14 @@ Page {
             if (user.indexOf('@') == 0)
                 user = user.slice(1)
             user = user.replace('@'+Logic.getActiveAccount().instance.split('//')[1], "")
+            var resolve = user.indexOf('@') > -1
+
+            if (resolve && Logic.getActiveAccount().type === 1)
+                // With Pixelfed and "@" in q parameter, it returns 404 and crashes, so we disable this for now
+                return
 
             worker.sendMessage({
-                'action'    : "accounts/search?limit=1&q=" + user + '&resolve=' + (user.indexOf('@') > -1),
+                'action'    : "accounts/search?limit=1&q=" + user + '&resolve=' + resolve,
                 'conf'      : Logic.conf
             })
         }

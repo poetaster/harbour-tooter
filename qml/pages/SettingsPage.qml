@@ -1,5 +1,6 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
+import "components"
 import "../lib/API.js" as Logic
 
 
@@ -7,12 +8,16 @@ Page {
     id: settingsPage
     allowedOrientations: Orientation.All
 
+    Component.onCompleted: {
+        // Just so translations are not lost in case we will need them again
+        qsTr("Remove Account")
+        qsTr("Deauthorize this app from using your account and remove account data from phone")
+    }
+
     SilicaFlickable {
         contentHeight: column.height + Theme.paddingLarge
         contentWidth: parent.width
         anchors.fill: parent
-
-        RemorsePopup { id: remorsePopup }
 
         VerticalScrollDecorator {}
 
@@ -39,91 +44,50 @@ Page {
 
             SectionHeader { text: qsTr("Account") }
 
-            signal activeAccountChanged
+            function setActiveAccount(index, removing) {
+                if (Logic.conf.activeAccount === index) return
+                var account = Logic.conf.accounts[index]
+
+                Logic.conf.activeAccount = index
+
+                Logic.api.setConfig("instance", account.instance)
+                Logic.api.setConfig("api_user_token", account.api_user_token)
+                console.log(JSON.stringify(account))
+
+                pageStack.pop(null, PageStackAction.Immediate)
+                pageStack.replace(Qt.resolvedUrl("MainPage.qml"), null, PageStackAction.Immediate)
+                pageStack.push(Qt.resolvedUrl("SettingsPage.qml"), null, PageStackAction.Immediate)
+            }
 
             Repeater {
+                id: accountsList
                 model: Logic.conf.accounts
-                Item {
-                    id: removeAccount
-                    width: parent.width
-                    height: clnRemoveAccount.height + Theme.paddingLarge
-                    anchors {
-                        left: parent.left
-                        leftMargin: Theme.horizontalPageMargin
-                        right: parent.right
-                        rightMargin: Theme.paddingLarge
+                ItemUser {
+                    id: userItem
+                    property var model: modelData.userInfo
+                    textHighlighted: index === Logic.conf.activeAccount
+
+                    onClicked: column.setActiveAccount(index)
+
+                    function remove() {
+                        remorseAction(qsTr("Account removed"), function() {
+                            Logic.conf.accounts.splice(index, 1)
+                            if (Logic.conf.accounts.length)
+                                column.setActiveAccount(0, true) //Logic.conf.accounts.length - 1
+                            else {
+                                Logic.conf.activeAccount = null
+                                pageStack.clear()
+                                pageStack.push(Qt.resolvedUrl("LoginPage.qml"))
+                            }
+                        })
                     }
 
-                    Icon {
-                        id: icnRemoveAccount
-                        color: Theme.highlightColor
-                        width: Theme.iconSizeMedium
-                        fillMode: Image.PreserveAspectFit
-                        source: "image://theme/icon-m-contact"
-                        anchors.right: parent.right
-                    }
-
-                    Column {
-                        id: clnRemoveAccount
-                        spacing: Theme.paddingMedium
-                        anchors {
-                            left: parent.left
-                            right: icnRemoveAccount.left
-                        }
-
-                        SectionHeader {
-                            text: index + modelData.api_user_token
-                            height: implicitHeight
-                            wrapMode: Text.Wrap
-                        }
-
-                        Button {
-                            id: activateButton
-                            text: qsTr("Activate")
-                            enabled: index !== Logic.conf.activeAccount
-                            onClicked: {
-                                Logic.conf.activeAccount = index
-                                column.activeAccountChanged()
-                                Logic.api.setConfig("instance", modelData.instance)
-                                Logic.api.setConfig("api_user_token", modelData.api_user_token)
+                    menu: Component {
+                        ContextMenu {
+                            MenuItem {
+                                text: qsTr("Remove")
+                                onClicked: remove()
                             }
-
-                            Connections {
-                                target: column
-                                onActiveAccountChanged: activateButton.enabled = index !== Logic.conf.activeAccount
-                            }
-                        }
-
-                        Button {
-                            id: btnRemoveAccount
-                            text: qsTr("Remove Account")
-                            preferredWidth: Theme.buttonWidthMedium
-                            anchors.horizontalCenter: parent.horizontalCenter
-                            onClicked: {
-                                remorsePopup.execute(btnRemoveAccount.text, function() {
-                                    Logic.conf.accounts.splice(index, 1)
-                                    if (Logic.conf.accounts.length == 0) {
-                                        Logic.conf.activeAccount = null
-                                        pageStack.push(Qt.resolvedUrl("LoginPage.qml"))
-                                    } else
-                                        Logic.conf.activeAccount = Logic.conf.accounts.length - 1
-                                })
-                            }
-
-                            Timer {
-                                interval: 4700
-                                onTriggered: parent.busy = false
-                            }
-                        }
-
-                        Label {
-                            id: txtRemoveAccount
-                            text: qsTr("Deauthorize this app from using your account and remove account data from phone")
-                            font.pixelSize: Theme.fontSizeExtraSmall
-                            wrapMode: Text.Wrap
-                            color: Theme.highlightColor
-                            width: parent.width - Theme.paddingMedium
-                            anchors.left: parent.left
                         }
                     }
                 }

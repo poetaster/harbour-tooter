@@ -32,6 +32,7 @@ Page {
 
             menu: Component {
                 ContextMenu {
+                    hasContent: Logic.conf.accounts.length > 1
                     Repeater {
                         model: Logic.conf.accounts
                         MenuItem {

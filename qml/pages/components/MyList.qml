@@ -127,6 +127,7 @@ SilicaListView {
 
         /*contentY = scrollOffset
         console.log("CountChanged!")*/
+        if (count == 0) loadData("prepend")
     }
 
     footer: Item {

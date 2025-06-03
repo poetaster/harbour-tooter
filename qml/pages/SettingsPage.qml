@@ -44,19 +44,20 @@ Page {
 
             SectionHeader { text: qsTr("Account") }
 
+            signal activeAccountChanged
             function setActiveAccount(index, removing) {
-                if (Logic.conf.activeAccount === index) return
+                if (!removing && Logic.conf.activeAccount === index) return
                 var account = Logic.conf.accounts[index]
 
                 Logic.conf.activeAccount = index
 
                 Logic.api.setConfig("instance", account.instance)
                 Logic.api.setConfig("api_user_token", account.api_user_token)
-                Logic.clearModels()
 
-                pageStack.pop(null, PageStackAction.Immediate)
-                pageStack.replace(Qt.resolvedUrl("MainPage.qml"), null, PageStackAction.Immediate)
-                pageStack.push(Qt.resolvedUrl("SettingsPage.qml"), null, PageStackAction.Immediate)
+                Logic.clearModels()
+                if (removing)
+                    accountsList.model = Logic.conf.accounts
+                else activeAccountChanged()
             }
 
             Repeater {
@@ -66,6 +67,11 @@ Page {
                     id: userItem
                     property var model: modelData.userInfo
                     textHighlighted: index === Logic.conf.activeAccount
+
+                    Connections {
+                        target: column
+                        onActiveAccountChanged: textHighlighted = index === Logic.conf.activeAccount
+                    }
 
                     onClicked: column.setActiveAccount(index)
 

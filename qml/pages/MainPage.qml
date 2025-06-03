@@ -43,6 +43,8 @@ Page {
             width: isPortrait ? parent.itemWidth : parent.itemWidth - Theme.itemSizeLarge
             height: parent.itemHeight
             onOpenDrawer: isPortrait ? infoPanel.open = setDrawer : infoPanel.open = true
+
+            onCountChanged: if (count == 0) worker.verifyCredentials()
         }
 
         MyList {
@@ -323,7 +325,11 @@ Page {
             }
         }
 
-        Component.onCompleted: sendMessage({action: "accounts/verify_credentials", conf: Logic.conf})
+        function verifyCredentials() {
+            sendMessage({action: "accounts/verify_credentials", conf: Logic.conf})
+        }
+
+        Component.onCompleted: verifyCredentials()
     }
 
     Component.onCompleted: {

@@ -47,14 +47,8 @@ Page {
             signal activeAccountChanged
             function setActiveAccount(index, removing) {
                 if (!removing && Logic.conf.activeAccount === index) return
-                var account = Logic.conf.accounts[index]
+                Logic.setActiveAccount(index)
 
-                Logic.conf.activeAccount = index
-
-                Logic.api.setConfig("instance", account.instance)
-                Logic.api.setConfig("api_user_token", account.api_user_token)
-
-                Logic.clearModels()
                 if (removing)
                     accountsList.model = Logic.conf.accounts
                 else activeAccountChanged()

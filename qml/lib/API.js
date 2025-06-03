@@ -36,6 +36,16 @@ function getActiveAccount() {
     return conf.accounts[conf.activeAccount] || {}
 }
 
+function setActiveAccount(index) {
+    var account = conf.accounts[index]
+    conf.activeAccount = index
+
+    api.setConfig("instance", account.instance)
+    api.setConfig("api_user_token", account.api_user_token)
+
+    clearModels()
+}
+
 var init = function(){
     console.log("db.version: "+db.version);
     if(db.version === '') {

@@ -29,6 +29,19 @@ Page {
 
                 slideshow.positionViewAtIndex(vIndex, ListView.SnapToItem)
             }
+
+            menu: Component {
+                ContextMenu {
+                    Repeater {
+                        model: Logic.conf.accounts
+                        MenuItem {
+                            enabled: index !== Logic.conf.activeAccount
+                            text: modelData.userInfo.account_acct
+                            onClicked: Logic.setActiveAccount(index)
+                        }
+                    }
+                }
+            }
         }
     }
 

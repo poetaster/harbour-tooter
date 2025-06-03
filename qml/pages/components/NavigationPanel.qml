@@ -14,17 +14,17 @@ SilicaGridView {
     readonly property real menuHeight: headerItem.implicitHeight
     readonly property var menuItem: headerItem._menuItem
 
+    property Component menu
+
     onSlideshowIndexChanged: {
         navigateTo(vIndex)
     }
 
-    header: ListItem {
+    header: Component { ListItem {
         width: parent.width
         contentHeight: 0
-        menu: Component { ContextMenu {
-            // ...
-        } }
-    }
+        menu: gridView.menu
+    } }
 
     ListModel {
         id: listModel

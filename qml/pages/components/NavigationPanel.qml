@@ -1,6 +1,7 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
 import QtGraphicalEffects 1.0
+import "../../lib/API.js" as Logic
 
 
 SilicaGridView {
@@ -15,6 +16,7 @@ SilicaGridView {
     readonly property var menuItem: headerItem._menuItem
 
     property Component menu
+    property bool showInteractionHintLabel
 
     onSlideshowIndexChanged: {
         navigateTo(vIndex)
@@ -34,6 +36,7 @@ SilicaGridView {
             name: "Home"
             active: true
             unread: false
+            showMenuOnPressAndHold: true
         }
 
         ListElement {
@@ -141,7 +144,46 @@ SilicaGridView {
             effect.state = "right"
         }
 
-        onPressAndHold: if (isPortrait) headerItem.openMenu()
+        onPressAndHold: if (isPortrait && showMenuOnPressAndHold) headerItem.openMenu()
+
+        HoldInteractionHint {
+            id: hint
+            anchors.centerIn: parent
+
+            running: false
+            function updateRunning() {
+                if (!showMenuOnPressAndHold || Logic.conf.multipleAccountsHintCompleted || !isPortrait) {
+                    running = false
+                    return
+                }
+
+
+                headerItem.openMenu()
+                running = menuItem.hasContent
+                headerItem.closeMenu()
+
+                if (running)
+                    rectangle.pressAndHold.connect(function() {
+                        Logic.conf.multipleAccountsHintCompleted = true
+                        updateRunning()
+                    })
+            }
+
+            Component.onCompleted: updateRunning()
+            Connections {
+                ignoreUnknownSignals: true
+                target: !showMenuOnPressAndHold || Logic.conf.multipleAccountsHintCompleted
+                        ? undefined : gridView
+                onIsPortraitChanged: hint.updateRunning()
+            }
+
+            Binding {
+                when: showMenuOnPressAndHold && !Logic.conf.multipleAccountsHintCompleted
+                target: gridView
+                property: 'showInteractionHintLabel'
+                value: hint.running
+            }
+        }
     }
 
     function navigateTo(slug){
@@ -157,6 +199,7 @@ SilicaGridView {
     VerticalScrollDecorator {}
 
     Connections {
+        // Forward events from docked panel to context menu
         target: dockedPanelMouseArea
         onPositionChanged: if (menuItem)
             menuItem._updatePosition(menuItem._contentColumn.mapFromItem(dockedPanelMouseArea, dockedPanelMouseArea.mouseX, dockedPanelMouseArea.mouseY).y)

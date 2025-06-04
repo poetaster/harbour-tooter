@@ -46,6 +46,15 @@ Page {
         }
     }
 
+    InteractionHintLabel {
+        z: 1
+        anchors.bottom: parent.bottom
+        anchors.bottomMargin: infoPanel.visibleSize
+        text: qsTr("Press and hold the home tab to switch account")
+        opacity: navigation.showInteractionHintLabel && infoPanel.visible ? 1 : 0
+        Behavior on opacity { FadeAnimator {} }
+    }
+
     VisualItemModel {
         id: visualModel
 

@@ -56,6 +56,7 @@ DISTFILES += qml/harbour-tooterb.qml \
     qml/pages/ConversationPage.qml \
     qml/pages/ProfilePage.qml \
     qml/pages/SettingsPage.qml \
+    qml/pages/components/HoldInteractionHint.qml \
     qml/pages/components/InfoBanner.qml \
     qml/pages/components/MediaFullScreen.qml \
     qml/pages/components/MyMedia.qml \

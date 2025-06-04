@@ -29,20 +29,6 @@ Page {
 
                 slideshow.positionViewAtIndex(vIndex, ListView.SnapToItem)
             }
-
-            menu: Component {
-                ContextMenu {
-                    hasContent: Logic.conf.accounts.length > 1
-                    Repeater {
-                        model: Logic.conf.accounts
-                        MenuItem {
-                            enabled: index !== Logic.conf.activeAccount
-                            text: modelData.userInfo.account_acct
-                            onClicked: Logic.setActiveAccount(index)
-                        }
-                    }
-                }
-            }
         }
     }
 

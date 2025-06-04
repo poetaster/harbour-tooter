@@ -13,20 +13,31 @@ SilicaGridView {
 
     property var dockedPanelMouseArea
     readonly property real menuHeight: headerItem.implicitHeight
-    readonly property var menuItem: headerItem._menuItem
-
-    property Component menu
     property bool showInteractionHintLabel
 
     onSlideshowIndexChanged: {
         navigateTo(vIndex)
     }
 
-    header: Component { ListItem {
-        width: parent.width
-        contentHeight: 0
-        menu: gridView.menu
-    } }
+    header: Component {
+        ListItem {
+            width: parent.width
+            contentHeight: 0
+            menu: Component {
+                ContextMenu {
+                    hasContent: Logic.conf.accounts.length > 1
+                    Repeater {
+                        model: Logic.conf.accounts
+                        MenuItem {
+                            enabled: index !== Logic.conf.activeAccount
+                            text: modelData.userInfo.account_acct
+                            onClicked: Logic.setActiveAccount(index)
+                        }
+                    }
+                }
+            }
+        }
+    }
 
     ListModel {
         id: listModel
@@ -159,7 +170,7 @@ SilicaGridView {
 
 
                 headerItem.openMenu()
-                running = menuItem.hasContent
+                running = headerItem._menuItem.hasContent
                 headerItem.closeMenu()
 
                 if (running)
@@ -201,9 +212,9 @@ SilicaGridView {
     Connections {
         // Forward events from docked panel to context menu
         target: dockedPanelMouseArea
-        onPositionChanged: if (menuItem)
-            menuItem._updatePosition(menuItem._contentColumn.mapFromItem(dockedPanelMouseArea, dockedPanelMouseArea.mouseX, dockedPanelMouseArea.mouseY).y)
-        onReleased: if (menuItem) menuItem.released(mouse)
+        onPositionChanged: if (headerItem._menuItem)
+            headerItem._menuItem._updatePosition(headerItem._menuItem._contentColumn.mapFromItem(dockedPanelMouseArea, dockedPanelMouseArea.mouseX, dockedPanelMouseArea.mouseY).y)
+        onReleased: if (headerItem._menuItem) headerItem._menuItem.released(mouse)
     }
 
     Binding {

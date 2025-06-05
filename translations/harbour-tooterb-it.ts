@@ -112,7 +112,7 @@
     </message>
     <message>
         <source>Enter a valid Mastodon instance URL (will open a web browser for Authentication)</source>
-        <translation type="unfinished"></translation>
+        <translation>Inserisci un URL valido per un&apos;instanza di Mastodon (questo aprirà un browser web per L&apos;autenticazione)</translation>
     </message>
 </context>
 <context>
@@ -377,7 +377,7 @@
     </message>
     <message>
         <source>Documentation</source>
-        <translation type="unfinished"></translation>
+        <translation>Documentazione</translation>
     </message>
 </context>
 <context>

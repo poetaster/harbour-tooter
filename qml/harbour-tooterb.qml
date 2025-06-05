@@ -45,6 +45,8 @@ ApplicationWindow {
             //console.log(JSON.stringify(Logic.conf))
             if (!Logic.conf['notificationLastID'])
                 Logic.conf['notificationLastID'] = 0
+            if (!('type' in Logic.conf))
+                Logic.conf.type = 0
 
             if (Logic.conf['instance']) {
                 Logic.api = Logic.mastodonAPI({

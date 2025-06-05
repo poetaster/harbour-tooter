@@ -47,7 +47,7 @@ Page {
 
                 var msg = {
                     'action'    : "accounts/relationships/",
-                    'params'    : [ {name: "id", data: user_id}],
+                    'params'    : [ {name: "id[]", data: user_id}],
                     'conf'      : Logic.conf
                 };
                 worker.sendMessage(msg);
@@ -108,7 +108,7 @@ Page {
         if (user_id) {
             msg = {
                 'action'    : "accounts/relationships/",
-                'params'    : [ {name: "id", data: user_id} ],
+                'params'    : [ {name: "id[]", data: user_id} ],
                 'conf'      : Logic.conf
             }
             worker.sendMessage(msg)
@@ -281,7 +281,7 @@ Page {
                         onClicked: {
                             pageStack.push(Qt.resolvedUrl("ConversationPage.qml"), {
                                                headerTitle: qsTr("Mention"),
-                                               description: "@"+username,
+                                               username: "@"+username,
                                                type: "new"
                                            })
                         }

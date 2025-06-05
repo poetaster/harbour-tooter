@@ -403,6 +403,7 @@ Page {
 
         IconButton {
             id: btnAddMusic
+            visible: Logic.conf.type !== 1
             enabled: mediaModel.count < 4
             icon.source: "image://theme/icon-m-file-audio?" + ( pressed ? Theme.highlightColor : (warningContent.visible ? Theme.secondaryHighlightColor : Theme.primaryColor) )
             anchors {
@@ -424,7 +425,7 @@ Page {
             anchors {
                 top: toot.bottom
                 topMargin: -Theme.paddingSmall * 1.5
-                left: btnAddMusic.right
+                left: btnAddMusic.visible ? btnAddMusic.right : btnAddMusic.left
                 leftMargin: Theme.paddingSmall
             }
             onClicked: {
@@ -518,7 +519,7 @@ Page {
         IconButton {
             id: btnSend
             icon.source: "image://theme/icon-m-send?" + (pressed ? Theme.highlightColor : Theme.primaryColor)
-            enabled: toot.text !== "" && toot.text.length < tootMaxChar && uploadProgress.width == 0
+            enabled: (toot.text !== "" || mediaModel.count > 0) && toot.text.length < tootMaxChar && uploadProgress.width == 0 && ((Logic.conf.type === 1 && type !== "reply") ? (mediaModel.count > 0) : true)
             anchors {
                 top: toot.bottom
                 topMargin: -Theme.paddingSmall * 1.5

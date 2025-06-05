@@ -398,7 +398,7 @@ BackgroundItem {
             onClicked: {
                 pageStack.push(Qt.resolvedUrl("../ConversationPage.qml"), {
                                    headerTitle: qsTr("Mention"),
-                                   description: "@"+reblog_account_acct,
+                                   username: "@"+reblog_account_acct,
                                    type: "new"
                                })
             }

@@ -78,6 +78,7 @@ Page {
                                     Logic.conf['login'] = false
                                     Logic.conf['instance'] = null;
                                     Logic.conf['api_user_token'] = null;
+                                    Logic.conf['type'] = null
                                 }
                                 pageStack.push(Qt.resolvedUrl("LoginPage.qml"))
                             })
@@ -200,6 +201,13 @@ Page {
                             mastodon: ""
                             mail: ""
                         }
+
+                        ListElement {
+                            name: "roundedrectangle"
+                            desc: qsTr("Development")
+                            mastodon: "roundedrectangle@techhub.social"
+                            mail: ""
+                        }
                     }
 
                     Item {
@@ -218,8 +226,8 @@ Page {
                                 if (model.mastodon !== ""){
                                     var m = Qt.createQmlObject('import QtQuick 2.0; ListModel { }', Qt.application, 'InternalQmlObject');
                                     pageStack.push(Qt.resolvedUrl("ConversationPage.qml"), {
-                                                       headerTitle: "Mention",
-                                                       description: '@'+model.mastodon,
+                                                       headerTitle: qsTr("Mention"),
+                                                       username: '@'+model.mastodon,
                                                        type: "new"
                                                    })
                                 } else {

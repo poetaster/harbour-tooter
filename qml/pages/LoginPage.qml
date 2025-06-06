@@ -50,10 +50,13 @@ Page {
 
                 onReceivedAccessToken: {
                     if (debug) console.log("Got access token: " + token.access_token)
-                    Logic.conf["api_user_token"] = token.access_token
-                    Logic.conf["login"] = true;
-                    Logic.api.setConfig("api_user_token", Logic.conf["api_user_token"])
-                    pageStack.replace(Qt.resolvedUrl("MainPage.qml"), {})
+                    var account = Logic.getActiveAccount()
+                    account["api_user_token"] = token.access_token
+                    account["login"] = true
+                    Logic.api.setConfig("api_user_token", account["api_user_token"])
+                    pageStack.clear()
+                    Logic.clearModels()
+                    pageStack.push(Qt.resolvedUrl("MainPage.qml"))
                 }
             }
 
@@ -86,19 +89,20 @@ Page {
                                                       if (debug) console.log(data)
                                                       var conf = JSON.parse(data)
 
-                                                      Logic.conf = {
+                                                      Logic.conf.accounts.push({
                                                           api_user_token: conf.api_user_token,
                                                           instance: instance.text,
                                                           type: typeBox.currentIndex,
                                                           login: false,
-                                                      };
+                                                      })
+                                                      Logic.conf.activeAccount = Logic.conf.accounts.length - 1
                                                       if(debug) console.log(JSON.stringify(conf))
                                                       if(debug) console.log(JSON.stringify(Logic.conf))
 
                                                       // we got our application
 
                                                       mastodonOAuth.clientId = conf["client_id"]
-                                                      mastodonOAuth.clientSecret = conf["client_secret"];
+                                                      mastodonOAuth.clientSecret = conf["client_secret"]
 
                                                       mastodonOAuth.redirectListener.startListening() // Workaround for Pixelfed
                                                       mastodonOAuth.authorizeInBrowser()

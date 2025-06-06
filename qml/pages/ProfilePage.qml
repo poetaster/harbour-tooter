@@ -103,23 +103,28 @@ Page {
     // The effective value will be restricted by ApplicationWindow.allowedOrientations
     allowedOrientations: Orientation.All
     Component.onCompleted: {
-        var msg
-
         if (user_id) {
-            msg = {
+            worker.sendMessage({
                 'action'    : "accounts/relationships/",
                 'params'    : [ {name: "id[]", data: user_id} ],
                 'conf'      : Logic.conf
-            }
-            worker.sendMessage(msg)
+            })
 
         } else {
-            var instance = Logic.conf['instance'].split("//")
-            msg = {
-                'action'    : "accounts/search?limit=1&q="+username.replace("@"+instance[1], ""),
+            var user = username
+            if (user.indexOf('@') == 0)
+                user = user.slice(1)
+            user = user.replace('@'+Logic.getActiveAccount().instance.split('//')[1], "")
+            var resolve = user.indexOf('@') > -1
+
+            if (resolve && Logic.getActiveAccount().type === 1)
+                // With Pixelfed and "@" in q parameter, it returns 404 and crashes, so we disable this for now
+                return
+
+            worker.sendMessage({
+                'action'    : "accounts/search?limit=1&q=" + user + '&resolve=' + resolve,
                 'conf'      : Logic.conf
-            }
-            worker.sendMessage(msg)
+            })
         }
     }
 

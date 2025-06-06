@@ -2,13 +2,13 @@ import QtQuick 2.0
 import Sailfish.Silica 1.0
 
 
-BackgroundItem {
+ListItem {
     id: delegate
 
-    signal openUser (string notice)
+    property bool textHighlighted
 
     width: parent.width
-    height: Theme.itemSizeMedium
+    contentHeight: Theme.itemSizeMedium
 
     Item {
         id: avatar
@@ -65,8 +65,8 @@ BackgroundItem {
 
         Label {
             id: display_name
-            text: account_display_name ? account_display_name : account_username.split('@')[0]
-            color: !pressed ? Theme.primaryColor : Theme.highlightColor
+            text: model.account_display_name ? model.account_display_name : model.account_username.split('@')[0]
+            color: highlighted || textHighlighted ? Theme.highlightColor : Theme.primaryColor
             font.pixelSize: Theme.fontSizeSmall
             truncationMode: TruncationMode.Fade
             width: parent.width - Theme.paddingMedium
@@ -76,7 +76,7 @@ BackgroundItem {
         Label {
             id: account_acct
             text: "@"+model.account_acct
-            color: !pressed ?  Theme.secondaryColor : Theme.secondaryHighlightColor
+            color: highlighted || textHighlighted ? Theme.secondaryHighlightColor : Theme.secondaryColor
             anchors.leftMargin: Theme.paddingMedium
             font.pixelSize: Theme.fontSizeExtraSmall
             truncationMode: TruncationMode.Fade
@@ -84,20 +84,4 @@ BackgroundItem {
             anchors.top: display_name.bottom
         }
     }
-
-    onClicked: openUser( {
-                            "display_name": model.account_display_name,
-                            "username": model.account_acct,
-                            "user_id": model.account_id,
-                            "profileImage": model.account_avatar,
-                            "profileBackground": model.account_header,
-                            "note": model.account_note,
-                            "url": model.account_url,
-                            "followers_count": model.account_followers_count,
-                            "following_count": model.account_following_count,
-                            "statuses_count": model.account_statuses_count,
-                            "locked": model.account_locked,
-                            "bot": model.account_bot,
-                            "group": model.account_group
-                        } )
 }

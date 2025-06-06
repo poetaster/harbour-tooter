@@ -17,18 +17,28 @@ Page {
         id: infoPanel
         open: true
         width: isPortrait ? parent.width : Theme.itemSizeLarge
-        height: isPortrait ? Theme.itemSizeLarge : parent.height
+        height: isPortrait ? (Theme.itemSizeLarge + navigation.menuHeight) : parent.height
         dock: isPortrait ? Dock.Bottom : Dock.Right
 
         NavigationPanel {
             id: navigation
-            isPortrait: !mainPage.isPortrait
+            isPortrait: mainPage.isPortrait
+            dockedPanelMouseArea: parent
             onSlideshowShow: {
                 if (debug) console.log(vIndex)
 
                 slideshow.positionViewAtIndex(vIndex, ListView.SnapToItem)
             }
         }
+    }
+
+    InteractionHintLabel {
+        z: 1
+        anchors.bottom: parent.bottom
+        anchors.bottomMargin: infoPanel.visibleSize
+        text: qsTr("Press and hold the home tab to switch account")
+        opacity: navigation.showInteractionHintLabel && infoPanel.visible ? 1 : 0
+        Behavior on opacity { FadeAnimator {} }
     }
 
     VisualItemModel {
@@ -42,6 +52,8 @@ Page {
             width: isPortrait ? parent.itemWidth : parent.itemWidth - Theme.itemSizeLarge
             height: parent.itemHeight
             onOpenDrawer: isPortrait ? infoPanel.open = setDrawer : infoPanel.open = true
+
+            onCountChanged: if (count == 0) worker.verifyCredentials()
         }
 
         MyList {
@@ -308,6 +320,25 @@ Page {
         } else {
             Qt.openUrlExternally(href)
         }
+    }
+
+    WorkerScript {
+        id: worker
+        source: "../lib/Worker.js"
+        onMessage: {
+            if (debug) console.log(JSON.stringify(messageObject))
+            if (messageObject.action === "accounts/verify_credentials") {
+                Logic.getActiveAccount().userInfo = messageObject.data
+                Logic.getActiveAccount().userInfo.account_acct += "@" + (Logic.getActiveAccount()['instance'].split("//")[1])
+                delete Logic.getActiveAccount().userInfo.account_id
+            }
+        }
+
+        function verifyCredentials() {
+            sendMessage({action: "accounts/verify_credentials", conf: Logic.conf})
+        }
+
+        Component.onCompleted: verifyCredentials()
     }
 
     Component.onCompleted: {

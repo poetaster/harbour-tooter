@@ -45,19 +45,36 @@ ApplicationWindow {
             //console.log(JSON.stringify(Logic.conf))
             if (!Logic.conf['notificationLastID'])
                 Logic.conf['notificationLastID'] = 0
-            if (!('type' in Logic.conf))
-                Logic.conf.type = 0
+            if (!Logic.conf['accounts'])
+                Logic.conf['accounts'] = []
 
-            if (Logic.conf['instance']) {
+            var oldAccountParameters = ['api_user_token', 'instance', 'login']
+            if (oldAccountParameters.every(function(el) { return el in Logic.conf })) {
+                if (!('type' in Logic.conf))
+                    Logic.conf.type = 0
+                oldAccountParameters.push('type')
+
+                var account = {}
+                oldAccountParameters.forEach(function(el) {
+                    account[el] = Logic.conf[el]
+                    Logic.conf[el] = null
+                })
+                Logic.conf.accounts.push(account)
+                Logic.conf.activeAccount = Logic.conf.accounts.length - 1
+            }
+
+            var currentAccount = Logic.getActiveAccount()
+
+            if (currentAccount.instance) {
                 Logic.api = Logic.mastodonAPI({
-                                                  "instance": Logic.conf['instance'],
+                                                  "instance": currentAccount.instance,
                                                   "api_user_token": ""
                                               })
             }
 
-            if (Logic.conf['login']) {
+            if (currentAccount.login) {
                 //Logic.conf['notificationLastID'] = 0
-                Logic.api.setConfig("api_user_token", Logic.conf['api_user_token'])
+                Logic.api.setConfig("api_user_token", currentAccount['api_user_token'])
                 //accounts/verify_credentials
                 Logic.api.get('instance', [], function(data) {
                    // console.log(JSON.stringify(data))
@@ -69,8 +86,6 @@ ApplicationWindow {
             }
         })
         Logic.init()
-
-
     }
 
     Component.onDestruction: {

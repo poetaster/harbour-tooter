@@ -50,26 +50,22 @@ SilicaListView {
 
     BusyLabel {
         id: myListBusyLabel
-        running: model.count === 0
+        running: model.count === 0 && timeoutTimer.running && !remove.running
         anchors {
             horizontalCenter: parent.horizontalCenter
             verticalCenter: parent.verticalCenter
         }
 
         Timer {
+            id: timeoutTimer
             interval: 5000
             running: true
-            onTriggered: {
-                myListBusyLabel.visible = false
-                loadStatusPlaceholder.visible = true
-            }
         }
     }
 
     ViewPlaceholder {
         id: loadStatusPlaceholder
-        visible: false
-        enabled: model.count === 0
+        enabled: model.count === 0 && !myListBusyLabel.running && !remove.running
         text: qsTr("Nothing found")
     }
 
@@ -95,7 +91,7 @@ SilicaListView {
 
         MenuItem {
             text: qsTr("Open in Browser")
-            visible: !mainPage
+            visible: typeof mainPage === 'undefined'
             onClicked: {
                 Qt.openUrlExternally(url)
             }
@@ -127,6 +123,10 @@ SilicaListView {
 
         /*contentY = scrollOffset
         console.log("CountChanged!")*/
+        if (count === 0) {
+            loadData("prepend")
+            timeoutTimer.start()
+        }
     }
 
     footer: Item {

@@ -31,6 +31,21 @@ var mediator = (function(){
     };
 }());
 
+function getActiveAccount() {
+    // not sure if this can be used for dynamic qobject properties
+    return conf.accounts[conf.activeAccount] || {}
+}
+
+function setActiveAccount(index) {
+    var account = conf.accounts[index]
+    conf.activeAccount = index
+
+    api.setConfig("instance", account.instance)
+    api.setConfig("api_user_token", account.api_user_token)
+
+    clearModels()
+}
+
 var init = function(){
     console.log("db.version: "+db.version);
     if(db.version === '') {
@@ -64,7 +79,7 @@ function saveData() {
     db.transaction(function(tx) {
         for (var key in conf) {
             if (conf.hasOwnProperty(key)){
-                console.log(key + "\t>\t"+conf[key]);
+                console.log(key + "\t>\t"+JSON.stringify(conf[key]));
                 if (typeof conf[key] === "object" && conf[key] === null) {
                     tx.executeSql('DELETE FROM settings WHERE key=? ', [key])
                 } else {
@@ -117,6 +132,11 @@ var modelTLlocal = Qt.createQmlObject('import QtQuick 2.0; ListModel {   }', Qt.
 var modelTLnotifications = Qt.createQmlObject('import QtQuick 2.0; ListModel {   }', Qt.application, 'InternalQmlObject');
 var modelTLsearch = Qt.createQmlObject('import QtQuick 2.0; ListModel {   }', Qt.application, 'InternalQmlObject');
 var modelTLbookmarks = Qt.createQmlObject('import QtQuick 2.0; ListModel {   }', Qt.application, 'InternalQmlObject');
+
+function clearModels() {
+    [modelTLhome, modelTLpublic, modelTLlocal, modelTLnotifications, modelTLsearch, modelTLbookmarks]
+        .forEach(function(m) { m.clear() })
+}
 
 var notificationsList = []
 

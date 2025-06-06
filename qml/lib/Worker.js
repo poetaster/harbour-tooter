@@ -12,6 +12,8 @@ WorkerScript.onMessage = function(msg) {
     if (debug) console.log("Action > " + msg.action)
     if (debug) console.log("Mode > " + msg.mode)
 
+    msg.params = msg.params || []
+
     // this is not elegant. it's max_id and ids from MyList
     // we should always get max_id on append
     if (msg.mode === "append" && msg.params[0]) {
@@ -41,8 +43,10 @@ WorkerScript.onMessage = function(msg) {
         }
     }
 
+    var account = msg.conf && msg.conf.accounts ? msg.conf.accounts[msg.conf.activeAccount] : undefined
+
     /** Logged-in status */
-    if (!msg.conf || !msg.conf.login) {
+    if (!account || !account.login) {
         //console.log("Not loggedin")
         return;
     }
@@ -54,7 +58,7 @@ WorkerScript.onMessage = function(msg) {
 
     /* init API statuses */
 
-    var API = mastodonAPI({ instance: msg.conf.instance, api_user_token: msg.conf.api_user_token});
+    var API = mastodonAPI({ instance: account.instance, api_user_token: account.api_user_token});
 
     /*
     * HEAD call for some actions
@@ -99,6 +103,11 @@ WorkerScript.onMessage = function(msg) {
 
     API.get(msg.action, msg.params, function(data) {
 
+        if (msg.action === "accounts/verify_credentials") {
+            WorkerScript.sendMessage({action: msg.action, success: true, data: parseAccounts({}, '', data)})
+            return
+        }
+
         var items = [];
         //console.log(data)
 
@@ -106,7 +115,7 @@ WorkerScript.onMessage = function(msg) {
             var item;
             if (data.hasOwnProperty(i)) {
                 if(msg.action === "accounts/search") {
-                    item = parseAccounts([], "", data[i]);
+                    item = parseAccounts({}, "", data[i]);
                     //console.log(JSON.stringify(data[i]))
                     console.log("has own data")
 

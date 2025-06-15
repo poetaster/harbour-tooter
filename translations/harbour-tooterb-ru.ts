@@ -112,11 +112,11 @@
     </message>
     <message>
         <source>Enter a valid Mastodon instance URL (will open a web browser for Authentication)</source>
-        <translation type="unfinished"></translation>
+        <translation>Введите действительный адрес сервера Mastodon (откроется браузер для входа)</translation>
     </message>
     <message>
         <source>Type</source>
-        <translation type="unfinished"></translation>
+        <translation>Тип</translation>
     </message>
 </context>
 <context>
@@ -155,7 +155,7 @@
     </message>
     <message>
         <source>Press and hold the home tab to switch account</source>
-        <translation type="unfinished"></translation>
+        <translation>Нажмите и задержите главную вкладку, чтобы переключить аккаунт</translation>
     </message>
 </context>
 <context>
@@ -385,19 +385,19 @@
     </message>
     <message>
         <source>Documentation</source>
-        <translation type="unfinished"></translation>
+        <translation>Документация</translation>
     </message>
     <message>
         <source>Mention</source>
-        <translation type="unfinished">Упоминание</translation>
+        <translation>Упоминание</translation>
     </message>
     <message>
         <source>Account removed</source>
-        <translation type="unfinished"></translation>
+        <translation>Аккаунт удалён</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation>Удалить</translation>
     </message>
 </context>
 <context>

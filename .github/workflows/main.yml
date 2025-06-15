@@ -3,7 +3,7 @@ name: Github CI build
 on:
   push:
     tags:
-      - 'v*'
+      - '1.*'
   pull_request:
     branches:
       - main

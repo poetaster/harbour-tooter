@@ -25,8 +25,22 @@ jobs:
       uses: coderus/github-sfos-build@sfos5
       with:
         release: ${{ env.RELEASE }}
-        arch: noarch
+        arch: aarch64
       
+    - name: Build armv7hl
+      id: build_armv7hl
+        uses: coderus/github-sfos-build@sfos5
+        with:
+          release: ${{ env.RELEASE }}
+          arch: armv7hl
+
+    - name: Build i486
+      id: build_i486
+        uses: coderus/github-sfos-build@sfos5
+        with:
+          release: ${{ env.RELEASE }}
+          arch: i486
+
     - name: Upload build result
       uses: actions/upload-artifact@v4
       with:

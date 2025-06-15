@@ -114,6 +114,10 @@
         <source>Enter a valid Mastodon instance URL (will open a web browser for Authentication)</source>
         <translation>Inserisci un URL valido per un&apos;instanza di Mastodon (questo aprirà un browser web per L&apos;autenticazione)</translation>
     </message>
+    <message>
+        <source>Type</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MainPage</name>
@@ -148,6 +152,10 @@
     <message>
         <source>Bookmarks</source>
         <translation>Segnalibro</translation>
+    </message>
+    <message>
+        <source>Press and hold the home tab to switch account</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -378,6 +386,18 @@
     <message>
         <source>Documentation</source>
         <translation>Documentazione</translation>
+    </message>
+    <message>
+        <source>Mention</source>
+        <translation type="unfinished">Menzionare</translation>
+    </message>
+    <message>
+        <source>Account removed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

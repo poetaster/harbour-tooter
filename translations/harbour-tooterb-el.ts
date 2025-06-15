@@ -114,6 +114,10 @@
         <source>Enter a valid Mastodon instance URL (will open a web browser for Authentication)</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Type</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MainPage</name>
@@ -147,6 +151,10 @@
     </message>
     <message>
         <source>Bookmarks</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Press and hold the home tab to switch account</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -377,6 +385,18 @@
     </message>
     <message>
         <source>Documentation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Mention</source>
+        <translation type="unfinished">Φραγή</translation>
+    </message>
+    <message>
+        <source>Account removed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

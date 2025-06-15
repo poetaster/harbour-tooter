@@ -155,7 +155,7 @@
     </message>
     <message>
         <source>Press and hold the home tab to switch account</source>
-        <translation>Нажмите и задержите главную вкладку, чтобы переключить аккаунт</translation>
+        <translation>Нажмите и удерживайте главную вкладку, чтобы сменить аккаунт</translation>
     </message>
 </context>
 <context>

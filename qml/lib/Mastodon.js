@@ -113,8 +113,12 @@ var mastodonAPI = function(config) {
             http.onreadystatechange = function() { // Call a function when the state changes.
                 if (http.readyState === 4) {
                     if (http.status === 200) {
-                        callback(JSON.parse(http.response),http.status)
-                        console.log("Successful GET API request to " +apiBase+endpoint);
+                        try {
+                            callback(JSON.parse(http.response),http.status)
+                            console.log("Successful GET API request to " +apiBase+endpoint);
+                        } catch(e) {
+                            console.log("GET error:", e)
+                        }
                     } else {
                         console.log("error: " + http.status)
                     }

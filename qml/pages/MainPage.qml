@@ -255,6 +255,16 @@ Page {
                 }
             }
         }
+
+        MyList {
+            id: tlTrending
+            title: qsTr("Trending")
+            type: "trends/statuses"
+            mdl: Logic.modelTLtrending
+            width: isPortrait ? parent.itemWidth : parent.itemWidth - Theme.itemSizeLarge
+            height: parent.itemHeight
+            onOpenDrawer: isPortrait ? infoPanel.open = setDrawer : infoPanel.open = true
+        }
     }
 
     SlideshowView {

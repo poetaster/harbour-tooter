@@ -157,6 +157,10 @@
         <source>Press and hold the home tab to switch account</source>
         <translation>Нажмите и удерживайте главную вкладку, чтобы сменить аккаунт</translation>
     </message>
+    <message>
+        <source>Trending</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MediaFullScreen</name>
@@ -398,6 +402,10 @@
     <message>
         <source>Remove</source>
         <translation>Удалить</translation>
+    </message>
+    <message>
+        <source>Norwegian Translation</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

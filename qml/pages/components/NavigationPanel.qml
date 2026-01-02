@@ -87,6 +87,13 @@ SilicaGridView {
             active: false
             unread: false
         }
+        ListElement {
+            icon: "image://theme/icon-camera-flash-on?"
+            slug: "trending"
+            name: "Trending"
+            active: false
+            unread: false
+        }
     }
     model: listModel
     currentIndex: -1

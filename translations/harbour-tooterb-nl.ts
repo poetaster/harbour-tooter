@@ -157,6 +157,10 @@
         <source>Press and hold the home tab to switch account</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Trending</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MediaFullScreen</name>
@@ -397,6 +401,10 @@
     </message>
     <message>
         <source>Remove</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Norwegian Translation</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

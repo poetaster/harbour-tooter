@@ -253,6 +253,12 @@ Page {
                             mastodon: "roundedrectangle@techhub.social"
                             mail: ""
                         }
+                        ListElement {
+                            name: "Frank Paul Silye"
+                            desc: qsTr("Norwegian Translation")
+                            mastodon: "frankps@babb.no"
+                            mail: ""
+                        }
                     }
 
                     Item {

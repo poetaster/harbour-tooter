@@ -104,7 +104,7 @@ TRANSLATIONS += translations/harbour-tooterb.ts \
     translations/harbour-tooterb-es.ts \
     translations/harbour-tooterb-fr.ts \
     translations/harbour-tooterb-it.ts \
-    translations/harbour-tooterb-no.ts \
+    translations/harbour-tooterb-no_NB.ts \
     translations/harbour-tooterb-nl.ts \
     translations/harbour-tooterb-nl_BE.ts \
     translations/harbour-tooterb-oc.ts \

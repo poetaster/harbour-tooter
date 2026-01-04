@@ -24,7 +24,7 @@
     <name>ConversationPage</name>
     <message>
         <source>Copy Link to Clipboard</source>
-        <extracomment>Use the translation of &quot;Copy Link&quot; for a shorter PullDownMenu label</extracomment>
+        <extracomment>Use the translation of "Copy Link" for a shorter PullDownMenu label</extracomment>
         <translation>Kopiera länk till urklipp</translation>
     </message>
     <message>
@@ -33,7 +33,7 @@
         <translation>Skriv din varningstext här</translation>
     </message>
     <message>
-        <source>What&apos;s on your mind?</source>
+        <source>What's on your mind?</source>
         <extracomment>placeholderText in Toot text panel</extracomment>
         <translation>Vad tänker du på?</translation>
     </message>
@@ -59,7 +59,7 @@
     </message>
     <message>
         <source>Reply</source>
-        <extracomment>&quot;Reply&quot; will show the Toot text entry Panel. &quot;Hide Reply&quot; closes it. Alternative: Use &quot;Close Reply&quot;</extracomment>
+        <extracomment>"Reply" will show the Toot text entry Panel. "Hide Reply" closes it. Alternative: Use "Close Reply"</extracomment>
         <translation>Svara</translation>
     </message>
     <message>
@@ -112,11 +112,11 @@
     </message>
     <message>
         <source>Enter a valid Mastodon instance URL (will open a web browser for Authentication)</source>
-        <translation type="unfinished"></translation>
+        <translation>Ange en giltig URL för en Mastodon-instans (öppnas i webbläsare för autentisering)</translation>
     </message>
     <message>
         <source>Type</source>
-        <translation type="unfinished"></translation>
+        <translation>Typ</translation>
     </message>
 </context>
 <context>
@@ -143,7 +143,7 @@
     </message>
     <message>
         <source>@user or #term</source>
-        <translation>@user eller #term</translation>
+        <translation>@användare eller #etikett</translation>
     </message>
     <message>
         <source>New Toot</source>
@@ -155,11 +155,11 @@
     </message>
     <message>
         <source>Press and hold the home tab to switch account</source>
-        <translation type="unfinished"></translation>
+        <translation>Tryck och håll på hemtabben för att byta konto</translation>
     </message>
     <message>
         <source>Trending</source>
-        <translation type="unfinished"></translation>
+        <translation>Trendar</translation>
     </message>
 </context>
 <context>
@@ -241,22 +241,22 @@
     <name>ProfilePage</name>
     <message>
         <source>About</source>
-        <extracomment>If there&apos;s no good translation for &quot;About&quot;, use &quot;Details&quot; (in details about profile).</extracomment>
+        <extracomment>If there's no good translation for "About", use "Details" (in details about profile).</extracomment>
         <translation>Om</translation>
     </message>
     <message>
         <source>Followers</source>
-        <extracomment>Will show as: &quot;35 Followers&quot;</extracomment>
+        <extracomment>Will show as: "35 Followers"</extracomment>
         <translation>Följare</translation>
     </message>
     <message>
         <source>Following</source>
-        <extracomment>Will show as: &quot;23 Following&quot;</extracomment>
+        <extracomment>Will show as: "23 Following"</extracomment>
         <translation>Följer</translation>
     </message>
     <message>
         <source>Statuses</source>
-        <extracomment>Will show as: &quot;115 Statuses&quot;</extracomment>
+        <extracomment>Will show as: "115 Statuses"</extracomment>
         <translation>Status</translation>
     </message>
     <message>
@@ -343,7 +343,7 @@
     </message>
     <message>
         <source>Credits</source>
-        <extracomment>Translation alternative: &quot;Development&quot;</extracomment>
+        <extracomment>Translation alternative: "Development"</extracomment>
         <translation>Erkännanden</translation>
     </message>
     <message>
@@ -376,12 +376,12 @@
     </message>
     <message>
         <source>Use</source>
-        <extracomment>Full sentence for translation: &quot;Use Transifex to help with app translation to your language.&quot; - The word Transifex is a link and doesn&apos;t need translation.</extracomment>
+        <extracomment>Full sentence for translation: "Use Transifex to help with app translation to your language." - The word Transifex is a link and doesn't need translation.</extracomment>
         <translation>Använd</translation>
     </message>
     <message>
         <source>to help with app translation to your language.</source>
-        <translation>för att hjälpa till med app-översättning till ditt språk.</translation>
+        <translation>för att bidra med översättning av appen till ditt språk.</translation>
     </message>
     <message>
         <source>Development</source>
@@ -389,23 +389,23 @@
     </message>
     <message>
         <source>Documentation</source>
-        <translation type="unfinished"></translation>
+        <translation>Dokumentation</translation>
     </message>
     <message>
         <source>Mention</source>
-        <translation type="unfinished">Omnämnande</translation>
+        <translation>Omnämnande</translation>
     </message>
     <message>
         <source>Account removed</source>
-        <translation type="unfinished"></translation>
+        <translation>Kontot borttaget</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation>Ta bort</translation>
     </message>
     <message>
         <source>Norwegian Translation</source>
-        <translation type="unfinished"></translation>
+        <translation>Norsk översättning</translation>
     </message>
 </context>
 <context>

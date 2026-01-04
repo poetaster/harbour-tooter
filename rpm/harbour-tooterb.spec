@@ -15,7 +15,7 @@ Name:       harbour-tooterb
 %{?qtc_builddir:%define _builddir %qtc_builddir}
 Summary:    Tooter β
 Version:    1.2.3
-Release:    1
+Release:    2
 Group:      Qt/Qt
 License:    GPLv3
 URL:        https://github.com/poetaster/harbour-tooter#readme

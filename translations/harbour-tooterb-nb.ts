@@ -307,7 +307,7 @@
     </message>
     <message>
         <source>Options</source>
-        <translation>Alternativer/translation>
+        <translation>Alternativer</translation>
     </message>
     <message>
         <source>Load Images in Toots</source>
@@ -352,7 +352,7 @@
     </message>
     <message>
         <source>Visual identity</source>
-        <translation>Visuell profil/translation>
+        <translation>Visuell profil</translation>
     </message>
     <message>
         <source>Development and translations</source>
@@ -436,7 +436,7 @@
     </message>
     <message>
         <source>Remove Bookmark</source>
-        <translation>Fjern bokmerke/translation>
+        <translation>Fjern bokmerke</translation>
     </message>
     <message>
         <source>Bookmark</source>

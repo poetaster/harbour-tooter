@@ -24,7 +24,7 @@
     <name>ConversationPage</name>
     <message>
         <source>Copy Link to Clipboard</source>
-        <extracomment>Use the translation of "Copy Link" for a shorter PullDownMenu label</extracomment>
+        <extracomment>Use the translation of &quot;Copy Link&quot; for a shorter PullDownMenu label</extracomment>
         <translation>Kopiera länk till urklipp</translation>
     </message>
     <message>
@@ -33,7 +33,7 @@
         <translation>Skriv din varningstext här</translation>
     </message>
     <message>
-        <source>What's on your mind?</source>
+        <source>What&apos;s on your mind?</source>
         <extracomment>placeholderText in Toot text panel</extracomment>
         <translation>Vad tänker du på?</translation>
     </message>
@@ -59,7 +59,7 @@
     </message>
     <message>
         <source>Reply</source>
-        <extracomment>"Reply" will show the Toot text entry Panel. "Hide Reply" closes it. Alternative: Use "Close Reply"</extracomment>
+        <extracomment>&quot;Reply&quot; will show the Toot text entry Panel. &quot;Hide Reply&quot; closes it. Alternative: Use &quot;Close Reply&quot;</extracomment>
         <translation>Svara</translation>
     </message>
     <message>
@@ -241,22 +241,22 @@
     <name>ProfilePage</name>
     <message>
         <source>About</source>
-        <extracomment>If there's no good translation for "About", use "Details" (in details about profile).</extracomment>
+        <extracomment>If there&apos;s no good translation for &quot;About&quot;, use &quot;Details&quot; (in details about profile).</extracomment>
         <translation>Om</translation>
     </message>
     <message>
         <source>Followers</source>
-        <extracomment>Will show as: "35 Followers"</extracomment>
+        <extracomment>Will show as: &quot;35 Followers&quot;</extracomment>
         <translation>Följare</translation>
     </message>
     <message>
         <source>Following</source>
-        <extracomment>Will show as: "23 Following"</extracomment>
+        <extracomment>Will show as: &quot;23 Following&quot;</extracomment>
         <translation>Följer</translation>
     </message>
     <message>
         <source>Statuses</source>
-        <extracomment>Will show as: "115 Statuses"</extracomment>
+        <extracomment>Will show as: &quot;115 Statuses&quot;</extracomment>
         <translation>Status</translation>
     </message>
     <message>
@@ -343,7 +343,7 @@
     </message>
     <message>
         <source>Credits</source>
-        <extracomment>Translation alternative: "Development"</extracomment>
+        <extracomment>Translation alternative: &quot;Development&quot;</extracomment>
         <translation>Erkännanden</translation>
     </message>
     <message>
@@ -376,7 +376,7 @@
     </message>
     <message>
         <source>Use</source>
-        <extracomment>Full sentence for translation: "Use Transifex to help with app translation to your language." - The word Transifex is a link and doesn't need translation.</extracomment>
+        <extracomment>Full sentence for translation: &quot;Use Transifex to help with app translation to your language.&quot; - The word Transifex is a link and doesn&apos;t need translation.</extracomment>
         <translation>Använd</translation>
     </message>
     <message>

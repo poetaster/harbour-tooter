@@ -88,7 +88,7 @@ SilicaGridView {
             unread: false
         }
         ListElement {
-            icon: "image://theme/icon-camera-flash-on?"
+            icon: "image://theme/icon-m-like?"
             slug: "trending"
             name: "Trending"
             active: false

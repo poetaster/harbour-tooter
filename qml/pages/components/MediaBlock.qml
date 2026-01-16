@@ -11,8 +11,6 @@ Item {
     property double hRatio : 9/16
 
     property bool debug: false
-    width: width
-    height: height
     Component.onCompleted: {
         if(debug) console.log("MB: " + JSON.stringify(model.get(0)))
 
@@ -88,12 +86,15 @@ Item {
         width: 2
         height: 1
         opacity: pressed ? 0.6 : 1
+        mediaModel: holder.model
+        mediaIndex: 0
         visible: {
             if (model && model.count){
                 type = model.get(0).type
                 previewURL = model.get(0).preview_url
                 mediaURL = model.get(0).url
                 url = model.get(0).url
+                description = model.get(0).description || ''
                 if(debug) console.log( model.get(0).url )
                 height = Theme.itemSizeLarge
                 return true
@@ -109,12 +110,15 @@ Item {
         width: 2
         height: 1
         opacity: pressed ? 0.6 : 1
+        mediaModel: holder.model
+        mediaIndex: 1
         visible: {
             if (model && model.count && model.get(1)){
                 type = model.get(1).type
                 previewURL = model.get(1).preview_url
                 mediaURL = model.get(1).url
                 url = model.get(1).url
+                description = model.get(1).description || ''
                 if(debug) console.log( model.get(1).url )
                 height = Theme.itemSizeLarge
                 return true
@@ -130,12 +134,15 @@ Item {
         width: 2
         height: 1
         opacity: pressed ? 0.6 : 1
+        mediaModel: holder.model
+        mediaIndex: 2
         visible: {
             if (model && model.count && model.get(2)){
                 type = model.get(2).type
                 previewURL = model.get(2).preview_url
                 mediaURL = model.get(2).url
                 url = model.get(2).url
+                description = model.get(2).description || ''
                 height = Theme.itemSizeLarge
                 return true
             } else {
@@ -150,12 +157,15 @@ Item {
         width: 2
         height: 1
         opacity: pressed ? 0.6 : 1
+        mediaModel: holder.model
+        mediaIndex: 3
         visible: {
             if (model && model.count && model.get(3)){
                 type = model.get(3).type
                 previewURL = model.get(3).preview_url
                 mediaURL = model.get(3).url
                 url = model.get(3).url
+                description = model.get(3).description || ''
                 height = Theme.itemSizeLarge
                 return true
             } else {

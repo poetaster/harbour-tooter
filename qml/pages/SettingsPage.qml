@@ -30,18 +30,6 @@ Page {
                 title: qsTr("Settings")
             }
 
-            SectionHeader { text: qsTr("Options")}
-
-            IconTextSwitch {
-                text: qsTr("Load Images in Toots")
-                description: qsTr("Disable this option if you want to preserve your data connection")
-                icon.source: "image://theme/icon-m-image"
-                checked: typeof Logic.conf['loadImages'] !== "undefined" && Logic.conf['loadImages']
-                onClicked: {
-                    Logic.conf['loadImages'] = checked
-                }
-            }
-
             SectionHeader { text: qsTr("Account") }
 
             signal activeAccountChanged
@@ -144,6 +132,97 @@ Page {
                         color: Theme.highlightColor
                         width: parent.width - Theme.paddingMedium
                         anchors.left: parent.left
+                    }
+                }
+            }
+
+            SectionHeader { text: qsTr("Options") }
+
+            IconTextSwitch {
+                text: qsTr("Load Images in Toots")
+                description: qsTr("Disable this option if you want to preserve your data connection")
+                icon.source: "image://theme/icon-m-image"
+                checked: typeof Logic.conf['loadImages'] !== "undefined" && Logic.conf['loadImages']
+                onClicked: {
+                    Logic.conf['loadImages'] = checked
+                }
+            }
+
+            IconTextSwitch {
+                text: qsTr("Show Full Usernames")
+                description: qsTr("Display @user@domain instead of @user")
+                icon.source: "image://theme/icon-m-contact"
+                checked: typeof Logic.conf['fullUsernames'] !== "undefined" && Logic.conf['fullUsernames']
+                onClicked: {
+                    Logic.conf['fullUsernames'] = checked
+                    appWindow.fullUsernames = checked
+                }
+            }
+
+            IconTextSwitch {
+                text: qsTr("Open Links in Reader Mode")
+                description: qsTr("Display articles in a clean reading view")
+                icon.source: "image://theme/icon-m-document"
+                checked: typeof Logic.conf['openLinksInReader'] !== "undefined" && Logic.conf['openLinksInReader']
+                onClicked: {
+                    Logic.conf['openLinksInReader'] = checked
+                    appWindow.openLinksInReader = checked
+                }
+            }
+
+            Item {
+                width: parent.width
+                height: fontSizeColumn.height
+
+                Column {
+                    id: fontSizeColumn
+                    width: parent.width
+                    spacing: Theme.paddingSmall
+
+                    Row {
+                        width: parent.width - Theme.horizontalPageMargin * 2
+                        anchors.horizontalCenter: parent.horizontalCenter
+                        spacing: Theme.paddingMedium
+
+                        Icon {
+                            source: "image://theme/icon-m-font-size"
+                            anchors.verticalCenter: parent.verticalCenter
+                        }
+
+                        Label {
+                            text: qsTr("Font Size")
+                            anchors.verticalCenter: parent.verticalCenter
+                            color: Theme.highlightColor
+                        }
+
+                        Label {
+                            text: Math.round(appWindow.fontScale * 100) + "%"
+                            anchors.verticalCenter: parent.verticalCenter
+                            color: Theme.secondaryHighlightColor
+                        }
+                    }
+
+                    Slider {
+                        id: fontSizeSlider
+                        width: parent.width
+                        minimumValue: 0.7
+                        maximumValue: 1.5
+                        value: appWindow.fontScale
+                        stepSize: 0.1
+                        onValueChanged: {
+                            appWindow.fontScale = value
+                            Logic.conf['fontScale'] = value
+                        }
+
+                        Label {
+                            text: qsTr("Sample text")
+                            font.pixelSize: Theme.fontSizeSmall * appWindow.fontScale
+                            color: Theme.primaryColor
+                            anchors {
+                                horizontalCenter: parent.horizontalCenter
+                                top: parent.bottom
+                            }
+                        }
                     }
                 }
             }
@@ -312,6 +391,7 @@ Page {
                     }
                 }
             }
+
         }
     }
 }

@@ -195,27 +195,22 @@ Page {
                             width: parent.width - ( 2 * Theme.horizontalPageMargin )
                             anchors.horizontalCenter: parent.horizontalCenter
                             onLinkActivated: {
-                                var test = link.split("/")
-                                if (debug) console.log(link)
-                                if (debug) console.log(JSON.stringify(test))
-                                if (debug) console.log(JSON.stringify(test.length))
-                                if (test.length === 5 && (test[3] === "tags" || test[3] === "tag") ) {
+                                if (debug) console.log("ProfilePage link activated: " + link)
+
+                                // Use the URL parser to detect Mastodon resource types
+                                var parsed = Logic.parseMastodonUrl(link)
+
+                                // For recognized Mastodon URLs, delegate to MainPage
+                                if (parsed.type !== "unknown") {
                                     pageStack.pop(pageStack.find(function(page) {
-                                        var check = page.isFirstPage === true;
+                                        var check = page.isFirstPage === true
                                         if (check)
                                             page.onLinkActivated(link)
-                                        return check;
-                                    }));
-                                    send(link)
-                                } else if (test.length === 4 && test[3][0] === "@" ) {
-                                    pageStack.pop(pageStack.find(function(page) {
-                                        var check = page.isFirstPage === true;
-                                        if (check)
-                                            page.onLinkActivated(link)
-                                        return check;
-                                    }));
+                                        return check
+                                    }))
                                 } else {
-                                    Qt.openUrlExternally(link);
+                                    // Unknown URL - open externally
+                                    Qt.openUrlExternally(link)
                                 }
                             }
                         }

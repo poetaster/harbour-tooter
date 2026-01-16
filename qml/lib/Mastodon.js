@@ -101,9 +101,12 @@ var mastodonAPI = function(config) {
             //queryStringAppend += "limit=20"
             // ajax function
             var http = new XMLHttpRequest()
-            var url = apiBase + endpoint;
-            console.log(apiBase + endpoint + queryStringAppend)
-            http.open("GET", apiBase + endpoint + queryStringAppend, true);
+            // Support v2 endpoints by checking prefix
+            var url = endpoint.indexOf("v2/") === 0
+                ? config.instance + "/api/" + endpoint
+                : apiBase + endpoint;
+            console.log(url + queryStringAppend)
+            http.open("GET", url + queryStringAppend, true);
 
             // Send the proper header information along with the request
             http.setRequestHeader("Authorization", "Bearer " + config.api_user_token);
@@ -175,16 +178,57 @@ var mastodonAPI = function(config) {
         },
 
         delete: function (endpoint, callback) {
-            // for DELETE API calls.
-            $.ajax({
-                       url: apiBase + endpoint,
-                       type: "DELETE",
-                       headers: {"Authorization": "Bearer " + config.api_user_token},
-                       success: function(data, textStatus) {
-                           console.log("Successful DELETE API request to " +apiBase+endpoint);
-                           callback(data,textStatus)
-                       }
-                   });
+            // for DELETE API calls
+            var http = new XMLHttpRequest();
+            http.open("DELETE", apiBase + endpoint, true);
+
+            http.setRequestHeader("Authorization", "Bearer " + config.api_user_token);
+            http.setRequestHeader("Content-Type", "application/json");
+            http.setRequestHeader("Connection", "close");
+
+            http.onreadystatechange = function() {
+                if (http.readyState === 4) {
+                    if (http.status === 200) {
+                        console.log("Successful DELETE API request to " + apiBase + endpoint);
+                        try {
+                            callback(JSON.parse(http.response), http.status);
+                        } catch(e) {
+                            callback({}, http.status);
+                        }
+                    } else {
+                        console.log("DELETE error: " + http.status);
+                        callback(null, http.status);
+                    }
+                }
+            };
+            http.send();
+        },
+
+        put: function (endpoint, putData, callback) {
+            // for PUT API calls (e.g., editing statuses)
+            var http = new XMLHttpRequest();
+            http.open("PUT", apiBase + endpoint, true);
+
+            http.setRequestHeader("Authorization", "Bearer " + config.api_user_token);
+            http.setRequestHeader("Content-Type", "application/json");
+            http.setRequestHeader("Connection", "close");
+
+            http.onreadystatechange = function() {
+                if (http.readyState === 4) {
+                    if (http.status === 200) {
+                        console.log("Successful PUT API request to " + apiBase + endpoint);
+                        try {
+                            callback(JSON.parse(http.response), http.status);
+                        } catch(e) {
+                            callback({}, http.status);
+                        }
+                    } else {
+                        console.log("PUT error: " + http.status);
+                        callback(null, http.status);
+                    }
+                }
+            };
+            http.send(JSON.stringify(putData));
         },
 
         stream: function (streamType, onData) {

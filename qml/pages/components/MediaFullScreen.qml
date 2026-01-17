@@ -5,7 +5,7 @@ import QtMultimedia 5.6
 
 FullscreenContentPage {
     id: mediaPage
-
+    property bool debug: false
     // Single item properties (backward compatibility)
     property string type: ""
     property string previewURL: ""
@@ -17,7 +17,6 @@ FullscreenContentPage {
     property var mediaModel: null
     property int startIndex: 0
 
-    property bool debug: false
     property bool isGalleryMode: mediaModel !== null && mediaModel.count > 1
     property bool isImageType: type !== 'gifv' && type !== 'video' && type !== 'audio'
 

@@ -9,8 +9,8 @@ Item {
     property ListModel model
     property double wRatio : 16/9
     property double hRatio : 9/16
-
     property bool debug: false
+
     Component.onCompleted: {
         if(debug) console.log("MB: " + JSON.stringify(model.get(0)))
 

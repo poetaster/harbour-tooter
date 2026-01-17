@@ -81,7 +81,7 @@ BackgroundItem {
                     if (debug) console.log("Refreshed stats: replies=" + data.replies_count +
                         " reblogs=" + data.reblogs_count + " favs=" + data.favourites_count)
                 } catch (e) {
-                    console.log("Error parsing status response: " + e)
+                    if (debug) console.log("Error parsing status response: " + e)
                 }
             }
         }
@@ -141,11 +141,11 @@ BackgroundItem {
             anchors.fill: parent
             enabled: !gapLoader.isGapLoading
             onClicked: {
-                console.log("Gap clicked at index " + index)
+                if (debug) console.log("Gap clicked at index " + index)
                 if (typeof myList !== "undefined" && myList && typeof myList.loadGap === "function") {
                     myList.loadGap(index)
                 } else {
-                    console.log("Error: myList.loadGap not available")
+                    if (debug) console.log("Error: myList.loadGap not available")
                 }
             }
         }
@@ -476,12 +476,12 @@ BackgroundItem {
             } else {
                 // Unknown URL - open in reader mode or browser based on setting
                 if (appWindow.openLinksInReader) {
-                    console.log("VisualContainer: Opening in reader mode: " + link)
+                    if (debug) console.log("VisualContainer: Opening in reader mode: " + link)
                     pageStack.push(Qt.resolvedUrl("../ReaderPage.qml"), {
                         articleUrl: link
                     })
                 } else {
-                    console.log("VisualContainer: Opening in browser: " + link)
+                    if (debug) console.log("VisualContainer: Opening in browser: " + link)
                     Qt.openUrlExternally(link)
                 }
             }
@@ -803,7 +803,7 @@ BackgroundItem {
             anchors.fill: parent
             onClicked: {
                 if (appWindow.openLinksInReader) {
-                    console.log("VisualContainer: Opening link preview in reader mode: " + model.card_url)
+                    if (debug) console.log("VisualContainer: Opening link preview in reader mode: " + model.card_url)
                     pageStack.push(Qt.resolvedUrl("../ReaderPage.qml"), {
                         articleUrl: model.card_url
                     })

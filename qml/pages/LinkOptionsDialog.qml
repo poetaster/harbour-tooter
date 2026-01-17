@@ -4,9 +4,10 @@ import Sailfish.Silica 1.0
 Page {
     id: linkOptionsPage
     property string linkUrl: ""
+    property bool debug: false
 
     Component.onCompleted: {
-        console.log("LinkOptionsDialog: loaded with url = " + linkUrl)
+        if (debug) console.log("LinkOptionsDialog: loaded with url = " + linkUrl)
     }
 
     SilicaFlickable {
@@ -35,7 +36,7 @@ Page {
                 text: "Reader Mode"
                 anchors.horizontalCenter: parent.horizontalCenter
                 onClicked: {
-                    console.log("Reader mode clicked")
+                    if (debug) console.log("Reader mode clicked")
                     pageStack.push(Qt.resolvedUrl("ReaderPage.qml"), {
                         articleUrl: linkUrl
                     })

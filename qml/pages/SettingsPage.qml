@@ -7,6 +7,7 @@ import "../lib/API.js" as Logic
 Page {
     id: settingsPage
     allowedOrientations: Orientation.All
+    property boot debug: false
 
     Component.onCompleted: {
         // Just so translations are not lost in case we will need them again

@@ -10,6 +10,7 @@ Page {
     property string articleTitle: ""
     property string articleContent: ""
     property string articleSiteName: ""
+    property bool debug: false
 
     ShareAction {
         id: shareAction
@@ -44,11 +45,11 @@ Page {
     ]
 
     Component.onCompleted: {
-        console.log("ReaderPage: loaded with url = " + articleUrl)
+        if (debug) console.log("ReaderPage: loaded with url = " + articleUrl)
         if (articleUrl) {
             // Check URL extension before fetching - open directly in browser if not readable
             if (isNonReadableUrl(articleUrl)) {
-                console.log("ReaderPage: Non-readable URL, opening in browser")
+               if (debug) console.log("ReaderPage: Non-readable URL, opening in browser")
                 Qt.openUrlExternally(articleUrl)
                 pageStack.pop()
             } else {
@@ -69,7 +70,7 @@ Page {
             var ext = path.substring(lastDot + 1)
             for (var i = 0; i < nonReadableExtensions.length; i++) {
                 if (ext === nonReadableExtensions[i]) {
-                    console.log("ReaderPage: Non-readable extension detected: " + ext)
+                   if(debug) console.log("ReaderPage: Non-readable extension detected: " + ext)
                     return true
                 }
             }
@@ -99,7 +100,7 @@ Page {
     function fetchArticle() {
         loading = true
         errorMessage = ""
-        console.log("ReaderPage: Fetching " + articleUrl)
+        if (debug) console.log("ReaderPage: Fetching " + articleUrl)
 
         var http = new XMLHttpRequest()
         http.open("GET", articleUrl, true)
@@ -107,13 +108,13 @@ Page {
 
         http.onreadystatechange = function() {
             if (http.readyState === 4) {
-                console.log("ReaderPage: Got response, status=" + http.status)
+                if (debug) console.log("ReaderPage: Got response, status=" + http.status)
                 if (http.status === 200) {
                     // Check Content-Type before parsing
                     var contentType = http.getResponseHeader("Content-Type")
-                    console.log("ReaderPage: Content-Type = " + contentType)
+                    if (debug) console.log("ReaderPage: Content-Type = " + contentType)
                     if (!isReadableContentType(contentType)) {
-                        console.log("ReaderPage: Non-readable Content-Type, opening in browser")
+                        if (debug) console.log("ReaderPage: Non-readable Content-Type, opening in browser")
                         Qt.openUrlExternally(articleUrl)
                         pageStack.pop()
                         return
@@ -139,7 +140,7 @@ Page {
         }
 
         http.onerror = function() {
-            console.log("ReaderPage: XHR error")
+            if (debug) console.log("ReaderPage: XHR error")
             errorMessage = "Network error"
             loading = false
         }
@@ -148,7 +149,7 @@ Page {
     }
 
     function parseArticle(html) {
-        console.log("ReaderPage: Parsing, length=" + html.length)
+        if (debug) console.log("ReaderPage: Parsing, length=" + html.length)
         try {
             // Extract title
             var titleMatch = html.match(/<title[^>]*>([^<]+)<\/title>/i)
@@ -199,7 +200,7 @@ Page {
                 errorMessage = "Could not extract content"
             }
         } catch (e) {
-            console.log("ReaderPage: Parse error - " + e)
+            if (debug) console.log("ReaderPage: Parse error - " + e)
             errorMessage = "Parse error"
         }
         loading = false

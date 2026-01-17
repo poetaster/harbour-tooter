@@ -7,6 +7,7 @@ import QtMultimedia 5.6
 ListItem {
     id: item
 
+    property bool debug:false
     property string url
     property string mediaUrl
     property string mimeType: 'audio/mp3'
@@ -95,9 +96,9 @@ ListItem {
     }
 
     onClicked: {
-        console.log('MediaItem')
-        console.log(url)
-        console.log(mediaUrl)
+        if (debug) console.log('MediaItem')
+        if (debug) console.log(url)
+        if (debug) console.log(mediaUrl)
         if (_isAudio)
         {
             if (audioProxy.playing)
@@ -146,7 +147,7 @@ ListItem {
                 {
                     if (! audioPlayer.playing)
                     {
-                        console.log("Stream is not ready. Deferring seek operation.")
+                        if (debug) console.log("Stream is not ready. Deferring seek operation.")
                         _seeker.start();
                     }
                     else

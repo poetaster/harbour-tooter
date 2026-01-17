@@ -213,7 +213,7 @@ SilicaListView {
         // Check all mutexes before triggering append
         if(footerItem && contentY+height > footerItem.y && !deduping && !loadStarted && !gapFillInProgress && autoLoadMore && !reachedEnd) {
                 loadStarted = true
-                console.log("Loading more: " + title + " (append)")
+                if (debug) console.log("Loading more: " + title + " (append)")
                 loadData("append")
         }
     }
@@ -237,7 +237,7 @@ SilicaListView {
 
             // temporary debugging measure
             if (messageObject.updatedAll){
-                console.log(title + ": Got all, count=" + model.count + ", itemsCount=" + messageObject.itemsCount + ", resetting loadStarted")
+                if (debug) console.log(title + ": Got all, count=" + model.count + ", itemsCount=" + messageObject.itemsCount + ", resetting loadStarted")
                 // Only dedupe when no gap fill in progress to avoid invalidating indices
                 if (model.count > 20 && !gapFillInProgress) deDouble()
 
@@ -254,7 +254,7 @@ SilicaListView {
 
                 // Detect end of timeline: API returned 0 items in append mode
                 if (messageObject.mode === "append" && messageObject.itemsCount === 0) {
-                    console.log(title + ": Reached end of timeline")
+                    if (debug) console.log(title + ": Reached end of timeline")
                     reachedEnd = true
                 }
                 // Reset reachedEnd on successful prepend (user refreshed)
@@ -352,7 +352,7 @@ SilicaListView {
                 if (debug) console.log("Removed " + toRemove.length + " duplicates (gen=" + modelGeneration + ")")
             }
         } catch (e) {
-            console.log("deDouble error: " + e)
+           if (debug) console.log("deDouble error: " + e)
         }
 
         deduping = false
@@ -368,7 +368,7 @@ SilicaListView {
 
         // Prevent loading during gap fill to avoid index confusion
         if (gapFillInProgress && mode !== "fillgap") {
-            console.log(title + ": Skipping " + mode + " - gap fill in progress")
+            if (debug)console.log(title + ": Skipping " + mode + " - gap fill in progress")
             return
         }
 
@@ -454,13 +454,13 @@ SilicaListView {
         var gapThreshold = 15
 
         if (newItemsCount < gapThreshold) {
-            console.log(title + ": No gap detected (only " + newItemsCount + " new items)")
+            if (debug)console.log(title + ": No gap detected (only " + newItemsCount + " new items)")
             return
         }
 
         // Validate prePrependTopId exists
         if (!prePrependTopId || prePrependTopId.length === 0) {
-            console.log(title + ": No prePrependTopId saved, skipping gap check")
+            if (debug) console.log(title + ": No prePrependTopId saved, skipping gap check")
             return
         }
 
@@ -475,20 +475,20 @@ SilicaListView {
         }
 
         if (oldTopIndex < 0) {
-            console.log(title + ": Could not find old top item, skipping gap check")
+            if(debug) console.log(title + ": Could not find old top item, skipping gap check")
             return
         }
 
         // Guard: Need at least one new item before oldTopIndex to insert gap between
         if (oldTopIndex <= 0) {
-            console.log(title + ": No room for gap marker (oldTopIndex=" + oldTopIndex + ")")
+            if(debug)console.log(title + ": No room for gap marker (oldTopIndex=" + oldTopIndex + ")")
             return
         }
 
         // Check if there's already a gap item at this position
         var itemBeforeOld = model.get(oldTopIndex - 1)
         if (itemBeforeOld && itemBeforeOld.type === "gap") {
-            console.log(title + ": Gap item already exists at position " + (oldTopIndex - 1))
+            if(debug)console.log(title + ": Gap item already exists at position " + (oldTopIndex - 1))
             return
         }
 
@@ -497,17 +497,17 @@ SilicaListView {
         var newestOldItem = model.get(oldTopIndex)
 
         if (!oldestNewItem || !newestOldItem) {
-            console.log(title + ": Missing items for gap check (oldestNew=" + !!oldestNewItem + ", newestOld=" + !!newestOldItem + ")")
+            if(debug)console.log(title + ": Missing items for gap check (oldestNew=" + !!oldestNewItem + ", newestOld=" + !!newestOldItem + ")")
             return
         }
 
         // Validate IDs exist
         if (!oldestNewItem.id || !newestOldItem.id) {
-            console.log(title + ": Items missing IDs for gap check")
+            if(debug)console.log(title + ": Items missing IDs for gap check")
             return
         }
 
-        console.log(title + ": Potential gap detected! Inserting gap marker between " +
+        if(debug)console.log(title + ": Potential gap detected! Inserting gap marker between " +
                     oldestNewItem.id + " and " + newestOldItem.id)
 
         // Insert a gap placeholder item
@@ -524,7 +524,7 @@ SilicaListView {
 
         model.insert(oldTopIndex, gapItem)
         modelGeneration++  // Increment generation on structural change
-        console.log(title + ": Gap item inserted at index " + oldTopIndex + " (gen=" + modelGeneration + ")")
+        if(debug)console.log(title + ": Gap item inserted at index " + oldTopIndex + " (gen=" + modelGeneration + ")")
     }
 
     /*
@@ -534,28 +534,28 @@ SilicaListView {
     function loadGap(gapIndex) {
         // Prevent concurrent gap fill operations
         if (gapFillInProgress) {
-            console.log(title + ": Gap fill already in progress, ignoring request")
+            if(debug)console.log(title + ": Gap fill already in progress, ignoring request")
             return
         }
 
         if (gapIndex < 0 || gapIndex >= model.count) {
-            console.log(title + ": Invalid gap index: " + gapIndex)
+            if(debug)console.log(title + ": Invalid gap index: " + gapIndex)
             return
         }
 
         var gapItem = model.get(gapIndex)
         if (!gapItem || gapItem.type !== "gap") {
-            console.log(title + ": Item at index " + gapIndex + " is not a gap")
+            if(debug)console.log(title + ": Item at index " + gapIndex + " is not a gap")
             return
         }
 
         // Validate gap item has required properties
         if (!gapItem.gap_max_id || !gapItem.gap_since_id) {
-            console.log(title + ": Gap item missing required IDs")
+            if(debug)console.log(title + ": Gap item missing required IDs")
             return
         }
 
-        console.log(title + ": Loading gap between " + gapItem.gap_max_id + " and " + gapItem.gap_since_id)
+        if(debug)console.log(title + ": Loading gap between " + gapItem.gap_max_id + " and " + gapItem.gap_since_id)
 
         // Set mutex and track generation
         gapFillInProgress = true
@@ -614,11 +614,11 @@ SilicaListView {
         var itemsCount = msg.itemsCount
         var oldestItemId = msg.oldestItemId
 
-        console.log(title + ": Gap fill complete. Index=" + gapIndex + ", items=" + itemsCount + ", gen=" + modelGeneration + " (started at " + gapFillGeneration + ")")
+        if(debug)console.log(title + ": Gap fill complete. Index=" + gapIndex + ", items=" + itemsCount + ", gen=" + modelGeneration + " (started at " + gapFillGeneration + ")")
 
         // Check if model was modified since gap fill started (stale operation)
         if (gapFillGeneration !== -1 && gapFillGeneration !== modelGeneration) {
-            console.log(title + ": Model changed during gap fill (gen " + gapFillGeneration + " -> " + modelGeneration + "), finding gap by ID")
+            if(debug)console.log(title + ": Model changed during gap fill (gen " + gapFillGeneration + " -> " + modelGeneration + "), finding gap by ID")
             // Model changed, can't trust calculated index - must find by ID
         }
 
@@ -637,27 +637,27 @@ SilicaListView {
 
         // If calculated index didn't work, search by gap_since_id
         if (!gapItem) {
-            console.log(title + ": Calculated index invalid, searching for gap by ID")
+            if(debug)console.log(title + ": Calculated index invalid, searching for gap by ID")
             for (var i = 0; i < model.count; i++) {
                 var item = model.get(i)
                 if (item && item.type === "gap" && item.gap_since_id === gapFillSinceId) {
                     actualGapIndex = i
                     gapItem = item
-                    console.log(title + ": Found gap at index " + i)
+                    if(debug)console.log(title + ": Found gap at index " + i)
                     break
                 }
             }
         }
 
         if (!gapItem || gapItem.type !== "gap") {
-            console.log(title + ": Could not find gap item after fill - it may have been removed")
+            if(debug)console.log(title + ": Could not find gap item after fill - it may have been removed")
             resetGapFillState()
             return
         }
 
         // Final bounds check before modification
         if (actualGapIndex < 0 || actualGapIndex >= model.count) {
-            console.log(title + ": Gap index " + actualGapIndex + " out of bounds (count=" + model.count + ")")
+            if(debug)console.log(title + ": Gap index " + actualGapIndex + " out of bounds (count=" + model.count + ")")
             resetGapFillState()
             return
         }
@@ -665,12 +665,12 @@ SilicaListView {
         // If we got less than threshold items, gap is fully filled - remove it
         var gapThreshold = 15
         if (itemsCount < gapThreshold || itemsCount === 0) {
-            console.log(title + ": Gap fully filled, removing gap item at " + actualGapIndex)
+            if(debug)console.log(title + ": Gap fully filled, removing gap item at " + actualGapIndex)
             model.remove(actualGapIndex)
             modelGeneration++  // Increment generation on structural change
         } else {
             // Gap might still have more items - update max_id for next load
-            console.log(title + ": Gap may have more items, updating max_id to " + oldestItemId)
+            if(debug)console.log(title + ": Gap may have more items, updating max_id to " + oldestItemId)
             model.setProperty(actualGapIndex, "gap_max_id", oldestItemId)
             model.setProperty(actualGapIndex, "gap_loading", false)
         }

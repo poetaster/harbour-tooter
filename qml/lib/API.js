@@ -47,7 +47,7 @@ function setActiveAccount(index) {
 }
 
 var init = function(){
-    console.log("db.version: "+db.version);
+    //console.log("db.version: "+db.version);
     if(db.version === '') {
         db.transaction(function(tx) {
             tx.executeSql('CREATE TABLE IF NOT EXISTS settings ('
@@ -62,24 +62,24 @@ var init = function(){
     }
     db.transaction(function(tx) {
         var rs = tx.executeSql('SELECT * FROM settings;');
-        console.log("READING CONF FROM DB")
+        //console.log("READING CONF FROM DB")
         for (var i = 0; i < rs.rows.length; i++) {
             //var json = JSON.parse(rs.rows.item(i).value);
-            console.log(rs.rows.item(i).key+" \t > \t "+rs.rows.item(i).value)
+            //console.log(rs.rows.item(i).key+" \t > \t "+rs.rows.item(i).value)
             conf[rs.rows.item(i).key] = JSON.parse(rs.rows.item(i).value)
         }
-        console.log("END OF READING")
-        console.log(JSON.stringify(conf));
+        //console.log("END OF READING")
+        //console.log(JSON.stringify(conf));
         mediator.publish('confLoaded', { loaded: true});
     });
 };
 
 function saveData() {
-    console.log("SAVING CONF TO DB")
+    //console.log("SAVING CONF TO DB")
     db.transaction(function(tx) {
         for (var key in conf) {
             if (conf.hasOwnProperty(key)){
-                console.log(key + "\t>\t"+JSON.stringify(conf[key]));
+                //console.log(key + "\t>\t"+JSON.stringify(conf[key]));
                 if (typeof conf[key] === "object" && conf[key] === null) {
                     tx.executeSql('DELETE FROM settings WHERE key=? ', [key])
                 } else {
@@ -87,12 +87,12 @@ function saveData() {
                 }
             }
         }
-        console.log("END OF SAVING")
+        //console.log("END OF SAVING")
     });
 }
 
 var tootParser = function(data){
-    console.log(data)
+    //console.log(data)
     var ret = {};
     ret.id = data.id
     ret.content = data.content
@@ -119,7 +119,7 @@ var tootParser = function(data){
     ret.sensitive = data.sensitive ? true : false
     ret.visibility = data.visibility ? data.visibility : false
 
-    console.log(ret)
+    //console.log(ret)
 }
 
 var test = 1;
@@ -154,7 +154,7 @@ var notificationGenerator = function(item){
         notification = Qt.createQmlObject('import org.nemomobile.notifications 1.0; Notification { category: "x-harbour.tooterb.activity"; appName: "Tooter β"; itemCount: 1; remoteActions: [ { "name": "default", "displayName": "Do something", "icon": "icon-s-certificates", "service": "ba.dysko.harbour.tooterb", "path": "/", "iface": "ba.dysko.harbour.tooterb", "method": "openapp", "arguments": [ "'+item.service+'", "'+item.key+'" ] }]; urgency: Notification.Low;  }', Qt.application, 'InternalQmlObject');
     }
 
-    console.log(JSON.stringify(notification.remoteActions[0].arguments))
+    //console.log(JSON.stringify(notification.remoteActions[0].arguments))
     //Notifications.notify("Tooter β", "serverinfo.serverTitle", " new activity", false, "2015-10-15 00:00:00", "aaa")
 
     notification.timestamp = item.timestamp
@@ -234,7 +234,7 @@ var notifier = function(item){
 var api;
 
 function func() {
-    console.log(api)
+    //console.log(api)
 }
 
 /**

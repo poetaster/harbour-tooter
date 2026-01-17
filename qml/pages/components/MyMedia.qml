@@ -5,7 +5,7 @@ import QtMultimedia 5.6
 
 Item {
     id: myMedia
-
+    property bool debug: false
     property string type : ""
     property string previewURL: ""
     property string mediaURL: ""

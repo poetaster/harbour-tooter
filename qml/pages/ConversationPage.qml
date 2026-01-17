@@ -134,7 +134,7 @@ Page {
                 if (mdl) {
                     for (var i = 0; i < mdl.count; i++) {
                         if (mdl.get(i).status_id === status_id) {
-                            console.log("Scrolling to status_id: " + status_id + " at index " + i)
+                            if (debug) console.log("Scrolling to status_id: " + status_id + " at index " + i)
                             myList.positionViewAtIndex(i, ListView.Center)
                             break
                         }
@@ -459,7 +459,7 @@ Page {
                     source: model.preview_url
                     onStatusChanged: {
                         if (status === Image.Error) {
-                            console.log("Image load error for: " + model.preview_url)
+                            if (debug) console.log("Image load error for: " + model.preview_url)
                         }
                     }
                 }
@@ -782,7 +782,7 @@ Page {
             })
             // Also fetch full status to get media attachments, visibility, and quote
             Logic.api.get('statuses/' + status_id, [], function(data) {
-                console.log("Edit mode: fetched status data")
+                if (debug) console.log("Edit mode: fetched status data")
                 if (data) {
                     // Set visibility
                     var visibilityMap = {"public": 0, "unlisted": 1, "private": 2, "direct": 3}
@@ -791,10 +791,10 @@ Page {
                     }
                     // Load existing media attachments
                     if (data.media_attachments && data.media_attachments.length > 0) {
-                        console.log("Edit mode: found " + data.media_attachments.length + " attachments")
+                        if (debug) console.log("Edit mode: found " + data.media_attachments.length + " attachments")
                         for (var i = 0; i < data.media_attachments.length; i++) {
                             var attachment = data.media_attachments[i]
-                            console.log("Attachment " + i + ": id=" + attachment.id + ", preview_url=" + attachment.preview_url)
+                            if (debug) console.log("Attachment " + i + ": id=" + attachment.id + ", preview_url=" + attachment.preview_url)
                             mediaModel.append({
                                 id: attachment.id,
                                 type: attachment.type,
@@ -803,13 +803,13 @@ Page {
                                 description: attachment.description || ''
                             })
                         }
-                        console.log("Edit mode: mediaModel.count = " + mediaModel.count)
+                        if (debug) console.log("Edit mode: mediaModel.count = " + mediaModel.count)
                     }
                     // Load quote post data if present (Mastodon 4.4+)
                     var validQuoteStates = ["accepted", "blocked_account", "blocked_domain", "muted_account"]
                     if (data.quote && data.quote.quoted_status && validQuoteStates.indexOf(data.quote.state) !== -1) {
                         var quoteData = data.quote.quoted_status
-                        console.log("Edit mode: found quoted post " + quoteData.id)
+                        if (debug) console.log("Edit mode: found quoted post " + quoteData.id)
                         quoted_status_id = quoteData.id
                         quoted_content = quoteData.content || ""
                         quoted_account_acct = quoteData.account ? quoteData.account.acct : ""
@@ -864,7 +864,7 @@ Page {
                                })
         } else if (status_id && status_id.length > 0) {
             // Model is empty but we have a status_id - fetch the status first
-            console.log("Fetching status: " + status_id)
+            if (debug) console.log("Fetching status: " + status_id)
             worker.sendMessage({
                                    "action": 'statuses/' + status_id,
                                    "method": 'GET',

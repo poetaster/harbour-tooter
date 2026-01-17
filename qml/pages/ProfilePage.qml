@@ -29,7 +29,7 @@ Page {
     property bool muting: false
     property bool domain_blocking: false
     property date created_at
-    property bool debug: true
+    property bool debug: false
     property bool firstRun: true
     property string lastName: ""
 

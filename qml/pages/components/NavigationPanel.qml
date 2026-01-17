@@ -15,6 +15,7 @@ SilicaGridView {
     property var dockedPanelMouseArea
     readonly property real menuHeight: headerItem.implicitHeight
     property bool showInteractionHintLabel
+    property bool debug: false
 
     onSlideshowIndexChanged: {
         navigateTo(vIndex)
@@ -227,7 +228,7 @@ SilicaGridView {
                 listModel.setProperty(i, 'active', false);
             }
         }
-        console.log(slug)
+        if (debug) console.log(slug)
     }
 
     VerticalScrollDecorator {}

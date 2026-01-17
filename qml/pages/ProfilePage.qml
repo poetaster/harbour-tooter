@@ -55,6 +55,9 @@ Page {
           if (debug) console.log('firstrun = '+firstRun)
           if (firstRun === true) {
             if (user_id) {
+                if (debug) console.log('user_id ' + user_id)
+                if (debug) console.log('username ' + username)
+
                 worker.sendMessage({ 'action'    : "accounts/relationships/",
                     'params'    : [ {name: "id[]", data: user_id} ],
                     'conf'      : Logic.conf
@@ -63,12 +66,15 @@ Page {
                 lastName = user_id
 
             } else {
+                if (debug) console.log('user_id ' + user_id)
                 var user = username
                 if (user.indexOf('@') == 0)
                     user = user.slice(1)
                 user = user.replace('@'+Logic.getActiveAccount().instance.split('//')[1], "")
                 var resolve = user.indexOf('@') > -1
 
+                if (debug) console.log('user = '+user)
+                if (debug) console.log('resolve = '+resolve)
                 if (resolve && Logic.getActiveAccount().type === 1)
                     // With Pixelfed and "@" in q parameter, it returns 404 and crashes, so we disable this for now
                     return

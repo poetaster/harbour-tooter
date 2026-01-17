@@ -224,27 +224,23 @@
 <context>
     <name>MyList</name>
     <message>
+        <source>Loading...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Settings</source>
-        <translation>Instellingen</translation>
+        <translation type="unfinished">Instellingen</translation>
     </message>
     <message>
         <source>New Toot</source>
-        <translation>Nieuwen toot</translation>
-    </message>
-    <message>
-        <source>Reload</source>
-        <translation>Herladen</translation>
+        <translation type="unfinished">Nieuwen toot</translation>
     </message>
     <message>
         <source>Open in Browser</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Loading...</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>My Profile</source>
+        <source>Reload</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

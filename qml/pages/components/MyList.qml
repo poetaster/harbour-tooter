@@ -104,6 +104,8 @@ SilicaListView {
                 pageStack.push(Qt.resolvedUrl("../SettingsPage.qml"), {})
             }
         }
+        /*
+          for some reason this is broken
         MenuItem {
             text: qsTr("My Profile")
             visible: ! parent.profilePage
@@ -111,10 +113,11 @@ SilicaListView {
                 var activeAccount = Logic.conf.accounts && Logic.conf.accounts[Logic.conf.activeAccount]
                 if (activeAccount && activeAccount.userInfo) {
                     var user = activeAccount.userInfo
+                    if (debug) console.log(user)
                     pageStack.push(Qt.resolvedUrl("../ProfilePage.qml"), {
                         "display_name": user.account_display_name,
                         "username": user.account_acct || user.account_username,
-                        "user_id": user.account_id,
+                        "user_id": user.id,
                         "profileImage": user.account_avatar,
                         "profileBackground": user.account_header,
                         "note": user.account_note,
@@ -129,6 +132,7 @@ SilicaListView {
                 }
             }
         }
+        */
         MenuItem {
             text: qsTr("New Toot")
             visible: ! parent.profilePage

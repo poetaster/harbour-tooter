@@ -224,27 +224,23 @@
 <context>
     <name>MyList</name>
     <message>
+        <source>Loading...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Settings</source>
-        <translation>Ρυθμίσεις</translation>
+        <translation type="unfinished">Ρυθμίσεις</translation>
     </message>
     <message>
         <source>New Toot</source>
-        <translation>Νέος</translation>
-    </message>
-    <message>
-        <source>Reload</source>
-        <translation>Φόρτωση περισσοτέρων</translation>
+        <translation type="unfinished">Νέος</translation>
     </message>
     <message>
         <source>Open in Browser</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Loading...</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>My Profile</source>
+        <source>Reload</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

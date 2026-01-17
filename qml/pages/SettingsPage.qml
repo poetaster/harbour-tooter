@@ -7,7 +7,7 @@ import "../lib/API.js" as Logic
 Page {
     id: settingsPage
     allowedOrientations: Orientation.All
-    property boot debug: false
+    property bool debug: false
 
     Component.onCompleted: {
         // Just so translations are not lost in case we will need them again
@@ -285,6 +285,12 @@ Page {
                             desc: qsTr("Development")
                             mastodon: "postaster@mastodon.gamedev.place"
                             mail: "blueprint@poetaster.de"
+                        }
+                        ListElement {
+                            name: "Lari Lohikoski"
+                            desc: qsTr("Development")
+                            mastodon: "lari@suomi.social"
+                            mail: ""
                         }
                         ListElement {
                             name: "Miodrag Nikolić"

@@ -225,27 +225,23 @@
 <context>
     <name>MyList</name>
     <message>
+        <source>Loading...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Settings</source>
-        <translation>Подешавања</translation>
+        <translation type="unfinished">Подешавања</translation>
     </message>
     <message>
         <source>New Toot</source>
-        <translation>Novi toot</translation>
-    </message>
-    <message>
-        <source>Reload</source>
-        <translation>учитај још</translation>
+        <translation type="unfinished">Novi toot</translation>
     </message>
     <message>
         <source>Open in Browser</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Loading...</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>My Profile</source>
+        <source>Reload</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

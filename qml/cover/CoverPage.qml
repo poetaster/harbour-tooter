@@ -34,15 +34,19 @@ import "../lib/API.js" as Logic
 
 
 CoverBackground {
+    id: coverPage
+
+    // App active state for timer frequency
+    property bool appActive: Qt.application.state === Qt.ApplicationActive
+
     onStatusChanged: {
         switch (status ){
         case PageStatus.Activating:
-            console.log("PageStatus.Activating")
-            //timer.triggered()
+            console.log("Cover: App minimized")
+            checkNotifications()
             break;
         case PageStatus.Inactive:
-            //timer.triggered()
-            console.log("PageStatus.Inactive")
+            console.log("Cover: App active")
             break;
         }
     }
@@ -63,15 +67,18 @@ CoverBackground {
 
     Timer {
         id: timer
-        interval: 60*1000
+        // Same interval as notifications polling in MyList (12 minutes)
+        interval: 12*60*1000
         triggeredOnStart: true
+        running: true
         repeat: true
-        onTriggered: checkNotifications();
+        onTriggered: checkNotifications()
     }
 
     Image {
         id: iconNot
         source: "image://theme/icon-s-alarm?" + Theme.highlightColor
+        visible: notificationsLbl.text !== ""
         anchors {
             left: parent.left
             top: parent.top
@@ -82,13 +89,26 @@ CoverBackground {
 
     Label {
         id: notificationsLbl
-        text: " "
+        text: ""
+        font.pixelSize: Theme.fontSizeLarge
         color: Theme.highlightColor
         anchors {
             left: iconNot.right
             leftMargin: Theme.paddingMedium
             verticalCenter: iconNot.verticalCenter
         }
+    }
+
+    // Update notification count when model changes
+    Connections {
+        target: Logic.modelTLnotifications || null
+        onCountChanged: if (coverPage.status !== PageStatus.Inactive) checkNotifications()
+    }
+
+    // Clear notification count when user views notifications tab
+    Connections {
+        target: appWindow
+        onNotificationsViewed: markNotificationsRead()
     }
 
     Label {
@@ -124,21 +144,42 @@ CoverBackground {
     }
     function checkNotifications(){
         console.log("checkNotifications")
-        var notificationsNum = 0
-        var notificationLastID = Logic.conf.notificationLastID;
-        //Logic.conf.notificationLastID = 0;
-        for(var i = 0; i < Logic.modelTLnotifications.count; i++) {
-            if (notificationLastID < Logic.modelTLnotifications.get(i).id) {
-                notificationLastID = Logic.modelTLnotifications.get(i).id
-            }
+        // Guard against access when model is not ready
+        if (!Logic.modelTLnotifications) return
 
-            if (Logic.conf.notificationLastID < Logic.modelTLnotifications.get(i).id) {
+        var notificationsNum = 0
+        var lastSeenTimestamp = Logic.conf.notificationLastTimestamp || 0
+
+        for(var i = 0; i < Logic.modelTLnotifications.count; i++) {
+            var item = Logic.modelTLnotifications.get(i)
+            // Use created_at timestamp for comparison (works with both v1 and v2 API)
+            var itemTimestamp = item.created_at ? new Date(item.created_at).getTime() : 0
+
+            if (itemTimestamp > lastSeenTimestamp) {
                 notificationsNum++
-                Logic.notifier(Logic.modelTLnotifications.get(i))
             }
         }
-        notificationsLbl.text = notificationsNum;
-        Logic.conf.notificationLastID = notificationLastID;
+
+        notificationsLbl.text = notificationsNum > 0 ? notificationsNum : ""
+
+        // Update last seen timestamp to the newest notification
+        if (Logic.modelTLnotifications.count > 0) {
+            var newestItem = Logic.modelTLnotifications.get(0)
+            var newestTimestamp = newestItem.created_at ? new Date(newestItem.created_at).getTime() : 0
+            if (newestTimestamp > lastSeenTimestamp) {
+                // Only update when user views notifications tab (not here)
+                // This keeps showing the count until user acknowledges
+            }
+        }
+    }
+
+    // Clear notification count when user views notifications
+    function markNotificationsRead() {
+        if (Logic.modelTLnotifications && Logic.modelTLnotifications.count > 0) {
+            var newestItem = Logic.modelTLnotifications.get(0)
+            Logic.conf.notificationLastTimestamp = newestItem.created_at ? new Date(newestItem.created_at).getTime() : 0
+        }
+        notificationsLbl.text = ""
     }
 
 }

@@ -30,13 +30,74 @@ Page {
     property bool domain_blocking: false
     property date created_at
     property bool debug: false
+    property bool firstRun: true
+    property string lastName: ""
 
+    onStatusChanged: {
+        switch (status ){
+        case PageStatus.Activating:
+            if (debug)console.log("Profile active")
+            break;
+        case PageStatus.Inactive:
+            if (debug) console.log("Left profile")
+            firstRun = true
+            break;
+        }
+    }
+    Timer {
+        id:aTimer
+        triggeredOnStart: false;
+        interval:  200
+        // Only run timer for current tab, but always run for notifications (badge updates)
+        repeat:false
+        running:false
+        onTriggered: {
+          if (debug) console.log('firstrun = '+firstRun)
+          if (firstRun === true) {
+            if (user_id) {
+                if (debug) console.log('user_id ' + user_id)
+                if (debug) console.log('username ' + username)
+
+                worker.sendMessage({ 'action'    : "accounts/relationships/",
+                    'params'    : [ {name: "id[]", data: user_id} ],
+                    'conf'      : Logic.conf
+                })
+
+                lastName = user_id
+
+            } else {
+                if (debug) console.log('user_id ' + user_id)
+                var user = username
+                if (user.indexOf('@') == 0)
+                    user = user.slice(1)
+                user = user.replace('@'+Logic.getActiveAccount().instance.split('//')[1], "")
+                var resolve = user.indexOf('@') > -1
+
+                if (debug) console.log('user = '+user)
+                if (debug) console.log('resolve = '+resolve)
+                if (resolve && Logic.getActiveAccount().type === 1)
+                    // With Pixelfed and "@" in q parameter, it returns 404 and crashes, so we disable this for now
+                    return
+
+                worker.sendMessage({
+                    'action'    : "accounts/search?limit=1&q=" + user + '&resolve=' + resolve,
+                    'conf'      : Logic.conf
+                })
+                lastName = username
+            }
+            firstRun = false;
+            list.loadData("append")
+          }
+
+        }
+    }
     WorkerScript {
         id: worker
         source: "../lib/Worker.js"
         onMessage: {
             if (debug) console.log(JSON.stringify(messageObject))
-            if(messageObject.action.indexOf("accounts/search") > -1 ){
+            //if(messageObject.action.indexOf("accounts/search") > -1 ){
+            if(messageObject.action === "accounts/search" ){
                 user_id = messageObject.data.id
                 followers_count = messageObject.data.followers_count
                 following_count = messageObject.data.following_count
@@ -98,34 +159,14 @@ Page {
                 break;
             }
         }
+
     }
 
     // The effective value will be restricted by ApplicationWindow.allowedOrientations
     allowedOrientations: Orientation.All
     Component.onCompleted: {
-        if (user_id) {
-            worker.sendMessage({
-                'action'    : "accounts/relationships/",
-                'params'    : [ {name: "id[]", data: user_id} ],
-                'conf'      : Logic.conf
-            })
+       aTimer.start();
 
-        } else {
-            var user = username
-            if (user.indexOf('@') == 0)
-                user = user.slice(1)
-            user = user.replace('@'+Logic.getActiveAccount().instance.split('//')[1], "")
-            var resolve = user.indexOf('@') > -1
-
-            if (resolve && Logic.getActiveAccount().type === 1)
-                // With Pixelfed and "@" in q parameter, it returns 404 and crashes, so we disable this for now
-                return
-
-            worker.sendMessage({
-                'action'    : "accounts/search?limit=1&q=" + user + '&resolve=' + resolve,
-                'conf'      : Logic.conf
-            })
-        }
     }
 
     MyList {
@@ -195,27 +236,22 @@ Page {
                             width: parent.width - ( 2 * Theme.horizontalPageMargin )
                             anchors.horizontalCenter: parent.horizontalCenter
                             onLinkActivated: {
-                                var test = link.split("/")
-                                if (debug) console.log(link)
-                                if (debug) console.log(JSON.stringify(test))
-                                if (debug) console.log(JSON.stringify(test.length))
-                                if (test.length === 5 && (test[3] === "tags" || test[3] === "tag") ) {
+                                if (debug) console.log("ProfilePage link activated: " + link)
+
+                                // Use the URL parser to detect Mastodon resource types
+                                var parsed = Logic.parseMastodonUrl(link)
+
+                                // For recognized Mastodon URLs, delegate to MainPage
+                                if (parsed.type !== "unknown") {
                                     pageStack.pop(pageStack.find(function(page) {
-                                        var check = page.isFirstPage === true;
+                                        var check = page.isFirstPage === true
                                         if (check)
                                             page.onLinkActivated(link)
-                                        return check;
-                                    }));
-                                    send(link)
-                                } else if (test.length === 4 && test[3][0] === "@" ) {
-                                    pageStack.pop(pageStack.find(function(page) {
-                                        var check = page.isFirstPage === true;
-                                        if (check)
-                                            page.onLinkActivated(link)
-                                        return check;
-                                    }));
+                                        return check
+                                    }))
                                 } else {
-                                    Qt.openUrlExternally(link);
+                                    // Unknown URL - open externally
+                                    Qt.openUrlExternally(link)
                                 }
                             }
                         }

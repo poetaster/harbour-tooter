@@ -29,6 +29,13 @@ Page {
 
                 slideshow.positionViewAtIndex(vIndex, ListView.SnapToItem)
             }
+            onScrollToTop: {
+                // Scroll the corresponding list to top
+                var lists = [tlHome, tlNotifications, tlLocal, tlPublic, tlBookmarks, null, tlTrending]
+                if (lists[vIndex]) {
+                    lists[vIndex].positionViewAtBeginning()
+                }
+            }
         }
     }
 
@@ -49,8 +56,8 @@ Page {
             title: qsTr("Home")
             type: "timelines/home"
             mdl: Logic.modelTLhome
-            width: isPortrait ? parent.itemWidth : parent.itemWidth - Theme.itemSizeLarge
-            height: parent.itemHeight
+            width: isPortrait ? slideshow.itemWidth : slideshow.itemWidth - Theme.itemSizeLarge
+            height: slideshow.itemHeight
             onOpenDrawer: isPortrait ? infoPanel.open = setDrawer : infoPanel.open = true
 
             onCountChanged: if (count == 0) worker.verifyCredentials()
@@ -59,11 +66,11 @@ Page {
         MyList {
             id: tlNotifications
             title: qsTr("Notifications")
-            type: "notifications"
+            type: "v2/notifications"
             notifier: true
             mdl: Logic.modelTLnotifications
-            width: isPortrait ? parent.itemWidth : parent.itemWidth - Theme.itemSizeLarge
-            height: parent.itemHeight
+            width: isPortrait ? slideshow.itemWidth : slideshow.itemWidth - Theme.itemSizeLarge
+            height: slideshow.itemHeight
             onOpenDrawer: isPortrait ? infoPanel.open = setDrawer : infoPanel.open = true
         }
 
@@ -73,8 +80,8 @@ Page {
             type: "timelines/public?local=true"
             //params: ["local", true]
             mdl: Logic.modelTLlocal
-            width: isPortrait ? parent.itemWidth : parent.itemWidth - Theme.itemSizeLarge
-            height: parent.itemHeight
+            width: isPortrait ? slideshow.itemWidth : slideshow.itemWidth - Theme.itemSizeLarge
+            height: slideshow.itemHeight
             onOpenDrawer: isPortrait ? infoPanel.open = setDrawer : infoPanel.open = true
         }
 
@@ -83,8 +90,8 @@ Page {
             title: qsTr("Federated")
             type: "timelines/public"
             mdl: Logic.modelTLpublic
-            width: isPortrait ? parent.itemWidth : parent.itemWidth - Theme.itemSizeLarge
-            height: parent.itemHeight
+            width: isPortrait ? slideshow.itemWidth : slideshow.itemWidth - Theme.itemSizeLarge
+            height: slideshow.itemHeight
             onOpenDrawer: isPortrait ? infoPanel.open = setDrawer : infoPanel.open = true
         }
         MyList {
@@ -92,8 +99,8 @@ Page {
             title: qsTr("Bookmarks")
             type: "bookmarks"
             mdl: Logic.modelTLbookmarks
-            width: isPortrait ? parent.itemWidth : parent.itemWidth - Theme.itemSizeLarge
-            height: parent.itemHeight
+            width: isPortrait ? slideshow.itemWidth : slideshow.itemWidth - Theme.itemSizeLarge
+            height: slideshow.itemHeight
             onOpenDrawer: isPortrait ? infoPanel.open = setDrawer : infoPanel.open = true
         }
 
@@ -103,8 +110,8 @@ Page {
             property ListModel mdl: ListModel {}
             property string search
 
-            width: isPortrait ? parent.itemWidth : parent.itemWidth - Theme.itemSizeLarge
-            height: parent.itemHeight
+            width: isPortrait ? slideshow.itemWidth : slideshow.itemWidth - Theme.itemSizeLarge
+            height: slideshow.itemHeight
             onSearchChanged: {
                 if (debug) console.log(search)
                 loader.sourceComponent = loading
@@ -261,9 +268,25 @@ Page {
             title: qsTr("Trending")
             type: "trends/statuses"
             mdl: Logic.modelTLtrending
-            width: isPortrait ? parent.itemWidth : parent.itemWidth - Theme.itemSizeLarge
-            height: parent.itemHeight
+            width: isPortrait ? slideshow.itemWidth : slideshow.itemWidth - Theme.itemSizeLarge
+            height: slideshow.itemHeight
             onOpenDrawer: isPortrait ? infoPanel.open = setDrawer : infoPanel.open = true
+        }
+    }
+
+    // Update which tab is currently visible for lazy loading
+    function updateCurrentTab(index) {
+        tlHome.isCurrentTab = (index === 0)
+        tlNotifications.isCurrentTab = (index === 1)
+        tlLocal.isCurrentTab = (index === 2)
+        tlPublic.isCurrentTab = (index === 3)
+        tlBookmarks.isCurrentTab = (index === 4)
+        // index 5 is Search (not a MyList)
+        tlTrending.isCurrentTab = (index === 6)
+
+        // Clear cover notification badge when viewing notifications tab
+        if (index === 1) {
+            appWindow.notificationsViewed()
         }
     }
 
@@ -277,6 +300,7 @@ Page {
         model: visualModel
         onCurrentIndexChanged: {
             navigation.slideshowIndexChanged(currentIndex)
+            updateCurrentTab(currentIndex)
         }
         anchors {
             fill: parent
@@ -285,6 +309,11 @@ Page {
             bottomMargin: isPortrait ? infoPanel.visibleSize : 0
         }
         Component.onCompleted: {
+            // Initialize Home tab as current for lazy loading
+            updateCurrentTab(0)
+            // Also load Notifications at startup for badge count
+            tlNotifications.loadData("prepend")
+            tlNotifications.hasLoadedOnce = true
         }
     }
 
@@ -309,27 +338,53 @@ Page {
     }
 
     function onLinkActivated(href) {
-        var test = href.split("/")
-        debug = true
-        if (debug) {
-                console.log(href)
-                console.log(JSON.stringify(test))
-                console.log(JSON.stringify(test.length))
-        }
-        if (test.length === 5 && (test[3] === "tags" || test[3] === "tag") ) {
-            tlSearch.search = "#"+decodeURIComponent(test[4])
+        if (debug) console.log("onLinkActivated: " + href)
+
+        // Use the URL parser to detect Mastodon resource types
+        var parsed = Logic.parseMastodonUrl(href)
+        if (debug) console.log("Parsed URL: " + JSON.stringify(parsed))
+
+        switch (parsed.type) {
+        case "tag":
+            // Navigate to tag timeline
+            tlSearch.search = "#" + parsed.tag
             slideshow.positionViewAtIndex(5, ListView.SnapToItem)
             navigation.navigateTo('search')
-            if (debug) console.log("search tag")
+            break
 
-        } else if (test.length === 4 && test[3][0] === "@" ) {
-            tlSearch.search = decodeURIComponent("@"+test[3].substring(1)+"@"+test[2])
+        case "profile":
+            // Search for profile with full acct
+            tlSearch.search = "@" + parsed.acct
             slideshow.positionViewAtIndex(5, ListView.SnapToItem)
             navigation.navigateTo('search')
+            break
 
-        } else {
+        case "status":
+            // Resolve status URL via search API and open in ConversationPage
+            resolveStatusUrl(href)
+            break
+
+        default:
+            // Unknown URL - open externally
             Qt.openUrlExternally(href)
         }
+    }
+
+    // Resolve a status URL and open it in ConversationPage
+    function resolveStatusUrl(url) {
+        if (debug) console.log("Resolving status URL: " + url)
+        worker.sendMessage({
+            action: "v2/search",
+            mode: "resolveUrl",
+            params: [
+                { name: "q", data: encodeURIComponent(url) },
+                { name: "resolve", data: "true" },
+                { name: "type", data: "statuses" },
+                { name: "limit", data: "1" }
+            ],
+            conf: Logic.conf,
+            originalUrl: url
+        })
     }
 
     WorkerScript {
@@ -341,6 +396,27 @@ Page {
                 Logic.getActiveAccount().userInfo = messageObject.data
                 Logic.getActiveAccount().userInfo.account_acct += "@" + (Logic.getActiveAccount()['instance'].split("//")[1])
                 delete Logic.getActiveAccount().userInfo.account_id
+            }
+            // Handle URL resolution results
+            else if (messageObject.action === "v2/search" && messageObject.mode === "resolveUrl") {
+                if (messageObject.statuses && messageObject.statuses.length > 0) {
+                    var status = messageObject.statuses[0]
+                    if (debug) console.log("Resolved status: " + status.status_id)
+                    // Open in ConversationPage
+                    var m = Qt.createQmlObject('import QtQuick 2.0; ListModel { dynamicRoles:true }', Qt.application, 'InternalQmlObject')
+                    pageStack.push(Qt.resolvedUrl("ConversationPage.qml"), {
+                        headerTitle: qsTr("Conversation"),
+                        "status_id": status.status_id,
+                        "status_url": status.status_url,
+                        "status_uri": status.status_uri,
+                        mdl: m,
+                        type: "reply"
+                    })
+                } else {
+                    // Status not found - open URL externally
+                    if (debug) console.log("Status not found, opening externally: " + messageObject.originalUrl)
+                    Qt.openUrlExternally(messageObject.originalUrl)
+                }
             }
         }
 

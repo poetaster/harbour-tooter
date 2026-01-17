@@ -15,7 +15,7 @@ var mediator = (function(){
         var args = Array.prototype.slice.call(arguments, 1);
         for(var i = 0, l = mediator.channels[channel].length; i < l; i++){
             var subscription = mediator.channels[channel][i];
-            subscription.callback.apply(subscription.context.args);
+            subscription.callback.apply(subscription.context, args);
         };
         return this;
     };
@@ -47,7 +47,7 @@ function setActiveAccount(index) {
 }
 
 var init = function(){
-    console.log("db.version: "+db.version);
+    //console.log("db.version: "+db.version);
     if(db.version === '') {
         db.transaction(function(tx) {
             tx.executeSql('CREATE TABLE IF NOT EXISTS settings ('
@@ -62,24 +62,24 @@ var init = function(){
     }
     db.transaction(function(tx) {
         var rs = tx.executeSql('SELECT * FROM settings;');
-        console.log("READING CONF FROM DB")
+        //console.log("READING CONF FROM DB")
         for (var i = 0; i < rs.rows.length; i++) {
             //var json = JSON.parse(rs.rows.item(i).value);
-            console.log(rs.rows.item(i).key+" \t > \t "+rs.rows.item(i).value)
+            //console.log(rs.rows.item(i).key+" \t > \t "+rs.rows.item(i).value)
             conf[rs.rows.item(i).key] = JSON.parse(rs.rows.item(i).value)
         }
-        console.log("END OF READING")
-        console.log(JSON.stringify(conf));
+        //console.log("END OF READING")
+        //console.log(JSON.stringify(conf));
         mediator.publish('confLoaded', { loaded: true});
     });
 };
 
 function saveData() {
-    console.log("SAVING CONF TO DB")
+    //console.log("SAVING CONF TO DB")
     db.transaction(function(tx) {
         for (var key in conf) {
             if (conf.hasOwnProperty(key)){
-                console.log(key + "\t>\t"+JSON.stringify(conf[key]));
+                //console.log(key + "\t>\t"+JSON.stringify(conf[key]));
                 if (typeof conf[key] === "object" && conf[key] === null) {
                     tx.executeSql('DELETE FROM settings WHERE key=? ', [key])
                 } else {
@@ -87,12 +87,12 @@ function saveData() {
                 }
             }
         }
-        console.log("END OF SAVING")
+        //console.log("END OF SAVING")
     });
 }
 
 var tootParser = function(data){
-    console.log(data)
+    //console.log(data)
     var ret = {};
     ret.id = data.id
     ret.content = data.content
@@ -119,20 +119,20 @@ var tootParser = function(data){
     ret.sensitive = data.sensitive ? true : false
     ret.visibility = data.visibility ? data.visibility : false
 
-    console.log(ret)
+    //console.log(ret)
 }
 
 var test = 1;
 
 Qt.include("Mastodon.js")
 
-var modelTLhome = Qt.createQmlObject('import QtQuick 2.0; ListModel {   }', Qt.application, 'InternalQmlObject');
-var modelTLpublic = Qt.createQmlObject('import QtQuick 2.0; ListModel {   }', Qt.application, 'InternalQmlObject');
-var modelTLlocal = Qt.createQmlObject('import QtQuick 2.0; ListModel {   }', Qt.application, 'InternalQmlObject');
-var modelTLtrending = Qt.createQmlObject('import QtQuick 2.0; ListModel {   }', Qt.application, 'InternalQmlObject');
-var modelTLnotifications = Qt.createQmlObject('import QtQuick 2.0; ListModel {   }', Qt.application, 'InternalQmlObject');
-var modelTLsearch = Qt.createQmlObject('import QtQuick 2.0; ListModel {   }', Qt.application, 'InternalQmlObject');
-var modelTLbookmarks = Qt.createQmlObject('import QtQuick 2.0; ListModel {   }', Qt.application, 'InternalQmlObject');
+var modelTLhome = Qt.createQmlObject('import QtQuick 2.0; ListModel { dynamicRoles: true }', Qt.application, 'InternalQmlObject');
+var modelTLpublic = Qt.createQmlObject('import QtQuick 2.0; ListModel { dynamicRoles: true }', Qt.application, 'InternalQmlObject');
+var modelTLlocal = Qt.createQmlObject('import QtQuick 2.0; ListModel { dynamicRoles: true }', Qt.application, 'InternalQmlObject');
+var modelTLtrending = Qt.createQmlObject('import QtQuick 2.0; ListModel { dynamicRoles: true }', Qt.application, 'InternalQmlObject');
+var modelTLnotifications = Qt.createQmlObject('import QtQuick 2.0; ListModel { dynamicRoles: true }', Qt.application, 'InternalQmlObject');
+var modelTLsearch = Qt.createQmlObject('import QtQuick 2.0; ListModel { dynamicRoles: true }', Qt.application, 'InternalQmlObject');
+var modelTLbookmarks = Qt.createQmlObject('import QtQuick 2.0; ListModel { dynamicRoles: true }', Qt.application, 'InternalQmlObject');
 
 function clearModels() {
     [modelTLhome, modelTLpublic, modelTLlocal, modelTLnotifications, modelTLsearch, modelTLbookmarks]
@@ -154,7 +154,7 @@ var notificationGenerator = function(item){
         notification = Qt.createQmlObject('import org.nemomobile.notifications 1.0; Notification { category: "x-harbour.tooterb.activity"; appName: "Tooter β"; itemCount: 1; remoteActions: [ { "name": "default", "displayName": "Do something", "icon": "icon-s-certificates", "service": "ba.dysko.harbour.tooterb", "path": "/", "iface": "ba.dysko.harbour.tooterb", "method": "openapp", "arguments": [ "'+item.service+'", "'+item.key+'" ] }]; urgency: Notification.Low;  }', Qt.application, 'InternalQmlObject');
     }
 
-    console.log(JSON.stringify(notification.remoteActions[0].arguments))
+    //console.log(JSON.stringify(notification.remoteActions[0].arguments))
     //Notifications.notify("Tooter β", "serverinfo.serverTitle", " new activity", false, "2015-10-15 00:00:00", "aaa")
 
     notification.timestamp = item.timestamp
@@ -234,5 +234,99 @@ var notifier = function(item){
 var api;
 
 function func() {
-    console.log(api)
+    //console.log(api)
+}
+
+/**
+ * Parse a URL to detect if it's a Mastodon resource (status, profile, tag)
+ * Returns: { type: "status"|"profile"|"tag"|"unknown", data: {...} }
+ *
+ * Supported patterns:
+ * - Status: https://instance.tld/@username/123456789
+ * - Status (alt): https://instance.tld/users/username/statuses/123456789
+ * - Profile: https://instance.tld/@username
+ * - Profile (alt): https://instance.tld/users/username
+ * - Tag: https://instance.tld/tags/tagname or /tag/tagname
+ */
+function parseMastodonUrl(url) {
+    if (!url || typeof url !== "string") {
+        return { type: "unknown", url: url }
+    }
+
+    // Ensure it's an HTTP(S) URL
+    if (!url.match(/^https?:\/\//i)) {
+        return { type: "unknown", url: url }
+    }
+
+    // Normalize: remove trailing slash(es) before parsing
+    var normalizedUrl = url.replace(/\/+$/, '')
+
+    var parts = normalizedUrl.split("/")
+    // parts[0] = "https:", parts[1] = "", parts[2] = "instance.tld", parts[3+] = path
+
+    if (parts.length < 4) {
+        return { type: "unknown", url: url }
+    }
+
+    var instance = parts[2]
+    var pathPart1 = parts[3]
+    var pathPart2 = parts.length > 4 ? parts[4] : null
+    var pathPart3 = parts.length > 5 ? parts[5] : null
+    var pathPart4 = parts.length > 6 ? parts[6] : null
+
+    // Tag patterns: /tags/tagname or /tag/tagname
+    if (parts.length === 5 && (pathPart1 === "tags" || pathPart1 === "tag")) {
+        return {
+            type: "tag",
+            instance: instance,
+            tag: decodeURIComponent(pathPart2),
+            url: url
+        }
+    }
+
+    // Profile pattern: /@username (length 4, starts with @)
+    if (parts.length === 4 && pathPart1 && pathPart1[0] === "@") {
+        return {
+            type: "profile",
+            instance: instance,
+            username: pathPart1.substring(1),  // Remove the @
+            acct: pathPart1.substring(1) + "@" + instance,
+            url: url
+        }
+    }
+
+    // Status pattern: /@username/123456789 (length 5, starts with @, numeric ID)
+    if (parts.length === 5 && pathPart1 && pathPart1[0] === "@" && /^\d+$/.test(pathPart2)) {
+        return {
+            type: "status",
+            instance: instance,
+            username: pathPart1.substring(1),
+            statusId: pathPart2,
+            url: url
+        }
+    }
+
+    // Alternative profile pattern: /users/username (length 5)
+    if (parts.length === 5 && pathPart1 === "users") {
+        return {
+            type: "profile",
+            instance: instance,
+            username: pathPart2,
+            acct: pathPart2 + "@" + instance,
+            url: url
+        }
+    }
+
+    // Alternative status pattern: /users/username/statuses/123456789 (length 7)
+    if (parts.length === 7 && pathPart1 === "users" && pathPart3 === "statuses" && /^\d+$/.test(pathPart4)) {
+        return {
+            type: "status",
+            instance: instance,
+            username: pathPart2,
+            statusId: pathPart4,
+            url: url
+        }
+    }
+
+    return { type: "unknown", url: url }
 }

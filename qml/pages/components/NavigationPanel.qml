@@ -10,10 +10,12 @@ SilicaGridView {
     property bool isPortrait: true
     signal slideshowShow(int vIndex)
     signal slideshowIndexChanged(int vIndex)
+    signal scrollToTop(int vIndex)
 
     property var dockedPanelMouseArea
     readonly property real menuHeight: headerItem.implicitHeight
     property bool showInteractionHintLabel
+    property bool debug: false
 
     onSlideshowIndexChanged: {
         navigateTo(vIndex)
@@ -55,6 +57,7 @@ SilicaGridView {
             slug: "notifications"
             name: "Notifications"
             active: false
+            unread: false
         }
 
         ListElement {
@@ -156,9 +159,13 @@ SilicaGridView {
         }
 
         onClicked: {
-            slideshowShow(index)
-            console.log(index)
-            navigateTo(model.slug)
+            if (model.active) {
+                // Already on this tab - scroll to top
+                scrollToTop(index)
+            } else {
+                slideshowShow(index)
+                navigateTo(model.slug)
+            }
             effect.state = "right"
         }
 
@@ -191,7 +198,7 @@ SilicaGridView {
             Connections {
                 ignoreUnknownSignals: true
                 target: !showMenuOnPressAndHold || Logic.conf.multipleAccountsHintCompleted
-                        ? undefined : gridView
+                        ? null : gridView
                 onIsPortraitChanged: hint.updateRunning()
             }
 
@@ -206,15 +213,59 @@ SilicaGridView {
 
     function navigateTo(slug){
         for(var i = 0; i < listModel.count; i++){
-            if (listModel.get(i).slug === slug || i===slug)
+            if (listModel.get(i).slug === slug || i===slug) {
                 listModel.setProperty(i, 'active', true);
-            else
+                // Clear unread indicator when viewing notifications
+                if (listModel.get(i).slug === "notifications") {
+                    listModel.setProperty(i, 'unread', false);
+                    // Also update last seen timestamp for cover page
+                    if (Logic.modelTLnotifications && Logic.modelTLnotifications.count > 0) {
+                        var newestItem = Logic.modelTLnotifications.get(0)
+                        Logic.conf.notificationLastTimestamp = newestItem.created_at ? new Date(newestItem.created_at).getTime() : 0
+                    }
+                }
+            } else {
                 listModel.setProperty(i, 'active', false);
+            }
         }
-        console.log(slug)
+        if (debug) console.log(slug)
     }
 
     VerticalScrollDecorator {}
+
+    // Track notification timestamp to detect new notifications
+    property bool initialLoadComplete: false
+    property real lastCheckedTimestamp: 0
+
+    Connections {
+        target: Logic.modelTLnotifications || null
+        onCountChanged: {
+            if (!Logic.modelTLnotifications) return
+            var newCount = Logic.modelTLnotifications.count
+            if (newCount === 0) return
+
+            // Get the newest notification timestamp
+            var newestItem = Logic.modelTLnotifications.get(0)
+            var newestTimestamp = newestItem && newestItem.created_at ? new Date(newestItem.created_at).getTime() : 0
+
+            // Skip the initial load - don't show indicator for first batch
+            if (!gridView.initialLoadComplete) {
+                gridView.lastCheckedTimestamp = newestTimestamp
+                // Also initialize the conf timestamp if not set
+                if (!Logic.conf.notificationLastTimestamp) {
+                    Logic.conf.notificationLastTimestamp = newestTimestamp
+                }
+                gridView.initialLoadComplete = true
+                return
+            }
+
+            // Show indicator if there are newer notifications and not currently viewing notifications
+            if (newestTimestamp > gridView.lastCheckedTimestamp && !listModel.get(1).active) {
+                listModel.setProperty(1, 'unread', true)  // index 1 = notifications
+            }
+            gridView.lastCheckedTimestamp = newestTimestamp
+        }
+    }
 
     Connections {
         // Forward events from docked panel to context menu

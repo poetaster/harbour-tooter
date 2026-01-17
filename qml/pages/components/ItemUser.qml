@@ -56,7 +56,7 @@ ListItem {
 
     Item {
         id: userDescription
-        height: account_acct.height + display_name.height
+        height: accountAcctLabel.height + display_name.height
         anchors.left: avatar.right
         anchors.leftMargin: Theme.paddingLarge
         anchors.right: parent.right
@@ -74,8 +74,8 @@ ListItem {
         }
 
         Label {
-            id: account_acct
-            text: "@"+model.account_acct
+            id: accountAcctLabel
+            text: "@" + (appWindow.fullUsernames ? model.account_acct : model.account_username)
             color: highlighted || textHighlighted ? Theme.secondaryHighlightColor : Theme.secondaryColor
             anchors.leftMargin: Theme.paddingMedium
             font.pixelSize: Theme.fontSizeExtraSmall

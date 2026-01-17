@@ -5,11 +5,16 @@ import QtMultimedia 5.6
 
 Item {
     id: myMedia
-
+    property bool debug: false
     property string type : ""
     property string previewURL: ""
     property string mediaURL: ""
     property string url: ""
+    property string description: ""
+
+    // Gallery support: pass full media list and index
+    property var mediaModel: null
+    property int mediaIndex: 0
 
     Rectangle {
         opacity: 0.4
@@ -98,8 +103,78 @@ Item {
                 pageStack.push(Qt.resolvedUrl("./MediaFullScreen.qml"), {
                                    "previewURL": previewURL,
                                    "mediaURL": mediaURL,
-                                   "type": type
+                                   "type": type,
+                                   "description": description,
+                                   "mediaModel": mediaModel,
+                                   "startIndex": mediaIndex
                                })
+            }
+        }
+
+        // ALT text badge
+        Rectangle {
+            id: altBadge
+            visible: description.length > 0
+            color: Theme.highlightDimmerColor
+            opacity: 0.9
+            width: altLabel.width + Theme.paddingSmall * 2
+            height: altLabel.height + Theme.paddingSmall
+            radius: Theme.paddingSmall / 2
+            anchors {
+                left: parent.left
+                bottom: parent.bottom
+                margins: Theme.paddingSmall
+            }
+
+            Label {
+                id: altLabel
+                text: "ALT"
+                font.pixelSize: Theme.fontSizeTiny
+                font.bold: true
+                color: Theme.highlightColor
+                anchors.centerIn: parent
+            }
+
+            MouseArea {
+                anchors.fill: parent
+                onClicked: {
+                    altTooltip.visible = !altTooltip.visible
+                }
+            }
+        }
+
+        // ALT text tooltip
+        Rectangle {
+            id: altTooltip
+            visible: false
+            color: Theme.highlightDimmerColor
+            opacity: 0.95
+            width: parent.width - Theme.paddingMedium * 2
+            height: altTooltipText.paintedHeight + Theme.paddingMedium * 2
+            radius: Theme.paddingSmall
+            anchors {
+                horizontalCenter: parent.horizontalCenter
+                bottom: altBadge.top
+                bottomMargin: Theme.paddingSmall
+            }
+
+            Label {
+                id: altTooltipText
+                text: description
+                font.pixelSize: Theme.fontSizeSmall
+                color: Theme.primaryColor
+                wrapMode: Text.Wrap
+                width: parent.width - Theme.paddingMedium * 2
+                anchors {
+                    centerIn: parent
+                }
+            }
+
+            MouseArea {
+                anchors.fill: parent
+                onClicked: {
+                    altTooltip.visible = false
+                }
             }
         }
 

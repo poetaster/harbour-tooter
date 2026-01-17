@@ -37,6 +37,19 @@ ApplicationWindow {
     id: appWindow
     allowedOrientations: defaultAllowedOrientations
     cover: Qt.resolvedUrl("cover/CoverPage.qml")
+
+    // Global font scale property - reactive, updates UI immediately
+    property real fontScale: 1.0
+    // Show full usernames (@user@domain) vs short (@user)
+    property bool fullUsernames: false
+    // Instance max characters - fetched from server, default to 500
+    property int instanceMaxChars: 500
+    // Open links in reader mode (default off)
+    property bool openLinksInReader: false
+
+    // Signal emitted when user views the notifications tab
+    signal notificationsViewed()
+
     Component.onCompleted: {
         var obj = {}
         Logic.mediator.installTo(obj)
@@ -47,6 +60,12 @@ ApplicationWindow {
                 Logic.conf['notificationLastID'] = 0
             if (!Logic.conf['accounts'])
                 Logic.conf['accounts'] = []
+            if (typeof Logic.conf['fontScale'] !== "undefined")
+                appWindow.fontScale = Logic.conf['fontScale']
+            if (typeof Logic.conf['fullUsernames'] !== "undefined")
+                appWindow.fullUsernames = Logic.conf['fullUsernames']
+            if (typeof Logic.conf['openLinksInReader'] !== "undefined")
+                appWindow.openLinksInReader = Logic.conf['openLinksInReader']
 
             var oldAccountParameters = ['api_user_token', 'instance', 'login']
             if (oldAccountParameters.every(function(el) { return el in Logic.conf })) {
@@ -77,7 +96,12 @@ ApplicationWindow {
                 Logic.api.setConfig("api_user_token", currentAccount['api_user_token'])
                 //accounts/verify_credentials
                 Logic.api.get('instance', [], function(data) {
-                   // console.log(JSON.stringify(data))
+                    // console.log(JSON.stringify(data))
+                    // Extract max characters from instance configuration
+                    if (data && data.configuration && data.configuration.statuses && data.configuration.statuses.max_characters) {
+                        appWindow.instanceMaxChars = data.configuration.statuses.max_characters
+                        console.log("Instance max chars: " + appWindow.instanceMaxChars)
+                    }
                     pageStack.push(Qt.resolvedUrl("./pages/MainPage.qml"), {})
                 })
                 //pageStack.push(Qt.resolvedUrl("./pages/Conversation.qml"), {})

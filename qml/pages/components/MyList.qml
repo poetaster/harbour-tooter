@@ -90,7 +90,9 @@ SilicaListView {
     ViewPlaceholder {
         id: loadStatusPlaceholder
         enabled: model.count === 0 && !myListBusyLabel.running && !remove.running
-        text: hasLoadedOnce ? qsTr("Nothing found") : qsTr("Loading...")
+        //text: hasLoadedOnce ? qsTr("Nothing found") : qsTr("Loading...")
+        text:  qsTr("Loading...")
+        // this is a workaround, should be if model.count REMAINS 0, nothing found
     }
 
     PullDownMenu {

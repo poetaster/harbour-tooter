@@ -38,6 +38,14 @@ dbus_services.files = config/ba.dysko.harbour.tooterb.service
 interfaces.path = /usr/share/dbus-1/interfaces/
 interfaces.files = config/ba.dysko.harbourb.tooterb.xml
 
+# Explicit install rules for new QML pages
+newpages.path = /usr/share/$${TARGET}/qml/pages
+newpages.files = qml/pages/LinkOptionsDialog.qml \
+    qml/pages/ReaderPage.qml \
+    qml/pages/TestPage.qml
+
+INSTALLS += newpages
+
 SOURCES += src/harbour-tooterb.cpp \
     src/imageuploader.cpp \
     src/filedownloader.cpp \
@@ -56,6 +64,8 @@ DISTFILES += qml/harbour-tooterb.qml \
     qml/pages/ConversationPage.qml \
     qml/pages/ProfilePage.qml \
     qml/pages/SettingsPage.qml \
+    qml/pages/LinkOptionsDialog.qml \
+    qml/pages/ReaderPage.qml \
     qml/pages/components/HoldInteractionHint.qml \
     qml/pages/components/InfoBanner.qml \
     qml/pages/components/MediaFullScreen.qml \
@@ -102,6 +112,7 @@ TRANSLATIONS += translations/harbour-tooterb.ts \
     translations/harbour-tooterb-de.ts \
     translations/harbour-tooterb-el.ts \
     translations/harbour-tooterb-es.ts \
+    translations/harbour-tooterb-fi.ts \
     translations/harbour-tooterb-fr.ts \
     translations/harbour-tooterb-it.ts \
     translations/harbour-tooterb-nl.ts \

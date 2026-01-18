@@ -213,7 +213,7 @@
         <source>followed you</source>
         <translation>följer dig</translation>
     </message>
-    <message numerus=&quot;yes&quot;>
+    <message numerus="yes">
         <source>and %n other(s)</source>
         <translation><numerusform>och %n annan</numerusform><numerusform>och %n andra</numerusform></translation>
     </message>

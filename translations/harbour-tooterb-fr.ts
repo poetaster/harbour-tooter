@@ -47,19 +47,19 @@
     </message>
     <message>
         <source>Edit Alt Text</source>
-        <translation type="unfinished"></translation>
+        <translation>Texte alternatif</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation>Supprimer</translation>
     </message>
     <message>
         <source>Toot edited!</source>
-        <translation type="unfinished"></translation>
+        <translation>Pouet modifié !</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished"></translation>
+        <translation>Enregistrer</translation>
     </message>
     <message>
         <source>Describe this media for visually impaired users</source>
@@ -127,7 +127,7 @@
     </message>
     <message>
         <source>Type</source>
-        <translation type="unfinished"></translation>
+        <translation >Type</translation>
     </message>
 </context>
 <context>
@@ -170,11 +170,11 @@
     </message>
     <message>
         <source>Trending</source>
-        <translation type="unfinished"></translation>
+        <translation>Tendance</translation>
     </message>
     <message>
         <source>Conversation</source>
-        <translation type="unfinished">Conversation</translation>
+        <translation>Conversation</translation>
     </message>
 </context>
 <context>
@@ -225,23 +225,23 @@
     <name>MyList</name>
     <message>
         <source>Loading...</source>
-        <translation type="unfinished"></translation>
+        <translation>Chargement...</translation>
     </message>
     <message>
         <source>Settings</source>
-        <translation type="unfinished">Paramètres</translation>
+        <translation>Paramètres</translation>
     </message>
     <message>
         <source>New Toot</source>
-        <translation type="unfinished">Nouveau pouet</translation>
+        <translation>Nouveau pouet</translation>
     </message>
     <message>
         <source>Open in Browser</source>
-        <translation type="unfinished">Ouvrir dans le navigateur</translation>
+        <translation>Ouvrir dans le navigateur</translation>
     </message>
     <message>
         <source>Reload</source>
-        <translation type="unfinished"></translation>
+        <translation>Recharger</translation>
     </message>
 </context>
 <context>
@@ -325,15 +325,15 @@
     <name>ReaderPage</name>
     <message>
         <source>Share</source>
-        <translation type="unfinished"></translation>
+        <translation>Partager</translation>
     </message>
     <message>
         <source>Copy link</source>
-        <translation type="unfinished"></translation>
+        <translation>Ouvrir le lien</translation>
     </message>
     <message>
         <source>Open in browser</source>
-        <translation type="unfinished"></translation>
+        <translation>Ouvrir dans le navigateur</translation>
     </message>
 </context>
 <context>
@@ -426,19 +426,19 @@
     </message>
     <message>
         <source>Documentation</source>
-        <translation type="unfinished"></translation>
+        <translation>Documentation</translation>
     </message>
     <message>
         <source>Mention</source>
-        <translation type="unfinished">Mentionner</translation>
+        <translation>Mentionner</translation>
     </message>
     <message>
         <source>Account removed</source>
-        <translation type="unfinished"></translation>
+        <translation>Compte retiré</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation>Retirer</translation>
     </message>
     <message>
         <source>Norwegian Translation</source>
@@ -454,19 +454,19 @@
     </message>
     <message>
         <source>Open Links in Reader Mode</source>
-        <translation type="unfinished"></translation>
+        <translation>Ouvrir les liens en mode lecture</translation>
     </message>
     <message>
         <source>Display articles in a clean reading view</source>
-        <translation type="unfinished"></translation>
+        <translation>Afficher les articles dans une vue épurée</translation>
     </message>
     <message>
         <source>Font Size</source>
-        <translation type="unfinished"></translation>
+        <translation>Taille police</translation>
     </message>
     <message>
         <source>Sample text</source>
-        <translation type="unfinished"></translation>
+        <translation>Texte de démo</translation>
     </message>
 </context>
 <context>
@@ -505,71 +505,71 @@
     </message>
     <message>
         <source>Loading...</source>
-        <translation type="unfinished"></translation>
+        <translation>Chargement...</translation>
     </message>
     <message>
         <source>Load more</source>
-        <translation type="unfinished"></translation>
+        <translation>Charger plus</translation>
     </message>
     <message>
         <source>replying to @%1</source>
-        <translation type="unfinished"></translation>
+        <translation>réponse a @%1</translation>
     </message>
     <message>
         <source>replying to thread</source>
-        <translation type="unfinished"></translation>
+        <translation>réponse à un fil</translation>
     </message>
     <message>
         <source>Show less</source>
-        <translation type="unfinished"></translation>
+        <translation>Afficher moins</translation>
     </message>
     <message>
         <source>Show more</source>
-        <translation type="unfinished"></translation>
+        <translation>Afficher plus</translation>
     </message>
     <message>
         <source>Vote</source>
-        <translation type="unfinished"></translation>
+        <translation>Voter</translation>
     </message>
     <message>
         <source>votes</source>
-        <translation type="unfinished"></translation>
+        <translation>votes</translation>
     </message>
     <message>
         <source>Closed</source>
-        <translation type="unfinished"></translation>
+        <translation>Terminé</translation>
     </message>
     <message>
         <source>days left</source>
-        <translation type="unfinished"></translation>
+        <translation>jours restants</translation>
     </message>
     <message>
         <source>hours left</source>
-        <translation type="unfinished"></translation>
+        <translation>heures restantes</translation>
     </message>
     <message>
         <source>minutes left</source>
-        <translation type="unfinished"></translation>
+        <translation>minutes restantes</translation>
     </message>
     <message>
         <source>Reply</source>
-        <translation type="unfinished">Répondre</translation>
+        <translation>Répondre</translation>
     </message>
     <message>
         <source>Quote</source>
-        <translation type="unfinished"></translation>
+        <translation>Citer</translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>Supprimer</translation>
     </message>
     <message>
         <source>Deleting</source>
-        <translation type="unfinished"></translation>
+        <translation>Suppression</translation>
     </message>
     <message>
         <source>Edit</source>
-        <translation type="unfinished"></translation>
+        <translation>Modifier</translation>
     </message>
 </context>
 </TS>

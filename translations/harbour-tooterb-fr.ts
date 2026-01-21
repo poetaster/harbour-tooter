@@ -63,23 +63,23 @@
     </message>
     <message>
         <source>Describe this media for visually impaired users</source>
-        <translation type="unfinished"></translation>
+        <translation>Décrivez ce média pour les utilisateurs malvoyants</translation>
     </message>
     <message>
         <source>Alt text helps make content accessible to people who are blind or have low vision.</source>
-        <translation type="unfinished"></translation>
+        <translation>Le texte alternatif permet de rendre le contenu accessible aux personnes aveugles ou malvoyantes.</translation>
     </message>
     <message>
         <source>Add Media</source>
-        <translation type="unfinished"></translation>
+        <translation>Ajouter un média</translation>
     </message>
     <message>
         <source>Post Visibility</source>
-        <translation type="unfinished"></translation>
+        <translation>Visibilité</translation>
     </message>
     <message>
         <source>Post Language</source>
-        <translation type="unfinished"></translation>
+        <translation>Langue du pouet</translation>
     </message>
 </context>
 <context>
@@ -123,7 +123,7 @@
     </message>
     <message>
         <source>Enter a valid Mastodon instance URL (will open a web browser for Authentication)</source>
-        <translation type="unfinished"></translation>
+        <translation>Saisissez une URL d’instance Mastodon valide (un navigateur web s’ouvrira pour l’authentification)</translation>
     </message>
     <message>
         <source>Type</source>
@@ -166,7 +166,7 @@
     </message>
     <message>
         <source>Press and hold the home tab to switch account</source>
-        <translation type="unfinished"></translation>
+        <translation>Maintenez appuyé l’onglet Accueil pour basculer de compte</translation>
     </message>
     <message>
         <source>Trending</source>
@@ -215,9 +215,9 @@
     </message>
     <message numerus="yes">
         <source>and %n other(s)</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>et %n autre</numerusform>
+            <numerusform>et %n autres</numerusform>
         </translation>
     </message>
 </context>
@@ -397,7 +397,7 @@
     </message>
     <message>
         <source>Occitan &amp; French translation</source>
-        <translation>Traduction français</translation>
+        <translation>Traduction occitane et française</translation>
     </message>
     <message>
         <source>Chinese translation</source>
@@ -442,15 +442,15 @@
     </message>
     <message>
         <source>Norwegian Translation</source>
-        <translation type="unfinished"></translation>
+        <translation>Traduction norvégienne</translation>
     </message>
     <message>
         <source>Show Full Usernames</source>
-        <translation type="unfinished"></translation>
+        <translation>Afficher le nom d’utilisateur complet</translation>
     </message>
     <message>
         <source>Display @user@domain instead of @user</source>
-        <translation type="unfinished"></translation>
+        <translation>Afficher @utilisateur@domaine au lieu de @utilisateur</translation>
     </message>
     <message>
         <source>Open Links in Reader Mode</source>

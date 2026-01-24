@@ -51,35 +51,35 @@
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished">Slett</translation>
+        <translation>Fjern</translation>
     </message>
     <message>
         <source>Toot edited!</source>
-        <translation type="unfinished"></translation>
+        <translation>Toot redigert!</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished"></translation>
+        <translation>Lagre</translation>
     </message>
     <message>
         <source>Describe this media for visually impaired users</source>
-        <translation type="unfinished"></translation>
+        <translation>Beskriv dette innholdet for synshemmede brukere</translation>
     </message>
     <message>
         <source>Alt text helps make content accessible to people who are blind or have low vision.</source>
-        <translation type="unfinished"></translation>
+        <translation>Alternativ tekst bidrar til å gjøre innhold tilgjengelig for personer som er blinde eller har nedsatt syn.</translation>
     </message>
     <message>
         <source>Add Media</source>
-        <translation type="unfinished"></translation>
+        <translation>Legg til mediefiler</translation>
     </message>
     <message>
         <source>Post Visibility</source>
-        <translation type="unfinished"></translation>
+        <translation>Innleggets synlighet</translation>
     </message>
     <message>
         <source>Post Language</source>
-        <translation type="unfinished"></translation>
+        <translation>Innleggets språk</translation>
     </message>
 </context>
 <context>
@@ -174,7 +174,7 @@
     </message>
     <message>
         <source>Conversation</source>
-        <translation type="unfinished">Samtale</translation>
+        <translation>Samtale</translation>
     </message>
 </context>
 <context>
@@ -216,8 +216,8 @@
     <message numerus="yes">
         <source>and %n other(s)</source>
         <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+            <numerusform>og %n annen</numerusform>
+            <numerusform>og %n andre</numerusform>
         </translation>
     </message>
 </context>
@@ -225,23 +225,23 @@
     <name>MyList</name>
     <message>
         <source>Loading...</source>
-        <translation type="unfinished"></translation>
+        <translation>Laster...</translation>
     </message>
     <message>
         <source>Settings</source>
-        <translation type="unfinished">Innstillinger</translation>
+        <translation>Innstillinger</translation>
     </message>
     <message>
         <source>New Toot</source>
-        <translation type="unfinished">Ny toot</translation>
+        <translation>Ny toot</translation>
     </message>
     <message>
         <source>Open in Browser</source>
-        <translation type="unfinished">Åpne i nettleser</translation>
+        <translation>Åpne i nettleser</translation>
     </message>
     <message>
         <source>Reload</source>
-        <translation type="unfinished"></translation>
+        <translation>Last på nytt</translation>
     </message>
 </context>
 <context>
@@ -325,15 +325,15 @@
     <name>ReaderPage</name>
     <message>
         <source>Share</source>
-        <translation type="unfinished"></translation>
+        <translation>Del</translation>
     </message>
     <message>
         <source>Copy link</source>
-        <translation type="unfinished"></translation>
+        <translation>Kopier lenke</translation>
     </message>
     <message>
         <source>Open in browser</source>
-        <translation type="unfinished"></translation>
+        <translation>Åpne i nettleser</translation>
     </message>
 </context>
 <context>
@@ -446,27 +446,27 @@
     </message>
     <message>
         <source>Show Full Usernames</source>
-        <translation type="unfinished"></translation>
+        <translation>Vis fulle brukernavn</translation>
     </message>
     <message>
         <source>Display @user@domain instead of @user</source>
-        <translation type="unfinished"></translation>
+        <translation>Vis @bruker@domene i stedet for @bruker</translation>
     </message>
     <message>
         <source>Open Links in Reader Mode</source>
-        <translation type="unfinished"></translation>
+        <translation>Åpne lenker i lesemodus</translation>
     </message>
     <message>
         <source>Display articles in a clean reading view</source>
-        <translation type="unfinished"></translation>
+        <translation>Vis artikler i en ren lesevisning</translation>
     </message>
     <message>
         <source>Font Size</source>
-        <translation type="unfinished"></translation>
+        <translation>Skriftstørrelse</translation>
     </message>
     <message>
         <source>Sample text</source>
-        <translation type="unfinished"></translation>
+        <translation>Eksempeltekst</translation>
     </message>
 </context>
 <context>
@@ -505,71 +505,71 @@
     </message>
     <message>
         <source>Loading...</source>
-        <translation type="unfinished"></translation>
+        <translation>Laster...</translation>
     </message>
     <message>
         <source>Load more</source>
-        <translation type="unfinished"></translation>
+        <translation>Last inn mer</translation>
     </message>
     <message>
         <source>replying to @%1</source>
-        <translation type="unfinished"></translation>
+        <translation>svarer @%1</translation>
     </message>
     <message>
         <source>replying to thread</source>
-        <translation type="unfinished"></translation>
+        <translation>svarer til tråd</translation>
     </message>
     <message>
         <source>Show less</source>
-        <translation type="unfinished"></translation>
+        <translation>Vis mindre</translation>
     </message>
     <message>
         <source>Show more</source>
-        <translation type="unfinished"></translation>
+        <translation>Vis mer</translation>
     </message>
     <message>
         <source>Vote</source>
-        <translation type="unfinished"></translation>
+        <translation>Stem</translation>
     </message>
     <message>
         <source>votes</source>
-        <translation type="unfinished"></translation>
+        <translation>stemmer</translation>
     </message>
     <message>
         <source>Closed</source>
-        <translation type="unfinished"></translation>
+        <translation>Lukket</translation>
     </message>
     <message>
         <source>days left</source>
-        <translation type="unfinished"></translation>
+        <translation>dager igjen</translation>
     </message>
     <message>
         <source>hours left</source>
-        <translation type="unfinished"></translation>
+        <translation>timer igjen</translation>
     </message>
     <message>
         <source>minutes left</source>
-        <translation type="unfinished"></translation>
+        <translation>minutter igjen</translation>
     </message>
     <message>
         <source>Reply</source>
-        <translation type="unfinished">Svar</translation>
+        <translation>Svar</translation>
     </message>
     <message>
         <source>Quote</source>
-        <translation type="unfinished"></translation>
+        <translation>Siter</translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>Slett</translation>
     </message>
     <message>
         <source>Deleting</source>
-        <translation type="unfinished"></translation>
+        <translation>Sletter</translation>
     </message>
     <message>
         <source>Edit</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Rediger</translation>
     </message>
 </context>
 </TS>

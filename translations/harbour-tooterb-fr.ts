@@ -407,6 +407,14 @@
         <source>Norwegian Translation</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Font Size</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sample text</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>VisualContainer</name>

@@ -42,6 +42,63 @@ Page {
                 }
             }
 
+            Item {
+                width: parent.width
+                height: fontSizeColumn.height
+
+                Column {
+                    id: fontSizeColumn
+                    width: parent.width
+                    spacing: Theme.paddingSmall
+
+                    Row {
+                        width: parent.width - Theme.horizontalPageMargin * 2
+                        anchors.horizontalCenter: parent.horizontalCenter
+                        spacing: Theme.paddingMedium
+
+                        Icon {
+                            source: "image://theme/icon-m-font-size"
+                            anchors.verticalCenter: parent.verticalCenter
+                        }
+
+                        Label {
+                            text: qsTr("Font Size")
+                            anchors.verticalCenter: parent.verticalCenter
+                            color: Theme.highlightColor
+                        }
+
+                        Label {
+                            text: Math.round(appWindow.fontScale * 100) + "%"
+                            anchors.verticalCenter: parent.verticalCenter
+                            color: Theme.secondaryHighlightColor
+                        }
+                    }
+
+                    Slider {
+                        id: fontSizeSlider
+                        width: parent.width
+                        minimumValue: 0.7
+                        maximumValue: 1.5
+                        value: appWindow.fontScale
+                        stepSize: 0.1
+                        onValueChanged: {
+                            appWindow.fontScale = value
+                            Logic.conf['fontScale'] = value
+                        }
+
+                        Label {
+                            text: qsTr("Sample text")
+                            font.pixelSize: Theme.fontSizeSmall * appWindow.fontScale
+                            color: Theme.primaryColor
+                            anchors {
+                                horizontalCenter: parent.horizontalCenter
+                                top: parent.bottom
+                            }
+                        }
+                    }
+                }
+            }
+
             SectionHeader { text: qsTr("Account") }
 
             signal activeAccountChanged

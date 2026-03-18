@@ -220,7 +220,7 @@ BackgroundItem {
             }
         }
         textFormat: myList.type === "notifications" && ( model.type === "favourite" || model.type === "reblog" ) ? Text.StyledText : Text.RichText
-        font.pixelSize: Theme.fontSizeSmall
+        font.pixelSize: Theme.fontSizeSmall * appWindow.fontScale
         wrapMode: Text.Wrap
         truncationMode: TruncationMode.Elide
         color: if (myList.type === "notifications" && ( model.type === "favourite" || model.type === "reblog" )) {
@@ -310,7 +310,7 @@ BackgroundItem {
         id: showMoreLabel
         visible: isLongPost && !(myList.type === "notifications" && (model.type === "favourite" || model.type === "reblog"))
         text: expanded ? qsTr("Show less") : qsTr("Show more")
-        font.pixelSize: Theme.fontSizeSmall
+        font.pixelSize: Theme.fontSizeSmall * appWindow.fontScale
         color: Theme.highlightColor
         anchors {
             left: lblContent.left

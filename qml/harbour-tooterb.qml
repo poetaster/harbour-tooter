@@ -37,6 +37,10 @@ ApplicationWindow {
     id: appWindow
     allowedOrientations: defaultAllowedOrientations
     cover: Qt.resolvedUrl("cover/CoverPage.qml")
+
+    // Global font scale property - reactive, updates UI immediately
+    property real fontScale: 1.0
+
     Component.onCompleted: {
         var obj = {}
         Logic.mediator.installTo(obj)
@@ -47,6 +51,8 @@ ApplicationWindow {
                 Logic.conf['notificationLastID'] = 0
             if (!Logic.conf['accounts'])
                 Logic.conf['accounts'] = []
+            if (typeof Logic.conf['fontScale'] !== "undefined")
+                appWindow.fontScale = Logic.conf['fontScale']
 
             var oldAccountParameters = ['api_user_token', 'instance', 'login']
             if (oldAccountParameters.every(function(el) { return el in Logic.conf })) {

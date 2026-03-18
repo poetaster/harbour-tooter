@@ -327,6 +327,12 @@ Page {
                             mastodon: "frankps@babb.no"
                             mail: ""
                         }
+                        ListElement {
+                            name: "Lari Lohikoski"
+                            desc: qsTr("Development")
+                            mastodon: "lari@suomi.social"
+                            mail: ""
+                        }
                     }
 
                     Item {

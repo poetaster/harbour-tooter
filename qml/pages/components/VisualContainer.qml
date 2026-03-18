@@ -355,6 +355,7 @@ BackgroundItem {
         height: visible ? Theme.itemSizeLarge + Theme.paddingMedium * 2 : 0
         color: Theme.rgba(Theme.highlightBackgroundColor, 0.1)
         radius: Theme.paddingSmall
+        clip: true
         anchors {
             left: lblContent.left
             right: lblContent.right
@@ -377,6 +378,7 @@ BackgroundItem {
             }
             height: Theme.itemSizeLarge
             spacing: Theme.paddingMedium
+            clip: true
 
             // Thumbnail (if available)
             Image {
@@ -397,6 +399,7 @@ BackgroundItem {
                 width: parent.width - (cardImage.visible ? cardImage.width + Theme.paddingMedium : 0)
                 height: parent.height
                 spacing: Theme.paddingSmall / 2
+                clip: true
 
                 // Provider name
                 Label {
@@ -427,7 +430,7 @@ BackgroundItem {
                     font.pixelSize: Theme.fontSizeExtraSmall
                     color: Theme.secondaryHighlightColor
                     wrapMode: Text.Wrap
-                    maximumLineCount: 2
+                    maximumLineCount: 1
                     truncationMode: TruncationMode.Elide
                     width: parent.width
                 }

@@ -2,8 +2,9 @@ Qt.include("Mastodon.js")
 
 var debug = false;
 var loadImages = true;
-// used to dedupe on append/insert
-var knownIds = [];
+// used to dedupe on append/insert - using object for O(1) lookup
+var knownIdsSet = {};
+var knownIdsCount = 0;
 var max_id ;
 var since_id;
 
@@ -26,10 +27,15 @@ WorkerScript.onMessage = function(msg) {
        since_id = msg.params[0]["data"]
 
     }
-    // ids are always the last param
+    // ids are always the last param - convert array to object for O(1) lookup
     if (msg.params[2]) {
         if ( msg.params[2]["name"] === "ids" ) {
-            knownIds = msg.params[2]["data"]
+            var idsArray = msg.params[2]["data"]
+            knownIdsSet = {}
+            for (var k = 0; k < idsArray.length; k++) {
+                knownIdsSet[idsArray[k]] = true
+            }
+            knownIdsCount = idsArray.length
             msg.params.pop()
         }
     }
@@ -174,7 +180,10 @@ WorkerScript.onMessage = function(msg) {
 
                 } else if(msg.action.indexOf("statuses") >-1 && msg.action.indexOf("context") >-1 && i === "ancestors") {
                     // status ancestors toots - conversation
-                    console.log("ancestors: " + (data[i] ? data[i].length : 0))
+                    var ancestorCount = data[i] ? data[i].length : 0
+                    var descendantCount = data["descendants"] ? data["descendants"].length : 0
+                    var threadTotal = ancestorCount + 1 + descendantCount
+                    console.log("ancestors: " + ancestorCount + ", total thread: " + threadTotal)
                     if (data[i] && data[i].length > 0) {
                         for (var j = 0; j < data[i].length; j++) {
                             if (data[i][j]) {
@@ -182,15 +191,31 @@ WorkerScript.onMessage = function(msg) {
                                 item['id'] = item['status_id'];
                                 if (typeof item['attachments'] === "undefined")
                                     item['attachments'] = [];
+                                // Add thread position info
+                                item['thread_position'] = j + 1;
+                                item['thread_total'] = threadTotal;
                                 items.push(item);
                             }
                         }
                         addDataToModel(msg.model, "prepend", items);
                         items = [];
                     }
+                    // Update the main status with thread info
+                    if (msg.model && msg.model.count > 0 && threadTotal > 1) {
+                        // Find the main status (should be at position = ancestorCount after prepend)
+                        var mainPos = ancestorCount;
+                        if (mainPos < msg.model.count) {
+                            msg.model.setProperty(mainPos, 'thread_position', ancestorCount + 1);
+                            msg.model.setProperty(mainPos, 'thread_total', threadTotal);
+                            msg.model.sync();  // Required for setProperty changes in WorkerScript
+                        }
+                    }
                 } else if(msg.action.indexOf("statuses") >-1 && msg.action.indexOf("context") >-1 && i === "descendants") {
                     // status descendants toots - conversation
-                    console.log("descendants: " + (data[i] ? data[i].length : 0))
+                    var ancestorCount2 = data["ancestors"] ? data["ancestors"].length : 0
+                    var descendantCount2 = data[i] ? data[i].length : 0
+                    var threadTotal2 = ancestorCount2 + 1 + descendantCount2
+                    console.log("descendants: " + descendantCount2)
                     if (data[i] && data[i].length > 0) {
                         for (var j = 0; j < data[i].length; j++) {
                             if (data[i][j]) {
@@ -198,6 +223,9 @@ WorkerScript.onMessage = function(msg) {
                                 item['id'] = item['status_id'];
                                 if (typeof item['attachments'] === "undefined")
                                     item['attachments'] = [];
+                                // Add thread position info
+                                item['thread_position'] = ancestorCount2 + 1 + 1 + j;  // ancestors + main + position in descendants
+                                item['thread_total'] = threadTotal2;
                                 items.push(item);
                             }
                         }
@@ -244,11 +272,12 @@ function addDataToModel (model, mode, items) {
     var i
     var addedCount = 0
 
-    console.log("addDataToModel: " + length + " items, mode=" + mode + ", knownIds=" + knownIds.length)
+    console.log("addDataToModel: " + length + " items, mode=" + mode + ", knownIds=" + knownIdsCount)
 
     if (mode === "append") {
         for(i = 0; i <= length-1; i++) {
-           if ( knownIds.indexOf( items[i]["id"]) === -1) {
+           // O(1) lookup using object instead of O(n) indexOf
+           if (!knownIdsSet[items[i]["id"]]) {
                 model.append(items[i])
                 addedCount++
            } else {
@@ -257,12 +286,12 @@ function addDataToModel (model, mode, items) {
        }
        console.log("Added " + addedCount + " of " + length + " items")
        // search does not use ids
-       if ( knownIds.length < 1 ) model.append(items)
+       if (knownIdsCount < 1) model.append(items)
 
     } else if (mode === "prepend") {
         for(i = length-1; i >= 0 ; i--) {
-            //model.insert(0,items[i])
-            if ( knownIds.indexOf( items[i]["id"]) === -1) {
+            // O(1) lookup using object instead of O(n) indexOf
+            if (!knownIdsSet[items[i]["id"]]) {
                 model.insert(0,items[i])
             }
         }
@@ -400,6 +429,9 @@ function parseToot (data) {
     item['type'] = "toot"
     item['highlight'] = false
     item['status_id'] = data["id"]
+    // Thread position info (will be set properly when viewing conversation context)
+    item['thread_position'] = 0
+    item['thread_total'] = 0
     // timeline_id preserves the original entry ID for pagination (important for reblogs)
     item['timeline_id'] = data["id"]
     item['status_created_at'] = item['created_at'] = new Date(data["created_at"])
@@ -478,12 +510,11 @@ function parseToot (data) {
         }
     }
 
-    /** Replace HTML content in Toots */
-    item['content'] = item['content']
-    .replaceAll('</span><span class="invisible">', '')
-    .replaceAll('<span class="invisible">', '')
-    .replaceAll('</span><span class="ellipsis">', '')
-    .replaceAll('class=""', '');
+    /** Replace HTML content in Toots - single regex pass for performance */
+    item['content'] = item['content'].replace(
+        /<\/span><span class="invisible">|<span class="invisible">|<\/span><span class="ellipsis">|class=""/g,
+        ''
+    );
 
     /** Remove "RE:" quote link prefix when we have a proper quote */
     if (item['quote_id'] && item['quote_id'].length > 0) {
@@ -548,19 +579,37 @@ function parseToot (data) {
     return addEmojis(item, data);
 }
 
-/** Function: Display custom Emojis in Toots */
+/** Function: Display custom Emojis in Toots - batched for performance */
 function addEmojis(item, data) {
-    var emoji, i;
-    for (i = 0; i < data["emojis"].length; i++) {
-        emoji = data["emojis"][i];
-        item['content'] = item['content'].replaceAll(":"+emoji.shortcode+":", "<img src=\"" + emoji.static_url+"\" align=\"top\" width=\"50\" height=\"50\">")
-        //console.log(JSON.stringify(data["emojis"][i]))
+    // Collect all emojis from both main and reblog data
+    var allEmojis = data["emojis"] || [];
+    if (data["reblog"] && data["reblog"]["emojis"]) {
+        allEmojis = allEmojis.concat(data["reblog"]["emojis"]);
     }
-    if (data["reblog"])
-        for (i = 0; i < data["reblog"]["emojis"].length; i++) {
-            emoji = data["reblog"]["emojis"][i];
-            item['content'] = item['content'].replaceAll(":"+emoji.shortcode+":", "<img src=\"" + emoji.static_url+"\" align=\"top\" width=\"50\" height=\"50\">")
-        }
+
+    if (allEmojis.length === 0) {
+        return item;
+    }
+
+    // Build emoji lookup map
+    var emojiMap = {};
+    for (var i = 0; i < allEmojis.length; i++) {
+        var emoji = allEmojis[i];
+        emojiMap[emoji.shortcode] = emoji.static_url;
+    }
+
+    // Build single regex matching all shortcodes
+    var shortcodes = Object.keys(emojiMap);
+    // Escape special regex characters in shortcodes
+    var escapedShortcodes = shortcodes.map(function(sc) {
+        return sc.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    });
+    var pattern = new RegExp(':(' + escapedShortcodes.join('|') + '):', 'g');
+
+    // Single pass replacement
+    item['content'] = item['content'].replace(pattern, function(match, shortcode) {
+        return '<img src="' + emojiMap[shortcode] + '" align="top" width="50" height="50">';
+    });
 
     return item;
 }

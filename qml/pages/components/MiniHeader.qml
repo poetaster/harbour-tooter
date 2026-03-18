@@ -54,6 +54,37 @@ Item {
         }
     }
 
+    // Thread indicator - shows position in conversation (e.g., "2/5")
+    Label {
+        id: lblThread
+        visible: model.thread_total > 1
+        text: model.thread_position + "/" + model.thread_total
+        font.pixelSize: Theme.fontSizeTiny
+        color: Theme.highlightColor
+        horizontalAlignment: Text.AlignRight
+        anchors {
+            right: lblDate.left
+            rightMargin: Theme.paddingSmall
+            verticalCenter: lblName.verticalCenter
+        }
+    }
+
+    // Reply indicator for timeline (shows when post is a reply but no thread info)
+    Icon {
+        id: icReplyIndicator
+        visible: model.thread_total < 2 &&
+                 model.status_in_reply_to_id !== null &&
+                 model.status_in_reply_to_id !== ""
+        source: "image://theme/icon-s-repost?" + Theme.secondaryColor
+        width: Theme.iconSizeExtraSmall
+        height: width
+        anchors {
+            right: lblDate.left
+            rightMargin: Theme.paddingSmall
+            verticalCenter: lblName.verticalCenter
+        }
+    }
+
     Label {
         id: lblDate
         text: Format.formatDate(created_at, new Date() - created_at < 60*60*1000 ? Formatter.DurationElapsedShort : Formatter.TimeValueTwentyFourHours)

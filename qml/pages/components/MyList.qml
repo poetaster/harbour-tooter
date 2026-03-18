@@ -28,7 +28,6 @@ SilicaListView {
     property variant conf
     property bool notifier: false
     property bool deduping: false
-    property variant uniqueIds: []
     property bool reachedEnd: false  // Flag to stop loading when timeline ends
 
     model:  mdl
@@ -317,22 +316,6 @@ SilicaListView {
         deduping = false
     }
 
-    /* Utility function - O(n) implementation using hash lookup
-     * Returns array of unique values from input array
-     */
-    function removeDuplicates(arr) {
-        var seen = {}
-        var unique = []
-        for (var i = 0; i < arr.length; i++) {
-            if (!seen[arr[i]]) {
-                seen[arr[i]] = true
-                unique.push(arr[i])
-            }
-        }
-        return unique
-    }
-
-
     /* Principle load function, uses websocket's worker.js
     *
     */
@@ -340,14 +323,14 @@ SilicaListView {
     function loadData(mode) {
 
         if (debug) console.log('loadData called: ' + mode + " in " + title)
-        // since the worker adds Duplicates
-        // we pass in current ids in the model
-        // and skip those on insert append in the worker
+        // Collect current model IDs using object for O(1) operations
+        // This replaces the old approach that kept growing an array and deduping
+        var idsSet = {}
         for(var i = 0 ; i < model.count ; i++) {
-            uniqueIds.push(model.get(i).id)
-            //if (debug) console.log(model.get(i).id)
+            idsSet[model.get(i).id] = true
         }
-        uniqueIds =  removeDuplicates(uniqueIds)
+        // Convert to array only when needed for passing to worker
+        var currentIds = Object.keys(idsSet)
 
         var p = []
         if (params.length) {
@@ -388,7 +371,7 @@ SilicaListView {
 
         // we push the ids via params which we remove in the WorkerScript
         if (model.count) {
-            p.push({name:'ids', data: uniqueIds})
+            p.push({name:'ids', data: currentIds})
         }
 
         var msg = {

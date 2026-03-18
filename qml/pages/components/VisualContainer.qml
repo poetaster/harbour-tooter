@@ -44,6 +44,9 @@ BackgroundItem {
 
     property bool isLongPost: getTextLength(content) > charLimit
 
+    // Shared empty model to avoid creating new ListModel objects for toots without attachments
+    property ListModel emptyAttachmentsModel: ListModel {}
+
     signal send (string notice)
     signal navigateTo(string link)
 
@@ -202,26 +205,32 @@ BackgroundItem {
         }
     }
 
+    // Cache processed content to avoid regex on every press state change
+    // Compute base content (truncated if needed) once, then derive styled versions
+    property string baseDisplayContent: {
+        var displayContent = content
+        // Truncate if long post and not expanded (not for notifications)
+        // In conversation view, don't truncate the main clicked toot
+        var isMainConversationToot = (typeof myList.type !== "undefined" && myList.type === "conversation" &&
+                                      typeof myList.mainStatusId !== "undefined" && model.status_id === myList.mainStatusId)
+        if (isLongPost && !expanded && !isMainConversationToot && !(myList.type === "notifications" && (model.type === "favourite" || model.type === "reblog"))) {
+            displayContent = truncateContent(content, charLimit) + "..."
+        }
+        return displayContent
+    }
+
+    // Pre-compute both color variants - regex only runs when content changes, not on press
+    property bool isNotificationCompact: myList.type === "notifications" && (model.type === "favourite" || model.type === "reblog")
+    property string processedContent: isNotificationCompact ? baseDisplayContent :
+        baseDisplayContent.replace(/<a /g, '<a style="text-decoration: none; color:' + Theme.highlightColor + ';" ')
+    property string processedContentPressed: isNotificationCompact ? baseDisplayContent :
+        baseDisplayContent.replace(/<a /g, '<a style="text-decoration: none; color:' + Theme.secondaryColor + ';" ')
+
     // Toot content
     Label  {
         id: lblContent
         visible: model.type !== "follow"
-        text: {
-            var displayContent = content
-            // Truncate if long post and not expanded (not for notifications)
-            // In conversation view, don't truncate the main clicked toot
-            var isMainConversationToot = (typeof myList.type !== "undefined" && myList.type === "conversation" &&
-                                          typeof myList.mainStatusId !== "undefined" && model.status_id === myList.mainStatusId)
-            if (isLongPost && !expanded && !isMainConversationToot && !(myList.type === "notifications" && (model.type === "favourite" || model.type === "reblog"))) {
-                displayContent = truncateContent(content, charLimit) + "..."
-            }
-            // Apply link styling for non-notification views
-            if (myList.type === "notifications" && (model.type === "favourite" || model.type === "reblog")) {
-                return displayContent
-            } else {
-                return displayContent.replace(new RegExp("<a ", 'g'), '<a style="text-decoration: none; color:'+(pressed ? Theme.secondaryColor : Theme.highlightColor)+'" ')
-            }
-        }
+        text: pressed ? processedContentPressed : processedContent
         textFormat: myList.type === "notifications" && ( model.type === "favourite" || model.type === "reblog" ) ? Text.StyledText : Text.RichText
         font.pixelSize: Theme.fontSizeSmall * appWindow.fontScale
         wrapMode: Text.Wrap
@@ -231,7 +240,7 @@ BackgroundItem {
                } else (pressed ? Theme.highlightColor : (!highlight ? Theme.primaryColor : Theme.secondaryColor))
         linkColor: if (myList.type === "notifications" && ( model.type === "favourite" || model.type === "reblog" )) {
                        Theme.secondaryHighlightColor
-                   } else Theme.highlightColor
+                   } else (pressed ? Theme.secondaryColor : Theme.highlightColor)
         height: if (model.type === "follow") {
                     Theme.paddingLarge
                 } else if (myList.type === "notifications" && ( model.type === "favourite" || model.type === "reblog" )) {
@@ -339,7 +348,7 @@ BackgroundItem {
     MediaBlock {
         id: media
         visible: (myList.type === "notifications" && ( type === "favourite" || type === "reblog" )) ? false : true
-        model: typeof attachments !== "undefined" ? attachments : Qt.createQmlObject('import QtQuick 2.0; ListModel { }', Qt.application, 'InternalQmlObject')
+        model: typeof attachments !== "undefined" ? attachments : emptyAttachmentsModel
         height: Theme.iconSizeExtraLarge * 2
         anchors {
             left: lblContent.left

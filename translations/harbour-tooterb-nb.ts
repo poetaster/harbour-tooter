@@ -70,16 +70,28 @@
         <translation>Alternativ tekst bidrar til å gjøre innhold tilgjengelig for personer som er blinde eller har nedsatt syn.</translation>
     </message>
     <message>
-        <source>Add Media</source>
-        <translation>Legg til mediefiler</translation>
+        <source>Quoting @%1</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Post Visibility</source>
-        <translation>Innleggets synlighet</translation>
+        <source>Removing</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Post Language</source>
-        <translation>Innleggets språk</translation>
+        <source>Public</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Unlisted</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Followers-only</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Direct</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -172,10 +184,6 @@
         <source>Trending</source>
         <translation>Populært</translation>
     </message>
-    <message>
-        <source>Conversation</source>
-        <translation>Samtale</translation>
-    </message>
 </context>
 <context>
     <name>MediaFullScreen</name>
@@ -213,20 +221,9 @@
         <source>followed you</source>
         <translation>begynte å følge deg</translation>
     </message>
-    <message numerus="yes">
-        <source>and %n other(s)</source>
-        <translation type="unfinished">
-            <numerusform>og %n annen</numerusform>
-            <numerusform>og %n andre</numerusform>
-        </translation>
-    </message>
 </context>
 <context>
     <name>MyList</name>
-    <message>
-        <source>Loading...</source>
-        <translation>Laster...</translation>
-    </message>
     <message>
         <source>Settings</source>
         <translation>Innstillinger</translation>
@@ -242,6 +239,14 @@
     <message>
         <source>Reload</source>
         <translation>Last på nytt</translation>
+    </message>
+    <message>
+        <source>Nothing found</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>My Profile</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -319,21 +324,6 @@
         <source>Block</source>
         <extracomment>Is a button. Keep it as short as possible.</extracomment>
         <translation>Blokker</translation>
-    </message>
-</context>
-<context>
-    <name>ReaderPage</name>
-    <message>
-        <source>Share</source>
-        <translation>Del</translation>
-    </message>
-    <message>
-        <source>Copy link</source>
-        <translation>Kopier lenke</translation>
-    </message>
-    <message>
-        <source>Open in browser</source>
-        <translation>Åpne i nettleser</translation>
     </message>
 </context>
 <context>
@@ -445,28 +435,20 @@
         <translation>Norsk bokmålsoversettelse</translation>
     </message>
     <message>
-        <source>Show Full Usernames</source>
-        <translation>Vis fulle brukernavn</translation>
-    </message>
-    <message>
-        <source>Display @user@domain instead of @user</source>
-        <translation>Vis @bruker@domene i stedet for @bruker</translation>
-    </message>
-    <message>
-        <source>Open Links in Reader Mode</source>
-        <translation>Åpne lenker i lesemodus</translation>
-    </message>
-    <message>
-        <source>Display articles in a clean reading view</source>
-        <translation>Vis artikler i en ren lesevisning</translation>
-    </message>
-    <message>
         <source>Font Size</source>
         <translation>Skriftstørrelse</translation>
     </message>
     <message>
         <source>Sample text</source>
         <translation>Eksempeltekst</translation>
+    </message>
+    <message>
+        <source>Quick Scroll Arrows</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show arrows to jump to top/bottom when scrolling fast</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -504,52 +486,12 @@
         <translation>Bokmerke</translation>
     </message>
     <message>
-        <source>Loading...</source>
-        <translation>Laster...</translation>
-    </message>
-    <message>
-        <source>Load more</source>
-        <translation>Last inn mer</translation>
-    </message>
-    <message>
-        <source>replying to @%1</source>
-        <translation>svarer @%1</translation>
-    </message>
-    <message>
-        <source>replying to thread</source>
-        <translation>svarer til tråd</translation>
-    </message>
-    <message>
         <source>Show less</source>
         <translation>Vis mindre</translation>
     </message>
     <message>
         <source>Show more</source>
         <translation>Vis mer</translation>
-    </message>
-    <message>
-        <source>Vote</source>
-        <translation>Stem</translation>
-    </message>
-    <message>
-        <source>votes</source>
-        <translation>stemmer</translation>
-    </message>
-    <message>
-        <source>Closed</source>
-        <translation>Lukket</translation>
-    </message>
-    <message>
-        <source>days left</source>
-        <translation>dager igjen</translation>
-    </message>
-    <message>
-        <source>hours left</source>
-        <translation>timer igjen</translation>
-    </message>
-    <message>
-        <source>minutes left</source>
-        <translation>minutter igjen</translation>
     </message>
     <message>
         <source>Reply</source>

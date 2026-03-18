@@ -120,13 +120,25 @@ Page {
         }
         delegate: VisualContainer {}
         onCountChanged: {
-            if (mdl)
-                for (var i = 0; i < mdl.count; i++) {
-                    if (mdl.get(i).status_id === status_id) {
-                        //console.log(mdl.get(i).status_id)
-                        positionViewAtIndex(i, ListView.Center)
+            // Scroll to the clicked status after a brief delay to ensure layout is complete
+            scrollTimer.restart()
+        }
+
+        Timer {
+            id: scrollTimer
+            interval: 50
+            repeat: false
+            onTriggered: {
+                if (mdl) {
+                    for (var i = 0; i < mdl.count; i++) {
+                        if (mdl.get(i).status_id === status_id) {
+                            console.log("Scrolling to status_id: " + status_id + " at index " + i)
+                            myList.positionViewAtIndex(i, ListView.Center)
+                            break
+                        }
                     }
                 }
+            }
         }
 
         PullDownMenu {

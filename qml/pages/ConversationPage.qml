@@ -22,6 +22,8 @@ Page {
     property string headerTitle: ""
     property string suggestedUser: ""
     property string status_id: ""
+    property bool editMode: false
+    property string editSpoilerText: ""
     property string status_url: ""
     property string status_uri: ""
     property string status_link:
@@ -324,27 +326,78 @@ Page {
             model: mediaModel
             cellWidth: uploadedImages.width / 4
             cellHeight: isPortrait ? cellWidth : Theme.itemSizeExtraLarge
-            delegate: BackgroundItem {
+            delegate: ListItem {
                 id: myDelegate
                 width: uploadedImages.cellWidth
                 height: uploadedImages.cellHeight
-                RemorseItem {
-                    id: remorse
-                    cancelText: ""
-                }
+                contentHeight: height
 
                 Image {
                     anchors.fill: parent
                     fillMode: Image.PreserveAspectCrop
                     source: model.preview_url
+                    onStatusChanged: {
+                        if (status === Image.Error) {
+                            console.log("Image load error for: " + model.preview_url)
+                        }
+                    }
                 }
+
+                // ALT badge indicator
+                Rectangle {
+                    visible: model.description && model.description.length > 0
+                    color: Theme.rgba(Theme.highlightBackgroundColor, 0.9)
+                    radius: Theme.paddingSmall / 2
+                    width: altLabel.width + Theme.paddingSmall
+                    height: altLabel.height + Theme.paddingSmall / 2
+                    anchors {
+                        left: parent.left
+                        bottom: parent.bottom
+                        margins: Theme.paddingSmall / 2
+                    }
+                    Label {
+                        id: altLabel
+                        text: "ALT"
+                        font.pixelSize: Theme.fontSizeTiny
+                        font.bold: true
+                        color: Theme.primaryColor
+                        anchors.centerIn: parent
+                    }
+                }
+
                 onClicked: {
-                    var idx = index
-                    //console.log(idx)
-                    //mediaModel.remove(idx)
-                    remorse.execute(myDelegate, "", function () {
-                        mediaModel.remove(idx)
+                    // Open full-size image viewer
+                    pageStack.push(Qt.resolvedUrl("./components/MediaFullScreen.qml"), {
+                        "previewURL": model.preview_url,
+                        "mediaURL": model.url,
+                        "type": model.type || "image",
+                        "description": model.description || ''
                     })
+                }
+
+                menu: Component {
+                    ContextMenu {
+                        MenuItem {
+                            text: qsTr("Edit Alt Text")
+                            onClicked: {
+                                var idx = index
+                                var currentDesc = mediaModel.get(idx).description || ''
+                                pageStack.push(altTextDialog, {
+                                    altText: currentDesc,
+                                    mediaIndex: idx
+                                })
+                            }
+                        }
+                        MenuItem {
+                            text: qsTr("Remove")
+                            onClicked: {
+                                var idx = index
+                                myDelegate.remorseAction(qsTr("Removing"), function() {
+                                    mediaModel.remove(idx)
+                                })
+                            }
+                        }
+                    }
                 }
             }
             add: Transition {
@@ -533,20 +586,48 @@ Page {
                     // console.log(mediaModel.get(k).id)
                     media_ids.push(mediaModel.get(k).id)
                 }
-                var msg = {
-                    "action": 'statuses',
-                    "method": 'POST',
-                    "model": mdl,
-                    "mode": "append",
-                    "params": {
-                        "status": toot.text,
-                        "visibility": visibility[privacy.currentIndex],
-                        "media_ids": media_ids
-                    },
-                    "conf": Logic.conf
+
+                var msg
+                if (editMode) {
+                    // Build media_attributes array with descriptions (alt-text)
+                    var media_attributes = []
+                    for (var j = 0; j < mediaModel.count; j++) {
+                        var mediaItem = mediaModel.get(j)
+                        media_attributes.push({
+                            "id": mediaItem.id,
+                            "description": mediaItem.description || ''
+                        })
+                    }
+
+                    // Edit existing status with PUT
+                    msg = {
+                        "action": 'statuses/' + status_id,
+                        "method": 'PUT',
+                        "params": {
+                            "status": toot.text,
+                            "visibility": visibility[privacy.currentIndex],
+                            "media_ids": media_ids,
+                            "media_attributes": media_attributes
+                        },
+                        "conf": Logic.conf
+                    }
+                } else {
+                    // Create new status with POST
+                    msg = {
+                        "action": 'statuses',
+                        "method": 'POST',
+                        "model": mdl,
+                        "mode": "append",
+                        "params": {
+                            "status": toot.text,
+                            "visibility": visibility[privacy.currentIndex],
+                            "media_ids": media_ids
+                        },
+                        "conf": Logic.conf
+                    }
+                    if (status_id)
+                        msg.params['in_reply_to_id'] = (status_id) + ""
                 }
-                if (status_id)
-                    msg.params['in_reply_to_id'] = (status_id) + ""
 
                 if (warningContent.visible && warningContent.text.length > 0) {
                     msg.params['sensitive'] = 1
@@ -557,7 +638,10 @@ Page {
                 warningContent.text = ""
                 toot.text = ""
                 mediaModel.clear()
-                sentBanner.showText(qsTr("Toot sent!"))
+                sentBanner.showText(editMode ? qsTr("Toot edited!") : qsTr("Toot sent!"))
+                if (editMode) {
+                    pageStack.pop()
+                }
             }
         }
 
@@ -574,7 +658,50 @@ Page {
 
     Component.onCompleted: {
         toot.cursorPosition = toot.text.length
-        if (mdl.count > 0) {
+
+        if (editMode && status_id) {
+            // Fetch source text for editing
+            Logic.api.get('statuses/' + status_id + '/source', [], function(data) {
+                if (data && data.text) {
+                    toot.text = data.text
+                    toot.cursorPosition = toot.text.length
+                }
+                if (data && data.spoiler_text && data.spoiler_text.length > 0) {
+                    warningContent.visible = true
+                    warningContent.text = data.spoiler_text
+                }
+            })
+            // Also fetch full status to get media attachments and visibility
+            Logic.api.get('statuses/' + status_id, [], function(data) {
+                console.log("Edit mode: fetched status data")
+                if (data) {
+                    // Set visibility
+                    var visibilityMap = {"public": 0, "unlisted": 1, "private": 2, "direct": 3}
+                    if (data.visibility && visibilityMap[data.visibility] !== undefined) {
+                        privacy.currentIndex = visibilityMap[data.visibility]
+                    }
+                    // Load existing media attachments
+                    if (data.media_attachments && data.media_attachments.length > 0) {
+                        console.log("Edit mode: found " + data.media_attachments.length + " attachments")
+                        for (var i = 0; i < data.media_attachments.length; i++) {
+                            var attachment = data.media_attachments[i]
+                            console.log("Attachment " + i + ": id=" + attachment.id + ", preview_url=" + attachment.preview_url)
+                            mediaModel.append({
+                                id: attachment.id,
+                                type: attachment.type,
+                                url: attachment.url,
+                                preview_url: attachment.preview_url || attachment.url,
+                                description: attachment.description || ''
+                            })
+                        }
+                        console.log("Edit mode: mediaModel.count = " + mediaModel.count)
+                    }
+                }
+            })
+            return
+        }
+
+        if (mdl && mdl.count > 0) {
             var setIndex = 0
             switch (mdl.get(0).status_visibility) {
             case "unlisted":
@@ -592,17 +719,17 @@ Page {
                 setIndex = 0
             }
             privacy.currentIndex = setIndex
+
+            // console.log(JSON.stringify())
+
+            worker.sendMessage({
+                                   "action": 'statuses/' + mdl.get(0).status_id + '/context',
+                                   "method": 'GET',
+                                   "model": mdl,
+                                   "params": { },
+                                   "conf": Logic.conf
+                               })
         }
-
-        // console.log(JSON.stringify())
-
-        worker.sendMessage({
-                               "action": 'statuses/' + mdl.get(0).status_id + '/context',
-                               "method": 'GET',
-                               "model": mdl,
-                               "params": { },
-                               "conf": Logic.conf
-                           })
     }
 
     BackgroundItem {
@@ -664,5 +791,52 @@ Page {
 
     InfoBanner {
         id: sentBanner
+    }
+
+    Component {
+        id: altTextDialog
+        Dialog {
+            id: altDialog
+            property string altText: ""
+            property int mediaIndex: -1
+
+            canAccept: true
+            acceptDestination: conversationPage
+            acceptDestinationAction: PageStackAction.Pop
+
+            Column {
+                width: parent.width
+                spacing: Theme.paddingMedium
+
+                DialogHeader {
+                    title: qsTr("Edit Alt Text")
+                    acceptText: qsTr("Save")
+                }
+
+                TextArea {
+                    id: altTextArea
+                    width: parent.width
+                    placeholderText: qsTr("Describe this media for visually impaired users")
+                    text: altText
+                    font.pixelSize: Theme.fontSizeSmall
+                    wrapMode: Text.Wrap
+                }
+
+                Label {
+                    x: Theme.horizontalPageMargin
+                    width: parent.width - 2 * Theme.horizontalPageMargin
+                    text: qsTr("Alt text helps make content accessible to people who are blind or have low vision.")
+                    font.pixelSize: Theme.fontSizeExtraSmall
+                    color: Theme.secondaryHighlightColor
+                    wrapMode: Text.Wrap
+                }
+            }
+
+            onAccepted: {
+                if (mediaIndex >= 0 && mediaIndex < mediaModel.count) {
+                    mediaModel.setProperty(mediaIndex, "description", altTextArea.text)
+                }
+            }
+        }
     }
 }

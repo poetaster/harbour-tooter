@@ -89,6 +89,20 @@ WorkerScript.onMessage = function(msg) {
         return;
     }
 
+    /** PUT statuses (edit) */
+
+    if (msg.method === "PUT"){
+        API.put(msg.action, msg.params, function(data, status) {
+            WorkerScript.sendMessage({
+                'action': msg.action,
+                'method': 'PUT',
+                'success': status === 200,
+                'data': data
+            });
+        });
+        return;
+    }
+
     /** POST statuses */
 
     if (msg.method === "POST"){
@@ -123,7 +137,8 @@ WorkerScript.onMessage = function(msg) {
         }
 
         var items = [];
-        //console.log(data)
+        // Debug: log API response size
+        console.log("API response for " + msg.action + ": " + (Array.isArray(data) ? data.length + " items" : typeof data))
 
         for (var i in data) {
             var item;
@@ -175,8 +190,10 @@ WorkerScript.onMessage = function(msg) {
                 } else if (data[i].hasOwnProperty("content")){
                     //console.log("Get Toot")
                     item = parseToot(data[i]);
-                    item['id'] = item['status_id']
+                    // Use timeline_id for pagination (preserves correct ID for reblogs)
+                    item['id'] = item['timeline_id']
                     items.push(item);
+                    if (items.length <= 3) console.log("Parsed toot id: " + item['id'])
 
 
                 } else {
@@ -197,7 +214,7 @@ WorkerScript.onMessage = function(msg) {
 
         console.log("Get em all?")
 
-        WorkerScript.sendMessage({ 'updatedAll': true})
+        WorkerScript.sendMessage({ 'updatedAll': true, 'itemsCount': items.length, 'mode': msg.mode})
     });
 }
 
@@ -207,18 +224,20 @@ function addDataToModel (model, mode, items) {
 
     var length = items.length;
     var i
+    var addedCount = 0
 
-    if (debug) console.log("Fetched > " +length + " in " + mode)
-    if (debug) console.log("ids > " + knownIds.length )
+    console.log("addDataToModel: " + length + " items, mode=" + mode + ", knownIds=" + knownIds.length)
 
     if (mode === "append") {
         for(i = 0; i <= length-1; i++) {
            if ( knownIds.indexOf( items[i]["id"]) === -1) {
                 model.append(items[i])
+                addedCount++
            } else {
-               console.log("nope: " + items[i]["id"] )
+               console.log("Skipped (known): " + items[i]["id"] )
           }
        }
+       console.log("Added " + addedCount + " of " + length + " items")
        // search does not use ids
        if ( knownIds.length < 1 ) model.append(items)
 
@@ -363,6 +382,8 @@ function parseToot (data) {
     item['type'] = "toot"
     item['highlight'] = false
     item['status_id'] = data["id"]
+    // timeline_id preserves the original entry ID for pagination (important for reblogs)
+    item['timeline_id'] = data["id"]
     item['status_created_at'] = item['created_at'] = new Date(data["created_at"])
     item['status_sensitive'] = data["sensitive"]
     item['status_spoiler_text'] = data["spoiler_text"]

@@ -27,6 +27,7 @@ SilicaListView {
     property bool notifier: false
     property bool deduping: false
     property variant uniqueIds: []
+    property bool reachedEnd: false  // Flag to stop loading when timeline ends
 
     model:  mdl
 
@@ -159,8 +160,9 @@ SilicaListView {
             openDrawer(contentY - scrollOffset  > 0 ? false : true )
             scrollOffset = contentY
         }
-        if(contentY+height > footerItem.y && !deduping && !loadStarted && autoLoadMore) {
+        if(contentY+height > footerItem.y && !deduping && !loadStarted && autoLoadMore && !reachedEnd) {
                 loadStarted = true
+                console.log("Loading more: " + title + " (append)")
                 loadData("append")
         }
     }
@@ -184,9 +186,19 @@ SilicaListView {
 
             // temporary debugging measure
             if (messageObject.updatedAll){
-                if (debug) console.log("Got em all.")
+                console.log(title + ": Got all, count=" + model.count + ", itemsCount=" + messageObject.itemsCount + ", resetting loadStarted")
                 if (model.count > 20) deDouble()
                 loadStarted = false
+
+                // Detect end of timeline: API returned 0 items in append mode
+                if (messageObject.mode === "append" && messageObject.itemsCount === 0) {
+                    console.log(title + ": Reached end of timeline")
+                    reachedEnd = true
+                }
+                // Reset reachedEnd on successful prepend (user refreshed)
+                if (messageObject.mode === "prepend" && messageObject.itemsCount > 0) {
+                    reachedEnd = false
+                }
             }
 
             // the api  is stupid
@@ -246,29 +258,33 @@ SilicaListView {
     function deDouble(){
         deduping = true
 
-        if (debug) console.log("deDouble: model count = " + model.count)
+        try {
+            if (debug) console.log("deDouble: model count = " + model.count)
 
-        var seen = {}
-        var toRemove = []
+            var seen = {}
+            var toRemove = []
 
-        // Single pass: find duplicates using hash for O(1) lookup
-        for (var i = 0; i < model.count; i++) {
-            var id = model.get(i).id
-            if (seen[id]) {
-                toRemove.push(i)
-                if (debug) console.log("Duplicate found at index " + i + ": " + id)
-            } else {
-                seen[id] = true
+            // Single pass: find duplicates using hash for O(1) lookup
+            for (var i = 0; i < model.count; i++) {
+                var id = model.get(i).id
+                if (seen[id]) {
+                    toRemove.push(i)
+                    if (debug) console.log("Duplicate found at index " + i + ": " + id)
+                } else {
+                    seen[id] = true
+                }
             }
-        }
 
-        // Remove duplicates in reverse order to preserve indices
-        for (var j = toRemove.length - 1; j >= 0; j--) {
-            model.remove(toRemove[j], 1)
-        }
+            // Remove duplicates in reverse order to preserve indices
+            for (var j = toRemove.length - 1; j >= 0; j--) {
+                model.remove(toRemove[j], 1)
+            }
 
-        if (debug && toRemove.length > 0) {
-            console.log("Removed " + toRemove.length + " duplicates")
+            if (debug && toRemove.length > 0) {
+                console.log("Removed " + toRemove.length + " duplicates")
+            }
+        } catch (e) {
+            console.log("deDouble error: " + e)
         }
 
         deduping = false

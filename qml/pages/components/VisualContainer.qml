@@ -496,6 +496,39 @@ BackgroundItem {
         }
 
         MenuItem {
+            id: mnuEdit
+            // Only show for user's own posts
+            visible: {
+                if (model.type === "follow") return false
+                var activeAccount = Logic.conf.accounts && Logic.conf.accounts[Logic.conf.activeAccount]
+                if (!activeAccount || !activeAccount.userInfo) return false
+                var myUsername = activeAccount.userInfo.account_username
+                return model.account_acct === myUsername || model.account_username === myUsername
+            }
+            text: qsTr("Edit")
+            onClicked: {
+                pageStack.push(Qt.resolvedUrl("../ConversationPage.qml"), {
+                                   headerTitle: qsTr("Edit"),
+                                   status_id: model.status_id,
+                                   editMode: true,
+                                   type: "edit"
+                               })
+            }
+
+            Icon {
+                id: icEdit
+                source: "image://theme/icon-s-edit?" + Theme.highlightColor
+                width: Theme.iconSizeSmall
+                height: width
+                anchors {
+                    left: parent.left
+                    leftMargin: Theme.horizontalPageMargin + Theme.paddingMedium
+                    verticalCenter: parent.verticalCenter
+                }
+            }
+        }
+
+        MenuItem {
             id: mnuMention
             visible: model.type === "follow"
             text: qsTr("Mention")

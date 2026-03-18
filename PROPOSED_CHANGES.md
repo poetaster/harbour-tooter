@@ -177,6 +177,300 @@ property bool isLongPost: getTextLength(content) > charLimit
 
 ---
 
+### 1.8 Link Previews (Cards)
+**Effort:** 4-6 hours | **Priority:** Medium
+
+**Problem:** Tooter doesn't display link previews (OpenGraph cards) for URLs in toots. Modern clients like Phanpy show rich previews with title, description, and thumbnail.
+
+**Files to modify:**
+- `qml/lib/Worker.js` - Parse `card` object from status response
+- `qml/pages/components/VisualContainer.qml` - Add card display component
+
+**API Data:** Mastodon includes a `card` object in status responses:
+```json
+{
+  "card": {
+    "url": "https://example.com/article",
+    "title": "Article Title",
+    "description": "Article description...",
+    "type": "link",
+    "image": "https://example.com/preview.jpg",
+    "provider_name": "Example.com"
+  }
+}
+```
+
+**Implementation:**
+
+1. **Worker.js - Parse card data in parseToot:**
+```javascript
+// In parseToot function, after existing fields
+if (data["card"]) {
+    item['card_url'] = data["card"]["url"]
+    item['card_title'] = data["card"]["title"]
+    item['card_description'] = data["card"]["description"]
+    item['card_image'] = data["card"]["image"] || ''
+    item['card_type'] = data["card"]["type"]  // link, photo, video, rich
+    item['card_provider'] = data["card"]["provider_name"] || ''
+} else {
+    item['card_url'] = ''
+}
+```
+
+2. **VisualContainer.qml - Add card display:**
+```qml
+// After the content Label, before MediaBlock
+Rectangle {
+    id: linkPreview
+    visible: model.card_url && model.card_url.length > 0
+    width: parent.width
+    height: visible ? linkPreviewColumn.height + Theme.paddingMedium * 2 : 0
+    color: Theme.rgba(Theme.highlightBackgroundColor, 0.1)
+    radius: Theme.paddingSmall
+
+    MouseArea {
+        anchors.fill: parent
+        onClicked: Qt.openUrlExternally(model.card_url)
+    }
+
+    Row {
+        anchors.fill: parent
+        anchors.margins: Theme.paddingMedium
+        spacing: Theme.paddingMedium
+
+        // Thumbnail (if available)
+        Image {
+            id: cardImage
+            visible: model.card_image && model.card_image.length > 0
+            width: visible ? Theme.itemSizeLarge : 0
+            height: Theme.itemSizeLarge
+            source: model.card_image
+            fillMode: Image.PreserveAspectCrop
+        }
+
+        Column {
+            id: linkPreviewColumn
+            width: parent.width - (cardImage.visible ? cardImage.width + Theme.paddingMedium : 0)
+            spacing: Theme.paddingSmall / 2
+
+            // Provider name
+            Label {
+                visible: model.card_provider && model.card_provider.length > 0
+                text: model.card_provider
+                font.pixelSize: Theme.fontSizeTiny
+                color: Theme.secondaryColor
+                truncationMode: TruncationMode.Fade
+                width: parent.width
+            }
+
+            // Title
+            Label {
+                text: model.card_title || ""
+                font.pixelSize: Theme.fontSizeSmall
+                font.bold: true
+                color: Theme.highlightColor
+                wrapMode: Text.Wrap
+                maximumLineCount: 2
+                width: parent.width
+            }
+
+            // Description (truncated)
+            Label {
+                visible: model.card_description && model.card_description.length > 0
+                text: model.card_description || ""
+                font.pixelSize: Theme.fontSizeExtraSmall
+                color: Theme.secondaryHighlightColor
+                wrapMode: Text.Wrap
+                maximumLineCount: 2
+                width: parent.width
+            }
+        }
+    }
+}
+```
+
+**Card Types:**
+- `link` - Standard web page with title/description
+- `photo` - Image-focused preview
+- `video` - Video embed (YouTube, etc.)
+- `rich` - Interactive embed (rare)
+
+**Considerations:**
+- Cards only appear if the linked page has OpenGraph/Twitter Card meta tags
+- Some servers cache cards; may take time to populate
+- Videos should open in browser (not embed due to platform limitations)
+- Consider caching card images to reduce bandwidth
+
+---
+
+### 1.9 Image Editor (Cropper)
+**Effort:** 8-12 hours | **Priority:** Low
+
+**Problem:** When attaching images to toots, users cannot crop or edit images before posting. This is useful for:
+- Removing unwanted parts of screenshots
+- Adjusting aspect ratio for better display
+- Basic image adjustments
+
+**Files to create/modify:**
+- `qml/pages/components/ImageEditor.qml` - New component for image editing
+- `qml/pages/ConversationPage.qml` - Integration with image picker flow
+
+**Implementation Approach:**
+
+1. **Basic Cropper Component:**
+```qml
+// ImageEditor.qml
+import QtQuick 2.6
+import Sailfish.Silica 1.0
+
+Dialog {
+    id: imageEditor
+    property string sourceImage: ""
+    property var cropRect: Qt.rect(0, 0, 1, 1)  // Normalized coordinates
+
+    canAccept: true
+
+    SilicaFlickable {
+        anchors.fill: parent
+        contentHeight: column.height
+
+        Column {
+            id: column
+            width: parent.width
+
+            DialogHeader {
+                title: qsTr("Edit Image")
+                acceptText: qsTr("Apply")
+            }
+
+            Item {
+                width: parent.width
+                height: width  // Square editing area
+
+                Image {
+                    id: sourceImg
+                    source: sourceImage
+                    anchors.centerIn: parent
+                    fillMode: Image.PreserveAspectFit
+                    width: parent.width
+                    height: parent.height
+                }
+
+                // Crop overlay with draggable corners
+                Rectangle {
+                    id: cropOverlay
+                    color: "transparent"
+                    border.color: Theme.highlightColor
+                    border.width: 2
+
+                    // Position based on cropRect
+                    x: sourceImg.x + cropRect.x * sourceImg.paintedWidth
+                    y: sourceImg.y + cropRect.y * sourceImg.paintedHeight
+                    width: cropRect.width * sourceImg.paintedWidth
+                    height: cropRect.height * sourceImg.paintedHeight
+
+                    // Corner handles for resizing
+                    Repeater {
+                        model: 4  // Four corners
+                        Rectangle {
+                            width: Theme.paddingLarge
+                            height: Theme.paddingLarge
+                            color: Theme.highlightColor
+                            radius: width / 2
+                            // Position at corners...
+                        }
+                    }
+                }
+            }
+
+            // Aspect ratio presets
+            Row {
+                anchors.horizontalCenter: parent.horizontalCenter
+                spacing: Theme.paddingMedium
+
+                Button {
+                    text: "1:1"
+                    onClicked: setAspectRatio(1, 1)
+                }
+                Button {
+                    text: "4:3"
+                    onClicked: setAspectRatio(4, 3)
+                }
+                Button {
+                    text: "16:9"
+                    onClicked: setAspectRatio(16, 9)
+                }
+                Button {
+                    text: qsTr("Free")
+                    onClicked: freeAspect = true
+                }
+            }
+        }
+    }
+
+    function setAspectRatio(w, h) {
+        // Adjust cropRect to maintain aspect ratio
+    }
+
+    onAccepted: {
+        // Apply crop using C++ image processing or
+        // pass crop coordinates to upload with server-side processing
+    }
+}
+```
+
+2. **Integration Flow:**
+   - After image is selected from picker, open ImageEditor
+   - User can crop/adjust the image
+   - On accept, either:
+     a. Process locally using Qt's QImage (requires C++ helper)
+     b. Store crop coordinates and apply before upload
+     c. Upload original and let server crop (if supported)
+
+**Technical Considerations:**
+- **Pure QML limitation:** QML cannot directly manipulate image pixels
+- **Options for cropping:**
+  1. **C++ Helper:** Create a simple C++ class to crop images using Qt's QImage
+  2. **Canvas element:** Use HTML5 Canvas in QML for basic operations
+  3. **External tool:** Call ImageMagick via Bash (if available on device)
+  4. **Server-side:** Some instances support focal point for cropping
+
+**Minimal C++ Helper (if needed):**
+```cpp
+// ImageCropper.h
+class ImageCropper : public QObject {
+    Q_OBJECT
+public:
+    Q_INVOKABLE QString cropImage(const QString &sourcePath,
+                                   int x, int y, int width, int height);
+};
+
+// Returns path to cropped temp file
+QString ImageCropper::cropImage(...) {
+    QImage img(sourcePath);
+    QImage cropped = img.copy(x, y, width, height);
+    QString tempPath = QDir::temp().filePath("cropped_" + ...);
+    cropped.save(tempPath);
+    return tempPath;
+}
+```
+
+**Simpler Alternative - Focal Point:**
+Instead of full cropping, implement focal point selection:
+- User taps on the most important part of the image
+- This point is sent with the upload as `focus` parameter
+- Mastodon uses this for thumbnail generation
+
+```javascript
+// In upload params
+{
+    "file": imageData,
+    "focus": "0.5,-0.2"  // x,y from -1.0 to 1.0
+}
+```
+
+---
+
 ## Part 2: Performance Improvements
 
 ### 2.1 Deduplication Algorithm - O(n²) → O(n)

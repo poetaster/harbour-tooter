@@ -201,6 +201,33 @@ var mastodonAPI = function(config) {
             http.send();
         },
 
+        put: function (endpoint, putData, callback) {
+            // for PUT API calls (e.g., editing statuses)
+            var http = new XMLHttpRequest();
+            http.open("PUT", apiBase + endpoint, true);
+
+            http.setRequestHeader("Authorization", "Bearer " + config.api_user_token);
+            http.setRequestHeader("Content-Type", "application/json");
+            http.setRequestHeader("Connection", "close");
+
+            http.onreadystatechange = function() {
+                if (http.readyState === 4) {
+                    if (http.status === 200) {
+                        console.log("Successful PUT API request to " + apiBase + endpoint);
+                        try {
+                            callback(JSON.parse(http.response), http.status);
+                        } catch(e) {
+                            callback({}, http.status);
+                        }
+                    } else {
+                        console.log("PUT error: " + http.status);
+                        callback(null, http.status);
+                    }
+                }
+            };
+            http.send(JSON.stringify(putData));
+        },
+
         stream: function (streamType, onData) {
             // Event Stream Support
             // websocket streaming is undocumented. i had to reverse engineer the fucking web client.

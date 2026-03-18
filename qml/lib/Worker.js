@@ -180,10 +180,7 @@ WorkerScript.onMessage = function(msg) {
 
                 } else if(msg.action.indexOf("statuses") >-1 && msg.action.indexOf("context") >-1 && i === "ancestors") {
                     // status ancestors toots - conversation
-                    var ancestorCount = data[i] ? data[i].length : 0
-                    var descendantCount = data["descendants"] ? data["descendants"].length : 0
-                    var threadTotal = ancestorCount + 1 + descendantCount
-                    console.log("ancestors: " + ancestorCount + ", total thread: " + threadTotal)
+                    console.log("ancestors: " + (data[i] ? data[i].length : 0))
                     if (data[i] && data[i].length > 0) {
                         for (var j = 0; j < data[i].length; j++) {
                             if (data[i][j]) {
@@ -191,31 +188,15 @@ WorkerScript.onMessage = function(msg) {
                                 item['id'] = item['status_id'];
                                 if (typeof item['attachments'] === "undefined")
                                     item['attachments'] = [];
-                                // Add thread position info
-                                item['thread_position'] = j + 1;
-                                item['thread_total'] = threadTotal;
                                 items.push(item);
                             }
                         }
                         addDataToModel(msg.model, "prepend", items);
                         items = [];
                     }
-                    // Update the main status with thread info
-                    if (msg.model && msg.model.count > 0 && threadTotal > 1) {
-                        // Find the main status (should be at position = ancestorCount after prepend)
-                        var mainPos = ancestorCount;
-                        if (mainPos < msg.model.count) {
-                            msg.model.setProperty(mainPos, 'thread_position', ancestorCount + 1);
-                            msg.model.setProperty(mainPos, 'thread_total', threadTotal);
-                            msg.model.sync();  // Required for setProperty changes in WorkerScript
-                        }
-                    }
                 } else if(msg.action.indexOf("statuses") >-1 && msg.action.indexOf("context") >-1 && i === "descendants") {
                     // status descendants toots - conversation
-                    var ancestorCount2 = data["ancestors"] ? data["ancestors"].length : 0
-                    var descendantCount2 = data[i] ? data[i].length : 0
-                    var threadTotal2 = ancestorCount2 + 1 + descendantCount2
-                    console.log("descendants: " + descendantCount2)
+                    console.log("descendants: " + (data[i] ? data[i].length : 0))
                     if (data[i] && data[i].length > 0) {
                         for (var j = 0; j < data[i].length; j++) {
                             if (data[i][j]) {
@@ -223,9 +204,6 @@ WorkerScript.onMessage = function(msg) {
                                 item['id'] = item['status_id'];
                                 if (typeof item['attachments'] === "undefined")
                                     item['attachments'] = [];
-                                // Add thread position info
-                                item['thread_position'] = ancestorCount2 + 1 + 1 + j;  // ancestors + main + position in descendants
-                                item['thread_total'] = threadTotal2;
                                 items.push(item);
                             }
                         }
@@ -429,9 +407,6 @@ function parseToot (data) {
     item['type'] = "toot"
     item['highlight'] = false
     item['status_id'] = data["id"]
-    // Thread position info (will be set properly when viewing conversation context)
-    item['thread_position'] = 0
-    item['thread_total'] = 0
     // timeline_id preserves the original entry ID for pagination (important for reblogs)
     item['timeline_id'] = data["id"]
     item['status_created_at'] = item['created_at'] = new Date(data["created_at"])

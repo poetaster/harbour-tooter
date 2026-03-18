@@ -28,91 +28,91 @@
 <context>
     <name>ConversationPage</name>
     <message>
-        <location filename="../qml/pages/ConversationPage.qml" line="137"/>
+        <location filename="../qml/pages/ConversationPage.qml" line="149"/>
         <source>Open in Browser</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/ConversationPage.qml" line="145"/>
+        <location filename="../qml/pages/ConversationPage.qml" line="157"/>
         <source>Copy Link to Clipboard</source>
         <extracomment>Use the translation of &quot;Copy Link&quot; for a shorter PullDownMenu label</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/ConversationPage.qml" line="225"/>
+        <location filename="../qml/pages/ConversationPage.qml" line="237"/>
         <source>Quoting @%1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/ConversationPage.qml" line="304"/>
+        <location filename="../qml/pages/ConversationPage.qml" line="316"/>
         <source>Write your warning here</source>
         <extracomment>placeholderText in Toot content warning panel</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/ConversationPage.qml" line="327"/>
+        <location filename="../qml/pages/ConversationPage.qml" line="339"/>
         <source>What&apos;s on your mind?</source>
         <extracomment>placeholderText in Toot text panel</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/ConversationPage.qml" line="447"/>
-        <location filename="../qml/pages/ConversationPage.qml" line="899"/>
+        <location filename="../qml/pages/ConversationPage.qml" line="459"/>
+        <location filename="../qml/pages/ConversationPage.qml" line="911"/>
         <source>Edit Alt Text</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/ConversationPage.qml" line="458"/>
+        <location filename="../qml/pages/ConversationPage.qml" line="470"/>
         <source>Remove</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/ConversationPage.qml" line="461"/>
+        <location filename="../qml/pages/ConversationPage.qml" line="473"/>
         <source>Removing</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/ConversationPage.qml" line="618"/>
+        <location filename="../qml/pages/ConversationPage.qml" line="630"/>
         <source>Public</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/ConversationPage.qml" line="621"/>
+        <location filename="../qml/pages/ConversationPage.qml" line="633"/>
         <source>Unlisted</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/ConversationPage.qml" line="624"/>
+        <location filename="../qml/pages/ConversationPage.qml" line="636"/>
         <source>Followers-only</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/ConversationPage.qml" line="627"/>
+        <location filename="../qml/pages/ConversationPage.qml" line="639"/>
         <source>Direct</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/ConversationPage.qml" line="709"/>
+        <location filename="../qml/pages/ConversationPage.qml" line="721"/>
         <source>Toot edited!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/ConversationPage.qml" line="709"/>
+        <location filename="../qml/pages/ConversationPage.qml" line="721"/>
         <source>Toot sent!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/ConversationPage.qml" line="900"/>
+        <location filename="../qml/pages/ConversationPage.qml" line="912"/>
         <source>Save</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/ConversationPage.qml" line="906"/>
+        <location filename="../qml/pages/ConversationPage.qml" line="918"/>
         <source>Describe this media for visually impaired users</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/ConversationPage.qml" line="915"/>
+        <location filename="../qml/pages/ConversationPage.qml" line="927"/>
         <source>Alt text helps make content accessible to people who are blind or have low vision.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -274,33 +274,33 @@
 <context>
     <name>MyList</name>
     <message>
-        <location filename="../qml/pages/components/MyList.qml" line="72"/>
+        <location filename="../qml/pages/components/MyList.qml" line="71"/>
         <source>Nothing found</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/components/MyList.qml" line="78"/>
+        <location filename="../qml/pages/components/MyList.qml" line="77"/>
         <source>Settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/components/MyList.qml" line="85"/>
+        <location filename="../qml/pages/components/MyList.qml" line="84"/>
         <source>My Profile</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/components/MyList.qml" line="110"/>
-        <location filename="../qml/pages/components/MyList.qml" line="114"/>
+        <location filename="../qml/pages/components/MyList.qml" line="109"/>
+        <location filename="../qml/pages/components/MyList.qml" line="113"/>
         <source>New Toot</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/components/MyList.qml" line="121"/>
+        <location filename="../qml/pages/components/MyList.qml" line="120"/>
         <source>Open in Browser</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/components/MyList.qml" line="129"/>
+        <location filename="../qml/pages/components/MyList.qml" line="128"/>
         <source>Reload</source>
         <translation type="unfinished"></translation>
     </message>
@@ -557,82 +557,82 @@
 <context>
     <name>VisualContainer</name>
     <message>
-        <location filename="../qml/pages/components/VisualContainer.qml" line="321"/>
+        <location filename="../qml/pages/components/VisualContainer.qml" line="330"/>
         <source>Show less</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/components/VisualContainer.qml" line="321"/>
+        <location filename="../qml/pages/components/VisualContainer.qml" line="330"/>
         <source>Show more</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/components/VisualContainer.qml" line="472"/>
-        <location filename="../qml/pages/components/VisualContainer.qml" line="837"/>
+        <location filename="../qml/pages/components/VisualContainer.qml" line="481"/>
+        <location filename="../qml/pages/components/VisualContainer.qml" line="846"/>
         <source>Conversation</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/components/VisualContainer.qml" line="667"/>
+        <location filename="../qml/pages/components/VisualContainer.qml" line="676"/>
         <source>Unfavorite</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/components/VisualContainer.qml" line="667"/>
+        <location filename="../qml/pages/components/VisualContainer.qml" line="676"/>
         <source>Favorite</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/components/VisualContainer.qml" line="598"/>
+        <location filename="../qml/pages/components/VisualContainer.qml" line="607"/>
         <source>Unboost</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/components/VisualContainer.qml" line="598"/>
+        <location filename="../qml/pages/components/VisualContainer.qml" line="607"/>
         <source>Boost</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/components/VisualContainer.qml" line="566"/>
-        <location filename="../qml/pages/components/VisualContainer.qml" line="571"/>
+        <location filename="../qml/pages/components/VisualContainer.qml" line="575"/>
+        <location filename="../qml/pages/components/VisualContainer.qml" line="580"/>
         <source>Reply</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/components/VisualContainer.qml" line="640"/>
-        <location filename="../qml/pages/components/VisualContainer.qml" line="643"/>
+        <location filename="../qml/pages/components/VisualContainer.qml" line="649"/>
+        <location filename="../qml/pages/components/VisualContainer.qml" line="652"/>
         <source>Quote</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/components/VisualContainer.qml" line="708"/>
+        <location filename="../qml/pages/components/VisualContainer.qml" line="717"/>
         <source>Remove Bookmark</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/components/VisualContainer.qml" line="708"/>
+        <location filename="../qml/pages/components/VisualContainer.qml" line="717"/>
         <source>Bookmark</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/components/VisualContainer.qml" line="745"/>
+        <location filename="../qml/pages/components/VisualContainer.qml" line="754"/>
         <source>Delete</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/components/VisualContainer.qml" line="747"/>
+        <location filename="../qml/pages/components/VisualContainer.qml" line="756"/>
         <source>Deleting</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/components/VisualContainer.qml" line="780"/>
-        <location filename="../qml/pages/components/VisualContainer.qml" line="783"/>
+        <location filename="../qml/pages/components/VisualContainer.qml" line="789"/>
+        <location filename="../qml/pages/components/VisualContainer.qml" line="792"/>
         <source>Edit</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/components/VisualContainer.qml" line="806"/>
-        <location filename="../qml/pages/components/VisualContainer.qml" line="809"/>
+        <location filename="../qml/pages/components/VisualContainer.qml" line="815"/>
+        <location filename="../qml/pages/components/VisualContainer.qml" line="818"/>
         <source>Mention</source>
         <translation type="unfinished"></translation>
     </message>

@@ -1,4 +1,4 @@
-import QtQuick 2.0
+import QtQuick 2.6
 import Sailfish.Silica 1.0
 import QtMultimedia 5.6
 
@@ -103,6 +103,7 @@ FullscreenContentPage {
                     fillMode: Image.PreserveAspectFit
                     cache: true
                     asynchronous: true
+                    autoTransform: true
                     sourceSize.width: mediaPage.width
                     smooth: true
                     anchors.centerIn: parent
@@ -354,6 +355,7 @@ FullscreenContentPage {
                 fillMode: Image.PreserveAspectFit
                 cache: true
                 asynchronous: true
+                autoTransform: true
                 sourceSize.width: mediaPage.width
                 smooth: true
                 anchors.centerIn: parent

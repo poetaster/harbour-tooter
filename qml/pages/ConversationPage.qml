@@ -29,6 +29,7 @@ Page {
     property string quoted_status_id: ""
     property string quoted_account_acct: ""
     property string quoted_content: ""
+    property bool openReplyPanel: false  // Set to true to auto-open reply panel
     property string status_link:
         if (status_url === "") {
             var test = status_uri.split("/")
@@ -145,12 +146,6 @@ Page {
                 onClicked: Clipboard.text = status_link
             }
 
-            MenuItem {
-                //: "Reply" will show the Toot text entry Panel. "Hide Reply" closes it. Alternative: Use "Close Reply"
-                text: !panel.open ? qsTr("Reply") : qsTr("Hide Reply")
-                visible: type == "reply"
-                onClicked: !panel.open ? panel.open = true : panel.open = false
-            }
         }
     }
 
@@ -271,7 +266,7 @@ Page {
         width: parent.width
         height: progressBar.height + toot.height + (mediaModel.count ? uploadedImages.height : 0) + btnContentWarning.height + Theme.paddingMedium + (warningContent.visible ? warningContent.height : 0)
         dock: Dock.Bottom
-        open: true
+        open: type === "new" || editMode || quoted_status_id.length > 0 || openReplyPanel  // Auto-open for new toots, edits, quotes, and replies
 
         Rectangle {
             id: progressBarBg

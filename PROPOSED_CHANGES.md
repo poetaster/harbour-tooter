@@ -684,39 +684,10 @@ if (msg.action.indexOf("fetch_remote_replies") > -1) {
 
 ## Part 2: Performance Improvements
 
-### 2.1 Deduplication Algorithm - O(n²) → O(n)
-**File:** `qml/pages/components/MyList.qml:260-308`
+### 2.1 Deduplication Algorithm - O(n²) → O(n) ✓ DONE
+**File:** `qml/pages/components/MyList.qml:285-318`
 **Impact:** High - runs on every model update
-
-**Problem:**
-```javascript
-// Current: O(n²) - removeDuplicates called inside loop
-for(i = 0 ; i < model.count ; i++) {
-    ids.push(model.get(i).id)
-    uniqueItems = removeDuplicates(ids)  // Called n times!
-}
-```
-
-**Solution:**
-```javascript
-// Use object as hash set - O(n)
-function deDouble() {
-    var seen = {}
-    var toRemove = []
-    for (var i = 0; i < model.count; i++) {
-        var id = model.get(i).id
-        if (seen[id]) {
-            toRemove.push(i)
-        } else {
-            seen[id] = true
-        }
-    }
-    // Remove in reverse order to preserve indices
-    for (var j = toRemove.length - 1; j >= 0; j--) {
-        model.remove(toRemove[j], 1)
-    }
-}
-```
+**Status:** Implemented - uses hash-based lookup for O(n) performance
 
 ---
 

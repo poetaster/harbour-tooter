@@ -38,33 +38,8 @@
         <translation>Qu&apos;avez-vous en tête?</translation>
     </message>
     <message>
-        <source>Public</source>
-        <translation>Public</translation>
-    </message>
-    <message>
-        <source>Unlisted</source>
-        <translation>Non listé</translation>
-    </message>
-    <message>
-        <source>Followers-only</source>
-        <translation>Abonné(e)s uniquement</translation>
-    </message>
-    <message>
-        <source>Direct</source>
-        <translation>Direct</translation>
-    </message>
-    <message>
         <source>Toot sent!</source>
         <translation>Pouet envoyé !</translation>
-    </message>
-    <message>
-        <source>Reply</source>
-        <extracomment>&quot;Reply&quot; will show the Toot text entry Panel. &quot;Hide Reply&quot; closes it. Alternative: Use &quot;Close Reply&quot;</extracomment>
-        <translation>Répondre</translation>
-    </message>
-    <message>
-        <source>Hide Reply</source>
-        <translation>Masquer la réponse</translation>
     </message>
     <message>
         <source>Open in Browser</source>
@@ -72,31 +47,39 @@
     </message>
     <message>
         <source>Edit Alt Text</source>
-        <translation type="unfinished"></translation>
+        <translation>Texte alternatif</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Removing</source>
-        <translation type="unfinished"></translation>
+        <translation>Supprimer</translation>
     </message>
     <message>
         <source>Toot edited!</source>
-        <translation type="unfinished"></translation>
+        <translation>Pouet modifié !</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished"></translation>
+        <translation>Enregistrer</translation>
     </message>
     <message>
         <source>Describe this media for visually impaired users</source>
-        <translation type="unfinished"></translation>
+        <translation>Décrivez ce média pour les utilisateurs malvoyants</translation>
     </message>
     <message>
         <source>Alt text helps make content accessible to people who are blind or have low vision.</source>
-        <translation type="unfinished"></translation>
+        <translation>Le texte alternatif permet de rendre le contenu accessible aux personnes aveugles ou malvoyantes.</translation>
+    </message>
+    <message>
+        <source>Add Media</source>
+        <translation>Ajouter un média</translation>
+    </message>
+    <message>
+        <source>Post Visibility</source>
+        <translation>Visibilité</translation>
+    </message>
+    <message>
+        <source>Post Language</source>
+        <translation>Langue du pouet</translation>
     </message>
 </context>
 <context>
@@ -140,11 +123,11 @@
     </message>
     <message>
         <source>Enter a valid Mastodon instance URL (will open a web browser for Authentication)</source>
-        <translation type="unfinished"></translation>
+        <translation>Saisissez une URL d’instance Mastodon valide (un navigateur web s’ouvrira pour l’authentification)</translation>
     </message>
     <message>
         <source>Type</source>
-        <translation type="unfinished"></translation>
+        <translation>Type</translation>
     </message>
 </context>
 <context>
@@ -183,11 +166,15 @@
     </message>
     <message>
         <source>Press and hold the home tab to switch account</source>
-        <translation type="unfinished"></translation>
+        <translation>Maintenez appuyé l’onglet Accueil pour basculer de compte</translation>
     </message>
     <message>
         <source>Trending</source>
-        <translation type="unfinished"></translation>
+        <translation>Tendance</translation>
+    </message>
+    <message>
+        <source>Conversation</source>
+        <translation>Conversation</translation>
     </message>
 </context>
 <context>
@@ -226,9 +213,20 @@
         <source>followed you</source>
         <translation>vous suit</translation>
     </message>
+    <message numerus="yes">
+        <source>and %n other(s)</source>
+        <translation>
+            <numerusform>et %n autre</numerusform>
+            <numerusform>et %n autres</numerusform>
+        </translation>
+    </message>
 </context>
 <context>
     <name>MyList</name>
+    <message>
+        <source>Loading...</source>
+        <translation>Chargement...</translation>
+    </message>
     <message>
         <source>Settings</source>
         <translation>Paramètres</translation>
@@ -238,16 +236,12 @@
         <translation>Nouveau pouet</translation>
     </message>
     <message>
-        <source>Reload</source>
-        <translation>Recharger</translation>
-    </message>
-    <message>
         <source>Open in Browser</source>
         <translation>Ouvrir dans le navigateur</translation>
     </message>
     <message>
-        <source>Nothing found</source>
-        <translation>Rien trouvé</translation>
+        <source>Reload</source>
+        <translation>Recharger</translation>
     </message>
 </context>
 <context>
@@ -328,6 +322,21 @@
     </message>
 </context>
 <context>
+    <name>ReaderPage</name>
+    <message>
+        <source>Share</source>
+        <translation>Partager</translation>
+    </message>
+    <message>
+        <source>Copy link</source>
+        <translation>Ouvrir le lien</translation>
+    </message>
+    <message>
+        <source>Open in browser</source>
+        <translation>Ouvrir dans le navigateur</translation>
+    </message>
+</context>
+<context>
     <name>SettingsPage</name>
     <message>
         <source>Settings</source>
@@ -388,7 +397,7 @@
     </message>
     <message>
         <source>Occitan &amp; French translation</source>
-        <translation>Traduction français</translation>
+        <translation>Traduction occitane et française</translation>
     </message>
     <message>
         <source>Chinese translation</source>
@@ -417,31 +426,47 @@
     </message>
     <message>
         <source>Documentation</source>
-        <translation type="unfinished"></translation>
+        <translation>Documentation</translation>
     </message>
     <message>
         <source>Mention</source>
-        <translation type="unfinished">Mentionner</translation>
+        <translation>Mentionner</translation>
     </message>
     <message>
         <source>Account removed</source>
-        <translation type="unfinished"></translation>
+        <translation>Compte retiré</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation>Retirer</translation>
     </message>
     <message>
         <source>Norwegian Translation</source>
-        <translation type="unfinished"></translation>
+        <translation>Traduction norvégienne</translation>
+    </message>
+    <message>
+        <source>Show Full Usernames</source>
+        <translation>Afficher le nom d’utilisateur complet</translation>
+    </message>
+    <message>
+        <source>Display @user@domain instead of @user</source>
+        <translation>Afficher @utilisateur@domaine au lieu de @utilisateur</translation>
+    </message>
+    <message>
+        <source>Open Links in Reader Mode</source>
+        <translation>Ouvrir les liens en mode lecture</translation>
+    </message>
+    <message>
+        <source>Display articles in a clean reading view</source>
+        <translation>Afficher les articles dans une vue épurée</translation>
     </message>
     <message>
         <source>Font Size</source>
-        <translation type="unfinished"></translation>
+        <translation>Taille police</translation>
     </message>
     <message>
         <source>Sample text</source>
-        <translation type="unfinished"></translation>
+        <translation>Texte de démo</translation>
     </message>
 </context>
 <context>
@@ -479,24 +504,72 @@
         <translation>Ajouter aux marque-pages</translation>
     </message>
     <message>
+        <source>Loading...</source>
+        <translation>Chargement...</translation>
+    </message>
+    <message>
+        <source>Load more</source>
+        <translation>Charger plus</translation>
+    </message>
+    <message>
+        <source>replying to @%1</source>
+        <translation>réponse a @%1</translation>
+    </message>
+    <message>
+        <source>replying to thread</source>
+        <translation>réponse à un fil</translation>
+    </message>
+    <message>
         <source>Show less</source>
-        <translation type="unfinished"></translation>
+        <translation>Afficher moins</translation>
     </message>
     <message>
         <source>Show more</source>
-        <translation type="unfinished"></translation>
+        <translation>Afficher plus</translation>
+    </message>
+    <message>
+        <source>Vote</source>
+        <translation>Voter</translation>
+    </message>
+    <message>
+        <source>votes</source>
+        <translation>votes</translation>
+    </message>
+    <message>
+        <source>Closed</source>
+        <translation>Terminé</translation>
+    </message>
+    <message>
+        <source>days left</source>
+        <translation>jours restants</translation>
+    </message>
+    <message>
+        <source>hours left</source>
+        <translation>heures restantes</translation>
+    </message>
+    <message>
+        <source>minutes left</source>
+        <translation>minutes restantes</translation>
+    </message>
+    <message>
+        <source>Reply</source>
+        <translation>Répondre</translation>
+    </message>
+    <message>
+        <source>Quote</source>
+        <translation>Citer</translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>Supprimer</translation>
     </message>
     <message>
         <source>Deleting</source>
-        <translation type="unfinished"></translation>
+        <translation>Suppression</translation>
     </message>
     <message>
         <source>Edit</source>
-        <translation type="unfinished"></translation>
+        <translation>Modifier</translation>
     </message>
 </context>
 </TS>

@@ -38,33 +38,8 @@
         <translation>О чём думаете?</translation>
     </message>
     <message>
-        <source>Public</source>
-        <translation>Публичный</translation>
-    </message>
-    <message>
-        <source>Unlisted</source>
-        <translation>Скрытый</translation>
-    </message>
-    <message>
-        <source>Followers-only</source>
-        <translation>Приватный</translation>
-    </message>
-    <message>
-        <source>Direct</source>
-        <translation>Адресованный</translation>
-    </message>
-    <message>
         <source>Toot sent!</source>
         <translation>Поста отправлено!</translation>
-    </message>
-    <message>
-        <source>Reply</source>
-        <extracomment>&quot;Reply&quot; will show the Toot text entry Panel. &quot;Hide Reply&quot; closes it. Alternative: Use &quot;Close Reply&quot;</extracomment>
-        <translation>Ответ</translation>
-    </message>
-    <message>
-        <source>Hide Reply</source>
-        <translation>Скрыть ответ</translation>
     </message>
     <message>
         <source>Open in Browser</source>
@@ -77,10 +52,6 @@
     <message>
         <source>Remove</source>
         <translation type="unfinished">Удалить</translation>
-    </message>
-    <message>
-        <source>Removing</source>
-        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Toot edited!</source>
@@ -96,6 +67,18 @@
     </message>
     <message>
         <source>Alt text helps make content accessible to people who are blind or have low vision.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add Media</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Post Visibility</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Post Language</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -189,6 +172,10 @@
         <source>Trending</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Conversation</source>
+        <translation type="unfinished">беседа</translation>
+    </message>
 </context>
 <context>
     <name>MediaFullScreen</name>
@@ -226,28 +213,36 @@
         <source>followed you</source>
         <translation>следую за тобой</translation>
     </message>
+    <message numerus="yes">
+        <source>and %n other(s)</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
 </context>
 <context>
     <name>MyList</name>
     <message>
+        <source>Loading...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Settings</source>
-        <translation>Настройки</translation>
+        <translation type="unfinished">Настройки</translation>
     </message>
     <message>
         <source>New Toot</source>
-        <translation>Новый</translation>
-    </message>
-    <message>
-        <source>Reload</source>
-        <translation>Перезагрузить</translation>
+        <translation type="unfinished">Новый</translation>
     </message>
     <message>
         <source>Open in Browser</source>
-        <translation>Открыть в браузере</translation>
+        <translation type="unfinished">Открыть в браузере</translation>
     </message>
     <message>
-        <source>Nothing found</source>
-        <translation>Ничего не найдено</translation>
+        <source>Reload</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -325,6 +320,21 @@
         <source>Block</source>
         <extracomment>Is a button. Keep it as short as possible.</extracomment>
         <translation>Блокировать</translation>
+    </message>
+</context>
+<context>
+    <name>ReaderPage</name>
+    <message>
+        <source>Share</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Copy link</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Open in browser</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -436,6 +446,22 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Show Full Usernames</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Display @user@domain instead of @user</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Open Links in Reader Mode</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Display articles in a clean reading view</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Font Size</source>
         <translation type="unfinished"></translation>
     </message>
@@ -479,11 +505,59 @@
         <translation>Добавить в закладки</translation>
     </message>
     <message>
+        <source>Loading...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Load more</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>replying to @%1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>replying to thread</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Show less</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Show more</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Vote</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>votes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Closed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>days left</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>hours left</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>minutes left</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Reply</source>
+        <translation type="unfinished">Ответ</translation>
+    </message>
+    <message>
+        <source>Quote</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

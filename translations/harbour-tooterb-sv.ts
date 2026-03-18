@@ -38,33 +38,8 @@
         <translation>Vad tänker du på?</translation>
     </message>
     <message>
-        <source>Public</source>
-        <translation>Allmän</translation>
-    </message>
-    <message>
-        <source>Unlisted</source>
-        <translation>Olistad</translation>
-    </message>
-    <message>
-        <source>Followers-only</source>
-        <translation>Endast följare</translation>
-    </message>
-    <message>
-        <source>Direct</source>
-        <translation>Direkt</translation>
-    </message>
-    <message>
         <source>Toot sent!</source>
         <translation>Toot skickad!</translation>
-    </message>
-    <message>
-        <source>Reply</source>
-        <extracomment>&quot;Reply&quot; will show the Toot text entry Panel. &quot;Hide Reply&quot; closes it. Alternative: Use &quot;Close Reply&quot;</extracomment>
-        <translation>Svara</translation>
-    </message>
-    <message>
-        <source>Hide Reply</source>
-        <translation>Dölj svar</translation>
     </message>
     <message>
         <source>Open in Browser</source>
@@ -72,31 +47,39 @@
     </message>
     <message>
         <source>Edit Alt Text</source>
-        <translation type="unfinished"></translation>
+        <translation>Redigera alternativtext</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished">Ta bort</translation>
-    </message>
-    <message>
-        <source>Removing</source>
-        <translation type="unfinished"></translation>
+        <translation>Ta bort</translation>
     </message>
     <message>
         <source>Toot edited!</source>
-        <translation type="unfinished"></translation>
+        <translation>Toot redigerad!</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished"></translation>
+        <translation>Spara</translation>
     </message>
     <message>
         <source>Describe this media for visually impaired users</source>
-        <translation type="unfinished"></translation>
+        <translation>Beskriv resursen för synskadade användare</translation>
     </message>
     <message>
         <source>Alt text helps make content accessible to people who are blind or have low vision.</source>
-        <translation type="unfinished"></translation>
+        <translation>Alternativtext gör resurser tillgängligare för blinda eller synskadade personer.</translation>
+    </message>
+    <message>
+        <source>Add Media</source>
+        <translation>Lägg till resurs</translation>
+    </message>
+    <message>
+        <source>Post Visibility</source>
+        <translation>Synlighet för tooten</translation>
+    </message>
+    <message>
+        <source>Post Language</source>
+        <translation>Språk för tooten</translation>
     </message>
 </context>
 <context>
@@ -189,6 +172,10 @@
         <source>Trending</source>
         <translation>Trendar</translation>
     </message>
+    <message>
+        <source>Conversation</source>
+        <translation>Konversation</translation>
+    </message>
 </context>
 <context>
     <name>MediaFullScreen</name>
@@ -226,9 +213,20 @@
         <source>followed you</source>
         <translation>följer dig</translation>
     </message>
+    <message numerus="yes">
+        <source>and %n other(s)</source>
+        <translation>
+            <numerusform>och %n annan</numerusform>
+            <numerusform>och %n andra</numerusform>
+        </translation>
+    </message>
 </context>
 <context>
     <name>MyList</name>
+    <message>
+        <source>Loading...</source>
+        <translation>Laddar ...</translation>
+    </message>
     <message>
         <source>Settings</source>
         <translation>Inställningar</translation>
@@ -238,16 +236,12 @@
         <translation>Ny toot</translation>
     </message>
     <message>
+        <source>Open in Browser</source>
+        <translation>Öppna i webbläsare</translation>
+    </message>
+    <message>
         <source>Reload</source>
         <translation>Läs in igen</translation>
-    </message>
-    <message>
-        <source>Open in Browser</source>
-        <translation>Öppna i webbläsaren</translation>
-    </message>
-    <message>
-        <source>Nothing found</source>
-        <translation>Inget hittades</translation>
     </message>
 </context>
 <context>
@@ -309,7 +303,7 @@
     <message>
         <source>Unmute</source>
         <extracomment>Is a button. Keep it as short as possible.</extracomment>
-        <translation>Frigör</translation>
+        <translation>Avtysta</translation>
     </message>
     <message>
         <source>Mute</source>
@@ -328,6 +322,21 @@
     </message>
 </context>
 <context>
+    <name>ReaderPage</name>
+    <message>
+        <source>Share</source>
+        <translation>Dela</translation>
+    </message>
+    <message>
+        <source>Copy link</source>
+        <translation>Kopiera länk</translation>
+    </message>
+    <message>
+        <source>Open in browser</source>
+        <translation>Öppna i webbläsare</translation>
+    </message>
+</context>
+<context>
     <name>SettingsPage</name>
     <message>
         <source>Settings</source>
@@ -343,7 +352,7 @@
     </message>
     <message>
         <source>Disable this option if you want to preserve your data connection</source>
-        <translation>Inaktivera det här alternativet om du vill bevara din dataanslutning</translation>
+        <translation>Inaktivera det här alternativet om du vill spara på din dataanslutning</translation>
     </message>
     <message>
         <source>Account</source>
@@ -359,7 +368,7 @@
     </message>
     <message>
         <source>Deauthorize this app from using your account and remove account data from phone</source>
-        <translation>Avauktorisera denna app och ta bort din kontodata från telefonen</translation>
+        <translation>Avauktorisera denna app att använda Mastodon-kontot och ta bort informationen om kontot från telefonen</translation>
     </message>
     <message>
         <source>Authorize this app to access your Mastodon account</source>
@@ -388,7 +397,7 @@
     </message>
     <message>
         <source>Occitan &amp; French translation</source>
-        <translation>Occitan &amp; Fransk översättning</translation>
+        <translation>Occitansk &amp; fransk översättning</translation>
     </message>
     <message>
         <source>Chinese translation</source>
@@ -436,12 +445,28 @@
         <translation>Norsk översättning</translation>
     </message>
     <message>
+        <source>Show Full Usernames</source>
+        <translation>Visa fullständiga användarnamn</translation>
+    </message>
+    <message>
+        <source>Display @user@domain instead of @user</source>
+        <translation>Visa @användare@domän istället för @användare</translation>
+    </message>
+    <message>
+        <source>Open Links in Reader Mode</source>
+        <translation>Öppna länkar i läsläge</translation>
+    </message>
+    <message>
+        <source>Display articles in a clean reading view</source>
+        <translation>Visa artiklar i ett anpassat läsläge</translation>
+    </message>
+    <message>
         <source>Font Size</source>
-        <translation type="unfinished"></translation>
+        <translation>Textstorlek</translation>
     </message>
     <message>
         <source>Sample text</source>
-        <translation type="unfinished"></translation>
+        <translation>Exempeltext</translation>
     </message>
 </context>
 <context>
@@ -479,24 +504,72 @@
         <translation>Bokmärk</translation>
     </message>
     <message>
+        <source>Loading...</source>
+        <translation>Laddar ...</translation>
+    </message>
+    <message>
+        <source>Load more</source>
+        <translation>Ladda mer</translation>
+    </message>
+    <message>
+        <source>replying to @%1</source>
+        <translation>svarar på @%1</translation>
+    </message>
+    <message>
+        <source>replying to thread</source>
+        <translation>svarar i konversationstråd</translation>
+    </message>
+    <message>
         <source>Show less</source>
-        <translation type="unfinished"></translation>
+        <translation>Visa mindre</translation>
     </message>
     <message>
         <source>Show more</source>
-        <translation type="unfinished"></translation>
+        <translation>Visa mer</translation>
+    </message>
+    <message>
+        <source>Vote</source>
+        <translation>Rösta</translation>
+    </message>
+    <message>
+        <source>votes</source>
+        <translation>röster</translation>
+    </message>
+    <message>
+        <source>Closed</source>
+        <translation>Avslutad</translation>
+    </message>
+    <message>
+        <source>days left</source>
+        <translation>dagar kvar</translation>
+    </message>
+    <message>
+        <source>hours left</source>
+        <translation>timmar kvar</translation>
+    </message>
+    <message>
+        <source>minutes left</source>
+        <translation>minuter kvar</translation>
+    </message>
+    <message>
+        <source>Reply</source>
+        <translation>Svara</translation>
+    </message>
+    <message>
+        <source>Quote</source>
+        <translation>Citera</translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>Ta bort</translation>
     </message>
     <message>
         <source>Deleting</source>
-        <translation type="unfinished"></translation>
+        <translation>Tar bort</translation>
     </message>
     <message>
         <source>Edit</source>
-        <translation type="unfinished"></translation>
+        <translation>Redigera</translation>
     </message>
 </context>
 </TS>

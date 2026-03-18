@@ -351,7 +351,8 @@ BackgroundItem {
             return typeof model.card_url !== "undefined" && model.card_url.length > 0
         }
         width: parent.width - Theme.horizontalPageMargin * 2 - avatar.width - Theme.paddingMedium
-        height: visible ? linkPreviewContent.height + Theme.paddingMedium * 2 : 0
+        // Fixed height based on image size or text content
+        height: visible ? Theme.itemSizeLarge + Theme.paddingMedium * 2 : 0
         color: Theme.rgba(Theme.highlightBackgroundColor, 0.1)
         radius: Theme.paddingSmall
         anchors {
@@ -369,9 +370,12 @@ BackgroundItem {
         Row {
             id: linkPreviewContent
             anchors {
-                fill: parent
+                left: parent.left
+                right: parent.right
+                top: parent.top
                 margins: Theme.paddingMedium
             }
+            height: Theme.itemSizeLarge
             spacing: Theme.paddingMedium
 
             // Thumbnail (if available)
@@ -391,6 +395,7 @@ BackgroundItem {
             Column {
                 id: linkPreviewText
                 width: parent.width - (cardImage.visible ? cardImage.width + Theme.paddingMedium : 0)
+                height: parent.height
                 spacing: Theme.paddingSmall / 2
 
                 // Provider name

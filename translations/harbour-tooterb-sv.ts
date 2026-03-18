@@ -70,16 +70,33 @@
         <translation>Alternativtext gör resurser tillgängligare för blinda eller synskadade personer.</translation>
     </message>
     <message>
-        <source>Add Media</source>
-        <translation>Lägg till resurs</translation>
+        <source>Reply</source>
+        <extracomment>&quot;Reply&quot; will show the Toot text entry Panel. &quot;Hide Reply&quot; closes it. Alternative: Use &quot;Close Reply&quot;</extracomment>
+        <translation type="unfinished">Svara</translation>
     </message>
     <message>
-        <source>Post Visibility</source>
-        <translation>Synlighet för tooten</translation>
+        <source>Hide Reply</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Post Language</source>
-        <translation>Språk för tooten</translation>
+        <source>Removing</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Public</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Unlisted</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Followers-only</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Direct</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -172,10 +189,6 @@
         <source>Trending</source>
         <translation>Trendar</translation>
     </message>
-    <message>
-        <source>Conversation</source>
-        <translation>Konversation</translation>
-    </message>
 </context>
 <context>
     <name>MediaFullScreen</name>
@@ -213,20 +226,9 @@
         <source>followed you</source>
         <translation>följer dig</translation>
     </message>
-    <message numerus="yes">
-        <source>and %n other(s)</source>
-        <translation>
-            <numerusform>och %n annan</numerusform>
-            <numerusform>och %n andra</numerusform>
-        </translation>
-    </message>
 </context>
 <context>
     <name>MyList</name>
-    <message>
-        <source>Loading...</source>
-        <translation>Laddar ...</translation>
-    </message>
     <message>
         <source>Settings</source>
         <translation>Inställningar</translation>
@@ -242,6 +244,14 @@
     <message>
         <source>Reload</source>
         <translation>Läs in igen</translation>
+    </message>
+    <message>
+        <source>Nothing found</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>My Profile</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -319,21 +329,6 @@
         <source>Block</source>
         <extracomment>Is a button. Keep it as short as possible.</extracomment>
         <translation>Blockera</translation>
-    </message>
-</context>
-<context>
-    <name>ReaderPage</name>
-    <message>
-        <source>Share</source>
-        <translation>Dela</translation>
-    </message>
-    <message>
-        <source>Copy link</source>
-        <translation>Kopiera länk</translation>
-    </message>
-    <message>
-        <source>Open in browser</source>
-        <translation>Öppna i webbläsare</translation>
     </message>
 </context>
 <context>
@@ -445,28 +440,20 @@
         <translation>Norsk översättning</translation>
     </message>
     <message>
-        <source>Show Full Usernames</source>
-        <translation>Visa fullständiga användarnamn</translation>
-    </message>
-    <message>
-        <source>Display @user@domain instead of @user</source>
-        <translation>Visa @användare@domän istället för @användare</translation>
-    </message>
-    <message>
-        <source>Open Links in Reader Mode</source>
-        <translation>Öppna länkar i läsläge</translation>
-    </message>
-    <message>
-        <source>Display articles in a clean reading view</source>
-        <translation>Visa artiklar i ett anpassat läsläge</translation>
-    </message>
-    <message>
         <source>Font Size</source>
         <translation>Textstorlek</translation>
     </message>
     <message>
         <source>Sample text</source>
         <translation>Exempeltext</translation>
+    </message>
+    <message>
+        <source>Quick Scroll Arrows</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show arrows to jump to top/bottom when scrolling fast</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -504,60 +491,12 @@
         <translation>Bokmärk</translation>
     </message>
     <message>
-        <source>Loading...</source>
-        <translation>Laddar ...</translation>
-    </message>
-    <message>
-        <source>Load more</source>
-        <translation>Ladda mer</translation>
-    </message>
-    <message>
-        <source>replying to @%1</source>
-        <translation>svarar på @%1</translation>
-    </message>
-    <message>
-        <source>replying to thread</source>
-        <translation>svarar i konversationstråd</translation>
-    </message>
-    <message>
         <source>Show less</source>
         <translation>Visa mindre</translation>
     </message>
     <message>
         <source>Show more</source>
         <translation>Visa mer</translation>
-    </message>
-    <message>
-        <source>Vote</source>
-        <translation>Rösta</translation>
-    </message>
-    <message>
-        <source>votes</source>
-        <translation>röster</translation>
-    </message>
-    <message>
-        <source>Closed</source>
-        <translation>Avslutad</translation>
-    </message>
-    <message>
-        <source>days left</source>
-        <translation>dagar kvar</translation>
-    </message>
-    <message>
-        <source>hours left</source>
-        <translation>timmar kvar</translation>
-    </message>
-    <message>
-        <source>minutes left</source>
-        <translation>minuter kvar</translation>
-    </message>
-    <message>
-        <source>Reply</source>
-        <translation>Svara</translation>
-    </message>
-    <message>
-        <source>Quote</source>
-        <translation>Citera</translation>
     </message>
     <message>
         <source>Delete</source>

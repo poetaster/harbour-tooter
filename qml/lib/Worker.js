@@ -136,6 +136,21 @@ WorkerScript.onMessage = function(msg) {
             return
         }
 
+        // Handle single status fetch (statuses/:id without /context, /source, etc.)
+        var singleStatusMatch = msg.action.match(/^statuses\/(\d+)$/)
+        if (singleStatusMatch && data && data.id) {
+            console.log("Single status fetch: " + data.id)
+            var item = parseToot(data)
+            item['id'] = item['status_id']
+            if (typeof item['attachments'] === "undefined")
+                item['attachments'] = []
+            if (msg.model) {
+                addDataToModel(msg.model, msg.mode || "append", [item])
+            }
+            WorkerScript.sendMessage({ 'updatedAll': true, 'itemsCount': 1, 'mode': msg.mode })
+            return
+        }
+
         var items = [];
         // Debug: log API response size
         console.log("API response for " + msg.action + ": " + (Array.isArray(data) ? data.length + " items" : typeof data))
@@ -159,35 +174,38 @@ WorkerScript.onMessage = function(msg) {
 
                 } else if(msg.action.indexOf("statuses") >-1 && msg.action.indexOf("context") >-1 && i === "ancestors") {
                     // status ancestors toots - conversation
-                    console.log("ancestors")
-                    for (var j = 0; j < data[i].length; j ++) {
-                        item = parseToot(data[i][j]);
-                        item['id'] = item['status_id'];
-                        if (typeof item['attachments'] === "undefined")
-                            item['attachments'] = [];
-                        // don't permit doubles
-                        items.push(item);
-                        //console.log(JSON.stringify(data[i][j]))
+                    console.log("ancestors: " + (data[i] ? data[i].length : 0))
+                    if (data[i] && data[i].length > 0) {
+                        for (var j = 0; j < data[i].length; j++) {
+                            if (data[i][j]) {
+                                item = parseToot(data[i][j]);
+                                item['id'] = item['status_id'];
+                                if (typeof item['attachments'] === "undefined")
+                                    item['attachments'] = [];
+                                items.push(item);
+                            }
+                        }
+                        addDataToModel(msg.model, "prepend", items);
+                        items = [];
                     }
-                    addDataToModel (msg.model, "prepend", items);
-                    items = [];
-
-                    //console.log(JSON.stringify(i))
                 } else if(msg.action.indexOf("statuses") >-1 && msg.action.indexOf("context") >-1 && i === "descendants") {
                     // status descendants toots - conversation
-                    console.log("descendants")
-                    for (var j = 0; j < data[i].length; j ++) {
-                        item = parseToot(data[i][j]);
-                        item['id'] = item['status_id'];
-                        if (typeof item['attachments'] === "undefined")
-                            item['attachments'] = [];
-                        items.push(item);
-                        //console.log(JSON.stringify(data[i][j]))
+                    console.log("descendants: " + (data[i] ? data[i].length : 0))
+                    if (data[i] && data[i].length > 0) {
+                        for (var j = 0; j < data[i].length; j++) {
+                            if (data[i][j]) {
+                                item = parseToot(data[i][j]);
+                                item['id'] = item['status_id'];
+                                if (typeof item['attachments'] === "undefined")
+                                    item['attachments'] = [];
+                                items.push(item);
+                            }
+                        }
+                        addDataToModel(msg.model, "append", items);
+                        items = [];
                     }
-                    addDataToModel (msg.model, "append", items);
-                    items = [];
 
-                } else if (data[i].hasOwnProperty("content")){
+                } else if (data[i] && typeof data[i] === 'object' && data[i].hasOwnProperty("content")){
                     //console.log("Get Toot")
                     item = parseToot(data[i]);
                     // Use timeline_id for pagination (preserves correct ID for reblogs)
@@ -434,12 +452,66 @@ function parseToot (data) {
         item['card_url'] = ''
     }
 
+    /** Quote Post (Quote Boost) */
+    // Mastodon 4.4+ uses quote.quoted_status structure
+    var quoteWrapper = item['status_reblog'] ? data["reblog"]["quote"] : data["quote"]
+    // States where quoted_status is available: accepted, blocked_account, blocked_domain, muted_account
+    var validQuoteStates = ["accepted", "blocked_account", "blocked_domain", "muted_account"]
+    if (quoteWrapper && quoteWrapper["quoted_status"] && validQuoteStates.indexOf(quoteWrapper["state"]) !== -1) {
+        var quoteData = quoteWrapper["quoted_status"]
+        item['quote_id'] = quoteData["id"] || ''
+        item['quote_content'] = quoteData["content"] || ''
+        item['quote_url'] = quoteData["url"] || ''
+        item['quote_created_at'] = quoteData["created_at"] ? new Date(quoteData["created_at"]) : null
+        item['quote_status_id'] = quoteData["id"] || ''
+        if (quoteData["account"]) {
+            item['quote_account_display_name'] = quoteData["account"]["display_name"] || ''
+            item['quote_account_acct'] = quoteData["account"]["acct"] || ''
+            item['quote_account_avatar'] = quoteData["account"]["avatar"] || ''
+            item['quote_account_id'] = quoteData["account"]["id"] || ''
+        }
+        console.log("Quote found: " + item['quote_id'] + " state: " + quoteWrapper["state"])
+    } else {
+        item['quote_id'] = ''
+        if (quoteWrapper) {
+            console.log("Quote wrapper exists but state is: " + quoteWrapper["state"])
+        }
+    }
+
     /** Replace HTML content in Toots */
     item['content'] = item['content']
     .replaceAll('</span><span class="invisible">', '')
     .replaceAll('<span class="invisible">', '')
     .replaceAll('</span><span class="ellipsis">', '')
     .replaceAll('class=""', '');
+
+    /** Remove "RE:" quote link prefix when we have a proper quote */
+    if (item['quote_id'] && item['quote_id'].length > 0) {
+        // Remove the "RE: <link>" paragraph that Mastodon adds as fallback
+        // Pattern: <p>RE: <a href="...">...</a></p> at the start
+        item['content'] = item['content'].replace(/^<p>RE:\s*<a[^>]*>.*?<\/a><\/p>\s*/i, '');
+        // Also handle if it's at the end
+        item['content'] = item['content'].replace(/\s*<p>RE:\s*<a[^>]*>.*?<\/a><\/p>$/i, '');
+
+        // Also remove the quote URL link from content since we show the embedded quote
+        if (item['quote_url'] && item['quote_url'].length > 0) {
+            var escapedQuoteUrl = item['quote_url'].replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+            var quoteUrlPattern = new RegExp('<a[^>]*href="' + escapedQuoteUrl + '"[^>]*>.*?</a>', 'gi');
+            item['content'] = item['content'].replace(quoteUrlPattern, '');
+        }
+    }
+
+    /** Remove card URL from content when link preview is shown */
+    if (item['card_url'] && item['card_url'].length > 0) {
+        // Escape special regex characters in the URL
+        var escapedUrl = item['card_url'].replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+        // Remove the <a> tag containing this URL
+        var urlPattern = new RegExp('<a[^>]*href="' + escapedUrl + '"[^>]*>.*?</a>', 'gi');
+        item['content'] = item['content'].replace(urlPattern, '');
+    }
+
+    /** Final cleanup: remove empty paragraphs and trim */
+    item['content'] = item['content'].replace(/<p>\s*<\/p>/g, '').trim();
 
     /** Media attachements in Toots */
     

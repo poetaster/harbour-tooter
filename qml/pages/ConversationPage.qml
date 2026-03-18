@@ -12,7 +12,7 @@ Page {
     property bool debug: false
     property ListModel suggestedModel
     property ListModel mdl
-    property int tootMaxChar: 500
+    property int tootMaxChar: appWindow.instanceMaxChars
     property bool bot: false //otherwise ReferenceError ProfileHeader.qml
     property bool followed_by: false //otherwise ReferenceError ProfileHeader.qml
     property bool locked: false //otherwise ReferenceError ProfileHeader.qml
@@ -26,6 +26,9 @@ Page {
     property string editSpoilerText: ""
     property string status_url: ""
     property string status_uri: ""
+    property string quoted_status_id: ""
+    property string quoted_account_acct: ""
+    property string quoted_content: ""
     property string status_link:
         if (status_url === "") {
             var test = status_uri.split("/")
@@ -91,6 +94,8 @@ Page {
 
     SilicaListView {
         id: myList
+        property string type: "conversation"
+        property string mainStatusId: status_id  // The clicked toot that should not be truncated
 
         header: PageHeader {
             title: headerTitle // pageTitle pushed from MainPage.qml or VisualContainer.qml
@@ -192,6 +197,72 @@ Page {
             }
 
             VerticalScrollDecorator {}
+        }
+    }
+
+    // Quote preview when composing a quote post - positioned above panel
+    Rectangle {
+        id: quotePreview
+        visible: quoted_status_id.length > 0
+        width: parent.width - Theme.horizontalPageMargin * 2
+        height: visible ? quotePreviewColumn.implicitHeight + Theme.paddingMedium * 2 : 0
+        color: Theme.rgba(Theme.highlightDimmerColor, 0.95)
+        border.color: Theme.rgba(Theme.highlightColor, 0.3)
+        border.width: 1
+        radius: Theme.paddingSmall
+        anchors {
+            bottom: panel.open ? panel.top : hiddenPanel.top
+            bottomMargin: Theme.paddingSmall
+            horizontalCenter: parent.horizontalCenter
+        }
+
+        Column {
+            id: quotePreviewColumn
+            anchors {
+                left: parent.left
+                right: closeQuoteBtn.left
+                top: parent.top
+                margins: Theme.paddingMedium
+            }
+            spacing: Theme.paddingSmall / 2
+
+            Label {
+                text: qsTr("Quoting @%1").arg(quoted_account_acct)
+                font.pixelSize: Theme.fontSizeExtraSmall
+                font.bold: true
+                color: Theme.highlightColor
+                truncationMode: TruncationMode.Fade
+                width: parent.width
+            }
+
+            Label {
+                text: {
+                    var content = quoted_content || ""
+                    content = content.replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim()
+                    return content
+                }
+                font.pixelSize: Theme.fontSizeTiny
+                color: Theme.secondaryHighlightColor
+                wrapMode: Text.Wrap
+                maximumLineCount: 2
+                truncationMode: TruncationMode.Elide
+                width: parent.width
+            }
+        }
+
+        IconButton {
+            id: closeQuoteBtn
+            icon.source: "image://theme/icon-s-clear-opaque-cross?" + Theme.highlightColor
+            anchors {
+                right: parent.right
+                rightMargin: Theme.paddingSmall
+                verticalCenter: parent.verticalCenter
+            }
+            onClicked: {
+                quoted_status_id = ""
+                quoted_account_acct = ""
+                quoted_content = ""
+            }
         }
     }
 
@@ -627,6 +698,8 @@ Page {
                     }
                     if (status_id)
                         msg.params['in_reply_to_id'] = (status_id) + ""
+                    if (quoted_status_id)
+                        msg.params['quoted_status_id'] = quoted_status_id
                 }
 
                 if (warningContent.visible && warningContent.text.length > 0) {
@@ -724,6 +797,25 @@ Page {
 
             worker.sendMessage({
                                    "action": 'statuses/' + mdl.get(0).status_id + '/context',
+                                   "method": 'GET',
+                                   "model": mdl,
+                                   "params": { },
+                                   "conf": Logic.conf
+                               })
+        } else if (status_id && status_id.length > 0) {
+            // Model is empty but we have a status_id - fetch the status first
+            console.log("Fetching status: " + status_id)
+            worker.sendMessage({
+                                   "action": 'statuses/' + status_id,
+                                   "method": 'GET',
+                                   "model": mdl,
+                                   "mode": "append",
+                                   "params": { },
+                                   "conf": Logic.conf
+                               })
+            // Then fetch context
+            worker.sendMessage({
+                                   "action": 'statuses/' + status_id + '/context',
                                    "method": 'GET',
                                    "model": mdl,
                                    "params": { },

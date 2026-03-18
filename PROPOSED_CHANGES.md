@@ -616,6 +616,72 @@ To allow users to create quote posts, ConversationPage.qml would need:
 
 ---
 
+### 1.11 Engagement Statistics Display Setting
+**Effort:** 2-3 hours | **Priority:** Low
+
+**Problem:** Users may want control over whether to show or hide engagement statistics (likes, boosts, replies count) on posts. Some users prefer a "quiet" timeline without social metrics.
+
+**Files to modify:**
+- `qml/pages/SettingsPage.qml` - Add toggle for showing engagement stats
+- `qml/harbour-tooterb.qml` - Add `showEngagementStats` property
+- `qml/pages/components/VisualContainer.qml` - Conditionally show/hide stats
+
+**Implementation:**
+```qml
+// SettingsPage.qml
+TextSwitch {
+    text: qsTr("Show engagement statistics")
+    description: qsTr("Display likes, boosts and reply counts on posts")
+    checked: appWindow.showEngagementStats
+    onCheckedChanged: appWindow.showEngagementStats = checked
+}
+```
+
+**API Updates:** Mastodon now provides real-time updates for engagement counts via WebSocket streaming API. Consider:
+- `GET /api/v1/streaming/public` - Real-time updates
+- Status update events include new counts
+
+---
+
+### 1.12 Fetch Remote Replies
+**Effort:** 4-6 hours | **Priority:** Medium
+
+**Problem:** When viewing a post, Mastodon only shows replies already known to your server. Mastodon 4.5+ added the ability to fetch replies from remote servers when clicking on a post.
+
+**API Endpoint:** `POST /api/v1/statuses/:id/fetch_remote_replies`
+
+**Files to modify:**
+- `qml/lib/Worker.js` - Add handler for fetching remote replies
+- `qml/pages/ConversationPage.qml` - Add "Fetch remote replies" button/action
+
+**Implementation:**
+```javascript
+// Worker.js - Handle fetch remote replies
+if (msg.action.indexOf("fetch_remote_replies") > -1) {
+    API.post(msg.action, [], function(data) {
+        // Returns updated list of replies
+        WorkerScript.sendMessage({
+            'action': msg.action,
+            'success': true,
+            'data': data
+        });
+    });
+}
+```
+
+**UI Considerations:**
+- Add a "Load more replies" or "Fetch from remote servers" button in conversation view
+- Show loading indicator while fetching
+- Merge newly fetched replies into existing thread
+- Some servers may not support this feature - handle gracefully
+
+**API Reference:**
+- Mastodon 4.5 introduced this as part of "reply fetching" feature
+- Helps complete threads that span multiple servers
+- May require server-to-server communication (ActivityPub)
+
+---
+
 ## Part 2: Performance Improvements
 
 ### 2.1 Deduplication Algorithm - O(n²) → O(n)

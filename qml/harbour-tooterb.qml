@@ -42,6 +42,8 @@ ApplicationWindow {
     property real fontScale: 1.0
     // Global quick scroll setting - reactive
     property bool quickScrollEnabled: true
+    // Instance max characters - fetched from server, default to 500
+    property int instanceMaxChars: 500
 
     Component.onCompleted: {
         var obj = {}
@@ -87,7 +89,12 @@ ApplicationWindow {
                 Logic.api.setConfig("api_user_token", currentAccount['api_user_token'])
                 //accounts/verify_credentials
                 Logic.api.get('instance', [], function(data) {
-                   // console.log(JSON.stringify(data))
+                    // console.log(JSON.stringify(data))
+                    // Extract max characters from instance configuration
+                    if (data && data.configuration && data.configuration.statuses && data.configuration.statuses.max_characters) {
+                        appWindow.instanceMaxChars = data.configuration.statuses.max_characters
+                        console.log("Instance max chars: " + appWindow.instanceMaxChars)
+                    }
                     pageStack.push(Qt.resolvedUrl("./pages/MainPage.qml"), {})
                 })
                 //pageStack.push(Qt.resolvedUrl("./pages/Conversation.qml"), {})

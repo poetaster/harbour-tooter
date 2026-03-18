@@ -51,7 +51,7 @@ BackgroundItem {
 
     height: if (myList.type === "notifications" && ( model.type === "favourite" || model.type === "reblog" )) {
                 mnu.height + miniHeader.height + Theme.paddingLarge + lblContent.height + Theme.paddingLarge + (miniStatus.visible ? miniStatus.height : 0)
-            } else mnu.height + miniHeader.height + (typeof attachments !== "undefined" && attachments.count ? media.height + Theme.paddingLarge + Theme.paddingMedium: Theme.paddingLarge) + lblContent.height + (isLongPost ? showMoreLabel.height : 0) + (linkPreview.visible ? linkPreview.height + Theme.paddingMedium : 0) + Theme.paddingLarge + (miniStatus.visible ? miniStatus.height : 0) + (iconDirectMsg.visible ? iconDirectMsg.height : 0)
+            } else mnu.height + miniHeader.height + (typeof attachments !== "undefined" && attachments.count ? media.height + Theme.paddingLarge + Theme.paddingMedium: Theme.paddingLarge) + lblContent.height + (isLongPost ? showMoreLabel.height : 0) + (linkPreview.visible ? linkPreview.height + Theme.paddingMedium : 0) + (quotedPost.visible ? quotedPost.height + Theme.paddingMedium : 0) + Theme.paddingLarge + (miniStatus.visible ? miniStatus.height : 0) + (iconDirectMsg.visible ? iconDirectMsg.height : 0)
 
     // Background for Direct Messages in Notification View
     Rectangle {
@@ -209,7 +209,10 @@ BackgroundItem {
         text: {
             var displayContent = content
             // Truncate if long post and not expanded (not for notifications)
-            if (isLongPost && !expanded && !(myList.type === "notifications" && (model.type === "favourite" || model.type === "reblog"))) {
+            // In conversation view, don't truncate the main clicked toot
+            var isMainConversationToot = (typeof myList.type !== "undefined" && myList.type === "conversation" &&
+                                          typeof myList.mainStatusId !== "undefined" && model.status_id === myList.mainStatusId)
+            if (isLongPost && !expanded && !isMainConversationToot && !(myList.type === "notifications" && (model.type === "favourite" || model.type === "reblog"))) {
                 displayContent = truncateContent(content, charLimit) + "..."
             }
             // Apply link styling for non-notification views
@@ -305,10 +308,16 @@ BackgroundItem {
         }
     }
 
-    // Show more / Show less label for long posts
+    // Show more / Show less label for long posts (not for main toot in conversation view)
     Label {
         id: showMoreLabel
-        visible: isLongPost && !(myList.type === "notifications" && (model.type === "favourite" || model.type === "reblog"))
+        visible: {
+            if (!isLongPost) return false
+            if (myList.type === "notifications" && (model.type === "favourite" || model.type === "reblog")) return false
+            // Hide for main toot in conversation view
+            if (myList.type === "conversation" && typeof myList.mainStatusId !== "undefined" && model.status_id === myList.mainStatusId) return false
+            return true
+        }
         text: expanded ? qsTr("Show less") : qsTr("Show more")
         font.pixelSize: Theme.fontSizeSmall * appWindow.fontScale
         color: Theme.highlightColor
@@ -434,6 +443,119 @@ BackgroundItem {
         }
     }
 
+    // Quoted Post Display - styled like a mini-toot
+    Rectangle {
+        id: quotedPost
+        visible: {
+            if (myList.type === "notifications" && (model.type === "favourite" || model.type === "reblog")) return false
+            return typeof model.quote_id !== "undefined" && model.quote_id.length > 0
+        }
+        width: parent.width - Theme.horizontalPageMargin * 2 - avatar.width - Theme.paddingMedium
+        height: visible ? quotedPostContent.implicitHeight + Theme.paddingMedium * 2 : 0
+        color: Theme.rgba(Theme.highlightBackgroundColor, 0.1)
+        border.color: Theme.rgba(Theme.highlightColor, 0.4)
+        border.width: 1
+        radius: Theme.paddingSmall
+        anchors {
+            left: lblContent.left
+            right: lblContent.right
+            top: linkPreview.visible ? linkPreview.bottom : ((typeof attachments !== "undefined" && attachments.count) ? media.bottom : (showMoreLabel.visible ? showMoreLabel.bottom : lblContent.bottom))
+            topMargin: Theme.paddingMedium
+        }
+
+        MouseArea {
+            anchors.fill: parent
+            onClicked: {
+                // Open the quoted post in conversation view
+                var m = Qt.createQmlObject('import QtQuick 2.0; ListModel { dynamicRoles:true }', Qt.application, 'InternalQmlObject');
+                pageStack.push(Qt.resolvedUrl("../ConversationPage.qml"), {
+                    headerTitle: qsTr("Conversation"),
+                    "status_id": model.quote_id,
+                    "status_url": model.quote_url,
+                    mdl: m,
+                    type: "reply"
+                })
+            }
+        }
+
+        Column {
+            id: quotedPostContent
+            anchors {
+                left: parent.left
+                right: parent.right
+                top: parent.top
+                margins: Theme.paddingMedium
+            }
+            spacing: Theme.paddingSmall
+
+            // Quoted author row with avatar, display name and username
+            Row {
+                width: parent.width
+                spacing: Theme.paddingSmall
+
+                Image {
+                    id: quotedAvatar
+                    width: Theme.iconSizeSmall
+                    height: Theme.iconSizeSmall
+                    source: typeof model.quote_account_avatar !== "undefined" ? model.quote_account_avatar : ""
+                    asynchronous: true
+                    smooth: true
+
+                    MouseArea {
+                        anchors.fill: parent
+                        onClicked: {
+                            // Open quoted user's profile
+                            pageStack.push(Qt.resolvedUrl("../ProfilePage.qml"), {
+                                "display_name": model.quote_account_display_name,
+                                "username": model.quote_account_acct,
+                                "user_id": model.quote_account_id,
+                                "profileImage": model.quote_account_avatar
+                            })
+                        }
+                    }
+                }
+
+                Column {
+                    width: parent.width - quotedAvatar.width - Theme.paddingSmall
+                    spacing: 0
+
+                    Label {
+                        text: typeof model.quote_account_display_name !== "undefined" ? model.quote_account_display_name : ""
+                        font.pixelSize: Theme.fontSizeExtraSmall
+                        font.bold: true
+                        color: Theme.highlightColor
+                        truncationMode: TruncationMode.Fade
+                        width: parent.width
+                    }
+
+                    Label {
+                        text: typeof model.quote_account_acct !== "undefined" ? "@" + model.quote_account_acct : ""
+                        font.pixelSize: Theme.fontSizeTiny
+                        color: Theme.secondaryColor
+                        truncationMode: TruncationMode.Fade
+                        width: parent.width
+                    }
+                }
+            }
+
+            // Quoted content - smaller than main toot
+            Label {
+                text: {
+                    var content = typeof model.quote_content !== "undefined" ? model.quote_content : ""
+                    // Strip HTML tags for cleaner display
+                    content = content.replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim()
+                    return content
+                }
+                font.pixelSize: Theme.fontSizeExtraSmall * appWindow.fontScale
+                color: Theme.primaryColor
+                wrapMode: Text.Wrap
+                maximumLineCount: 6
+                truncationMode: TruncationMode.Elide
+                width: parent.width
+            }
+        }
+    }
+
     // Context menu for Toots
     ContextMenu {
         id: mnu
@@ -475,6 +597,34 @@ BackgroundItem {
                 anchors {
                     left: icRT.right
                     leftMargin: Theme.paddingMedium
+                    verticalCenter: parent.verticalCenter
+                }
+            }
+        }
+
+        MenuItem {
+            id: mnuQuote
+            visible: model.type !== "follow"
+            enabled: model.status_visibility !== "direct"
+            text: qsTr("Quote")
+            onClicked: {
+                pageStack.push(Qt.resolvedUrl("../ConversationPage.qml"), {
+                                   headerTitle: qsTr("Quote"),
+                                   quoted_status_id: model.status_id,
+                                   quoted_account_acct: model.account_acct,
+                                   quoted_content: model.content,
+                                   type: "new"
+                               })
+            }
+
+            Icon {
+                id: icQuote
+                source: "image://theme/icon-s-edit?" + Theme.highlightColor
+                width: Theme.iconSizeSmall
+                height: width
+                anchors {
+                    leftMargin: Theme.horizontalPageMargin
+                    left: parent.left
                     verticalCenter: parent.verticalCenter
                 }
             }

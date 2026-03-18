@@ -70,16 +70,33 @@
         <translation>Le texte alternatif permet de rendre le contenu accessible aux personnes aveugles ou malvoyantes.</translation>
     </message>
     <message>
-        <source>Add Media</source>
-        <translation>Ajouter un média</translation>
+        <source>Reply</source>
+        <extracomment>&quot;Reply&quot; will show the Toot text entry Panel. &quot;Hide Reply&quot; closes it. Alternative: Use &quot;Close Reply&quot;</extracomment>
+        <translation type="unfinished">Répondre</translation>
     </message>
     <message>
-        <source>Post Visibility</source>
-        <translation>Visibilité</translation>
+        <source>Hide Reply</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Post Language</source>
-        <translation>Langue du pouet</translation>
+        <source>Removing</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Public</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Unlisted</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Followers-only</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Direct</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -172,10 +189,6 @@
         <source>Trending</source>
         <translation>Tendance</translation>
     </message>
-    <message>
-        <source>Conversation</source>
-        <translation>Conversation</translation>
-    </message>
 </context>
 <context>
     <name>MediaFullScreen</name>
@@ -213,20 +226,9 @@
         <source>followed you</source>
         <translation>vous suit</translation>
     </message>
-    <message numerus="yes">
-        <source>and %n other(s)</source>
-        <translation>
-            <numerusform>et %n autre</numerusform>
-            <numerusform>et %n autres</numerusform>
-        </translation>
-    </message>
 </context>
 <context>
     <name>MyList</name>
-    <message>
-        <source>Loading...</source>
-        <translation>Chargement...</translation>
-    </message>
     <message>
         <source>Settings</source>
         <translation>Paramètres</translation>
@@ -242,6 +244,14 @@
     <message>
         <source>Reload</source>
         <translation>Recharger</translation>
+    </message>
+    <message>
+        <source>Nothing found</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>My Profile</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -319,21 +329,6 @@
         <source>Block</source>
         <extracomment>Is a button. Keep it as short as possible.</extracomment>
         <translation>Bloquer</translation>
-    </message>
-</context>
-<context>
-    <name>ReaderPage</name>
-    <message>
-        <source>Share</source>
-        <translation>Partager</translation>
-    </message>
-    <message>
-        <source>Copy link</source>
-        <translation>Ouvrir le lien</translation>
-    </message>
-    <message>
-        <source>Open in browser</source>
-        <translation>Ouvrir dans le navigateur</translation>
     </message>
 </context>
 <context>
@@ -445,28 +440,20 @@
         <translation>Traduction norvégienne</translation>
     </message>
     <message>
-        <source>Show Full Usernames</source>
-        <translation>Afficher le nom d’utilisateur complet</translation>
-    </message>
-    <message>
-        <source>Display @user@domain instead of @user</source>
-        <translation>Afficher @utilisateur@domaine au lieu de @utilisateur</translation>
-    </message>
-    <message>
-        <source>Open Links in Reader Mode</source>
-        <translation>Ouvrir les liens en mode lecture</translation>
-    </message>
-    <message>
-        <source>Display articles in a clean reading view</source>
-        <translation>Afficher les articles dans une vue épurée</translation>
-    </message>
-    <message>
         <source>Font Size</source>
         <translation>Taille police</translation>
     </message>
     <message>
         <source>Sample text</source>
         <translation>Texte de démo</translation>
+    </message>
+    <message>
+        <source>Quick Scroll Arrows</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show arrows to jump to top/bottom when scrolling fast</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -504,60 +491,12 @@
         <translation>Ajouter aux marque-pages</translation>
     </message>
     <message>
-        <source>Loading...</source>
-        <translation>Chargement...</translation>
-    </message>
-    <message>
-        <source>Load more</source>
-        <translation>Charger plus</translation>
-    </message>
-    <message>
-        <source>replying to @%1</source>
-        <translation>réponse a @%1</translation>
-    </message>
-    <message>
-        <source>replying to thread</source>
-        <translation>réponse à un fil</translation>
-    </message>
-    <message>
         <source>Show less</source>
         <translation>Afficher moins</translation>
     </message>
     <message>
         <source>Show more</source>
         <translation>Afficher plus</translation>
-    </message>
-    <message>
-        <source>Vote</source>
-        <translation>Voter</translation>
-    </message>
-    <message>
-        <source>votes</source>
-        <translation>votes</translation>
-    </message>
-    <message>
-        <source>Closed</source>
-        <translation>Terminé</translation>
-    </message>
-    <message>
-        <source>days left</source>
-        <translation>jours restants</translation>
-    </message>
-    <message>
-        <source>hours left</source>
-        <translation>heures restantes</translation>
-    </message>
-    <message>
-        <source>minutes left</source>
-        <translation>minutes restantes</translation>
-    </message>
-    <message>
-        <source>Reply</source>
-        <translation>Répondre</translation>
-    </message>
-    <message>
-        <source>Quote</source>
-        <translation>Citer</translation>
     </message>
     <message>
         <source>Delete</source>

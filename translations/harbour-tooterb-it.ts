@@ -70,15 +70,32 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Add Media</source>
+        <source>Reply</source>
+        <extracomment>&quot;Reply&quot; will show the Toot text entry Panel. &quot;Hide Reply&quot; closes it. Alternative: Use &quot;Close Reply&quot;</extracomment>
+        <translation type="unfinished">Rispondere</translation>
+    </message>
+    <message>
+        <source>Hide Reply</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Post Visibility</source>
+        <source>Removing</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Post Language</source>
+        <source>Public</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Unlisted</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Followers-only</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Direct</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -172,10 +189,6 @@
         <source>Trending</source>
         <translation type="unfinished"></translation>
     </message>
-    <message>
-        <source>Conversation</source>
-        <translation type="unfinished">Conversazione</translation>
-    </message>
 </context>
 <context>
     <name>MediaFullScreen</name>
@@ -213,20 +226,9 @@
         <source>followed you</source>
         <translation>ha iniziato a seguirti</translation>
     </message>
-    <message numerus="yes">
-        <source>and %n other(s)</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-        </translation>
-    </message>
 </context>
 <context>
     <name>MyList</name>
-    <message>
-        <source>Loading...</source>
-        <translation type="unfinished"></translation>
-    </message>
     <message>
         <source>Settings</source>
         <translation type="unfinished">Impostazioni</translation>
@@ -241,6 +243,14 @@
     </message>
     <message>
         <source>Reload</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Nothing found</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>My Profile</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -319,21 +329,6 @@
         <source>Block</source>
         <extracomment>Is a button. Keep it as short as possible.</extracomment>
         <translation>Blocca</translation>
-    </message>
-</context>
-<context>
-    <name>ReaderPage</name>
-    <message>
-        <source>Share</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Copy link</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Open in browser</source>
-        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -445,27 +440,19 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Show Full Usernames</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Display @user@domain instead of @user</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Open Links in Reader Mode</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Display articles in a clean reading view</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Font Size</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Sample text</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Quick Scroll Arrows</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show arrows to jump to top/bottom when scrolling fast</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -504,59 +491,11 @@
         <translation>Aggiungi segnalibro</translation>
     </message>
     <message>
-        <source>Loading...</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Load more</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>replying to @%1</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>replying to thread</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Show less</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Show more</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Vote</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>votes</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Closed</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>days left</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>hours left</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>minutes left</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Reply</source>
-        <translation type="unfinished">Rispondere</translation>
-    </message>
-    <message>
-        <source>Quote</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

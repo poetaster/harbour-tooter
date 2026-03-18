@@ -74,13 +74,13 @@ DISTFILES += qml/harbour-tooterb.qml \
     qml/pages/MainPage.qml \
     qml/pages/LoginPage.qml \
     qml/pages/Browser.qml \
-    qml/lib/API.js \
     qml/images/icon-s-following \
     qml/images/icon-s-bookmark \
     qml/images/icon-m-bookmark \
     qml/images/icon-m-emoji.svg \
     qml/images/icon-m-profile.svg \
     qml/images/icon-l-profile.svg \
+    qml/lib/API.js \
     qml/lib/Mastodon.js \
     qml/lib/Worker.js \
     config/icon-lock-harbour-tooterb.png \
@@ -90,7 +90,6 @@ DISTFILES += qml/harbour-tooterb.qml \
     rpm/harbour-tooterb.spec \
     translations/*.ts \
     harbour-tooterb.desktop \
-    translations/harbour-tooter-no.ts
 
 SAILFISHAPP_ICONS = 86x86 108x108 128x128 172x172
 
@@ -103,6 +102,7 @@ TRANSLATIONS += translations/harbour-tooterb.ts \
     translations/harbour-tooterb-el.ts \
     translations/harbour-tooterb-es.ts \
     translations/harbour-tooterb-fr.ts \
+    translations/harbour-tooterb-fi.ts \
     translations/harbour-tooterb-it.ts \
     translations/harbour-tooterb-nl.ts \
     translations/harbour-tooterb-nl_BE.ts \
@@ -111,7 +111,5 @@ TRANSLATIONS += translations/harbour-tooterb.ts \
     translations/harbour-tooterb-ru.ts \
     translations/harbour-tooterb-sr.ts \
     translations/harbour-tooterb-sv.ts \
-    #translations/harbour-tooterb-no.ts \
     translations/harbour-tooterb-nb.ts
-    #translations/harbour-tooterb-nb_NO.ts
     translations/harbour-tooterb-zh_CN.ts

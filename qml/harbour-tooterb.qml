@@ -40,6 +40,8 @@ ApplicationWindow {
 
     // Global font scale property - reactive, updates UI immediately
     property real fontScale: 1.0
+    // Global quick scroll setting - reactive
+    property bool quickScrollEnabled: true
 
     Component.onCompleted: {
         var obj = {}
@@ -53,6 +55,8 @@ ApplicationWindow {
                 Logic.conf['accounts'] = []
             if (typeof Logic.conf['fontScale'] !== "undefined")
                 appWindow.fontScale = Logic.conf['fontScale']
+            if (typeof Logic.conf['quickScroll'] !== "undefined")
+                appWindow.quickScrollEnabled = Logic.conf['quickScroll']
 
             var oldAccountParameters = ['api_user_token', 'instance', 'login']
             if (oldAccountParameters.every(function(el) { return el in Logic.conf })) {

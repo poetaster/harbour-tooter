@@ -421,6 +421,19 @@ function parseToot (data) {
         item = parseAccounts(item, "", data["account"])
     }
 
+    /** Link Preview Card */
+    var cardData = item['status_reblog'] ? data["reblog"]["card"] : data["card"]
+    if (cardData) {
+        item['card_url'] = cardData["url"] || ''
+        item['card_title'] = cardData["title"] || ''
+        item['card_description'] = cardData["description"] || ''
+        item['card_image'] = cardData["image"] || ''
+        item['card_type'] = cardData["type"] || 'link'
+        item['card_provider'] = cardData["provider_name"] || ''
+    } else {
+        item['card_url'] = ''
+    }
+
     /** Replace HTML content in Toots */
     item['content'] = item['content']
     .replaceAll('</span><span class="invisible">', '')

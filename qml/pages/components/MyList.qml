@@ -7,6 +7,8 @@ import "."
 SilicaListView {
     id: myList
 
+    quickScroll: appWindow.quickScrollEnabled
+
     property bool debug: false
     property string type
     property string title
@@ -77,6 +79,31 @@ SilicaListView {
             visible: ! parent.profilePage
             onClicked: {
                 pageStack.push(Qt.resolvedUrl("../SettingsPage.qml"), {})
+            }
+        }
+        MenuItem {
+            text: qsTr("My Profile")
+            visible: ! parent.profilePage
+            onClicked: {
+                var activeAccount = Logic.conf.accounts && Logic.conf.accounts[Logic.conf.activeAccount]
+                if (activeAccount && activeAccount.userInfo) {
+                    var user = activeAccount.userInfo
+                    pageStack.push(Qt.resolvedUrl("../ProfilePage.qml"), {
+                        "display_name": user.account_display_name,
+                        "username": user.account_acct || user.account_username,
+                        "user_id": user.account_id,
+                        "profileImage": user.account_avatar,
+                        "profileBackground": user.account_header,
+                        "note": user.account_note,
+                        "url": user.account_url,
+                        "followers_count": user.account_followers_count,
+                        "following_count": user.account_following_count,
+                        "statuses_count": user.account_statuses_count,
+                        "locked": user.account_locked,
+                        "bot": user.account_bot,
+                        "group": user.account_group
+                    })
+                }
             }
         }
         MenuItem {

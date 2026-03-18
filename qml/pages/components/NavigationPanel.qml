@@ -10,6 +10,7 @@ SilicaGridView {
     property bool isPortrait: true
     signal slideshowShow(int vIndex)
     signal slideshowIndexChanged(int vIndex)
+    signal scrollToTop(int vIndex)
 
     property var dockedPanelMouseArea
     readonly property real menuHeight: headerItem.implicitHeight
@@ -88,7 +89,7 @@ SilicaGridView {
             unread: false
         }
         ListElement {
-            icon: "image://theme/icon-m-like?"
+            icon: "image://theme/icon-camera-flash-on?"
             slug: "trending"
             name: "Trending"
             active: false
@@ -156,9 +157,13 @@ SilicaGridView {
         }
 
         onClicked: {
-            slideshowShow(index)
-            console.log(index)
-            navigateTo(model.slug)
+            if (model.active) {
+                // Already on this tab - scroll to top
+                scrollToTop(index)
+            } else {
+                slideshowShow(index)
+                navigateTo(model.slug)
+            }
             effect.state = "right"
         }
 

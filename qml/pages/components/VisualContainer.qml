@@ -51,7 +51,7 @@ BackgroundItem {
 
     height: if (myList.type === "notifications" && ( model.type === "favourite" || model.type === "reblog" )) {
                 mnu.height + miniHeader.height + Theme.paddingLarge + lblContent.height + Theme.paddingLarge + (miniStatus.visible ? miniStatus.height : 0)
-            } else mnu.height + miniHeader.height + (typeof attachments !== "undefined" && attachments.count ? media.height + Theme.paddingLarge + Theme.paddingMedium: Theme.paddingLarge) + lblContent.height + (isLongPost ? showMoreLabel.height : 0) + Theme.paddingLarge + (miniStatus.visible ? miniStatus.height : 0) + (iconDirectMsg.visible ? iconDirectMsg.height : 0)
+            } else mnu.height + miniHeader.height + (typeof attachments !== "undefined" && attachments.count ? media.height + Theme.paddingLarge + Theme.paddingMedium: Theme.paddingLarge) + lblContent.height + (isLongPost ? showMoreLabel.height : 0) + (linkPreview.visible ? linkPreview.height + Theme.paddingMedium : 0) + Theme.paddingLarge + (miniStatus.visible ? miniStatus.height : 0) + (iconDirectMsg.visible ? iconDirectMsg.height : 0)
 
     // Background for Direct Messages in Notification View
     Rectangle {
@@ -340,6 +340,93 @@ BackgroundItem {
             top: showMoreLabel.visible ? showMoreLabel.bottom : lblContent.bottom
             topMargin: Theme.paddingMedium
             bottomMargin: Theme.paddingLarge
+        }
+    }
+
+    // Link Preview Card
+    Rectangle {
+        id: linkPreview
+        visible: {
+            if (myList.type === "notifications" && (model.type === "favourite" || model.type === "reblog")) return false
+            return typeof model.card_url !== "undefined" && model.card_url.length > 0
+        }
+        width: parent.width - Theme.horizontalPageMargin * 2 - avatar.width - Theme.paddingMedium
+        height: visible ? linkPreviewContent.height + Theme.paddingMedium * 2 : 0
+        color: Theme.rgba(Theme.highlightBackgroundColor, 0.1)
+        radius: Theme.paddingSmall
+        anchors {
+            left: lblContent.left
+            right: lblContent.right
+            top: (typeof attachments !== "undefined" && attachments.count) ? media.bottom : (showMoreLabel.visible ? showMoreLabel.bottom : lblContent.bottom)
+            topMargin: Theme.paddingMedium
+        }
+
+        MouseArea {
+            anchors.fill: parent
+            onClicked: Qt.openUrlExternally(model.card_url)
+        }
+
+        Row {
+            id: linkPreviewContent
+            anchors {
+                fill: parent
+                margins: Theme.paddingMedium
+            }
+            spacing: Theme.paddingMedium
+
+            // Thumbnail (if available)
+            Image {
+                id: cardImage
+                visible: typeof model.card_image !== "undefined" && model.card_image.length > 0
+                width: visible ? Theme.itemSizeLarge : 0
+                height: Theme.itemSizeLarge
+                source: visible ? model.card_image : ""
+                fillMode: Image.PreserveAspectCrop
+                asynchronous: true
+                onStatusChanged: {
+                    if (status === Image.Error) visible = false
+                }
+            }
+
+            Column {
+                id: linkPreviewText
+                width: parent.width - (cardImage.visible ? cardImage.width + Theme.paddingMedium : 0)
+                spacing: Theme.paddingSmall / 2
+
+                // Provider name
+                Label {
+                    visible: typeof model.card_provider !== "undefined" && model.card_provider.length > 0
+                    text: model.card_provider || ""
+                    font.pixelSize: Theme.fontSizeTiny
+                    color: Theme.secondaryColor
+                    truncationMode: TruncationMode.Fade
+                    width: parent.width
+                }
+
+                // Title
+                Label {
+                    text: typeof model.card_title !== "undefined" ? model.card_title : ""
+                    font.pixelSize: Theme.fontSizeSmall
+                    font.bold: true
+                    color: Theme.highlightColor
+                    wrapMode: Text.Wrap
+                    maximumLineCount: 2
+                    truncationMode: TruncationMode.Elide
+                    width: parent.width
+                }
+
+                // Description (truncated)
+                Label {
+                    visible: typeof model.card_description !== "undefined" && model.card_description.length > 0
+                    text: model.card_description || ""
+                    font.pixelSize: Theme.fontSizeExtraSmall
+                    color: Theme.secondaryHighlightColor
+                    wrapMode: Text.Wrap
+                    maximumLineCount: 2
+                    truncationMode: TruncationMode.Elide
+                    width: parent.width
+                }
+            }
         }
     }
 

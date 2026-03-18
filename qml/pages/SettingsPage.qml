@@ -42,6 +42,17 @@ Page {
                 }
             }
 
+            IconTextSwitch {
+                text: qsTr("Quick Scroll Arrows")
+                description: qsTr("Show arrows to jump to top/bottom when scrolling fast")
+                icon.source: "image://theme/icon-m-up"
+                checked: typeof Logic.conf['quickScroll'] === "undefined" || Logic.conf['quickScroll']
+                onClicked: {
+                    Logic.conf['quickScroll'] = checked
+                    appWindow.quickScrollEnabled = checked
+                }
+            }
+
             Item {
                 width: parent.width
                 height: fontSizeColumn.height

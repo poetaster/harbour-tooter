@@ -29,6 +29,13 @@ Page {
 
                 slideshow.positionViewAtIndex(vIndex, ListView.SnapToItem)
             }
+            onScrollToTop: {
+                // Scroll the corresponding list to top
+                var lists = [tlHome, tlNotifications, tlLocal, tlPublic, tlBookmarks, null, tlTrending]
+                if (lists[vIndex]) {
+                    lists[vIndex].positionViewAtBeginning()
+                }
+            }
         }
     }
 

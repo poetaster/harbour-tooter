@@ -471,6 +471,151 @@ Instead of full cropping, implement focal point selection:
 
 ---
 
+### 1.10 Quote Boosts (Quote Posts)
+**Effort:** 4-6 hours | **Priority:** Medium
+
+**Problem:** Mastodon now supports native quote posts (quote boosts), where a user can quote another post with their own commentary. Tooter doesn't currently display these quoted posts inline.
+
+**API Data:** When a status quotes another, the API returns a `quote` object:
+```json
+{
+  "id": "123456",
+  "content": "<p>My commentary on this post</p>",
+  "quote": {
+    "id": "789012",
+    "content": "<p>The original quoted post content</p>",
+    "account": {
+      "display_name": "Original Author",
+      "acct": "author@instance.social",
+      "avatar": "https://..."
+    },
+    "created_at": "2024-01-01T12:00:00Z",
+    "media_attachments": []
+  }
+}
+```
+
+**Files to modify:**
+- `qml/lib/Worker.js` - Parse `quote` object from status response
+- `qml/pages/components/VisualContainer.qml` - Add quoted post display component
+
+**Implementation:**
+
+1. **Worker.js - Parse quote data in parseToot:**
+```javascript
+// In parseToot function, after card parsing
+if (data["quote"]) {
+    item['quote_id'] = data["quote"]["id"]
+    item['quote_content'] = data["quote"]["content"]
+    item['quote_account_display_name'] = data["quote"]["account"]["display_name"]
+    item['quote_account_acct'] = data["quote"]["account"]["acct"]
+    item['quote_account_avatar'] = data["quote"]["account"]["avatar"]
+    item['quote_created_at'] = new Date(data["quote"]["created_at"])
+    item['quote_url'] = data["quote"]["url"] || ''
+} else {
+    item['quote_id'] = ''
+}
+
+// Handle quotes in reblogs too
+if (item['status_reblog'] && data["reblog"]["quote"]) {
+    var q = data["reblog"]["quote"]
+    item['quote_id'] = q["id"]
+    item['quote_content'] = q["content"]
+    // ... same fields
+}
+```
+
+2. **VisualContainer.qml - Add quoted post display:**
+```qml
+// After linkPreview, before context menu
+Rectangle {
+    id: quotedPost
+    visible: typeof model.quote_id !== "undefined" && model.quote_id.length > 0
+    width: parent.width - Theme.horizontalPageMargin * 2 - avatar.width - Theme.paddingMedium
+    height: visible ? quotedContent.height + Theme.paddingMedium * 2 : 0
+    color: "transparent"
+    border.color: Theme.rgba(Theme.highlightColor, 0.3)
+    border.width: 1
+    radius: Theme.paddingSmall
+    anchors {
+        left: lblContent.left
+        right: lblContent.right
+        top: linkPreview.visible ? linkPreview.bottom :
+             ((typeof attachments !== "undefined" && attachments.count) ? media.bottom :
+             (showMoreLabel.visible ? showMoreLabel.bottom : lblContent.bottom))
+        topMargin: Theme.paddingMedium
+    }
+
+    MouseArea {
+        anchors.fill: parent
+        onClicked: {
+            // Navigate to the quoted post
+            if (model.quote_url) Qt.openUrlExternally(model.quote_url)
+        }
+    }
+
+    Column {
+        id: quotedContent
+        anchors {
+            left: parent.left
+            right: parent.right
+            top: parent.top
+            margins: Theme.paddingMedium
+        }
+        spacing: Theme.paddingSmall
+
+        // Quoted post header (avatar + name)
+        Row {
+            spacing: Theme.paddingSmall
+            Image {
+                width: Theme.iconSizeSmall
+                height: Theme.iconSizeSmall
+                source: model.quote_account_avatar || ""
+                fillMode: Image.PreserveAspectCrop
+            }
+            Label {
+                text: model.quote_account_display_name || ""
+                font.pixelSize: Theme.fontSizeExtraSmall
+                font.bold: true
+                color: Theme.highlightColor
+            }
+            Label {
+                text: "@" + (model.quote_account_acct || "")
+                font.pixelSize: Theme.fontSizeExtraSmall
+                color: Theme.secondaryColor
+            }
+        }
+
+        // Quoted post content (truncated)
+        Label {
+            text: model.quote_content || ""
+            font.pixelSize: Theme.fontSizeExtraSmall
+            color: Theme.primaryColor
+            wrapMode: Text.Wrap
+            maximumLineCount: 4
+            truncationMode: TruncationMode.Elide
+            width: parent.width
+            textFormat: Text.StyledText
+        }
+    }
+}
+```
+
+**Considerations:**
+- Quote posts are a relatively new Mastodon feature (added in Mastodon 4.x)
+- Need to check server compatibility - older servers may not support quotes
+- Quoted posts can themselves have media attachments (consider showing thumbnail)
+- Clicking on quoted post should navigate to that post's conversation
+- Consider visual distinction (border, background) to clearly show it's a quote
+
+**Creating Quote Posts:**
+To allow users to create quote posts, ConversationPage.qml would need:
+- Accept a `quote_id` parameter
+- Show preview of quoted post in compose area
+- Send `quote_id` with POST to `/api/v1/statuses`
+
+---
+
 ## Part 2: Performance Improvements
 
 ### 2.1 Deduplication Algorithm - O(n²) → O(n)

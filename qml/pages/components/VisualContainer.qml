@@ -351,11 +351,10 @@ BackgroundItem {
             return typeof model.card_url !== "undefined" && model.card_url.length > 0
         }
         width: parent.width - Theme.horizontalPageMargin * 2 - avatar.width - Theme.paddingMedium
-        // Fixed height based on image size or text content
-        height: visible ? Theme.itemSizeLarge + Theme.paddingMedium * 2 : 0
+        // Dynamic height: max of image height or text content height
+        height: visible ? Math.max(Theme.itemSizeLarge, linkPreviewText.implicitHeight) + Theme.paddingMedium * 2 : 0
         color: Theme.rgba(Theme.highlightBackgroundColor, 0.1)
         radius: Theme.paddingSmall
-        clip: true
         anchors {
             left: lblContent.left
             right: lblContent.right
@@ -368,72 +367,69 @@ BackgroundItem {
             onClicked: Qt.openUrlExternally(model.card_url)
         }
 
-        Row {
-            id: linkPreviewContent
+        // Thumbnail (if available)
+        Image {
+            id: cardImage
+            visible: typeof model.card_image !== "undefined" && model.card_image.length > 0
+            width: visible ? Theme.itemSizeLarge : 0
+            height: Theme.itemSizeLarge
+            source: visible ? model.card_image : ""
+            fillMode: Image.PreserveAspectCrop
+            asynchronous: true
             anchors {
                 left: parent.left
-                right: parent.right
                 top: parent.top
                 margins: Theme.paddingMedium
             }
-            height: Theme.itemSizeLarge
-            spacing: Theme.paddingMedium
-            clip: true
+            onStatusChanged: {
+                if (status === Image.Error) visible = false
+            }
+        }
 
-            // Thumbnail (if available)
-            Image {
-                id: cardImage
-                visible: typeof model.card_image !== "undefined" && model.card_image.length > 0
-                width: visible ? Theme.itemSizeLarge : 0
-                height: Theme.itemSizeLarge
-                source: visible ? model.card_image : ""
-                fillMode: Image.PreserveAspectCrop
-                asynchronous: true
-                onStatusChanged: {
-                    if (status === Image.Error) visible = false
-                }
+        Column {
+            id: linkPreviewText
+            anchors {
+                left: cardImage.visible ? cardImage.right : parent.left
+                right: parent.right
+                top: parent.top
+                leftMargin: cardImage.visible ? Theme.paddingMedium : Theme.paddingMedium
+                rightMargin: Theme.paddingMedium
+                topMargin: Theme.paddingMedium
+            }
+            spacing: Theme.paddingSmall / 2
+
+            // Provider name
+            Label {
+                visible: typeof model.card_provider !== "undefined" && model.card_provider.length > 0
+                text: model.card_provider || ""
+                font.pixelSize: Theme.fontSizeTiny
+                color: Theme.secondaryColor
+                truncationMode: TruncationMode.Fade
+                width: parent.width
             }
 
-            Column {
-                id: linkPreviewText
-                width: parent.width - (cardImage.visible ? cardImage.width + Theme.paddingMedium : 0)
-                height: parent.height
-                spacing: Theme.paddingSmall / 2
-                clip: true
+            // Title
+            Label {
+                text: typeof model.card_title !== "undefined" ? model.card_title : ""
+                font.pixelSize: Theme.fontSizeSmall
+                font.bold: true
+                color: Theme.highlightColor
+                wrapMode: Text.Wrap
+                maximumLineCount: 2
+                truncationMode: TruncationMode.Elide
+                width: parent.width
+            }
 
-                // Provider name
-                Label {
-                    visible: typeof model.card_provider !== "undefined" && model.card_provider.length > 0
-                    text: model.card_provider || ""
-                    font.pixelSize: Theme.fontSizeTiny
-                    color: Theme.secondaryColor
-                    truncationMode: TruncationMode.Fade
-                    width: parent.width
-                }
-
-                // Title
-                Label {
-                    text: typeof model.card_title !== "undefined" ? model.card_title : ""
-                    font.pixelSize: Theme.fontSizeSmall
-                    font.bold: true
-                    color: Theme.highlightColor
-                    wrapMode: Text.Wrap
-                    maximumLineCount: 2
-                    truncationMode: TruncationMode.Elide
-                    width: parent.width
-                }
-
-                // Description (truncated)
-                Label {
-                    visible: typeof model.card_description !== "undefined" && model.card_description.length > 0
-                    text: model.card_description || ""
-                    font.pixelSize: Theme.fontSizeExtraSmall
-                    color: Theme.secondaryHighlightColor
-                    wrapMode: Text.Wrap
-                    maximumLineCount: 1
-                    truncationMode: TruncationMode.Elide
-                    width: parent.width
-                }
+            // Description (truncated)
+            Label {
+                visible: typeof model.card_description !== "undefined" && model.card_description.length > 0
+                text: model.card_description || ""
+                font.pixelSize: Theme.fontSizeExtraSmall
+                color: Theme.secondaryHighlightColor
+                wrapMode: Text.Wrap
+                maximumLineCount: 3
+                truncationMode: TruncationMode.Elide
+                width: parent.width
             }
         }
     }

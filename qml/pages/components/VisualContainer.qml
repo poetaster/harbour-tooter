@@ -7,13 +7,51 @@ BackgroundItem {
     id: delegate
 
     property bool debug:false
+    property bool expanded: false
+    property int charLimit: 500
+
+    // Helper function to strip HTML and get text length
+    function getTextLength(html) {
+        if (!html) return 0
+        return html.replace(/<[^>]*>/g, '').length
+    }
+
+    // Helper function to truncate HTML content
+    function truncateContent(html, limit) {
+        if (!html) return ''
+        var text = html.replace(/<[^>]*>/g, '')
+        if (text.length <= limit) return html
+
+        // Find truncation point
+        var truncateAt = limit
+        var lastSpace = text.lastIndexOf(' ', limit)
+        if (lastSpace > limit - 100) truncateAt = lastSpace
+
+        // Count characters while preserving HTML
+        var charCount = 0
+        var inTag = false
+        var result = ''
+        for (var i = 0; i < html.length && charCount < truncateAt; i++) {
+            var c = html.charAt(i)
+            if (c === '<') inTag = true
+            if (!inTag) charCount++
+            result += c
+            if (c === '>') inTag = false
+        }
+        // Close any open tags roughly (simplified)
+        return result
+    }
+
+    property bool isLongPost: getTextLength(content) > charLimit
 
     signal send (string notice)
     signal navigateTo(string link)
 
+    RemorseItem { id: remorseDelete }
+
     height: if (myList.type === "notifications" && ( model.type === "favourite" || model.type === "reblog" )) {
                 mnu.height + miniHeader.height + Theme.paddingLarge + lblContent.height + Theme.paddingLarge + (miniStatus.visible ? miniStatus.height : 0)
-            } else mnu.height + miniHeader.height + (typeof attachments !== "undefined" && attachments.count ? media.height + Theme.paddingLarge + Theme.paddingMedium: Theme.paddingLarge) + lblContent.height + Theme.paddingLarge + (miniStatus.visible ? miniStatus.height : 0) + (iconDirectMsg.visible ? iconDirectMsg.height : 0)
+            } else mnu.height + miniHeader.height + (typeof attachments !== "undefined" && attachments.count ? media.height + Theme.paddingLarge + Theme.paddingMedium: Theme.paddingLarge) + lblContent.height + (isLongPost ? showMoreLabel.height : 0) + Theme.paddingLarge + (miniStatus.visible ? miniStatus.height : 0) + (iconDirectMsg.visible ? iconDirectMsg.height : 0)
 
     // Background for Direct Messages in Notification View
     Rectangle {
@@ -168,9 +206,19 @@ BackgroundItem {
     Label  {
         id: lblContent
         visible: model.type !== "follow"
-        text: if (myList.type === "notifications" && ( model.type === "favourite" || model.type === "reblog" )) {
-                  content
-              } else content.replace(new RegExp("<a ", 'g'), '<a style="text-decoration: none; color:'+(pressed ?  Theme.secondaryColor : Theme.highlightColor)+'" ')
+        text: {
+            var displayContent = content
+            // Truncate if long post and not expanded (not for notifications)
+            if (isLongPost && !expanded && !(myList.type === "notifications" && (model.type === "favourite" || model.type === "reblog"))) {
+                displayContent = truncateContent(content, charLimit) + "..."
+            }
+            // Apply link styling for non-notification views
+            if (myList.type === "notifications" && (model.type === "favourite" || model.type === "reblog")) {
+                return displayContent
+            } else {
+                return displayContent.replace(new RegExp("<a ", 'g'), '<a style="text-decoration: none; color:'+(pressed ? Theme.secondaryColor : Theme.highlightColor)+'" ')
+            }
+        }
         textFormat: myList.type === "notifications" && ( model.type === "favourite" || model.type === "reblog" ) ? Text.StyledText : Text.RichText
         font.pixelSize: Theme.fontSizeSmall
         wrapMode: Text.Wrap
@@ -257,6 +305,27 @@ BackgroundItem {
         }
     }
 
+    // Show more / Show less label for long posts
+    Label {
+        id: showMoreLabel
+        visible: isLongPost && !(myList.type === "notifications" && (model.type === "favourite" || model.type === "reblog"))
+        text: expanded ? qsTr("Show less") : qsTr("Show more")
+        font.pixelSize: Theme.fontSizeSmall
+        color: Theme.highlightColor
+        anchors {
+            left: lblContent.left
+            top: lblContent.bottom
+            topMargin: Theme.paddingSmall
+        }
+
+        MouseArea {
+            anchors.fill: parent
+            onClicked: {
+                expanded = !expanded
+            }
+        }
+    }
+
     // Displays media in Toots
     MediaBlock {
         id: media
@@ -268,7 +337,7 @@ BackgroundItem {
             leftMargin: isPortrait ? 0 : Theme.itemSizeSmall
             right: lblContent.right
             rightMargin: isPortrait ? 0 : Theme.itemSizeLarge * 1.2
-            top: lblContent.bottom
+            top: showMoreLabel.visible ? showMoreLabel.bottom : lblContent.bottom
             topMargin: Theme.paddingMedium
             bottomMargin: Theme.paddingLarge
         }
@@ -381,6 +450,41 @@ BackgroundItem {
                 id: icBM
                 source: "../../images/icon-s-bookmark.svg?"
                 color: !model.status_bookmarked ? Theme.highlightColor : Theme.primaryColor
+                width: Theme.iconSizeSmall
+                height: width
+                anchors {
+                    left: parent.left
+                    leftMargin: Theme.horizontalPageMargin + Theme.paddingMedium
+                    verticalCenter: parent.verticalCenter
+                }
+            }
+        }
+
+        MenuItem {
+            id: mnuDelete
+            // Only show for user's own posts
+            visible: {
+                if (model.type === "follow") return false
+                var activeAccount = Logic.conf.accounts && Logic.conf.accounts[Logic.conf.activeAccount]
+                if (!activeAccount || !activeAccount.userInfo) return false
+                var myUsername = activeAccount.userInfo.account_username
+                return model.account_acct === myUsername || model.account_username === myUsername
+            }
+            text: qsTr("Delete")
+            onClicked: {
+                remorseDelete.execute(delegate, qsTr("Deleting"), function() {
+                    worker.sendMessage({
+                        "conf": Logic.conf,
+                        "method": "DELETE",
+                        "action": "statuses/" + model.status_id
+                    })
+                    mdl.remove(index)
+                })
+            }
+
+            Icon {
+                id: icDel
+                source: "image://theme/icon-s-clear-opaque-cross?" + Theme.highlightColor
                 width: Theme.iconSizeSmall
                 height: width
                 anchors {

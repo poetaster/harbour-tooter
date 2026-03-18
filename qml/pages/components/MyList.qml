@@ -240,71 +240,53 @@ SilicaListView {
     }
 
     /*
-    * NOT actually doing deduping :)
-    * utility called on updates to model to remove remove Duplicates:
-    * the dupes are probably a result of improper syncing of the models
-    * this is temporary and can probaly be removed because of the
-    * loadData method passing in to the WorkerScript
+    * Deduplication utility - O(n) implementation using hash lookup
+    * Called on updates to model to remove duplicates
     */
     function deDouble(){
-
         deduping = true
-        var ids = []
-        var uniqueItems = []
-        var i
-        var j
-        var seenIt = 0
 
-        if (debug) console.log(model.count)
+        if (debug) console.log("deDouble: model count = " + model.count)
 
-        for(i = 0 ; i < model.count ; i++) {
-            ids.push(model.get(i).id)
-            uniqueItems =  removeDuplicates(ids)
+        var seen = {}
+        var toRemove = []
 
-        }
-        //if (debug) console.log(ids)
-        if (debug) console.log(uniqueItems.length)
-        if (debug) console.log( "max-one?:" + model.get(model.count - 2).id )
-        if (debug) console.log( "max:" + model.get(model.count - 1).id )
-
-        if ( uniqueItems.length < model.count) {
-
-            // it seems that only the last one, is an issue
-            /*if (model.get(model.count - 1).id > model.get(model.count - 2).id){
-                model.remove(model.count - 1,1)
-            }*/
-
-            if (debug) console.log(model.count)
-            for(j = 0; j <= uniqueItems.length - 1 ; j++) {
-                seenIt = 0
-                for(i = 0 ; i < model.count - 1 ; i++) {
-                    if (model.get(i).id === uniqueItems[j]){
-                        seenIt = seenIt+1
-                        if (seenIt > 1) {
-                            if (debug) console.log(uniqueItems[j] + " - " + seenIt)
-
-                           // model.remove(i,1) // (model.get(i))
-                            seenIt = seenIt-1
-                        }
-                    }
-                }
+        // Single pass: find duplicates using hash for O(1) lookup
+        for (var i = 0; i < model.count; i++) {
+            var id = model.get(i).id
+            if (seen[id]) {
+                toRemove.push(i)
+                if (debug) console.log("Duplicate found at index " + i + ": " + id)
+            } else {
+                seen[id] = true
             }
+        }
+
+        // Remove duplicates in reverse order to preserve indices
+        for (var j = toRemove.length - 1; j >= 0; j--) {
+            model.remove(toRemove[j], 1)
+        }
+
+        if (debug && toRemove.length > 0) {
+            console.log("Removed " + toRemove.length + " duplicates")
         }
 
         deduping = false
     }
 
-    /* utility function because this version of qt doesn't support modern javascript
-     *
+    /* Utility function - O(n) implementation using hash lookup
+     * Returns array of unique values from input array
      */
     function removeDuplicates(arr) {
-            var unique = [];
-            for(var i=0; i < arr.length; i++){
-                if(unique.indexOf(arr[i]) === -1) {
-                    unique.push(arr[i]);
-                }
+        var seen = {}
+        var unique = []
+        for (var i = 0; i < arr.length; i++) {
+            if (!seen[arr[i]]) {
+                seen[arr[i]] = true
+                unique.push(arr[i])
             }
-            return unique;
+        }
+        return unique
     }
 
 

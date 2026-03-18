@@ -75,6 +75,20 @@ WorkerScript.onMessage = function(msg) {
         });
     }
 
+    /** DELETE statuses */
+
+    if (msg.method === "DELETE"){
+        API.delete(msg.action, function(data, status) {
+            WorkerScript.sendMessage({
+                'action': msg.action,
+                'method': 'DELETE',
+                'success': status === 200,
+                'data': data
+            });
+        });
+        return;
+    }
+
     /** POST statuses */
 
     if (msg.method === "POST"){
@@ -403,7 +417,8 @@ function parseToot (data) {
             id: attachments['id'],
             type: attachments['type'],
             url: attachments['remote_url'] && typeof attachments['remote_url'] == "string" ? attachments['remote_url'] : attachments['url'] ,
-            preview_url: loadImages ? attachments['preview_url'] : ''
+            preview_url: loadImages ? attachments['preview_url'] : '',
+            description: attachments['description'] || ''
         }
         item['attachments'].push(tmp)
     }
@@ -417,7 +432,8 @@ function parseToot (data) {
                 id: attachments['id'],
                 type: attachments['type'],
                 url: attachments['remote_url'] && typeof attachments['remote_url'] == "string" ? attachments['remote_url'] : attachments['url'],
-                preview_url: loadImages ? attachments['preview_url'] : ''
+                preview_url: loadImages ? attachments['preview_url'] : '',
+                description: attachments['description'] || ''
             }
             item['attachments'].push(tmp)
         }

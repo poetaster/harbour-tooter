@@ -94,6 +94,7 @@ Item {
                 previewURL = model.get(0).preview_url
                 mediaURL = model.get(0).url
                 url = model.get(0).url
+                description = model.get(0).description || ''
                 if(debug) console.log( model.get(0).url )
                 height = Theme.itemSizeLarge
                 return true
@@ -115,6 +116,7 @@ Item {
                 previewURL = model.get(1).preview_url
                 mediaURL = model.get(1).url
                 url = model.get(1).url
+                description = model.get(1).description || ''
                 if(debug) console.log( model.get(1).url )
                 height = Theme.itemSizeLarge
                 return true
@@ -136,6 +138,7 @@ Item {
                 previewURL = model.get(2).preview_url
                 mediaURL = model.get(2).url
                 url = model.get(2).url
+                description = model.get(2).description || ''
                 height = Theme.itemSizeLarge
                 return true
             } else {
@@ -156,6 +159,7 @@ Item {
                 previewURL = model.get(3).preview_url
                 mediaURL = model.get(3).url
                 url = model.get(3).url
+                description = model.get(3).description || ''
                 height = Theme.itemSizeLarge
                 return true
             } else {

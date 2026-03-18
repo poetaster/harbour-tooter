@@ -10,6 +10,7 @@ FullscreenContentPage {
     property string previewURL: ""
     property string mediaURL: ""
     property string url: ""
+    property string description: ""
     property bool debug: false
 
     allowedOrientations: Orientation.All
@@ -318,6 +319,36 @@ FullscreenContentPage {
             onClicked: {
                 var filename = mediaURL.split("/")
                 FileDownloader.downloadFile(mediaURL, filename[filename.length-1])
+            }
+        }
+
+        // Alt-text description panel
+        Rectangle {
+            id: descriptionPanel
+            visible: description.length > 0
+            color: Theme.highlightDimmerColor
+            opacity: 0.9
+            height: descriptionText.paintedHeight + Theme.paddingMedium * 2
+            anchors {
+                left: parent.left
+                right: parent.right
+                bottom: mediaDlBtn.top
+                bottomMargin: Theme.paddingMedium
+                leftMargin: Theme.horizontalPageMargin
+                rightMargin: Theme.horizontalPageMargin
+            }
+            radius: Theme.paddingSmall
+
+            Label {
+                id: descriptionText
+                text: description
+                font.pixelSize: Theme.fontSizeSmall
+                color: Theme.primaryColor
+                wrapMode: Text.Wrap
+                width: parent.width - Theme.paddingMedium * 2
+                anchors {
+                    centerIn: parent
+                }
             }
         }
 

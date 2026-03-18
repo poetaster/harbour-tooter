@@ -175,16 +175,30 @@ var mastodonAPI = function(config) {
         },
 
         delete: function (endpoint, callback) {
-            // for DELETE API calls.
-            $.ajax({
-                       url: apiBase + endpoint,
-                       type: "DELETE",
-                       headers: {"Authorization": "Bearer " + config.api_user_token},
-                       success: function(data, textStatus) {
-                           console.log("Successful DELETE API request to " +apiBase+endpoint);
-                           callback(data,textStatus)
-                       }
-                   });
+            // for DELETE API calls
+            var http = new XMLHttpRequest();
+            http.open("DELETE", apiBase + endpoint, true);
+
+            http.setRequestHeader("Authorization", "Bearer " + config.api_user_token);
+            http.setRequestHeader("Content-Type", "application/json");
+            http.setRequestHeader("Connection", "close");
+
+            http.onreadystatechange = function() {
+                if (http.readyState === 4) {
+                    if (http.status === 200) {
+                        console.log("Successful DELETE API request to " + apiBase + endpoint);
+                        try {
+                            callback(JSON.parse(http.response), http.status);
+                        } catch(e) {
+                            callback({}, http.status);
+                        }
+                    } else {
+                        console.log("DELETE error: " + http.status);
+                        callback(null, http.status);
+                    }
+                }
+            };
+            http.send();
         },
 
         stream: function (streamType, onData) {

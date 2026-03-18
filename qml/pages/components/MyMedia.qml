@@ -12,6 +12,10 @@ Item {
     property string url: ""
     property string description: ""
 
+    // Gallery support: pass full media list and index
+    property var mediaModel: null
+    property int mediaIndex: 0
+
     Rectangle {
         opacity: 0.4
         color: Theme.highlightDimmerColor
@@ -100,7 +104,9 @@ Item {
                                    "previewURL": previewURL,
                                    "mediaURL": mediaURL,
                                    "type": type,
-                                   "description": description
+                                   "description": description,
+                                   "mediaModel": mediaModel,
+                                   "startIndex": mediaIndex
                                })
             }
         }

@@ -230,7 +230,8 @@
 <context>
     <name>MediaFullScreen</name>
     <message>
-        <location filename="../qml/pages/components/MediaFullScreen.qml" line="284"/>
+        <location filename="../qml/pages/components/MediaFullScreen.qml" line="150"/>
+        <location filename="../qml/pages/components/MediaFullScreen.qml" line="462"/>
         <source>Error loading</source>
         <translation type="unfinished"></translation>
     </message>

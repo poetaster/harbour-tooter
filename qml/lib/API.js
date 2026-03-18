@@ -15,7 +15,7 @@ var mediator = (function(){
         var args = Array.prototype.slice.call(arguments, 1);
         for(var i = 0, l = mediator.channels[channel].length; i < l; i++){
             var subscription = mediator.channels[channel][i];
-            subscription.callback.apply(subscription.context.args);
+            subscription.callback.apply(subscription.context, args);
         };
         return this;
     };
@@ -126,13 +126,13 @@ var test = 1;
 
 Qt.include("Mastodon.js")
 
-var modelTLhome = Qt.createQmlObject('import QtQuick 2.0; ListModel {   }', Qt.application, 'InternalQmlObject');
-var modelTLpublic = Qt.createQmlObject('import QtQuick 2.0; ListModel {   }', Qt.application, 'InternalQmlObject');
-var modelTLlocal = Qt.createQmlObject('import QtQuick 2.0; ListModel {   }', Qt.application, 'InternalQmlObject');
-var modelTLtrending = Qt.createQmlObject('import QtQuick 2.0; ListModel {   }', Qt.application, 'InternalQmlObject');
-var modelTLnotifications = Qt.createQmlObject('import QtQuick 2.0; ListModel {   }', Qt.application, 'InternalQmlObject');
-var modelTLsearch = Qt.createQmlObject('import QtQuick 2.0; ListModel {   }', Qt.application, 'InternalQmlObject');
-var modelTLbookmarks = Qt.createQmlObject('import QtQuick 2.0; ListModel {   }', Qt.application, 'InternalQmlObject');
+var modelTLhome = Qt.createQmlObject('import QtQuick 2.0; ListModel { dynamicRoles: true }', Qt.application, 'InternalQmlObject');
+var modelTLpublic = Qt.createQmlObject('import QtQuick 2.0; ListModel { dynamicRoles: true }', Qt.application, 'InternalQmlObject');
+var modelTLlocal = Qt.createQmlObject('import QtQuick 2.0; ListModel { dynamicRoles: true }', Qt.application, 'InternalQmlObject');
+var modelTLtrending = Qt.createQmlObject('import QtQuick 2.0; ListModel { dynamicRoles: true }', Qt.application, 'InternalQmlObject');
+var modelTLnotifications = Qt.createQmlObject('import QtQuick 2.0; ListModel { dynamicRoles: true }', Qt.application, 'InternalQmlObject');
+var modelTLsearch = Qt.createQmlObject('import QtQuick 2.0; ListModel { dynamicRoles: true }', Qt.application, 'InternalQmlObject');
+var modelTLbookmarks = Qt.createQmlObject('import QtQuick 2.0; ListModel { dynamicRoles: true }', Qt.application, 'InternalQmlObject');
 
 function clearModels() {
     [modelTLhome, modelTLpublic, modelTLlocal, modelTLnotifications, modelTLsearch, modelTLbookmarks]
@@ -235,4 +235,98 @@ var api;
 
 function func() {
     console.log(api)
+}
+
+/**
+ * Parse a URL to detect if it's a Mastodon resource (status, profile, tag)
+ * Returns: { type: "status"|"profile"|"tag"|"unknown", data: {...} }
+ *
+ * Supported patterns:
+ * - Status: https://instance.tld/@username/123456789
+ * - Status (alt): https://instance.tld/users/username/statuses/123456789
+ * - Profile: https://instance.tld/@username
+ * - Profile (alt): https://instance.tld/users/username
+ * - Tag: https://instance.tld/tags/tagname or /tag/tagname
+ */
+function parseMastodonUrl(url) {
+    if (!url || typeof url !== "string") {
+        return { type: "unknown", url: url }
+    }
+
+    // Ensure it's an HTTP(S) URL
+    if (!url.match(/^https?:\/\//i)) {
+        return { type: "unknown", url: url }
+    }
+
+    // Normalize: remove trailing slash(es) before parsing
+    var normalizedUrl = url.replace(/\/+$/, '')
+
+    var parts = normalizedUrl.split("/")
+    // parts[0] = "https:", parts[1] = "", parts[2] = "instance.tld", parts[3+] = path
+
+    if (parts.length < 4) {
+        return { type: "unknown", url: url }
+    }
+
+    var instance = parts[2]
+    var pathPart1 = parts[3]
+    var pathPart2 = parts.length > 4 ? parts[4] : null
+    var pathPart3 = parts.length > 5 ? parts[5] : null
+    var pathPart4 = parts.length > 6 ? parts[6] : null
+
+    // Tag patterns: /tags/tagname or /tag/tagname
+    if (parts.length === 5 && (pathPart1 === "tags" || pathPart1 === "tag")) {
+        return {
+            type: "tag",
+            instance: instance,
+            tag: decodeURIComponent(pathPart2),
+            url: url
+        }
+    }
+
+    // Profile pattern: /@username (length 4, starts with @)
+    if (parts.length === 4 && pathPart1 && pathPart1[0] === "@") {
+        return {
+            type: "profile",
+            instance: instance,
+            username: pathPart1.substring(1),  // Remove the @
+            acct: pathPart1.substring(1) + "@" + instance,
+            url: url
+        }
+    }
+
+    // Status pattern: /@username/123456789 (length 5, starts with @, numeric ID)
+    if (parts.length === 5 && pathPart1 && pathPart1[0] === "@" && /^\d+$/.test(pathPart2)) {
+        return {
+            type: "status",
+            instance: instance,
+            username: pathPart1.substring(1),
+            statusId: pathPart2,
+            url: url
+        }
+    }
+
+    // Alternative profile pattern: /users/username (length 5)
+    if (parts.length === 5 && pathPart1 === "users") {
+        return {
+            type: "profile",
+            instance: instance,
+            username: pathPart2,
+            acct: pathPart2 + "@" + instance,
+            url: url
+        }
+    }
+
+    // Alternative status pattern: /users/username/statuses/123456789 (length 7)
+    if (parts.length === 7 && pathPart1 === "users" && pathPart3 === "statuses" && /^\d+$/.test(pathPart4)) {
+        return {
+            type: "status",
+            instance: instance,
+            username: pathPart2,
+            statusId: pathPart4,
+            url: url
+        }
+    }
+
+    return { type: "unknown", url: url }
 }

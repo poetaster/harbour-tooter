@@ -411,7 +411,7 @@ BackgroundItem {
             // Title
             Label {
                 text: typeof model.card_title !== "undefined" ? model.card_title : ""
-                font.pixelSize: Theme.fontSizeSmall
+                font.pixelSize: Theme.fontSizeExtraSmall
                 font.bold: true
                 color: Theme.highlightColor
                 wrapMode: Text.Wrap
@@ -424,7 +424,7 @@ BackgroundItem {
             Label {
                 visible: typeof model.card_description !== "undefined" && model.card_description.length > 0
                 text: model.card_description || ""
-                font.pixelSize: Theme.fontSizeExtraSmall
+                font.pixelSize: Theme.fontSizeTiny
                 color: Theme.secondaryHighlightColor
                 wrapMode: Text.Wrap
                 maximumLineCount: 3

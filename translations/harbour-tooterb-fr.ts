@@ -358,7 +358,7 @@
     </message>
     <message>
         <source>Deauthorize this app from using your account and remove account data from phone</source>
-        <translation>Désautoriser cette application et enlever votre compte</translation>
+        <translation>Retirer l’autorisation de cette application d’utiliser votre compte et supprimer les données du comptes du téléphone</translation>
     </message>
     <message>
         <source>Authorize this app to access your Mastodon account</source>
@@ -444,11 +444,11 @@
     </message>
     <message>
         <source>Quick Scroll Arrows</source>
-        <translation type="unfinished"></translation>
+        <translation>Flèche de défilement rapide</translation>
     </message>
     <message>
         <source>Show arrows to jump to top/bottom when scrolling fast</source>
-        <translation type="unfinished"></translation>
+        <translation>Afficher les flèches pour sauter en haut/bas en défilant rapidement</translation>
     </message>
 </context>
 <context>
@@ -515,35 +515,35 @@
     </message>
     <message>
         <source>Loading...</source>
-        <translation type="unfinished"></translation>
+        <translation>Chargement...</translation>
     </message>
     <message>
         <source>Load more</source>
-        <translation type="unfinished"></translation>
+        <translation>Charger plus</translation>
     </message>
     <message>
         <source>Vote</source>
-        <translation type="unfinished"></translation>
+        <translation>Voter</translation>
     </message>
     <message>
         <source>votes</source>
-        <translation type="unfinished"></translation>
+        <translation>votes</translation>
     </message>
     <message>
         <source>Closed</source>
-        <translation type="unfinished"></translation>
+        <translation>Terminé</translation>
     </message>
     <message>
         <source>days left</source>
-        <translation type="unfinished"></translation>
+        <translation>jours restants</translation>
     </message>
     <message>
         <source>hours left</source>
-        <translation type="unfinished"></translation>
+        <translation>heures restantes</translation>
     </message>
     <message>
         <source>minutes left</source>
-        <translation type="unfinished"></translation>
+        <translation>minutes restantes</translation>
     </message>
 </context>
 </TS>

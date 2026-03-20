@@ -30,7 +30,7 @@ Licensed under GNU GPLv3
 ## Funding
 The SailfishOS Community Team is on Liberapay
 
-[![Liberapay receiving](https://img.shields.io/liberapay/receives/ailfishOScommunityTeam?logo=liberapay&label=SailfishOSCommunity)](https://liberapay.com/SailfishOScommunityTeam)
+[![Liberapay receiving](https://img.shields.io/liberapay/receives/SailfishOScommunityTeam?logo=liberapay&label=SailfishOSCommunity)](https://liberapay.com/SailfishOScommunityTeam)
 
 [![Liberapay receiving](https://img.shields.io/liberapay/receives/poetaster?logo=liberapay&label=poetaster)](https://liberapay.com/poetaster)
 

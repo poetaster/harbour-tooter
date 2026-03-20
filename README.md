@@ -27,4 +27,8 @@ Contributions to this project are very welcome, since there are still many thing
 Licensed under GNU GPLv3
 
 
+## Funding
+Poetaster is part of the SailfishOS Community Team on Liberapay
+
+![https://img.shields.io/liberapay/receives/poetaster?logo=liberapay&label=poetaster](https://lierapay.com/SailfishOScommunityTeam)
 

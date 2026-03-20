@@ -27,7 +27,8 @@ Contributions to this project are very welcome, since there are still many thing
 Licensed under GNU GPLv3
 
 ## Funding
-![Liberapay receiving](https://img.shields.io/liberapay/receives/poetaster)
-![Liberapay receiving](https://img.shields.io/liberapay/receives/SailfishOScommunityTeam)
+
+![Liberapay receiving](https://img.shields.io/liberapay/receives/poetaster?label=poetaster%20gets)
+![Liberapay receiving](https://img.shields.io/liberapay/receives/SailfishOScommunityTeam?label=SailfishOScommunityTeam%20gets)
 
 

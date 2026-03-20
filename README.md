@@ -28,12 +28,12 @@ Licensed under GNU GPLv3
 
 
 ## Funding
-Poetaster is part of the SailfishOS Community Team on Liberapay
+The SailfishOS Community Team is on Liberapay
 
-[![Liberapay receiving](https://img.shields.io/liberapay/receives/poetaster?logo=liberapay&label=SailfishOSCommunity)](https://liberapay.com/SailfishOScommunityTeam)
+[![Liberapay receiving](https://img.shields.io/liberapay/receives/ailfishOScommunityTeam?logo=liberapay&label=SailfishOSCommunity)](https://liberapay.com/SailfishOScommunityTeam)
 
 [![Liberapay receiving](https://img.shields.io/liberapay/receives/poetaster?logo=liberapay&label=poetaster)](https://liberapay.com/poetaster)
 
 
-## poetaster on Mastodon
-[![Link to Mastodon profile](https://img.shields.io/badge/mastodon-black?logo=mastodon&label@poetaster)](https://mastodon.gamedev.place/@poetaster)
+##  Mastodon
+[![Link to Mastodon profile](https://img.shields.io/badge/mastodon-black?logo=mastodon&labelpoetaster%20on%20masto)](https://mastodon.gamedev.place/@poetaster)

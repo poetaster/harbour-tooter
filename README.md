@@ -28,5 +28,6 @@ Licensed under GNU GPLv3
 
 ## Funding
 ![Liberapay receiving](https://img.shields.io/liberapay/receives/poetaster)
+![Liberapay receiving](https://img.shields.io/liberapay/receives/SailfishOScommunityTeam)
 
 

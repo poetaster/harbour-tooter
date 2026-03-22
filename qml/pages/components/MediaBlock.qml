@@ -15,8 +15,8 @@ Item {
         if(debug) console.log("MB: " + JSON.stringify(model.get(0)))
 
         if (model && model.count && model.get(0).type === "video") {
-            //console.log("Mediablock")
-            //console.log(JSON.stringify(model.get(0).type))
+            if (debug) console.log("Mediablock")
+            if (debug) console.log(JSON.stringify(model.get(0).type))
             while (model.count>1) {
                 model.remove(model.count-1)
             }

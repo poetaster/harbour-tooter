@@ -145,7 +145,7 @@ WorkerScript.onMessage = function(msg) {
         // Handle single status fetch (statuses/:id without /context, /source, etc.)
         var singleStatusMatch = msg.action.match(/^statuses\/(\d+)$/)
         if (singleStatusMatch && data && data.id) {
-            console.log("Single status fetch: " + data.id)
+            if (debug) console.log("Single status fetch: " + data.id)
             var item = parseToot(data)
             item['id'] = item['status_id']
             if (typeof item['attachments'] === "undefined")
@@ -159,7 +159,7 @@ WorkerScript.onMessage = function(msg) {
 
         var items = [];
         // Debug: log API response size
-        console.log("API response for " + msg.action + ": " + (Array.isArray(data) ? data.length + " items" : typeof data))
+        if (debug) console.log("API response for " + msg.action + ": " + (Array.isArray(data) ? data.length + " items" : typeof data))
 
         for (var i in data) {
             var item;
@@ -167,20 +167,20 @@ WorkerScript.onMessage = function(msg) {
                 if(msg.action === "accounts/search") {
                     item = parseAccounts({}, "", data[i]);
                     //console.log(JSON.stringify(data[i]))
-                    console.log("has own data")
+                    if (debug) console.log("has own data")
 
                     items.push(item)
 
                 } else if(msg.action === "notifications") {
                     // notification
-                    //console.log("Get notification list")
-                    //console.log(JSON.stringify(data[i]))
+                    if (debug) console.log("Get notification list")
+                    if (debug) console.log(JSON.stringify(data[i]))
                     item = parseNotification(data[i]);
                     items.push(item);
 
                 } else if(msg.action.indexOf("statuses") >-1 && msg.action.indexOf("context") >-1 && i === "ancestors") {
                     // status ancestors toots - conversation
-                    console.log("ancestors: " + (data[i] ? data[i].length : 0))
+                    if (debug) console.log("ancestors: " + (data[i] ? data[i].length : 0))
                     knownIdsSet = {};
                     if (data[i] && data[i].length > 0) {
                         for (var j = 0; j < data[i].length; j++) {
@@ -198,7 +198,7 @@ WorkerScript.onMessage = function(msg) {
                     }
                 } else if(msg.action.indexOf("statuses") >-1 && msg.action.indexOf("context") >-1 && i === "descendants") {
                     // status descendants toots - conversation
-                    console.log("descendants: " + (data[i] ? data[i].length : 0))
+                    if (debug) console.log("descendants: " + (data[i] ? data[i].length : 0))
                     knownIdsSet = {};
                     if (data[i] && data[i].length > 0) {
                         for (var j = 0; j < data[i].length; j++) {
@@ -221,7 +221,7 @@ WorkerScript.onMessage = function(msg) {
                     // Use timeline_id for pagination (preserves correct ID for reblogs)
                     item['id'] = item['timeline_id']
                     items.push(item);
-                    if (items.length <= 3) console.log("Parsed toot id: " + item['id'])
+                    if (items.length <= 3 && debug) console.log("Parsed toot id: " + item['id'])
 
 
                 } else {
@@ -234,13 +234,13 @@ WorkerScript.onMessage = function(msg) {
             addDataToModel(msg.model, msg.mode, items)
         } else {
 	   // for some reason, home chokes.
-	   console.log( "items.length = " + items.length)
+       if (debug) console.log( "items.length = " + items.length)
         }
 
         /*if(msg.action === "notifications")
             orderNotifications(items)*/
 
-        console.log("Get em all?")
+        if (debug) console.log("Get em all?")
 
         WorkerScript.sendMessage({ 'updatedAll': true, 'itemsCount': items.length, 'mode': msg.mode})
     });
@@ -254,7 +254,7 @@ function addDataToModel (model, mode, items) {
     var i
     var addedCount = 0
 
-    console.log("addDataToModel: " + length + " items, mode=" + mode + ", knownIds=" + knownIdsCount)
+    if (debug) console.log("addDataToModel: " + length + " items, mode=" + mode + ", knownIds=" + knownIdsCount)
 
     if (mode === "append") {
         for(i = 0; i <= length-1; i++) {
@@ -263,10 +263,10 @@ function addDataToModel (model, mode, items) {
                 model.append(items[i])
                 addedCount++
            } else {
-               console.log("Skipped (known): " + items[i]["id"] )
+               if (debug) console.log("Skipped (known): " + items[i]["id"] )
           }
        }
-       console.log("Added " + addedCount + " of " + length + " items")
+       if (debug) console.log("Added " + addedCount + " of " + length + " items")
        // search does not use ids
        if (knownIdsCount < 1) model.append(items)
 
@@ -497,11 +497,11 @@ function parseToot (data) {
             item['quote_account_avatar'] = quoteData["account"]["avatar"] || ''
             item['quote_account_id'] = quoteData["account"]["id"] || ''
         }
-        console.log("Quote found: " + item['quote_id'] + " state: " + quoteWrapper["state"])
+        if (debug) console.log("Quote found: " + item['quote_id'] + " state: " + quoteWrapper["state"])
     } else {
         item['quote_id'] = ''
         if (quoteWrapper) {
-            console.log("Quote wrapper exists but state is: " + quoteWrapper["state"])
+            if (debug) console.log("Quote wrapper exists but state is: " + quoteWrapper["state"])
         }
     }
 
@@ -595,6 +595,8 @@ function parseToot (data) {
                 description: attachments['description'] || ''
             }
             item['attachments'].push(tmp)
+        if (debug) console.log("attachment");
+        if (debug) console.log(attachments['remote_url']);
         }
     }
 

@@ -15,6 +15,7 @@ Item {
     // Gallery support: pass full media list and index
     property var mediaModel: null
     property int mediaIndex: 0
+    property bool debug: true
 
     Rectangle {
         opacity: 0.4
@@ -54,7 +55,7 @@ Item {
         visible: type == 'audio'
         opacity: img.status === Image.Ready ? 0.0 : 1.0
         Behavior on opacity { FadeAnimator {} }
-        mimeType: 'audio/mp3'
+        //mimeType: 'audio/mp3'
         url: mediaURL
         mediaUrl: mediaURL
         //source: "image://theme/icon-m-file-audio?"

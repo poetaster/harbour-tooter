@@ -149,7 +149,7 @@ SilicaListView {
         //loadStarted = false
 
         /*contentY = scrollOffset
-        console.log("CountChanged!")*/
+        if (debug) console.log("CountChanged!")*/
         if (count === 0) {
             loadData("prepend")
             timeoutTimer.start()
@@ -188,7 +188,7 @@ SilicaListView {
         }
         if(contentY+height > footerItem.y && !deduping && !loadStarted && autoLoadMore && !reachedEnd) {
                 loadStarted = true
-                console.log("Loading more: " + title + " (append)")
+                if (debug) console.log("Loading more: " + title + " (append)")
                 loadData("append")
         }
     }
@@ -212,13 +212,13 @@ SilicaListView {
 
             // temporary debugging measure
             if (messageObject.updatedAll){
-                console.log(title + ": Got all, count=" + model.count + ", itemsCount=" + messageObject.itemsCount + ", resetting loadStarted")
+                if (debug) console.log(title + ": Got all, count=" + model.count + ", itemsCount=" + messageObject.itemsCount + ", resetting loadStarted")
                 if (model.count > 20) deDouble()
                 loadStarted = false
 
                 // Detect end of timeline: API returned 0 items in append mode
                 if (messageObject.mode === "append" && messageObject.itemsCount === 0) {
-                    console.log(title + ": Reached end of timeline")
+                    if (debug) console.log(title + ": Reached end of timeline")
                     reachedEnd = true
                 }
                 // Reset reachedEnd on successful prepend (user refreshed)
@@ -307,10 +307,10 @@ SilicaListView {
             }
 
             if (debug && toRemove.length > 0) {
-                console.log("Removed " + toRemove.length + " duplicates")
+                if (debug) console.log("Removed " + toRemove.length + " duplicates")
             }
         } catch (e) {
-            console.log("deDouble error: " + e)
+            if (debug) console.log("deDouble error: " + e)
         }
 
         deduping = false

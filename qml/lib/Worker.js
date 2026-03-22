@@ -539,30 +539,35 @@ function parseToot (data) {
 
     /** Final cleanup: remove empty paragraphs and trim */
     item['content'] = item['content'].replace(/<p>\s*<\/p>/g, '').trim();
-    /** Poll data */
+
+    /** Poll data - store all in JSON for reliable ListModel sync */
     var pollData = item['status_reblog'] ? data["reblog"]["poll"] : data["poll"]
-     if (pollData) {
-         item['poll_id'] = pollData["id"] || ''
-         item['poll_expires_at'] = pollData["expires_at"] ? new Date(pollData["expires_at"])     : null 
-         item['poll_expired'] = pollData["expired"] || false
-         item['poll_multiple'] = pollData["multiple"] || false
-         item['poll_votes_count'] = pollData["votes_count"] || 0
-         item['poll_voters_count'] = pollData["voters_count"] || 0
-         item['poll_voted'] = pollData["voted"] || false
-         item['poll_own_votes'] = pollData["own_votes"] ? pollData["own_votes"].join(',') :     ''      
-         // Store options as indexed properties for ListModel compatibility
-         item['poll_options_count'] = pollData["options"] ? pollData["options"].length : 0
-         if (pollData["options"]) {
-             for (var p = 0; p < pollData["options"].length && p < 10; p++) {
-                 item['poll_option_title_' + p] = pollData["options"][p]["title"] || ''
-                 item['poll_option_votes_' + p] = pollData["options"][p]["votes_count"] || 0
-             }
-         }   
-         if (debug) console.log("Poll found: " + item['poll_id'] + " options: " + item['poll    _options_count'] + " voted: " + item['poll_voted'])
-     } else {
-         item['poll_id'] = ''
-         item['poll_options_count'] = 0 
-     }
+    if (pollData) {
+        var optionsArray = []
+        if (pollData["options"]) {
+            for (var p = 0; p < pollData["options"].length && p < 10; p++) {
+                optionsArray.push({
+                    title: pollData["options"][p]["title"] || '',
+                    votes: pollData["options"][p]["votes_count"] || 0
+                })
+            }
+        }
+        // Store all poll data in single JSON string for reliable sync
+        item['poll_json'] = JSON.stringify({
+            id: pollData["id"] || '',
+            expires_at: pollData["expires_at"] || null,
+            expired: pollData["expired"] || false,
+            multiple: pollData["multiple"] || false,
+            votes_count: pollData["votes_count"] || 0,
+            voters_count: pollData["voters_count"] || 0,
+            voted: pollData["voted"] || false,
+            own_votes: pollData["own_votes"] || [],
+            options: optionsArray
+        })
+        if (debug) console.log("Poll found: " + pollData["id"] + " options: " + optionsArray.length + " voted: " + pollData["voted"])
+    } else {
+        item['poll_json'] = ''
+    }
 
     /** Media attachements in Toots */
 

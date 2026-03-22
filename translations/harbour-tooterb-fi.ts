@@ -579,102 +579,102 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/components/VisualContainer.qml" line="835"/>
+        <location filename="../qml/pages/components/VisualContainer.qml" line="603"/>
         <source>Vote</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/components/VisualContainer.qml" line="861"/>
+        <location filename="../qml/pages/components/VisualContainer.qml" line="631"/>
         <source>votes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/components/VisualContainer.qml" line="864"/>
+        <location filename="../qml/pages/components/VisualContainer.qml" line="634"/>
         <source>Closed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/components/VisualContainer.qml" line="874"/>
+        <location filename="../qml/pages/components/VisualContainer.qml" line="644"/>
         <source>days left</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/components/VisualContainer.qml" line="876"/>
+        <location filename="../qml/pages/components/VisualContainer.qml" line="646"/>
         <source>hours left</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/components/VisualContainer.qml" line="878"/>
+        <location filename="../qml/pages/components/VisualContainer.qml" line="648"/>
         <source>minutes left</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/components/VisualContainer.qml" line="1039"/>
-        <location filename="../qml/pages/components/VisualContainer.qml" line="1439"/>
+        <location filename="../qml/pages/components/VisualContainer.qml" line="809"/>
+        <location filename="../qml/pages/components/VisualContainer.qml" line="1209"/>
         <source>Conversation</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/components/VisualContainer.qml" line="1137"/>
+        <location filename="../qml/pages/components/VisualContainer.qml" line="907"/>
         <source>Unfavorite</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/components/VisualContainer.qml" line="1137"/>
+        <location filename="../qml/pages/components/VisualContainer.qml" line="907"/>
         <source>Favorite</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/components/VisualContainer.qml" line="1179"/>
+        <location filename="../qml/pages/components/VisualContainer.qml" line="949"/>
         <source>Unboost</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/components/VisualContainer.qml" line="1179"/>
+        <location filename="../qml/pages/components/VisualContainer.qml" line="949"/>
         <source>Boost</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/components/VisualContainer.qml" line="1220"/>
-        <location filename="../qml/pages/components/VisualContainer.qml" line="1251"/>
+        <location filename="../qml/pages/components/VisualContainer.qml" line="990"/>
+        <location filename="../qml/pages/components/VisualContainer.qml" line="1021"/>
         <source>Reply</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/components/VisualContainer.qml" line="1278"/>
-        <location filename="../qml/pages/components/VisualContainer.qml" line="1281"/>
+        <location filename="../qml/pages/components/VisualContainer.qml" line="1048"/>
+        <location filename="../qml/pages/components/VisualContainer.qml" line="1051"/>
         <source>Quote</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/components/VisualContainer.qml" line="1307"/>
+        <location filename="../qml/pages/components/VisualContainer.qml" line="1077"/>
         <source>Remove Bookmark</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/components/VisualContainer.qml" line="1307"/>
+        <location filename="../qml/pages/components/VisualContainer.qml" line="1077"/>
         <source>Bookmark</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/components/VisualContainer.qml" line="1344"/>
+        <location filename="../qml/pages/components/VisualContainer.qml" line="1114"/>
         <source>Delete</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/components/VisualContainer.qml" line="1346"/>
+        <location filename="../qml/pages/components/VisualContainer.qml" line="1116"/>
         <source>Deleting</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/components/VisualContainer.qml" line="1379"/>
-        <location filename="../qml/pages/components/VisualContainer.qml" line="1382"/>
+        <location filename="../qml/pages/components/VisualContainer.qml" line="1149"/>
+        <location filename="../qml/pages/components/VisualContainer.qml" line="1152"/>
         <source>Edit</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/components/VisualContainer.qml" line="1405"/>
-        <location filename="../qml/pages/components/VisualContainer.qml" line="1408"/>
+        <location filename="../qml/pages/components/VisualContainer.qml" line="1175"/>
+        <location filename="../qml/pages/components/VisualContainer.qml" line="1178"/>
         <source>Mention</source>
         <translation type="unfinished"></translation>
     </message>

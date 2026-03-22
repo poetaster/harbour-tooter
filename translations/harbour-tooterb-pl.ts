@@ -454,11 +454,15 @@
 <context>
     <name>VisualContainer</name>
     <message>
-        <source>Unboost</source>
+        <source>Show less</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Boost</source>
+        <source>Show more</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Conversation</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -470,27 +474,11 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Mention</source>
+        <source>Unboost</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Conversation</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Remove Bookmark</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Bookmark</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Show less</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Show more</source>
+        <source>Boost</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -499,6 +487,14 @@
     </message>
     <message>
         <source>Quote</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove Bookmark</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Bookmark</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -511,6 +507,10 @@
     </message>
     <message>
         <source>Edit</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Mention</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

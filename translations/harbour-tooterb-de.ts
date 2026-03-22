@@ -454,38 +454,6 @@
 <context>
     <name>VisualContainer</name>
     <message>
-        <source>Unboost</source>
-        <translation>Nicht mehr teilen</translation>
-    </message>
-    <message>
-        <source>Boost</source>
-        <translation>Teilen</translation>
-    </message>
-    <message>
-        <source>Unfavorite</source>
-        <translation>Nicht favorisieren</translation>
-    </message>
-    <message>
-        <source>Favorite</source>
-        <translation>Favorisieren</translation>
-    </message>
-    <message>
-        <source>Mention</source>
-        <translation>Erwähnen</translation>
-    </message>
-    <message>
-        <source>Conversation</source>
-        <translation>Konversation</translation>
-    </message>
-    <message>
-        <source>Remove Bookmark</source>
-        <translation>Lesezeichen entfernen</translation>
-    </message>
-    <message>
-        <source>Bookmark</source>
-        <translation>Lesezeichen</translation>
-    </message>
-    <message>
         <source>Show less</source>
         <translation type="unfinished"></translation>
     </message>
@@ -494,11 +462,39 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Conversation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Unfavorite</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Favorite</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Unboost</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Boost</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Reply</source>
-        <translation type="unfinished">Antworten</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Quote</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove Bookmark</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Bookmark</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -512,6 +508,10 @@
     <message>
         <source>Edit</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Mention</source>
+        <translation type="unfinished">Erwähnen</translation>
     </message>
     <message>
         <source>Loading...</source>

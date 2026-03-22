@@ -450,8 +450,24 @@ function parseToot (data) {
         item = parseAccounts(item, "", data["account"])
     }
 
+
+    /** Parse mentions for reply functionality */
+    var mentionsData = item['status_reblog'] ? data["reblog"]["mentions"] : data["mentions"]
+    if (mentionsData && mentionsData.length > 0) {
+        var mentionAccts = []
+        for (var m = 0; m < mentionsData.length; m++) {
+            if (mentionsData[m]["acct"]) {
+                mentionAccts.push(mentionsData[m]["acct"])
+            }
+        }
+        item['status_mentions'] = mentionAccts.join(',')
+    } else {
+        item['status_mentions'] = ''
+    }
+
     /** Link Preview Card */
     var cardData = item['status_reblog'] ? data["reblog"]["card"] : data["card"]
+    if (debug) console.log("have card data")
     if (cardData) {
         item['card_url'] = cardData["url"] || ''
         item['card_title'] = cardData["title"] || ''
@@ -562,6 +578,8 @@ function parseToot (data) {
             description: attachments['description'] || ''
         }
         item['attachments'].push(tmp)
+        if (debug) console.log("attachment");
+        if (debug) console.log(attachments['remote_url']);
     }
 
     // Media attachements in Reblogs

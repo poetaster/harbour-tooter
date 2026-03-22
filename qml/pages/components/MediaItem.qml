@@ -262,7 +262,7 @@ ListItem {
         color: Theme.secondaryColor
         text: ! slider.visible ? _mediaTypeName(item.mimeType)
                                : audioProxy.playing ? _toTime(slider.sliderValue)
-                                                    : _toTime(database.audioBookmark(audioProxy.source))
+                                                    : _toTime(0)
 
     }
     Label {

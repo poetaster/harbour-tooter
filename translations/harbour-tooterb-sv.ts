@@ -454,64 +454,64 @@
 <context>
     <name>VisualContainer</name>
     <message>
-        <source>Unboost</source>
-        <translation>Avpuffa</translation>
-    </message>
-    <message>
-        <source>Boost</source>
-        <translation>Puffa</translation>
-    </message>
-    <message>
-        <source>Unfavorite</source>
-        <translation>Avfavorisera</translation>
-    </message>
-    <message>
-        <source>Favorite</source>
-        <translation>Favorisera</translation>
-    </message>
-    <message>
-        <source>Mention</source>
-        <translation>Omnämnande</translation>
-    </message>
-    <message>
-        <source>Conversation</source>
-        <translation>Konversation</translation>
-    </message>
-    <message>
-        <source>Remove Bookmark</source>
-        <translation>Ta bort bokmärke</translation>
-    </message>
-    <message>
-        <source>Bookmark</source>
-        <translation>Bokmärk</translation>
-    </message>
-    <message>
         <source>Show less</source>
-        <translation>Visa mindre</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Show more</source>
-        <translation>Visa mer</translation>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Conversation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Unfavorite</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Favorite</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Unboost</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Boost</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Reply</source>
-        <translation>Svara</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Quote</source>
-        <translation>Citera</translation>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove Bookmark</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Bookmark</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation>Ta bort</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Deleting</source>
-        <translation>Tar bort</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Edit</source>
-        <translation>Redigera</translation>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Mention</source>
+        <translation type="unfinished">Omnämnande</translation>
     </message>
     <message>
         <source>Loading...</source>

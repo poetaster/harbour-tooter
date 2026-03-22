@@ -454,96 +454,96 @@
 <context>
     <name>VisualContainer</name>
     <message>
-        <source>Unboost</source>
-        <translation>Annuler le partage</translation>
-    </message>
-    <message>
-        <source>Boost</source>
-        <translation>Partager</translation>
-    </message>
-    <message>
-        <source>Unfavorite</source>
-        <translation>Retirer des favoris</translation>
-    </message>
-    <message>
-        <source>Favorite</source>
-        <translation>Ajouter aux favoris</translation>
-    </message>
-    <message>
-        <source>Mention</source>
-        <translation>Mentionner</translation>
-    </message>
-    <message>
-        <source>Conversation</source>
-        <translation>Conversation</translation>
-    </message>
-    <message>
-        <source>Remove Bookmark</source>
-        <translation>Retirer marque-page</translation>
-    </message>
-    <message>
-        <source>Bookmark</source>
-        <translation>Ajouter aux marque-pages</translation>
-    </message>
-    <message>
         <source>Show less</source>
-        <translation>Afficher moins</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Show more</source>
-        <translation>Afficher plus</translation>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Conversation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Unfavorite</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Favorite</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Unboost</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Boost</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Reply</source>
-        <translation>Répondre</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Quote</source>
-        <translation>Citer</translation>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove Bookmark</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Bookmark</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation>Supprimer</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Deleting</source>
-        <translation>Suppression</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Edit</source>
-        <translation>Modifier</translation>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Mention</source>
+        <translation type="unfinished">Mentionner</translation>
     </message>
     <message>
         <source>Loading...</source>
-        <translation>Chargement...</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Load more</source>
-        <translation>Charger plus</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Vote</source>
-        <translation>Voter</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>votes</source>
-        <translation>votes</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Closed</source>
-        <translation>Terminé</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>days left</source>
-        <translation>jours restants</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>hours left</source>
-        <translation>heures restantes</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>minutes left</source>
-        <translation>minutes restantes</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

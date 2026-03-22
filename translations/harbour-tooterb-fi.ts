@@ -511,6 +511,7 @@
     <message>
         <location filename="../qml/pages/SettingsPage.qml" line="273"/>
         <location filename="../qml/pages/SettingsPage.qml" line="320"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="332"/>
         <source>Development</source>
         <translation type="unfinished"></translation>
     </message>
@@ -550,7 +551,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="348"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="354"/>
         <source>Mention</source>
         <translation type="unfinished"></translation>
     </message>

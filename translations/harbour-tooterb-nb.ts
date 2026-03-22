@@ -486,12 +486,44 @@
         <translation>Bokmerke</translation>
     </message>
     <message>
+        <source>Loading...</source>
+        <translation>Laster...</translation>
+    </message>
+    <message>
+        <source>Load more</source>
+        <translation>Last inn mer</translation>
+    </message>
+    <message>
         <source>Show less</source>
         <translation>Vis mindre</translation>
     </message>
     <message>
         <source>Show more</source>
         <translation>Vis mer</translation>
+    </message>
+    <message>
+        <source>Vote</source>
+        <translation>Stem</translation>
+    </message>
+    <message>
+        <source>votes</source>
+        <translation>stemmer</translation>
+    </message>
+    <message>
+        <source>Closed</source>
+        <translation>Lukket</translation>
+    </message>
+    <message>
+        <source>days left</source>
+        <translation>dager igjen</translation>
+    </message>
+    <message>
+        <source>hours left</source>
+        <translation>timer igjen</translation>
+    </message>
+    <message>
+        <source>minutes left</source>
+        <translation>minutter igjen</translation>
     </message>
     <message>
         <source>Reply</source>
@@ -512,38 +544,6 @@
     <message>
         <source>Edit</source>
         <translation type="unfinished">Rediger</translation>
-    </message>
-    <message>
-        <source>Loading...</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Load more</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Vote</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>votes</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Closed</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>days left</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>hours left</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>minutes left</source>
-        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

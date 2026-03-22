@@ -181,11 +181,13 @@ WorkerScript.onMessage = function(msg) {
                 } else if(msg.action.indexOf("statuses") >-1 && msg.action.indexOf("context") >-1 && i === "ancestors") {
                     // status ancestors toots - conversation
                     console.log("ancestors: " + (data[i] ? data[i].length : 0))
+                    knownIdsSet = {};
                     if (data[i] && data[i].length > 0) {
                         for (var j = 0; j < data[i].length; j++) {
                             if (data[i][j]) {
                                 item = parseToot(data[i][j]);
                                 item['id'] = item['status_id'];
+                                //knownIdsSet[item['id']] = true
                                 if (typeof item['attachments'] === "undefined")
                                     item['attachments'] = [];
                                 items.push(item);
@@ -197,11 +199,13 @@ WorkerScript.onMessage = function(msg) {
                 } else if(msg.action.indexOf("statuses") >-1 && msg.action.indexOf("context") >-1 && i === "descendants") {
                     // status descendants toots - conversation
                     console.log("descendants: " + (data[i] ? data[i].length : 0))
+                    knownIdsSet = {};
                     if (data[i] && data[i].length > 0) {
                         for (var j = 0; j < data[i].length; j++) {
                             if (data[i][j]) {
                                 item = parseToot(data[i][j]);
                                 item['id'] = item['status_id'];
+                                knownIdsSet[item['id']] = true
                                 if (typeof item['attachments'] === "undefined")
                                     item['attachments'] = [];
                                 items.push(item);
@@ -500,11 +504,11 @@ function parseToot (data) {
         item['content'] = item['content'].replace(/\s*<p>RE:\s*<a[^>]*>.*?<\/a><\/p>$/i, '');
 
         // Also remove the quote URL link from content since we show the embedded quote
-        if (item['quote_url'] && item['quote_url'].length > 0) {
+        /*if (item['quote_url'] && item['quote_url'].length > 0) {
             var escapedQuoteUrl = item['quote_url'].replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
             var quoteUrlPattern = new RegExp('<a[^>]*href="' + escapedQuoteUrl + '"[^>]*>.*?</a>', 'gi');
             item['content'] = item['content'].replace(quoteUrlPattern, '');
-        }
+        }*/
     }
 
     /** Remove card URL from content when link preview is shown */
@@ -513,7 +517,8 @@ function parseToot (data) {
         var escapedUrl = item['card_url'].replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
         // Remove the <a> tag containing this URL
         var urlPattern = new RegExp('<a[^>]*href="' + escapedUrl + '"[^>]*>.*?</a>', 'gi');
-        item['content'] = item['content'].replace(urlPattern, '');
+        // this can lead to 'no content' if a card is not rendered
+        //item['content'] = item['content'].replace(urlPattern, '');
     }
 
     /** Final cleanup: remove empty paragraphs and trim */

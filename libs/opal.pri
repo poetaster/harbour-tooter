@@ -1,5 +1,5 @@
 # This file is part of Opal.
-# SPDX-FileCopyrightText: 2023-2025 Mirian Margiani
+# SPDX-FileCopyrightText: 2023-2026 Mirian Margiani
 # SPDX-License-Identifier: CC-BY-SA-4.0
 #
 # Include this file in your main .pro file to use Opal modules in C++.

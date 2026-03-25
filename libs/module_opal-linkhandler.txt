@@ -1,0 +1,22 @@
+# Store this file to keep track of packaged module versions.
+# It is not necessary to ship this in your app's final RPM package.
+# SPDX-License-Identifier: GPL-3.0-or-later
+# SPDX-FileCopyrightText: 2020-2026 Mirian Margiani
+# SPDX-FileCopyrightText: 2025 roundedrectangle
+
+# Attribution using Opal.About:
+#   Opal attributions are automatically added to the About page.
+#   Make sure to use the latest version of Opal.About:
+#   https://github.com/Pretty-SFOS/opal-about/releases/latest
+#
+# Manual attribution:
+#   Mention at least name, license, and the attribution text
+#   on the About page of your app. Use the information below.
+
+module: Opal.LinkHandler (opal-linkhandler)
+version: 2.6.1 (git:ee4f717)
+description: This module provides a link handler to open or copy external links.
+maintainers: Mirian Margiani
+attribution: 2020-2026 Mirian Margiani:2025 roundedrectangle
+license: GPL-3.0-or-later
+sources: https://github.com/Pretty-SFOS/opal-linkhandler

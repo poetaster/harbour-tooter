@@ -114,4 +114,10 @@ TRANSLATIONS += translations/harbour-tooterb.ts \
     translations/harbour-tooterb-nb.ts
     translations/harbour-tooterb-zh_CN.ts
 
+# Opal modules
 include(libs/opal.pri)
+
+# Expose the version from spec
+DEFINES += APP_VERSION=\\\"$$VERSION\\\"
+DEFINES += APP_RELEASE=\\\"$$RELEASE\\\"
+include(libs/opal-cached-defines.pri)

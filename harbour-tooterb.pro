@@ -113,3 +113,5 @@ TRANSLATIONS += translations/harbour-tooterb.ts \
     translations/harbour-tooterb-sv.ts \
     translations/harbour-tooterb-nb.ts
     translations/harbour-tooterb-zh_CN.ts
+
+include(libs/opal.pri)

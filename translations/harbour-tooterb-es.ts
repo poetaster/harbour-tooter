@@ -21,6 +21,69 @@
     </message>
 </context>
 <context>
+    <name>AboutPage</name>
+    <message>
+        <source>Tooter is Mastodon client for Sailfish OS.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>UI/UX design and development</source>
+        <translation type="unfinished">Diseño UI/UX y desarrollo</translation>
+    </message>
+    <message>
+        <source>Visual identity</source>
+        <translation type="unfinished">Identidad visual</translation>
+    </message>
+    <message>
+        <source>Documentation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>SailfishOS Community Team Liberapay</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Mention</source>
+        <translation type="unfinished">Mencionar</translation>
+    </message>
+    <message>
+        <source>Credits</source>
+        <translation type="unfinished">Créditos</translation>
+    </message>
+    <message>
+        <source>Development and translations</source>
+        <translation type="unfinished">Desarrollo y traducciones</translation>
+    </message>
+    <message>
+        <source>Development</source>
+        <translation type="unfinished">Desarrollo</translation>
+    </message>
+    <message>
+        <source>Occitan &amp; French translation</source>
+        <translation type="unfinished">Traducción al occitano y francés</translation>
+    </message>
+    <message>
+        <source>Chinese translation</source>
+        <translation type="unfinished">Traducción al chino</translation>
+    </message>
+    <message>
+        <source>Dutch translation</source>
+        <translation type="unfinished">Traducción al holandés</translation>
+    </message>
+    <message>
+        <source>Spanish translation</source>
+        <translation type="unfinished">Traducción al español</translation>
+    </message>
+    <message>
+        <source>Development, Russian translation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Norwegian Translation</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>ConversationPage</name>
     <message>
         <source>Copy Link to Clipboard</source>
@@ -113,10 +176,28 @@
     </message>
 </context>
 <context>
+    <name>ExternalUrlPage</name>
+    <message>
+        <source>Swipe left to preview.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>You are using a mobile data connection.</source>
+        <translation>Está utilizando una conexión de datos al móvil.</translation>
+    </message>
+</context>
+<context>
     <name>ImageUploader</name>
     <message>
         <source>The file %1 does not exists</source>
         <translation>El archivo %1 no existe</translation>
+    </message>
+</context>
+<context>
+    <name>LicenseListPart</name>
+    <message>
+        <source>License text</source>
+        <translation>Texto de la licencia</translation>
     </message>
 </context>
 <context>
@@ -250,6 +331,169 @@
     </message>
 </context>
 <context>
+    <name>Opal.About</name>
+    <message>
+        <source>About</source>
+        <translation>Acerca de</translation>
+    </message>
+    <message>
+        <source>Version %1</source>
+        <translation>Versión %1</translation>
+    </message>
+    <message>
+        <source>Development</source>
+        <translation>Desarrollo</translation>
+    </message>
+    <message>
+        <source>show contributors</source>
+        <translation>Mostrar contribuidores</translation>
+    </message>
+    <message>
+        <source>Homepage</source>
+        <translation>Página de inicio</translation>
+    </message>
+    <message>
+        <source>Changelog</source>
+        <translation>Registro de cambios</translation>
+    </message>
+    <message>
+        <source>Translations</source>
+        <translation>Traducciones</translation>
+    </message>
+    <message>
+        <source>Source Code</source>
+        <translation>Código Fuente</translation>
+    </message>
+    <message>
+        <source>Donations</source>
+        <translation>Donaciones</translation>
+    </message>
+    <message>
+        <source>License</source>
+        <translation>Licencia</translation>
+    </message>
+    <message numerus="yes">
+        <source>show license(s)</source>
+        <translation>
+            <numerusform>Mostrar licencia</numerusform>
+            <numerusform>Mostrar licencias</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>News</source>
+        <translation>Novedades</translation>
+    </message>
+    <message>
+        <source>Changes since version %1</source>
+        <translation>Cambios desde la versión %1</translation>
+    </message>
+    <message>
+        <source>show details</source>
+        <translation>Mostrar detalles</translation>
+    </message>
+    <message>
+        <source>Thank you!</source>
+        <translation>¡Gracias!</translation>
+    </message>
+    <message>
+        <source>Details</source>
+        <translation>Detalles</translation>
+    </message>
+    <message>
+        <source>Contributors</source>
+        <translation>Colaboradores</translation>
+    </message>
+    <message>
+        <source>Acknowledgements</source>
+        <translation>Reconocimientos</translation>
+    </message>
+    <message>
+        <source>Please refer to &lt;a href=&quot;%1&quot;&gt;%1&lt;/a&gt;</source>
+        <translation>Vea &lt;a href=&quot;%1&quot;&gt;%1&lt;/a&gt;</translation>
+    </message>
+    <message>
+        <source>Download license texts</source>
+        <translation>Descargar los textos de las licencias</translation>
+    </message>
+    <message>
+        <source>You are using a mobile data connection.</source>
+        <translation>Está utilizando una conexión de datos móvil.</translation>
+    </message>
+    <message numerus="yes">
+        <source>License(s)</source>
+        <translation>
+            <numerusform>Licencia</numerusform>
+            <numerusform>Licencias</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Note: please check the source code for most accurate information.</source>
+        <translation>Nota: compruebe el código fuente para la información más precisa.</translation>
+    </message>
+</context>
+<context>
+    <name>Opal.About.Common</name>
+    <message>
+        <source>If you want to support my work, you can buy me a cup of coffee.</source>
+        <translation>Si quieres apoyar mi trabajo, puedes comprarme un café.</translation>
+    </message>
+    <message>
+        <source>You can support this project by contributing, or by donating using any of these services.</source>
+        <translation>Puedes apoyar este proyecto contribuyendo o donando por cualquiera de estos servicios.</translation>
+    </message>
+    <message>
+        <source>Your contributions to translations or code would be most welcome.</source>
+        <translation>Tus contribuciones a traducir o escribir código serán bien recibidas.</translation>
+    </message>
+</context>
+<context>
+    <name>Opal.LinkHandler</name>
+    <message>
+        <source>Copied to clipboard: %1</source>
+        <translation>Copiado al portapapeles: %1</translation>
+    </message>
+    <message>
+        <source>Share link</source>
+        <translation>Compartir enlace</translation>
+    </message>
+    <message>
+        <source>Phone number</source>
+        <translation>Número telefónico</translation>
+    </message>
+    <message>
+        <source>External link</source>
+        <translation>Enlace externo</translation>
+    </message>
+    <message>
+        <source>Open in browser</source>
+        <translation>Abrir en el navegador</translation>
+    </message>
+    <message>
+        <source>Open externally</source>
+        <translation>Abrir externamente</translation>
+    </message>
+    <message>
+        <source>Share</source>
+        <translation>Compartir</translation>
+    </message>
+    <message>
+        <source>Copy link</source>
+        <translation>Copiar enlace</translation>
+    </message>
+    <message>
+        <source>Copy text</source>
+        <translation>Copiar texto</translation>
+    </message>
+    <message>
+        <source>No preview available.</source>
+        <translation>Ninguna vista previa disponible.</translation>
+    </message>
+    <message>
+        <source>The page is taking too long to load.</source>
+        <translation>La página está tomando mucho tiempo para cargar.</translation>
+    </message>
+</context>
+<context>
     <name>ProfileHeader</name>
     <message>
         <source>Bot</source>
@@ -365,73 +609,11 @@
         <translation>Autoriza a esta aplicación para usar tu cuenta de Mastodon en tu nombre</translation>
     </message>
     <message>
-        <source>Translate</source>
-        <translation>Traducir</translation>
-    </message>
-    <message>
-        <source>Credits</source>
-        <extracomment>Translation alternative: &quot;Development&quot;</extracomment>
-        <translation>Créditos</translation>
-    </message>
-    <message>
-        <source>UI/UX design and development</source>
-        <translation>Diseño UI/UX y desarrollo</translation>
-    </message>
-    <message>
-        <source>Visual identity</source>
-        <translation>Identidad visual</translation>
-    </message>
-    <message>
-        <source>Development and translations</source>
-        <translation>Desarrollo y traducciones</translation>
-    </message>
-    <message>
-        <source>Occitan &amp; French translation</source>
-        <translation>Traducción al occitano y francés</translation>
-    </message>
-    <message>
-        <source>Chinese translation</source>
-        <translation>Traducción al chino</translation>
-    </message>
-    <message>
-        <source>Dutch translation</source>
-        <translation>Traducción al holandés</translation>
-    </message>
-    <message>
-        <source>Spanish translation</source>
-        <translation>Traducción al español</translation>
-    </message>
-    <message>
-        <source>Use</source>
-        <extracomment>Full sentence for translation: &quot;Use Transifex to help with app translation to your language.&quot; - The word Transifex is a link and doesn&apos;t need translation.</extracomment>
-        <translation>Usar</translation>
-    </message>
-    <message>
-        <source>to help with app translation to your language.</source>
-        <translation>para ayudar con traducciones.</translation>
-    </message>
-    <message>
-        <source>Development</source>
-        <translation>Desarrollo</translation>
-    </message>
-    <message>
-        <source>Documentation</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Mention</source>
-        <translation type="unfinished">Mencionar</translation>
-    </message>
-    <message>
         <source>Account removed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Norwegian Translation</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -449,6 +631,11 @@
     <message>
         <source>Show arrows to jump to top/bottom when scrolling fast</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>About</source>
+        <comment>About the app</comment>
+        <translation type="unfinished">Detalles</translation>
     </message>
 </context>
 <context>

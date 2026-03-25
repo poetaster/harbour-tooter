@@ -26,6 +26,86 @@
     </message>
 </context>
 <context>
+    <name>AboutPage</name>
+    <message>
+        <location filename="../qml/pages/AboutPage.qml" line="12"/>
+        <source>Tooter is Mastodon client for Sailfish OS.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/AboutPage.qml" line="25"/>
+        <source>SailfishOS Community Team Liberapay</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/AboutPage.qml" line="36"/>
+        <location filename="../qml/pages/AboutPage.qml" line="168"/>
+        <source>Mention</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/AboutPage.qml" line="45"/>
+        <source>Credits</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/AboutPage.qml" line="52"/>
+        <source>UI/UX design and development</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/AboutPage.qml" line="59"/>
+        <source>Development and translations</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/AboutPage.qml" line="66"/>
+        <location filename="../qml/pages/AboutPage.qml" line="125"/>
+        <source>Development</source>
+        <translation type="unfinished">Kehitys</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/AboutPage.qml" line="72"/>
+        <source>Visual identity</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/AboutPage.qml" line="78"/>
+        <source>Documentation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/AboutPage.qml" line="85"/>
+        <source>Occitan &amp; French translation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/AboutPage.qml" line="92"/>
+        <source>Chinese translation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/AboutPage.qml" line="99"/>
+        <source>Dutch translation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/AboutPage.qml" line="106"/>
+        <source>Spanish translation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/AboutPage.qml" line="113"/>
+        <source>Development, Russian translation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/AboutPage.qml" line="119"/>
+        <source>Norwegian Translation</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>ConversationPage</name>
     <message>
         <location filename="../qml/pages/ConversationPage.qml" line="149"/>
@@ -139,11 +219,32 @@
     </message>
 </context>
 <context>
+    <name>ExternalUrlPage</name>
+    <message>
+        <location filename="../qml/modules/Opal/LinkHandler/private/ExternalUrlPage.qml" line="86"/>
+        <source>Swipe left to preview.</source>
+        <translation>Esikatsele pyyhkäisemällä vasemmalle.</translation>
+    </message>
+    <message>
+        <location filename="../qml/modules/Opal/LinkHandler/private/ExternalUrlPage.qml" line="86"/>
+        <source>You are using a mobile data connection.</source>
+        <translation>Käytössäsi on mobiilidatayhteys.</translation>
+    </message>
+</context>
+<context>
     <name>ImageUploader</name>
     <message>
         <location filename="../src/imageuploader.cpp" line="85"/>
         <source>The file %1 does not exists</source>
         <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>LicenseListPart</name>
+    <message>
+        <location filename="../qml/modules/Opal/About/private/LicenseListPart.qml" line="119"/>
+        <source>License text</source>
+        <translation>Lisenssiteksti</translation>
     </message>
 </context>
 <context>
@@ -307,6 +408,214 @@
     </message>
 </context>
 <context>
+    <name>Opal.About</name>
+    <message>
+        <location filename="../qml/modules/Opal/About/AboutPageBase.qml" line="58"/>
+        <source>About</source>
+        <translation>Tietoja</translation>
+    </message>
+    <message>
+        <location filename="../qml/modules/Opal/About/AboutPageBase.qml" line="87"/>
+        <source>Version %1</source>
+        <translation>Versio %1</translation>
+    </message>
+    <message>
+        <location filename="../qml/modules/Opal/About/AboutPageBase.qml" line="103"/>
+        <location filename="../qml/modules/Opal/About/private/ContributorsPage.qml" line="24"/>
+        <location filename="../qml/modules/Opal/About/private/ContributorsPage.qml" line="33"/>
+        <source>Development</source>
+        <translation>Kehitys</translation>
+    </message>
+    <message>
+        <location filename="../qml/modules/Opal/About/AboutPageBase.qml" line="106"/>
+        <source>show contributors</source>
+        <translation>näytä osallistujat</translation>
+    </message>
+    <message>
+        <location filename="../qml/modules/Opal/About/AboutPageBase.qml" line="108"/>
+        <location filename="../qml/modules/Opal/About/private/ContributorsAttributionRepeater.qml" line="18"/>
+        <location filename="../qml/modules/Opal/About/private/ContributorsAttributionRepeater.qml" line="24"/>
+        <location filename="../qml/modules/Opal/About/private/LicenseListPart.qml" line="47"/>
+        <source>Homepage</source>
+        <translation>Kotisivu</translation>
+    </message>
+    <message>
+        <location filename="../qml/modules/Opal/About/AboutPageBase.qml" line="111"/>
+        <location filename="../qml/modules/Opal/About/private/ChangelogPage.qml" line="16"/>
+        <source>Changelog</source>
+        <translation>Muutosloki</translation>
+    </message>
+    <message>
+        <location filename="../qml/modules/Opal/About/AboutPageBase.qml" line="114"/>
+        <source>Translations</source>
+        <translation>Käännökset</translation>
+    </message>
+    <message>
+        <location filename="../qml/modules/Opal/About/AboutPageBase.qml" line="117"/>
+        <location filename="../qml/modules/Opal/About/private/ContributorsAttributionRepeater.qml" line="17"/>
+        <location filename="../qml/modules/Opal/About/private/ContributorsAttributionRepeater.qml" line="25"/>
+        <location filename="../qml/modules/Opal/About/private/LicenseListPart.qml" line="50"/>
+        <source>Source Code</source>
+        <translation>Lähdekoodi</translation>
+    </message>
+    <message>
+        <location filename="../qml/modules/Opal/About/AboutPageBase.qml" line="126"/>
+        <source>Donations</source>
+        <translation>Lahjoitukset</translation>
+    </message>
+    <message>
+        <location filename="../qml/modules/Opal/About/AboutPageBase.qml" line="132"/>
+        <source>License</source>
+        <translation>Lisenssi</translation>
+    </message>
+    <message numerus="yes">
+        <location filename="../qml/modules/Opal/About/AboutPageBase.qml" line="137"/>
+        <source>show license(s)</source>
+        <translation>
+            <numerusform>näytä lisenssi</numerusform>
+        </translation>
+    </message>
+    <message>
+        <location filename="../qml/modules/Opal/About/ChangelogNews.qml" line="61"/>
+        <source>News</source>
+        <translation>Uutiset</translation>
+    </message>
+    <message>
+        <location filename="../qml/modules/Opal/About/ChangelogNews.qml" line="62"/>
+        <source>Changes since version %1</source>
+        <translation>Muutoksia versiosta %1</translation>
+    </message>
+    <message>
+        <location filename="../qml/modules/Opal/About/InfoSection.qml" line="16"/>
+        <source>show details</source>
+        <translation>näytä lisätietoja</translation>
+    </message>
+    <message>
+        <location filename="../qml/modules/Opal/About/private/ContributorsAttributionRepeater.qml" line="11"/>
+        <source>Thank you!</source>
+        <translation>Kiitos!</translation>
+    </message>
+    <message>
+        <location filename="../qml/modules/Opal/About/private/ContributorsAttributionRepeater.qml" line="15"/>
+        <location filename="../qml/modules/Opal/About/private/LicensePage.qml" line="45"/>
+        <source>Details</source>
+        <translation>Tiedot</translation>
+    </message>
+    <message>
+        <location filename="../qml/modules/Opal/About/private/ContributorsPage.qml" line="23"/>
+        <source>Contributors</source>
+        <translation>Osallistujat</translation>
+    </message>
+    <message>
+        <location filename="../qml/modules/Opal/About/private/ContributorsPage.qml" line="39"/>
+        <source>Acknowledgements</source>
+        <translation>Tunnustukset</translation>
+    </message>
+    <message>
+        <location filename="../qml/modules/Opal/About/private/LicenseListPart.qml" line="120"/>
+        <source>Please refer to &lt;a href=&quot;%1&quot;&gt;%1&lt;/a&gt;</source>
+        <translation>Katso lisätietoja &lt;a href=&quot;%1&quot;&gt;%1&lt;/a&gt;</translation>
+    </message>
+    <message>
+        <location filename="../qml/modules/Opal/About/private/LicensePage.qml" line="37"/>
+        <source>Download license texts</source>
+        <translation>Lataa lisenssitekstit</translation>
+    </message>
+    <message>
+        <location filename="../qml/modules/Opal/About/private/LicensePage.qml" line="40"/>
+        <source>You are using a mobile data connection.</source>
+        <translation type="unfinished">Käytössäsi on mobiilidatayhteys.</translation>
+    </message>
+    <message numerus="yes">
+        <location filename="../qml/modules/Opal/About/private/LicensePage.qml" line="45"/>
+        <source>License(s)</source>
+        <translation>
+            <numerusform>Lisenssi</numerusform>
+        </translation>
+    </message>
+    <message>
+        <location filename="../qml/modules/Opal/About/private/LicensePage.qml" line="55"/>
+        <source>Note: please check the source code for most accurate information.</source>
+        <translation>Huom: Tarkimman tiedon löydät suoraan lähdekoodista.</translation>
+    </message>
+</context>
+<context>
+    <name>Opal.About.Common</name>
+    <message>
+        <location filename="../qml/modules/Opal/About/private/DonationsGroup.qml" line="7"/>
+        <source>If you want to support my work, you can buy me a cup of coffee.</source>
+        <translation>Jos haluat tukea työtäni, voit ostaa minulle kupin kahvia.</translation>
+    </message>
+    <message>
+        <location filename="../qml/modules/Opal/About/private/DonationsGroup.qml" line="8"/>
+        <source>You can support this project by contributing, or by donating using any of these services.</source>
+        <translation>Voit tukea tätä projektia joko osallistumalla koodin kehittämiseen tai tekemällä lahjoituksen johonkin seuraavista palveluista.</translation>
+    </message>
+    <message>
+        <location filename="../qml/modules/Opal/About/private/DonationsGroup.qml" line="9"/>
+        <source>Your contributions to translations or code would be most welcome.</source>
+        <translation>Koodipäivityksesi ja käännöksesi ovat mitä tervetulleimpia.</translation>
+    </message>
+</context>
+<context>
+    <name>Opal.LinkHandler</name>
+    <message>
+        <location filename="../qml/modules/Opal/LinkHandler/private/ExternalUrlPage.qml" line="36"/>
+        <source>Copied to clipboard: %1</source>
+        <translation>Kopioitu leikepöydälle: %1</translation>
+    </message>
+    <message>
+        <location filename="../qml/modules/Opal/LinkHandler/private/ExternalUrlPage.qml" line="47"/>
+        <source>Share link</source>
+        <translation>Jaa linkki</translation>
+    </message>
+    <message>
+        <location filename="../qml/modules/Opal/LinkHandler/private/ExternalUrlPage.qml" line="51"/>
+        <source>Phone number</source>
+        <translation>Puhelinnumero</translation>
+    </message>
+    <message>
+        <location filename="../qml/modules/Opal/LinkHandler/private/ExternalUrlPage.qml" line="51"/>
+        <source>External link</source>
+        <translation>Ulkoinen linkki</translation>
+    </message>
+    <message>
+        <location filename="../qml/modules/Opal/LinkHandler/private/ExternalUrlPage.qml" line="73"/>
+        <source>Open in browser</source>
+        <translation>Avaa selaimessa</translation>
+    </message>
+    <message>
+        <location filename="../qml/modules/Opal/LinkHandler/private/ExternalUrlPage.qml" line="73"/>
+        <source>Open externally</source>
+        <translation>Avaa ulkoisesti</translation>
+    </message>
+    <message>
+        <location filename="../qml/modules/Opal/LinkHandler/private/ExternalUrlPage.qml" line="76"/>
+        <source>Share</source>
+        <translation>Jaa</translation>
+    </message>
+    <message>
+        <location filename="../qml/modules/Opal/LinkHandler/private/ExternalUrlPage.qml" line="81"/>
+        <source>Copy link</source>
+        <translation>Kopioi linkki</translation>
+    </message>
+    <message>
+        <location filename="../qml/modules/Opal/LinkHandler/private/ExternalUrlPage.qml" line="83"/>
+        <source>Copy text</source>
+        <translation>Kopioi teksti</translation>
+    </message>
+    <message>
+        <location filename="../qml/modules/Opal/LinkHandler/private/PreviewPage.qml" line="27"/>
+        <source>No preview available.</source>
+        <translation>Esikatselu ei ole saatavilla.</translation>
+    </message>
+    <message>
+        <location filename="../qml/modules/Opal/LinkHandler/private/PreviewPage.qml" line="28"/>
+        <source>The page is taking too long to load.</source>
+        <translation>Sivun lataaminen kestää liian kauan.</translation>
+    </message>
+</context>
+<context>
     <name>ProfileHeader</name>
     <message>
         <location filename="../qml/pages/components/ProfileHeader.qml" line="127"/>
@@ -330,7 +639,7 @@
         <location filename="../qml/pages/ProfilePage.qml" line="162"/>
         <source>About</source>
         <extracomment>If there&apos;s no good translation for &quot;About&quot;, use &quot;Details&quot; (in details about profile).</extracomment>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Tietoja</translation>
     </message>
     <message>
         <location filename="../qml/pages/ProfilePage.qml" line="241"/>
@@ -412,147 +721,74 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="30"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="24"/>
+        <source>About</source>
+        <comment>About the app</comment>
+        <translation type="unfinished">Tietoja</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/SettingsPage.qml" line="37"/>
         <source>Settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="46"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="53"/>
         <source>Quick Scroll Arrows</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="47"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="54"/>
         <source>Show arrows to jump to top/bottom when scrolling fast</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="113"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="120"/>
         <source>Account</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="141"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="148"/>
         <source>Account removed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="156"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="163"/>
         <source>Remove</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="194"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="201"/>
         <source>Add Account</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="209"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="216"/>
         <source>Authorize this app to access your Mastodon account</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="33"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="40"/>
         <source>Options</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="36"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="43"/>
         <source>Load Images in Toots</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="37"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="44"/>
         <source>Disable this option if you want to preserve your data connection</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="76"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="83"/>
         <source>Font Size</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="101"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="108"/>
         <source>Sample text</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="220"/>
-        <source>Translate</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="226"/>
-        <source>Use</source>
-        <extracomment>Full sentence for translation: &quot;Use Transifex to help with app translation to your language.&quot; - The word Transifex is a link and doesn&apos;t need translation.</extracomment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="226"/>
-        <source>to help with app translation to your language.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="243"/>
-        <source>Credits</source>
-        <extracomment>Translation alternative: &quot;Development&quot;</extracomment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="259"/>
-        <source>UI/UX design and development</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="266"/>
-        <source>Development and translations</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="273"/>
-        <location filename="../qml/pages/SettingsPage.qml" line="320"/>
-        <location filename="../qml/pages/SettingsPage.qml" line="332"/>
-        <source>Development</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="279"/>
-        <source>Visual identity</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="285"/>
-        <source>Documentation</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="292"/>
-        <source>Occitan &amp; French translation</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="299"/>
-        <source>Chinese translation</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="306"/>
-        <source>Dutch translation</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="313"/>
-        <source>Spanish translation</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="326"/>
-        <source>Norwegian Translation</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="354"/>
-        <source>Mention</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

@@ -34,7 +34,7 @@
     </message>
     <message>
         <location filename="../qml/pages/AboutPage.qml" line="25"/>
-        <source>SailfishOS Community Team Liberapay</source>
+        <source>SFOS Community Liberapay</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

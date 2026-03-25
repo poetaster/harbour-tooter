@@ -22,7 +22,7 @@ AboutPageBase {
     homepageUrl: 'https://forum.sailfishos.org/t/tooter-feedback-thread/13508'
     donations.services: [
         DonationService {
-            name: qsTr("SailfishOS Community Team Liberapay")
+            name: qsTr("SFOS Community Liberapay")
             url: "https://liberapay.com/SailfishOScommunityTeam"
         },
         DonationService {

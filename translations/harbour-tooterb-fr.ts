@@ -39,10 +39,6 @@
         <translation type="unfinished">Documentation</translation>
     </message>
     <message>
-        <source>SailfishOS Community Team Liberapay</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Mention</source>
         <translation type="unfinished">Mentionner</translation>
     </message>
@@ -81,6 +77,10 @@
     <message>
         <source>Norwegian Translation</source>
         <translation type="unfinished">Traduction norvégienne</translation>
+    </message>
+    <message>
+        <source>SFOS Community Liberapay</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

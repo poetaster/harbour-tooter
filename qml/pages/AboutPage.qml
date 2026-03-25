@@ -40,67 +40,6 @@ AboutPageBase {
     }
 
     // for now, we use a custom contributors list, as the one Opal provides doesn't work well with links
-    /*contributionSections: [
-        ContributionSection {
-            groups: [
-                ContributionGroup {
-                    title: qsTr("Programming")
-                    entries: [
-                        //'<a href="tooterInApp://postaster@mastodon.gamedev.place">poetaster</a>', // blueprint@poetaster.de
-                        '<a href="tooterInApp://molan@fosstodon.org">molan</a>', // mol_an@sunrise.ch
-                        '<a href="tooterInApp://roundedrectangle@techhub.social">roundedrectangle</a>',
-                        '<a href="tooterInApp://lari@suomi.social">Lari Lohikoski</a>',
-                    ]
-                },
-                ContributionGroup {
-                    title: qsTr("UI/UX design and development")
-                    entries: '<a href="tooterInApp://dysko@mastodon.social">Duško Angirević</a>'
-                },
-                ContributionGroup {
-                    title: qsTr("Visual identity")
-                    entries: '<a href="mailto:micotakis@gmail.com">Miodrag Nikolić</a>'
-                },
-                ContributionGroup {
-                    title: qsTr("Documentation")
-                    entries: '<a href="tooterInApp://@jmlich@fosstodon.org">Jozef Mlich</a>'
-                }
-            ]
-        },
-        ContributionSection {
-            title: qsTr("Translations")
-            groups: [
-                ContributionGroup {
-                    title: qsTr("Occitan")
-                    entries: '<a href="Quenti@framapiaf.org">Quentin PAGÈS / Quenti ♏</a>'
-                },
-                ContributionGroup {
-                    title: qsTr("French")
-                    entries: '<a href="Quenti@framapiaf.org">Quentin PAGÈS / Quenti ♏</a>'
-                },
-                ContributionGroup {
-                    title: qsTr("Chinese")
-                    entries: '<a href="mailto:dashinfantry@gmail.com">Luchy Kon / dashinfantry</a>'
-                },
-                ContributionGroup {
-                    title: qsTr("Dutch")
-                    entries: '<a href="tooterInApp://meneer@mastodon.social">André Koot</a>' // https://twitter.com/meneer
-                },
-                ContributionGroup {
-                    title: qsTr("Spanish")
-                    entries: "CarmenFdez"
-                },
-                ContributionGroup {
-                    title: qsTr("Norwegian")
-                    entries: '<a href="frankps@babb.no">Frank Paul Silye</a>'
-                },
-                ContributionGroup {
-                    title: qsTr("Russian")
-                    entries: '<a href="tooterInApp://roundedrectangle@techhub.social">roundedrectangle</a>'
-                }
-            ]
-        }
-    ]*/
-
     extraSections: [
         InfoSection {
             title: qsTr("Credits")

@@ -216,27 +216,6 @@ Page {
                 }
             }
 
-            SectionHeader {
-                text:  qsTr("Translate")
-            }
-
-            LinkedLabel {
-                id: translateLbl
-                //: Full sentence for translation: "Use Transifex to help with app translation to your language." - The word Transifex is a link and doesn't need translation.
-                text: qsTr("Use")+" "+"<a href='https://www.transifex.com/molan-git/tooter-b'>Transifex</a>"+" "+qsTr("to help with app translation to your language.")
-                textFormat: Text.StyledText
-                color: Theme.highlightColor
-                linkColor: Theme.primaryColor
-                font.family: Theme.fontFamilyHeading
-                font.pixelSize: Theme.fontSizeExtraSmall
-                wrapMode: Text.Wrap
-                anchors {
-                    left: parent.left
-                    leftMargin: Theme.horizontalPageMargin
-                    right: parent.right
-                    rightMargin: Theme.paddingLarge
-                }
-            }
 
             SectionHeader {
                 //: Translation alternative: "Development"
@@ -332,6 +311,24 @@ Page {
                             desc: qsTr("Development")
                             mastodon: "lari@suomi.social"
                             mail: ""
+                        }
+                        ListElement {
+                            name: "Mejans"
+                            desc: qsTr("French Translation")
+                            mastodon: "lari@suomi.social"
+                            mail: ""
+                        }
+                        ListElement {
+                            name: "Åke Engelbrektson"
+                            desc: qsTr("Swedish Translation")
+                            mastodon: "https://github.com/eson57"
+                            mail: ""
+                        }
+                        ListElement {
+                            name: "legacychimera247"
+                            desc: qsTr("Italian Translation")
+                            mastodon: ""
+                            mail: "luca247@vivaldi.net"
                         }
                     }
 

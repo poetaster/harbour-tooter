@@ -365,10 +365,6 @@
         <translation>Auktorisera denna app att använda ditt Mastodon-konto</translation>
     </message>
     <message>
-        <source>Translate</source>
-        <translation>Översätt</translation>
-    </message>
-    <message>
         <source>Credits</source>
         <extracomment>Translation alternative: &quot;Development&quot;</extracomment>
         <translation>Erkännanden</translation>
@@ -400,15 +396,6 @@
     <message>
         <source>Spanish translation</source>
         <translation>Spansk översättning</translation>
-    </message>
-    <message>
-        <source>Use</source>
-        <extracomment>Full sentence for translation: &quot;Use Transifex to help with app translation to your language.&quot; - The word Transifex is a link and doesn&apos;t need translation.</extracomment>
-        <translation>Använd</translation>
-    </message>
-    <message>
-        <source>to help with app translation to your language.</source>
-        <translation>för att bidra med översättning av appen till ditt språk.</translation>
     </message>
     <message>
         <source>Development</source>
@@ -449,6 +436,14 @@
     <message>
         <source>Show arrows to jump to top/bottom when scrolling fast</source>
         <translation>Visar pilar för att hoppa till toppen/botten vid snabb rullning</translation>
+    </message>
+    <message>
+        <source>French Translation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Swedish Translation</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -515,35 +510,35 @@
     </message>
     <message>
         <source>Loading...</source>
-        <translation>Läser in...</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Load more</source>
-        <translation>Läs in mer</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Vote</source>
-        <translation>Rösta</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>votes</source>
-        <translation>röster</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Closed</source>
-        <translation>Stängd</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>days left</source>
-        <translation>dagar kvar</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>hours left</source>
-        <translation>timmar kvar</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>minutes left</source>
-        <translation>minuter kvar</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

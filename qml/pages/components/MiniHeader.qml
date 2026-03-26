@@ -9,7 +9,7 @@ Item {
 
     Label {
         id: lblName
-        text: account_display_name ? account_display_name : account_username.split('@')[0]
+        text: model.account_display_name ? model.account_display_name : model.account_username.split('@')[0]
         font.weight: Font.Bold
         font.pixelSize: Theme.fontSizeSmall
         color: if ( myList.type === "notifications" && ( model.type === "favourite" || model.type === "reblog" )) {

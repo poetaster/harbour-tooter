@@ -10,6 +10,17 @@ BackgroundItem {
     property bool expanded: false
     property int charLimit: 500
 
+
+
+    Component.onCompleted: {
+            //logModelItems(model)
+    }
+    function logModelItems(model) {
+            for (var i = 0; i < model.count; i++) {
+                var item = model.get(i);
+                if  (debug) console.log("Item at index " + i + ": ", item);
+            }
+    }
     // Helper function to strip HTML and get text length
     function getTextLength(html) {
         if (!html) return 0
@@ -97,7 +108,7 @@ BackgroundItem {
             anchors.fill: parent
             enabled: model.gap_loading !== true
             onClicked: {
-                console.log("Gap clicked at index " + index)
+                if  (debug) console.log("Gap clicked at index " + index)
                 myList.loadGap(index)
             }
         }
@@ -449,7 +460,6 @@ BackgroundItem {
     }
 
     // Poll display
-    // Poll display
     Column {
         id: pollContainer
         visible: {
@@ -681,7 +691,7 @@ BackgroundItem {
     Rectangle {
         id: linkPreview
         visible: {
-            if (model.type === "gap") return false
+            //if (model.type === "gap") return false
             if (myList.type === "notifications" && (model.type === "favourite" || model.type === "reblog")) return false
             // Require both URL and title to avoid showing empty card boxes
             return typeof model.card_url !== "undefined" && model.card_url.length > 0
@@ -778,8 +788,8 @@ BackgroundItem {
     Rectangle {
         id: quotedPost
         visible: {
-            if (model.type === "gap") return false
-            if (myList.type === "notifications" && (model.type === "favourite" || model.type === "reblog")) return false
+            //if (model.type === "gap") return false
+            //if (myList.type === "notifications" && (model.type === "favourite" || model.type === "reblog")) return false
             // Require both quote_id AND some meaningful content (either text content or author info)
             var hasQuoteId = typeof model.quote_id !== "undefined" && model.quote_id.length > 0
             if (!hasQuoteId) return false

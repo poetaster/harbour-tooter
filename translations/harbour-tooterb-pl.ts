@@ -365,10 +365,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Translate</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Credits</source>
         <extracomment>Translation alternative: &quot;Development&quot;</extracomment>
         <translation type="unfinished"></translation>
@@ -399,15 +395,6 @@
     </message>
     <message>
         <source>Spanish translation</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Use</source>
-        <extracomment>Full sentence for translation: &quot;Use Transifex to help with app translation to your language.&quot; - The word Transifex is a link and doesn&apos;t need translation.</extracomment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>to help with app translation to your language.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -448,6 +435,14 @@
     </message>
     <message>
         <source>Show arrows to jump to top/bottom when scrolling fast</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>French Translation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Swedish Translation</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

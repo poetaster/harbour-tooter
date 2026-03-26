@@ -174,7 +174,6 @@ WorkerScript.onMessage = function(msg) {
                 } else if(msg.action === "notifications") {
                     // notification
                     if (debug) console.log("Get notification list")
-                    if (debug) console.log(JSON.stringify(data[i]))
                     item = parseNotification(data[i]);
                     items.push(item);
 
@@ -323,12 +322,13 @@ function parseAccounts(collection, prefix, data) {
 
 /** Function: Get Notification Data */
 function parseNotification(data){
-    //console.log(JSON.stringify(data))
+    //if (debug) console.log(JSON.stringify(data));
     var item = {
         id: data.id,
         type: data.type,
         attachments: []
     };
+    if (debug) console.log("type:" + JSON.stringify(data.type));
     switch (item['type']){
 
     case "mention":
@@ -338,6 +338,18 @@ function parseNotification(data){
         item = parseToot(data.status)
         item['typeIcon'] = "image://theme/icon-s-alarm"
         item['type'] = "mention"
+        break;
+
+    case "poll":
+        if (!data.status) {
+            break;
+        }
+        item = parseToot(data.status)
+        item = parseAccounts(item, "reblog_", data["account"])
+        item = parseAccounts(item, "", data["status"]["account"])
+        item['status_reblog'] = true
+        item['type'] = "poll"
+        item['typeIcon'] = "image://theme/icon-s-retweet"
         break;
 
     case "reblog":
@@ -374,7 +386,12 @@ function parseNotification(data){
         break;
 
     default:
+        if (!data.status) {
+            break;
+        }
+        item = parseToot(data.status)
         item['typeIcon'] = "image://theme/icon-s-sailfish"
+        break;
     }
 
     item['id'] = data.id

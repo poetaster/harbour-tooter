@@ -365,10 +365,6 @@
         <translation>Autoriser at denne appen får tilgang til kontoen din på Mastodon</translation>
     </message>
     <message>
-        <source>Translate</source>
-        <translation>Oversett</translation>
-    </message>
-    <message>
         <source>Credits</source>
         <extracomment>Translation alternative: &quot;Development&quot;</extracomment>
         <translation>Takk til</translation>
@@ -400,15 +396,6 @@
     <message>
         <source>Spanish translation</source>
         <translation>Spansk oversettelse</translation>
-    </message>
-    <message>
-        <source>Use</source>
-        <extracomment>Full sentence for translation: &quot;Use Transifex to help with app translation to your language.&quot; - The word Transifex is a link and doesn&apos;t need translation.</extracomment>
-        <translation>Bruk</translation>
-    </message>
-    <message>
-        <source>to help with app translation to your language.</source>
-        <translation>for å hjelpe med oversettelse av appen til språket ditt.</translation>
     </message>
     <message>
         <source>Development</source>
@@ -448,6 +435,14 @@
     </message>
     <message>
         <source>Show arrows to jump to top/bottom when scrolling fast</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>French Translation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Swedish Translation</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

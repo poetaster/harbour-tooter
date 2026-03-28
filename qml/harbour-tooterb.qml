@@ -95,11 +95,11 @@ ApplicationWindow {
                         appWindow.instanceMaxChars = data.configuration.statuses.max_characters
                         console.log("Instance max chars: " + appWindow.instanceMaxChars)
                     }
-                    pageStack.push(Qt.resolvedUrl("./pages/MainPage.qml"), {})
-                })
-                //pageStack.push(Qt.resolvedUrl("./pages/Conversation.qml"), {})
+                    pageStack.push(Qt.resolvedUrl("./pages/MainPage.qml"))
+                }) // we could handle errors like for accounts/verify_credentials in MainPage here if needed
             } else {
-                pageStack.push(Qt.resolvedUrl("./pages/LoginPage.qml"), {})
+                pageStack.clear() // FIXME: is this really needed?
+                pageStack.push(Qt.resolvedUrl("./pages/LoginPage.qml"))
             }
         })
         Logic.init()

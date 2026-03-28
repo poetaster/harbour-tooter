@@ -243,7 +243,15 @@ WorkerScript.onMessage = function(msg) {
         if (debug) console.log("Get em all?")
 
         WorkerScript.sendMessage({ 'updatedAll': true, 'itemsCount': items.length, 'mode': msg.mode})
-    });
+    }, function(status) {
+        // error handler (we should probably handle other kinds of errors here as well)
+        // important: a status can be null here if JSON parse fails, or 0 if a network error occured
+        // we should only handle such errors when really required
+
+        // Pixelfed returns an HTML page when creditionals are incorrect
+        if (msg.action === "accounts/verify_credentials" && (status >= 400 && status <= 499 || typeof status == 'undefined'))
+            WorkerScript.sendMessage({action: msg.action, success: false})
+    })
 }
 
 //WorkerScript.sendMessage({ 'notifyNewItems': length - i })

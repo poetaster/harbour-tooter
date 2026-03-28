@@ -11,7 +11,6 @@ Page {
 
     property bool debug: false
     property bool isFirstPage: true
-    property bool isTablet: true //Screen.sizeCategory >= Screen.Large
 
     property bool quickAccountSwitchHintActive: !Logic.conf.multipleAccountsHintCompleted && Logic.conf.accounts.length > 1
 

@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="nb">
+<TS version="2.1" language="no_NB">
 <context>
     <name>API</name>
     <message>
         <source>favourited</source>
-        <translation>favorisert</translation>
+        <translation>markert som favoritt</translation>
     </message>
     <message>
         <source>followed you</source>
-        <translation>følger deg</translation>
+        <translation>begynte å følge deg</translation>
     </message>
     <message>
         <source>boosted</source>
@@ -23,84 +23,107 @@
 <context>
     <name>ConversationPage</name>
     <message>
-        <source>Open in Browser</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Copy Link to Clipboard</source>
         <extracomment>Use the translation of &quot;Copy Link&quot; for a shorter PullDownMenu label</extracomment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Reply</source>
-        <extracomment>&quot;Reply&quot; will show the Toot text entry Panel. &quot;Hide Reply&quot; closes it. Alternative: Use &quot;Close Reply&quot;</extracomment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Hide Reply</source>
-        <translation type="unfinished"></translation>
+        <translation>Kopier lenke til utklippstavle</translation>
     </message>
     <message>
         <source>Write your warning here</source>
         <extracomment>placeholderText in Toot content warning panel</extracomment>
-        <translation type="unfinished">Skriv advarselen din her</translation>
+        <translation>Skriv din advarsel her</translation>
     </message>
     <message>
         <source>What&apos;s on your mind?</source>
         <extracomment>placeholderText in Toot text panel</extracomment>
-        <translation type="unfinished">Hva tenker du på?</translation>
-    </message>
-    <message>
-        <source>Public</source>
-        <translation type="unfinished">Offentlig</translation>
-    </message>
-    <message>
-        <source>Unlisted</source>
-        <translation type="unfinished">Ikke oppført</translation>
-    </message>
-    <message>
-        <source>Followers-only</source>
-        <translation type="unfinished">Kun for følgere</translation>
-    </message>
-    <message>
-        <source>Direct</source>
-        <translation type="unfinished">Direkte</translation>
+        <translation>Hva har du i tankene?</translation>
     </message>
     <message>
         <source>Toot sent!</source>
-        <translation type="unfinished"></translation>
+        <translation>Toot sendt!</translation>
+    </message>
+    <message>
+        <source>Open in Browser</source>
+        <translation>Åpne i nettleser</translation>
+    </message>
+    <message>
+        <source>Edit Alt Text</source>
+        <translation>Rediger alt-tekst</translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation>Fjern</translation>
+    </message>
+    <message>
+        <source>Toot edited!</source>
+        <translation>Toot redigert!</translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation>Lagre</translation>
+    </message>
+    <message>
+        <source>Describe this media for visually impaired users</source>
+        <translation>Beskriv dette innholdet for synshemmede brukere</translation>
+    </message>
+    <message>
+        <source>Alt text helps make content accessible to people who are blind or have low vision.</source>
+        <translation>Alternativ tekst bidrar til å gjøre innhold tilgjengelig for personer som er blinde eller har nedsatt syn.</translation>
+    </message>
+    <message>
+        <source>Quoting @%1</source>
+        <translation>Siterer @%1</translation>
+    </message>
+    <message>
+        <source>Removing</source>
+        <translation>Fjerner</translation>
+    </message>
+    <message>
+        <source>Public</source>
+        <translation>Offentlig</translation>
+    </message>
+    <message>
+        <source>Unlisted</source>
+        <translation>Ulistet</translation>
+    </message>
+    <message>
+        <source>Followers-only</source>
+        <translation>Kun for følgere</translation>
+    </message>
+    <message>
+        <source>Direct</source>
+        <translation>Direkte</translation>
     </message>
 </context>
 <context>
     <name>CoverPage</name>
     <message>
         <source>New Toot</source>
-        <translation type="unfinished">Ny toot</translation>
+        <translation>Ny toot</translation>
     </message>
 </context>
 <context>
     <name>EmojiSelect</name>
     <message>
         <source>Emojis</source>
-        <translation type="unfinished">Emojis</translation>
+        <translation>Emojis</translation>
     </message>
     <message>
         <source>Tap to insert</source>
-        <translation type="unfinished">Trykk for å sette inn</translation>
+        <translation>Trykk for å sette inn</translation>
     </message>
 </context>
 <context>
     <name>ImageUploader</name>
     <message>
         <source>The file %1 does not exists</source>
-        <translation>Filen %1 finnes ikke</translation>
+        <translation>Filen %1 eksisterer ikke</translation>
     </message>
 </context>
 <context>
     <name>LoginPage</name>
     <message>
         <source>Login</source>
-        <translation>Logg inn</translation>
+        <translation>Pålogging</translation>
     </message>
     <message>
         <source>Instance</source>
@@ -108,15 +131,15 @@
     </message>
     <message>
         <source>Mastodon is a free, open-source social network. A decentralized alternative to commercial platforms, it avoids the risks of a single company monopolizing your communication. Pick a server that you trust — whichever you choose, you can interact with everyone else. Anyone can run their own Mastodon instance and participate in the social network seamlessly.</source>
-        <translation>Mastodon er et gratis sosialt nettverk med åpen kildekode. Som et desentralisert alternativ til kommersielle plattformer unngår det risikoen for at et enkelt selskap monopoliserer kommunikasjonen din. Velg en server du stoler på – uansett hvilken du velger, kan du samhandle med alle andre. Hvem som helst kan kjøre sin egen Mastodon-instans og sømløst delta i det sosiale nettverket.</translation>
-    </message>
-    <message>
-        <source>Type</source>
-        <translation type="unfinished"></translation>
+        <translation>Mastodon er et gratis, åpen kildekode-basert sosialt nettverk. Som et desentralisert alternativ til kommersielle plattformer unngår det risikoen ved at ett enkelt selskap får monopol på kommunikasjonen din. Velg en server du stoler på — uansett hvilken du velger kan du samhandle med alle andre. Alle kan kjøre sin egen Mastodon‑instans og delta i det sosiale nettverket uten problemer.</translation>
     </message>
     <message>
         <source>Enter a valid Mastodon instance URL (will open a web browser for Authentication)</source>
-        <translation type="unfinished"></translation>
+        <translation>Skriv inn gyldig URL for Mastodon‑instansen (åpner nettleser for pålogging)</translation>
+    </message>
+    <message>
+        <source>Type</source>
+        <translation>Skriv</translation>
     </message>
 </context>
 <context>
@@ -130,18 +153,6 @@
         <translation>Varslinger</translation>
     </message>
     <message>
-        <source>New Toot</source>
-        <translation>Ny toot</translation>
-    </message>
-    <message>
-        <source>Search</source>
-        <translation>Søk</translation>
-    </message>
-    <message>
-        <source>@user or #term</source>
-        <translation>@bruker eller #emne</translation>
-    </message>
-    <message>
         <source>Local</source>
         <translation>Lokalt</translation>
     </message>
@@ -150,38 +161,50 @@
         <translation>Federert</translation>
     </message>
     <message>
-        <source>Press and hold the home tab to switch account</source>
-        <translation type="unfinished"></translation>
+        <source>Search</source>
+        <translation>Søk</translation>
+    </message>
+    <message>
+        <source>@user or #term</source>
+        <translation>@bruker or #emne</translation>
+    </message>
+    <message>
+        <source>New Toot</source>
+        <translation>Ny toot</translation>
     </message>
     <message>
         <source>Bookmarks</source>
-        <translation type="unfinished"></translation>
+        <translation>Bokmerker</translation>
+    </message>
+    <message>
+        <source>Press and hold the home tab to switch account</source>
+        <translation>Hold nede Hjem-fanen for å bytte konto</translation>
     </message>
     <message>
         <source>Trending</source>
-        <translation type="unfinished"></translation>
+        <translation>Populært</translation>
     </message>
 </context>
 <context>
     <name>MediaFullScreen</name>
     <message>
         <source>Error loading</source>
-        <translation type="unfinished">Feil ved lasting</translation>
+        <translation>Feil ved innlasting</translation>
     </message>
 </context>
 <context>
     <name>MediaItem</name>
     <message>
         <source>Image</source>
-        <translation type="unfinished"></translation>
+        <translation>Bilde</translation>
     </message>
     <message>
         <source>Video</source>
-        <translation type="unfinished"></translation>
+        <translation>Video</translation>
     </message>
     <message>
         <source>PDF document</source>
-        <translation type="unfinished"></translation>
+        <translation>PDF-dokument</translation>
     </message>
 </context>
 <context>
@@ -192,49 +215,53 @@
     </message>
     <message>
         <source>favourited</source>
-        <translation>favorisert</translation>
+        <translation>markert som favoritt</translation>
     </message>
     <message>
         <source>followed you</source>
-        <translation>følger deg</translation>
+        <translation>begynte å følge deg</translation>
     </message>
 </context>
 <context>
     <name>MyList</name>
     <message>
         <source>Settings</source>
-        <translation>Instillinger</translation>
-    </message>
-    <message>
-        <source>Nothing found</source>
-        <translation type="unfinished"></translation>
+        <translation>Innstillinger</translation>
     </message>
     <message>
         <source>New Toot</source>
-        <translation type="unfinished">Ny toot</translation>
+        <translation>Ny toot</translation>
     </message>
     <message>
         <source>Open in Browser</source>
-        <translation type="unfinished"></translation>
+        <translation>Åpne i nettleser</translation>
     </message>
     <message>
         <source>Reload</source>
-        <translation type="unfinished">Last på nytt</translation>
+        <translation>Last på nytt</translation>
+    </message>
+    <message>
+        <source>Nothing found</source>
+        <translation>Ingenting funnet</translation>
+    </message>
+    <message>
+        <source>My Profile</source>
+        <translation>Min profil</translation>
     </message>
 </context>
 <context>
     <name>ProfileHeader</name>
     <message>
-        <source>Group</source>
-        <translation type="unfinished"></translation>
+        <source>Bot</source>
+        <translation>Bot</translation>
     </message>
     <message>
         <source>Follows you</source>
-        <translation type="unfinished"></translation>
+        <translation>Følger deg</translation>
     </message>
     <message>
-        <source>Bot</source>
-        <translation type="unfinished"></translation>
+        <source>Group</source>
+        <translation>Gruppe</translation>
     </message>
 </context>
 <context>
@@ -242,205 +269,276 @@
     <message>
         <source>About</source>
         <extracomment>If there&apos;s no good translation for &quot;About&quot;, use &quot;Details&quot; (in details about profile).</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Om</translation>
     </message>
     <message>
         <source>Followers</source>
         <extracomment>Will show as: &quot;35 Followers&quot;</extracomment>
-        <translation type="unfinished">Følgere</translation>
+        <translation>Følgere</translation>
     </message>
     <message>
         <source>Following</source>
         <extracomment>Will show as: &quot;23 Following&quot;</extracomment>
-        <translation type="unfinished">Følger</translation>
+        <translation>Følger</translation>
     </message>
     <message>
         <source>Statuses</source>
         <extracomment>Will show as: &quot;115 Statuses&quot;</extracomment>
-        <translation type="unfinished">Statuser</translation>
+        <translation>Statuser</translation>
     </message>
     <message>
         <source>Mention</source>
-        <translation type="unfinished"></translation>
+        <translation>Omtale</translation>
     </message>
     <message>
         <source>Unfollow</source>
         <extracomment>Is a button. Keep it as short as possible.</extracomment>
-        <translation type="unfinished">Slutte å følge</translation>
+        <translation>Slutt å følge</translation>
     </message>
     <message>
         <source>Requested</source>
         <extracomment>Is a button. Keep it as short as possible.</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Forespurt</translation>
     </message>
     <message>
         <source>Follow</source>
         <extracomment>Is a button. Keep it as short as possible.</extracomment>
-        <translation type="unfinished">Følg</translation>
+        <translation>Følg</translation>
     </message>
     <message>
         <source>Unmute</source>
         <extracomment>Is a button. Keep it as short as possible.</extracomment>
-        <translation type="unfinished">Fjern demping</translation>
+        <translation>Fjern demping</translation>
     </message>
     <message>
         <source>Mute</source>
         <extracomment>Is a button. Keep it as short as possible.</extracomment>
-        <translation type="unfinished">Demp</translation>
+        <translation>Demp</translation>
     </message>
     <message>
         <source>Unblock</source>
         <extracomment>Is a button. Keep it as short as possible.</extracomment>
-        <translation type="unfinished">Avblokker</translation>
+        <translation>Fjern demping</translation>
     </message>
     <message>
         <source>Block</source>
         <extracomment>Is a button. Keep it as short as possible.</extracomment>
-        <translation type="unfinished">Blokker</translation>
+        <translation>Blokker</translation>
     </message>
 </context>
 <context>
     <name>SettingsPage</name>
     <message>
-        <source>Remove Account</source>
-        <translation type="unfinished">Fjern konto</translation>
-    </message>
-    <message>
-        <source>Deauthorize this app from using your account and remove account data from phone</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Settings</source>
-        <translation type="unfinished">Instillinger</translation>
+        <translation>Innstillinger</translation>
     </message>
     <message>
         <source>Options</source>
-        <translation type="unfinished"></translation>
+        <translation>Alternativer</translation>
     </message>
     <message>
         <source>Load Images in Toots</source>
-        <translation type="unfinished"></translation>
+        <translation>Vis bilder i toots</translation>
     </message>
     <message>
         <source>Disable this option if you want to preserve your data connection</source>
-        <translation type="unfinished">Deaktiver dette alternativet hvis du vil bevare datatilkoblingen din</translation>
+        <translation>Deaktiver dette alternativet hvis du vil spare mobildata.</translation>
     </message>
     <message>
         <source>Account</source>
-        <translation type="unfinished"></translation>
+        <translation>Konto</translation>
     </message>
     <message>
-        <source>Account removed</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <source>Remove Account</source>
+        <translation>Fjern konto</translation>
     </message>
     <message>
         <source>Add Account</source>
-        <translation type="unfinished">Legg til konto</translation>
+        <translation>Legg til konto</translation>
+    </message>
+    <message>
+        <source>Deauthorize this app from using your account and remove account data from phone</source>
+        <translation>Deautoriser denne appen fra å bruke kontoen din og fjern kontodata fra telefonen</translation>
     </message>
     <message>
         <source>Authorize this app to access your Mastodon account</source>
-        <translation type="unfinished">Godkjenn denne appen for å få tilgang til Mastodon-kontoen din</translation>
-    </message>
-    <message>
-        <source>Translate</source>
-        <translation type="unfinished">Oversett</translation>
-    </message>
-    <message>
-        <source>Use</source>
-        <extracomment>Full sentence for translation: &quot;Use Transifex to help with app translation to your language.&quot; - The word Transifex is a link and doesn&apos;t need translation.</extracomment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>to help with app translation to your language.</source>
-        <translation type="unfinished"></translation>
+        <translation>Autoriser at denne appen får tilgang til kontoen din på Mastodon</translation>
     </message>
     <message>
         <source>Credits</source>
         <extracomment>Translation alternative: &quot;Development&quot;</extracomment>
-        <translation type="unfinished">Takk til</translation>
+        <translation>Takk til</translation>
     </message>
     <message>
         <source>UI/UX design and development</source>
-        <translation type="unfinished">UI/UX-design og -utvikling</translation>
-    </message>
-    <message>
-        <source>Development and translations</source>
-        <translation type="unfinished">Utvikling og oversettelser</translation>
-    </message>
-    <message>
-        <source>Development</source>
-        <translation type="unfinished"></translation>
+        <translation>UI/UX design og utvikling</translation>
     </message>
     <message>
         <source>Visual identity</source>
-        <translation type="unfinished">Visuell identitet</translation>
+        <translation>Visuell profil</translation>
     </message>
     <message>
-        <source>Documentation</source>
-        <translation type="unfinished"></translation>
+        <source>Development and translations</source>
+        <translation>Utvikling og oversettelser</translation>
     </message>
     <message>
         <source>Occitan &amp; French translation</source>
-        <translation type="unfinished">Fransk oversettelse</translation>
+        <translation>Fransk oversettelse</translation>
     </message>
     <message>
         <source>Chinese translation</source>
-        <translation type="unfinished">Kinesisk oversettelse</translation>
+        <translation>Kinesisk oversettelse</translation>
     </message>
     <message>
         <source>Dutch translation</source>
-        <translation type="unfinished">Nederlandsk oversettelse</translation>
+        <translation>Nederlandsk oversettelse</translation>
     </message>
     <message>
         <source>Spanish translation</source>
-        <translation type="unfinished">Spansk oversettelse</translation>
+        <translation>Spansk oversettelse</translation>
     </message>
     <message>
-        <source>Norwegian Translation</source>
-        <translation type="unfinished"></translation>
+        <source>Development</source>
+        <translation>Utvikling</translation>
+    </message>
+    <message>
+        <source>Documentation</source>
+        <translation>Dokumentasjon</translation>
     </message>
     <message>
         <source>Mention</source>
-        <translation type="unfinished"></translation>
+        <translation>Omtale</translation>
+    </message>
+    <message>
+        <source>Account removed</source>
+        <translation>Konto slettet</translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation>Slett</translation>
+    </message>
+    <message>
+        <source>Norwegian Translation</source>
+        <translation>Norsk bokmålsoversettelse</translation>
+    </message>
+    <message>
+        <source>Font Size</source>
+        <translation>Skriftstørrelse</translation>
+    </message>
+    <message>
+        <source>Sample text</source>
+        <translation>Eksempeltekst</translation>
+    </message>
+    <message>
+        <source>Quick Scroll Arrows</source>
+        <translation>Hurtigscroll-piler</translation>
+    </message>
+    <message>
+        <source>Show arrows to jump to top/bottom when scrolling fast</source>
+        <translation>Vis snarveispiler for topp/bunn ved hurtigscrolling</translation>
+    </message>
+    <message>
+        <source>French Translation</source>
+        <translation>Fransk oversettelse</translation>
+    </message>
+    <message>
+        <source>Swedish Translation</source>
+        <translation>Svensk oversettelse</translation>
     </message>
 </context>
 <context>
     <name>VisualContainer</name>
     <message>
-        <source>Unboost</source>
-        <translation>Fjern boost</translation>
+        <source>Show less</source>
+        <translation>Vis mindre</translation>
     </message>
     <message>
-        <source>Boost</source>
-        <translation>Boost</translation>
-    </message>
-    <message>
-        <source>Unfavorite</source>
-        <translation>Avfavorisere</translation>
-    </message>
-    <message>
-        <source>Favorite</source>
-        <translation>Favorisere</translation>
-    </message>
-    <message>
-        <source>Remove Bookmark</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Bookmark</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Mention</source>
-        <translation type="unfinished"></translation>
+        <source>Show more</source>
+        <translation>Vis mer</translation>
     </message>
     <message>
         <source>Conversation</source>
-        <translation type="unfinished">Samtale</translation>
+        <translation>Samtale</translation>
+    </message>
+    <message>
+        <source>Unfavorite</source>
+        <translation>Fjern som favoritt</translation>
+    </message>
+    <message>
+        <source>Favorite</source>
+        <translation>Favoritt</translation>
+    </message>
+    <message>
+        <source>Unboost</source>
+        <translation>Fjern fremheving</translation>
+    </message>
+    <message>
+        <source>Boost</source>
+        <translation>Fremhev</translation>
+    </message>
+    <message>
+        <source>Reply</source>
+        <translation>Svar</translation>
+    </message>
+    <message>
+        <source>Quote</source>
+        <translation>Sitér</translation>
+    </message>
+    <message>
+        <source>Remove Bookmark</source>
+        <translation>Fjern bokmerke</translation>
+    </message>
+    <message>
+        <source>Bookmark</source>
+        <translation>Bokmerk</translation>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation>Slett</translation>
+    </message>
+    <message>
+        <source>Deleting</source>
+        <translation>Sletter</translation>
+    </message>
+    <message>
+        <source>Edit</source>
+        <translation>Rediger</translation>
+    </message>
+    <message>
+        <source>Mention</source>
+        <translation>Omtale</translation>
+    </message>
+    <message>
+        <source>Loading...</source>
+        <translation>Laster inn...</translation>
+    </message>
+    <message>
+        <source>Load more</source>
+        <translation>Last inn mer</translation>
+    </message>
+    <message>
+        <source>Vote</source>
+        <translation>Stem</translation>
+    </message>
+    <message>
+        <source>votes</source>
+        <translation>Stemmer</translation>
+    </message>
+    <message>
+        <source>Closed</source>
+        <translation>Lukket</translation>
+    </message>
+    <message>
+        <source>days left</source>
+        <translation>dager igjen</translation>
+    </message>
+    <message>
+        <source>hours left</source>
+        <translation>timer igjen</translation>
+    </message>
+    <message>
+        <source>minutes left</source>
+        <translation>minutter igjen</translation>
     </message>
 </context>
 </TS>

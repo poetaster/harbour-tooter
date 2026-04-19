@@ -249,7 +249,7 @@ WorkerScript.onMessage = function(msg) {
         // we should only handle such errors when really required
 
         // Pixelfed returns an HTML page when creditionals are incorrect
-        if (msg.action === "accounts/verify_credentials" && (status >= 400 && status <= 499 || typeof status == 'undefined'))
+        if (msg.action === 'accounts/verify_credentials' && (status >= 400 && status <= 499 || typeof status == 'undefined'))
             WorkerScript.sendMessage({action: msg.action, success: false})
     })
 }

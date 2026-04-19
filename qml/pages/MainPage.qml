@@ -37,7 +37,7 @@ Page {
                         width: isPortrait ? parent.width : parent.width - Theme.itemSizeLarge
                         height: parent.height
 
-                        onCountChanged: if (count == 0) worker.verifyCredentials()
+                        onCountChanged: if (count == 0) worker.initialize()
                     }
                 }
             }
@@ -222,7 +222,7 @@ Page {
                             Component.onCompleted: {
                                 view2.type = "accounts/search"
                                 view2.params = []
-                                view2.params.push({name: 'q', data: tlSearch.search.substring(1)});
+                                view2.params.push({name: 'q', data: tlSearch.search.substring(1)})
                                 view2.loadData("append")
                             }
                         }
@@ -378,7 +378,22 @@ Page {
         source: "../lib/Worker.js"
         onMessage: {
             if (debug) console.log(JSON.stringify(messageObject))
-            if (messageObject.action === "accounts/verify_credentials") {
+
+            switch (messageObject.action) {
+            case 'instance':
+                if (messageObject.success) {
+                    var data = messageObject.data
+                    // Extract max characters from instance configuration
+                    if (data && data.configuration && data.configuration.statuses && data.configuration.statuses.max_characters) {
+                        appWindow.instanceMaxChars = data.configuration.statuses.max_characters
+                        console.log("Instance max chars:", appWindow.instanceMaxChars)
+                    }
+
+                    sendMessage({action: 'accounts/verify_credentials', conf: Logic.conf})
+                }
+                break
+
+            case 'accounts/verify_credentials':
                 if (messageObject.success) {
                     Logic.getActiveAccount().userInfo = messageObject.data
                     Logic.getActiveAccount().userInfo.account_acct += "@" + (Logic.getActiveAccount()['instance'].split("//")[1])
@@ -388,17 +403,14 @@ Page {
                         pageStack.clear()
                         pageStack.push(Qt.resolvedUrl('LoginPage.qml'))
                     }
+                break
             }
         }
 
-        function verifyCredentials() {
-            sendMessage({action: "accounts/verify_credentials", conf: Logic.conf})
+        function initialize() {
+            sendMessage({action: 'instance', conf: Logic.conf})
         }
 
-        Component.onCompleted: verifyCredentials()
-    }
-
-    Component.onCompleted: {
-        //console.log("aaa")
+        Component.onCompleted: initialize()
     }
 }

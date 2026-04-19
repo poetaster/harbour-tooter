@@ -376,7 +376,7 @@
         <source>show license(s)</source>
         <translation>
             <numerusform>näytä lisenssi</numerusform>
-            <numerusform></numerusform>
+            <numerusform>näytä lisenssit</numerusform>
         </translation>
     </message>
     <message>
@@ -423,7 +423,7 @@
         <source>License(s)</source>
         <translation>
             <numerusform>Lisenssi</numerusform>
-            <numerusform></numerusform>
+            <numerusform>Lisenssit</numerusform>
         </translation>
     </message>
     <message>

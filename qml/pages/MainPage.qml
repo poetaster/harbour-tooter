@@ -62,12 +62,14 @@ Page {
         Tab {
             icon: 'image://theme/icon-m-whereami'
             Component {
-                MyList {
-                    title: qsTr("Local")
-                    type: "timelines/public?local=true"
-                    mdl: Logic.modelTLlocal
-                    width: isPortrait ? parent.width : parent.width - Theme.itemSizeLarge
-                    height: parent.height
+                TabItem {
+                    MyList {
+                        title: qsTr("Local")
+                        type: "timelines/public?local=true"
+                        mdl: Logic.modelTLlocal
+                        width: isPortrait ? parent.width : parent.width - Theme.itemSizeLarge
+                        height: parent.height
+                    }
                 }
             }
         }
@@ -75,12 +77,14 @@ Page {
         Tab {
             icon: 'image://theme/icon-m-website'
             Component {
-                MyList {
-                    title: qsTr("Federated")
-                    type: "timelines/public"
-                    mdl: Logic.modelTLpublic
-                    width: isPortrait ? parent.width : parent.width - Theme.itemSizeLarge
-                    height: parent.height
+                TabItem {
+                    MyList {
+                        title: qsTr("Federated")
+                        type: "timelines/public"
+                        mdl: Logic.modelTLpublic
+                        width: isPortrait ? parent.width : parent.width - Theme.itemSizeLarge
+                        height: parent.height
+                    }
                 }
             }
         }
@@ -88,12 +92,14 @@ Page {
         Tab {
             icon: Qt.resolvedUrl('../images/icon-m-bookmark.svg')
             Component {
-                MyList {
-                    title: qsTr("Bookmarks")
-                    type: "bookmarks"
-                    mdl: Logic.modelTLbookmarks
-                    width: isPortrait ? parent.width : parent.width - Theme.itemSizeLarge
-                    height: parent.height
+                TabItem {
+                    MyList {
+                        title: qsTr("Bookmarks")
+                        type: "bookmarks"
+                        mdl: Logic.modelTLbookmarks
+                        width: isPortrait ? parent.width : parent.width - Theme.itemSizeLarge
+                        height: parent.height
+                    }
                 }
             }
         }
@@ -101,156 +107,158 @@ Page {
         Tab {
             icon: 'image://theme/icon-m-search'
             Component {
-                Item {
-                    id: tlSearch
+                TabItem {
+                    Item {
+                        id: tlSearch
 
-                    property ListModel mdl: ListModel {}
-                    property string search
+                        property ListModel mdl: ListModel {}
+                        property string search
 
-                    width: isPortrait ? parent.width : parent.width - Theme.itemSizeLarge
-                    height: parent.height
-                    onSearchChanged: {
-                        if (debug) console.log(search)
-                        loader.sourceComponent = loading
-                        if (search.charAt(0) === "@") {
-                            loader.sourceComponent = userListComponent
-                        } else if (search.charAt(0) === "#") {
-                            loader.sourceComponent = tagListComponent
-                        } else loader.sourceComponent = wordListComponent
-                    }
-
-                    Loader {
-                        id: loader
-                        anchors.fill: parent
-                    }
-
-                    Column {
-                        id: headerContainer
-                        width: tlSearch.width
-                        PageHeader {
-                            title: qsTr("Search")
+                        width: isPortrait ? parent.width : parent.width - Theme.itemSizeLarge
+                        height: parent.height
+                        onSearchChanged: {
+                            if (debug) console.log(search)
+                            loader.sourceComponent = loading
+                            if (search.charAt(0) === "@") {
+                                loader.sourceComponent = userListComponent
+                            } else if (search.charAt(0) === "#") {
+                                loader.sourceComponent = tagListComponent
+                            } else loader.sourceComponent = wordListComponent
                         }
 
-                        SearchField {
-                            id: searchField
-                            width: parent.width
-                            placeholderText: qsTr("@user or #term")
-                            text: tlSearch.search
-                            EnterKey.iconSource: "image://theme/icon-m-enter-close"
-                            EnterKey.onClicked: {
-                                tlSearch.search = text.toLowerCase().trim()
-                                focus = false
-                                if (debug) console.log(text)
-                            }
-                        }
-                    }
-
-                    Component {
-                        id: loading
-                        BusyIndicator {
-                            size: BusyIndicatorSize.Large
-                            anchors.centerIn: parent
-                            running: true
-                        }
-                    }
-
-                    Component {
-                        id: tagListComponent
-                        MyList {
-                            id: view
-                            mdl: ListModel {}
-                            width: parent.width
-                            height: parent.height
+                        Loader {
+                            id: loader
                             anchors.fill: parent
-                            currentIndex: -1 // otherwise currentItem will steal focus
-                            header:  Item {
-                                id: header
-                                width: headerContainer.width
-                                height: headerContainer.height
-                                Component.onCompleted: headerContainer.parent = header
+                        }
+
+                        Column {
+                            id: headerContainer
+                            width: tlSearch.width
+                            PageHeader {
+                                title: qsTr("Search")
                             }
 
-                            delegate: VisualContainer
-                            Component.onCompleted: {
-                                view.type = "timelines/tag/"+tlSearch.search.substring(1)
-                                if (mdl.count) {
-                                    view.loadData("append")
-                                } else {
-                                    view.loadData("prepend")
+                            SearchField {
+                                id: searchField
+                                width: parent.width
+                                placeholderText: qsTr("@user or #term")
+                                text: tlSearch.search
+                                EnterKey.iconSource: "image://theme/icon-m-enter-close"
+                                EnterKey.onClicked: {
+                                    tlSearch.search = text.toLowerCase().trim()
+                                    focus = false
+                                    if (debug) console.log(text)
                                 }
                             }
                         }
-                    }
 
-                    Component {
-                        id: userListComponent
-                        MyList {
-                            id: view2
-                            mdl: ListModel {}
-                            autoLoadMore: false
-                            width: parent.width
-                            height: parent.height
-                            anchors.fill: parent
-                            currentIndex: -1 // otherwise currentItem will steal focus
-                            header:  Item {
-                                id: header
-                                width: headerContainer.width
-                                height: headerContainer.height
-                                Component.onCompleted: headerContainer.parent = header
-                            }
-
-                            delegate: ItemUser {
-                                onClicked: {
-                                    pageStack.push(Qt.resolvedUrl("ProfilePage.qml"), {
-                                                       "display_name": model.account_display_name,
-                                                       "username": model.account_acct,
-                                                       "user_id": model.account_id,
-                                                       "profileImage": model.account_avatar,
-                                                       "profileBackground": model.account_header,
-                                                       "note": model.account_note,
-                                                       "url": model.account_url,
-                                                       "followers_count": model.account_followers_count,
-                                                       "following_count": model.account_following_count,
-                                                       "statuses_count": model.account_statuses_count,
-                                                       "locked": model.account_locked,
-                                                       "bot": model.account_bot,
-                                                       "group": model.account_group
-                                                   })
-                                }
-                            }
-
-                            Component.onCompleted: {
-                                view2.type = "accounts/search"
-                                view2.params = []
-                                view2.params.push({name: 'q', data: tlSearch.search.substring(1)})
-                                view2.loadData("append")
+                        Component {
+                            id: loading
+                            BusyIndicator {
+                                size: BusyIndicatorSize.Large
+                                anchors.centerIn: parent
+                                running: true
                             }
                         }
-                    }
 
-                    Component {
-                        id: wordListComponent
-                        MyList {
-                            id: view3
-                            mdl: ListModel {}
-                            width: parent.width
-                            height: parent.height
-                            anchors.fill: parent
-                            currentIndex: -1 // otherwise currentItem will steal focus
-                            header:  Item {
-                                id: header
-                                width: headerContainer.width
-                                height: headerContainer.height
-                                Component.onCompleted: headerContainer.parent = header
+                        Component {
+                            id: tagListComponent
+                            MyList {
+                                id: view
+                                mdl: ListModel {}
+                                width: parent.width
+                                height: parent.height
+                                anchors.fill: parent
+                                currentIndex: -1 // otherwise currentItem will steal focus
+                                header:  Item {
+                                    id: header
+                                    width: headerContainer.width
+                                    height: headerContainer.height
+                                    Component.onCompleted: headerContainer.parent = header
+                                }
+
+                                delegate: VisualContainer
+                                Component.onCompleted: {
+                                    view.type = "timelines/tag/"+tlSearch.search.substring(1)
+                                    if (mdl.count) {
+                                        view.loadData("append")
+                                    } else {
+                                        view.loadData("prepend")
+                                    }
+                                }
                             }
+                        }
 
-                            delegate: VisualContainer
-                            Component.onCompleted: {
-                                view3.type = "timelines/tag/"+tlSearch.search
-                                if (mdl.count) {
-                                    view3.loadData("append")
-                                } else {
-                                    view3.loadData("prepend")
+                        Component {
+                            id: userListComponent
+                            MyList {
+                                id: view2
+                                mdl: ListModel {}
+                                autoLoadMore: false
+                                width: parent.width
+                                height: parent.height
+                                anchors.fill: parent
+                                currentIndex: -1 // otherwise currentItem will steal focus
+                                header:  Item {
+                                    id: header
+                                    width: headerContainer.width
+                                    height: headerContainer.height
+                                    Component.onCompleted: headerContainer.parent = header
+                                }
+
+                                delegate: ItemUser {
+                                    onClicked: {
+                                        pageStack.push(Qt.resolvedUrl("ProfilePage.qml"), {
+                                                           "display_name": model.account_display_name,
+                                                           "username": model.account_acct,
+                                                           "user_id": model.account_id,
+                                                           "profileImage": model.account_avatar,
+                                                           "profileBackground": model.account_header,
+                                                           "note": model.account_note,
+                                                           "url": model.account_url,
+                                                           "followers_count": model.account_followers_count,
+                                                           "following_count": model.account_following_count,
+                                                           "statuses_count": model.account_statuses_count,
+                                                           "locked": model.account_locked,
+                                                           "bot": model.account_bot,
+                                                           "group": model.account_group
+                                                       })
+                                    }
+                                }
+
+                                Component.onCompleted: {
+                                    view2.type = "accounts/search"
+                                    view2.params = []
+                                    view2.params.push({name: 'q', data: tlSearch.search.substring(1)})
+                                    view2.loadData("append")
+                                }
+                            }
+                        }
+
+                        Component {
+                            id: wordListComponent
+                            MyList {
+                                id: view3
+                                mdl: ListModel {}
+                                width: parent.width
+                                height: parent.height
+                                anchors.fill: parent
+                                currentIndex: -1 // otherwise currentItem will steal focus
+                                header:  Item {
+                                    id: header
+                                    width: headerContainer.width
+                                    height: headerContainer.height
+                                    Component.onCompleted: headerContainer.parent = header
+                                }
+
+                                delegate: VisualContainer
+                                Component.onCompleted: {
+                                    view3.type = "timelines/tag/"+tlSearch.search
+                                    if (mdl.count) {
+                                        view3.loadData("append")
+                                    } else {
+                                        view3.loadData("prepend")
+                                    }
                                 }
                             }
                         }
@@ -262,13 +270,15 @@ Page {
         Tab {
             icon: 'image://theme/icon-camera-flash-on'
             Component {
-                MyList {
-                    id: tlTrending
-                    title: qsTr("Trending")
-                    type: "trends/statuses"
-                    mdl: Logic.modelTLtrending
-                    width: isPortrait ? parent.width : parent.width - Theme.itemSizeLarge
-                    height: parent.height
+                TabItem {
+                    MyList {
+                        id: tlTrending
+                        title: qsTr("Trending")
+                        type: "trends/statuses"
+                        mdl: Logic.modelTLtrending
+                        width: isPortrait ? parent.width : parent.width - Theme.itemSizeLarge
+                        height: parent.height
+                    }
                 }
             }
         }

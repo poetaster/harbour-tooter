@@ -20,6 +20,9 @@ property Component footer
 property bool hasFooter:footer
 property alias tabBarItem:tabBarLoader.item
 property real tabBarHeight:tabBarItem&&tabBarVisible?tabBarItem.height:0
+property var defaultTabIconSourceSize
+property var defaultTabIconColor
+property var defaultTabIconHighlightColor
 property real yOffset:currentItem&&currentItem._yOffset||0
 property bool _headerBackgroundVisible:true
 property Item _page:Util.findPage(root)
@@ -39,6 +42,9 @@ property int _ctxTopMargin:_tabBarIsTop?tabBarHeight:0
 property int _ctxBottomMargin:_tabBarIsTop?0:tabBarHeight
 }Component{id:tabBarComponent
 TabBar{model:root.model
+defaultIconSourceSize:root.defaultTabIconSourceSize
+defaultIconColor:root.defaultTabIconColor
+defaultIconHighlightColor:root.defaultTabIconHighlightColor
 }}Loader{id:tabBarLoader
 visible:root.tabBarVisible
 sourceComponent:root.hasFooter?root.footer:root.header

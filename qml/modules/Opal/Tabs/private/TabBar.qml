@@ -26,6 +26,12 @@ property string titleRole:"title"
 property string descriptionRole:"description"
 property string countRole:"count"
 property string iconRole:"icon"
+property string iconSourceSizeRole:"iconSourceSize"
+property string iconColorRole:"iconColor"
+property string iconHighlightColorRole:"iconHighlightColor"
+property var defaultIconSourceSize
+property var defaultIconColor
+property var defaultIconHighlightColor
 height:flickable.height
 Flickable{id:flickable
 width:parent.width
@@ -67,6 +73,27 @@ titleFontSize:tabRow.buttonFontSize
 title:model[root.titleRole]||""
 description:model[root.descriptionRole]||""
 icon.source:model[root.iconRole]||""
+property var suggestedIconSourceSize:model[root.iconSourceSize]||root.defaultIconSourceSize
+property var suggestedIconColor:model[root.iconColorRole]||root.defaultIconColor
+property var suggestedIconHighlightColor:model[root.iconHighlightColorRole]||root.defaultIconHighlightColor
+Binding {
+target:icon
+property:'sourceSize'
+value:suggestedIconSourceSize
+when:!!suggestedIconSourceSize
+}
+Binding {
+target:icon
+property:'color'
+value:suggestedIconColor
+when:!!suggestedIconColor
+}
+Binding {
+target:icon
+property:'highlightColor'
+value:suggestedIconHighlightColor
+when:!!suggestedIconHighlightColor
+}
 count:model[root.countRole]||""
 }}}Rectangle{id:tabFooter
 x:{if(!root._currentTabButton){return 0

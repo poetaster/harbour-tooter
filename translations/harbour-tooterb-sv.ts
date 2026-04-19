@@ -134,27 +134,27 @@
     </message>
     <message>
         <source>Quoting @%1</source>
-        <translation type="unfinished"></translation>
+        <translation>Citerar @%1</translation>
     </message>
     <message>
         <source>Removing</source>
-        <translation type="unfinished"></translation>
+        <translation>Tar bort</translation>
     </message>
     <message>
         <source>Public</source>
-        <translation type="unfinished"></translation>
+        <translation>Allmän</translation>
     </message>
     <message>
         <source>Unlisted</source>
-        <translation type="unfinished"></translation>
+        <translation>Ej listad</translation>
     </message>
     <message>
         <source>Followers-only</source>
-        <translation type="unfinished"></translation>
+        <translation>Endast följare</translation>
     </message>
     <message>
         <source>Direct</source>
-        <translation type="unfinished"></translation>
+        <translation>Direkt</translation>
     </message>
 </context>
 <context>
@@ -220,7 +220,7 @@
     </message>
     <message>
         <source>Type</source>
-        <translation>Typ</translation>
+        <translation>Skriv</translation>
     </message>
 </context>
 <context>
@@ -259,7 +259,7 @@
     </message>
     <message>
         <source>Press and hold the home tab to switch account</source>
-        <translation>Tryck och håll på hemtabben för att byta konto</translation>
+        <translation>Tryck och håll på hemknappen för att byta konto</translation>
     </message>
     <message>
         <source>Trending</source>
@@ -323,11 +323,11 @@
     </message>
     <message>
         <source>Nothing found</source>
-        <translation type="unfinished"></translation>
+        <translation>Inget hittades</translation>
     </message>
     <message>
         <source>My Profile</source>
-        <translation type="unfinished"></translation>
+        <translation>Min profil</translation>
     </message>
 </context>
 <context>
@@ -609,6 +609,51 @@
         <translation>Auktorisera denna app att använda ditt Mastodon-konto</translation>
     </message>
     <message>
+        <source>Credits</source>
+        <extracomment>Translation alternative: &quot;Development&quot;</extracomment>
+        <translation>Erkännanden</translation>
+    </message>
+    <message>
+        <source>UI/UX design and development</source>
+        <translation>UI/UX design och utveckling</translation>
+    </message>
+    <message>
+        <source>Visual identity</source>
+        <translation>Visuell identitet</translation>
+    </message>
+    <message>
+        <source>Development and translations</source>
+        <translation>Utveckling och översättningar</translation>
+    </message>
+    <message>
+        <source>Occitan &amp; French translation</source>
+        <translation>Occitansk &amp; fransk översättning</translation>
+    </message>
+    <message>
+        <source>Chinese translation</source>
+        <translation>Kinesisk översättning</translation>
+    </message>
+    <message>
+        <source>Dutch translation</source>
+        <translation>Nederländsk översättning</translation>
+    </message>
+    <message>
+        <source>Spanish translation</source>
+        <translation>Spansk översättning</translation>
+    </message>
+    <message>
+        <source>Development</source>
+        <translation>Utveckling</translation>
+    </message>
+    <message>
+        <source>Documentation</source>
+        <translation>Dokumentation</translation>
+    </message>
+    <message>
+        <source>Mention</source>
+        <translation>Omnämnande</translation>
+    </message>
+    <message>
         <source>Account removed</source>
         <translation>Kontot borttaget</translation>
     </message>
@@ -626,10 +671,18 @@
     </message>
     <message>
         <source>Quick Scroll Arrows</source>
-        <translation type="unfinished"></translation>
+        <translation>Snabbskrollpilar</translation>
     </message>
     <message>
         <source>Show arrows to jump to top/bottom when scrolling fast</source>
+        <translation>Visar pilar för att hoppa till toppen/botten vid snabb rullning</translation>
+    </message>
+    <message>
+        <source>French Translation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Swedish Translation</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -642,63 +695,63 @@
     <name>VisualContainer</name>
     <message>
         <source>Show less</source>
-        <translation type="unfinished"></translation>
+        <translation>Visa mindre</translation>
     </message>
     <message>
         <source>Show more</source>
-        <translation type="unfinished"></translation>
+        <translation>Visa mer</translation>
     </message>
     <message>
         <source>Conversation</source>
-        <translation type="unfinished"></translation>
+        <translation>Konversation</translation>
     </message>
     <message>
         <source>Unfavorite</source>
-        <translation type="unfinished"></translation>
+        <translation>Avfavorisera</translation>
     </message>
     <message>
         <source>Favorite</source>
-        <translation type="unfinished"></translation>
+        <translation>Favorisera</translation>
     </message>
     <message>
         <source>Unboost</source>
-        <translation type="unfinished"></translation>
+        <translation>Avpuffa</translation>
     </message>
     <message>
         <source>Boost</source>
-        <translation type="unfinished"></translation>
+        <translation>Puffa</translation>
     </message>
     <message>
         <source>Reply</source>
-        <translation type="unfinished"></translation>
+        <translation>Svara</translation>
     </message>
     <message>
         <source>Quote</source>
-        <translation type="unfinished"></translation>
+        <translation>Citera</translation>
     </message>
     <message>
         <source>Remove Bookmark</source>
-        <translation type="unfinished"></translation>
+        <translation>Ta bort bokmärke</translation>
     </message>
     <message>
         <source>Bookmark</source>
-        <translation type="unfinished"></translation>
+        <translation>Bokmärk</translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>Ta bort</translation>
     </message>
     <message>
         <source>Deleting</source>
-        <translation type="unfinished"></translation>
+        <translation>Tar bort</translation>
     </message>
     <message>
         <source>Edit</source>
-        <translation type="unfinished"></translation>
+        <translation>Redigera</translation>
     </message>
     <message>
         <source>Mention</source>
-        <translation type="unfinished">Omnämnande</translation>
+        <translation>Omnämnande</translation>
     </message>
     <message>
         <source>Loading...</source>

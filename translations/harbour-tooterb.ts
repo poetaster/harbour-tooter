@@ -609,6 +609,64 @@
         <translation>Authorize this app to access your Mastodon account</translation>
     </message>
     <message>
+        <source>Translate</source>
+        <translation>Translate</translation>
+    </message>
+    <message>
+        <source>Credits</source>
+        <extracomment>Translation alternative: &quot;Development&quot;</extracomment>
+        <translation>Credits</translation>
+    </message>
+    <message>
+        <source>UI/UX design and development</source>
+        <translation>UI/UX design and development</translation>
+    </message>
+    <message>
+        <source>Visual identity</source>
+        <translation>Visual identity</translation>
+    </message>
+    <message>
+        <source>Development and translations</source>
+        <translation>Development and translations</translation>
+    </message>
+    <message>
+        <source>Occitan &amp; French translation</source>
+        <translation>Occitan &amp; French translation</translation>
+    </message>
+    <message>
+        <source>Chinese translation</source>
+        <translation>Chinese translation</translation>
+    </message>
+    <message>
+        <source>Dutch translation</source>
+        <translation>Dutch translation</translation>
+    </message>
+    <message>
+        <source>Spanish translation</source>
+        <translation>Spanish translation</translation>
+    </message>
+    <message>
+        <source>Use</source>
+        <extracomment>Full sentence for translation: &quot;Use Transifex to help with app translation to your language.&quot; - The word Transifex is a link and doesn&apos;t need translation.</extracomment>
+        <translation>Use</translation>
+    </message>
+    <message>
+        <source>to help with app translation to your language.</source>
+        <translation>to help with app translation to your language.</translation>
+    </message>
+    <message>
+        <source>Development</source>
+        <translation>Development</translation>
+    </message>
+    <message>
+        <source>Documentation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Mention</source>
+        <translation type="unfinished">Mention</translation>
+    </message>
+    <message>
         <source>Account removed</source>
         <translation type="unfinished"></translation>
     </message>
@@ -631,11 +689,6 @@
     <message>
         <source>Show arrows to jump to top/bottom when scrolling fast</source>
         <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>About</source>
-        <comment>About the app</comment>
-        <translation type="unfinished">About</translation>
     </message>
 </context>
 <context>

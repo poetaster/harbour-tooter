@@ -2,7 +2,7 @@
 // no fucking copyright
 // do whatever you want with it
 // but please don't hurt it (and keep this header)
-
+var debug = false;
 var mastodonAPI = function(config) {
     var apiBase = config.instance + "/api/v1/";
     return {
@@ -46,7 +46,7 @@ var mastodonAPI = function(config) {
             }
             var http = new XMLHttpRequest()
             var url = apiBase + endpoint;
-            console.log("HEAD" + apiBase + endpoint + queryStringAppend)
+            if (debug) console.log("HEAD" + apiBase + endpoint + queryStringAppend)
 
             http.open("HEAD", apiBase + endpoint + queryStringAppend, true);
             // Send the proper header information along with the request
@@ -58,9 +58,9 @@ var mastodonAPI = function(config) {
                 if (http.readyState === 4) {
                     if (http.status === 200) {
                         callback( http.getResponseHeader("Link") , http.status)
-                        console.log("Successful HEAD API request to " +apiBase+endpoint);
+                        if (debug) console.log("Successful HEAD API request to " +apiBase+endpoint);
                     } else {
-                        console.log("error: " + http.status)
+                        if (debug) console.log("error: " + http.status)
                     }
 		}
             }
@@ -104,7 +104,7 @@ var mastodonAPI = function(config) {
             // ajax function
             var http = new XMLHttpRequest()
             var url = apiBase + endpoint;
-            console.log(apiBase + endpoint + queryStringAppend)
+            if (debug) console.log(apiBase + endpoint + queryStringAppend)
             http.open("GET", apiBase + endpoint + queryStringAppend, true);
 
             // Send the proper header information along with the request
@@ -117,13 +117,13 @@ var mastodonAPI = function(config) {
                     if (http.status === 200) {
                         try {
                             callback(JSON.parse(http.response),http.status)
-                            console.log("Successful GET API request to " +apiBase+endpoint);
+                            if (debug) console.log("Successful GET API request to " +apiBase+endpoint);
                         } catch(e) {
-                            console.log("GET error:", e)
+                            if (debug) console.log("GET error:", e)
                             if (errorCallback) errorCallback()
                         }
                     } else {
-                        console.log("error: " + http.status)
+                        if (debug) console.log("error: " + http.status)
                         if (errorCallback) errorCallback(http.status)
                     }
                 }
@@ -157,10 +157,10 @@ var mastodonAPI = function(config) {
             http.onreadystatechange = function() { // Call a function when the state changes.
                 if (http.readyState === 4) {
                     if (http.status === 200) {
-                        console.log("Successful POST API request to " +apiBase+endpoint);
+                        if (debug) console.log("Successful POST API request to " +apiBase+endpoint);
                         callback(JSON.parse(http.response),http.status)
                     } else {
-                        console.log("error: " + http.status)
+                        if (debug) console.log("error: " + http.status)
                     }
                 }
             }
@@ -172,7 +172,7 @@ var mastodonAPI = function(config) {
                        data: postData,
                        headers: {"Authorization": "Bearer " + config.api_user_token},
                        success: function(data, textStatus) {
-                           console.log("Successful POST API request to " +apiBase+endpoint);
+                           if (debug) console.log("Successful POST API request to " +apiBase+endpoint);
                            callback(data,textStatus)
                        }
                    });*/
@@ -190,14 +190,14 @@ var mastodonAPI = function(config) {
             http.onreadystatechange = function() {
                 if (http.readyState === 4) {
                     if (http.status === 200) {
-                        console.log("Successful DELETE API request to " + apiBase + endpoint);
+                        if (debug) console.log("Successful DELETE API request to " + apiBase + endpoint);
                         try {
                             callback(JSON.parse(http.response), http.status);
                         } catch(e) {
                             callback({}, http.status);
                         }
                     } else {
-                        console.log("DELETE error: " + http.status);
+                        if (debug) console.log("DELETE error: " + http.status);
                         callback(null, http.status);
                     }
                 }
@@ -217,14 +217,14 @@ var mastodonAPI = function(config) {
             http.onreadystatechange = function() {
                 if (http.readyState === 4) {
                     if (http.status === 200) {
-                        console.log("Successful PUT API request to " + apiBase + endpoint);
+                        if (debug) console.log("Successful PUT API request to " + apiBase + endpoint);
                         try {
                             callback(JSON.parse(http.response), http.status);
                         } catch(e) {
                             callback({}, http.status);
                         }
                     } else {
-                        console.log("PUT error: " + http.status);
+                        if (debug) console.log("PUT error: " + http.status);
                         callback(null, http.status);
                     }
                 }
@@ -248,7 +248,7 @@ var mastodonAPI = function(config) {
             var es = new WebSocket("wss://" + apiBase.substr(8)
                                    +"streaming?access_token=" + config.api_user_token + "&stream=" + streamType);
             var listener = function (event) {
-                console.log("Got Data from Stream " + streamType);
+                if (debug) console.log("Got Data from Stream " + streamType);
                 event = JSON.parse(event.data);
                 event.payload = JSON.parse(event.payload);
                 onData(event);
@@ -278,7 +278,7 @@ var mastodonAPI = function(config) {
             var http = new XMLHttpRequest()
             var url = apiBase + "apps";
             var params = 'client_name=' + client_name + '&redirect_uris=' + redirect_uri + '&scopes=' + scopes + '&website=' + website;
-            console.log(params)
+            if (debug) console.log(params)
             http.open("POST", url, true);
 
             // Send the proper header information along with the request
@@ -287,10 +287,10 @@ var mastodonAPI = function(config) {
             http.onreadystatechange = function() { // Call a function when the state changes.
                 if (http.readyState === 4) {
                     if (http.status === 200) {
-                        console.log("Registered Application: " + http.response);
+                        if (debug) console.log("Registered Application: " + http.response);
                         callback(http.response)
                     } else {
-                        console.log("error: " + http.status)
+                        if (debug) console.log("error: " + http.status)
                     }
                 }
             }
@@ -314,14 +314,14 @@ var mastodonAPI = function(config) {
                            code: code
                        },
                        success: function (data, textStatus) {
-                           console.log("Got Token: " + data);
+                           if (debug) console.log("Got Token: " + data);
                            callback(data);
                        }
                    });*/
             var http = new XMLHttpRequest()
             var url = config.instance + "/oauth/token";
             var params = 'client_id=' + client_id + '&client_secret=' + client_secret + '&redirect_uri=' + redirect_uri + '&grant_type=authorization_code&code=' + code;
-            // console.log(params)
+            // if (debug) console.log(params)
             http.open("POST", url, true);
 
             // Send the proper header information along with the request
@@ -330,10 +330,10 @@ var mastodonAPI = function(config) {
             http.onreadystatechange = function() { // Call a function when the state changes.
                 if (http.readyState === 4) {
                     if (http.status === 200) {
-                        console.log("Got Token: " + http.response);
+                        if (debug) console.log("Got Token: " + http.response);
                         callback(http.response)
                     } else {
-                        console.log("error: " + http.status)
+                        if (debug) console.log("error: " + http.status)
                     }
                 }
             }

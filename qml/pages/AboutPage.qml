@@ -126,6 +126,24 @@ AboutPageBase {
                             mastodon: "lari@suomi.social"
                             mail: ""
                         }
+                        ListElement {
+                            name: "Mejans"
+                            desc: qsTr("French Translation")
+                            mastodon: "lari@suomi.social"
+                            mail: ""
+                        }
+                        ListElement {
+                            name: "Åke Engelbrektson"
+                            desc: qsTr("Swedish Translation")
+                            mastodon: "https://github.com/eson57"
+                            mail: ""
+                        }
+                        ListElement {
+                            name: "legacychimera247"
+                            desc: qsTr("Italian Translation")
+                            mastodon: ""
+                            mail: "luca247@vivaldi.net"
+                        }
                     }
 
                     Item {

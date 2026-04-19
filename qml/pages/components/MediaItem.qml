@@ -11,6 +11,7 @@ ListItem {
     property string mediaUrl
     property string mimeType: 'audio/mp3'
     property int length
+    property bool debug: false
 
     property bool _isAudio: mimeType.substring(0, 6) === "audio/"
     property bool _isImage: mimeType.substring(0, 6) === "image/"
@@ -95,9 +96,9 @@ ListItem {
     }
 
     onClicked: {
-        console.log('MediaItem')
-        console.log(url)
-        console.log(mediaUrl)
+        if(debug) console.log('MediaItem')
+        if(debug) console.log(url)
+        if(debug) console.log(mediaUrl)
         if (_isAudio)
         {
             if (audioProxy.playing)

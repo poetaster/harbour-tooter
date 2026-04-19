@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="it">
+<TS version="2.1" language="it_IT">
 <context>
     <name>API</name>
     <message>
@@ -9,7 +9,7 @@
     </message>
     <message>
         <source>followed you</source>
-        <translation>ha iniziato a seguirti</translation>
+        <translation>ti sta seguendo</translation>
     </message>
     <message>
         <source>boosted</source>
@@ -102,59 +102,59 @@
     </message>
     <message>
         <source>Toot sent!</source>
-        <translation>Toot è stato pubblicato!</translation>
+        <translation>Toot pubblicato!</translation>
     </message>
     <message>
         <source>Open in Browser</source>
-        <translation>Aprire nel browser</translation>
+        <translation>Apri nel browser</translation>
     </message>
     <message>
         <source>Edit Alt Text</source>
-        <translation type="unfinished"></translation>
+        <translation>Modifica testo alternativo</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation>Rimuovi</translation>
     </message>
     <message>
         <source>Toot edited!</source>
-        <translation type="unfinished"></translation>
+        <translation>Toot modificato!</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished"></translation>
+        <translation>Salva</translation>
     </message>
     <message>
         <source>Describe this media for visually impaired users</source>
-        <translation type="unfinished"></translation>
+        <translation>Descivi questo contenuto per gli utenti con problemi di vista</translation>
     </message>
     <message>
         <source>Alt text helps make content accessible to people who are blind or have low vision.</source>
-        <translation type="unfinished"></translation>
+        <translation>Il testo alternativo aiuta a rendere il testo accessibile a chi è cieco o vede poco.</translation>
     </message>
     <message>
         <source>Quoting @%1</source>
-        <translation type="unfinished"></translation>
+        <translation>Citando @%1</translation>
     </message>
     <message>
         <source>Removing</source>
-        <translation type="unfinished"></translation>
+        <translation>Sto rimuovendo</translation>
     </message>
     <message>
         <source>Public</source>
-        <translation type="unfinished"></translation>
+        <translation>Pubblico</translation>
     </message>
     <message>
         <source>Unlisted</source>
-        <translation type="unfinished"></translation>
+        <translation>Non in lista</translation>
     </message>
     <message>
         <source>Followers-only</source>
-        <translation type="unfinished"></translation>
+        <translation>Solo per i follower</translation>
     </message>
     <message>
         <source>Direct</source>
-        <translation type="unfinished"></translation>
+        <translation>Messaggio diretto</translation>
     </message>
 </context>
 <context>
@@ -220,7 +220,7 @@
     </message>
     <message>
         <source>Type</source>
-        <translation type="unfinished"></translation>
+        <translation>Scrivi</translation>
     </message>
 </context>
 <context>
@@ -239,7 +239,7 @@
     </message>
     <message>
         <source>Federated</source>
-        <translation>Federazione</translation>
+        <translation>Federato</translation>
     </message>
     <message>
         <source>Search</source>
@@ -247,7 +247,7 @@
     </message>
     <message>
         <source>@user or #term</source>
-        <translation>@utente o #terme</translation>
+        <translation>@utente o #hashtag</translation>
     </message>
     <message>
         <source>New Toot</source>
@@ -259,33 +259,33 @@
     </message>
     <message>
         <source>Press and hold the home tab to switch account</source>
-        <translation type="unfinished"></translation>
+        <translation>Premi e tieni premuto il pulsante Home per cambiare account al volo</translation>
     </message>
     <message>
         <source>Trending</source>
-        <translation type="unfinished"></translation>
+        <translation>Di tendenza</translation>
     </message>
 </context>
 <context>
     <name>MediaFullScreen</name>
     <message>
         <source>Error loading</source>
-        <translation>Errore durante caricamento</translation>
+        <translation>Errore durante il caricamento</translation>
     </message>
 </context>
 <context>
     <name>MediaItem</name>
     <message>
         <source>Image</source>
-        <translation>immagine</translation>
+        <translation>Immagine</translation>
     </message>
     <message>
         <source>Video</source>
-        <translation>video</translation>
+        <translation>Video</translation>
     </message>
     <message>
         <source>PDF document</source>
-        <translation>documento PDF</translation>
+        <translation>Documento PDF</translation>
     </message>
 </context>
 <context>
@@ -300,34 +300,34 @@
     </message>
     <message>
         <source>followed you</source>
-        <translation>ha iniziato a seguirti</translation>
+        <translation>ti sta seguendo</translation>
     </message>
 </context>
 <context>
     <name>MyList</name>
     <message>
         <source>Settings</source>
-        <translation type="unfinished">Impostazioni</translation>
+        <translation>Impostazioni</translation>
     </message>
     <message>
         <source>New Toot</source>
-        <translation type="unfinished">Nuovo Toot</translation>
+        <translation>Nuovo Toot</translation>
     </message>
     <message>
         <source>Open in Browser</source>
-        <translation type="unfinished">Aprire nel browser</translation>
+        <translation>Apri nel browser</translation>
     </message>
     <message>
         <source>Reload</source>
-        <translation type="unfinished"></translation>
+        <translation>Ricarica</translation>
     </message>
     <message>
         <source>Nothing found</source>
-        <translation type="unfinished"></translation>
+        <translation>Non ho trovato nulla</translation>
     </message>
     <message>
         <source>My Profile</source>
-        <translation type="unfinished"></translation>
+        <translation>Profilo personale</translation>
     </message>
 </context>
 <context>
@@ -532,7 +532,7 @@
     </message>
     <message>
         <source>Mention</source>
-        <translation>Menzionare</translation>
+        <translation>Menziona</translation>
     </message>
     <message>
         <source>Unfollow</source>
@@ -582,7 +582,7 @@
     </message>
     <message>
         <source>Load Images in Toots</source>
-        <translation>Caricare immagini nei Toots</translation>
+        <translation>Carica immagini nei Toots</translation>
     </message>
     <message>
         <source>Disable this option if you want to preserve your data connection</source>
@@ -609,27 +609,84 @@
         <translation>Autorizzare l&apos;app all&apos;utilizzo del conto Mastodon</translation>
     </message>
     <message>
+        <source>Credits</source>
+        <extracomment>Translation alternative: &quot;Development&quot;</extracomment>
+        <translation>Sviluppo</translation>
+    </message>
+    <message>
+        <source>UI/UX design and development</source>
+        <translation>Design UI/UX e sviluppo</translation>
+    </message>
+    <message>
+        <source>Visual identity</source>
+        <translation>Identità visiva</translation>
+    </message>
+    <message>
+        <source>Development and translations</source>
+        <translation>Sviluppo e traduzioni</translation>
+    </message>
+    <message>
+        <source>Occitan &amp; French translation</source>
+        <translation>Traduzione francese e occitanica</translation>
+    </message>
+    <message>
+        <source>Chinese translation</source>
+        <translation>Traduzione cinese</translation>
+    </message>
+    <message>
+        <source>Dutch translation</source>
+        <translation>Traduzione olandese</translation>
+    </message>
+    <message>
+        <source>Spanish translation</source>
+        <translation>Traduzione spagnola</translation>
+    </message>
+    <message>
+        <source>Development</source>
+        <translation>Sviluppo</translation>
+    </message>
+    <message>
+        <source>Documentation</source>
+        <translation>Documentazione</translation>
+    </message>
+    <message>
+        <source>Mention</source>
+        <translation>Menzionare</translation>
+    </message>
+    <message>
         <source>Account removed</source>
-        <translation type="unfinished"></translation>
+        <translation>Account rimosso</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation>Rimuovi</translation>
+    </message>
+    <message>
+        <source>Norwegian Translation</source>
+        <translation>Traduzione norvegese</translation>
     </message>
     <message>
         <source>Font Size</source>
-        <translation type="unfinished"></translation>
+        <translation>Dimensione carattere</translation>
     </message>
     <message>
         <source>Sample text</source>
-        <translation type="unfinished"></translation>
+        <translation>Testo di prova</translation>
     </message>
     <message>
         <source>Quick Scroll Arrows</source>
-        <translation type="unfinished"></translation>
+        <translation>Freccie Scorrimento Veloce</translation>
     </message>
     <message>
         <source>Show arrows to jump to top/bottom when scrolling fast</source>
+        <translation>Mostra freccie per saltare in alto/basso quando scorri velocemente</translation>
+    </message>
+    <message>
+        <source>French Translation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Swedish Translation</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -642,63 +699,63 @@
     <name>VisualContainer</name>
     <message>
         <source>Show less</source>
-        <translation type="unfinished"></translation>
+        <translation>Mostra meno</translation>
     </message>
     <message>
         <source>Show more</source>
-        <translation type="unfinished"></translation>
+        <translation>Mostra di più</translation>
     </message>
     <message>
         <source>Conversation</source>
-        <translation type="unfinished"></translation>
+        <translation>Conversazione</translation>
     </message>
     <message>
         <source>Unfavorite</source>
-        <translation type="unfinished"></translation>
+        <translation>Rimuovi dai preferiti</translation>
     </message>
     <message>
         <source>Favorite</source>
-        <translation type="unfinished"></translation>
+        <translation>Aggiungi ai preferiti</translation>
     </message>
     <message>
         <source>Unboost</source>
-        <translation type="unfinished"></translation>
+        <translation>Non condividere più</translation>
     </message>
     <message>
         <source>Boost</source>
-        <translation type="unfinished"></translation>
+        <translation>Condividi</translation>
     </message>
     <message>
         <source>Reply</source>
-        <translation type="unfinished"></translation>
+        <translation>Rispondi</translation>
     </message>
     <message>
         <source>Quote</source>
-        <translation type="unfinished"></translation>
+        <translation>Cita</translation>
     </message>
     <message>
         <source>Remove Bookmark</source>
-        <translation type="unfinished"></translation>
+        <translation>Rimuovi Preferito</translation>
     </message>
     <message>
         <source>Bookmark</source>
-        <translation type="unfinished"></translation>
+        <translation>Aggiungi Preferito</translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>Elimina</translation>
     </message>
     <message>
         <source>Deleting</source>
-        <translation type="unfinished"></translation>
+        <translation>Sto eliminando</translation>
     </message>
     <message>
         <source>Edit</source>
-        <translation type="unfinished"></translation>
+        <translation>Modifica</translation>
     </message>
     <message>
         <source>Mention</source>
-        <translation type="unfinished">Menzionare</translation>
+        <translation>Menziona</translation>
     </message>
     <message>
         <source>Loading...</source>

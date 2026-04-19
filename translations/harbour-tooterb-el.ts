@@ -609,6 +609,51 @@
         <translation>Να επιτρέπεται στην εφαρμογή να χρησιμοποιεί τον λογαριασμό σας στο Mastodon εκ μέρους σας</translation>
     </message>
     <message>
+        <source>Credits</source>
+        <extracomment>Translation alternative: &quot;Development&quot;</extracomment>
+        <translation>Ευχαριστίες</translation>
+    </message>
+    <message>
+        <source>UI/UX design and development</source>
+        <translation>UI/UX σχεδιασμός και ανάπτυξη</translation>
+    </message>
+    <message>
+        <source>Visual identity</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Development and translations</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Occitan &amp; French translation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Chinese translation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Dutch translation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Spanish translation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Development</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Documentation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Mention</source>
+        <translation type="unfinished">Φραγή</translation>
+    </message>
+    <message>
         <source>Account removed</source>
         <translation type="unfinished"></translation>
     </message>
@@ -633,8 +678,11 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>About</source>
-        <comment>About the app</comment>
+        <source>French Translation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Swedish Translation</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

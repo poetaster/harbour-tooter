@@ -611,6 +611,51 @@
         <translation>Уполномочить это приложение использовать свою учетную запись Mastodon от вашего имени</translation>
     </message>
     <message>
+        <source>Credits</source>
+        <extracomment>Translation alternative: &quot;Development&quot;</extracomment>
+        <translation>Зачет</translation>
+    </message>
+    <message>
+        <source>UI/UX design and development</source>
+        <translation>Дизайн и разработка UI / UX</translation>
+    </message>
+    <message>
+        <source>Visual identity</source>
+        <translation>Визуальная идентичность</translation>
+    </message>
+    <message>
+        <source>Development and translations</source>
+        <translation>Разработка и переводы</translation>
+    </message>
+    <message>
+        <source>Occitan &amp; French translation</source>
+        <translation>французский перевод</translation>
+    </message>
+    <message>
+        <source>Chinese translation</source>
+        <translation>Китайский перевод</translation>
+    </message>
+    <message>
+        <source>Dutch translation</source>
+        <translation>Голландский перевод</translation>
+    </message>
+    <message>
+        <source>Spanish translation</source>
+        <translation>Испанский перевод</translation>
+    </message>
+    <message>
+        <source>Development</source>
+        <translation>Разработка</translation>
+    </message>
+    <message>
+        <source>Documentation</source>
+        <translation>Документация</translation>
+    </message>
+    <message>
+        <source>Mention</source>
+        <translation>Упоминание</translation>
+    </message>
+    <message>
         <source>Account removed</source>
         <translation>Аккаунт удалён</translation>
     </message>
@@ -635,9 +680,12 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>About</source>
-        <comment>About the app</comment>
-        <translation type="unfinished">Подробности</translation>
+        <source>French Translation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Swedish Translation</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

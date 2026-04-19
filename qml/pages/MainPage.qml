@@ -19,6 +19,7 @@ Page {
         width: parent.width
         height: parent.height - accountsMenuHelper.height
         tabBarPosition: Qt.AlignBottom
+        defaultTabIconSourceSize: Qt.size(Theme.iconSizeMedium, Theme.iconSizeMedium)
 
         property var homeButton: tabView.tabBarItem.children[0].children[0].children[0].children[0] // this is kind of a hack, so can be improved
 

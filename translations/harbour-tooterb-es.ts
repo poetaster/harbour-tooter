@@ -82,6 +82,18 @@
         <source>SFOS Community Liberapay</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>French Translation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Swedish Translation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Italian Translation</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ConversationPage</name>
@@ -609,51 +621,6 @@
         <translation>Autoriza a esta aplicación para usar tu cuenta de Mastodon en tu nombre</translation>
     </message>
     <message>
-        <source>Credits</source>
-        <extracomment>Translation alternative: &quot;Development&quot;</extracomment>
-        <translation>Créditos</translation>
-    </message>
-    <message>
-        <source>UI/UX design and development</source>
-        <translation>Diseño UI/UX y desarrollo</translation>
-    </message>
-    <message>
-        <source>Visual identity</source>
-        <translation>Identidad visual</translation>
-    </message>
-    <message>
-        <source>Development and translations</source>
-        <translation>Desarrollo y traducciones</translation>
-    </message>
-    <message>
-        <source>Occitan &amp; French translation</source>
-        <translation>Traducción al occitano y francés</translation>
-    </message>
-    <message>
-        <source>Chinese translation</source>
-        <translation>Traducción al chino</translation>
-    </message>
-    <message>
-        <source>Dutch translation</source>
-        <translation>Traducción al holandés</translation>
-    </message>
-    <message>
-        <source>Spanish translation</source>
-        <translation>Traducción al español</translation>
-    </message>
-    <message>
-        <source>Development</source>
-        <translation>Desarrollo</translation>
-    </message>
-    <message>
-        <source>Documentation</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Mention</source>
-        <translation type="unfinished">Mencionar</translation>
-    </message>
-    <message>
         <source>Account removed</source>
         <translation type="unfinished"></translation>
     </message>
@@ -678,11 +645,8 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>French Translation</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Swedish Translation</source>
+        <source>About</source>
+        <comment>About the app</comment>
         <translation type="unfinished"></translation>
     </message>
 </context>

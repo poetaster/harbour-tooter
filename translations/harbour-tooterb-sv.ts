@@ -82,6 +82,18 @@
         <source>SFOS Community Liberapay</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>French Translation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Swedish Translation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Italian Translation</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ConversationPage</name>
@@ -609,51 +621,6 @@
         <translation>Auktorisera denna app att använda ditt Mastodon-konto</translation>
     </message>
     <message>
-        <source>Credits</source>
-        <extracomment>Translation alternative: &quot;Development&quot;</extracomment>
-        <translation>Erkännanden</translation>
-    </message>
-    <message>
-        <source>UI/UX design and development</source>
-        <translation>UI/UX design och utveckling</translation>
-    </message>
-    <message>
-        <source>Visual identity</source>
-        <translation>Visuell identitet</translation>
-    </message>
-    <message>
-        <source>Development and translations</source>
-        <translation>Utveckling och översättningar</translation>
-    </message>
-    <message>
-        <source>Occitan &amp; French translation</source>
-        <translation>Occitansk &amp; fransk översättning</translation>
-    </message>
-    <message>
-        <source>Chinese translation</source>
-        <translation>Kinesisk översättning</translation>
-    </message>
-    <message>
-        <source>Dutch translation</source>
-        <translation>Nederländsk översättning</translation>
-    </message>
-    <message>
-        <source>Spanish translation</source>
-        <translation>Spansk översättning</translation>
-    </message>
-    <message>
-        <source>Development</source>
-        <translation>Utveckling</translation>
-    </message>
-    <message>
-        <source>Documentation</source>
-        <translation>Dokumentation</translation>
-    </message>
-    <message>
-        <source>Mention</source>
-        <translation>Omnämnande</translation>
-    </message>
-    <message>
         <source>Account removed</source>
         <translation>Kontot borttaget</translation>
     </message>
@@ -676,14 +643,6 @@
     <message>
         <source>Show arrows to jump to top/bottom when scrolling fast</source>
         <translation>Visar pilar för att hoppa till toppen/botten vid snabb rullning</translation>
-    </message>
-    <message>
-        <source>French Translation</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Swedish Translation</source>
-        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>About</source>

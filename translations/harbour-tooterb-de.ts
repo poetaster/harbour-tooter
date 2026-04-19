@@ -82,6 +82,18 @@
         <source>SFOS Community Liberapay</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>French Translation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Swedish Translation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Italian Translation</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ConversationPage</name>
@@ -609,51 +621,6 @@
         <translation>Zugriff durch diese Anwendung auf eigenes Mastodon-Konto erlauben</translation>
     </message>
     <message>
-        <source>Credits</source>
-        <extracomment>Translation alternative: &quot;Development&quot;</extracomment>
-        <translation>Über</translation>
-    </message>
-    <message>
-        <source>UI/UX design and development</source>
-        <translation>UI/UX-Gestaltung und Entwicklung</translation>
-    </message>
-    <message>
-        <source>Visual identity</source>
-        <translation>Visuelle Identität</translation>
-    </message>
-    <message>
-        <source>Development and translations</source>
-        <translation>Entwicklung und Übersetzungen</translation>
-    </message>
-    <message>
-        <source>Occitan &amp; French translation</source>
-        <translation>Französische Übersetzung</translation>
-    </message>
-    <message>
-        <source>Chinese translation</source>
-        <translation>Chinesische Übersetzung</translation>
-    </message>
-    <message>
-        <source>Dutch translation</source>
-        <translation>Niederländische Übersetzung</translation>
-    </message>
-    <message>
-        <source>Spanish translation</source>
-        <translation>Spanische Übersetzung</translation>
-    </message>
-    <message>
-        <source>Development</source>
-        <translation>Entwicklung</translation>
-    </message>
-    <message>
-        <source>Documentation</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Mention</source>
-        <translation type="unfinished">Erwähnen</translation>
-    </message>
-    <message>
         <source>Account removed</source>
         <translation type="unfinished"></translation>
     </message>
@@ -678,11 +645,8 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>French Translation</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Swedish Translation</source>
+        <source>About</source>
+        <comment>About the app</comment>
         <translation type="unfinished"></translation>
     </message>
 </context>

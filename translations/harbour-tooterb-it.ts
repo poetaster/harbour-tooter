@@ -76,10 +76,22 @@
     </message>
     <message>
         <source>Norwegian Translation</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Traduzione norvegese</translation>
     </message>
     <message>
         <source>SFOS Community Liberapay</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>French Translation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Swedish Translation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Italian Translation</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -609,61 +621,12 @@
         <translation>Autorizzare l&apos;app all&apos;utilizzo del conto Mastodon</translation>
     </message>
     <message>
-        <source>Credits</source>
-        <extracomment>Translation alternative: &quot;Development&quot;</extracomment>
-        <translation>Sviluppo</translation>
-    </message>
-    <message>
-        <source>UI/UX design and development</source>
-        <translation>Design UI/UX e sviluppo</translation>
-    </message>
-    <message>
-        <source>Visual identity</source>
-        <translation>Identità visiva</translation>
-    </message>
-    <message>
-        <source>Development and translations</source>
-        <translation>Sviluppo e traduzioni</translation>
-    </message>
-    <message>
-        <source>Occitan &amp; French translation</source>
-        <translation>Traduzione francese e occitanica</translation>
-    </message>
-    <message>
-        <source>Chinese translation</source>
-        <translation>Traduzione cinese</translation>
-    </message>
-    <message>
-        <source>Dutch translation</source>
-        <translation>Traduzione olandese</translation>
-    </message>
-    <message>
-        <source>Spanish translation</source>
-        <translation>Traduzione spagnola</translation>
-    </message>
-    <message>
-        <source>Development</source>
-        <translation>Sviluppo</translation>
-    </message>
-    <message>
-        <source>Documentation</source>
-        <translation>Documentazione</translation>
-    </message>
-    <message>
-        <source>Mention</source>
-        <translation>Menzionare</translation>
-    </message>
-    <message>
         <source>Account removed</source>
         <translation>Account rimosso</translation>
     </message>
     <message>
         <source>Remove</source>
         <translation>Rimuovi</translation>
-    </message>
-    <message>
-        <source>Norwegian Translation</source>
-        <translation>Traduzione norvegese</translation>
     </message>
     <message>
         <source>Font Size</source>
@@ -680,14 +643,6 @@
     <message>
         <source>Show arrows to jump to top/bottom when scrolling fast</source>
         <translation>Mostra freccie per saltare in alto/basso quando scorri velocemente</translation>
-    </message>
-    <message>
-        <source>French Translation</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Swedish Translation</source>
-        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>About</source>

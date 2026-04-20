@@ -99,20 +99,23 @@ CONFIG += sailfishapp_i18n
 
 TRANSLATIONS += translations/harbour-tooterb.ts \
     translations/harbour-tooterb-de.ts \
-    translations/harbour-tooterb-el.ts \
-    translations/harbour-tooterb-es.ts \
-    translations/harbour-tooterb-fr.ts \
     translations/harbour-tooterb-fi.ts \
+    translations/harbour-tooterb-nb.ts \
+    translations/harbour-tooterb-oc.ts \
+    translations/harbour-tooterb-sv.ts \
+    translations/harbour-tooterb-el.ts \
+    translations/harbour-tooterb-fr.ts \
+    translations/harbour-tooterb-nl_BE.ts \
+    translations/harbour-tooterb-pl.ts \
+    translations/harbour-tooterb-en.ts \
     translations/harbour-tooterb-it.ts \
     translations/harbour-tooterb-nl.ts \
-    translations/harbour-tooterb-nl_BE.ts \
-    translations/harbour-tooterb-oc.ts \
-    translations/harbour-tooterb-pl.ts \
     translations/harbour-tooterb-ru.ts \
+    translations/harbour-tooterb-zh_CN.ts \
+    translations/harbour-tooterb-es.ts \
+    translations/harbour-tooterb-nb_NO.ts \
+    translations/harbour-tooterb-no.ts \
     translations/harbour-tooterb-sr.ts \
-    translations/harbour-tooterb-sv.ts \
-    translations/harbour-tooterb-nb.ts
-    translations/harbour-tooterb-zh_CN.ts
 
 # Opal modules
 include(libs/opal.pri)

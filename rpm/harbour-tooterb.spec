@@ -4,7 +4,7 @@ Name:       harbour-tooterb
 %define __provides_exclude_from ^%{_datadir}/.*$
 
 Summary:    Tooter β
-Version:    1.3.3
+Version:    1.3.4
 Release:    1
 Group:      Qt/Qt
 License:    GPLv3

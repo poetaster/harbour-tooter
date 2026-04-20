@@ -18,7 +18,7 @@ AboutPageBase {
     authors: 'poetaster'
     licenses: License { spdxId: 'GPL-3.0-or-later' }
     sourcesUrl: 'https://github.com/poetaster/harbour-tooter'
-    translationsUrl: 'https://www.transifex.com/molan-git/tooter-b'
+    //translationsUrl: 'https://www.transifex.com/molan-git/tooter-b'
     homepageUrl: 'https://forum.sailfishos.org/t/tooter-feedback-thread/13508'
     donations.services: [
         DonationService {

@@ -174,7 +174,7 @@
     </message>
     <message>
         <source>Bookmarks</source>
-        <translation>Segnalibro</translation>
+        <translation>Segnalibri</translation>
     </message>
     <message>
         <source>Press and hold the home tab to switch account</source>
@@ -365,6 +365,10 @@
         <translation>Autorizzare l&apos;app all&apos;utilizzo del conto Mastodon</translation>
     </message>
     <message>
+        <source>Translate</source>
+        <translation>Tradurre</translation>
+    </message>
+    <message>
         <source>Credits</source>
         <extracomment>Translation alternative: &quot;Development&quot;</extracomment>
         <translation>Sviluppo</translation>
@@ -396,6 +400,15 @@
     <message>
         <source>Spanish translation</source>
         <translation>Traduzione spagnola</translation>
+    </message>
+    <message>
+        <source>Use</source>
+        <extracomment>Full sentence for translation: &quot;Use Transifex to help with app translation to your language.&quot; - The word Transifex is a link and doesn&apos;t need translation.</extracomment>
+        <translation>Utilizzare</translation>
+    </message>
+    <message>
+        <source>to help with app translation to your language.</source>
+        <translation>per aiutare nella traduzione dell&apos;app.</translation>
     </message>
     <message>
         <source>Development</source>
@@ -437,14 +450,6 @@
         <source>Show arrows to jump to top/bottom when scrolling fast</source>
         <translation>Mostra freccie per saltare in alto/basso quando scorri velocemente</translation>
     </message>
-    <message>
-        <source>French Translation</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Swedish Translation</source>
-        <translation type="unfinished"></translation>
-    </message>
 </context>
 <context>
     <name>VisualContainer</name>
@@ -462,11 +467,11 @@
     </message>
     <message>
         <source>Unfavorite</source>
-        <translation>Rimuovi dai preferiti</translation>
+        <translation>Non mi piace più</translation>
     </message>
     <message>
         <source>Favorite</source>
-        <translation>Aggiungi ai preferiti</translation>
+        <translation>Mi piace</translation>
     </message>
     <message>
         <source>Unboost</source>
@@ -486,11 +491,11 @@
     </message>
     <message>
         <source>Remove Bookmark</source>
-        <translation>Rimuovi Preferito</translation>
+        <translation>Rimuovi dai Segnalibri</translation>
     </message>
     <message>
         <source>Bookmark</source>
-        <translation>Aggiungi Preferito</translation>
+        <translation>Aggiungi ai Segnalibri</translation>
     </message>
     <message>
         <source>Delete</source>
@@ -510,35 +515,35 @@
     </message>
     <message>
         <source>Loading...</source>
-        <translation type="unfinished"></translation>
+        <translation>Caricamento...</translation>
     </message>
     <message>
         <source>Load more</source>
-        <translation type="unfinished"></translation>
+        <translation>Mostra altro</translation>
     </message>
     <message>
         <source>Vote</source>
-        <translation type="unfinished"></translation>
+        <translation>Vota</translation>
     </message>
     <message>
         <source>votes</source>
-        <translation type="unfinished"></translation>
+        <translation>voti</translation>
     </message>
     <message>
         <source>Closed</source>
-        <translation type="unfinished"></translation>
+        <translation>Chiuso</translation>
     </message>
     <message>
         <source>days left</source>
-        <translation type="unfinished"></translation>
+        <translation>giorni rimasti</translation>
     </message>
     <message>
         <source>hours left</source>
-        <translation type="unfinished"></translation>
+        <translation>ore rimaste</translation>
     </message>
     <message>
         <source>minutes left</source>
-        <translation type="unfinished"></translation>
+        <translation>minuti rimasti</translation>
     </message>
 </context>
 </TS>

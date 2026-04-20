@@ -47,6 +47,18 @@ function setActiveAccount(index) {
     clearModels()
 }
 
+function removeActiveAccount() {
+    // returns true if login page must be shown
+    conf.accounts.splice(conf.activeAccount, 1)
+    if (conf.accounts.length)
+        setActiveAccount(0)
+    else {
+        conf.activeAccount = null
+        return true
+    }
+    return false
+}
+
 var init = function(){
     if (debug) console.log("db.version: "+db.version);
     if(db.version === '') {

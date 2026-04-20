@@ -32,7 +32,7 @@ Page {
                 id: mastodonOAuth
                 authorizationEndpoint: instance.text + "/oauth/authorize"
                 tokenEndpoint: instance.text + "/oauth/token"
-                scopes: ["read", "write", "follow"]
+                scopes: ["read", "write", "follow", "push"]
                 redirectListener.port: 7538
 
                 // Workaround for Pixelfed
@@ -83,7 +83,7 @@ Page {
                     Logic.api = Logic.mastodonAPI({ instance: instance.text, api_user_token: "" });
                     Logic.api.registerApplication("Tooter",
                                                   "http://127.0.0.1:7538", 
-                                                  ["read", "write", "follow"], //scopes
+                                                  ["read", "write", "follow", "push"], //scopes
                                                   "https://github.com/poetaster/harbour-tooter#readme", //website on the login screen
                                                   function(data) {
                                                       if (debug) console.log(data)

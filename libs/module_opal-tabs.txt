@@ -1,0 +1,24 @@
+# Store this file to keep track of packaged module versions.
+# It is not necessary to ship this in your app's final RPM package.
+# SPDX-License-Identifier: GPL-3.0-or-later
+# SPDX-FileCopyrightText: 2024-2025 Mirian Margiani
+# SPDX-FileCopyrightText: 2025 roundedrectangle
+# SPDX-FileCopyrightText: 2013-2020 Jolla Ltd
+# SPDX-FileCopyrightText: 2020 Open Mobile Platform LLC
+
+# Attribution using Opal.About:
+#   Opal attributions are automatically added to the About page.
+#   Make sure to use the latest version of Opal.About:
+#   https://github.com/Pretty-SFOS/opal-about/releases/latest
+#
+# Manual attribution:
+#   Mention at least name, license, and the attribution text
+#   on the About page of your app. Use the information below.
+
+module: Opal.Tabs (opal-tabs)
+version: 2.1.1 (git:86b4d17)
+description: This module provides an easy way to add tab bars to apps.
+maintainers: Mirian Margiani
+attribution: 2024-2025 Mirian Margiani:2025 roundedrectangle:2013-2020 Jolla Ltd:2020 Open Mobile Platform LLC
+license: GPL-3.0-or-later
+sources: https://github.com/Pretty-SFOS/opal-tabs

@@ -77,16 +77,18 @@ var mastodonAPI = function(config) {
             // where querydata is an object {["paramname1", "paramvalue1], ["paramname2","paramvalue2"]}
 
             // variables
-            var queryData, callback,
+            var queryData, callback, errorCallback,
                     queryStringAppend = "?";
 
             // check with which arguments we're supplied
             if (typeof arguments[1] === "function") {
-                queryData = {};
-                callback = arguments[1];
+                queryData = {}
+                callback = arguments[1]
+                errorCallback = arguments[2]
             } else {
-                queryData = arguments[1];
-                callback = arguments[2];
+                queryData = arguments[1]
+                callback = arguments[2]
+                errorCallback = arguments[3]
             }
             // build queryData Object into a URL Query String
             for (var i in queryData) {
@@ -118,9 +120,11 @@ var mastodonAPI = function(config) {
                             if (debug) console.log("Successful GET API request to " +apiBase+endpoint);
                         } catch(e) {
                             if (debug) console.log("GET error:", e)
+                            if (errorCallback) errorCallback()
                         }
                     } else {
                         if (debug) console.log("error: " + http.status)
+                        if (errorCallback) errorCallback(http.status)
                     }
                 }
             }

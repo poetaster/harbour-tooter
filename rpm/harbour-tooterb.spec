@@ -5,7 +5,7 @@ Name:       harbour-tooterb
 
 Summary:    Tooter β
 Version:    1.3.4
-Release:    1
+Release:    2
 Group:      Qt/Qt
 License:    GPLv3
 URL:        https://github.com/poetaster/harbour-tooter#readme

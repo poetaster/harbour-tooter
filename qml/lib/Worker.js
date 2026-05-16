@@ -428,6 +428,41 @@ function getDate(dateStr) {
     return new Date(ts.getFullYear(), ts.getMonth(), ts.getDate(), 0, 0, 0)
 }
 
+/**
+ * Check if a URL is a Mastodon/ActivityPub status URL
+ * Used to suppress link previews for posts that should open in-app
+ */
+function isMastodonStatusUrl(url) {
+    if (!url || typeof url !== "string") return false
+    if (!url.match(/^https?:\/\//i)) return false
+
+    // Normalize: remove trailing slashes
+    var normalized = url.replace(/\/+$/, '')
+    var parts = normalized.split("/")
+
+    // Need at least: https: / "" / instance / path
+    if (parts.length < 4) return false
+
+    var pathPart1 = parts[3]
+    var pathPart2 = parts.length > 4 ? parts[4] : null
+    var pathPart3 = parts.length > 5 ? parts[5] : null
+    var pathPart4 = parts.length > 6 ? parts[6] : null
+
+    // Pattern: /@username/123456789 (length 5, starts with @, numeric ID)
+    if (parts.length === 5 && pathPart1 && pathPart1[0] === "@" && /^\d+$/.test(pathPart2)) {
+        return true
+    }
+
+    // Pattern: /users/username/statuses/123456789 (length 7)
+    if (parts.length === 7 && pathPart1 === "users" && pathPart3 === "statuses" && /^\d+$/.test(pathPart4)) {
+        return true
+    }
+
+    return false
+}
+
+
+
 /** Function: Get Status data */
 function parseToot (data) {
     var i = 0;
@@ -490,7 +525,7 @@ function parseToot (data) {
         item['status_mentions'] = ''
     }
 
-    /** Link Preview Card */
+    /** Link Preview Card 
     var cardData = item['status_reblog'] ? data["reblog"]["card"] : data["card"]
     if (debug) console.log("have card data")
     if (cardData) {
@@ -500,6 +535,26 @@ function parseToot (data) {
         item['card_image'] = cardData["image"] || ''
         item['card_type'] = cardData["type"] || 'link'
         item['card_provider'] = cardData["provider_name"] || ''
+    } else {
+        item['card_url'] = ''
+    } */
+
+    /** Link Preview Card */
+    var cardData = item['status_reblog'] ? data["reblog"]["card"] : data["card"]
+    if (cardData) {
+        var cardUrl = cardData["url"] || ''
+        // Don't show link preview for Mastodon post URLs - they should open in-app
+        if (cardUrl && isMastodonStatusUrl(cardUrl)) {
+            if (debug) console.log("Suppressing card for Mastodon URL: " + cardUrl)
+            item['card_url'] = ''
+        } else {
+            item['card_url'] = cardUrl
+            item['card_title'] = cardData["title"] || ''
+            item['card_description'] = cardData["description"] || ''
+            item['card_image'] = cardData["image"] || ''
+            item['card_type'] = cardData["type"] || 'link'
+            item['card_provider'] = cardData["provider_name"] || ''
+        }
     } else {
         item['card_url'] = ''
     }

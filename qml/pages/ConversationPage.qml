@@ -400,7 +400,7 @@ Page {
             width: parent.width
             anchors.top: bottom.toot
             anchors.bottom: parent.bottom
-            height: mediaModel.count ? Theme.itemSizeExtraLarge : 0
+            height: mediaModel.count ? Theme.itemSizeExtraLarge * 2 : 0
             model: mediaModel
             cellWidth: uploadedImages.width / 4
             cellHeight: isPortrait ? cellWidth : Theme.itemSizeExtraLarge

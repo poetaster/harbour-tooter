@@ -11,8 +11,14 @@ Page {
 
     property bool debug: false
     property bool isFirstPage: true
+    property string searchString
 
     property bool quickAccountSwitchHintActive: !Logic.conf.multipleAccountsHintCompleted && Logic.conf.accounts.length > 1
+
+     onSearchStringChanged: {
+         tabView.currentIndex = 5
+         // broken tlSearch.search = searchString
+     }
 
     TabView {
         id: tabView
@@ -20,7 +26,7 @@ Page {
         height: parent.height - accountsMenuHelper.height
         tabBarPosition: Qt.AlignBottom
         defaultTabIconSourceSize: Qt.size(Theme.iconSizeMedium, Theme.iconSizeMedium)
-
+        cacheSize:7
         property var homeButton: tabView.tabBarItem.children[0].children[0].children[0].children[0] // this is kind of a hack, so can be improved
 
         // prevent stealing focus from the context menu
@@ -112,12 +118,12 @@ Page {
                         id: tlSearch
 
                         property ListModel mdl: ListModel {}
-                        property string search
+                        property string search: mainPage.searchString
 
                         width: isPortrait ? parent.width : parent.width - Theme.itemSizeLarge
                         height: parent.height
-                        onSearchChanged: {
-                            if (debug) console.log(search)
+                        onSearchChanged:  {
+                            if (debug) console.log(searchString)
                             loader.sourceComponent = loading
                             if (search.charAt(0) === "@") {
                                 loader.sourceComponent = userListComponent
@@ -142,7 +148,7 @@ Page {
                                 id: searchField
                                 width: parent.width
                                 placeholderText: qsTr("@user or #term")
-                                text: tlSearch.search
+                                text: mainPage.searchString //tlSearch.search
                                 EnterKey.iconSource: "image://theme/icon-m-enter-close"
                                 EnterKey.onClicked: {
                                     tlSearch.search = text.toLowerCase().trim()
@@ -195,8 +201,8 @@ Page {
                                 id: view2
                                 mdl: ListModel {}
                                 autoLoadMore: false
-                                width: parent.width
-                                height: parent.height
+                                //width: parent.width
+                                //height: parent.height
                                 anchors.fill: parent
                                 currentIndex: -1 // otherwise currentItem will steal focus
                                 header:  Item {
@@ -227,6 +233,21 @@ Page {
                                 }
 
                                 Component.onCompleted: {
+                                    /* from toot live @ search
+                                    var msg = {
+                                        "action": 'accounts/search',
+                                        "method": 'GET',
+                                        "model": suggestedModel,
+                                        "mode": "append",
+                                        "params": [{
+                                                "name": "q",
+                                                "data": suggestedUser
+                                            }],
+                                        "conf": Logic.conf
+                                    }
+                                    worker.sendMessage(msg)
+                                    */
+
                                     view2.type = "accounts/search"
                                     view2.params = []
                                     view2.params.push({name: 'q', data: tlSearch.search.substring(1)})
@@ -361,6 +382,7 @@ Page {
         }
     }
 
+
     function onLinkActivated(href) {
         var test = href.split("/")
         debug = true
@@ -370,13 +392,16 @@ Page {
                 console.log(JSON.stringify(test.length))
         }
         if (test.length === 5 && (test[3] === "tags" || test[3] === "tag") ) {
-            tlSearch.search = "#"+decodeURIComponent(test[4])
-            tabView.currentIndex = 5
+            mainPage.searchString = "#"+decodeURIComponent(test[4])
+            //tlSearch.search = "#"+decodeURIComponent(test[4])
+            //tabView.currentIndex = 5
             if (debug) console.log("search tag")
 
         } else if (test.length === 4 && test[3][0] === "@" ) {
-            tlSearch.search = decodeURIComponent("@"+test[3].substring(1)+"@"+test[2])
-            tabView.currentIndex = 5
+            mainPage.searchString = decodeURIComponent("@"+test[3].substring(1)+"@"+test[2])
+            //tlSearch.search = decodeURIComponent("@"+test[3].substring(1)+"@"+test[2])
+            //tabView.currentIndex = 5
+            if (debug) console.log("search user")
 
         } else {
             Qt.openUrlExternally(href)

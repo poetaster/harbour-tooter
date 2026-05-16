@@ -186,7 +186,8 @@ SilicaListView {
             openDrawer(contentY - scrollOffset  > 0 ? false : true )
             scrollOffset = contentY
         }
-        if(contentY+height > footerItem.y && !deduping && !loadStarted && autoLoadMore && !reachedEnd) {
+        //if(contentY+height > footerItem.y && !deduping && !loadStarted && autoLoadMore && !reachedEnd) {
+        if(!loadStarted) {
                 loadStarted = true
                 if (debug) console.log("Loading more: " + title + " (append)")
                 loadData("append")

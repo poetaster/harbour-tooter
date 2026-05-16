@@ -30,7 +30,7 @@ PagedView{id:root
     header:_tabBarIsTop?tabBarComponent:null
     footer:_tabBarIsTop?null:tabBarComponent
     verticalAlignment:hasFooter?PagedView.AlignTop:PagedView.AlignBottom
-    cacheSize:6
+    cacheSize:0
     contentItem{y:root.hasFooter?0:tabBarLoader.height
         height:root.height-tabBarLoader.height
     }Item{id:itemContainer

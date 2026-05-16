@@ -24,75 +24,75 @@
     <name>AboutPage</name>
     <message>
         <source>Tooter is Mastodon client for Sailfish OS.</source>
-        <translation type="unfinished"></translation>
+        <translation>Tooter är en Mastodon-klient för Sailfish OS.</translation>
     </message>
     <message>
         <source>UI/UX design and development</source>
-        <translation type="unfinished">UI/UX design och utveckling</translation>
+        <translation>UI/UX design och utveckling</translation>
     </message>
     <message>
         <source>Visual identity</source>
-        <translation type="unfinished">Visuell identitet</translation>
+        <translation>Visuell identitet</translation>
     </message>
     <message>
         <source>Documentation</source>
-        <translation type="unfinished">Dokumentation</translation>
+        <translation>Dokumentation</translation>
     </message>
     <message>
         <source>Mention</source>
-        <translation type="unfinished">Omnämnande</translation>
+        <translation>Omnämnande</translation>
     </message>
     <message>
         <source>Credits</source>
-        <translation type="unfinished">Erkännanden</translation>
+        <translation>Erkännanden</translation>
     </message>
     <message>
         <source>Development and translations</source>
-        <translation type="unfinished">Utveckling och översättningar</translation>
+        <translation>Utveckling och översättningar</translation>
     </message>
     <message>
         <source>Development</source>
-        <translation type="unfinished">Utveckling</translation>
+        <translation>Utveckling</translation>
     </message>
     <message>
         <source>Occitan &amp; French translation</source>
-        <translation type="unfinished">Occitansk &amp; fransk översättning</translation>
+        <translation>Occitansk &amp; fransk översättning</translation>
     </message>
     <message>
         <source>Chinese translation</source>
-        <translation type="unfinished">Kinesisk översättning</translation>
+        <translation>Kinesisk översättning</translation>
     </message>
     <message>
         <source>Dutch translation</source>
-        <translation type="unfinished">Nederländsk översättning</translation>
+        <translation>Nederländsk översättning</translation>
     </message>
     <message>
         <source>Spanish translation</source>
-        <translation type="unfinished">Spansk översättning</translation>
+        <translation>Spansk översättning</translation>
     </message>
     <message>
         <source>Development, Russian translation</source>
-        <translation type="unfinished"></translation>
+        <translation>Utveckling, Rysk översättning</translation>
     </message>
     <message>
         <source>Norwegian Translation</source>
-        <translation type="unfinished">Norsk översättning</translation>
+        <translation>Norsk översättning</translation>
     </message>
     <message>
         <source>SFOS Community Liberapay</source>
-        <translation type="unfinished"></translation>
+        <translation>SFOS Community Liberapay</translation>
     </message>
     <message>
         <source>French Translation</source>
-        <translation type="unfinished"></translation>
+        <translation>Fransk översättning</translation>
     </message>
     <message>
         <source>Swedish Translation</source>
-        <translation type="unfinished"></translation>
+        <translation>Svensk översättning</translation>
     </message>
     <message>
         <source>Italian Translation</source>
-        <translation type="unfinished"></translation>
+        <translation>Italiensk översättning</translation>
     </message>
 </context>
 <context>
@@ -647,7 +647,7 @@
     <message>
         <source>About</source>
         <comment>About the app</comment>
-        <translation type="unfinished">Om</translation>
+        <translation>Om</translation>
     </message>
 </context>
 <context>
@@ -714,35 +714,35 @@
     </message>
     <message>
         <source>Loading...</source>
-        <translation type="unfinished"></translation>
+        <translation>Läser in...</translation>
     </message>
     <message>
         <source>Load more</source>
-        <translation type="unfinished"></translation>
+        <translation>Läs in mer</translation>
     </message>
     <message>
         <source>Vote</source>
-        <translation type="unfinished"></translation>
+        <translation>Rösta</translation>
     </message>
     <message>
         <source>votes</source>
-        <translation type="unfinished"></translation>
+        <translation>röster</translation>
     </message>
     <message>
         <source>Closed</source>
-        <translation type="unfinished"></translation>
+        <translation>Stängd</translation>
     </message>
     <message>
         <source>days left</source>
-        <translation type="unfinished"></translation>
+        <translation>dagar kvar</translation>
     </message>
     <message>
         <source>hours left</source>
-        <translation type="unfinished"></translation>
+        <translation>timmar kvar</translation>
     </message>
     <message>
         <source>minutes left</source>
-        <translation type="unfinished"></translation>
+        <translation>minuter kvar</translation>
     </message>
 </context>
 </TS>

@@ -9,10 +9,14 @@ Item {
     property ListModel model
     property double wRatio : 16/9
     property double hRatio : 9/16
+    property string url:""
+    property string description:""
+    property string preview_url:""
+    property string type:""
 
-    property bool debug: false
+    property bool debug: true
     Component.onCompleted: {
-        if(debug) console.log("MB: " + JSON.stringify(model.get(0)))
+        //if(debug) console.log("MB: " + JSON.stringify(model.get(0)))
 
         if (model && model.count && model.get(0).type === "video") {
             if (debug) console.log("Mediablock")
@@ -21,6 +25,13 @@ Item {
                 model.remove(model.count-1)
             }
         }
+        if (model && model.count === 1){
+            url = model.get(0).url
+            type = model.get(0).type
+            description = model.get(0).description
+            if(debug) console.log("MB: " + url + " " + type)
+        }
+
         var count = 0
         if (model && model.count)
             count = model.count
@@ -81,6 +92,19 @@ Item {
         }
     }
 
+    /* for displaying audio */
+    MediaItem {
+        id: audioContent
+        visible: type == 'audio'
+        //opacity: img.status === Image.Ready ? 0.0 : 1.0
+        //Behavior on opacity { FadeAnimator {} }
+        url: model.get(0).url
+        description: model.get(0).description || ''
+        mimeType: "audio/mp3"
+        anchors.centerIn: parent
+    }
+
+    /* for image galleries and still for video*/
     MyMedia {
         id: placeholder1
         width: 2
@@ -92,10 +116,9 @@ Item {
             if (model && model.count){
                 type = model.get(0).type
                 previewURL = model.get(0).preview_url
-                mediaURL = model.get(0).url
                 url = model.get(0).url
+                mediaURL = url
                 description = model.get(0).description || ''
-                if(debug) console.log( model.get(0).url )
                 height = Theme.itemSizeLarge
                 return true
             } else {
@@ -119,7 +142,6 @@ Item {
                 mediaURL = model.get(1).url
                 url = model.get(1).url
                 description = model.get(1).description || ''
-                if(debug) console.log( model.get(1).url )
                 height = Theme.itemSizeLarge
                 return true
             } else {

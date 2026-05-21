@@ -9,7 +9,7 @@ SilicaListView {
 
     quickScroll: appWindow.quickScrollEnabled
 
-    property bool debug: true
+    property bool debug: false
     property string type
     property string title
     property string description
@@ -188,6 +188,7 @@ SilicaListView {
             openDrawer(contentY - scrollOffset  > 0 ? false : true )
             scrollOffset = contentY
         }
+        // handled by footer item
         if(contentY+height > footerItem.y && !deduping && !loadStarted && autoLoadMore ) {
                 loadStarted = true
                 if (debug) console.log("Loading more: " + title + " (append)")

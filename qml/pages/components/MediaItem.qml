@@ -7,14 +7,20 @@ import QtMultimedia 5.6
 ListItem {
     id: item
 
-    property string url
-    property string mediaUrl
+    property string url:""
+    property string description: ""
     property string mimeType: 'audio/mp3'
     property int length
-    property bool debug: false
+    property bool debug: true
 
-    property bool _isAudio: mimeType.substring(0, 6) === "audio/"
+    property bool _isAudio: true; //mimeType.substring(0, 6) === "audio/"
     property bool _isImage: mimeType.substring(0, 6) === "image/"
+
+    Component.onCompleted:  {
+        if (debug) console.log("MediaItem")
+        if (debug) console.log(url)
+    }
+
 
     function _toTime(s)
     {
@@ -98,7 +104,6 @@ ListItem {
     onClicked: {
         if(debug) console.log('MediaItem')
         if(debug) console.log(url)
-        if(debug) console.log(mediaUrl)
         if (_isAudio)
         {
             if (audioProxy.playing)
@@ -170,7 +175,7 @@ ListItem {
                 if (audioPlayer.playing)
                 {
                     database.setAudioBookmark(audioPlayer.source,
-                                               audioPlayer.position);
+                                              audioPlayer.position);
                 }
 
                 audioPlayer.stop();
@@ -212,12 +217,12 @@ ListItem {
         }
     }
     Audio {
-            id: audioPlayer
-            property bool playing: playbackState === Audio.PlayingState
-            property bool paused: playbackState === Audio.PausedState
-            autoLoad: false
-            autoPlay: false
-        }
+        id: audioPlayer
+        property bool playing: playbackState === Audio.PlayingState
+        property bool paused: playbackState === Audio.PausedState
+        autoLoad: false
+        autoPlay: false
+    }
     Image {
         id: mediaIcon
 
@@ -319,6 +324,70 @@ ListItem {
         onClicked: {
             var filename = url.split("/")
             FileDownloader.downloadFile(url, filename[filename.length-1])
-       }
+        }
+    }
+
+    Rectangle {
+            id: altTooltip
+            visible: false
+            color: Theme.highlightDimmerColor
+            opacity: 0.95
+            width: parent.width - Theme.paddingMedium * 2
+            height: altTooltipText.paintedHeight + Theme.paddingMedium * 2
+            radius: Theme.paddingSmall
+            anchors {
+                horizontalCenter: parent.horizontalCenter
+                bottom: altBadge.top
+                bottomMargin: Theme.paddingSmall
+            }
+
+            Label {
+                id: altTooltipText
+                text: description
+                font.pixelSize: Theme.fontSizeSmall
+                color: Theme.primaryColor
+                wrapMode: Text.Wrap
+                width: parent.width - Theme.paddingMedium * 2
+                anchors {
+                    centerIn: parent
+                }
+            }
+
+            MouseArea {
+                anchors.fill: parent
+                onClicked: {
+                    altTooltip.visible = false
+                }
+            }
+        }
+    Rectangle {
+        id: altBadge
+        visible: description.length > 0
+        color: Theme.highlightDimmerColor
+        opacity: 0.9
+        width: altLabel.width + Theme.paddingSmall * 2
+        height: altLabel.height + Theme.paddingSmall
+        radius: Theme.paddingSmall / 2
+        anchors {
+            left: parent.left
+            bottom: parent.bottom
+            margins: Theme.paddingSmall
+        }
+
+        Label {
+            id: altLabel
+            text: "ALT"
+            font.pixelSize: Theme.fontSizeTiny
+            font.bold: true
+            color: Theme.highlightColor
+            anchors.centerIn: parent
+        }
+
+        MouseArea {
+            anchors.fill: parent
+            onClicked: {
+                altTooltip.visible = !altTooltip.visible
+            }
+        }
     }
 }

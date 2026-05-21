@@ -17,8 +17,8 @@ ListItem {
     property bool _isImage: mimeType.substring(0, 6) === "image/"
 
     Component.onCompleted:  {
-        if (debug) console.log("MediaItem")
-        if (debug) console.log(url)
+        //if (debug) console.log("MediaItem")
+        //if (debug) console.log(url)
     }
 
 
@@ -101,33 +101,6 @@ ListItem {
         }
     }
 
-    onClicked: {
-        if(debug) console.log('MediaItem')
-        if(debug) console.log(url)
-        if (_isAudio)
-        {
-            if (audioProxy.playing)
-            {
-                audioProxy.pause();
-            }
-            else
-            {
-                audioProxy.play();
-            }
-        }
-        else if (_isImage)
-        {
-            var props = {
-                "url": item.url,
-                "name": _urlFilename(item.url)
-            }
-            pageStack.push(Qt.resolvedUrl("ImagePage.qml"), props);
-        }
-        else
-        {
-            Qt.openUrlExternally(item.url);
-        }
-    }
 
     QtObject {
         id: audioProxy
@@ -234,8 +207,8 @@ ListItem {
         asynchronous: true
         smooth: true
         fillMode: Image.PreserveAspectCrop
-        sourceSize.width: width * 2
-        sourceSize.height: height * 2
+        sourceSize.width: width * 3
+        sourceSize.height: height * 3
         source: ! _isAudio ? _mediaIcon(item.url, item.mimeType)
                            : audioProxy.playing ? "image://theme/icon-l-pause"
                                                 : "image://theme/icon-l-play"
@@ -245,6 +218,16 @@ ListItem {
             running: parent.status === Image.Loading
             anchors.centerIn: parent
             size: BusyIndicatorSize.Medium
+        }
+        MouseArea {
+            anchors.fill: parent
+            onClicked: {
+              if (audioProxy.playing) {
+                audioProxy.pause();
+              } else {
+                audioProxy.play();
+              }
+            }
         }
     }
 
@@ -259,6 +242,16 @@ ListItem {
         font.pixelSize: Theme.fontSizeSmall
         color: Theme.primaryColor
         text: _urlFilename(item.url)
+        MouseArea {
+            anchors.fill: parent
+            onClicked: {
+              if (audioProxy.playing) {
+                audioProxy.pause();
+              } else {
+                audioProxy.play();
+              }
+            }
+        }
     }
     Label {
         id: label1
@@ -301,13 +294,22 @@ ListItem {
         minimumValue: 0
 
         onDownChanged: {
-            if (! down)
-            {
+            if (! down) {
                 audioProxy.seek(sliderValue);
-                if (! audioProxy.playing)
-                {
+                if (! audioProxy.playing) {
                     audioProxy.play();
                 }
+            }
+        }
+        MouseArea {
+            anchors.fill: parent
+            onClicked: {
+             if (! down) {
+                audioProxy.seek(sliderValue);
+                if (! audioProxy.playing) {
+                    audioProxy.play();
+                }
+            }
             }
         }
 
@@ -372,7 +374,7 @@ ListItem {
             left: parent.left
             top: slider.bottom
             margins: Theme.paddingSmall
-            topMargin: 100
+            topMargin: 50
         }
 
         Label {

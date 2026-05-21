@@ -14,7 +14,7 @@ Item {
     property string preview_url:""
     property string type:""
 
-    property bool debug: true
+    property bool debug: false
     Component.onCompleted: {
         //if(debug) console.log("MB: " + JSON.stringify(model.get(0)))
 
@@ -27,8 +27,10 @@ Item {
         }
         if (model && model.count === 1){
             url = model.get(0).url
+            audioContent.url = url
             type = model.get(0).type
             description = model.get(0).description
+            audioContent.description = description
             if(debug) console.log("MB: " + url + " " + type)
         }
 
@@ -95,12 +97,19 @@ Item {
     /* for displaying audio */
     MediaItem {
         id: audioContent
-        visible: type == 'audio'
-        opacity: 0.8
+        height: 1
+        opacity: pressed ? 0.6 : 1
+        visible:
+            if (type == 'audio' ) {
+              return true
+            } else {
+              height = 0
+              return false
+            }
         //opacity: img.status === Image.Ready ? 0.0 : 1.0
         //Behavior on opacity { FadeAnimator {} }
-        url: if (model && model.count == 1) model.get(0).url
-        description: if (model && model.count == 1) model.get(0).description
+        url: ""//if (model && model.count == 1) model.get(0).url
+        description:"" //if (model && model.count == 1) model.get(0).description
         mimeType: "audio/mp3"
         anchors.centerIn: parent
     }
@@ -114,7 +123,7 @@ Item {
         mediaModel: holder.model
         mediaIndex: 0
         visible: {
-            if (model && model.count){
+            if (model && model.count && type != "audio" ){
                 type = model.get(0).type
                 previewURL = model.get(0).preview_url
                 url = model.get(0).url

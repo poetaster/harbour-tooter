@@ -114,9 +114,14 @@ BackgroundItem {
         }
     }
 
-    height:  if (myList.type === "notifications" && ( model.type === "favourite" || model.type === "reblog" )) {
+    height:  mnu.height + miniHeader.height + (typeof attachments !== "undefined" && attachments.count ? media.height + Theme.paddingLarge + Theme.paddingMedium: Theme.paddingLarge) + lblContent.height + (isLongPost ? showMoreLabel.height : 0) + (pollContainer.visible ? pollContainer.childrenRect.height + Theme.paddingMedium : 0) + (linkPreview.visible ? linkPreview.height + Theme.paddingMedium : 0) + (quotedPost.visible ? quotedPost.height + Theme.paddingMedium : 0) + Theme.paddingLarge + (miniStatus.visible ? miniStatus.height : 0) + (iconDirectMsg.visible ? iconDirectMsg.height : 0)
+        /*
+        if (myList.type === "notifications" && ( model.type === "favourite" || model.type === "reblog" )) {
                 mnu.height + miniHeader.height + Theme.paddingLarge + lblContent.height + Theme.paddingLarge + (miniStatus.visible ? miniStatus.height : 0)
-            } else mnu.height + miniHeader.height + (typeof attachments !== "undefined" && attachments.count ? media.height + Theme.paddingLarge + Theme.paddingMedium: Theme.paddingLarge) + lblContent.height + (isLongPost ? showMoreLabel.height : 0) + (pollContainer.visible ? pollContainer.childrenRect.height + Theme.paddingMedium : 0) + (linkPreview.visible ? linkPreview.height + Theme.paddingMedium : 0) + (quotedPost.visible ? quotedPost.height + Theme.paddingMedium : 0) + Theme.paddingLarge + (miniStatus.visible ? miniStatus.height : 0) + (iconDirectMsg.visible ? iconDirectMsg.height : 0)
+            } else {
+                 mnu.height + miniHeader.height + (typeof attachments !== "undefined" && attachments.count ? media.height + Theme.paddingLarge + Theme.paddingMedium: Theme.paddingLarge) + lblContent.height + (isLongPost ? showMoreLabel.height : 0) + (pollContainer.visible ? pollContainer.childrenRect.height + Theme.paddingMedium : 0) + (linkPreview.visible ? linkPreview.height + Theme.paddingMedium : 0) + (quotedPost.visible ? quotedPost.height + Theme.paddingMedium : 0) + Theme.paddingLarge + (miniStatus.visible ? miniStatus.height : 0) + (iconDirectMsg.visible ? iconDirectMsg.height : 0)
+             }
+             */
 
     // Background for Direct Messages in Notification View
     Rectangle {
@@ -677,7 +682,7 @@ BackgroundItem {
         id: media
         visible: typeof attachments !== "undefined"
         model: typeof attachments !== "undefined" ? attachments : emptyAttachmentsModel
-        height: Theme.iconSizeExtraLarge * 2
+        height: Theme.itemSizeExtraLarge
         anchors {
             left: lblContent.left
             leftMargin: isPortrait ? 0 : Theme.itemSizeSmall

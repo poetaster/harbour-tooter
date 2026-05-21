@@ -9,7 +9,7 @@ SilicaListView {
 
     quickScroll: appWindow.quickScrollEnabled
 
-    property bool debug: false
+    property bool debug: true
     property string type
     property string title
     property string description
@@ -166,7 +166,9 @@ SilicaListView {
             anchors.bottomMargin: Theme.paddingLarge
             visible: false
             onClicked: {
-                if (!loadStarted && !deduping) loadData("append")
+                if (debug) console.log("autoLoadmore")
+                //if (!loadStarted && !deduping)
+                    loadData("append")
             }
         }
 
@@ -186,8 +188,7 @@ SilicaListView {
             openDrawer(contentY - scrollOffset  > 0 ? false : true )
             scrollOffset = contentY
         }
-        //if(contentY+height > footerItem.y && !deduping && !loadStarted && autoLoadMore && !reachedEnd) {
-        if(!loadStarted) {
+        if(contentY+height > footerItem.y && !deduping && !loadStarted && autoLoadMore ) {
                 loadStarted = true
                 if (debug) console.log("Loading more: " + title + " (append)")
                 loadData("append")
@@ -232,6 +233,7 @@ SilicaListView {
             if (messageObject.LinkHeader) {
                 // <https://mastodon.gamedev.place/api/v1/bookmarks?max_id=11041>; rel=\"next\",
                 // <https://mastodon.gamedev.place/api/v1/bookmarks?min_id=14158>; rel=\"prev\""
+                if (debug) console.log(messagObject.LinkHeader)
 
                 var matches = /max_id=([0-9]+)/.exec(messageObject.LinkHeader);
                 var maxlink = matches[0].split("=")[1];

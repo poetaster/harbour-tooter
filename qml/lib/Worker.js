@@ -1,6 +1,6 @@
 Qt.include("Mastodon.js")
 
-var debug = false;
+var debug = true;
 var loadImages = true;
 // used to dedupe on append/insert - using object for O(1) lookup
 var knownIdsSet = {};

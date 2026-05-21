@@ -238,44 +238,44 @@
 <context>
     <name>MainPage</name>
     <message>
+        <source>Press and hold the home tab to switch account</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Home</source>
-        <translation>Thuis</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Notifications</source>
-        <translation>Meldingen</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Local</source>
-        <translation>Lokaal</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Federated</source>
-        <translation>Gefedereerd</translation>
-    </message>
-    <message>
-        <source>Search</source>
-        <translation>Zoeken</translation>
-    </message>
-    <message>
-        <source>@user or #term</source>
-        <translation>@user of #term</translation>
-    </message>
-    <message>
-        <source>New Toot</source>
-        <translation>Nieuwe Toot</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Bookmarks</source>
-        <translation>Bookmarken</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Press and hold the home tab to switch account</source>
+        <source>Search</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>@user or #term</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Trending</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>New Toot</source>
+        <translation type="unfinished">Nieuwe Toot</translation>
     </message>
 </context>
 <context>

@@ -238,44 +238,44 @@
 <context>
     <name>MainPage</name>
     <message>
+        <source>Press and hold the home tab to switch account</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Home</source>
-        <translation>Strona główna</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Notifications</source>
-        <translation>Powiadomienia</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Local</source>
-        <translation>Lokalne</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Federated</source>
-        <translation>Globalne</translation>
-    </message>
-    <message>
-        <source>Search</source>
-        <translation>Szukaj</translation>
-    </message>
-    <message>
-        <source>@user or #term</source>
-        <translation>@użytkownik lub #tag</translation>
-    </message>
-    <message>
-        <source>New Toot</source>
-        <translation>Nowy wpis</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Bookmarks</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Press and hold the home tab to switch account</source>
+        <source>Search</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>@user or #term</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Trending</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>New Toot</source>
+        <translation type="unfinished">Nowy wpis</translation>
     </message>
 </context>
 <context>

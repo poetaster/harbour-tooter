@@ -238,44 +238,44 @@
 <context>
     <name>MainPage</name>
     <message>
+        <source>Press and hold the home tab to switch account</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Home</source>
-        <translation>Главная</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Notifications</source>
-        <translation>Уведомления</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Local</source>
-        <translation>Локальны</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Federated</source>
-        <translation>Федеративные</translation>
-    </message>
-    <message>
-        <source>Search</source>
-        <translation>Поиск</translation>
-    </message>
-    <message>
-        <source>@user or #term</source>
-        <translation>@пользователь или #срок</translation>
-    </message>
-    <message>
-        <source>New Toot</source>
-        <translation>Новый</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Bookmarks</source>
-        <translation>Закладки</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Press and hold the home tab to switch account</source>
-        <translation>Нажмите и удерживайте главную вкладку, чтобы сменить аккаунт</translation>
+        <source>Search</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>@user or #term</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Trending</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>New Toot</source>
+        <translation type="unfinished">Новый</translation>
     </message>
 </context>
 <context>

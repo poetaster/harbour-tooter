@@ -238,44 +238,44 @@
 <context>
     <name>MainPage</name>
     <message>
+        <source>Press and hold the home tab to switch account</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Home</source>
-        <translation>Почетна</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Notifications</source>
-        <translation>Обавјештење</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Local</source>
-        <translation>Локална</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Federated</source>
-        <translation>Федеративна</translation>
-    </message>
-    <message>
-        <source>Search</source>
-        <translation>Претрага</translation>
-    </message>
-    <message>
-        <source>@user or #term</source>
-        <translation>@korisnik ili #pojam</translation>
-    </message>
-    <message>
-        <source>New Toot</source>
-        <translation>Novi toot</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Bookmarks</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Press and hold the home tab to switch account</source>
+        <source>Search</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>@user or #term</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Trending</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>New Toot</source>
+        <translation type="unfinished">Novi toot</translation>
     </message>
 </context>
 <context>

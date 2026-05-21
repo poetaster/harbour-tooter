@@ -238,6 +238,10 @@
 <context>
     <name>MainPage</name>
     <message>
+        <source>Press and hold the home tab to switch account</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Home</source>
         <translation type="unfinished"></translation>
     </message>
@@ -254,6 +258,10 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Bookmarks</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Search</source>
         <translation type="unfinished"></translation>
     </message>
@@ -262,20 +270,12 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>New Toot</source>
-        <translation type="unfinished">Nòu Tut</translation>
-    </message>
-    <message>
-        <source>Bookmarks</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Press and hold the home tab to switch account</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Trending</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>New Toot</source>
+        <translation type="unfinished">Nòu Tut</translation>
     </message>
 </context>
 <context>

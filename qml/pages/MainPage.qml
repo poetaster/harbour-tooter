@@ -9,10 +9,31 @@ Page {
     property bool debug: false
     property bool isFirstPage: true
     property bool isTablet: true //Screen.sizeCategory >= Screen.Large
-
+    // for people search
+    property string suggestedUser: ""
+    property ListModel suggestedModel
     property bool quickAccountSwitchHintActive: !Logic.conf.multipleAccountsHintCompleted && Logic.conf.accounts.length > 1
     
     allowedOrientations: Orientation.All
+
+    onSuggestedUserChanged:  {
+        //console.log(suggestedUser)
+        suggestedModel = Qt.createQmlObject( 'import QtQuick 2.0; ListModel {   }', Qt.application, 'InternalQmlObject' )
+        if (suggestedUser.length > 0) {
+            var msg = {
+                "action": 'accounts/search',
+                "method": 'GET',
+                "model": suggestedModel,
+                "mode": "append",
+                "params": [{
+                        "name": "q",
+                        "data": suggestedUser
+                    }],
+                "conf": Logic.conf
+            }
+            worker.sendMessage(msg)
+        }
+    }
 
     // Docked Navigation panel
     DockedPanel {
@@ -118,6 +139,7 @@ Page {
                 if (debug) console.log(search)
                 loader.sourceComponent = loading
                 if (search.charAt(0) === "@") {
+                    suggestedUser = tlSearch.search.substring(1)
                     loader.sourceComponent = userListComponent
                 } else if (search.charAt(0) === "#") {
                     loader.sourceComponent = tagListComponent
@@ -190,49 +212,49 @@ Page {
 
             Component {
                 id: userListComponent
-                MyList {
-                    id: view2
-                    mdl: ListModel {}
-                    autoLoadMore: false
-                    width: parent.width
-                    height: parent.height
-                    onOpenDrawer:  infoPanel.open = setDrawer
-                    anchors.fill: parent
-                    currentIndex: -1 // otherwise currentItem will steal focus
-                    header:  Item {
-                        id: header
-                        width: headerContainer.width
-                        height: headerContainer.height
-                        Component.onCompleted: headerContainer.parent = header
-                    }
-
-                    delegate: ItemUser {
-                        onClicked: {
-                            pageStack.push(Qt.resolvedUrl("ProfilePage.qml"), {
-                                               "display_name": model.account_display_name,
-                                               "username": model.account_acct,
-                                               "user_id": model.account_id,
-                                               "profileImage": model.account_avatar,
-                                               "profileBackground": model.account_header,
-                                               "note": model.account_note,
-                                               "url": model.account_url,
-                                               "followers_count": model.account_followers_count,
-                                               "following_count": model.account_following_count,
-                                               "statuses_count": model.account_statuses_count,
-                                               "locked": model.account_locked,
-                                               "bot": model.account_bot,
-                                               "group": model.account_group
-                                           })
+                    SilicaListView {
+                        anchors {
+                            fill:parent
+                            top: searchField.bottom
+                            topMargin: 300
+                            rightMargin: isPortrait ? 0 : infoPanel.visibleSize
+                            bottomMargin: isPortrait ? infoPanel.visibleSize : 0
                         }
-                    }
+                        width: parent.width
+                        height: parent.height
 
-                    Component.onCompleted: {
-                        view2.type = "accounts/search"
-                        view2.params = []
-                        view2.params.push({name: 'q', data: tlSearch.search.substring(1)});
-                        view2.loadData("append")
+                        id: predictionResults
+                        rotation: 0 // shows best matching result on the bottom
+                        model: suggestedModel
+                        clip: true
+                        quickScroll: false
+                        delegate: ItemUser {
+                            rotation: 0
+                            onClicked: {
+                                pageStack.push(Qt.resolvedUrl("ProfilePage.qml"), {
+                                                   "display_name": model.account_display_name,
+                                                   "username": model.account_acct,
+                                                   "user_id": model.account_id,
+                                                   "profileImage": model.account_avatar,
+                                                   "profileBackground": model.account_header,
+                                                   "note": model.account_note,
+                                                   "url": model.account_url,
+                                                   "followers_count": model.account_followers_count,
+                                                   "following_count": model.account_following_count,
+                                                   "statuses_count": model.account_statuses_count,
+                                                   "locked": model.account_locked,
+                                                   "bot": model.account_bot,
+                                                   "group": model.account_group
+                                               })
+                            }
+                        }
+                        /*onCountChanged: {
+                            if (count > 0) {
+                                positionViewAtBeginning(suggestedModel.count - 1, ListView.Beginning)
+                            }
+                        }*/
+                        VerticalScrollDecorator {}
                     }
-                }
             }
 
             Component {

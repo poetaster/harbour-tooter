@@ -238,44 +238,44 @@
 <context>
     <name>MainPage</name>
     <message>
+        <source>Press and hold the home tab to switch account</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Home</source>
-        <translation>Οικοσελίδα</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Notifications</source>
-        <translation>Ειδοποιήσεις</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Local</source>
-        <translation>Τοπικός</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Federated</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Search</source>
-        <translation>Αναζήτηση</translation>
-    </message>
-    <message>
-        <source>@user or #term</source>
-        <translation>@χρήστη ή #όρος</translation>
-    </message>
-    <message>
-        <source>New Toot</source>
-        <translation>Νέος</translation>
-    </message>
-    <message>
         <source>Bookmarks</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Press and hold the home tab to switch account</source>
+        <source>Search</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>@user or #term</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Trending</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>New Toot</source>
+        <translation type="unfinished">Νέος</translation>
     </message>
 </context>
 <context>

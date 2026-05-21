@@ -19,12 +19,8 @@ CONFIG += link_pkgconfig
 PKGCONFIG += sailfishapp \
     nemonotifications-qt5
 
-DEFINES += "APPVERSION=\\\"$${SPECVERSION}\\\""
-DEFINES += "APPNAME=\\\"$${TARGET}\\\""
-
 !exists( src/dbusAdaptor.h ) {
     system(qdbusxml2cpp config/ba.dysko.harbour.tooterb.xml -i dbus.h -a src/dbusAdaptor)
-}
 
 config.path = /usr/share/$${TARGET}/config/
 config.files = config/icon-lock-harbour-tooterb.png
@@ -121,6 +117,10 @@ TRANSLATIONS += translations/harbour-tooterb.ts \
 include(libs/opal.pri)
 
 # Expose the version from spec
+# sigh so which is it?
+DEFINES += "APPVERSION=\\\"$${SPECVERSION}\\\""
+DEFINES += "APPNAME=\\\"$${TARGET}\\\""
+
 DEFINES += APP_VERSION=\\\"$$VERSION\\\"
 DEFINES += APP_RELEASE=\\\"$$RELEASE\\\"
 include(libs/opal-cached-defines.pri)

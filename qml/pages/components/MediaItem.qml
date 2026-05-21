@@ -365,13 +365,14 @@ ListItem {
         visible: description.length > 0
         color: Theme.highlightDimmerColor
         opacity: 0.9
-        width: altLabel.width + Theme.paddingSmall * 2
-        height: altLabel.height + Theme.paddingSmall
+        width: altLabel.width + Theme.paddingLarge * 2
+        height: altLabel.height + Theme.paddingLarge
         radius: Theme.paddingSmall / 2
         anchors {
             left: parent.left
-            bottom: parent.bottom
+            top: slider.bottom
             margins: Theme.paddingSmall
+            topMargin: 100
         }
 
         Label {

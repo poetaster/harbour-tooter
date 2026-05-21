@@ -96,10 +96,11 @@ Item {
     MediaItem {
         id: audioContent
         visible: type == 'audio'
+        opacity: 0.8
         //opacity: img.status === Image.Ready ? 0.0 : 1.0
         //Behavior on opacity { FadeAnimator {} }
-        url: model.get(0).url
-        description: model.get(0).description || ''
+        url: if (model && model.count == 1) model.get(0).url
+        description: if (model && model.count == 1) model.get(0).description
         mimeType: "audio/mp3"
         anchors.centerIn: parent
     }

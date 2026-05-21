@@ -161,9 +161,14 @@ Page {
                 SearchField {
                     id: searchField
                     width: parent.width
+                    anchors {
+                        bottomMargin: 100
+                    }
+
                     placeholderText: qsTr("@user or #term")
                     text: tlSearch.search
                     EnterKey.iconSource: "image://theme/icon-m-enter-close"
+                    //onTextChanged: {
                     EnterKey.onClicked: {
                         tlSearch.search = text.toLowerCase().trim()
                         focus = false
@@ -211,18 +216,16 @@ Page {
             }
 
             Component {
+
                 id: userListComponent
                     SilicaListView {
                         anchors {
-                            fill:parent
-                            top: searchField.bottom
-                            topMargin: 300
                             rightMargin: isPortrait ? 0 : infoPanel.visibleSize
                             bottomMargin: isPortrait ? infoPanel.visibleSize : 0
                         }
-                        width: parent.width
-                        height: parent.height
-
+                        y: 300
+                        width: tlSearch.width
+                        height: tlSearch.height
                         id: predictionResults
                         rotation: 0 // shows best matching result on the bottom
                         model: suggestedModel

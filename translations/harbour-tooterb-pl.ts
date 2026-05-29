@@ -5,19 +5,19 @@
     <name>API</name>
     <message>
         <source>favourited</source>
-        <translation>dodał(a) do ulubionych</translation>
+        <translation type="unfinished">dodał(a) do ulubionych</translation>
     </message>
     <message>
         <source>followed you</source>
-        <translation>zaczął(-ęła) Cię śledzić</translation>
+        <translation type="unfinished">zaczął(-ęła) Cię śledzić</translation>
     </message>
     <message>
         <source>boosted</source>
-        <translation>podbił(a)</translation>
+        <translation type="unfinished">podbił(a)</translation>
     </message>
     <message>
         <source>said</source>
-        <translation>napisał(a)</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -655,11 +655,43 @@
 <context>
     <name>VisualContainer</name>
     <message>
+        <source>Loading...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Load more</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Show less</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Show more</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Vote</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>votes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Closed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>days left</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>hours left</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>minutes left</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -712,38 +744,6 @@
     </message>
     <message>
         <source>Mention</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Loading...</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Load more</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Vote</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>votes</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Closed</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>days left</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>hours left</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>minutes left</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

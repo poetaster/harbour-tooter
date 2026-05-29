@@ -15,7 +15,7 @@ Item {
     // Gallery support: pass full media list and index
     property var mediaModel: null
     property int mediaIndex: 0
-    property bool debug: true
+    property bool debug: false
 
     Component.onCompleted: {
     }

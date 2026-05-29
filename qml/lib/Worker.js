@@ -150,6 +150,8 @@ WorkerScript.onMessage = function(msg) {
             item['id'] = item['status_id']
             if (typeof item['attachments'] === "undefined")
                 item['attachments'] = []
+            knownIdsSet = {}
+            knownIdsSet[item['id']] = true
             if (msg.model) {
                 addDataToModel(msg.model, msg.mode || "append", [item])
             }
@@ -450,11 +452,13 @@ function isMastodonStatusUrl(url) {
 
     // Pattern: /@username/123456789 (length 5, starts with @, numeric ID)
     if (parts.length === 5 && pathPart1 && pathPart1[0] === "@" && /^\d+$/.test(pathPart2)) {
+      if (debug) console.log("is user post");
         return true
     }
 
     // Pattern: /users/username/statuses/123456789 (length 7)
     if (parts.length === 7 && pathPart1 === "users" && pathPart3 === "statuses" && /^\d+$/.test(pathPart4)) {
+      if (debug) console.log("is user post");
         return true
     }
 
@@ -510,7 +514,6 @@ function parseToot (data) {
         item = parseAccounts(item, "", data["account"])
     }
 
-
     /** Parse mentions for reply functionality */
     var mentionsData = item['status_reblog'] ? data["reblog"]["mentions"] : data["mentions"]
     if (mentionsData && mentionsData.length > 0) {
@@ -525,29 +528,17 @@ function parseToot (data) {
         item['status_mentions'] = ''
     }
 
-    /** Link Preview Card 
-    var cardData = item['status_reblog'] ? data["reblog"]["card"] : data["card"]
-    if (debug) console.log("have card data")
-    if (cardData) {
-        item['card_url'] = cardData["url"] || ''
-        item['card_title'] = cardData["title"] || ''
-        item['card_description'] = cardData["description"] || ''
-        item['card_image'] = cardData["image"] || ''
-        item['card_type'] = cardData["type"] || 'link'
-        item['card_provider'] = cardData["provider_name"] || ''
-    } else {
-        item['card_url'] = ''
-    } */
-
     /** Link Preview Card */
     var cardData = item['status_reblog'] ? data["reblog"]["card"] : data["card"]
     if (cardData) {
+        if (debug) console.log(JSON.stringify((cardData)))
         var cardUrl = cardData["url"] || ''
         // Don't show link preview for Mastodon post URLs - they should open in-app
-        if (cardUrl && isMastodonStatusUrl(cardUrl)) {
+        //if (cardUrl && isMastodonStatusUrl(cardUrl)) {
+        // then again, this does not always work
+        if (cardUrl) {
             if (debug) console.log("Suppressing card for Mastodon URL: " + cardUrl)
-            item['card_url'] = ''
-        } else {
+            //item['card_url'] = ''
             item['card_url'] = cardUrl
             item['card_title'] = cardData["title"] || ''
             item['card_description'] = cardData["description"] || ''
@@ -610,9 +601,9 @@ function parseToot (data) {
     /** Remove card URL from content when link preview is shown */
     if (item['card_url'] && item['card_url'].length > 0) {
         // Escape special regex characters in the URL
-        var escapedUrl = item['card_url'].replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+        //var escapedUrl = item['card_url'].replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
         // Remove the <a> tag containing this URL
-        var urlPattern = new RegExp('<a[^>]*href="' + escapedUrl + '"[^>]*>.*?</a>', 'gi');
+        //var urlPattern = new RegExp('<a[^>]*href="' + escapedUrl + '"[^>]*>.*?</a>', 'gi');
         // this can lead to 'no content' if a card is not rendered
         //item['content'] = item['content'].replace(urlPattern, '');
     }

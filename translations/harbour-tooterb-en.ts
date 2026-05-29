@@ -5,19 +5,19 @@
     <name>API</name>
     <message>
         <source>favourited</source>
-        <translation>favourited</translation>
+        <translation type="unfinished">favourited</translation>
     </message>
     <message>
         <source>followed you</source>
-        <translation>followed you</translation>
+        <translation type="unfinished">followed you</translation>
     </message>
     <message>
         <source>boosted</source>
-        <translation>boosted</translation>
+        <translation type="unfinished">boosted</translation>
     </message>
     <message>
         <source>said</source>
-        <translation>said</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -653,38 +653,6 @@
 <context>
     <name>VisualContainer</name>
     <message>
-        <source>Unboost</source>
-        <translation>Unboost</translation>
-    </message>
-    <message>
-        <source>Boost</source>
-        <translation>Boost</translation>
-    </message>
-    <message>
-        <source>Unfavorite</source>
-        <translation>Unfavourite</translation>
-    </message>
-    <message>
-        <source>Favorite</source>
-        <translation>Favourite</translation>
-    </message>
-    <message>
-        <source>Mention</source>
-        <translation>Mention</translation>
-    </message>
-    <message>
-        <source>Conversation</source>
-        <translation>Conversation</translation>
-    </message>
-    <message>
-        <source>Remove Bookmark</source>
-        <translation>Remove Bookmark</translation>
-    </message>
-    <message>
-        <source>Bookmark</source>
-        <translation>Bookmark</translation>
-    </message>
-    <message>
         <source>Loading...</source>
         <translation type="unfinished"></translation>
     </message>
@@ -725,11 +693,39 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Conversation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Unfavorite</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Favorite</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Unboost</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Boost</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Reply</source>
-        <translation type="unfinished">Reply</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Quote</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove Bookmark</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Bookmark</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -743,6 +739,10 @@
     <message>
         <source>Edit</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Mention</source>
+        <translation type="unfinished">Mention</translation>
     </message>
 </context>
 </TS>

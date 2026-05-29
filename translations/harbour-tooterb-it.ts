@@ -5,19 +5,19 @@
     <name>API</name>
     <message>
         <source>favourited</source>
-        <translation>ha apprezzato</translation>
+        <translation type="unfinished">ha apprezzato</translation>
     </message>
     <message>
         <source>followed you</source>
-        <translation>ti sta seguendo</translation>
+        <translation type="unfinished">ti sta seguendo</translation>
     </message>
     <message>
         <source>boosted</source>
-        <translation>ha condiviso</translation>
+        <translation type="unfinished">ha condiviso</translation>
     </message>
     <message>
         <source>said</source>
-        <translation>ha detto</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -653,96 +653,96 @@
 <context>
     <name>VisualContainer</name>
     <message>
-        <source>Show less</source>
-        <translation>Mostra meno</translation>
-    </message>
-    <message>
-        <source>Show more</source>
-        <translation>Mostra di più</translation>
-    </message>
-    <message>
-        <source>Conversation</source>
-        <translation>Conversazione</translation>
-    </message>
-    <message>
-        <source>Unfavorite</source>
-        <translation>Non mi piace più</translation>
-    </message>
-    <message>
-        <source>Favorite</source>
-        <translation>Mi piace</translation>
-    </message>
-    <message>
-        <source>Unboost</source>
-        <translation>Non condividere più</translation>
-    </message>
-    <message>
-        <source>Boost</source>
-        <translation>Condividi</translation>
-    </message>
-    <message>
-        <source>Reply</source>
-        <translation>Rispondi</translation>
-    </message>
-    <message>
-        <source>Quote</source>
-        <translation>Cita</translation>
-    </message>
-    <message>
-        <source>Remove Bookmark</source>
-        <translation>Rimuovi dai Segnalibri</translation>
-    </message>
-    <message>
-        <source>Bookmark</source>
-        <translation>Aggiungi ai Segnalibri</translation>
-    </message>
-    <message>
-        <source>Delete</source>
-        <translation>Elimina</translation>
-    </message>
-    <message>
-        <source>Deleting</source>
-        <translation>Sto eliminando</translation>
-    </message>
-    <message>
-        <source>Edit</source>
-        <translation>Modifica</translation>
-    </message>
-    <message>
-        <source>Mention</source>
-        <translation>Menziona</translation>
-    </message>
-    <message>
         <source>Loading...</source>
-        <translation>Caricamento...</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Load more</source>
-        <translation>Mostra altro</translation>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show less</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show more</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Vote</source>
-        <translation>Vota</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>votes</source>
-        <translation>voti</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Closed</source>
-        <translation>Chiuso</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>days left</source>
-        <translation>giorni rimasti</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>hours left</source>
-        <translation>ore rimaste</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>minutes left</source>
-        <translation>minuti rimasti</translation>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Conversation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Unfavorite</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Favorite</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Unboost</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Boost</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Reply</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Quote</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove Bookmark</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Bookmark</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Deleting</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Edit</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Mention</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

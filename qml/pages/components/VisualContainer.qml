@@ -8,7 +8,7 @@ BackgroundItem {
 
     property bool debug:false
     property bool expanded: false
-    property int charLimit: 500
+    property int charLimit: 700
 
 
 
@@ -336,9 +336,13 @@ BackgroundItem {
         var displayContent = content
         // Truncate if long post and not expanded (not for notifications)
         // In conversation view, don't truncate the main clicked toot
-        var isMainConversationToot = (typeof myList.type !== "undefined" && myList.type === "conversation" &&
-                                      typeof myList.mainStatusId !== "undefined" && model.status_id === myList.mainStatusId)
-        if (isLongPost && !expanded && !isMainConversationToot && !(myList.type === "notifications" && (model.type === "favourite" || model.type === "reblog"))) {
+        var isMainConversationToot = (typeof myList.type !== "undefined"
+                                      && myList.type === "conversation" &&
+                                      typeof myList.mainStatusId !== "undefined"
+                                      && model.status_id === myList.mainStatusId)
+        if (isLongPost && !expanded &&
+                !isMainConversationToot &&
+                !(myList.type === "notifications" && (model.type === "favourite" || model.type === "reblog"))) {
             displayContent = truncateContent(content, charLimit) + "..."
         }
         return displayContent
@@ -385,9 +389,22 @@ BackgroundItem {
 
             // Use the URL parser to detect Mastodon resource types
             var parsed = Logic.parseMastodonUrl(link)
-
+            if (debug) console.log(parsed.statusId)
             // For recognized Mastodon URLs (tag, profile, status), delegate to MainPage
-            if (parsed.type !== "unknown") {
+            if (parsed.type === "status"){
+                var m = Qt.createQmlObject('import QtQuick 2.0; ListModel { dynamicRoles:true }', Qt.application, 'InternalQmlObject');
+                if (typeof mdl !== "undefined")
+                m.append(mdl.get(index))
+                pageStack.push(Qt.resolvedUrl("../ConversationPage.qml"), {
+                               headerTitle: qsTr("Conversation"),
+                               "status_id": status_id,
+                               "status_url": status_url,
+                               "status_uri": status_uri,
+                               "username": '@'+account_acct,
+                               mdl: m,
+                               type: "reply"
+                           })
+            } else if (parsed.type !== "unknown") {
                 pageStack.pop(pageStack.find(function(page) {
                     var check = page.isFirstPage === true
                     if (check)
@@ -404,7 +421,13 @@ BackgroundItem {
         Rectangle {
             id: contentWarningBg
             color: Theme.highlightDimmerColor
-            visible: status_spoiler_text.length > 0
+            visible: {
+                if (status_spoiler_text.length !== null && status_spoiler_text.length  > 0 ) {
+                    return true
+                } else {
+                    return false
+                }
+            }
             anchors.fill: parent
 
             Label {
@@ -699,7 +722,7 @@ BackgroundItem {
         id: linkPreview
         visible: {
             //if (model.type === "gap") return false
-            if (myList.type === "notifications" && (model.type === "favourite" || model.type === "reblog")) return false
+            //if (myList.type === "notifications" && (model.type === "favourite" || model.type === "reblog")) return false
             // Require both URL and title to avoid showing empty card boxes
             return typeof model.card_url !== "undefined" && model.card_url.length > 0
                    && typeof model.card_title !== "undefined" && model.card_title.length > 0

@@ -5,19 +5,19 @@
     <name>API</name>
     <message>
         <source>favourited</source>
-        <translation>marcó como favorito</translation>
+        <translation type="unfinished">marcó como favorito</translation>
     </message>
     <message>
         <source>followed you</source>
-        <translation>te empezó a seguir</translation>
+        <translation type="unfinished">te empezó a seguir</translation>
     </message>
     <message>
         <source>boosted</source>
-        <translation>retooteó</translation>
+        <translation type="unfinished">retooteó</translation>
     </message>
     <message>
         <source>said</source>
-        <translation>dijo</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -653,11 +653,43 @@
 <context>
     <name>VisualContainer</name>
     <message>
+        <source>Loading...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Load more</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Show less</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Show more</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Vote</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>votes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Closed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>days left</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>hours left</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>minutes left</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -711,38 +743,6 @@
     <message>
         <source>Mention</source>
         <translation type="unfinished">Mencionar</translation>
-    </message>
-    <message>
-        <source>Loading...</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Load more</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Vote</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>votes</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Closed</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>days left</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>hours left</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>minutes left</source>
-        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

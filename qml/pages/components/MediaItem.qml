@@ -11,7 +11,7 @@ ListItem {
     property string description: ""
     property string mimeType: 'audio/mp3'
     property int length
-    property bool debug: true
+    property bool debug: false
 
     property bool _isAudio: true; //mimeType.substring(0, 6) === "audio/"
     property bool _isImage: mimeType.substring(0, 6) === "image/"

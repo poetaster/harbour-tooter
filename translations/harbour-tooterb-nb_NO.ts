@@ -5,19 +5,19 @@
     <name>API</name>
     <message>
         <source>favourited</source>
-        <translation>markert som favoritt</translation>
+        <translation type="unfinished">markert som favoritt</translation>
     </message>
     <message>
         <source>followed you</source>
-        <translation>begynte å følge deg</translation>
+        <translation type="unfinished">begynte å følge deg</translation>
     </message>
     <message>
         <source>boosted</source>
-        <translation>boostet</translation>
+        <translation type="unfinished">boostet</translation>
     </message>
     <message>
         <source>said</source>
-        <translation>sa</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -653,96 +653,96 @@
 <context>
     <name>VisualContainer</name>
     <message>
-        <source>Show less</source>
-        <translation>Vis mindre</translation>
-    </message>
-    <message>
-        <source>Show more</source>
-        <translation>Vis mer</translation>
-    </message>
-    <message>
-        <source>Conversation</source>
-        <translation>Samtale</translation>
-    </message>
-    <message>
-        <source>Unfavorite</source>
-        <translation>Fjern som favoritt</translation>
-    </message>
-    <message>
-        <source>Favorite</source>
-        <translation>Favoritt</translation>
-    </message>
-    <message>
-        <source>Unboost</source>
-        <translation>Fjern fremheving</translation>
-    </message>
-    <message>
-        <source>Boost</source>
-        <translation>Fremhev</translation>
-    </message>
-    <message>
-        <source>Reply</source>
-        <translation>Svar</translation>
-    </message>
-    <message>
-        <source>Quote</source>
-        <translation>Sitér</translation>
-    </message>
-    <message>
-        <source>Remove Bookmark</source>
-        <translation>Fjern bokmerke</translation>
-    </message>
-    <message>
-        <source>Bookmark</source>
-        <translation>Bokmerk</translation>
-    </message>
-    <message>
-        <source>Delete</source>
-        <translation>Slett</translation>
-    </message>
-    <message>
-        <source>Deleting</source>
-        <translation>Sletter</translation>
-    </message>
-    <message>
-        <source>Edit</source>
-        <translation>Rediger</translation>
-    </message>
-    <message>
-        <source>Mention</source>
-        <translation>Omtale</translation>
-    </message>
-    <message>
         <source>Loading...</source>
-        <translation>Laster inn...</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Load more</source>
-        <translation>Last inn mer</translation>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show less</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show more</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Vote</source>
-        <translation>Stem</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>votes</source>
-        <translation>Stemmer</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Closed</source>
-        <translation>Lukket</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>days left</source>
-        <translation>dager igjen</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>hours left</source>
-        <translation>timer igjen</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>minutes left</source>
-        <translation>minutter igjen</translation>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Conversation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Unfavorite</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Favorite</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Unboost</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Boost</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Reply</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Quote</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove Bookmark</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Bookmark</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Deleting</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Edit</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Mention</source>
+        <translation type="unfinished">Omtale</translation>
     </message>
 </context>
 </TS>

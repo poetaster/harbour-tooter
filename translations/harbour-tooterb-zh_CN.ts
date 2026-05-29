@@ -5,19 +5,19 @@
     <name>API</name>
     <message>
         <source>favourited</source>
-        <translation>收藏</translation>
+        <translation type="unfinished">收藏</translation>
     </message>
     <message>
         <source>followed you</source>
-        <translation>关注你的</translation>
+        <translation type="unfinished">关注你的</translation>
     </message>
     <message>
         <source>boosted</source>
-        <translation>推起的</translation>
+        <translation type="unfinished">推起的</translation>
     </message>
     <message>
         <source>said</source>
-        <translation>说过</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -651,38 +651,6 @@
 <context>
     <name>VisualContainer</name>
     <message>
-        <source>Unboost</source>
-        <translation>取消推起</translation>
-    </message>
-    <message>
-        <source>Boost</source>
-        <translation>推起</translation>
-    </message>
-    <message>
-        <source>Unfavorite</source>
-        <translation>取消关注</translation>
-    </message>
-    <message>
-        <source>Favorite</source>
-        <translation>关注</translation>
-    </message>
-    <message>
-        <source>Mention</source>
-        <translation>提及</translation>
-    </message>
-    <message>
-        <source>Conversation</source>
-        <translation>对话</translation>
-    </message>
-    <message>
-        <source>Remove Bookmark</source>
-        <translation>移除收藏</translation>
-    </message>
-    <message>
-        <source>Bookmark</source>
-        <translation>收藏</translation>
-    </message>
-    <message>
         <source>Loading...</source>
         <translation type="unfinished"></translation>
     </message>
@@ -723,11 +691,39 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Conversation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Unfavorite</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Favorite</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Unboost</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Boost</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Reply</source>
-        <translation type="unfinished">回复</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Quote</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove Bookmark</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Bookmark</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -741,6 +737,10 @@
     <message>
         <source>Edit</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Mention</source>
+        <translation type="unfinished">提及</translation>
     </message>
 </context>
 </TS>

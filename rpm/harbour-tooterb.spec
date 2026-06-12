@@ -54,21 +54,27 @@ Links:
 
 %build
 
-%qmake5 VERSION=%{version} RELEASE=%{release}
+%if "%{?vendor}" == "chum"
+ %qmake5 VERSION=%{version} RELEASE=%{release}
+%else
+ HARBOUR_STORE=1 MB2_QMAKE_ARGS='CONFIG+=harbour_store' %qmake5 QMAKE_ARGS='CONFIG+=harbour_store' 'CONFIG+=harbour_store'
+%endif
 
 %make_build
-
 
 %install
 %qmake5_install
 
 desktop-file-install --delete-original       \
   --dir %{buildroot}%{_datadir}/applications             \
-   %{buildroot}%{_datadir}/applications/*.desktop
+   %{buildroot}%{_datadir}/applications/%{name}.desktop
 
 %files
 %defattr(-,root,root,-)
 %{_bindir}
 %{_datadir}/%{name}
 %{_datadir}/applications/%{name}.desktop
+%if "%{?vendor}" == "chum"
+%{_datadir}/applications/%{name}-open-url.desktop
+%endif
 %{_datadir}/icons/hicolor/*/apps/%{name}.png

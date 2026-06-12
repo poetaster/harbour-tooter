@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Application
+Icon=harbour-tooterb
+Name=Tooter β
+MimeType=text/html;x-scheme-handler/https;
+
+X-Maemo-Service=de.poetaster.harbour-tooter
+X-Maemo-Object-Path=/de/poetaster/harbour-tooter
+X-Maemo-Method=de.poetaster.harbour-tooter.openUrl
+
+NotShowIn=X-MeeGo;
+Hidden=true

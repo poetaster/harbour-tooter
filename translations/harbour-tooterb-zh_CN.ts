@@ -277,6 +277,10 @@
         <source>New Toot</source>
         <translation type="unfinished">新嘟嘟</translation>
     </message>
+    <message>
+        <source>Conversation</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MediaFullScreen</name>

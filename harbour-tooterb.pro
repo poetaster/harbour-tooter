@@ -91,6 +91,21 @@ DISTFILES += qml/harbour-tooterb.qml \
     translations/*.ts \
     harbour-tooterb.desktop \
 
+harbour_store {
+  message("Yup store")
+} else {
+  DISTFILES += harbour-tooterb-open-url.desktop
+  # extra desktop file for dbus
+  desktop2.path += /usr/share/applications
+  desktop2.files = $${TARGET}-open-url.desktop
+  INSTALLS += desktop2
+
+# extra service file for dbus
+  #service.path = /usr/share/dbus-1/services
+  #serivce.files = de.poetaster.harbour-tooter.service
+  #INSTALLS += service
+
+}
 SAILFISHAPP_ICONS = 86x86 108x108 128x128 172x172
 
 # to disable building translations every time, comment out the

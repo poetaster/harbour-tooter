@@ -1,12 +1,14 @@
-import QtQuick 2.0
+import QtQuick 2.2
 import Sailfish.Silica 1.0
+import Nemo.DBus 2.0
+
 import "../lib/API.js" as Logic
 import "./components/"
 
 
 Page {
     id: mainPage
-    property bool debug: false
+    property bool debug: true
     property bool isFirstPage: true
     property bool isTablet: true //Screen.sizeCategory >= Screen.Large
     // for people search
@@ -16,6 +18,48 @@ Page {
     
     allowedOrientations: Orientation.All
 
+    DBusAdaptor {
+        id: dbus
+        bus: DBus.SessionBus
+        service: 'de.poetaster.happycamper'
+        iface: 'de.poetaster.harbour-tooter'
+        path: '/de/poetaster/harbour-tooter'
+        xml: '<interface name="de.poetaster.harbour-tooter">
+               <method name="openUrl">
+                 <arg name="url" type="s" direction="in">
+                   <doc:doc><doc:summary>url to open</doc:summary></doc:doc>
+                 </arg>
+               </method>
+             </interface>'
+        function openUrl(u) {
+            console.log("openUrl called via DBus:" + u)
+            // Use the URL parser to detect Mastodon resource types
+            var parsed = Logic.parseMastodonUrl(u.toString())
+            if (debug) console.log(parsed.statusId)
+            // For recognized Mastodon URLs (tag, profile, status), delegate to MainPage
+            if (parsed.type === "status"){
+                var m = Qt.createQmlObject('import QtQuick 2.0; ListModel { dynamicRoles:true }', Qt.application, 'InternalQmlObject');
+                if (typeof mdl !== "undefined")
+                    m.append(mdl.get(index))
+                pageStack.push(Qt.resolvedUrl("../ConversationPage.qml"), {
+                                   headerTitle: qsTr("Conversation"),
+                                   "status_id": parsed.status_id,
+                                   "status_url": parsed.status_url,
+                                   "status_uri": parsed.status_uri,
+                                   "username": '@'+parsed.account_acct,
+                                   mdl: m,
+                                   type: "reply"
+                               })
+            } else if (parsed.type !== "unknown") {
+                pageStack.pop(pageStack.find(function(page) {
+                    var check = page.isFirstPage === true
+                    if (check)
+                        page.onLinkActivated(u.toString())
+                    return check
+                }))
+            }
+        }
+    }
     onSuggestedUserChanged:  {
         //console.log(suggestedUser)
         suggestedModel = Qt.createQmlObject( 'import QtQuick 2.0; ListModel {   }', Qt.application, 'InternalQmlObject' )

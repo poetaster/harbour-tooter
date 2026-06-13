@@ -29,9 +29,9 @@ void Notifications::notify(QString appName, QString summary, QString body, bool 
         {
             remoteactions << Notification::remoteAction("default",
                                                         QString(),
-                                                        "ba.dysko.habour.tooterb",
+                                                        "de.poetaster.habour.tooterb",
                                                         "/",
-                                                        "ba.dysko.habour.tooterb",
+                                                        "de.poetaster.habour.tooterb",
                                                         "openapp",
                                                          QVariantList());
         }
@@ -45,9 +45,9 @@ void Notifications::notify(QString appName, QString summary, QString body, bool 
         notif.setCategory("x-harbour.tooterb.activity");
         remoteactions << Notification::remoteAction("app",
                                                     QString(),
-                                                    "ba.dysko.habour.tooterb",
+                                                    "de.poetaster.habour.tooterb",
                                                     "/",
-                                                    "ba.dysko.habour.tooterb",
+                                                    "de.poetaster.habour.tooterb",
                                                     "openapp",
                                                      QVariantList());
     }
@@ -64,9 +64,9 @@ void Notifications::notify(QString appName, QString summary, QString body, bool 
 
         remoteactions << Notification::remoteAction("default",
                                                     QString(),
-                                                    "ba.dysko.habour.tooterb",
+                                                    "de.poetaster.habour.tooterb",
                                                     "/",
-                                                    "ba.dysko.habour.tooterb",
+                                                    "de.poetaster.habour.tooterb",
                                                     "showtoot",
                                                      args);
     }

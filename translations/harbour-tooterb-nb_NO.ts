@@ -274,17 +274,17 @@
     <message>
         <source>Followers</source>
         <extracomment>Will show as: &quot;35 Followers&quot;</extracomment>
-        <translation>Følgere</translation>
+        <translation>følgere</translation>
     </message>
     <message>
         <source>Following</source>
         <extracomment>Will show as: &quot;23 Following&quot;</extracomment>
-        <translation>Følger</translation>
+        <translation>følges</translation>
     </message>
     <message>
         <source>Statuses</source>
         <extracomment>Will show as: &quot;115 Statuses&quot;</extracomment>
-        <translation>Statuser</translation>
+        <translation>innlegg</translation>
     </message>
     <message>
         <source>Mention</source>

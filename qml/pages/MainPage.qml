@@ -1,16 +1,83 @@
-import QtQuick 2.0
+import QtQuick 2.2
 import Sailfish.Silica 1.0
+import Nemo.DBus 2.0
+
 import "../lib/API.js" as Logic
 import "./components/"
 
 
 Page {
     id: mainPage
-    property bool debug: false
+    property bool debug: true
     property bool isFirstPage: true
     property bool isTablet: true //Screen.sizeCategory >= Screen.Large
-
+    // for people search
+    property string suggestedUser: ""
+    property ListModel suggestedModel
+    property bool quickAccountSwitchHintActive: !Logic.conf.multipleAccountsHintCompleted && Logic.conf.accounts.length > 1
+    
     allowedOrientations: Orientation.All
+
+    DBusAdaptor {
+        id: dbus
+        bus: DBus.SessionBus
+        service: 'de.poetaster.happycamper'
+        iface: 'de.poetaster.harbour-tooter'
+        path: '/de/poetaster/harbour-tooter'
+        xml: '<interface name="de.poetaster.harbour-tooter">
+               <method name="openUrl">
+                 <arg name="url" type="s" direction="in">
+                   <doc:doc><doc:summary>url to open</doc:summary></doc:doc>
+                 </arg>
+               </method>
+             </interface>'
+        function openUrl(u) {
+            console.log("openUrl called via DBus:" + u)
+            // Use the URL parser to detect Mastodon resource types
+            var parsed = Logic.parseMastodonUrl(u.toString())
+            if (debug) console.log(parsed.statusId)
+            // For recognized Mastodon URLs (tag, profile, status), delegate to MainPage
+            if (parsed.type === "status"){
+                var m = Qt.createQmlObject('import QtQuick 2.0; ListModel { dynamicRoles:true }', Qt.application, 'InternalQmlObject');
+                if (typeof mdl !== "undefined")
+                    m.append(mdl.get(index))
+                pageStack.push(Qt.resolvedUrl("../ConversationPage.qml"), {
+                                   headerTitle: qsTr("Conversation"),
+                                   "status_id": parsed.status_id,
+                                   "status_url": parsed.status_url,
+                                   "status_uri": parsed.status_uri,
+                                   "username": '@'+parsed.account_acct,
+                                   mdl: m,
+                                   type: "reply"
+                               })
+            } else if (parsed.type !== "unknown") {
+                pageStack.pop(pageStack.find(function(page) {
+                    var check = page.isFirstPage === true
+                    if (check)
+                        page.onLinkActivated(u.toString())
+                    return check
+                }))
+            }
+        }
+    }
+    onSuggestedUserChanged:  {
+        //console.log(suggestedUser)
+        suggestedModel = Qt.createQmlObject( 'import QtQuick 2.0; ListModel {   }', Qt.application, 'InternalQmlObject' )
+        if (suggestedUser.length > 0) {
+            var msg = {
+                "action": 'accounts/search',
+                "method": 'GET',
+                "model": suggestedModel,
+                "mode": "append",
+                "params": [{
+                        "name": "q",
+                        "data": suggestedUser
+                    }],
+                "conf": Logic.conf
+            }
+            worker.sendMessage(msg)
+        }
+    }
 
     // Docked Navigation panel
     DockedPanel {
@@ -116,6 +183,7 @@ Page {
                 if (debug) console.log(search)
                 loader.sourceComponent = loading
                 if (search.charAt(0) === "@") {
+                    suggestedUser = tlSearch.search.substring(1)
                     loader.sourceComponent = userListComponent
                 } else if (search.charAt(0) === "#") {
                     loader.sourceComponent = tagListComponent
@@ -137,9 +205,14 @@ Page {
                 SearchField {
                     id: searchField
                     width: parent.width
+                    anchors {
+                        bottomMargin: 100
+                    }
+
                     placeholderText: qsTr("@user or #term")
                     text: tlSearch.search
                     EnterKey.iconSource: "image://theme/icon-m-enter-close"
+                    //onTextChanged: {
                     EnterKey.onClicked: {
                         tlSearch.search = text.toLowerCase().trim()
                         focus = false
@@ -187,50 +260,48 @@ Page {
             }
 
             Component {
+
                 id: userListComponent
-                MyList {
-                    id: view2
-                    mdl: ListModel {}
-                    autoLoadMore: false
-                    width: parent.width
-                    height: parent.height
-                    onOpenDrawer:  infoPanel.open = setDrawer
-                    anchors.fill: parent
-                    currentIndex: -1 // otherwise currentItem will steal focus
-                    header:  Item {
-                        id: header
-                        width: headerContainer.width
-                        height: headerContainer.height
-                        Component.onCompleted: headerContainer.parent = header
-                    }
-
-                    delegate: ItemUser {
-                        onClicked: {
-                            pageStack.push(Qt.resolvedUrl("ProfilePage.qml"), {
-                                               "display_name": model.account_display_name,
-                                               "username": model.account_acct,
-                                               "user_id": model.account_id,
-                                               "profileImage": model.account_avatar,
-                                               "profileBackground": model.account_header,
-                                               "note": model.account_note,
-                                               "url": model.account_url,
-                                               "followers_count": model.account_followers_count,
-                                               "following_count": model.account_following_count,
-                                               "statuses_count": model.account_statuses_count,
-                                               "locked": model.account_locked,
-                                               "bot": model.account_bot,
-                                               "group": model.account_group
-                                           })
+                    SilicaListView {
+                        anchors {
+                            rightMargin: isPortrait ? 0 : infoPanel.visibleSize
+                            bottomMargin: isPortrait ? infoPanel.visibleSize : 0
                         }
+                        y: 300
+                        width: tlSearch.width
+                        height: tlSearch.height
+                        id: predictionResults
+                        rotation: 0 // shows best matching result on the bottom
+                        model: suggestedModel
+                        clip: true
+                        quickScroll: false
+                        delegate: ItemUser {
+                            rotation: 0
+                            onClicked: {
+                                pageStack.push(Qt.resolvedUrl("ProfilePage.qml"), {
+                                                   "display_name": model.account_display_name,
+                                                   "username": model.account_acct,
+                                                   "user_id": model.account_id,
+                                                   "profileImage": model.account_avatar,
+                                                   "profileBackground": model.account_header,
+                                                   "note": model.account_note,
+                                                   "url": model.account_url,
+                                                   "followers_count": model.account_followers_count,
+                                                   "following_count": model.account_following_count,
+                                                   "statuses_count": model.account_statuses_count,
+                                                   "locked": model.account_locked,
+                                                   "bot": model.account_bot,
+                                                   "group": model.account_group
+                                               })
+                            }
+                        }
+                        /*onCountChanged: {
+                            if (count > 0) {
+                                positionViewAtBeginning(suggestedModel.count - 1, ListView.Beginning)
+                            }
+                        }*/
+                        VerticalScrollDecorator {}
                     }
-
-                    Component.onCompleted: {
-                        view2.type = "accounts/search"
-                        view2.params = []
-                        view2.params.push({name: 'q', data: tlSearch.search.substring(1)});
-                        view2.loadData("append")
-                    }
-                }
             }
 
             Component {

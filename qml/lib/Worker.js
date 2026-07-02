@@ -150,6 +150,8 @@ WorkerScript.onMessage = function(msg) {
             item['id'] = item['status_id']
             if (typeof item['attachments'] === "undefined")
                 item['attachments'] = []
+            knownIdsSet = {}
+            knownIdsSet[item['id']] = true
             if (msg.model) {
                 addDataToModel(msg.model, msg.mode || "append", [item])
             }
@@ -242,7 +244,15 @@ WorkerScript.onMessage = function(msg) {
         if (debug) console.log("Get em all?")
 
         WorkerScript.sendMessage({ 'updatedAll': true, 'itemsCount': items.length, 'mode': msg.mode})
-    });
+    }, function(status) {
+        // error handler (we should probably handle other kinds of errors here as well)
+        // important: a status can be null here if JSON parse fails, or 0 if a network error occured
+        // we should only handle such errors when really required
+
+        // Pixelfed returns an HTML page when creditionals are incorrect
+        if (msg.action === 'accounts/verify_credentials' && (status >= 400 && status <= 499 || typeof status == 'undefined'))
+            WorkerScript.sendMessage({action: msg.action, success: false})
+    })
 }
 
 //WorkerScript.sendMessage({ 'notifyNewItems': length - i })
@@ -420,6 +430,43 @@ function getDate(dateStr) {
     return new Date(ts.getFullYear(), ts.getMonth(), ts.getDate(), 0, 0, 0)
 }
 
+/**
+ * Check if a URL is a Mastodon/ActivityPub status URL
+ * Used to suppress link previews for posts that should open in-app
+ */
+function isMastodonStatusUrl(url) {
+    if (!url || typeof url !== "string") return false
+    if (!url.match(/^https?:\/\//i)) return false
+
+    // Normalize: remove trailing slashes
+    var normalized = url.replace(/\/+$/, '')
+    var parts = normalized.split("/")
+
+    // Need at least: https: / "" / instance / path
+    if (parts.length < 4) return false
+
+    var pathPart1 = parts[3]
+    var pathPart2 = parts.length > 4 ? parts[4] : null
+    var pathPart3 = parts.length > 5 ? parts[5] : null
+    var pathPart4 = parts.length > 6 ? parts[6] : null
+
+    // Pattern: /@username/123456789 (length 5, starts with @, numeric ID)
+    if (parts.length === 5 && pathPart1 && pathPart1[0] === "@" && /^\d+$/.test(pathPart2)) {
+      if (debug) console.log("is user post");
+        return true
+    }
+
+    // Pattern: /users/username/statuses/123456789 (length 7)
+    if (parts.length === 7 && pathPart1 === "users" && pathPart3 === "statuses" && /^\d+$/.test(pathPart4)) {
+      if (debug) console.log("is user post");
+        return true
+    }
+
+    return false
+}
+
+
+
 /** Function: Get Status data */
 function parseToot (data) {
     var i = 0;
@@ -467,7 +514,6 @@ function parseToot (data) {
         item = parseAccounts(item, "", data["account"])
     }
 
-
     /** Parse mentions for reply functionality */
     var mentionsData = item['status_reblog'] ? data["reblog"]["mentions"] : data["mentions"]
     if (mentionsData && mentionsData.length > 0) {
@@ -484,14 +530,22 @@ function parseToot (data) {
 
     /** Link Preview Card */
     var cardData = item['status_reblog'] ? data["reblog"]["card"] : data["card"]
-    if (debug) console.log("have card data")
     if (cardData) {
-        item['card_url'] = cardData["url"] || ''
-        item['card_title'] = cardData["title"] || ''
-        item['card_description'] = cardData["description"] || ''
-        item['card_image'] = cardData["image"] || ''
-        item['card_type'] = cardData["type"] || 'link'
-        item['card_provider'] = cardData["provider_name"] || ''
+        if (debug) console.log(JSON.stringify((cardData)))
+        var cardUrl = cardData["url"] || ''
+        // Don't show link preview for Mastodon post URLs - they should open in-app
+        //if (cardUrl && isMastodonStatusUrl(cardUrl)) {
+        // then again, this does not always work
+        if (cardUrl) {
+            if (debug) console.log("Suppressing card for Mastodon URL: " + cardUrl)
+            //item['card_url'] = ''
+            item['card_url'] = cardUrl
+            item['card_title'] = cardData["title"] || ''
+            item['card_description'] = cardData["description"] || ''
+            item['card_image'] = cardData["image"] || ''
+            item['card_type'] = cardData["type"] || 'link'
+            item['card_provider'] = cardData["provider_name"] || ''
+        }
     } else {
         item['card_url'] = ''
     }
@@ -547,9 +601,9 @@ function parseToot (data) {
     /** Remove card URL from content when link preview is shown */
     if (item['card_url'] && item['card_url'].length > 0) {
         // Escape special regex characters in the URL
-        var escapedUrl = item['card_url'].replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+        //var escapedUrl = item['card_url'].replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
         // Remove the <a> tag containing this URL
-        var urlPattern = new RegExp('<a[^>]*href="' + escapedUrl + '"[^>]*>.*?</a>', 'gi');
+        //var urlPattern = new RegExp('<a[^>]*href="' + escapedUrl + '"[^>]*>.*?</a>', 'gi');
         // this can lead to 'no content' if a card is not rendered
         //item['content'] = item['content'].replace(urlPattern, '');
     }

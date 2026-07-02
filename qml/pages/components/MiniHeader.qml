@@ -56,7 +56,8 @@ Item {
 
     Label {
         id: lblDate
-        text: Format.formatDate(created_at, new Date() - created_at < 60*60*1000 ? Formatter.DurationElapsedShort : Formatter.TimeValueTwentyFourHours)
+        text: Format.formatDate(created_at, Formatter.DurationElapsedLong )
+        //text: Format.formatDate(created_at, new Date() - created_at < 60*60*1000 ? Formatter.DurationElapsedLong : Formatter.TimeValueTwentyFourHours)
         font.pixelSize: Theme.fontSizeExtraSmall
         color: ( pressed ? Theme.highlightColor : Theme.secondaryColor )
         horizontalAlignment: Text.AlignRight

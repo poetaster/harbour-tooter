@@ -2,7 +2,6 @@
 #include <QtQuick>
 #endif
 
-
 #include <sailfishapp.h>
 #include <QQuickView>
 #include <QtQml>
@@ -18,13 +17,16 @@
 #include "notifications.h"
 #include "dbus.h"
 
+#include "requires_defines.h"
 
-int main(int argc, char *argv[])
-{
+
+int main(int argc, char *argv[]) {
     QScopedPointer<QGuiApplication> app(SailfishApp::application(argc, argv));
     QScopedPointer<QQuickView> view(SailfishApp::createView());
-    //QQmlContext *context = view.data()->rootContext();
     QQmlEngine* engine = view->engine();
+
+    view->rootContext()->setContextProperty("APP_VERSION", QString(APP_VERSION));
+    view->rootContext()->setContextProperty("APP_RELEASE", QString(APP_RELEASE));
 
     FileDownloader *fd = new FileDownloader(engine);
     view->rootContext()->setContextProperty("FileDownloader", fd);

@@ -5,7 +5,7 @@
 #include <QtDBus/QtDBus>
 #include "dbusAdaptor.h"
 
-#define SERVICE_NAME "ba.dysko.harbour.tooterb"
+#define SERVICE_NAME "de.poetaster.harbour.tooterb"
 
 class QDBusInterface;
 class Dbus : public QObject

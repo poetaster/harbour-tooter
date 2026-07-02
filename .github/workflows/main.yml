@@ -4,9 +4,6 @@ on:
   push:
     tags:
       - '1.*'
-  pull_request:
-    branches:
-      - main
 env:
   RELEASE: 5.0.0.43
 

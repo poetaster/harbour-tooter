@@ -3,7 +3,6 @@ import Sailfish.Silica 1.0
 import QtGraphicalEffects 1.0
 import "../../lib/API.js" as Logic
 
-
 SilicaGridView {
     id: gridView
 
@@ -98,12 +97,15 @@ SilicaGridView {
     }
     model: listModel
     currentIndex: -1
-    cellWidth: isPortrait ? gridView.width / model.count : gridView.width
+    cellWidth: isPortrait ? (gridView.width  - 1) / model.count  : gridView.width
     cellHeight: (gridView.height - headerItem.implicitHeight) / (isPortrait ? 1 : model.count)
     anchors.fill: parent
     delegate: BackgroundItem {
+         anchors {
+                rightMargin: 20
+        }
         id: rectangle
-        clip: true
+        //clip: true
         width: gridView.cellWidth
         height: gridView.cellHeight
         GridView.onAdd: AddAnimation {
@@ -216,7 +218,7 @@ SilicaGridView {
             else
                 listModel.setProperty(i, 'active', false);
         }
-        console.log(slug)
+        if (debug) console.log(slug)
     }
 
     VerticalScrollDecorator {}
@@ -235,3 +237,4 @@ SilicaGridView {
         value: !headerItem.menuOpen
     }
 }
+

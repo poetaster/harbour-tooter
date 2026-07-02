@@ -7,14 +7,20 @@ import QtMultimedia 5.6
 ListItem {
     id: item
 
-    property string url
-    property string mediaUrl
+    property string url:""
+    property string description: ""
     property string mimeType: 'audio/mp3'
     property int length
     property bool debug: false
 
-    property bool _isAudio: mimeType.substring(0, 6) === "audio/"
+    property bool _isAudio: true; //mimeType.substring(0, 6) === "audio/"
     property bool _isImage: mimeType.substring(0, 6) === "image/"
+
+    Component.onCompleted:  {
+        //if (debug) console.log("MediaItem")
+        //if (debug) console.log(url)
+    }
+
 
     function _toTime(s)
     {
@@ -95,34 +101,6 @@ ListItem {
         }
     }
 
-    onClicked: {
-        if(debug) console.log('MediaItem')
-        if(debug) console.log(url)
-        if(debug) console.log(mediaUrl)
-        if (_isAudio)
-        {
-            if (audioProxy.playing)
-            {
-                audioProxy.pause();
-            }
-            else
-            {
-                audioProxy.play();
-            }
-        }
-        else if (_isImage)
-        {
-            var props = {
-                "url": item.url,
-                "name": _urlFilename(item.url)
-            }
-            pageStack.push(Qt.resolvedUrl("ImagePage.qml"), props);
-        }
-        else
-        {
-            Qt.openUrlExternally(item.url);
-        }
-    }
 
     QtObject {
         id: audioProxy
@@ -170,7 +148,7 @@ ListItem {
                 if (audioPlayer.playing)
                 {
                     database.setAudioBookmark(audioPlayer.source,
-                                               audioPlayer.position);
+                                              audioPlayer.position);
                 }
 
                 audioPlayer.stop();
@@ -212,12 +190,12 @@ ListItem {
         }
     }
     Audio {
-            id: audioPlayer
-            property bool playing: playbackState === Audio.PlayingState
-            property bool paused: playbackState === Audio.PausedState
-            autoLoad: false
-            autoPlay: false
-        }
+        id: audioPlayer
+        property bool playing: playbackState === Audio.PlayingState
+        property bool paused: playbackState === Audio.PausedState
+        autoLoad: false
+        autoPlay: false
+    }
     Image {
         id: mediaIcon
 
@@ -229,8 +207,8 @@ ListItem {
         asynchronous: true
         smooth: true
         fillMode: Image.PreserveAspectCrop
-        sourceSize.width: width * 2
-        sourceSize.height: height * 2
+        sourceSize.width: width * 3
+        sourceSize.height: height * 3
         source: ! _isAudio ? _mediaIcon(item.url, item.mimeType)
                            : audioProxy.playing ? "image://theme/icon-l-pause"
                                                 : "image://theme/icon-l-play"
@@ -240,6 +218,16 @@ ListItem {
             running: parent.status === Image.Loading
             anchors.centerIn: parent
             size: BusyIndicatorSize.Medium
+        }
+        MouseArea {
+            anchors.fill: parent
+            onClicked: {
+              if (audioProxy.playing) {
+                audioProxy.pause();
+              } else {
+                audioProxy.play();
+              }
+            }
         }
     }
 
@@ -254,6 +242,16 @@ ListItem {
         font.pixelSize: Theme.fontSizeSmall
         color: Theme.primaryColor
         text: _urlFilename(item.url)
+        MouseArea {
+            anchors.fill: parent
+            onClicked: {
+              if (audioProxy.playing) {
+                audioProxy.pause();
+              } else {
+                audioProxy.play();
+              }
+            }
+        }
     }
     Label {
         id: label1
@@ -296,13 +294,22 @@ ListItem {
         minimumValue: 0
 
         onDownChanged: {
-            if (! down)
-            {
+            if (! down) {
                 audioProxy.seek(sliderValue);
-                if (! audioProxy.playing)
-                {
+                if (! audioProxy.playing) {
                     audioProxy.play();
                 }
+            }
+        }
+        MouseArea {
+            anchors.fill: parent
+            onClicked: {
+             if (! down) {
+                audioProxy.seek(sliderValue);
+                if (! audioProxy.playing) {
+                    audioProxy.play();
+                }
+            }
             }
         }
 
@@ -319,6 +326,71 @@ ListItem {
         onClicked: {
             var filename = url.split("/")
             FileDownloader.downloadFile(url, filename[filename.length-1])
-       }
+        }
+    }
+
+    Rectangle {
+            id: altTooltip
+            visible: false
+            color: Theme.highlightDimmerColor
+            opacity: 0.95
+            width: parent.width - Theme.paddingMedium * 2
+            height: altTooltipText.paintedHeight + Theme.paddingMedium * 2
+            radius: Theme.paddingSmall
+            anchors {
+                horizontalCenter: parent.horizontalCenter
+                bottom: altBadge.top
+                bottomMargin: Theme.paddingSmall
+            }
+
+            Label {
+                id: altTooltipText
+                text: description
+                font.pixelSize: Theme.fontSizeSmall
+                color: Theme.primaryColor
+                wrapMode: Text.Wrap
+                width: parent.width - Theme.paddingMedium * 2
+                anchors {
+                    centerIn: parent
+                }
+            }
+
+            MouseArea {
+                anchors.fill: parent
+                onClicked: {
+                    altTooltip.visible = false
+                }
+            }
+        }
+    Rectangle {
+        id: altBadge
+        visible: description.length > 0
+        color: Theme.highlightDimmerColor
+        opacity: 0.9
+        width: altLabel.width + Theme.paddingLarge * 2
+        height: altLabel.height + Theme.paddingLarge
+        radius: Theme.paddingSmall / 2
+        anchors {
+            left: parent.left
+            top: slider.bottom
+            margins: Theme.paddingSmall
+            topMargin: 50
+        }
+
+        Label {
+            id: altLabel
+            text: "ALT"
+            font.pixelSize: Theme.fontSizeTiny
+            font.bold: true
+            color: Theme.highlightColor
+            anchors.centerIn: parent
+        }
+
+        MouseArea {
+            anchors.fill: parent
+            onClicked: {
+                altTooltip.visible = !altTooltip.visible
+            }
+        }
     }
 }

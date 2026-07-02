@@ -15,7 +15,10 @@ Item {
     // Gallery support: pass full media list and index
     property var mediaModel: null
     property int mediaIndex: 0
-    property bool debug: true
+    property bool debug: false
+
+    Component.onCompleted: {
+    }
 
     Rectangle {
         opacity: 0.4
@@ -37,39 +40,6 @@ Item {
         Behavior on opacity { FadeAnimator {} }
         source: "image://theme/icon-m-file-video?"
         anchors.centerIn: parent
-    }
-
-    /*Text {
-        anchors{
-            topMargin: 10
-        }
-        id: audioUrl
-        visible: type == 'audio'
-        text: "<a href='" + url + "'>" + 'Audio file' + '</a>'
-        font.pixelSize: Theme.fontSizeLarge
-    }*/
-
-
-    MediaItem {
-        id: audioContent
-        visible: type == 'audio'
-        opacity: img.status === Image.Ready ? 0.0 : 1.0
-        Behavior on opacity { FadeAnimator {} }
-        //mimeType: 'audio/mp3'
-        url: mediaURL
-        mediaUrl: mediaURL
-        //source: "image://theme/icon-m-file-audio?"
-        anchors.centerIn: parent
-        /*MouseArea {
-            anchors.fill: parent
-            onClicked: {
-                pageStack.push(Qt.resolvedUrl("./MediaItem.qml"), {
-                                   "url": url,
-                                   "type": type,
-                                   "mimeType": type
-                               })
-            }
-        } */
     }
 
     Rectangle {

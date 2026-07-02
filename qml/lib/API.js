@@ -47,6 +47,18 @@ function setActiveAccount(index) {
     clearModels()
 }
 
+function removeActiveAccount() {
+    // returns true if login page must be shown
+    conf.accounts.splice(conf.activeAccount, 1)
+    if (conf.accounts.length)
+        setActiveAccount(0)
+    else {
+        conf.activeAccount = null
+        return true
+    }
+    return false
+}
+
 var init = function(){
     if (debug) console.log("db.version: "+db.version);
     if(db.version === '') {
@@ -263,17 +275,21 @@ function parseMastodonUrl(url) {
     var normalizedUrl = url.replace(/\/+$/, '')
 
     var parts = normalizedUrl.split("/")
-    // parts[0] = "https:", parts[1] = "", parts[2] = "instance.tld", parts[3+] = path
+   if (debug) console.log("logging parts");
+   if (debug) console.log(parts);
+    parts[0] = "https:", parts[1] = "", parts[2] = "instance.tld"
+    //, parts[3] = path
 
-    if (parts.length < 4) {
+    /*if (parts.length < 4) {
         return { type: "unknown", url: url }
-    }
+    }*/
 
     var instance = parts[2]
     var pathPart1 = parts[3]
     var pathPart2 = parts.length > 4 ? parts[4] : null
     var pathPart3 = parts.length > 5 ? parts[5] : null
     var pathPart4 = parts.length > 6 ? parts[6] : null
+
 
     // Tag patterns: /tags/tagname or /tag/tagname
     if (parts.length === 5 && (pathPart1 === "tags" || pathPart1 === "tag")) {

@@ -91,6 +91,21 @@ DISTFILES += qml/harbour-tooterb.qml \
     translations/*.ts \
     harbour-tooterb.desktop \
 
+harbour_store {
+  message("Yup store")
+} else {
+  DISTFILES += harbour-tooterb-open-url.desktop
+  # extra desktop file for dbus
+  desktop2.path += /usr/share/applications
+  desktop2.files = $${TARGET}-open-url.desktop
+  INSTALLS += desktop2
+
+# extra service file for dbus
+  #service.path = /usr/share/dbus-1/services
+  #serivce.files = de.poetaster.harbour-tooter.service
+  #INSTALLS += service
+
+}
 SAILFISHAPP_ICONS = 86x86 108x108 128x128 172x172
 
 # to disable building translations every time, comment out the
@@ -99,17 +114,28 @@ CONFIG += sailfishapp_i18n
 
 TRANSLATIONS += translations/harbour-tooterb.ts \
     translations/harbour-tooterb-de.ts \
-    translations/harbour-tooterb-el.ts \
-    translations/harbour-tooterb-es.ts \
-    translations/harbour-tooterb-fr.ts \
     translations/harbour-tooterb-fi.ts \
+    translations/harbour-tooterb-nb.ts \
+    translations/harbour-tooterb-oc.ts \
+    translations/harbour-tooterb-sv.ts \
+    translations/harbour-tooterb-el.ts \
+    translations/harbour-tooterb-fr.ts \
+    translations/harbour-tooterb-nl_BE.ts \
+    translations/harbour-tooterb-pl.ts \
+    translations/harbour-tooterb-en.ts \
     translations/harbour-tooterb-it.ts \
     translations/harbour-tooterb-nl.ts \
-    translations/harbour-tooterb-nl_BE.ts \
-    translations/harbour-tooterb-oc.ts \
-    translations/harbour-tooterb-pl.ts \
     translations/harbour-tooterb-ru.ts \
+    translations/harbour-tooterb-zh_CN.ts \
+    translations/harbour-tooterb-es.ts \
+    translations/harbour-tooterb-nb_NO.ts \
+    translations/harbour-tooterb-no.ts \
     translations/harbour-tooterb-sr.ts \
-    translations/harbour-tooterb-sv.ts \
-    translations/harbour-tooterb-nb.ts
-    translations/harbour-tooterb-zh_CN.ts
+
+# Opal modules
+include(libs/opal.pri)
+
+# Expose the version from spec
+DEFINES += APP_VERSION=\\\"$$VERSION\\\"
+DEFINES += APP_RELEASE=\\\"$$RELEASE\\\"
+include(libs/opal-cached-defines.pri)

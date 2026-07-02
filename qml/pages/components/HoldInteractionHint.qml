@@ -9,12 +9,14 @@ Icon {
     property alias running: animation.running
     property alias loops: animation.loops
 
-    opacity: 0
-    scale: 1.5
+    property real initialScale: 1.0
+    property real finalScale: 0.75
 
-    onRunningChanged: {
+    opacity: 0
+    scale: initialScale
+
+    onRunningChanged:
         if (!running) opacity = 0
-    }
 
     SequentialAnimation {
         id: animation
@@ -32,8 +34,8 @@ Icon {
 
             ScaleAnimator {
                 target: hint
-                from: 1.0
-                to: 0.75
+                from: initialScale
+                to: finalScale
                 //easing.type: Easing.OutInQuad
                 duration: 300
             }
@@ -51,8 +53,8 @@ Icon {
 
             ScaleAnimator {
                 target: hint
-                from: 0.75
-                to: 1.0
+                from: finalScale
+                to: initialScale
                 //easing.type: Easing.InOutQuad
                 duration: 300
             }

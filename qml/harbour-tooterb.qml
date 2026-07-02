@@ -86,20 +86,11 @@ ApplicationWindow {
 
             if (currentAccount.login) {
                 //Logic.conf['notificationLastID'] = 0
-                Logic.api.setConfig("api_user_token", currentAccount['api_user_token'])
-                //accounts/verify_credentials
-                Logic.api.get('instance', [], function(data) {
-                    // console.log(JSON.stringify(data))
-                    // Extract max characters from instance configuration
-                    if (data && data.configuration && data.configuration.statuses && data.configuration.statuses.max_characters) {
-                        appWindow.instanceMaxChars = data.configuration.statuses.max_characters
-                        console.log("Instance max chars: " + appWindow.instanceMaxChars)
-                    }
-                    pageStack.push(Qt.resolvedUrl("./pages/MainPage.qml"), {})
-                })
-                //pageStack.push(Qt.resolvedUrl("./pages/Conversation.qml"), {})
+                Logic.api.setConfig('api_user_token', currentAccount['api_user_token'])
+                pageStack.push(Qt.resolvedUrl("./pages/MainPage.qml"))
             } else {
-                pageStack.push(Qt.resolvedUrl("./pages/LoginPage.qml"), {})
+                pageStack.clear() // FIXME: is this really needed?
+                pageStack.push(Qt.resolvedUrl("./pages/LoginPage.qml"))
             }
         })
         Logic.init()

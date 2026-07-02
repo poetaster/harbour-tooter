@@ -30,9 +30,9 @@ QT_END_NAMESPACE
 class TooterbAdaptor: public QDBusAbstractAdaptor
 {
     Q_OBJECT
-    Q_CLASSINFO("D-Bus Interface", "ba.dysko.harbour.tooterb")
+    Q_CLASSINFO("D-Bus Interface", "de.poetaster.harbour.tooterb")
     Q_CLASSINFO("D-Bus Introspection", ""
-"  <interface name=\"ba.dysko.harbour.tooterb\">\n"
+"  <interface name=\"de.poetaster.harbour.tooterb\">\n"
 "    <method name=\"showtoot\">\n"
 "      <annotation value=\"true\" name=\"org.freedesktop.DBus.Method.NoReply\"/>\n"
 "      <arg direction=\"in\" type=\"as\" name=\"key\"/>\n"

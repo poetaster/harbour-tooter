@@ -5,19 +5,19 @@
     <name>API</name>
     <message>
         <source>favourited</source>
-        <translation type="unfinished">favoriserade</translation>
+        <translation>favoriserade</translation>
     </message>
     <message>
         <source>followed you</source>
-        <translation type="unfinished">följer dig</translation>
+        <translation>följer dig</translation>
     </message>
     <message>
         <source>boosted</source>
-        <translation type="unfinished">puffade</translation>
+        <translation>boostade</translation>
     </message>
     <message>
         <source>said</source>
-        <translation type="unfinished"></translation>
+        <translation>sade</translation>
     </message>
 </context>
 <context>
@@ -114,7 +114,7 @@
     </message>
     <message>
         <source>Toot sent!</source>
-        <translation>Toot skickad!</translation>
+        <translation>Inlägg skickat!</translation>
     </message>
     <message>
         <source>Open in Browser</source>
@@ -130,7 +130,7 @@
     </message>
     <message>
         <source>Toot edited!</source>
-        <translation>Toot redigerad!</translation>
+        <translation>Inlägg redigerat!</translation>
     </message>
     <message>
         <source>Save</source>
@@ -173,7 +173,7 @@
     <name>CoverPage</name>
     <message>
         <source>New Toot</source>
-        <translation>Ny toot</translation>
+        <translation>Nytt inlägg</translation>
     </message>
 </context>
 <context>
@@ -239,47 +239,47 @@
     <name>MainPage</name>
     <message>
         <source>Press and hold the home tab to switch account</source>
-        <translation type="unfinished"></translation>
+        <translation>Långtryck på hemknappen för att byta konto</translation>
     </message>
     <message>
         <source>Home</source>
-        <translation type="unfinished"></translation>
+        <translation>Hem</translation>
     </message>
     <message>
         <source>Notifications</source>
-        <translation type="unfinished"></translation>
+        <translation>Aviseringar</translation>
     </message>
     <message>
         <source>Local</source>
-        <translation type="unfinished"></translation>
+        <translation>Lokalt</translation>
     </message>
     <message>
         <source>Federated</source>
-        <translation type="unfinished"></translation>
+        <translation>Samlingar</translation>
     </message>
     <message>
         <source>Bookmarks</source>
-        <translation type="unfinished"></translation>
+        <translation>Bokmärken</translation>
     </message>
     <message>
         <source>Search</source>
-        <translation type="unfinished"></translation>
+        <translation>Sök</translation>
     </message>
     <message>
         <source>@user or #term</source>
-        <translation type="unfinished"></translation>
+        <translation>@user eller #term</translation>
     </message>
     <message>
         <source>Trending</source>
-        <translation type="unfinished"></translation>
+        <translation>Trendar</translation>
     </message>
     <message>
         <source>New Toot</source>
-        <translation type="unfinished">Ny toot</translation>
+        <translation>Nytt inlägg</translation>
     </message>
     <message>
         <source>Conversation</source>
-        <translation type="unfinished"></translation>
+        <translation>Konversation</translation>
     </message>
 </context>
 <context>
@@ -308,7 +308,7 @@
     <name>MiniStatus</name>
     <message>
         <source>boosted</source>
-        <translation>puffade</translation>
+        <translation>boostade</translation>
     </message>
     <message>
         <source>favourited</source>
@@ -327,7 +327,7 @@
     </message>
     <message>
         <source>New Toot</source>
-        <translation>Ny toot</translation>
+        <translation>Nytt inlägg</translation>
     </message>
     <message>
         <source>Open in Browser</source>
@@ -598,7 +598,7 @@
     </message>
     <message>
         <source>Load Images in Toots</source>
-        <translation>Läs in bilder i tootar</translation>
+        <translation>Läs in bilder i inlägg</translation>
     </message>
     <message>
         <source>Disable this option if you want to preserve your data connection</source>
@@ -658,95 +658,95 @@
     <name>VisualContainer</name>
     <message>
         <source>Loading...</source>
-        <translation type="unfinished"></translation>
+        <translation>Läser in...</translation>
     </message>
     <message>
         <source>Load more</source>
-        <translation type="unfinished"></translation>
+        <translation>Läs in mer</translation>
     </message>
     <message>
         <source>Show less</source>
-        <translation type="unfinished"></translation>
+        <translation>Visa mindre</translation>
     </message>
     <message>
         <source>Show more</source>
-        <translation type="unfinished"></translation>
+        <translation>Visa mer</translation>
     </message>
     <message>
         <source>Vote</source>
-        <translation type="unfinished"></translation>
+        <translation>Rösta</translation>
     </message>
     <message>
         <source>votes</source>
-        <translation type="unfinished"></translation>
+        <translation>röster</translation>
     </message>
     <message>
         <source>Closed</source>
-        <translation type="unfinished"></translation>
+        <translation>Stängd</translation>
     </message>
     <message>
         <source>days left</source>
-        <translation type="unfinished"></translation>
+        <translation>dagar kvar</translation>
     </message>
     <message>
         <source>hours left</source>
-        <translation type="unfinished"></translation>
+        <translation>timmar kvar</translation>
     </message>
     <message>
         <source>minutes left</source>
-        <translation type="unfinished"></translation>
+        <translation>minuter kvar</translation>
     </message>
     <message>
         <source>Conversation</source>
-        <translation type="unfinished"></translation>
+        <translation>Konversation</translation>
     </message>
     <message>
         <source>Unfavorite</source>
-        <translation type="unfinished"></translation>
+        <translation>Avfavorisera</translation>
     </message>
     <message>
         <source>Favorite</source>
-        <translation type="unfinished"></translation>
+        <translation>Favorisera</translation>
     </message>
     <message>
         <source>Unboost</source>
-        <translation type="unfinished"></translation>
+        <translation>Avboosta</translation>
     </message>
     <message>
         <source>Boost</source>
-        <translation type="unfinished"></translation>
+        <translation>Boosta</translation>
     </message>
     <message>
         <source>Reply</source>
-        <translation type="unfinished"></translation>
+        <translation>Svara</translation>
     </message>
     <message>
         <source>Quote</source>
-        <translation type="unfinished"></translation>
+        <translation>Citera</translation>
     </message>
     <message>
         <source>Remove Bookmark</source>
-        <translation type="unfinished"></translation>
+        <translation>Ta bort bokmärke</translation>
     </message>
     <message>
         <source>Bookmark</source>
-        <translation type="unfinished"></translation>
+        <translation>Bokmärk</translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>Ta bort</translation>
     </message>
     <message>
         <source>Deleting</source>
-        <translation type="unfinished"></translation>
+        <translation>Tar bort</translation>
     </message>
     <message>
         <source>Edit</source>
-        <translation type="unfinished"></translation>
+        <translation>Redigera</translation>
     </message>
     <message>
         <source>Mention</source>
-        <translation type="unfinished">Omnämnande</translation>
+        <translation>Nämn</translation>
     </message>
 </context>
 </TS>

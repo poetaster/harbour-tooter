@@ -132,7 +132,7 @@ Page {
                 if (mdl) {
                     for (var i = 0; i < mdl.count; i++) {
                         if (mdl.get(i).status_id === status_id) {
-                            console.log("Scrolling to status_id: " + status_id + " at index " + i)
+                            if (debug) console.log("Scrolling to status_id: " + status_id + " at index " + i)
                             myList.positionViewAtIndex(i, ListView.Center)
                             break
                         }
@@ -416,7 +416,7 @@ Page {
                     source: model.preview_url
                     onStatusChanged: {
                         if (status === Image.Error) {
-                            console.log("Image load error for: " + model.preview_url)
+                            if (debug) console.log("Image load error for: " + model.preview_url)
                         }
                     }
                 }
@@ -691,6 +691,22 @@ Page {
                     }
                 } else {
                     // Create new status with POST
+
+                    // first update attachments descriptoin
+                    //PUT /api/v1/media/:id HTTP/1.1
+                    for (var j = 0; j < mediaModel.count; j++) {
+                        var mediaItem = mediaModel.get(j)
+                        msg = {
+                            "action": 'media/' + mediaItem.id,
+                            "method": 'PUT',
+                            "params": { 'id': mediaItem.id, 'description': mediaItem.description || '' },
+                            "conf": Logic.conf
+                        }
+                        if (debug) console.log(mediaItem.id)
+                        if (debug) console.log(mediaItem.description)
+                        worker.sendMessage(msg)
+                    }
+                    // now create new post and media desc attributes should be returned
                     msg = {
                         "action": 'statuses',
                         "method": 'POST',
@@ -699,7 +715,7 @@ Page {
                         "params": {
                             "status": toot.text,
                             "visibility": visibility[privacy.currentIndex],
-                            "media_ids": media_ids
+                            "media_ids": media_ids,
                         },
                         "conf": Logic.conf
                     }
@@ -715,6 +731,7 @@ Page {
                 }
 
                 worker.sendMessage(msg)
+
                 warningContent.text = ""
                 toot.text = ""
                 mediaModel.clear()
@@ -897,7 +914,7 @@ Page {
         Dialog {
             id: altDialog
             property string altText: ""
-            property int mediaIndex: -1
+            property int mediaIndex
 
             canAccept: true
             acceptDestination: conversationPage
@@ -932,9 +949,7 @@ Page {
             }
 
             onAccepted: {
-                if (mediaIndex >= 0 && mediaIndex < mediaModel.count) {
-                    mediaModel.setProperty(mediaIndex, "description", altTextArea.text)
-                }
+                mediaModel.setProperty(mediaIndex, "description", altTextArea.text)
             }
         }
     }

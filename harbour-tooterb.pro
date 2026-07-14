@@ -23,7 +23,7 @@ DEFINES += "APPVERSION=\\\"$${SPECVERSION}\\\""
 DEFINES += "APPNAME=\\\"$${TARGET}\\\""
 
 !exists( src/dbusAdaptor.h ) {
-    system(qdbusxml2cpp config/ba.dysko.harbour.tooterb.xml -i dbus.h -a src/dbusAdaptor)
+    system(qdbusxml2cpp config/de.poetaster.harbour.tooterb.xml -i dbus.h -a src/dbusAdaptor)
 }
 
 config.path = /usr/share/$${TARGET}/config/
@@ -33,10 +33,10 @@ notification_categories.path = /usr/share/lipstick/notificationcategories
 notification_categories.files = config/x-harbour.tooterb.activity.*
 
 dbus_services.path = /usr/share/dbus-1/services/
-dbus_services.files = config/ba.dysko.harbour.tooterb.service
+dbus_services.files = config/de.poetaster.harbour.tooterb.service
 
 interfaces.path = /usr/share/dbus-1/interfaces/
-interfaces.files = config/ba.dysko.harbourb.tooterb.xml
+interfaces.files = config/de.poetaster.harbourb.tooterb.xml
 
 SOURCES += src/harbour-tooterb.cpp \
     src/imageuploader.cpp \
@@ -110,7 +110,7 @@ SAILFISHAPP_ICONS = 86x86 108x108 128x128 172x172
 
 # to disable building translations every time, comment out the
 # following CONFIG line
-CONFIG += sailfishapp_i18n
+#CONFIG += sailfishapp_i18n
 
 TRANSLATIONS += translations/harbour-tooterb.ts \
     translations/harbour-tooterb-de.ts \

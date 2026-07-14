@@ -21,10 +21,10 @@ Page {
     DBusAdaptor {
         id: dbus
         bus: DBus.SessionBus
-        service: 'de.poetaster.happycamper'
-        iface: 'de.poetaster.harbour-tooter'
-        path: '/de/poetaster/harbour-tooter'
-        xml: '<interface name="de.poetaster.harbour-tooter">
+        service: 'de.poetaster.harbour.tooterb'
+        iface: 'de.poetaster.harbour.tooterb'
+        path: '/de/poetaster/harbour/tooterb'
+        xml: '<interface name="de.poetaster.harbour.tooterb">
                <method name="openUrl">
                  <arg name="url" type="s" direction="in">
                    <doc:doc><doc:summary>url to open</doc:summary></doc:doc>
@@ -58,6 +58,9 @@ Page {
                     return check
                 }))
             }
+        }
+        function showtoot(u) {
+            openUrl(u)
         }
     }
     onSuggestedUserChanged:  {

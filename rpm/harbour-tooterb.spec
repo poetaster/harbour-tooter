@@ -3,6 +3,12 @@ Name:       harbour-tooterb
 %define _binary_payload w2.xzdio
 %define __provides_exclude_from ^%{_datadir}/.*$
 
+%if "%{?vendor}" == "chum"
+%bcond_with harbour
+%else
+%bcond_without harbour
+%endif
+
 Summary:    Tooter β
 Version:    1.3.9
 Release:    1
@@ -54,7 +60,7 @@ Links:
 
 %build
 
-%if "%{?vendor}" == "chum"
+%if %{without harbour}
  %qmake5 VERSION=%{version} RELEASE=%{release}
 %else
  HARBOUR_STORE=1 MB2_QMAKE_ARGS='CONFIG+=harbour_store' %qmake5 QMAKE_ARGS='CONFIG+=harbour_store' 'CONFIG+=harbour_store'
@@ -74,7 +80,7 @@ desktop-file-install --delete-original       \
 %{_bindir}
 %{_datadir}/%{name}
 %{_datadir}/applications/%{name}.desktop
-%if "%{?vendor}" == "chum"
+%if %{without harbour}
 %{_datadir}/applications/%{name}-open-url.desktop
 %endif
 %{_datadir}/icons/hicolor/*/apps/%{name}.png

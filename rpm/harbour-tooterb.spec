@@ -10,7 +10,7 @@ Name:       harbour-tooterb
 %endif
 
 Summary:    Tooter β
-Version:    1.3.9
+Version:    1.4.0
 Release:    1
 Group:      Qt/Qt
 License:    GPLv3

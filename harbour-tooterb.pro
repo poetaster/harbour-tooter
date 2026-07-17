@@ -36,7 +36,7 @@ dbus_services.path = /usr/share/dbus-1/services/
 dbus_services.files = config/de.poetaster.harbour.tooterb.service
 
 interfaces.path = /usr/share/dbus-1/interfaces/
-interfaces.files = config/de.poetaster.harbourb.tooterb.xml
+interfaces.files = config/de.poetaster.harbour.tooterb.xml
 
 SOURCES += src/harbour-tooterb.cpp \
     src/imageuploader.cpp \
@@ -99,12 +99,10 @@ harbour_store {
   desktop2.path += /usr/share/applications
   desktop2.files = $${TARGET}-open-url.desktop
   INSTALLS += desktop2
-
 # extra service file for dbus
-  #service.path = /usr/share/dbus-1/services
-  #serivce.files = de.poetaster.harbour-tooter.service
-  #INSTALLS += service
-
+  service.path = /usr/share/dbus-1/services
+  serivce.files = de.poetaster.harbour.tooter.service
+  INSTALLS += service
 }
 SAILFISHAPP_ICONS = 86x86 108x108 128x128 172x172
 

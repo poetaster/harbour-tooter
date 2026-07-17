@@ -7,5 +7,5 @@ Name=Tooter β
 
 [X-Sailjail]
 OrganizationName=de.poetaster
-ApplicationName=harbour-tooterb
+ApplicationName=tooterb
 Permissions=Internet;Audio;MediaIndexing;RemovableMedia;UserDirs

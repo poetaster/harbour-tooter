@@ -41,7 +41,7 @@ Page {
                 var m = Qt.createQmlObject('import QtQuick 2.0; ListModel { dynamicRoles:true }', Qt.application, 'InternalQmlObject');
                 if (typeof mdl !== "undefined")
                     m.append(mdl.get(index))
-                pageStack.push(Qt.resolvedUrl("../ConversationPage.qml"), {
+                pageStack.push(Qt.resolvedUrl("../pages/ConversationPage.qml"), {
                                    headerTitle: qsTr("Conversation"),
                                    "status_id": parsed.status_id,
                                    "status_url": parsed.status_url,

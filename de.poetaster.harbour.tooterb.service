@@ -1,0 +1,4 @@
+[D-BUS Service]
+Interface=/de/poetaster/harbour/tooterb
+Name=de.poetaster.harbour.tooterb
+Exec=/usr/bin/harbour-tooterb

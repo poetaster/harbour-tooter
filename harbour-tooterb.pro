@@ -104,7 +104,7 @@ harbour_store {
   desktop2.files = $${TARGET}-open-url.desktop
   INSTALLS += desktop2
 # extra service file for dbus
-  service.path = /usr/share/dbus-1/services
+  service.path = /usr/share/dbus-1/services/
   serivce.files = config/de.poetaster.harbour.tooterb.service
   INSTALLS += service
 

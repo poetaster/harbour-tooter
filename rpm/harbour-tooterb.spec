@@ -60,7 +60,8 @@ Links:
 
 %build
 
-%if %{without harbour}
+
+%if "%{?vendor}" == "chum"
  %qmake5 VERSION=%{version} RELEASE=%{release}
 %else
  HARBOUR_STORE=1 MB2_QMAKE_ARGS='CONFIG+=harbour_store' %qmake5 QMAKE_ARGS='CONFIG+=harbour_store' 'CONFIG+=harbour_store'
@@ -80,9 +81,9 @@ desktop-file-install --delete-original       \
 %{_bindir}
 %{_datadir}/%{name}
 %{_datadir}/applications/%{name}.desktop
-%if %{without harbour}
-%{_datadir}/applications/%{name}-open-url.desktop
-%{_datadir}/d-bus1/services/de.poetaster.harbour.tooterb.service
-%{_datadir}/lipstick/notificationcategories/x-harbour.tooterb.activity.conf
+%if "%{?vendor}" == "chum"
+ %{_datadir}/applications/%{name}-open-url.desktop
+ %{_datadir}/d-bus1/services/de.poetaster.harbour.tooterb.service
+ %{_datadir}/lipstick/notificationcategories/x-harbour.tooterb.activity.conf
 %endif
 %{_datadir}/icons/hicolor/*/apps/%{name}.png

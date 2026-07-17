@@ -99,6 +99,7 @@ harbour_store {
 } else {
 # this is redundant see the defines at the top. TO-DO
   DISTFILES += harbour-tooterb-open-url.desktop
+  DISTFILES += config/de.poetaster.harbour.tooterb.service
   # extra desktop file for dbus
   desktop2.path += /usr/share/applications
   desktop2.files = $${TARGET}-open-url.desktop

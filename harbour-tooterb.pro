@@ -26,18 +26,6 @@ DEFINES += "APPNAME=\\\"$${TARGET}\\\""
     system(qdbusxml2cpp config/de.poetaster.harbour.tooterb.xml -i dbus.h -a src/dbusAdaptor)
 }
 
-config.path = /usr/share/$${TARGET}/config/
-config.files = config/icon-lock-harbour-tooterb.png
-
-notification_categories.path = /usr/share/lipstick/notificationcategories
-notification_categories.files = config/x-harbour.tooterb.activity.*
-
-dbus_services.path = /usr/share/dbus-1/services/
-dbus_services.files = config/de.poetaster.harbour.tooterb.service
-
-interfaces.path = /usr/share/dbus-1/interfaces/
-interfaces.files = config/de.poetaster.harbour.tooterb.xml
-
 SOURCES += src/harbour-tooterb.cpp \
     src/imageuploader.cpp \
     src/filedownloader.cpp \
@@ -85,15 +73,31 @@ DISTFILES += qml/harbour-tooterb.qml \
     qml/lib/Worker.js \
     config/icon-lock-harbour-tooterb.png \
     config/x-harbour.tooterb.activity.conf \
+    config/de.poetaster.harbour.tooterb.service \
     rpm/harbour-tooterb.changes.run \
     rpm/harbour-tooterb.changes \
     rpm/harbour-tooterb.spec \
     translations/*.ts \
     harbour-tooterb.desktop \
 
+
+# dbus releated
+    config.path = /usr/share/$${TARGET}/config/
+    config.files = config/icon-lock-harbour-tooterb.png
+
+    notification_categories.path = /usr/share/lipstick/notificationcategories
+    notification_categories.files = config/x-harbour.tooterb.activity.*
+
+    dbus_services.path = /usr/share/dbus-1/services/
+    dbus_services.files = config/de.poetaster.harbour.tooterb.service
+
+    interfaces.path = /usr/share/dbus-1/interfaces/
+    interfaces.files = config/de.poetaster.harbour.tooterb.xml
+
 harbour_store {
   message("Yup store")
 } else {
+# this is redundant see the defines at the top. TO-DO
   DISTFILES += harbour-tooterb-open-url.desktop
   # extra desktop file for dbus
   desktop2.path += /usr/share/applications
@@ -101,8 +105,11 @@ harbour_store {
   INSTALLS += desktop2
 # extra service file for dbus
   service.path = /usr/share/dbus-1/services
-  serivce.files = de.poetaster.harbour.tooter.service
+  serivce.files = config/de.poetaster.harbour.tooter.service
   INSTALLS += service
+
+  INSTALLS += notification_categories
+  INSTALLS += interfaces
 }
 SAILFISHAPP_ICONS = 86x86 108x108 128x128 172x172
 

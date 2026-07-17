@@ -82,5 +82,7 @@ desktop-file-install --delete-original       \
 %{_datadir}/applications/%{name}.desktop
 %if %{without harbour}
 %{_datadir}/applications/%{name}-open-url.desktop
+%{_datadir}/d-bus1/de.poetaster.harbour.tooter.service
+%{_datadir}/lipstick/notificationcategories/x-harbour.tooterb.activity.conf
 %endif
 %{_datadir}/icons/hicolor/*/apps/%{name}.png

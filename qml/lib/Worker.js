@@ -45,7 +45,8 @@ WorkerScript.onMessage = function(msg) {
     /** order notifications in ASC order */
     function orderNotifications(items){
         for (var i = items.length-1; i > 0; i--) {
-            if (items[i].id > 0 ) //msg.conf.notificationLastID)
+            //if (items[i].id > 0 ) //msg.conf.notificationLastID)
+            if (items[i].id > msg.conf.notificationLastID)
                 WorkerScript.sendMessage({ 'fireNotification': true, "data": items[i]})
         }
     }
@@ -239,8 +240,8 @@ WorkerScript.onMessage = function(msg) {
        if (debug) console.log( "items.length = " + items.length)
         }
 
-        /*if(msg.action === "notifications")
-            orderNotifications(items)*/
+        if(msg.action === "notifications")
+            orderNotifications(items)
 
         if (debug) console.log("Get em all?")
 

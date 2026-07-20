@@ -59,6 +59,16 @@ Page {
                     appWindow.quickScrollEnabled = checked
                 }
             }
+            IconTextSwitch {
+                text: qsTr("Notification")
+                description: qsTr("Show notifications and create alerts")
+                icon.source: "image://theme/icon-m-up"
+                checked: typeof Logic.conf['notify'] === "undefined" || Logic.conf['notify']
+                onClicked: {
+                    Logic.conf['notify'] = checked
+                    appWindow.notify = checked
+                }
+            }
 
             Item {
                 width: parent.width

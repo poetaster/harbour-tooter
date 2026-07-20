@@ -169,7 +169,6 @@ var notificationGenerator = function(item){
 
     if (debug) console.log(JSON.stringify(notification.remoteActions[0].arguments))
     //Notifications.notify("Tooter β", "serverinfo.serverTitle", " new activity", false, "2015-10-15 00:00:00", "aaa")
-
     notification.timestamp = item.timestamp
     notification.summary = item.summary
     notification.body = item.body
@@ -186,6 +185,11 @@ var notificationGenerator = function(item){
 }
 
 var notifier = function(item){
+
+ /* do not process messages older than 12 hours*/
+ var today = new Date();
+ var itemDate = item.created_at;
+ if (Date.parse(today) - Date.parse(itemDate) < 43200000 ) {
 
     item.content = item.content.replace(/(<([^>]+)>)/ig,"").replaceAll("&quot;", "\"")
 
@@ -241,6 +245,7 @@ var notifier = function(item){
         return;
     }
     notificationGenerator(msg)
+ }
 }
 
 

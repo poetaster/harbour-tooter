@@ -15,6 +15,7 @@ SilicaListView {
     property string description
     property ListModel mdl: []
     property variant params: []
+    property var notificationIds: []
     property var locale: Qt.locale()
     property bool autoLoadMore: true
     property bool loadStarted: false
@@ -210,7 +211,10 @@ SilicaListView {
             }
 
             if (messageObject.fireNotification && notifier){
-                Logic.notifier(messageObject.data)
+                //To-do a conditional to make sure not to fire old notifications
+                //if ()
+                notificationIds.push(messageObject.data.id)
+                if (Logic.conf['notify'])  Logic.notifier(messageObject.data)
             }
 
             // temporary debugging measure
@@ -266,7 +270,7 @@ SilicaListView {
             if( title === "Local" ) listInterval = 10*60*1000
             if( title === "Federated" ) listInterval = 30*60*1000
             if( title === "Bookmarks" ) listInterval = 40*60*1000
-            if( title === "Notifications" ) listInterval = 12*60*1000
+            //if( title === "Notifications" ) listInterval = 12*60*1000
 
             if(debug) console.log(title + ' interval: ' + listInterval)
 

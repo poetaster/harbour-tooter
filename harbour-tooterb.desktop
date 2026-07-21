@@ -8,4 +8,4 @@ Name=Tooter β
 [X-Sailjail]
 OrganizationName=de.poetaster
 ApplicationName=tooterb
-Permissions=Internet;Audio;MediaIndexing;RemovableMedia;UserDirs;Notifications
+Permissions=Internet;Audio;MediaIndexing;RemovableMedia;UserDirs;

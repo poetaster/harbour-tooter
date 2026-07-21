@@ -158,17 +158,15 @@ var notificationGenerator = function(item){
     var notification;
     switch (item.urgency){
     case "normal":
-        notification = Qt.createQmlObject('import org.nemomobile.notifications 1.0; Notification { category: "x-harbour.tooterb.activity"; appName: "Tooter β"; itemCount: 1; remoteActions: [ { "name": "default", "displayName": "Do something", "icon": "icon-s-certificates", "service": "de.poetaster.harbour.tooterb", "path": "/", "iface": "de.poetaster.harbour.tooterb", "method": "openapp", "arguments": [ "'+item.service+'", "'+item.key+'" ] }]; urgency: Notification.Normal;  }', Qt.application, 'InternalQmlObject');
+        notification = Qt.createQmlObject('import org.nemomobile.notifications 1.0;  Notification {  category: "x-harbour.tooterb.activity";  appName: "Tooter β"; itemCount: 1; remoteActions: [  { "name": "default", "displayName": "Do something", "icon": "icon-s-certificates",  "service": "org.sailfishos.fileservice",  "path": "/",  "iface": "org.sailfishos.fileservice",  "method": "openUrl", "arguments": [ "'+item.key+'" ] }];  urgency: Notification.Normal;  }', Qt.application, 'InternalQmlObject');
         break;
     case "critical":
-        notification = Qt.createQmlObject('import org.nemomobile.notifications 1.0; Notification { appName: "Tooter β"; itemCount: 1; remoteActions: [ { "name": "default", "displayName": "Do something", "icon": "icon-s-certificates", "service": "de.poetaster.harbour.tooterb", "path": "/", "iface": "de.poetaster.harbour.tooterb", "method": "openapp", "arguments": [ "'+item.service+'", "'+item.key+'" ] }]; urgency: Notification.Critical;  }', Qt.application, 'InternalQmlObject');
+        notification = Qt.createQmlObject('import org.nemomobile.notifications 1.0; Notification { appName: "Tooter β"; itemCount: 1; remoteActions: [ { "name": "default", "displayName": "Do something", "icon": "icon-s-certificates", "service": "org.sailfishos.fileservice", "path": "/", "iface": "org.sailfishos.fileservice", "method": "openUrl", "arguments": [ "'+item.key+'" ] }]; urgency: Notification.Critical;  }', Qt.application, 'InternalQmlObject');
         break;
     default:
-        notification = Qt.createQmlObject('import org.nemomobile.notifications 1.0; Notification { category: "x-harbour.tooterb.activity"; appName: "Tooter β"; itemCount: 1; remoteActions: [ { "name": "default", "displayName": "Do something", "icon": "icon-s-certificates", "service": "de.poetaster.harbour.tooterb", "path": "/", "iface": "de.poetaster.harbour.tooterb", "method": "openapp", "arguments": [ "'+item.service+'", "'+item.key+'" ] }]; urgency: Notification.Low;  }', Qt.application, 'InternalQmlObject');
+        notification = Qt.createQmlObject('import org.nemomobile.notifications 1.0; Notification { category: "x-harbour.tooterb.activity"; appName: "Tooter β"; itemCount: 1; remoteActions: [ { "name": "default", "displayName": "Do something", "icon": "icon-s-certificates", "service": "org.sailfishos.fileservice", "path": "/", "iface": "org.sailfishos.fileservice", "method": "openUrl", "arguments": [  "'+item.key+'" ] }]; urgency: Notification.Low;  }', Qt.application, 'InternalQmlObject');
     }
 
-    if (debug) console.log(JSON.stringify(notification.remoteActions[0].arguments))
-    //Notifications.notify("Tooter β", "serverinfo.serverTitle", " new activity", false, "2015-10-15 00:00:00", "aaa")
     notification.timestamp = item.timestamp
     notification.summary = item.summary
     notification.body = item.body
@@ -202,7 +200,7 @@ var notifier = function(item){
             summary: (item.reblog_account_display_name !== "" ? item.reblog_account_display_name : '@'+item.reblog_account_username) + ' ' + qsTr("favourited"),
             body: item.content,
             service: 'toot',
-            key: item.id
+            key: item.status_url
         }
         break;
 
@@ -224,7 +222,7 @@ var notifier = function(item){
             summary: (item.reblog_account_display_name !== "" ? item.reblog_account_display_name : '@'+item.reblog_account_username) + ' ' + qsTr("boosted"),
             body: item.content,
             service: 'toot',
-            key: item.id
+            key: item.status_url
         }
         break;
 
@@ -236,7 +234,7 @@ var notifier = function(item){
             body: item.content,
             previewBody: (item.account_display_name !== "" ? item.account_display_name : '@'+item.account_username) + ' ' + qsTr("said") + ': ' + item.content,
             service: 'toot',
-            key: item.id
+            key: item.status_url
         }
         break;
 

@@ -17,7 +17,6 @@ Page {
     property bool quickAccountSwitchHintActive: !Logic.conf.multipleAccountsHintCompleted && Logic.conf.accounts.length > 1
     
     allowedOrientations: Orientation.All
-
     DBusAdaptor {
         id: dbus
         bus: DBus.SessionBus
@@ -38,18 +37,8 @@ Page {
             if (debug) console.log(parsed.statusId)
             // For recognized Mastodon URLs (tag, profile, status), delegate to MainPage
             if (parsed.type === "status"){
-                var m = Qt.createQmlObject('import QtQuick 2.0; ListModel { dynamicRoles:true }', Qt.application, 'InternalQmlObject');
-                if (typeof mdl !== "undefined")
-                    m.append(mdl.get(index))
-                pageStack.push(Qt.resolvedUrl("../pages/ConversationPage.qml"), {
-                                   headerTitle: qsTr("Conversation"),
-                                   "status_id": parsed.status_id,
-                                   "status_url": parsed.status_url,
-                                   "status_uri": parsed.status_uri,
-                                   "username": '@'+parsed.account_acct,
-                                   mdl: m,
-                                   type: "reply"
-                               })
+                // just go to the notifications panel
+                slideshow.positionViewAtIndex(1, ListView.SnapToItem)
             } else if (parsed.type !== "unknown") {
                 pageStack.pop(pageStack.find(function(page) {
                     var check = page.isFirstPage === true
@@ -60,6 +49,7 @@ Page {
             }
         }
         function showtoot(u) {
+
             openUrl(u)
         }
     }

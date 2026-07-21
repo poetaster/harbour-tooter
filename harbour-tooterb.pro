@@ -91,8 +91,8 @@ DISTFILES += qml/harbour-tooterb.qml \
     dbus_services.path = /usr/share/dbus-1/services/
     dbus_services.files = config/de.poetaster.harbour.tooterb.service
 
-    interfaces.path = /usr/share/dbus-1/interfaces/
-    interfaces.files = config/de.poetaster.harbour.tooterb.xml
+    #interfaces.path = /usr/share/dbus-1/interfaces/
+    #interfaces.files = config/de.poetaster.harbour.tooterb.xml
 
 harbour_store {
   message("Yup store")
@@ -108,9 +108,7 @@ harbour_store {
   service.path = /usr/share/dbus-1/services/
   service.files = config/de.poetaster.harbour.tooterb.service
   INSTALLS += service
-
   INSTALLS += notification_categories
-  INSTALLS += interfaces
 }
 SAILFISHAPP_ICONS = 86x86 108x108 128x128 172x172
 

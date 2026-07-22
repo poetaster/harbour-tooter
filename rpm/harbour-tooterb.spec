@@ -4,9 +4,9 @@ Name:       harbour-tooterb
 %define __provides_exclude_from ^%{_datadir}/.*$
 
 %if "%{?vendor}" == "chum"
-%bcond_with harbour
-%else
 %bcond_without harbour
+%else
+%bcond_with harbour
 %endif
 
 Summary:    Tooter β

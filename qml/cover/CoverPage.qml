@@ -64,7 +64,7 @@ CoverBackground {
     Timer {
         id: timer
         interval: 60*1000
-        triggeredOnStart: true
+        triggeredOnStart: false
         repeat: true
         onTriggered: checkNotifications();
     }

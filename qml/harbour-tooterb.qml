@@ -44,6 +44,9 @@ ApplicationWindow {
     property bool quickScrollEnabled: true
     // Global notify setting - reactive
     property bool notify: false
+    // Global notificationIds
+    property var notificationIds: []
+
     // Instance max characters - fetched from server, default to 500
     property int instanceMaxChars: 500
 

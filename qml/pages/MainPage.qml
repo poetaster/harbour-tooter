@@ -14,6 +14,8 @@ Page {
     // for people search
     property string suggestedUser: ""
     property ListModel suggestedModel
+    // incoming from dbus openUrl
+    property string externalId:""
     property bool quickAccountSwitchHintActive: !Logic.conf.multipleAccountsHintCompleted && Logic.conf.accounts.length > 1
     
     allowedOrientations: Orientation.All
@@ -37,6 +39,8 @@ Page {
             if (debug) console.log(parsed.statusId)
             // For recognized Mastodon URLs (tag, profile, status), delegate to MainPage
             if (parsed.type === "status"){
+                // set the status id so that notifications can scroll to
+                externalId = parsed.statusId
                 // just go to the notifications panel
                 slideshow.positionViewAtIndex(1, ListView.SnapToItem)
             } else if (parsed.type !== "unknown") {

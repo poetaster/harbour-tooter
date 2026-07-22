@@ -9,7 +9,7 @@ SilicaListView {
 
     quickScroll: appWindow.quickScrollEnabled
 
-    property bool debug: false
+    property bool debug: true
     property string type
     property string title
     property string description
@@ -46,6 +46,24 @@ SilicaListView {
         if (debug) console.log("LIST send signal emitted with notice: " + notice)
     }
 
+    function checkNotifications(){
+        console.log("checkNotifications")
+        var notificationsNum = 0
+        var notificationLastID = Logic.conf.notificationLastID;
+        //Logic.conf.notificationLastID = 0;
+        for(var i = 0; i < Logic.modelTLnotifications.count; i++) {
+            if (notificationLastID < Logic.modelTLnotifications.get(i).id) {
+                notificationLastID = Logic.modelTLnotifications.get(i).id
+            }
+
+            if (Logic.conf.notificationLastID < Logic.modelTLnotifications.get(i).id) {
+                notificationsNum++
+                Logic.notifier(Logic.modelTLnotifications.get(i))
+            }
+        }
+        notificationsLbl.text = notificationsNum;
+        Logic.conf.notificationLastID = notificationLastID;
+    }
     header: PageHeader {
         title: myList.title
         description: myList.description
@@ -213,8 +231,16 @@ SilicaListView {
             if (messageObject.fireNotification && notifier){
                 //To-do a conditional to make sure not to fire old notifications
                 //if ()
-                notificationIds.push(messageObject.data.id)
-                if (Logic.conf['notify'])  Logic.notifier(messageObject.data)
+                //checkNotifications()
+                if(debug) {
+                    console.log("lastNo" + Logic.conf.notificationLastID)
+                    console.log("thisNo" + messageObject.data.id)
+                }
+
+                if (Logic.conf['notify'] &&  messageObject.data.id > Logic.conf.notificationLastID) {
+                    Logic.notifier(messageObject.data)
+                    Logic.conf.notificationLastID = messageObject.data.id
+                }
             }
 
             // temporary debugging measure
@@ -255,6 +281,17 @@ SilicaListView {
     Component.onCompleted: {
         loadData("prepend")
         if (debug) console.log("MyList completed: " + title)
+        // for setting focus on external ID from dbus
+        if (externalId.length > 1 && title === "Notifications") {
+            for(var i = 0; i < Logic.modelTLnotifications.count; i++) {
+                if  ( Logic.modelTLnotifications.get(i).id === externalId)  {
+                    myList.currentIndex = i
+                    myList.positionViewAtEnd()
+                    myList.positionViewAtIndex(i, ListView.Beginning)
+
+                }
+            }
+        }
     }
 
     Timer {
@@ -270,7 +307,7 @@ SilicaListView {
             if( title === "Local" ) listInterval = 10*60*1000
             if( title === "Federated" ) listInterval = 30*60*1000
             if( title === "Bookmarks" ) listInterval = 40*60*1000
-            //if( title === "Notifications" ) listInterval = 12*60*1000
+            if( title === "Notifications" ) listInterval = 12*60*1000
 
             if(debug) console.log(title + ' interval: ' + listInterval)
 

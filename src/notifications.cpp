@@ -67,7 +67,7 @@ void Notifications::notify(QString appName, QString summary, QString body, bool 
                                                     "de.poetaster.habour.tooterb",
                                                     "/",
                                                     "de.poetaster.habour.tooterb",
-                                                    "showtoot",
+                                                    "openUrl",
                                                      args);
     }
 

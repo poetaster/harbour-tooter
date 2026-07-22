@@ -22,6 +22,8 @@ PKGCONFIG += sailfishapp \
 DEFINES += "APPVERSION=\\\"$${SPECVERSION}\\\""
 DEFINES += "APPNAME=\\\"$${TARGET}\\\""
 
+DEFINES += "openrepos"
+
 !exists( src/dbusAdaptor.h ) {
     system(qdbusxml2cpp config/de.poetaster.harbour.tooterb.xml -i dbus.h -a src/dbusAdaptor)
 }

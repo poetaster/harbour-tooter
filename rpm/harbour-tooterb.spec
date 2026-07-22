@@ -4,13 +4,13 @@ Name:       harbour-tooterb
 %define __provides_exclude_from ^%{_datadir}/.*$
 
 %if "%{?vendor}" == "chum"
-%bcond_without harbour
-%else
 %bcond_with harbour
+%else
+%bcond_without harbour
 %endif
 
 Summary:    Tooter β
-Version:    1.4.0
+Version:    1.4.1
 Release:    1
 Group:      Qt/Qt
 License:    GPLv3

@@ -66,7 +66,7 @@ CoverBackground {
         interval: 60*1000
         triggeredOnStart: false
         repeat: true
-        onTriggered: checkNotifications();
+        //onTriggered: checkNotifications();
     }
 
     Image {

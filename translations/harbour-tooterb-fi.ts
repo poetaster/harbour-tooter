@@ -4,23 +4,23 @@
 <context>
     <name>API</name>
     <message>
-        <location filename="../qml/lib/API.js" line="198"/>
+        <location filename="../qml/lib/API.js" line="202"/>
         <source>favourited</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/lib/API.js" line="210"/>
+        <location filename="../qml/lib/API.js" line="214"/>
         <source>followed you</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/lib/API.js" line="220"/>
+        <location filename="../qml/lib/API.js" line="224"/>
         <source>boosted</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/lib/API.js" line="231"/>
-        <location filename="../qml/lib/API.js" line="233"/>
+        <location filename="../qml/lib/API.js" line="235"/>
+        <location filename="../qml/lib/API.js" line="237"/>
         <source>said</source>
         <translation type="unfinished"></translation>
     </message>
@@ -152,7 +152,7 @@
     </message>
     <message>
         <location filename="../qml/pages/ConversationPage.qml" line="459"/>
-        <location filename="../qml/pages/ConversationPage.qml" line="911"/>
+        <location filename="../qml/pages/ConversationPage.qml" line="928"/>
         <source>Edit Alt Text</source>
         <translation type="unfinished"></translation>
     </message>
@@ -187,27 +187,27 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/ConversationPage.qml" line="721"/>
+        <location filename="../qml/pages/ConversationPage.qml" line="738"/>
         <source>Toot edited!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/ConversationPage.qml" line="721"/>
+        <location filename="../qml/pages/ConversationPage.qml" line="738"/>
         <source>Toot sent!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/ConversationPage.qml" line="912"/>
+        <location filename="../qml/pages/ConversationPage.qml" line="929"/>
         <source>Save</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/ConversationPage.qml" line="918"/>
+        <location filename="../qml/pages/ConversationPage.qml" line="935"/>
         <source>Describe this media for visually impaired users</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/ConversationPage.qml" line="927"/>
+        <location filename="../qml/pages/ConversationPage.qml" line="944"/>
         <source>Alt text helps make content accessible to people who are blind or have low vision.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -293,57 +293,52 @@
 <context>
     <name>MainPage</name>
     <message>
-        <location filename="../qml/pages/MainPage.qml" line="45"/>
-        <source>Conversation</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/MainPage.qml" line="113"/>
+        <location filename="../qml/pages/MainPage.qml" line="110"/>
         <source>Press and hold the home tab to switch account</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/MainPage.qml" line="123"/>
+        <location filename="../qml/pages/MainPage.qml" line="120"/>
         <source>Home</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/MainPage.qml" line="135"/>
+        <location filename="../qml/pages/MainPage.qml" line="132"/>
         <source>Notifications</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/MainPage.qml" line="146"/>
+        <location filename="../qml/pages/MainPage.qml" line="143"/>
         <source>Local</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/MainPage.qml" line="157"/>
+        <location filename="../qml/pages/MainPage.qml" line="154"/>
         <source>Federated</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/MainPage.qml" line="166"/>
+        <location filename="../qml/pages/MainPage.qml" line="163"/>
         <source>Bookmarks</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/MainPage.qml" line="202"/>
+        <location filename="../qml/pages/MainPage.qml" line="199"/>
         <source>Search</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/MainPage.qml" line="212"/>
+        <location filename="../qml/pages/MainPage.qml" line="209"/>
         <source>@user or #term</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/MainPage.qml" line="339"/>
+        <location filename="../qml/pages/MainPage.qml" line="336"/>
         <source>Trending</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/MainPage.qml" line="383"/>
+        <location filename="../qml/pages/MainPage.qml" line="380"/>
         <source>New Toot</source>
         <translation type="unfinished"></translation>
     </message>
@@ -396,33 +391,33 @@
 <context>
     <name>MyList</name>
     <message>
-        <location filename="../qml/pages/components/MyList.qml" line="71"/>
+        <location filename="../qml/pages/components/MyList.qml" line="90"/>
         <source>Nothing found</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/components/MyList.qml" line="77"/>
+        <location filename="../qml/pages/components/MyList.qml" line="96"/>
         <source>Settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/components/MyList.qml" line="84"/>
+        <location filename="../qml/pages/components/MyList.qml" line="103"/>
         <source>My Profile</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/components/MyList.qml" line="109"/>
-        <location filename="../qml/pages/components/MyList.qml" line="113"/>
+        <location filename="../qml/pages/components/MyList.qml" line="128"/>
+        <location filename="../qml/pages/components/MyList.qml" line="132"/>
         <source>New Toot</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/components/MyList.qml" line="120"/>
+        <location filename="../qml/pages/components/MyList.qml" line="139"/>
         <source>Open in Browser</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/components/MyList.qml" line="128"/>
+        <location filename="../qml/pages/components/MyList.qml" line="147"/>
         <source>Reload</source>
         <translation type="unfinished"></translation>
     </message>
@@ -764,27 +759,37 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="120"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="63"/>
+        <source>Notification</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/SettingsPage.qml" line="64"/>
+        <source>Show notifications and create alerts</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/SettingsPage.qml" line="130"/>
         <source>Account</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="148"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="158"/>
         <source>Account removed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="163"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="173"/>
         <source>Remove</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="201"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="211"/>
         <source>Add Account</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="216"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="226"/>
         <source>Authorize this app to access your Mastodon account</source>
         <translation type="unfinished"></translation>
     </message>
@@ -804,12 +809,12 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="83"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="93"/>
         <source>Font Size</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="108"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="118"/>
         <source>Sample text</source>
         <translation type="unfinished"></translation>
     </message>

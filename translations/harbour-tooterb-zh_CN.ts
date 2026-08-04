@@ -277,10 +277,6 @@
         <source>New Toot</source>
         <translation type="unfinished">新嘟嘟</translation>
     </message>
-    <message>
-        <source>Conversation</source>
-        <translation type="unfinished"></translation>
-    </message>
 </context>
 <context>
     <name>MediaFullScreen</name>
@@ -649,6 +645,14 @@
     </message>
     <message>
         <source>Sample text</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Notification</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show notifications and create alerts</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

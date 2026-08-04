@@ -277,10 +277,6 @@
         <source>New Toot</source>
         <translation type="unfinished">Nowy wpis</translation>
     </message>
-    <message>
-        <source>Conversation</source>
-        <translation type="unfinished"></translation>
-    </message>
 </context>
 <context>
     <name>MediaFullScreen</name>
@@ -654,6 +650,14 @@
         <source>About</source>
         <comment>About the app</comment>
         <translation type="unfinished">O tej aplikacji</translation>
+    </message>
+    <message>
+        <source>Notification</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show notifications and create alerts</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

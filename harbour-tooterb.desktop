@@ -9,3 +9,7 @@ Name=Tooter β
 OrganizationName=de.poetaster
 ApplicationName=tooterb
 Permissions=Internet;Audio;MediaIndexing;RemovableMedia;UserDirs;
+
+[X-HarbourBackup]
+BackupPathList=.local/share/de.poetaster/tooterb/
+BackupConfigList=/apps/harbour-tooterb/

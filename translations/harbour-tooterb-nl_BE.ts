@@ -5,218 +5,218 @@
     <name>API</name>
     <message>
         <source>favourited</source>
-        <translation type="unfinished">heeft geduimd voor</translation>
+        <translation>hee’ da hier favoriet gemaakt</translation>
     </message>
     <message>
         <source>followed you</source>
-        <translation type="unfinished">volgt u nu</translation>
+        <translation>volgt u nu</translation>
     </message>
     <message>
         <source>boosted</source>
-        <translation type="unfinished">heeft geboost</translation>
+        <translation>hee’ da hier geboost</translation>
     </message>
     <message>
         <source>said</source>
-        <translation type="unfinished"></translation>
+        <translation>hee’ da hier gezeid</translation>
     </message>
 </context>
 <context>
     <name>AboutPage</name>
     <message>
         <source>Tooter is Mastodon client for Sailfish OS.</source>
-        <translation type="unfinished"></translation>
+        <translation>Tooter is ne Mastodon-cliënt voôr Sailfish OS.</translation>
     </message>
     <message>
         <source>UI/UX design and development</source>
-        <translation type="unfinished">UI/UX-ontwerp en -ontwikkeling</translation>
+        <translation>UI/UX-ontwerp en -ontwikkeling</translation>
     </message>
     <message>
         <source>Visual identity</source>
-        <translation type="unfinished"></translation>
+        <translation>Visuele identiteit</translation>
     </message>
     <message>
         <source>Documentation</source>
-        <translation type="unfinished"></translation>
+        <translation>Documentatie</translation>
     </message>
     <message>
         <source>Mention</source>
-        <translation type="unfinished"></translation>
+        <translation>Vermelding</translation>
     </message>
     <message>
         <source>Credits</source>
-        <translation type="unfinished">Credits</translation>
+        <translation>Me’ dank aan</translation>
     </message>
     <message>
         <source>Development and translations</source>
-        <translation type="unfinished"></translation>
+        <translation>Ontwikkeling en vertalingen</translation>
     </message>
     <message>
         <source>Development</source>
-        <translation type="unfinished">Ontwikkeling</translation>
+        <translation>Ontwikkeling</translation>
     </message>
     <message>
         <source>Occitan &amp; French translation</source>
-        <translation type="unfinished"></translation>
+        <translation>Occitaanse &amp; Franse vertaling</translation>
     </message>
     <message>
         <source>Chinese translation</source>
-        <translation type="unfinished"></translation>
+        <translation>Chinese vertaling</translation>
     </message>
     <message>
         <source>Dutch translation</source>
-        <translation type="unfinished"></translation>
+        <translation>Hollandse vertaling</translation>
     </message>
     <message>
         <source>Spanish translation</source>
-        <translation type="unfinished"></translation>
+        <translation>Spaanse vertaling</translation>
     </message>
     <message>
         <source>Development, Russian translation</source>
-        <translation type="unfinished"></translation>
+        <translation>Ontwikkeling, Russische vertaling</translation>
     </message>
     <message>
         <source>Norwegian Translation</source>
-        <translation type="unfinished"></translation>
+        <translation>Noorse vertaling</translation>
     </message>
     <message>
         <source>SFOS Community Liberapay</source>
-        <translation type="unfinished"></translation>
+        <translation>Liberapay van de SFOS-gemeênschap</translation>
     </message>
     <message>
         <source>French Translation</source>
-        <translation type="unfinished"></translation>
+        <translation>Franse vertaling</translation>
     </message>
     <message>
         <source>Swedish Translation</source>
-        <translation type="unfinished"></translation>
+        <translation>Zweedse vertaling</translation>
     </message>
     <message>
         <source>Italian Translation</source>
-        <translation type="unfinished"></translation>
+        <translation>Italiaanse vertaling</translation>
     </message>
 </context>
 <context>
     <name>ConversationPage</name>
     <message>
         <source>Copy Link to Clipboard</source>
-        <extracomment>Use the translation of &quot;Copy Link&quot; for a shorter PullDownMenu label</extracomment>
-        <translation type="unfinished"></translation>
+        <extracomment>Use the translation of "Copy Link" for a shorter PullDownMenu label</extracomment>
+        <translation>Koppeling kopiëren naar ’t klembord</translation>
     </message>
     <message>
         <source>Write your warning here</source>
         <extracomment>placeholderText in Toot content warning panel</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Schrijft hier uwe waarschuwingstekst</translation>
     </message>
     <message>
-        <source>What&apos;s on your mind?</source>
+        <source>What's on your mind?</source>
         <extracomment>placeholderText in Toot text panel</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Op wa’ zitte te peizen?</translation>
     </message>
     <message>
         <source>Toot sent!</source>
-        <translation type="unfinished"></translation>
+        <translation>Toot verzonden!</translation>
     </message>
     <message>
         <source>Open in Browser</source>
-        <translation type="unfinished"></translation>
+        <translation>Openen in browser</translation>
     </message>
     <message>
         <source>Edit Alt Text</source>
-        <translation type="unfinished"></translation>
+        <translation>Alt-tekst bewèrken</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation>Verwijderen</translation>
     </message>
     <message>
         <source>Toot edited!</source>
-        <translation type="unfinished"></translation>
+        <translation>Toot bewèrkt!</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished"></translation>
+        <translation>Opslaan</translation>
     </message>
     <message>
         <source>Describe this media for visually impaired users</source>
-        <translation type="unfinished"></translation>
+        <translation>Beschrijft deze media voôr gebruikers me een visuele bepèrking</translation>
     </message>
     <message>
         <source>Alt text helps make content accessible to people who are blind or have low vision.</source>
-        <translation type="unfinished"></translation>
+        <translation>Alt-tekst zorgt dervoôr da’ den inhoud oôk toegankelijk is voôr blinden en slechtzienden.</translation>
     </message>
     <message>
         <source>Quoting @%1</source>
-        <translation type="unfinished"></translation>
+        <translation>Citaat van @%1</translation>
     </message>
     <message>
         <source>Removing</source>
-        <translation type="unfinished"></translation>
+        <translation>Wor’ verwijderd</translation>
     </message>
     <message>
         <source>Public</source>
-        <translation type="unfinished"></translation>
+        <translation>Openbaar</translation>
     </message>
     <message>
         <source>Unlisted</source>
-        <translation type="unfinished"></translation>
+        <translation>Ni op de lijst</translation>
     </message>
     <message>
         <source>Followers-only</source>
-        <translation type="unfinished"></translation>
+        <translation>Alleên-volgers</translation>
     </message>
     <message>
         <source>Direct</source>
-        <translation type="unfinished"></translation>
+        <translation>Direct</translation>
     </message>
 </context>
 <context>
     <name>CoverPage</name>
     <message>
         <source>New Toot</source>
-        <translation>Nieuwen toot</translation>
+        <translation>Nieven toot</translation>
     </message>
 </context>
 <context>
     <name>EmojiSelect</name>
     <message>
         <source>Emojis</source>
-        <translation>Emojis</translation>
+        <translation>Emoji’s</translation>
     </message>
     <message>
         <source>Tap to insert</source>
-        <translation>Tikt voor in te voegen</translation>
+        <translation>Tikt voôr in te voegen</translation>
     </message>
 </context>
 <context>
     <name>ExternalUrlPage</name>
     <message>
         <source>Swipe left to preview.</source>
-        <translation type="unfinished"></translation>
+        <translation>Vaagt naar links voôr de voôrbeeldweergave.</translation>
     </message>
     <message>
         <source>You are using a mobile data connection.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ge gebruikt een mobielegegevensconnectie.</translation>
     </message>
 </context>
 <context>
     <name>ImageUploader</name>
     <message>
         <source>The file %1 does not exists</source>
-        <translation>Het bestand %1 bestaat niet</translation>
+        <translation>’t Bestand %1 besta ni</translation>
     </message>
 </context>
 <context>
     <name>LicenseListPart</name>
     <message>
         <source>License text</source>
-        <translation type="unfinished"></translation>
+        <translation>Licentietekst</translation>
     </message>
 </context>
 <context>
     <name>LoginPage</name>
     <message>
         <source>Login</source>
-        <translation>Inloggen</translation>
+        <translation>Aanmelden</translation>
     </message>
     <message>
         <source>Instance</source>
@@ -224,91 +224,91 @@
     </message>
     <message>
         <source>Mastodon is a free, open-source social network. A decentralized alternative to commercial platforms, it avoids the risks of a single company monopolizing your communication. Pick a server that you trust — whichever you choose, you can interact with everyone else. Anyone can run their own Mastodon instance and participate in the social network seamlessly.</source>
-        <translation>Mastodon is e vrij sociaal netwerk. Als gedecentraliseerd alternatief voor commerciële platformen, vermijdt het de risico’s van één enkel bedrijf dat uw communicatie monopoliseert. Kiest ne server die ge vertrouwt — dewelken dat ge ook kiest, ge kunt met iedereen communiceren. Iedereen kan zelf een Mastodon-instantie hebben en naadloos deelnemen aan het sociaal netwerk.</translation>
+        <translation>Mastodon is e vrij en sociaal netwerk. Als gedecentraliseerd alternatief voôr commerciële platformen, vermijdt ’t de risico’s van eên enkel bedrijf da u communicatie monopoliseert. Kiest nu server da’ ge betrouwt — dewelken da’ g’oôk kiest, ge kunt me iedereên communiceren. Iedereên kan zelf een Mastodon-instantie hebben en naadloôs deêlnemen aan ’t sociaal netwèrk.</translation>
     </message>
     <message>
         <source>Enter a valid Mastodon instance URL (will open a web browser for Authentication)</source>
-        <translation type="unfinished"></translation>
+        <translation>Geeft ne geldige Mastodon-instantie-URL in (hiermee opende ne webbrowser voôr u aan te melden)</translation>
     </message>
     <message>
         <source>Type</source>
-        <translation type="unfinished"></translation>
+        <translation>Type</translation>
     </message>
 </context>
 <context>
     <name>MainPage</name>
     <message>
         <source>Press and hold the home tab to switch account</source>
-        <translation type="unfinished"></translation>
+        <translation>Hou ’t thuistabblad ingeduwd voôr van account te verwisselen</translation>
     </message>
     <message>
         <source>Home</source>
-        <translation type="unfinished"></translation>
+        <translation>Thuis</translation>
     </message>
     <message>
         <source>Notifications</source>
-        <translation type="unfinished"></translation>
+        <translation>Meldingen</translation>
     </message>
     <message>
         <source>Local</source>
-        <translation type="unfinished"></translation>
+        <translation>Lokaal</translation>
     </message>
     <message>
         <source>Federated</source>
-        <translation type="unfinished"></translation>
+        <translation>Gefedereerd</translation>
     </message>
     <message>
         <source>Bookmarks</source>
-        <translation type="unfinished"></translation>
+        <translation>Bladwijzers</translation>
     </message>
     <message>
         <source>Search</source>
-        <translation type="unfinished"></translation>
+        <translation>Zoeken</translation>
     </message>
     <message>
         <source>@user or #term</source>
-        <translation type="unfinished"></translation>
+        <translation>@gebruiker of #begrip</translation>
     </message>
     <message>
         <source>Trending</source>
-        <translation type="unfinished"></translation>
+        <translation>Populair</translation>
     </message>
     <message>
         <source>New Toot</source>
-        <translation type="unfinished">Nieuwen toot</translation>
+        <translation>Nieven toot</translation>
     </message>
 </context>
 <context>
     <name>MediaFullScreen</name>
     <message>
         <source>Error loading</source>
-        <translation type="unfinished"></translation>
+        <translation>Fout bij ’t laden</translation>
     </message>
 </context>
 <context>
     <name>MediaItem</name>
     <message>
         <source>Image</source>
-        <translation type="unfinished"></translation>
+        <translation>Afbeelding</translation>
     </message>
     <message>
         <source>Video</source>
-        <translation type="unfinished"></translation>
+        <translation>Video</translation>
     </message>
     <message>
         <source>PDF document</source>
-        <translation type="unfinished"></translation>
+        <translation>Pdf-document</translation>
     </message>
 </context>
 <context>
     <name>MiniStatus</name>
     <message>
         <source>boosted</source>
-        <translation>heeft geboost</translation>
+        <translation>hee’ da hier geboost</translation>
     </message>
     <message>
         <source>favourited</source>
-        <translation>heeft geduimd voor</translation>
+        <translation>hee’ da hier favoriet gemaakt</translation>
     </message>
     <message>
         <source>followed you</source>
@@ -319,34 +319,34 @@
     <name>MyList</name>
     <message>
         <source>Settings</source>
-        <translation type="unfinished">Instellingen</translation>
+        <translation>Instellingen</translation>
     </message>
     <message>
         <source>New Toot</source>
-        <translation type="unfinished">Nieuwen toot</translation>
+        <translation>Nieven toot</translation>
     </message>
     <message>
         <source>Open in Browser</source>
-        <translation type="unfinished"></translation>
+        <translation>Openen in browser</translation>
     </message>
     <message>
         <source>Reload</source>
-        <translation type="unfinished"></translation>
+        <translation>Herladen</translation>
     </message>
     <message>
         <source>Nothing found</source>
-        <translation type="unfinished"></translation>
+        <translation>Niks ni’ gevonden</translation>
     </message>
     <message>
         <source>My Profile</source>
-        <translation type="unfinished"></translation>
+        <translation>Mij profiel</translation>
     </message>
 </context>
 <context>
     <name>Opal.About</name>
     <message>
         <source>About</source>
-        <translation type="unfinished"></translation>
+        <translation>Over</translation>
     </message>
     <message>
         <source>Version %1</source>
@@ -358,15 +358,15 @@
     </message>
     <message>
         <source>show contributors</source>
-        <translation type="unfinished"></translation>
+        <translation>bijdragers tônen</translation>
     </message>
     <message>
         <source>Homepage</source>
-        <translation type="unfinished"></translation>
+        <translation>Beginpagina</translation>
     </message>
     <message>
         <source>Changelog</source>
-        <translation type="unfinished"></translation>
+        <translation>Lijst van wijzigingen</translation>
     </message>
     <message>
         <source>Translations</source>
@@ -374,11 +374,11 @@
     </message>
     <message>
         <source>Source Code</source>
-        <translation type="unfinished"></translation>
+        <translation>Broncode</translation>
     </message>
     <message>
         <source>Donations</source>
-        <translation type="unfinished"></translation>
+        <translation>Donaties</translation>
     </message>
     <message>
         <source>License</source>
@@ -386,26 +386,23 @@
     </message>
     <message numerus="yes">
         <source>show license(s)</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-        </translation>
+        <translation><numerusform>licentie tônen</numerusform><numerusform>licenties tônen</numerusform></translation>
     </message>
     <message>
         <source>News</source>
-        <translation type="unfinished"></translation>
+        <translation>Nieuws</translation>
     </message>
     <message>
         <source>Changes since version %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Wijzigingen sedert versie %1</translation>
     </message>
     <message>
         <source>show details</source>
-        <translation type="unfinished"></translation>
+        <translation>details tônen</translation>
     </message>
     <message>
         <source>Thank you!</source>
-        <translation type="unfinished"></translation>
+        <translation>Merci!</translation>
     </message>
     <message>
         <source>Details</source>
@@ -417,19 +414,19 @@
     </message>
     <message>
         <source>Acknowledgements</source>
-        <translation type="unfinished"></translation>
+        <translation>Dankbetuigingen</translation>
     </message>
     <message>
-        <source>Please refer to &lt;a href=&quot;%1&quot;&gt;%1&lt;/a&gt;</source>
-        <translation type="unfinished"></translation>
+        <source>Please refer to &lt;a href="%1"&gt;%1&lt;/a&gt;</source>
+        <translation>Bekijkt &lt;a href="%1"&gt;%1&lt;/a&gt;</translation>
     </message>
     <message>
         <source>Download license texts</source>
-        <translation type="unfinished"></translation>
+        <translation>Licentieteksten downloaden</translation>
     </message>
     <message>
         <source>You are using a mobile data connection.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ge gebruikt een mobielegegevensconnectie.</translation>
     </message>
     <message numerus="yes">
         <source>License(s)</source>
@@ -440,69 +437,69 @@
     </message>
     <message>
         <source>Note: please check the source code for most accurate information.</source>
-        <translation type="unfinished"></translation>
+        <translation>Let op: controleert de broncode voôr d’accuraatste informatie.</translation>
     </message>
 </context>
 <context>
     <name>Opal.About.Common</name>
     <message>
         <source>If you want to support my work, you can buy me a cup of coffee.</source>
-        <translation type="unfinished"></translation>
+        <translation>Als ge mij wèrk wilt ondersteunen, kunde mij een tas koffie kôpen.</translation>
     </message>
     <message>
         <source>You can support this project by contributing, or by donating using any of these services.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ge kun ’t project ondersteunen deur bij te dragen, of me een donatie via eên van deze diensten.</translation>
     </message>
     <message>
         <source>Your contributions to translations or code would be most welcome.</source>
-        <translation type="unfinished"></translation>
+        <translation>Bijdragen aan vertalingen of code zijn vaneigens oôk uiterst welkom.</translation>
     </message>
 </context>
 <context>
     <name>Opal.LinkHandler</name>
     <message>
         <source>Copied to clipboard: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Gekopieerd naar ’t klembord: %1</translation>
     </message>
     <message>
         <source>Share link</source>
-        <translation type="unfinished"></translation>
+        <translation>Koppeling dêlen</translation>
     </message>
     <message>
         <source>Phone number</source>
-        <translation type="unfinished"></translation>
+        <translation>Telefonnumero</translation>
     </message>
     <message>
         <source>External link</source>
-        <translation type="unfinished"></translation>
+        <translation>Externe koppeling</translation>
     </message>
     <message>
         <source>Open in browser</source>
-        <translation type="unfinished"></translation>
+        <translation>Openen in browser</translation>
     </message>
     <message>
         <source>Open externally</source>
-        <translation type="unfinished"></translation>
+        <translation>Openen me nen anderen app</translation>
     </message>
     <message>
         <source>Share</source>
-        <translation type="unfinished"></translation>
+        <translation>Dêlen</translation>
     </message>
     <message>
         <source>Copy link</source>
-        <translation type="unfinished"></translation>
+        <translation>Koppeling kopiëren</translation>
     </message>
     <message>
         <source>Copy text</source>
-        <translation type="unfinished"></translation>
+        <translation>Tekst kopiëren</translation>
     </message>
     <message>
         <source>No preview available.</source>
-        <translation type="unfinished"></translation>
+        <translation>Geê voôrbeeld beschikbaar.</translation>
     </message>
     <message>
         <source>The page is taking too long to load.</source>
-        <translation type="unfinished"></translation>
+        <translation>’t Duurt te lang van de site te laden.</translation>
     </message>
 </context>
 <context>
@@ -513,38 +510,38 @@
     </message>
     <message>
         <source>Follows you</source>
-        <translation type="unfinished"></translation>
+        <translation>Volgt u</translation>
     </message>
     <message>
         <source>Group</source>
-        <translation type="unfinished"></translation>
+        <translation>Groep</translation>
     </message>
 </context>
 <context>
     <name>ProfilePage</name>
     <message>
         <source>About</source>
-        <extracomment>If there&apos;s no good translation for &quot;About&quot;, use &quot;Details&quot; (in details about profile).</extracomment>
-        <translation type="unfinished"></translation>
+        <extracomment>If there's no good translation for "About", use "Details" (in details about profile).</extracomment>
+        <translation>Gegevens</translation>
     </message>
     <message>
         <source>Followers</source>
-        <extracomment>Will show as: &quot;35 Followers&quot;</extracomment>
+        <extracomment>Will show as: "35 Followers"</extracomment>
         <translation>Volgers</translation>
     </message>
     <message>
         <source>Following</source>
-        <extracomment>Will show as: &quot;23 Following&quot;</extracomment>
+        <extracomment>Will show as: "23 Following"</extracomment>
         <translation>Volgend</translation>
     </message>
     <message>
         <source>Statuses</source>
-        <extracomment>Will show as: &quot;115 Statuses&quot;</extracomment>
+        <extracomment>Will show as: "115 Statuses"</extracomment>
         <translation>Statussen</translation>
     </message>
     <message>
         <source>Mention</source>
-        <translation type="unfinished"></translation>
+        <translation>Vermelden</translation>
     </message>
     <message>
         <source>Unfollow</source>
@@ -554,7 +551,7 @@
     <message>
         <source>Requested</source>
         <extracomment>Is a button. Keep it as short as possible.</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Gevraagd</translation>
     </message>
     <message>
         <source>Follow</source>
@@ -590,7 +587,7 @@
     </message>
     <message>
         <source>Options</source>
-        <translation type="unfinished"></translation>
+        <translation>Opties</translation>
     </message>
     <message>
         <source>Load Images in Toots</source>
@@ -598,7 +595,7 @@
     </message>
     <message>
         <source>Disable this option if you want to preserve your data connection</source>
-        <translation>Schakelt dees optie uit als ge uw verbinding wilt behouden</translation>
+        <translation>Schakelt deze optie uit als g’u dataverbinding wilt sparen</translation>
     </message>
     <message>
         <source>Account</source>
@@ -614,143 +611,143 @@
     </message>
     <message>
         <source>Deauthorize this app from using your account and remove account data from phone</source>
-        <translation>Trekt autorisaties van dezen app in en verwijdert uwen account</translation>
+        <translation>Trekt d’autorisatie van dezen app in en verwijdert u accountgegevens van deze gsm</translation>
     </message>
     <message>
         <source>Authorize this app to access your Mastodon account</source>
-        <translation>Autoriseert dezen app voor uwe Mastodon-account namens u te gebruiken</translation>
+        <translation>Geeft dezen app toegank tot uwe Mastodon-account</translation>
     </message>
     <message>
         <source>Account removed</source>
-        <translation type="unfinished"></translation>
+        <translation>Account verwijderd</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation>Verwijderen</translation>
     </message>
     <message>
         <source>Font Size</source>
-        <translation type="unfinished"></translation>
+        <translation>Lettergroôtte</translation>
     </message>
     <message>
         <source>Sample text</source>
-        <translation type="unfinished"></translation>
+        <translation>Voôrbeeldtekst</translation>
     </message>
     <message>
         <source>Quick Scroll Arrows</source>
-        <translation type="unfinished"></translation>
+        <translation>Rapscrolpijlkes</translation>
     </message>
     <message>
         <source>Show arrows to jump to top/bottom when scrolling fast</source>
-        <translation type="unfinished"></translation>
+        <translation>Toônt als ge rap scrolt pijlkes voôr van den eêrste keêr gans naar boven of naar onder te verspringen</translation>
     </message>
     <message>
         <source>About</source>
         <comment>About the app</comment>
-        <translation type="unfinished"></translation>
+        <translation>Over</translation>
     </message>
     <message>
         <source>Notification</source>
-        <translation type="unfinished"></translation>
+        <translation>Meldingen</translation>
     </message>
     <message>
         <source>Show notifications and create alerts</source>
-        <translation type="unfinished"></translation>
+        <translation>Toônt meldingen en maakt waarschuwingen aan</translation>
     </message>
 </context>
 <context>
     <name>VisualContainer</name>
     <message>
         <source>Loading...</source>
-        <translation type="unfinished"></translation>
+        <translation>Bezig me te laden…</translation>
     </message>
     <message>
         <source>Load more</source>
-        <translation type="unfinished"></translation>
+        <translation>Meêr laden</translation>
     </message>
     <message>
         <source>Show less</source>
-        <translation type="unfinished"></translation>
+        <translation>Minder tônen</translation>
     </message>
     <message>
         <source>Show more</source>
-        <translation type="unfinished"></translation>
+        <translation>Meêr tônen</translation>
     </message>
     <message>
         <source>Vote</source>
-        <translation type="unfinished"></translation>
+        <translation>Stem</translation>
     </message>
     <message>
         <source>votes</source>
-        <translation type="unfinished"></translation>
+        <translation>stemmen</translation>
     </message>
     <message>
         <source>Closed</source>
-        <translation type="unfinished"></translation>
+        <translation>Gesloten</translation>
     </message>
     <message>
         <source>days left</source>
-        <translation type="unfinished"></translation>
+        <translation>dagen te gaan</translation>
     </message>
     <message>
         <source>hours left</source>
-        <translation type="unfinished"></translation>
+        <translation>uur te gaan</translation>
     </message>
     <message>
         <source>minutes left</source>
-        <translation type="unfinished"></translation>
+        <translation>minuten te gaan</translation>
     </message>
     <message>
         <source>Conversation</source>
-        <translation type="unfinished"></translation>
+        <translation>Gesprek</translation>
     </message>
     <message>
         <source>Unfavorite</source>
-        <translation type="unfinished"></translation>
+        <translation>Verwijderen uit favorieten</translation>
     </message>
     <message>
         <source>Favorite</source>
-        <translation type="unfinished"></translation>
+        <translation>Toevoegen aan favorieten</translation>
     </message>
     <message>
         <source>Unboost</source>
-        <translation type="unfinished"></translation>
+        <translation>Ni meêr boosten</translation>
     </message>
     <message>
         <source>Boost</source>
-        <translation type="unfinished"></translation>
+        <translation>Boosten</translation>
     </message>
     <message>
         <source>Reply</source>
-        <translation type="unfinished"></translation>
+        <translation>Beantwoorden</translation>
     </message>
     <message>
         <source>Quote</source>
-        <translation type="unfinished"></translation>
+        <translation>Citeren</translation>
     </message>
     <message>
         <source>Remove Bookmark</source>
-        <translation type="unfinished"></translation>
+        <translation>Bladwijzer verwijderen</translation>
     </message>
     <message>
         <source>Bookmark</source>
-        <translation type="unfinished"></translation>
+        <translation>Toevoegen aan bladwijzers</translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>Verwijderen</translation>
     </message>
     <message>
         <source>Deleting</source>
-        <translation type="unfinished"></translation>
+        <translation>Wor’ verwijderd</translation>
     </message>
     <message>
         <source>Edit</source>
-        <translation type="unfinished"></translation>
+        <translation>Bewèrken</translation>
     </message>
     <message>
         <source>Mention</source>
-        <translation type="unfinished"></translation>
+        <translation>Vermelding</translation>
     </message>
 </context>
 </TS>

@@ -20,10 +20,12 @@ public:
 
 public Q_SLOTS:
     Q_NOREPLY void showtoot(const QStringList &key);
+    Q_NOREPLY void openUrl(const QStringList &key);
     Q_NOREPLY void openapp();
 
 signals:
     void viewtoot(QString key);
+    void openUrl(QString key);
     void activateapp();
 
 private:

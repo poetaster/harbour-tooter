@@ -33,7 +33,7 @@ class TooterbAdaptor: public QDBusAbstractAdaptor
     Q_CLASSINFO("D-Bus Interface", "de.poetaster.harbour.tooterb")
     Q_CLASSINFO("D-Bus Introspection", ""
 "  <interface name=\"de.poetaster.harbour.tooterb\">\n"
-"    <method name=\"showtoot\">\n"
+"    <method name=\"openUrl\">\n"
 "      <annotation value=\"true\" name=\"org.freedesktop.DBus.Method.NoReply\"/>\n"
 "      <arg direction=\"in\" type=\"as\" name=\"key\"/>\n"
 "    </method>\n"
@@ -48,6 +48,7 @@ public: // PROPERTIES
 public Q_SLOTS: // METHODS
     void openapp();
     Q_NOREPLY void showtoot(const QStringList &key);
+    Q_NOREPLY void openUrl(const QStringList &key);
 Q_SIGNALS: // SIGNALS
 };
 

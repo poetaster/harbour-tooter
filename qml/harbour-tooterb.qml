@@ -47,6 +47,9 @@ ApplicationWindow {
     // Global notificationIds
     property var notificationIds: []
 
+    // global for currently viewed status
+    property string currentId:""
+
     // Instance max characters - fetched from server, default to 500
     property int instanceMaxChars: 500
 
@@ -108,17 +111,5 @@ ApplicationWindow {
         Logic.saveData()
     }
 
-    Connections {
-        target: Dbus
-        onViewtoot: {
-            //console.log(key, "dbus onViewtoot")
-        }
-        onActivateapp: {
-            //console.log ("dbus activate app")
-            pageStack.pop(pageStack.find( function(page) {
-                return (page._depth === 0)
-            }))
-            activate()
-        }
-    }
+
 }

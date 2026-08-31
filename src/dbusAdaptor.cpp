@@ -45,3 +45,9 @@ void TooterbAdaptor::showtoot(const QStringList &key)
     QMetaObject::invokeMethod(parent(), "showtoot", Q_ARG(QStringList, key));
 }
 
+void TooterbAdaptor::openUrl(const QStringList &key)
+{
+    // handle method call de.poetaster.harbour.tooterb.openUrl
+    QMetaObject::invokeMethod(parent(), "openUrl", Q_ARG(QStringList, key));
+}
+

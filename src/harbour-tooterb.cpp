@@ -36,8 +36,8 @@ int main(int argc, char *argv[]) {
     view->rootContext()->setContextProperty("Notifications", no);
     QObject::connect(engine, SIGNAL(quit()), app.data(), SLOT(quit()));
 
-    Dbus *dbus = new Dbus();
-    view->rootContext()->setContextProperty("Dbus", dbus);
+    //Dbus *dbus = new Dbus();
+    //view->rootContext()->setContextProperty("Dbus", dbus);
 
     view->setSource(SailfishApp::pathTo("qml/harbour-tooterb.qml"));
     view->show();

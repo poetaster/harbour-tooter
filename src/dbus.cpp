@@ -1,6 +1,6 @@
 #include "dbus.h"
 
-static const char *PATH = "/";
+static const char *PATH = "/openUrl";
 static const char *SERVICE = SERVICE_NAME;
 
 Dbus::Dbus(QObject *parent) :
@@ -44,6 +44,11 @@ void Dbus::registerDBus()
 void Dbus::showtoot(const QStringList &key)
 {
     emit viewtoot(key.at(0));
+}
+
+void Dbus::openUrl(const QStringList &key)
+{
+    emit openUrl(key.at(0));
 }
 
 void Dbus::openapp()

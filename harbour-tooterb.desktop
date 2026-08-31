@@ -6,9 +6,10 @@ Exec=/usr/bin/sailjail -p harbour-tooterb.desktop /usr/bin/harbour-tooterb
 Name=Tooter β
 
 MimeType=text/html;x-scheme-handler/https;
-X-Maemo-Service=de.poetaster.harbour.tooterb
-X-Maemo-Object-Path=/de/poetaster/harbour/tooterb/openUrl
-X-Maemo-Method=de.poetaster.harbour.tooterb.openUrl
+X-Maemo-Service=de.poetaster.tooterb
+X-Maemo-Object-Path=/de/poetaster/tooterb/openUrl
+X-Maemo-Method=de.poetaster.tooterb.openUrl
+#X-DBusActivatable=true
 
 [X-Sailjail]
 OrganizationName=de.poetaster

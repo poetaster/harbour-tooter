@@ -11,17 +11,23 @@
 #include <QQmlContext>
 #include <QCoreApplication>
 #include <QtNetwork>
+#include <QDBusConnection>
 //#include <QtSystemInfo/QDeviceInfo>
 #include "filedownloader.h"
 #include "imageuploader.h"
 #include "notifications.h"
-#include "dbus.h"
+
+#include "dbusAdaptor.h"
 
 #include "requires_defines.h"
 
 
 int main(int argc, char *argv[]) {
     QScopedPointer<QGuiApplication> app(SailfishApp::application(argc, argv));
+
+    app->setOrganizationName("de.poetaster");
+    app->setApplicationName("tooterb");
+
     QScopedPointer<QQuickView> view(SailfishApp::createView());
     QQmlEngine* engine = view->engine();
 
@@ -39,6 +45,14 @@ int main(int argc, char *argv[]) {
     //Dbus *dbus = new Dbus();
     //view->rootContext()->setContextProperty("Dbus", dbus);
 
+    /*new DBusAdaptor(view.data());
+
+    if (!QDBusConnection::sessionBus().registerObject("/de/poetaster/tooterb", view.data()))
+        qWarning() << "Could not register /de/poetaster/tooter D-Bus object.";
+
+    if (!QDBusConnection::sessionBus().registerService("de.poetaster.tooterb"))
+        qWarning() << "Could not register de.poetaster.tooterb D-Bus service.";
+    */
     view->setSource(SailfishApp::pathTo("qml/harbour-tooterb.qml"));
     view->show();
     return app->exec();

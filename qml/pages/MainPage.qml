@@ -52,11 +52,11 @@ Page {
     DBusAdaptor {
         id: dbus
         //bus: DBus.SessionBus
-        service: 'de.poetaster.harbour.tooterb'
-        iface: 'de.poetaster.harbour.tooterb'
-        path: '/de/poetaster/harbour/tooterb/openUrl'
+        service: 'de.poetaster.tooterb'
+        iface: 'de.poetaster.tooterb'
+        path: '/de/poetaster/tooterb/openUrl'
 
-        xml: '<interface name="de.poetaster.harbour.tooterb">
+        xml: '<interface name="de.poetaster.tooterb">
                <method name="openUrl">
                  <arg name="url" type="s" direction="in">
                    <doc:doc><doc:summary>url to open</doc:summary></doc:doc>
@@ -84,6 +84,7 @@ Page {
             }
         }
     }
+
     onSuggestedUserChanged:  {
         //console.log(suggestedUser)
         suggestedModel = Qt.createQmlObject( 'import QtQuick 2.0; ListModel {   }', Qt.application, 'InternalQmlObject' )

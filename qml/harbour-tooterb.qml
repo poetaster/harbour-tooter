@@ -111,5 +111,26 @@ ApplicationWindow {
         Logic.saveData()
     }
 
+    function openUrl(url){
+            console.log("openUrl called via DBus:" + url)
+            // Use the URL parser to detect Mastodon resource types
+            var parsed = Logic.parseMastodonUrl(url.toString())
+            if (debug) console.log(parsed.statusId)
+            // For recognized Mastodon URLs (tag, profile, status), delegate to MainPage
+            if (parsed.type === "status"){
+                // set the status id so that notifications can scroll to
+                 externalId = parsed.statusId
+                // just go to the notifications panel
+                slideshow.positionViewAtIndex(1, ListView.SnapToItem)
+            } else if (parsed.type !== "unknown") {
+                pageStack.pop(pageStack.find(function(page) {
+                    var check = page.isFirstPage === true
+                    if (check)
+                        page.onLinkActivated(u.toString())
+                    return check
+                }))
+            }
+    }
+
 
 }

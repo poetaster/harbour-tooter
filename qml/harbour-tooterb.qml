@@ -30,6 +30,7 @@
 
 import QtQuick 2.0
 import Sailfish.Silica 1.0
+import Nemo.DBus 2.0
 import "pages"
 import "./lib/API.js" as Logic
 
@@ -37,7 +38,7 @@ ApplicationWindow {
     id: appWindow
     allowedOrientations: defaultAllowedOrientations
     cover: Qt.resolvedUrl("cover/CoverPage.qml")
-
+    property bool debug: true
     // Global font scale property - reactive, updates UI immediately
     property real fontScale: 1.0
     // Global quick scroll setting - reactive
@@ -108,17 +109,8 @@ ApplicationWindow {
         Logic.saveData()
     }
 
-    Connections {
-        target: Dbus
-        onViewtoot: {
-            //console.log(key, "dbus onViewtoot")
-        }
-        onActivateapp: {
-            //console.log ("dbus activate app")
-            pageStack.pop(pageStack.find( function(page) {
-                return (page._depth === 0)
-            }))
-            activate()
-        }
+    // planned for future dbus adapter method
+    function open(url) {
+            console.log(key, "dbus open mehod onOpenUrl" )
     }
 }

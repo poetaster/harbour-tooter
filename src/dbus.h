@@ -5,7 +5,7 @@
 #include <QtDBus/QtDBus>
 #include "dbusAdaptor.h"
 
-#define SERVICE_NAME "de.poetaster.harbour.tooterb"
+#define SERVICE_NAME "de.poetaster.tooterb"
 
 class QDBusInterface;
 class Dbus : public QObject
@@ -20,11 +20,12 @@ public:
 
 public Q_SLOTS:
     Q_NOREPLY void showtoot(const QStringList &key);
-    Q_NOREPLY void openUrl(const QStringList &key);
+    Q_NOREPLY void open(const QStringList &key);
     Q_NOREPLY void openapp();
 
 signals:
     void viewtoot(QString key);
+    void open(QString key);
     void activateapp();
 
 private:

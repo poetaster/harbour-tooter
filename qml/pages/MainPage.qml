@@ -8,7 +8,7 @@ import "./components/"
 
 Page {
     id: mainPage
-    property bool debug: false
+    property bool debug: true
     property bool isFirstPage: true
     property bool isTablet: true //Screen.sizeCategory >= Screen.Large
     // for people search
@@ -19,30 +19,52 @@ Page {
     property bool quickAccountSwitchHintActive: !Logic.conf.multipleAccountsHintCompleted && Logic.conf.accounts.length > 1
     
     allowedOrientations: Orientation.All
+
     DBusAdaptor {
         id: dbus
         bus: DBus.SessionBus
-        service: 'de.poetaster.harbour.tooterb'
-        iface: 'de.poetaster.harbour.tooterb'
-        path: '/de/poetaster/harbour/tooterb'
-        xml: '<interface name="de.poetaster.harbour.tooterb">
+        service: 'de.poetaster.tooterb'
+        iface: 'de.poetaster.tooterb'
+        path: '/de/poetaster/tooterb'
+        xml: '<interface name="de.poetaster.tooterb">
                <method name="openUrl">
                  <arg name="url" type="s" direction="in">
                    <doc:doc><doc:summary>url to open</doc:summary></doc:doc>
                  </arg>
                </method>
+               <method name="Open">
+                 <arg name="url" type="s" direction="in">
+                   <doc:doc><doc:summary>url to open</doc:summary></doc:doc>
+                 </arg>
+               </method>
              </interface>'
+
         function openUrl(u) {
             console.log("openUrl called via DBus:" + u)
             // Use the URL parser to detect Mastodon resource types
-            var parsed = Logic.parseMastodonUrl(u.toString())
+            var url = u.toString()
+            var username
+            if (url.indexOf("?uri") !== -1) {
+                url = url.split("?")[1]
+                url = url.split("=")[1]
+                url = Logic.seqDecode(url)
+                if (debug) console.log(url)
+            }
+            var parsed = Logic.parseMastodonUrl(url)
+            username = parsed.username
             if (debug) console.log(parsed.statusId)
+            if (debug) console.log(parsed.username)
             // For recognized Mastodon URLs (tag, profile, status), delegate to MainPage
             if (parsed.type === "status"){
                 // set the status id so that notifications can scroll to
-                externalId = parsed.statusId
+                //mainPage.externalId = parsed.statusId
                 // just go to the notifications panel
-                slideshow.positionViewAtIndex(1, ListView.SnapToItem)
+                loader.sourceComponent = loading
+                searchField.text = '@' + username
+                tlSearch.search = searchField.text
+                //suggestedUser = '@' + username
+                //loader.sourceComponent = userListComponent
+                 slideshow.positionViewAtIndex(5, ListView.SnapToItem)
             } else if (parsed.type !== "unknown") {
                 pageStack.pop(pageStack.find(function(page) {
                     var check = page.isFirstPage === true
@@ -52,9 +74,8 @@ Page {
                 }))
             }
         }
-        function showtoot(u) {
-
-            openUrl(u)
+        function open(u) {
+          openUrl(u)
         }
     }
     onSuggestedUserChanged:  {

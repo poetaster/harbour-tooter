@@ -9,7 +9,7 @@ import "./components/"
 Page {
     id: conversationPage
 
-    property bool debug: false
+    property bool debug: true
     property ListModel suggestedModel
     property ListModel mdl
     property int tootMaxChar: appWindow.instanceMaxChars
@@ -30,8 +30,9 @@ Page {
     property string quoted_account_acct: ""
     property string quoted_content: ""
     property bool openReplyPanel: false  // Set to true to auto-open reply panel
+    // this looks completely wrong
     property string status_link:
-        if (status_url === "") {
+        if (status_url !== "") {
             var test = status_uri.split("/")
             if (debug) {
                 console.log(status_uri)
@@ -828,7 +829,7 @@ Page {
                                })
         } else if (status_id && status_id.length > 0) {
             // Model is empty but we have a status_id - fetch the status first
-            console.log("Fetching status: " + status_id)
+            if (debug) console.log("Fetching status: " + status_id)
             worker.sendMessage({
                                    "action": 'statuses/' + status_id,
                                    "method": 'GET',

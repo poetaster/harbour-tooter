@@ -6,7 +6,7 @@ import "../../lib/API.js" as Logic
 BackgroundItem {
     id: delegate
 
-    property bool debug:false
+    property bool debug:true
     property bool expanded: false
     property int charLimit: 700
 
@@ -390,8 +390,10 @@ BackgroundItem {
             // Use the URL parser to detect Mastodon resource types
             var parsed = Logic.parseMastodonUrl(link)
             if (debug) console.log(parsed.statusId)
+            if (debug) console.log(conversationPage.status_id)
             // For recognized Mastodon URLs (tag, profile, status), delegate to MainPage
             if (parsed.type === "status"){
+                if (conversationPage.status_id === parsed.statusId) return
                 var m = Qt.createQmlObject('import QtQuick 2.0; ListModel { dynamicRoles:true }', Qt.application, 'InternalQmlObject');
                 if (typeof mdl !== "undefined")
                 m.append(mdl.get(index))

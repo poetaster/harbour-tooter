@@ -351,3 +351,79 @@ function parseMastodonUrl(url) {
 
     return { type: "unknown", url: url }
 }
+
+// seqDecode(str) -> decoded string
+// Decodes %XX sequences (UTF-8 aware). Invalid % sequences are kept as-is.
+function seqDecode(input) {
+        if (typeof input !== "string")
+            return input;
+        // Decode an array of bytes (0-255) as UTF-8, falling back to raw chars
+        function utf8ToString(bytes) {
+            var s = "";
+            var i = 0;
+            while (i < bytes.length) {
+                var b1 = bytes[i];
+                var code, need;
+                if (b1 < 0x80)       { code = b1;            need = 0; }
+                else if (b1 < 0xC0)  { code = b1;            need = 0; } // stray continuation byte
+                else if (b1 < 0xE0)  { code = b1 & 0x1F;     need = 1; }
+                else if (b1 < 0xF0)  { code = b1 & 0x0F;     need = 2; }
+                else if (b1 < 0xF8)  { code = b1 & 0x07;     need = 3; }
+                else                 { code = b1;            need = 0; } // invalid lead byte
+
+                var ok = true;
+                for (var k = 1; k <= need; ++k) {
+                    if (i + k >= bytes.length || (bytes[i + k] & 0xC0) !== 0x80) {
+                        ok = false;
+                        break;
+                    }
+                    code = (code << 6) | (bytes[i + k] & 0x3F);
+                }
+
+                if (!ok) {
+                    s += String.fromCharCode(b1);   // keep raw byte, skip one
+                    i += 1;
+                } else {
+                    if (code > 0xFFFF) {            // astral char -> surrogate pair
+                        code -= 0x10000;
+                        s += String.fromCharCode(0xD800 + (code >> 10), 0xDC00 + (code & 0x3F));
+                    } else {
+                        s += String.fromCharCode(code);
+                    }
+                    i += 1 + need;
+                }
+            }
+            return s;
+        }
+
+        var out = "";
+        var bytes = [];
+        var i = 0;
+        var n = input.length;
+
+        function flush() {
+            if (bytes.length) {
+                out += utf8ToString(bytes);
+                bytes = [];
+            }
+        }
+
+        while (i < n) {
+            var c = input.charAt(i);
+            if (c === "%" && i + 2 < n) {
+                var hex = input.substring(i + 1, i + 3);
+                if (/^[0-9A-Fa-f]{2}$/.test(hex)) {
+                    bytes.push(parseInt(hex, 16));
+                    i += 3;
+                    continue;
+                }
+            }
+            flush();
+            out += c;
+            i += 1;
+        }
+        flush();
+
+        return out;
+}
+

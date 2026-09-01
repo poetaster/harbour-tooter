@@ -45,14 +45,14 @@ int main(int argc, char *argv[]) {
     //Dbus *dbus = new Dbus();
     //view->rootContext()->setContextProperty("Dbus", dbus);
 
-    /*new DBusAdaptor(view.data());
+    new DBusAdaptor(view.data());
 
     if (!QDBusConnection::sessionBus().registerObject("/de/poetaster/tooterb", view.data()))
         qWarning() << "Could not register /de/poetaster/tooter D-Bus object.";
 
     if (!QDBusConnection::sessionBus().registerService("de.poetaster.tooterb"))
         qWarning() << "Could not register de.poetaster.tooterb D-Bus service.";
-    */
+
     view->setSource(SailfishApp::pathTo("qml/harbour-tooterb.qml"));
     view->show();
     return app->exec();

@@ -37,7 +37,7 @@ ApplicationWindow {
     id: appWindow
     allowedOrientations: defaultAllowedOrientations
     cover: Qt.resolvedUrl("cover/CoverPage.qml")
-
+    property bool debug: true
     // Global font scale property - reactive, updates UI immediately
     property real fontScale: 1.0
     // Global quick scroll setting - reactive
@@ -112,10 +112,11 @@ ApplicationWindow {
     }
 
     function openUrl(url){
-            console.log("openUrl called via DBus:" + url)
+            if (debug) console.log("openUrl called via DBus:" + url)
             // Use the URL parser to detect Mastodon resource types
             var parsed = Logic.parseMastodonUrl(url.toString())
             if (debug) console.log(parsed.statusId)
+
             // For recognized Mastodon URLs (tag, profile, status), delegate to MainPage
             if (parsed.type === "status"){
                 // set the status id so that notifications can scroll to

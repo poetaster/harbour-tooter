@@ -8,7 +8,7 @@ import "./components/"
 
 Page {
     id: conversationPage
-
+    property string key: "conversationPage"
     property bool debug: true
     property ListModel suggestedModel
     property ListModel mdl
@@ -119,7 +119,7 @@ Page {
                 text: Format.formatDate(section, Formatter.DateMedium)
             }
         }
-        delegate: VisualContainer {}
+        delegate: VisualContainer { conversationPage:true }
         onCountChanged: {
             // Scroll to the clicked status after a brief delay to ensure layout is complete
             scrollTimer.restart()

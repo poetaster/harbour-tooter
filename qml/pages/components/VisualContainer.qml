@@ -7,6 +7,7 @@ BackgroundItem {
     id: delegate
 
     property bool debug:true
+    property bool conversationPage:false
     property bool expanded: false
     property int charLimit: 700
 
@@ -846,6 +847,7 @@ BackgroundItem {
             anchors.fill: parent
             onClicked: {
                 // Open the quoted post in conversation view
+                if (debug) console.log("convesation from quoted")
                 var m = Qt.createQmlObject('import QtQuick 2.0; ListModel { dynamicRoles:true }', Qt.application, 'InternalQmlObject');
                 pageStack.push(Qt.resolvedUrl("../ConversationPage.qml"), {
                     headerTitle: qsTr("Conversation"),
@@ -1059,6 +1061,7 @@ BackgroundItem {
                     }
                 }
 
+                if (debug) console.log("convesation from mnureply")
                 pageStack.push(Qt.resolvedUrl("../ConversationPage.qml"), {
                     headerTitle: qsTr("Reply"),
                     "status_id": model.status_id,
@@ -1089,6 +1092,7 @@ BackgroundItem {
             enabled: model.status_visibility !== "direct"
             text: qsTr("Quote")
             onClicked: {
+                if (debug) console.log("link from mnuQuote")
                 pageStack.push(Qt.resolvedUrl("../ConversationPage.qml"), {
                                    headerTitle: qsTr("Quote"),
                                    quoted_status_id: model.status_id,
@@ -1216,6 +1220,7 @@ BackgroundItem {
             visible: model.type === "follow"
             text: qsTr("Mention")
             onClicked: {
+                if (debug) console.log("link from mnuMention")
                 pageStack.push(Qt.resolvedUrl("../ConversationPage.qml"), {
                                    headerTitle: qsTr("Mention"),
                                    username: "@"+reblog_account_acct,
@@ -1247,7 +1252,8 @@ BackgroundItem {
             m.append(mdl.get(index))
 
         if (model.type !== "follow") {
-            pageStack.push(Qt.resolvedUrl("../ConversationPage.qml"), {
+            if (conversationPage) return
+                pageStack.push(Qt.resolvedUrl("../ConversationPage.qml"), {
                                headerTitle: qsTr("Conversation"),
                                "status_id": status_id,
                                "status_url": status_url,

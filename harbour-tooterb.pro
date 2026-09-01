@@ -24,22 +24,22 @@ DEFINES += "APPNAME=\\\"$${TARGET}\\\""
 
 DEFINES += "openrepos"
 
-#!exists( src/dbusAdaptor.h ) {
-#    system(qdbusxml2cpp config/de.poetaster.harbour.tooterb.xml -i dbus.h -a src/dbusAdaptor)
-#}
+!exists( src/dbusAdaptor.h ) {
+    system(qdbusxml2cpp config/de.poetaster.harbour.tooterb.xml -i dbus.h -a src/dbusAdaptor)
+}
 
 SOURCES += src/harbour-tooterb.cpp \
     src/imageuploader.cpp \
     src/filedownloader.cpp \
     src/notifications.cpp \
     src/dbusAdaptor.cpp \
-#    src/dbus.cpp
+    src/dbus.cpp
 
 HEADERS += src/imageuploader.h \
     src/filedownloader.h \
     src/notifications.h \
     src/dbusAdaptor.h \
-#    src/dbus.h
+    src/dbus.h
 
 DISTFILES += qml/harbour-tooterb.qml \
     qml/images/tooterb-cover.svg \

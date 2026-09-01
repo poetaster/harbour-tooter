@@ -10,7 +10,6 @@ SilicaListView {
     quickScroll: appWindow.quickScrollEnabled
 
     property bool debug: true
-    property bool workerReady:false
     property string type
     property string title
     property string description
@@ -265,7 +264,7 @@ SilicaListView {
             if (messageObject.LinkHeader) {
                 // <https://mastodon.gamedev.place/api/v1/bookmarks?max_id=11041>; rel=\"next\",
                 // <https://mastodon.gamedev.place/api/v1/bookmarks?min_id=14158>; rel=\"prev\""
-                //if (debug) console.log(messagObject.LinkHeader)
+                if (debug) console.log(messagObject.LinkHeader)
 
                 var matches = /max_id=([0-9]+)/.exec(messageObject.LinkHeader);
                 var maxlink = matches[0].split("=")[1];
@@ -280,7 +279,6 @@ SilicaListView {
     }
 
     Component.onCompleted: {
-        workerReady = true;
         loadData("prepend")
         if (debug) console.log("MyList completed: " + title)
         // for setting focus on external ID from dbus
@@ -368,8 +366,6 @@ SilicaListView {
     */
 
     function loadData(mode) {
-
-        if (! workerReady) return
 
         if (debug) console.log('loadData called: ' + mode + " in " + title)
         // Collect current model IDs using object for O(1) operations

@@ -8,7 +8,7 @@ import "./components/"
 
 Page {
     id: mainPage
-    property bool debug: true
+    property bool debug: false
     property bool isFirstPage: true
     property bool isTablet: true //Screen.sizeCategory >= Screen.Large
     // for people search
@@ -19,54 +19,23 @@ Page {
     property bool quickAccountSwitchHintActive: !Logic.conf.multipleAccountsHintCompleted && Logic.conf.accounts.length > 1
     
     allowedOrientations: Orientation.All
-/*
-    Connections {
-        target: Dbus
-        onOpenUrl: {
-            openUrl(key)
-            console.log(key, "dbus onOpenUrl")
-        }
-        function openUrl(key) {
-            console.log("openUrl called via DBus:" + key)
-            // Use the URL parser to detect Mastodon resource types
-            var parsed = Logic.parseMastodonUrl(key.toString())
-            if (debug) console.log(parsed.statusId)
-            // For recognized Mastodon URLs (tag, profile, status), delegate to MainPage
-            if (parsed.type === "status"){
-                // set the status id so that notifications can scroll to
-                externalId = parsed.statusId
-                // just go to the notifications panel
-                slideshow.positionViewAtIndex(1, ListView.SnapToItem)
-            } else if (parsed.type !== "unknown") {
-                pageStack.pop(pageStack.find(function(page) {
-                    var check = page.isFirstPage === true
-                    if (check)
-                        page.onLinkActivated(u.toString())
-                    return check
-                }))
-            }
-        }
-    }
-    */
-
     DBusAdaptor {
         id: dbus
-        //bus: DBus.SessionBus
-        service: 'de.poetaster.tooterb'
-        iface: 'de.poetaster.tooterb'
-        path: '/de/poetaster/tooterb/openUrl'
-
-        xml: '<interface name="de.poetaster.tooterb">
+        bus: DBus.SessionBus
+        service: 'de.poetaster.harbour.tooterb'
+        iface: 'de.poetaster.harbour.tooterb'
+        path: '/de/poetaster/harbour/tooterb'
+        xml: '<interface name="de.poetaster.harbour.tooterb">
                <method name="openUrl">
                  <arg name="url" type="s" direction="in">
                    <doc:doc><doc:summary>url to open</doc:summary></doc:doc>
                  </arg>
                </method>
              </interface>'
-        function openUrl(url) {
-            console.log("openUrl called via DBus:" + url)
+        function openUrl(u) {
+            console.log("openUrl called via DBus:" + u)
             // Use the URL parser to detect Mastodon resource types
-            var parsed = Logic.parseMastodonUrl(url.toString())
+            var parsed = Logic.parseMastodonUrl(u.toString())
             if (debug) console.log(parsed.statusId)
             // For recognized Mastodon URLs (tag, profile, status), delegate to MainPage
             if (parsed.type === "status"){
@@ -83,8 +52,11 @@ Page {
                 }))
             }
         }
-    }
+        function showtoot(u) {
 
+            openUrl(u)
+        }
+    }
     onSuggestedUserChanged:  {
         //console.log(suggestedUser)
         suggestedModel = Qt.createQmlObject( 'import QtQuick 2.0; ListModel {   }', Qt.application, 'InternalQmlObject' )

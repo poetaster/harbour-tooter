@@ -37,7 +37,7 @@ ApplicationWindow {
     id: appWindow
     allowedOrientations: defaultAllowedOrientations
     cover: Qt.resolvedUrl("cover/CoverPage.qml")
-    property bool debug: true
+
     // Global font scale property - reactive, updates UI immediately
     property real fontScale: 1.0
     // Global quick scroll setting - reactive
@@ -46,9 +46,6 @@ ApplicationWindow {
     property bool notify: false
     // Global notificationIds
     property var notificationIds: []
-
-    // global for currently viewed status
-    property string currentId:""
 
     // Instance max characters - fetched from server, default to 500
     property int instanceMaxChars: 500
@@ -111,27 +108,17 @@ ApplicationWindow {
         Logic.saveData()
     }
 
-    function openUrl(url){
-            if (debug) console.log("openUrl called via DBus:" + url)
-            // Use the URL parser to detect Mastodon resource types
-            var parsed = Logic.parseMastodonUrl(url.toString())
-            if (debug) console.log(parsed.statusId)
-
-            // For recognized Mastodon URLs (tag, profile, status), delegate to MainPage
-            if (parsed.type === "status"){
-                // set the status id so that notifications can scroll to
-                 externalId = parsed.statusId
-                // just go to the notifications panel
-                slideshow.positionViewAtIndex(1, ListView.SnapToItem)
-            } else if (parsed.type !== "unknown") {
-                pageStack.pop(pageStack.find(function(page) {
-                    var check = page.isFirstPage === true
-                    if (check)
-                        page.onLinkActivated(u.toString())
-                    return check
-                }))
-            }
+    Connections {
+        target: Dbus
+        onViewtoot: {
+            //console.log(key, "dbus onViewtoot")
+        }
+        onActivateapp: {
+            //console.log ("dbus activate app")
+            pageStack.pop(pageStack.find( function(page) {
+                return (page._depth === 0)
+            }))
+            activate()
+        }
     }
-
-
 }

@@ -25,7 +25,6 @@ public Q_SLOTS:
 
 signals:
     void viewtoot(QString key);
-    void openUrl(QString key);
     void activateapp();
 
 private:

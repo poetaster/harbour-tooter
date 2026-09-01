@@ -45,10 +45,9 @@ void Dbus::showtoot(const QStringList &key)
 {
     emit viewtoot(key.at(0));
 }
-
 void Dbus::openUrl(const QStringList &key)
 {
-    emit openUrl(key.at(0));
+    emit viewtoot(key.at(0));
 }
 
 void Dbus::openapp()

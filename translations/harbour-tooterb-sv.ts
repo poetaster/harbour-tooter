@@ -655,11 +655,12 @@
     </message>
     <message>
         <source>Notification</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>Notifieringar</translatorcomment>
+        <translation>Notifiering</translation>
     </message>
     <message>
         <source>Show notifications and create alerts</source>
-        <translation type="unfinished"></translation>
+        <translation>Visa notifieringar och skapa aviseringar</translation>
     </message>
 </context>
 <context>

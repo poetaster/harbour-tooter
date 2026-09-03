@@ -99,7 +99,7 @@
     <name>ConversationPage</name>
     <message>
         <source>Copy Link to Clipboard</source>
-        <extracomment>Use the translation of "Copy Link" for a shorter PullDownMenu label</extracomment>
+        <extracomment>Use the translation of &quot;Copy Link&quot; for a shorter PullDownMenu label</extracomment>
         <translation>Koppeling kopiëren naar ’t klembord</translation>
     </message>
     <message>
@@ -108,7 +108,7 @@
         <translation>Schrijft hier uwe waarschuwingstekst</translation>
     </message>
     <message>
-        <source>What's on your mind?</source>
+        <source>What&apos;s on your mind?</source>
         <extracomment>placeholderText in Toot text panel</extracomment>
         <translation>Op wa’ zitte te peizen?</translation>
     </message>
@@ -386,7 +386,10 @@
     </message>
     <message numerus="yes">
         <source>show license(s)</source>
-        <translation><numerusform>licentie tônen</numerusform><numerusform>licenties tônen</numerusform></translation>
+        <translation>
+            <numerusform>licentie tônen</numerusform>
+            <numerusform>licenties tônen</numerusform>
+        </translation>
     </message>
     <message>
         <source>News</source>
@@ -417,8 +420,8 @@
         <translation>Dankbetuigingen</translation>
     </message>
     <message>
-        <source>Please refer to &lt;a href="%1"&gt;%1&lt;/a&gt;</source>
-        <translation>Bekijkt &lt;a href="%1"&gt;%1&lt;/a&gt;</translation>
+        <source>Please refer to &lt;a href=&quot;%1&quot;&gt;%1&lt;/a&gt;</source>
+        <translation>Bekijkt &lt;a href=&quot;%1&quot;&gt;%1&lt;/a&gt;</translation>
     </message>
     <message>
         <source>Download license texts</source>
@@ -521,22 +524,22 @@
     <name>ProfilePage</name>
     <message>
         <source>About</source>
-        <extracomment>If there's no good translation for "About", use "Details" (in details about profile).</extracomment>
+        <extracomment>If there&apos;s no good translation for &quot;About&quot;, use &quot;Details&quot; (in details about profile).</extracomment>
         <translation>Gegevens</translation>
     </message>
     <message>
         <source>Followers</source>
-        <extracomment>Will show as: "35 Followers"</extracomment>
+        <extracomment>Will show as: &quot;35 Followers&quot;</extracomment>
         <translation>Volgers</translation>
     </message>
     <message>
         <source>Following</source>
-        <extracomment>Will show as: "23 Following"</extracomment>
+        <extracomment>Will show as: &quot;23 Following&quot;</extracomment>
         <translation>Volgend</translation>
     </message>
     <message>
         <source>Statuses</source>
-        <extracomment>Will show as: "115 Statuses"</extracomment>
+        <extracomment>Will show as: &quot;115 Statuses&quot;</extracomment>
         <translation>Statussen</translation>
     </message>
     <message>

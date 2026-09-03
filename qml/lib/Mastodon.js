@@ -2,7 +2,7 @@
 // no fucking copyright
 // do whatever you want with it
 // but please don't hurt it (and keep this header)
-var debug = false;
+var debug = true;
 var mastodonAPI = function(config) {
     var apiBase = config.instance + "/api/v1/";
     return {
@@ -103,9 +103,14 @@ var mastodonAPI = function(config) {
             //queryStringAppend += "limit=20"
             // ajax function
             var http = new XMLHttpRequest()
-            var url = apiBase + endpoint;
+
+            // Support v2 endpoints by checking prefix
+            var url = endpoint.indexOf("v2/") === 0
+                ? config.instance + "/api/" + endpoint
+                : apiBase + endpoint;
+
             if (debug) console.log(apiBase + endpoint + queryStringAppend)
-            http.open("GET", apiBase + endpoint + queryStringAppend, true);
+            http.open("GET", url + queryStringAppend, true);
 
             // Send the proper header information along with the request
             http.setRequestHeader("Authorization", "Bearer " + config.api_user_token);

@@ -44,27 +44,22 @@ Page {
             // Use the URL parser to detect Mastodon resource types
             var url = u.toString()
             var username
+            var searchUrl
             if (url.indexOf("?uri") !== -1) {
                 url = url.split("?")[1]
                 url = url.split("=")[1]
-                url = Logic.seqDecode(url)
-                if (debug) console.log(url)
+                searchUrl = Logic.seqDecode(url)
             }
-            var parsed = Logic.parseMastodonUrl(url)
+            var parsed = Logic.parseMastodonUrl(searchUrl)
             username = parsed.username
-            if (debug) console.log(parsed.statusId)
-            if (debug) console.log(parsed.username)
+
             // For recognized Mastodon URLs (tag, profile, status), delegate to MainPage
             if (parsed.type === "status"){
-                // set the status id so that notifications can scroll to
-                //mainPage.externalId = parsed.statusId
-                // just go to the notifications panel
-                loader.sourceComponent = loading
-                searchField.text = '@' + username
-                tlSearch.search = searchField.text
-                //suggestedUser = '@' + username
-                //loader.sourceComponent = userListComponent
-                 slideshow.positionViewAtIndex(5, ListView.SnapToItem)
+                resolveStatusUrl(url,true)
+                //loader.sourceComponent = loading
+                //searchField.text = '@' + username
+                //tlSearch.search = searchField.text
+                // slideshow.positionViewAtIndex(5, ListView.SnapToItem)
             } else if (parsed.type !== "unknown") {
                 pageStack.pop(pageStack.find(function(page) {
                     var check = page.isFirstPage === true
@@ -403,7 +398,7 @@ Page {
                            })
         }
     }
-
+/*
     function onLinkActivated(href) {
         var test = href.split("/")
         debug = true
@@ -426,6 +421,56 @@ Page {
         } else {
             Qt.openUrlExternally(href)
         }
+
+    }*/
+    function onLinkActivated(href) {
+        if (debug) console.log("onLinkActivated: " + href)
+
+        // Use the URL parser to detect Mastodon resource types
+        var parsed = Logic.parseMastodonUrl(href)
+        if (debug) console.log("Parsed URL: " + JSON.stringify(parsed))
+
+        switch (parsed.type) {
+        case "tag":
+            // Navigate to tag timeline
+            tlSearch.search = "#" + parsed.tag
+            slideshow.positionViewAtIndex(5, ListView.SnapToItem)
+            navigation.navigateTo('search')
+            break
+
+        case "profile":
+            // Search for profile with full acct
+            tlSearch.search = "@" + parsed.acct
+            slideshow.positionViewAtIndex(5, ListView.SnapToItem)
+            navigation.navigateTo('search')
+            break
+
+        case "status":
+            // Resolve status URL via search API and open in ConversationPage
+            resolveStatusUrl(href,false)
+            break
+
+        default:
+            // Unknown URL - open externally
+            Qt.openUrlExternally(href)
+        }
+    }
+    // Resolve a status URL and open it in ConversationPage
+    function resolveStatusUrl(url,encoded) {
+        if ( ! encoded) url = encodeURIComponent(url)
+        if (debug) console.log("Resolving status URL: " + url)
+        worker.sendMessage({
+            action: "v2/search",
+            mode: "resolveUrl",
+            params: [
+                { name: "q", data: url },
+                { name: "resolve", data: "true" },
+                { name: "type", data: "statuses" },
+                { name: "limit", data: "1" }
+            ],
+            conf: Logic.conf,
+            originalUrl: url
+        })
     }
 
     WorkerScript {
@@ -437,6 +482,27 @@ Page {
                 Logic.getActiveAccount().userInfo = messageObject.data
                 Logic.getActiveAccount().userInfo.account_acct += "@" + (Logic.getActiveAccount()['instance'].split("//")[1])
                 delete Logic.getActiveAccount().userInfo.account_id
+            }
+            // Handle URL resolution results
+            else if (messageObject.action === "v2/search" && messageObject.mode === "resolveUrl") {
+                if (messageObject.statuses && messageObject.statuses.length > 0) {
+                    var status = messageObject.statuses[0]
+                    if (debug) console.log("Resolved status: " + status.status_id)
+                    // Open in ConversationPage
+                    var m = Qt.createQmlObject('import QtQuick 2.0; ListModel { dynamicRoles:true }', Qt.application, 'InternalQmlObject')
+                    pageStack.push(Qt.resolvedUrl("ConversationPage.qml"), {
+                        headerTitle: qsTr("Conversation"),
+                        "status_id": status.status_id,
+                        "status_url": status.status_url,
+                        "status_uri": status.status_uri,
+                        mdl: m,
+                        type: "reply"
+                    })
+                } else {
+                    // Status not found - open URL externally
+                    if (debug) console.log("Status not found, opening externally: " + messageObject.originalUrl)
+                    Qt.openUrlExternally(messageObject.originalUrl)
+                }
             }
         }
 

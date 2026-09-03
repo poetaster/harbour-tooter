@@ -144,6 +144,26 @@ WorkerScript.onMessage = function(msg) {
             return
         }
 
+        // Handle v2/search for URL resolution from external sources
+        if (msg.action === "v2/search" && msg.mode === "resolveUrl") {
+            if (debug) console.log("URL resolution search result")
+            var statuses = []
+            if (data && data.statuses && data.statuses.length > 0) {
+                for (var si = 0; si < data.statuses.length; si++) {
+                    var statusItem = parseToot(data.statuses[si])
+                    statusItem['id'] = statusItem['status_id']
+                    statuses.push(statusItem)
+                }
+            }
+            WorkerScript.sendMessage({
+                'action': msg.action,
+                'mode': msg.mode,
+                'statuses': statuses,
+                'originalUrl': msg.originalUrl
+            })
+            return
+        }
+
         // Handle single status fetch (statuses/:id without /context, /source, etc.)
         var singleStatusMatch = msg.action.match(/^statuses\/(\d+)$/)
         if (singleStatusMatch && data && data.id) {
@@ -237,7 +257,7 @@ WorkerScript.onMessage = function(msg) {
             addDataToModel(msg.model, msg.mode, items)
         } else {
 	   // for some reason, home chokes.
-       if (debug) console.log( "items.length = " + items.length)
+            if (debug) console.log( "items.length = " + items.length)
         }
 
         if(msg.action === "notifications")
@@ -246,6 +266,7 @@ WorkerScript.onMessage = function(msg) {
         if (debug) console.log("Get em all?")
 
         WorkerScript.sendMessage({ 'updatedAll': true, 'itemsCount': items.length, 'mode': msg.mode})
+
     }, function(status) {
         // error handler (we should probably handle other kinds of errors here as well)
         // important: a status can be null here if JSON parse fails, or 0 if a network error occured

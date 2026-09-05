@@ -5,7 +5,12 @@ Icon=harbour-tooterb
 Exec=harbour-tooterb %u
 Name=Tooter β
 #X-DBusActivatable=true
-#MimeType=text/html;x-scheme-handler/https;
+
+MimeType=text/html;x-scheme-handler/https;
+
+X-Maemo-Service=de.poetaster.tooterb
+X-Maemo-Object-Path=/de/poetaster/tooterb
+X-Maemo-Method=de.poetaster.tooterb.openUrl
 
 [X-Sailjail]
 OrganizationName=de.poetaster

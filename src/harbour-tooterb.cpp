@@ -36,6 +36,10 @@ int main(int argc, char *argv[]) {
     view->rootContext()->setContextProperty("Notifications", no);
     QObject::connect(engine, SIGNAL(quit()), app.data(), SLOT(quit()));
 
+    QTranslator *appTranslator = new QTranslator;
+    appTranslator->load("harbour-tooterb-" + QLocale::system().name(), SailfishApp::pathTo("translations").path());
+    app->installTranslator(appTranslator);
+
     //Dbus *dbus = new Dbus();
     //view->rootContext()->setContextProperty("Dbus", dbus);
 

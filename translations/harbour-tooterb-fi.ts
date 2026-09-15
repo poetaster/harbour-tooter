@@ -6,23 +6,23 @@
     <message>
         <location filename="../qml/lib/API.js" line="202"/>
         <source>favourited</source>
-        <translation type="unfinished"></translation>
+        <translation>lisäsi suosikkeihin</translation>
     </message>
     <message>
         <location filename="../qml/lib/API.js" line="214"/>
         <source>followed you</source>
-        <translation type="unfinished"></translation>
+        <translation>seuraa sinua</translation>
     </message>
     <message>
         <location filename="../qml/lib/API.js" line="224"/>
         <source>boosted</source>
-        <translation type="unfinished"></translation>
+        <translation>jakoi</translation>
     </message>
     <message>
         <location filename="../qml/lib/API.js" line="235"/>
         <location filename="../qml/lib/API.js" line="237"/>
         <source>said</source>
-        <translation type="unfinished"></translation>
+        <translation>julkaisi</translation>
     </message>
 </context>
 <context>
@@ -30,94 +30,94 @@
     <message>
         <location filename="../qml/pages/AboutPage.qml" line="12"/>
         <source>Tooter is Mastodon client for Sailfish OS.</source>
-        <translation type="unfinished"></translation>
+        <translation>Tooter on Mastodon-asiakasohjelma Sailfish OS:lle.</translation>
     </message>
     <message>
         <location filename="../qml/pages/AboutPage.qml" line="25"/>
         <source>SFOS Community Liberapay</source>
-        <translation type="unfinished"></translation>
+        <translation>SFOS-yhteisön Liberapay</translation>
     </message>
     <message>
         <location filename="../qml/pages/AboutPage.qml" line="36"/>
         <location filename="../qml/pages/AboutPage.qml" line="186"/>
         <source>Mention</source>
-        <translation type="unfinished"></translation>
+        <translation>Maininta</translation>
     </message>
     <message>
         <location filename="../qml/pages/AboutPage.qml" line="45"/>
         <source>Credits</source>
-        <translation type="unfinished"></translation>
+        <translation>Tekijät</translation>
     </message>
     <message>
         <location filename="../qml/pages/AboutPage.qml" line="52"/>
         <source>UI/UX design and development</source>
-        <translation type="unfinished"></translation>
+        <translation>UI/UX-suunnittelu ja kehitys</translation>
     </message>
     <message>
         <location filename="../qml/pages/AboutPage.qml" line="59"/>
         <source>Development and translations</source>
-        <translation type="unfinished"></translation>
+        <translation>Kehitys ja käännökset</translation>
     </message>
     <message>
         <location filename="../qml/pages/AboutPage.qml" line="66"/>
         <location filename="../qml/pages/AboutPage.qml" line="125"/>
         <source>Development</source>
-        <translation type="unfinished">Kehitys</translation>
+        <translation>Kehitys</translation>
     </message>
     <message>
         <location filename="../qml/pages/AboutPage.qml" line="72"/>
         <source>Visual identity</source>
-        <translation type="unfinished"></translation>
+        <translation>Visuaalinen ilme</translation>
     </message>
     <message>
         <location filename="../qml/pages/AboutPage.qml" line="78"/>
         <source>Documentation</source>
-        <translation type="unfinished"></translation>
+        <translation>Dokumentaatio</translation>
     </message>
     <message>
         <location filename="../qml/pages/AboutPage.qml" line="85"/>
         <source>Occitan &amp; French translation</source>
-        <translation type="unfinished"></translation>
+        <translation>Käännös oksitaaniksi ja ranskaksi</translation>
     </message>
     <message>
         <location filename="../qml/pages/AboutPage.qml" line="92"/>
         <source>Chinese translation</source>
-        <translation type="unfinished"></translation>
+        <translation>Käännös kiinaan</translation>
     </message>
     <message>
         <location filename="../qml/pages/AboutPage.qml" line="99"/>
         <source>Dutch translation</source>
-        <translation type="unfinished"></translation>
+        <translation>Käännös hollantiin</translation>
     </message>
     <message>
         <location filename="../qml/pages/AboutPage.qml" line="106"/>
         <source>Spanish translation</source>
-        <translation type="unfinished"></translation>
+        <translation>Käännös espanjaan</translation>
     </message>
     <message>
         <location filename="../qml/pages/AboutPage.qml" line="113"/>
         <source>Development, Russian translation</source>
-        <translation type="unfinished"></translation>
+        <translation>Kehitys, käännös venäjään</translation>
     </message>
     <message>
         <location filename="../qml/pages/AboutPage.qml" line="119"/>
         <source>Norwegian Translation</source>
-        <translation type="unfinished"></translation>
+        <translation>Käännös norjaan</translation>
     </message>
     <message>
         <location filename="../qml/pages/AboutPage.qml" line="131"/>
         <source>French Translation</source>
-        <translation type="unfinished"></translation>
+        <translation>Käännös ranskaksi</translation>
     </message>
     <message>
         <location filename="../qml/pages/AboutPage.qml" line="137"/>
         <source>Swedish Translation</source>
-        <translation type="unfinished"></translation>
+        <translation>Käännös ruotsiksi</translation>
     </message>
     <message>
         <location filename="../qml/pages/AboutPage.qml" line="143"/>
         <source>Italian Translation</source>
-        <translation type="unfinished"></translation>
+        <translation>Käännös italiaan</translation>
     </message>
 </context>
 <context>
@@ -125,91 +125,91 @@
     <message>
         <location filename="../qml/pages/ConversationPage.qml" line="150"/>
         <source>Open in Browser</source>
-        <translation type="unfinished"></translation>
+        <translation>Avaa selaimessa</translation>
     </message>
     <message>
         <location filename="../qml/pages/ConversationPage.qml" line="158"/>
         <source>Copy Link to Clipboard</source>
         <extracomment>Use the translation of &quot;Copy Link&quot; for a shorter PullDownMenu label</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Kopioi linkki leikepöydälle</translation>
     </message>
     <message>
         <location filename="../qml/pages/ConversationPage.qml" line="238"/>
         <source>Quoting @%1</source>
-        <translation type="unfinished"></translation>
+        <translation>Sitaatti @%1</translation>
     </message>
     <message>
         <location filename="../qml/pages/ConversationPage.qml" line="317"/>
         <source>Write your warning here</source>
         <extracomment>placeholderText in Toot content warning panel</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Kirjoita varoituksesi tähän</translation>
     </message>
     <message>
         <location filename="../qml/pages/ConversationPage.qml" line="340"/>
         <source>What&apos;s on your mind?</source>
         <extracomment>placeholderText in Toot text panel</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Mitä mielessäsi?</translation>
     </message>
     <message>
         <location filename="../qml/pages/ConversationPage.qml" line="460"/>
         <location filename="../qml/pages/ConversationPage.qml" line="929"/>
         <source>Edit Alt Text</source>
-        <translation type="unfinished"></translation>
+        <translation>Muokkaa kuvatekstiä</translation>
     </message>
     <message>
         <location filename="../qml/pages/ConversationPage.qml" line="471"/>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation>Poista</translation>
     </message>
     <message>
         <location filename="../qml/pages/ConversationPage.qml" line="474"/>
         <source>Removing</source>
-        <translation type="unfinished"></translation>
+        <translation>Poistetaan</translation>
     </message>
     <message>
         <location filename="../qml/pages/ConversationPage.qml" line="631"/>
         <source>Public</source>
-        <translation type="unfinished"></translation>
+        <translation>Julkinen</translation>
     </message>
     <message>
         <location filename="../qml/pages/ConversationPage.qml" line="634"/>
         <source>Unlisted</source>
-        <translation type="unfinished"></translation>
+        <translation>Ei listattu</translation>
     </message>
     <message>
         <location filename="../qml/pages/ConversationPage.qml" line="637"/>
         <source>Followers-only</source>
-        <translation type="unfinished"></translation>
+        <translation>Vain seuraajille</translation>
     </message>
     <message>
         <location filename="../qml/pages/ConversationPage.qml" line="640"/>
         <source>Direct</source>
-        <translation type="unfinished"></translation>
+        <translation>Suora</translation>
     </message>
     <message>
         <location filename="../qml/pages/ConversationPage.qml" line="739"/>
         <source>Toot edited!</source>
-        <translation type="unfinished"></translation>
+        <translation>Viesti muokattu!</translation>
     </message>
     <message>
         <location filename="../qml/pages/ConversationPage.qml" line="739"/>
         <source>Toot sent!</source>
-        <translation type="unfinished"></translation>
+        <translation>Viesti lähetetty!</translation>
     </message>
     <message>
         <location filename="../qml/pages/ConversationPage.qml" line="930"/>
         <source>Save</source>
-        <translation type="unfinished"></translation>
+        <translation>Tallenna</translation>
     </message>
     <message>
         <location filename="../qml/pages/ConversationPage.qml" line="936"/>
         <source>Describe this media for visually impaired users</source>
-        <translation type="unfinished"></translation>
+        <translation>Kuvaile tämä media näkövammaisille käyttäjille</translation>
     </message>
     <message>
         <location filename="../qml/pages/ConversationPage.qml" line="945"/>
         <source>Alt text helps make content accessible to people who are blind or have low vision.</source>
-        <translation type="unfinished"></translation>
+        <translation>Vaihtoehtoinen teksti auttaa tekemään sisällöstä saavutettavan sokeille tai heikosti näkeville henkilöille.</translation>
     </message>
 </context>
 <context>
@@ -217,7 +217,7 @@
     <message>
         <location filename="../qml/cover/CoverPage.qml" line="118"/>
         <source>New Toot</source>
-        <translation type="unfinished"></translation>
+        <translation>Uusi viesti</translation>
     </message>
 </context>
 <context>
@@ -225,12 +225,12 @@
     <message>
         <location filename="../qml/pages/components/EmojiSelect.qml" line="26"/>
         <source>Emojis</source>
-        <translation type="unfinished"></translation>
+        <translation>Emojit</translation>
     </message>
     <message>
         <location filename="../qml/pages/components/EmojiSelect.qml" line="27"/>
         <source>Tap to insert</source>
-        <translation type="unfinished"></translation>
+        <translation>Näppäytä lisätäksesi</translation>
     </message>
 </context>
 <context>
@@ -251,7 +251,7 @@
     <message>
         <location filename="../src/imageuploader.cpp" line="85"/>
         <source>The file %1 does not exists</source>
-        <translation type="unfinished"></translation>
+        <translation>Tiedostoa %1 ei ole olemassa</translation>
     </message>
 </context>
 <context>
@@ -267,27 +267,27 @@
     <message>
         <location filename="../qml/pages/LoginPage.qml" line="24"/>
         <source>Login</source>
-        <translation type="unfinished"></translation>
+        <translation>Kirjaudu sisään</translation>
     </message>
     <message>
         <location filename="../qml/pages/LoginPage.qml" line="28"/>
         <source>Instance</source>
-        <translation type="unfinished"></translation>
+        <translation>Instanssi</translation>
     </message>
     <message>
         <location filename="../qml/pages/LoginPage.qml" line="65"/>
         <source>Type</source>
-        <translation type="unfinished"></translation>
+        <translation>Tyyppi</translation>
     </message>
     <message>
         <location filename="../qml/pages/LoginPage.qml" line="75"/>
         <source>Enter a valid Mastodon instance URL (will open a web browser for Authentication)</source>
-        <translation type="unfinished"></translation>
+        <translation>Syötä kelvollinen Mastodon-instanssin URL (selain avautuu todennusta varten)</translation>
     </message>
     <message>
         <location filename="../qml/pages/LoginPage.qml" line="116"/>
         <source>Mastodon is a free, open-source social network. A decentralized alternative to commercial platforms, it avoids the risks of a single company monopolizing your communication. Pick a server that you trust — whichever you choose, you can interact with everyone else. Anyone can run their own Mastodon instance and participate in the social network seamlessly.</source>
-        <translation type="unfinished"></translation>
+        <translation>Mastodon on ilmainen, avoimen lähdekoodin sosiaalinen verkosto. Se on hajautettu vaihtoehto kaupallisille alustoille, ja sen avulla vältetään yksittäisen yrityksen monopoliasema viestinnässäsi. Valitse sinulle sopiva palvelin — mitä tahansa valitset, voit vuorovaikuttaa kaikkien muiden kanssa. Kuka tahansa voi ajaa oman Mastodon-instanssinsa ja osallistua sosiaaliseen verkostoon saumattomasti.</translation>
     </message>
 </context>
 <context>
@@ -295,57 +295,57 @@
     <message>
         <location filename="../qml/pages/MainPage.qml" line="126"/>
         <source>Press and hold the home tab to switch account</source>
-        <translation type="unfinished"></translation>
+        <translation>Pidä aloitusvälilehdettä painettuna vaihtaaksesi tiliä</translation>
     </message>
     <message>
         <location filename="../qml/pages/MainPage.qml" line="136"/>
         <source>Home</source>
-        <translation type="unfinished"></translation>
+        <translation>Etusivu</translation>
     </message>
     <message>
         <location filename="../qml/pages/MainPage.qml" line="148"/>
         <source>Notifications</source>
-        <translation type="unfinished"></translation>
+        <translation>Ilmoitukset</translation>
     </message>
     <message>
         <location filename="../qml/pages/MainPage.qml" line="159"/>
         <source>Local</source>
-        <translation type="unfinished"></translation>
+        <translation>Paikallinen</translation>
     </message>
     <message>
         <location filename="../qml/pages/MainPage.qml" line="170"/>
         <source>Federated</source>
-        <translation type="unfinished"></translation>
+        <translation>Federointi</translation>
     </message>
     <message>
         <location filename="../qml/pages/MainPage.qml" line="179"/>
         <source>Bookmarks</source>
-        <translation type="unfinished"></translation>
+        <translation>Kirjanmerkit</translation>
     </message>
     <message>
         <location filename="../qml/pages/MainPage.qml" line="215"/>
         <source>Search</source>
-        <translation type="unfinished"></translation>
+        <translation>Haku</translation>
     </message>
     <message>
         <location filename="../qml/pages/MainPage.qml" line="225"/>
         <source>@user or #term</source>
-        <translation type="unfinished"></translation>
+        <translation>@käyttäjä tai #termi</translation>
     </message>
     <message>
         <location filename="../qml/pages/MainPage.qml" line="352"/>
         <source>Trending</source>
-        <translation type="unfinished"></translation>
+        <translation>Suosittu</translation>
     </message>
     <message>
         <location filename="../qml/pages/MainPage.qml" line="396"/>
         <source>New Toot</source>
-        <translation type="unfinished"></translation>
+        <translation>Uusi viesti</translation>
     </message>
     <message>
         <location filename="../qml/pages/MainPage.qml" line="494"/>
         <source>Conversation</source>
-        <translation type="unfinished"></translation>
+        <translation>Keskustelu</translation>
     </message>
 </context>
 <context>
@@ -354,7 +354,7 @@
         <location filename="../qml/pages/components/MediaFullScreen.qml" line="151"/>
         <location filename="../qml/pages/components/MediaFullScreen.qml" line="464"/>
         <source>Error loading</source>
-        <translation type="unfinished"></translation>
+        <translation>Virhe latauksessa</translation>
     </message>
 </context>
 <context>
@@ -362,17 +362,17 @@
     <message>
         <location filename="../qml/pages/components/MediaItem.qml" line="94"/>
         <source>Image</source>
-        <translation type="unfinished"></translation>
+        <translation>Kuva</translation>
     </message>
     <message>
         <location filename="../qml/pages/components/MediaItem.qml" line="96"/>
         <source>Video</source>
-        <translation type="unfinished"></translation>
+        <translation>Video</translation>
     </message>
     <message>
         <location filename="../qml/pages/components/MediaItem.qml" line="98"/>
         <source>PDF document</source>
-        <translation type="unfinished"></translation>
+        <translation>PDF-asiakirja</translation>
     </message>
 </context>
 <context>
@@ -380,17 +380,17 @@
     <message>
         <location filename="../qml/pages/components/MiniStatus.qml" line="34"/>
         <source>boosted</source>
-        <translation type="unfinished"></translation>
+        <translation>jakoi</translation>
     </message>
     <message>
         <location filename="../qml/pages/components/MiniStatus.qml" line="37"/>
         <source>favourited</source>
-        <translation type="unfinished"></translation>
+        <translation>lisäsi suosikkeihin</translation>
     </message>
     <message>
         <location filename="../qml/pages/components/MiniStatus.qml" line="40"/>
         <source>followed you</source>
-        <translation type="unfinished"></translation>
+        <translation>seuraa sinua</translation>
     </message>
 </context>
 <context>
@@ -398,33 +398,33 @@
     <message>
         <location filename="../qml/pages/components/MyList.qml" line="90"/>
         <source>Nothing found</source>
-        <translation type="unfinished"></translation>
+        <translation>Ei tuloksia</translation>
     </message>
     <message>
         <location filename="../qml/pages/components/MyList.qml" line="96"/>
         <source>Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Asetukset</translation>
     </message>
     <message>
         <location filename="../qml/pages/components/MyList.qml" line="103"/>
         <source>My Profile</source>
-        <translation type="unfinished"></translation>
+        <translation>Oma profiili</translation>
     </message>
     <message>
         <location filename="../qml/pages/components/MyList.qml" line="128"/>
         <location filename="../qml/pages/components/MyList.qml" line="132"/>
         <source>New Toot</source>
-        <translation type="unfinished"></translation>
+        <translation>Uusi viesti</translation>
     </message>
     <message>
         <location filename="../qml/pages/components/MyList.qml" line="139"/>
         <source>Open in Browser</source>
-        <translation type="unfinished"></translation>
+        <translation>Avaa selaimessa</translation>
     </message>
     <message>
         <location filename="../qml/pages/components/MyList.qml" line="147"/>
         <source>Reload</source>
-        <translation type="unfinished"></translation>
+        <translation>Lataa uudelleen</translation>
     </message>
 </context>
 <context>
@@ -545,7 +545,7 @@
     <message>
         <location filename="../qml/modules/Opal/About/private/LicensePage.qml" line="40"/>
         <source>You are using a mobile data connection.</source>
-        <translation type="unfinished">Käytössäsi on mobiilidatayhteys.</translation>
+        <translation>Käytössäsi on mobiilidatayhteys.</translation>
     </message>
     <message numerus="yes">
         <location filename="../qml/modules/Opal/About/private/LicensePage.qml" line="45"/>
@@ -642,17 +642,17 @@
     <message>
         <location filename="../qml/pages/components/ProfileHeader.qml" line="127"/>
         <source>Group</source>
-        <translation type="unfinished"></translation>
+        <translation>Ryhmä</translation>
     </message>
     <message>
         <location filename="../qml/pages/components/ProfileHeader.qml" line="145"/>
         <source>Follows you</source>
-        <translation type="unfinished"></translation>
+        <translation>Seuraa sinua</translation>
     </message>
     <message>
         <location filename="../qml/pages/components/ProfileHeader.qml" line="182"/>
         <source>Bot</source>
-        <translation type="unfinished"></translation>
+        <translation>Bot</translation>
     </message>
 </context>
 <context>
@@ -661,73 +661,73 @@
         <location filename="../qml/pages/ProfilePage.qml" line="162"/>
         <source>About</source>
         <extracomment>If there&apos;s no good translation for &quot;About&quot;, use &quot;Details&quot; (in details about profile).</extracomment>
-        <translation type="unfinished">Tietoja</translation>
+        <translation>Tietoja</translation>
     </message>
     <message>
         <location filename="../qml/pages/ProfilePage.qml" line="241"/>
         <source>Followers</source>
         <extracomment>Will show as: &quot;35 Followers&quot;</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Seuraajat</translation>
     </message>
     <message>
         <location filename="../qml/pages/ProfilePage.qml" line="252"/>
         <source>Following</source>
         <extracomment>Will show as: &quot;23 Following&quot;</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Seuraa</translation>
     </message>
     <message>
         <location filename="../qml/pages/ProfilePage.qml" line="263"/>
         <source>Statuses</source>
         <extracomment>Will show as: &quot;115 Statuses&quot;</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Statukset</translation>
     </message>
     <message>
         <location filename="../qml/pages/ProfilePage.qml" line="285"/>
         <location filename="../qml/pages/ProfilePage.qml" line="288"/>
         <source>Mention</source>
-        <translation type="unfinished"></translation>
+        <translation>Maininta</translation>
     </message>
     <message>
         <location filename="../qml/pages/ProfilePage.qml" line="300"/>
         <source>Unfollow</source>
         <extracomment>Is a button. Keep it as short as possible.</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Lopeta seuraaminen</translation>
     </message>
     <message>
         <location filename="../qml/pages/ProfilePage.qml" line="302"/>
         <source>Requested</source>
         <extracomment>Is a button. Keep it as short as possible.</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Pyydetty</translation>
     </message>
     <message>
         <location filename="../qml/pages/ProfilePage.qml" line="304"/>
         <source>Follow</source>
         <extracomment>Is a button. Keep it as short as possible.</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Seuraa</translation>
     </message>
     <message>
         <location filename="../qml/pages/ProfilePage.qml" line="322"/>
         <source>Unmute</source>
         <extracomment>Is a button. Keep it as short as possible.</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Poista mykistys</translation>
     </message>
     <message>
         <location filename="../qml/pages/ProfilePage.qml" line="324"/>
         <source>Mute</source>
         <extracomment>Is a button. Keep it as short as possible.</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Mykistä</translation>
     </message>
     <message>
         <location filename="../qml/pages/ProfilePage.qml" line="342"/>
         <source>Unblock</source>
         <extracomment>Is a button. Keep it as short as possible.</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Poista estäminen</translation>
     </message>
     <message>
         <location filename="../qml/pages/ProfilePage.qml" line="344"/>
         <source>Block</source>
         <extracomment>Is a button. Keep it as short as possible.</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Estä</translation>
     </message>
 </context>
 <context>
@@ -735,93 +735,93 @@
     <message>
         <location filename="../qml/pages/SettingsPage.qml" line="13"/>
         <source>Remove Account</source>
-        <translation type="unfinished"></translation>
+        <translation>Poista tili</translation>
     </message>
     <message>
         <location filename="../qml/pages/SettingsPage.qml" line="14"/>
         <source>Deauthorize this app from using your account and remove account data from phone</source>
-        <translation type="unfinished"></translation>
+        <translation>Kumoa sovelluksen oikeudet tilisi käyttöön ja poista tilin tiedot puhelimesta</translation>
     </message>
     <message>
         <location filename="../qml/pages/SettingsPage.qml" line="24"/>
         <source>About</source>
         <comment>About the app</comment>
-        <translation type="unfinished">Tietoja</translation>
+        <translation>Tietoja</translation>
     </message>
     <message>
         <location filename="../qml/pages/SettingsPage.qml" line="37"/>
         <source>Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Asetukset</translation>
     </message>
     <message>
         <location filename="../qml/pages/SettingsPage.qml" line="53"/>
         <source>Quick Scroll Arrows</source>
-        <translation type="unfinished"></translation>
+        <translation>Nopean vierityksen nuolet</translation>
     </message>
     <message>
         <location filename="../qml/pages/SettingsPage.qml" line="54"/>
         <source>Show arrows to jump to top/bottom when scrolling fast</source>
-        <translation type="unfinished"></translation>
+        <translation>Näytä nuolet hyppäämiseen ylä-/alareunaan nopean vierityksen aikana</translation>
     </message>
     <message>
         <location filename="../qml/pages/SettingsPage.qml" line="63"/>
         <source>Notification</source>
-        <translation type="unfinished"></translation>
+        <translation>Ilmoitus</translation>
     </message>
     <message>
         <location filename="../qml/pages/SettingsPage.qml" line="64"/>
         <source>Show notifications and create alerts</source>
-        <translation type="unfinished"></translation>
+        <translation>Näytä ilmoitukset ja luo hälytykset</translation>
     </message>
     <message>
         <location filename="../qml/pages/SettingsPage.qml" line="130"/>
         <source>Account</source>
-        <translation type="unfinished"></translation>
+        <translation>Tili</translation>
     </message>
     <message>
         <location filename="../qml/pages/SettingsPage.qml" line="158"/>
         <source>Account removed</source>
-        <translation type="unfinished"></translation>
+        <translation>Tili poistettu</translation>
     </message>
     <message>
         <location filename="../qml/pages/SettingsPage.qml" line="173"/>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation>Poista</translation>
     </message>
     <message>
         <location filename="../qml/pages/SettingsPage.qml" line="211"/>
         <source>Add Account</source>
-        <translation type="unfinished"></translation>
+        <translation>Lisää tili</translation>
     </message>
     <message>
         <location filename="../qml/pages/SettingsPage.qml" line="226"/>
         <source>Authorize this app to access your Mastodon account</source>
-        <translation type="unfinished"></translation>
+        <translation>Myönnä tälle sovellukselle oikeudet Mastodon-tilisi käyttöön</translation>
     </message>
     <message>
         <location filename="../qml/pages/SettingsPage.qml" line="40"/>
         <source>Options</source>
-        <translation type="unfinished"></translation>
+        <translation>Valinnat</translation>
     </message>
     <message>
         <location filename="../qml/pages/SettingsPage.qml" line="43"/>
         <source>Load Images in Toots</source>
-        <translation type="unfinished"></translation>
+        <translation>Lataa kuvat viesteissä</translation>
     </message>
     <message>
         <location filename="../qml/pages/SettingsPage.qml" line="44"/>
         <source>Disable this option if you want to preserve your data connection</source>
-        <translation type="unfinished"></translation>
+        <translation>Poista tämä vaihtoehto käytöstä, jos haluat säästää datayhteyttäsi</translation>
     </message>
     <message>
         <location filename="../qml/pages/SettingsPage.qml" line="93"/>
         <source>Font Size</source>
-        <translation type="unfinished"></translation>
+        <translation>Kirjasinkoko</translation>
     </message>
     <message>
         <location filename="../qml/pages/SettingsPage.qml" line="118"/>
         <source>Sample text</source>
-        <translation type="unfinished"></translation>
+        <translation>Esimerkkiteksti</translation>
     </message>
 </context>
 <context>
@@ -829,123 +829,123 @@
     <message>
         <location filename="../qml/pages/components/VisualContainer.qml" line="93"/>
         <source>Loading...</source>
-        <translation type="unfinished"></translation>
+        <translation>Ladataan...</translation>
     </message>
     <message>
         <location filename="../qml/pages/components/VisualContainer.qml" line="93"/>
         <source>Load more</source>
-        <translation type="unfinished"></translation>
+        <translation>Lataa lisää</translation>
     </message>
     <message>
         <location filename="../qml/pages/components/VisualContainer.qml" line="474"/>
         <source>Show less</source>
-        <translation type="unfinished"></translation>
+        <translation>Näytä vähemmän</translation>
     </message>
     <message>
         <location filename="../qml/pages/components/VisualContainer.qml" line="474"/>
         <source>Show more</source>
-        <translation type="unfinished"></translation>
+        <translation>Näytä enemmän</translation>
     </message>
     <message>
         <location filename="../qml/pages/components/VisualContainer.qml" line="642"/>
         <source>Vote</source>
-        <translation type="unfinished"></translation>
+        <translation>Äänestä</translation>
     </message>
     <message>
         <location filename="../qml/pages/components/VisualContainer.qml" line="670"/>
         <source>votes</source>
-        <translation type="unfinished"></translation>
+        <translation>ääntä</translation>
     </message>
     <message>
         <location filename="../qml/pages/components/VisualContainer.qml" line="673"/>
         <source>Closed</source>
-        <translation type="unfinished"></translation>
+        <translation>Suljettu</translation>
     </message>
     <message>
         <location filename="../qml/pages/components/VisualContainer.qml" line="683"/>
         <source>days left</source>
-        <translation type="unfinished"></translation>
+        <translation>päivää jäljellä</translation>
     </message>
     <message>
         <location filename="../qml/pages/components/VisualContainer.qml" line="685"/>
         <source>hours left</source>
-        <translation type="unfinished"></translation>
+        <translation>tuntia jäljellä</translation>
     </message>
     <message>
         <location filename="../qml/pages/components/VisualContainer.qml" line="687"/>
         <source>minutes left</source>
-        <translation type="unfinished"></translation>
+        <translation>minuuttia jäljellä</translation>
     </message>
     <message>
         <location filename="../qml/pages/components/VisualContainer.qml" line="402"/>
         <location filename="../qml/pages/components/VisualContainer.qml" line="853"/>
         <location filename="../qml/pages/components/VisualContainer.qml" line="1257"/>
         <source>Conversation</source>
-        <translation type="unfinished"></translation>
+        <translation>Keskustelu</translation>
     </message>
     <message>
         <location filename="../qml/pages/components/VisualContainer.qml" line="951"/>
         <source>Unfavorite</source>
-        <translation type="unfinished"></translation>
+        <translation>Poista suosikeista</translation>
     </message>
     <message>
         <location filename="../qml/pages/components/VisualContainer.qml" line="951"/>
         <source>Favorite</source>
-        <translation type="unfinished"></translation>
+        <translation>Suosikki</translation>
     </message>
     <message>
         <location filename="../qml/pages/components/VisualContainer.qml" line="993"/>
         <source>Unboost</source>
-        <translation type="unfinished"></translation>
+        <translation>Kumoa jako</translation>
     </message>
     <message>
         <location filename="../qml/pages/components/VisualContainer.qml" line="993"/>
         <source>Boost</source>
-        <translation type="unfinished"></translation>
+        <translation>Jaa</translation>
     </message>
     <message>
         <location filename="../qml/pages/components/VisualContainer.qml" line="1034"/>
         <location filename="../qml/pages/components/VisualContainer.qml" line="1066"/>
         <source>Reply</source>
-        <translation type="unfinished"></translation>
+        <translation>Vastaa</translation>
     </message>
     <message>
         <location filename="../qml/pages/components/VisualContainer.qml" line="1093"/>
         <location filename="../qml/pages/components/VisualContainer.qml" line="1097"/>
         <source>Quote</source>
-        <translation type="unfinished"></translation>
+        <translation>Sitaa</translation>
     </message>
     <message>
         <location filename="../qml/pages/components/VisualContainer.qml" line="1123"/>
         <source>Remove Bookmark</source>
-        <translation type="unfinished"></translation>
+        <translation>Poista kirjanmerkki</translation>
     </message>
     <message>
         <location filename="../qml/pages/components/VisualContainer.qml" line="1123"/>
         <source>Bookmark</source>
-        <translation type="unfinished"></translation>
+        <translation>Kirjanmerkki</translation>
     </message>
     <message>
         <location filename="../qml/pages/components/VisualContainer.qml" line="1160"/>
         <source>Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>Poista</translation>
     </message>
     <message>
         <location filename="../qml/pages/components/VisualContainer.qml" line="1162"/>
         <source>Deleting</source>
-        <translation type="unfinished"></translation>
+        <translation>Poistetaan</translation>
     </message>
     <message>
         <location filename="../qml/pages/components/VisualContainer.qml" line="1195"/>
         <location filename="../qml/pages/components/VisualContainer.qml" line="1198"/>
         <source>Edit</source>
-        <translation type="unfinished"></translation>
+        <translation>Muokkaa</translation>
     </message>
     <message>
         <location filename="../qml/pages/components/VisualContainer.qml" line="1221"/>
         <location filename="../qml/pages/components/VisualContainer.qml" line="1225"/>
         <source>Mention</source>
-        <translation type="unfinished"></translation>
+        <translation>Maininta</translation>
     </message>
 </context>
 </TS>

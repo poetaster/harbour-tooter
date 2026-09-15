@@ -279,7 +279,7 @@
     </message>
     <message>
         <source>Conversation</source>
-        <translation type="unfinished">Gesprek</translation>
+        <translation>Gesprek</translation>
     </message>
 </context>
 <context>

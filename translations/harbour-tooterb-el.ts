@@ -5,94 +5,94 @@
     <name>API</name>
     <message>
         <source>favourited</source>
-        <translation type="unfinished">στους σελιδοδείκτες</translation>
+        <translation>στους σελιδοδείκτες</translation>
     </message>
     <message>
         <source>followed you</source>
-        <translation type="unfinished">σας ακολουθούν</translation>
+        <translation>σας ακολουθούν</translation>
     </message>
     <message>
         <source>boosted</source>
-        <translation type="unfinished">προωθημένο</translation>
+        <translation>προωθημένο</translation>
     </message>
     <message>
         <source>said</source>
-        <translation type="unfinished"></translation>
+        <translation>είπε</translation>
     </message>
 </context>
 <context>
     <name>AboutPage</name>
     <message>
         <source>Tooter is Mastodon client for Sailfish OS.</source>
-        <translation type="unfinished"></translation>
+        <translation>Tooter είναι ένας πελάτης Mastodon για Sailfish OS.</translation>
     </message>
     <message>
         <source>UI/UX design and development</source>
-        <translation type="unfinished">UI/UX σχεδιασμός και ανάπτυξη</translation>
+        <translation>UI/UX σχεδιασμός και ανάπτυξη</translation>
     </message>
     <message>
         <source>Visual identity</source>
-        <translation type="unfinished"></translation>
+        <translation>Οπτική ταυτότητα</translation>
     </message>
     <message>
         <source>Documentation</source>
-        <translation type="unfinished"></translation>
+        <translation>Χρηστικό εγχειρίδιο</translation>
     </message>
     <message>
         <source>Mention</source>
-        <translation type="unfinished">Φραγή</translation>
+        <translation>Φραγή</translation>
     </message>
     <message>
         <source>Credits</source>
-        <translation type="unfinished">Ευχαριστίες</translation>
+        <translation>Ευχαριστίες</translation>
     </message>
     <message>
         <source>Development and translations</source>
-        <translation type="unfinished"></translation>
+        <translation>Ανάπτυξη και μεταφράσεις</translation>
     </message>
     <message>
         <source>Development</source>
-        <translation type="unfinished">Ανάπτυξη</translation>
+        <translation>Ανάπτυξη</translation>
     </message>
     <message>
         <source>Occitan &amp; French translation</source>
-        <translation type="unfinished"></translation>
+        <translation>Μετάφραση στην οξιτανική και τη γαλλική</translation>
     </message>
     <message>
         <source>Chinese translation</source>
-        <translation type="unfinished"></translation>
+        <translation>Μετάφραση στα κινεζικά</translation>
     </message>
     <message>
         <source>Dutch translation</source>
-        <translation type="unfinished"></translation>
+        <translation>Μετάφραση στα ολλανδικά</translation>
     </message>
     <message>
         <source>Spanish translation</source>
-        <translation type="unfinished"></translation>
+        <translation>Μετάφραση στα ισπανικά</translation>
     </message>
     <message>
         <source>Development, Russian translation</source>
-        <translation type="unfinished"></translation>
+        <translation>Ανάπτυξη, μετάφραση στα ρωσικά</translation>
     </message>
     <message>
         <source>Norwegian Translation</source>
-        <translation type="unfinished"></translation>
+        <translation>Μετάφραση στα νορβηγικά</translation>
     </message>
     <message>
         <source>SFOS Community Liberapay</source>
-        <translation type="unfinished"></translation>
+        <translation>Liberapay της κοινότητας SFOS</translation>
     </message>
     <message>
         <source>French Translation</source>
-        <translation type="unfinished"></translation>
+        <translation>Μετάφραση στα γαλλικά</translation>
     </message>
     <message>
         <source>Swedish Translation</source>
-        <translation type="unfinished"></translation>
+        <translation>Μετάφραση στα σουηδικά</translation>
     </message>
     <message>
         <source>Italian Translation</source>
-        <translation type="unfinished"></translation>
+        <translation>Μετάφραση στα ιταλικά</translation>
     </message>
 </context>
 <context>
@@ -100,73 +100,73 @@
     <message>
         <source>Copy Link to Clipboard</source>
         <extracomment>Use the translation of &quot;Copy Link&quot; for a shorter PullDownMenu label</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Αντιγραφή συνδέσμου στο πρόχειρο</translation>
     </message>
     <message>
         <source>Write your warning here</source>
         <extracomment>placeholderText in Toot content warning panel</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Γράψτε εδώ το προειδοποιητικό σας μήνυμα</translation>
     </message>
     <message>
         <source>What&apos;s on your mind?</source>
         <extracomment>placeholderText in Toot text panel</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Τι σκέφτεστε;</translation>
     </message>
     <message>
         <source>Toot sent!</source>
-        <translation type="unfinished"></translation>
+        <translation>Ανετέθηκε!</translation>
     </message>
     <message>
         <source>Open in Browser</source>
-        <translation type="unfinished"></translation>
+        <translation>Άνοιγμα σε περιήγηση</translation>
     </message>
     <message>
         <source>Edit Alt Text</source>
-        <translation type="unfinished"></translation>
+        <translation>Επεξεργασία εναλλακτικού κειμένου</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation>Αφαίρεση</translation>
     </message>
     <message>
         <source>Toot edited!</source>
-        <translation type="unfinished"></translation>
+        <translation>Το μήνυμα επεξεργάστηκε!</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished"></translation>
+        <translation>Αποθήκευση</translation>
     </message>
     <message>
         <source>Describe this media for visually impaired users</source>
-        <translation type="unfinished"></translation>
+        <translation>Περιγράψτε αυτόν τον πολυμεσικό για χρήστες με οπτική αναπηρία</translation>
     </message>
     <message>
         <source>Alt text helps make content accessible to people who are blind or have low vision.</source>
-        <translation type="unfinished"></translation>
+        <translation>Το εναλλακτικό κείμενο βοηθά στην προσβάσιμη περιήγηση στο περιεχόμενο για άτομα τυφλά ή με χαμηλή όραση.</translation>
     </message>
     <message>
         <source>Quoting @%1</source>
-        <translation type="unfinished"></translation>
+        <translation>Παρομοίωση @%1</translation>
     </message>
     <message>
         <source>Removing</source>
-        <translation type="unfinished"></translation>
+        <translation>Κατάργηση</translation>
     </message>
     <message>
         <source>Public</source>
-        <translation type="unfinished"></translation>
+        <translation>Δημόσιο</translation>
     </message>
     <message>
         <source>Unlisted</source>
-        <translation type="unfinished"></translation>
+        <translation>Μη καταχωρημένο</translation>
     </message>
     <message>
         <source>Followers-only</source>
-        <translation type="unfinished"></translation>
+        <translation>Μόνο για ακολούθους</translation>
     </message>
     <message>
         <source>Direct</source>
-        <translation type="unfinished"></translation>
+        <translation>Απευθείας</translation>
     </message>
 </context>
 <context>
@@ -191,11 +191,11 @@
     <name>ExternalUrlPage</name>
     <message>
         <source>Swipe left to preview.</source>
-        <translation type="unfinished"></translation>
+        <translation>Σουρώστε αριστερά για προεπισκόπηση.</translation>
     </message>
     <message>
         <source>You are using a mobile data connection.</source>
-        <translation type="unfinished"></translation>
+        <translation>Χρησιμοποιείτε σύνδεση κινητής δεδομένων.</translation>
     </message>
 </context>
 <context>
@@ -209,7 +209,7 @@
     <name>LicenseListPart</name>
     <message>
         <source>License text</source>
-        <translation type="unfinished"></translation>
+        <translation>Κείμενο άδειας</translation>
     </message>
 </context>
 <context>
@@ -224,84 +224,84 @@
     </message>
     <message>
         <source>Mastodon is a free, open-source social network. A decentralized alternative to commercial platforms, it avoids the risks of a single company monopolizing your communication. Pick a server that you trust — whichever you choose, you can interact with everyone else. Anyone can run their own Mastodon instance and participate in the social network seamlessly.</source>
-        <translation type="unfinished"></translation>
+        <translation>Το Mastodon είναι ένα δωρεάν, ανοιχτού κώδικα κοινωνικό δίκτυο. Μια αποκεντρωμένη εναλλακτική στις εμπορικές πλατφόρμες, αποφεύγει τον κίνδυνο μονοπωλιοποίησης των επικοινωνιών σας από μια εταιρεία. Επιλέξτε έναν διακομιστή στον οποίο εμπιστεύεστε — όποιο και αν επιλέξετε, μπορείτε να αλληλεπιδράσετε με όλους τους υπόλοιπους. Οποιοσδήποτε μπορεί να εκτελέσει τον δικό του διακομιστή Mastodon και να συμμετάσχει στο κοινωνικό δίκτυο χωρίς πρόβλημα.</translation>
     </message>
     <message>
         <source>Enter a valid Mastodon instance URL (will open a web browser for Authentication)</source>
-        <translation type="unfinished"></translation>
+        <translation>Εισάγετε ένα έγκυρο URL διακομιστή Mastodon (θα ανοιχθεί ένας περιηγητής για έλεγχο ταυτότητας)</translation>
     </message>
     <message>
         <source>Type</source>
-        <translation type="unfinished"></translation>
+        <translation>Τύπος</translation>
     </message>
 </context>
 <context>
     <name>MainPage</name>
     <message>
         <source>Press and hold the home tab to switch account</source>
-        <translation type="unfinished"></translation>
+        <translation>Πατήστε και κρατήστε πατημένη την καρτέλα Αρχική για εναλλαγή λογαριασμού</translation>
     </message>
     <message>
         <source>Home</source>
-        <translation type="unfinished"></translation>
+        <translation>Αρχική</translation>
     </message>
     <message>
         <source>Notifications</source>
-        <translation type="unfinished"></translation>
+        <translation>Ειδοποιήσεις</translation>
     </message>
     <message>
         <source>Local</source>
-        <translation type="unfinished"></translation>
+        <translation>Τοπικό</translation>
     </message>
     <message>
         <source>Federated</source>
-        <translation type="unfinished"></translation>
+        <translation>Συνομοσπονδία</translation>
     </message>
     <message>
         <source>Bookmarks</source>
-        <translation type="unfinished"></translation>
+        <translation>Σελιδοδείκτες</translation>
     </message>
     <message>
         <source>Search</source>
-        <translation type="unfinished"></translation>
+        <translation>Αναζήτηση</translation>
     </message>
     <message>
         <source>@user or #term</source>
-        <translation type="unfinished"></translation>
+        <translation>@χρήστης ή #όρος</translation>
     </message>
     <message>
         <source>Trending</source>
-        <translation type="unfinished"></translation>
+        <translation>Τάσεις</translation>
     </message>
     <message>
         <source>New Toot</source>
-        <translation type="unfinished">Νέος</translation>
+        <translation>Νέος</translation>
     </message>
     <message>
         <source>Conversation</source>
-        <translation type="unfinished"></translation>
+        <translation>Συνομιλία</translation>
     </message>
 </context>
 <context>
     <name>MediaFullScreen</name>
     <message>
         <source>Error loading</source>
-        <translation type="unfinished"></translation>
+        <translation>Σφάλμα φόρτωσης</translation>
     </message>
 </context>
 <context>
     <name>MediaItem</name>
     <message>
         <source>Image</source>
-        <translation type="unfinished"></translation>
+        <translation>Εικόνα</translation>
     </message>
     <message>
         <source>Video</source>
-        <translation type="unfinished"></translation>
+        <translation>Βίντεο</translation>
     </message>
     <message>
         <source>PDF document</source>
-        <translation type="unfinished"></translation>
+        <translation>Έγγραφο PDF</translation>
     </message>
 </context>
 <context>
@@ -323,34 +323,34 @@
     <name>MyList</name>
     <message>
         <source>Settings</source>
-        <translation type="unfinished">Ρυθμίσεις</translation>
+        <translation>Ρυθμίσεις</translation>
     </message>
     <message>
         <source>New Toot</source>
-        <translation type="unfinished">Νέος</translation>
+        <translation>Νέος</translation>
     </message>
     <message>
         <source>Open in Browser</source>
-        <translation type="unfinished"></translation>
+        <translation>Άνοιγμα σε περιήγηση</translation>
     </message>
     <message>
         <source>Reload</source>
-        <translation type="unfinished"></translation>
+        <translation>Επαναφόρτωση</translation>
     </message>
     <message>
         <source>Nothing found</source>
-        <translation type="unfinished"></translation>
+        <translation>Δεν βρέθηκαν αποτελέσματα</translation>
     </message>
     <message>
         <source>My Profile</source>
-        <translation type="unfinished"></translation>
+        <translation>Το προφίλ μου</translation>
     </message>
 </context>
 <context>
     <name>Opal.About</name>
     <message>
         <source>About</source>
-        <translation type="unfinished"></translation>
+        <translation>Σχετικά</translation>
     </message>
     <message>
         <source>Version %1</source>
@@ -362,15 +362,15 @@
     </message>
     <message>
         <source>show contributors</source>
-        <translation type="unfinished"></translation>
+        <translation>εμφάνιση συντελεστών</translation>
     </message>
     <message>
         <source>Homepage</source>
-        <translation type="unfinished"></translation>
+        <translation>Αρχική σελίδα</translation>
     </message>
     <message>
         <source>Changelog</source>
-        <translation type="unfinished"></translation>
+        <translation>Σημειώσεις αλλαγών</translation>
     </message>
     <message>
         <source>Translations</source>
@@ -378,7 +378,7 @@
     </message>
     <message>
         <source>Source Code</source>
-        <translation type="unfinished"></translation>
+        <translation>Πηγαίος κώδικας</translation>
     </message>
     <message>
         <source>Donations</source>
@@ -386,14 +386,11 @@
     </message>
     <message>
         <source>License</source>
-        <translation type="unfinished"></translation>
+        <translation>Άδεια</translation>
     </message>
     <message numerus="yes">
         <source>show license(s)</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-        </translation>
+        <translation><numerusform>Εμφάνιση άδειας</numerusform><numerusform>Εμφάνιση αδειών</numerusform></translation>
     </message>
     <message>
         <source>News</source>
@@ -401,127 +398,124 @@
     </message>
     <message>
         <source>Changes since version %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Αλλαγές από την έκδοση %1</translation>
     </message>
     <message>
         <source>show details</source>
-        <translation type="unfinished"></translation>
+        <translation>εμφάνιση λεπτομερειών</translation>
     </message>
     <message>
         <source>Thank you!</source>
-        <translation type="unfinished"></translation>
+        <translation>Ευχαριστώ!</translation>
     </message>
     <message>
         <source>Details</source>
-        <translation type="unfinished"></translation>
+        <translation>Λεπτομέρειες</translation>
     </message>
     <message>
         <source>Contributors</source>
-        <translation type="unfinished"></translation>
+        <translation>Συντελεστές</translation>
     </message>
     <message>
         <source>Acknowledgements</source>
-        <translation type="unfinished"></translation>
+        <translation>Ευχαριστίες</translation>
     </message>
     <message>
         <source>Please refer to &lt;a href=&quot;%1&quot;&gt;%1&lt;/a&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>Συμβουλευτείτε τα &lt;a href=&quot;%1&quot;&gt;%1&lt;/a&gt;</translation>
     </message>
     <message>
         <source>Download license texts</source>
-        <translation type="unfinished"></translation>
+        <translation>Λήψη κειμένων αδειών</translation>
     </message>
     <message>
         <source>You are using a mobile data connection.</source>
-        <translation type="unfinished"></translation>
+        <translation>Χρησιμοποιείτε σύνδεση κινητής δεδομένων.</translation>
     </message>
     <message numerus="yes">
         <source>License(s)</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-        </translation>
+        <translation><numerusform>Άδεια</numerusform><numerusform>Αδειές</numerusform></translation>
     </message>
     <message>
         <source>Note: please check the source code for most accurate information.</source>
-        <translation type="unfinished"></translation>
+        <translation>Σημείωση: για τις πιο ακριβείς πληροφορίες, ελέγξτε τον πηγαίο κώδικα.</translation>
     </message>
 </context>
 <context>
     <name>Opal.About.Common</name>
     <message>
         <source>If you want to support my work, you can buy me a cup of coffee.</source>
-        <translation type="unfinished"></translation>
+        <translation>Αν θέλετε να υποστηρίξετε το έργο μου, μπορείτε να μου χαρίσετε ένα φλιτζάνι καφέ.</translation>
     </message>
     <message>
         <source>You can support this project by contributing, or by donating using any of these services.</source>
-        <translation type="unfinished"></translation>
+        <translation>Μπορείτε να υποστηρίξετε αυτό το έργο με τη συνεισφορά σας ή με δωρεάν μέσω οποιουδήποτε από αυτές τις υπηρεσίες.</translation>
     </message>
     <message>
         <source>Your contributions to translations or code would be most welcome.</source>
-        <translation type="unfinished"></translation>
+        <translation>Οι συνεισφορές σας στις μεταφράσεις ή στον κώδικα θα ήταν ευπρόσδεκτες.</translation>
     </message>
 </context>
 <context>
     <name>Opal.LinkHandler</name>
     <message>
         <source>Copied to clipboard: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Αντιγράφηκε στο πρόχειρο: %1</translation>
     </message>
     <message>
         <source>Share link</source>
-        <translation type="unfinished"></translation>
+        <translation>Κοινοποίηση συνδέσμου</translation>
     </message>
     <message>
         <source>Phone number</source>
-        <translation type="unfinished"></translation>
+        <translation>Αριθμός τηλεφώνου</translation>
     </message>
     <message>
         <source>External link</source>
-        <translation type="unfinished">Εξωτερικός σύνδεσμος</translation>
+        <translation>Εξωτερικός σύνδεσμος</translation>
     </message>
     <message>
         <source>Open in browser</source>
-        <translation type="unfinished"></translation>
+        <translation>Άνοιγμα σε περιήγηση</translation>
     </message>
     <message>
         <source>Open externally</source>
-        <translation type="unfinished"></translation>
+        <translation>Εξωτερικό άνοιγμα</translation>
     </message>
     <message>
         <source>Share</source>
-        <translation type="unfinished"></translation>
+        <translation>Κοινοποίηση</translation>
     </message>
     <message>
         <source>Copy link</source>
-        <translation type="unfinished"></translation>
+        <translation>Αντιγραφή συνδέσμου</translation>
     </message>
     <message>
         <source>Copy text</source>
-        <translation type="unfinished"></translation>
+        <translation>Αντιγραφή κειμένου</translation>
     </message>
     <message>
         <source>No preview available.</source>
-        <translation type="unfinished"></translation>
+        <translation>Δεν διατίθεται προεπισκόπηση.</translation>
     </message>
     <message>
         <source>The page is taking too long to load.</source>
-        <translation type="unfinished"></translation>
+        <translation>Η σελίδα παίρνει πολύ χρόνο για να φορτώσει.</translation>
     </message>
 </context>
 <context>
     <name>ProfileHeader</name>
     <message>
         <source>Bot</source>
-        <translation type="unfinished"></translation>
+        <translation>Ρομπότ</translation>
     </message>
     <message>
         <source>Follows you</source>
-        <translation type="unfinished"></translation>
+        <translation>Σας ακολουθεί</translation>
     </message>
     <message>
         <source>Group</source>
-        <translation type="unfinished"></translation>
+        <translation>Ομάδα</translation>
     </message>
 </context>
 <context>
@@ -529,7 +523,7 @@
     <message>
         <source>About</source>
         <extracomment>If there&apos;s no good translation for &quot;About&quot;, use &quot;Details&quot; (in details about profile).</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Σχετικά</translation>
     </message>
     <message>
         <source>Followers</source>
@@ -558,7 +552,7 @@
     <message>
         <source>Requested</source>
         <extracomment>Is a button. Keep it as short as possible.</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Ζητήθηκε</translation>
     </message>
     <message>
         <source>Follow</source>
@@ -594,11 +588,11 @@
     </message>
     <message>
         <source>Options</source>
-        <translation type="unfinished"></translation>
+        <translation>Επιλογές</translation>
     </message>
     <message>
         <source>Load Images in Toots</source>
-        <translation type="unfinished"></translation>
+        <translation>Φόρτωση εικόνων σε μηνύματα</translation>
     </message>
     <message>
         <source>Disable this option if you want to preserve your data connection</source>
@@ -626,135 +620,135 @@
     </message>
     <message>
         <source>Account removed</source>
-        <translation type="unfinished"></translation>
+        <translation>Ο λογαριασμός αφαιρέθηκε</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation>Αφαίρεση</translation>
     </message>
     <message>
         <source>Font Size</source>
-        <translation type="unfinished"></translation>
+        <translation>Μέγεθος γραμματοσειράς</translation>
     </message>
     <message>
         <source>Sample text</source>
-        <translation type="unfinished"></translation>
+        <translation>Δειγματικό κείμενο</translation>
     </message>
     <message>
         <source>Quick Scroll Arrows</source>
-        <translation type="unfinished"></translation>
+        <translation>Βέλη γρήγορης κύλισης</translation>
     </message>
     <message>
         <source>Show arrows to jump to top/bottom when scrolling fast</source>
-        <translation type="unfinished"></translation>
+        <translation>Εμφάνιση βέλων για άλμα στην κορυφή/στο κάτω μέρος κατά τη γρήγορη κύλιση</translation>
     </message>
     <message>
         <source>About</source>
         <comment>About the app</comment>
-        <translation type="unfinished"></translation>
+        <translation>Σχετικά</translation>
     </message>
     <message>
         <source>Notification</source>
-        <translation type="unfinished"></translation>
+        <translation>Ειδοποίηση</translation>
     </message>
     <message>
         <source>Show notifications and create alerts</source>
-        <translation type="unfinished"></translation>
+        <translation>Εμφάνιση ειδοποιήσεων και δημιουργία ειδοποιήσεων</translation>
     </message>
 </context>
 <context>
     <name>VisualContainer</name>
     <message>
         <source>Loading...</source>
-        <translation type="unfinished"></translation>
+        <translation>Φόρτωση...</translation>
     </message>
     <message>
         <source>Load more</source>
-        <translation type="unfinished"></translation>
+        <translation>Φόρτωση περισσότερων</translation>
     </message>
     <message>
         <source>Show less</source>
-        <translation type="unfinished"></translation>
+        <translation>Εμφάνιση λιγότερων</translation>
     </message>
     <message>
         <source>Show more</source>
-        <translation type="unfinished"></translation>
+        <translation>Εμφάνιση περισσότερων</translation>
     </message>
     <message>
         <source>Vote</source>
-        <translation type="unfinished"></translation>
+        <translation>Ψήφος</translation>
     </message>
     <message>
         <source>votes</source>
-        <translation type="unfinished"></translation>
+        <translation>ψηφοί</translation>
     </message>
     <message>
         <source>Closed</source>
-        <translation type="unfinished"></translation>
+        <translation>Κλειστό</translation>
     </message>
     <message>
         <source>days left</source>
-        <translation type="unfinished"></translation>
+        <translation>ημέρες απομένουν</translation>
     </message>
     <message>
         <source>hours left</source>
-        <translation type="unfinished"></translation>
+        <translation>ώρες απομένουν</translation>
     </message>
     <message>
         <source>minutes left</source>
-        <translation type="unfinished"></translation>
+        <translation>λεπτά απομένουν</translation>
     </message>
     <message>
         <source>Conversation</source>
-        <translation type="unfinished"></translation>
+        <translation>Συνομιλία</translation>
     </message>
     <message>
         <source>Unfavorite</source>
-        <translation type="unfinished"></translation>
+        <translation>Αφαίρεση από τα αγαπημένα</translation>
     </message>
     <message>
         <source>Favorite</source>
-        <translation type="unfinished"></translation>
+        <translation>Αγαπημένο</translation>
     </message>
     <message>
         <source>Unboost</source>
-        <translation type="unfinished"></translation>
+        <translation>Αναίρεση προώθησης</translation>
     </message>
     <message>
         <source>Boost</source>
-        <translation type="unfinished"></translation>
+        <translation>Προώθηση</translation>
     </message>
     <message>
         <source>Reply</source>
-        <translation type="unfinished"></translation>
+        <translation>Απάντηση</translation>
     </message>
     <message>
         <source>Quote</source>
-        <translation type="unfinished"></translation>
+        <translation>Παρομοίωση</translation>
     </message>
     <message>
         <source>Remove Bookmark</source>
-        <translation type="unfinished"></translation>
+        <translation>Αφαίρεση σελιδοδείκτη</translation>
     </message>
     <message>
         <source>Bookmark</source>
-        <translation type="unfinished"></translation>
+        <translation>Σελιδοδείκτης</translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>Διαγραφή</translation>
     </message>
     <message>
         <source>Deleting</source>
-        <translation type="unfinished"></translation>
+        <translation>Διαγραφή</translation>
     </message>
     <message>
         <source>Edit</source>
-        <translation type="unfinished"></translation>
+        <translation>Επεξεργασία</translation>
     </message>
     <message>
         <source>Mention</source>
-        <translation type="unfinished">Φραγή</translation>
+        <translation>Φραγή</translation>
     </message>
 </context>
 </TS>

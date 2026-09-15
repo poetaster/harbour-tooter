@@ -5,94 +5,94 @@
     <name>API</name>
     <message>
         <source>favourited</source>
-        <translation type="unfinished">dodał(a) do ulubionych</translation>
+        <translation>dodał(a) do ulubionych</translation>
     </message>
     <message>
         <source>followed you</source>
-        <translation type="unfinished">zaczął(-ęła) Cię śledzić</translation>
+        <translation>zaczął(-ęła) Cię śledzić</translation>
     </message>
     <message>
         <source>boosted</source>
-        <translation type="unfinished">podbił(a)</translation>
+        <translation>podbił(a)</translation>
     </message>
     <message>
         <source>said</source>
-        <translation type="unfinished"></translation>
+        <translation>powiedział(a)</translation>
     </message>
 </context>
 <context>
     <name>AboutPage</name>
     <message>
         <source>Tooter is Mastodon client for Sailfish OS.</source>
-        <translation type="unfinished"></translation>
+        <translation>Tooter to klient Mastodona dla Sailfish OS.</translation>
     </message>
     <message>
         <source>UI/UX design and development</source>
-        <translation type="unfinished"></translation>
+        <translation>Projektowanie UI/UX i rozwój</translation>
     </message>
     <message>
         <source>Visual identity</source>
-        <translation type="unfinished"></translation>
+        <translation>Tożsamość wizualna</translation>
     </message>
     <message>
         <source>Documentation</source>
-        <translation type="unfinished"></translation>
+        <translation>Dokumentacja</translation>
     </message>
     <message>
         <source>Mention</source>
-        <translation type="unfinished"></translation>
+        <translation>Wzmianka</translation>
     </message>
     <message>
         <source>Credits</source>
-        <translation type="unfinished"></translation>
+        <translation>Podziękowania</translation>
     </message>
     <message>
         <source>Development and translations</source>
-        <translation type="unfinished"></translation>
+        <translation>Rozwój i tłumaczenia</translation>
     </message>
     <message>
         <source>Development</source>
-        <translation type="unfinished">Rozwój</translation>
+        <translation>Rozwój</translation>
     </message>
     <message>
         <source>Occitan &amp; French translation</source>
-        <translation type="unfinished"></translation>
+        <translation>Tłumaczenie na oksytański i francuski</translation>
     </message>
     <message>
         <source>Chinese translation</source>
-        <translation type="unfinished"></translation>
+        <translation>Tłumaczenie na chiński</translation>
     </message>
     <message>
         <source>Dutch translation</source>
-        <translation type="unfinished"></translation>
+        <translation>Tłumaczenie na niderlandzki</translation>
     </message>
     <message>
         <source>Spanish translation</source>
-        <translation type="unfinished"></translation>
+        <translation>Tłumaczenie na hiszpański</translation>
     </message>
     <message>
         <source>Development, Russian translation</source>
-        <translation type="unfinished"></translation>
+        <translation>Rozwój, tłumaczenie na rosyjski</translation>
     </message>
     <message>
         <source>Norwegian Translation</source>
-        <translation type="unfinished"></translation>
+        <translation>Tłumaczenie na norweski</translation>
     </message>
     <message>
         <source>SFOS Community Liberapay</source>
-        <translation type="unfinished"></translation>
+        <translation>Liberapay społeczności SFOS</translation>
     </message>
     <message>
         <source>French Translation</source>
-        <translation type="unfinished"></translation>
+        <translation>Tłumaczenie na francuski</translation>
     </message>
     <message>
         <source>Swedish Translation</source>
-        <translation type="unfinished"></translation>
+        <translation>Tłumaczenie na szwedzki</translation>
     </message>
     <message>
         <source>Italian Translation</source>
-        <translation type="unfinished"></translation>
+        <translation>Tłumaczenie na włoski</translation>
     </message>
 </context>
 <context>
@@ -100,73 +100,73 @@
     <message>
         <source>Copy Link to Clipboard</source>
         <extracomment>Use the translation of &quot;Copy Link&quot; for a shorter PullDownMenu label</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Kopiuj link do schowka</translation>
     </message>
     <message>
         <source>Write your warning here</source>
         <extracomment>placeholderText in Toot content warning panel</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Napisz tutaj swoje ostrzeżenie</translation>
     </message>
     <message>
         <source>What&apos;s on your mind?</source>
         <extracomment>placeholderText in Toot text panel</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>O czym teraz myślisz?</translation>
     </message>
     <message>
         <source>Toot sent!</source>
-        <translation type="unfinished"></translation>
+        <translation>Wysłano wpis!</translation>
     </message>
     <message>
         <source>Open in Browser</source>
-        <translation type="unfinished">Otwarte w przeglądarce</translation>
+        <translation>Otwarte w przeglądarce</translation>
     </message>
     <message>
         <source>Edit Alt Text</source>
-        <translation type="unfinished"></translation>
+        <translation>Edytuj tekst alternatywny</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation>Usuń</translation>
     </message>
     <message>
         <source>Toot edited!</source>
-        <translation type="unfinished"></translation>
+        <translation>Wpis edytowany!</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished"></translation>
+        <translation>Zapisz</translation>
     </message>
     <message>
         <source>Describe this media for visually impaired users</source>
-        <translation type="unfinished"></translation>
+        <translation>Opisz ten materiał dla niewidomych i słabowidzących</translation>
     </message>
     <message>
         <source>Alt text helps make content accessible to people who are blind or have low vision.</source>
-        <translation type="unfinished"></translation>
+        <translation>Tekst alternatywny pomaga uczynić treści dostępnymi dla osób niewidomych i słabowidzących.</translation>
     </message>
     <message>
         <source>Quoting @%1</source>
-        <translation type="unfinished"></translation>
+        <translation>Cytowanie @%1</translation>
     </message>
     <message>
         <source>Removing</source>
-        <translation type="unfinished"></translation>
+        <translation>Usuwanie</translation>
     </message>
     <message>
         <source>Public</source>
-        <translation type="unfinished"></translation>
+        <translation>Publiczny</translation>
     </message>
     <message>
         <source>Unlisted</source>
-        <translation type="unfinished"></translation>
+        <translation>Niewidoczny</translation>
     </message>
     <message>
         <source>Followers-only</source>
-        <translation type="unfinished"></translation>
+        <translation>Tylko dla obserwujących</translation>
     </message>
     <message>
         <source>Direct</source>
-        <translation type="unfinished"></translation>
+        <translation>Bezpośredni</translation>
     </message>
 </context>
 <context>
@@ -191,11 +191,11 @@
     <name>ExternalUrlPage</name>
     <message>
         <source>Swipe left to preview.</source>
-        <translation type="unfinished"></translation>
+        <translation>Przesuń w lewo, aby podglądać.</translation>
     </message>
     <message>
         <source>You are using a mobile data connection.</source>
-        <translation type="unfinished"></translation>
+        <translation>Używasz połączenia przez sieć komórkową.</translation>
     </message>
 </context>
 <context>
@@ -220,88 +220,88 @@
     </message>
     <message>
         <source>Instance</source>
-        <translation type="unfinished"></translation>
+        <translation>Instancja</translation>
     </message>
     <message>
         <source>Mastodon is a free, open-source social network. A decentralized alternative to commercial platforms, it avoids the risks of a single company monopolizing your communication. Pick a server that you trust — whichever you choose, you can interact with everyone else. Anyone can run their own Mastodon instance and participate in the social network seamlessly.</source>
-        <translation type="unfinished"></translation>
+        <translation>Mastodon to darmowa, otwartoźródłowa sieć społecznościowa. Zdecentralizowana alternatywa dla platform komercyjnych — unika ryzyka monopolizacji Twojej komunikacji przez jedną firmę. Wybierz serwer, któremu ufasz — niezależnie od wyboru, możesz interagować ze wszystkimi innymi. Każdy może uruchomić własną instancję Mastodona i bezproblemowo brać udział w sieci społecznościowej.</translation>
     </message>
     <message>
         <source>Enter a valid Mastodon instance URL (will open a web browser for Authentication)</source>
-        <translation type="unfinished"></translation>
+        <translation>Wprowadź poprawny adres URL instancji Mastodona (otworzy się przeglądarka w celu uwierzytelnienia)</translation>
     </message>
     <message>
         <source>Type</source>
-        <translation type="unfinished"></translation>
+        <translation>Typ</translation>
     </message>
 </context>
 <context>
     <name>MainPage</name>
     <message>
         <source>Press and hold the home tab to switch account</source>
-        <translation type="unfinished"></translation>
+        <translation>Przytrzymaj zakładkę główną, aby przełączyć konto</translation>
     </message>
     <message>
         <source>Home</source>
-        <translation type="unfinished"></translation>
+        <translation>Główna</translation>
     </message>
     <message>
         <source>Notifications</source>
-        <translation type="unfinished"></translation>
+        <translation>Powiadomienia</translation>
     </message>
     <message>
         <source>Local</source>
-        <translation type="unfinished"></translation>
+        <translation>Lokalny</translation>
     </message>
     <message>
         <source>Federated</source>
-        <translation type="unfinished"></translation>
+        <translation>Federacyjny</translation>
     </message>
     <message>
         <source>Bookmarks</source>
-        <translation type="unfinished"></translation>
+        <translation>Zakładki</translation>
     </message>
     <message>
         <source>Search</source>
-        <translation type="unfinished"></translation>
+        <translation>Szukaj</translation>
     </message>
     <message>
         <source>@user or #term</source>
-        <translation type="unfinished"></translation>
+        <translation>@użytkownik lub #termin</translation>
     </message>
     <message>
         <source>Trending</source>
-        <translation type="unfinished"></translation>
+        <translation>Popularne</translation>
     </message>
     <message>
         <source>New Toot</source>
-        <translation type="unfinished">Nowy wpis</translation>
+        <translation>Nowy wpis</translation>
     </message>
     <message>
         <source>Conversation</source>
-        <translation type="unfinished"></translation>
+        <translation>Rozmowa</translation>
     </message>
 </context>
 <context>
     <name>MediaFullScreen</name>
     <message>
         <source>Error loading</source>
-        <translation type="unfinished"></translation>
+        <translation>Błąd wczytywania</translation>
     </message>
 </context>
 <context>
     <name>MediaItem</name>
     <message>
         <source>Image</source>
-        <translation type="unfinished"></translation>
+        <translation>Obraz</translation>
     </message>
     <message>
         <source>Video</source>
-        <translation type="unfinished"></translation>
+        <translation>Wideo</translation>
     </message>
     <message>
         <source>PDF document</source>
-        <translation type="unfinished"></translation>
+        <translation>Dokument PDF</translation>
     </message>
 </context>
 <context>
@@ -323,27 +323,27 @@
     <name>MyList</name>
     <message>
         <source>Settings</source>
-        <translation type="unfinished">Ustawienia</translation>
+        <translation>Ustawienia</translation>
     </message>
     <message>
         <source>New Toot</source>
-        <translation type="unfinished">Nowy wpis</translation>
+        <translation>Nowy wpis</translation>
     </message>
     <message>
         <source>Open in Browser</source>
-        <translation type="unfinished">Otwarte w przeglądarce</translation>
+        <translation>Otwarte w przeglądarce</translation>
     </message>
     <message>
         <source>Reload</source>
-        <translation type="unfinished"></translation>
+        <translation>Odśwież</translation>
     </message>
     <message>
         <source>Nothing found</source>
-        <translation type="unfinished"></translation>
+        <translation>Nic nie znaleziono</translation>
     </message>
     <message>
         <source>My Profile</source>
-        <translation type="unfinished"></translation>
+        <translation>Mój profil</translation>
     </message>
 </context>
 <context>
@@ -434,7 +434,7 @@
     </message>
     <message>
         <source>You are using a mobile data connection.</source>
-        <translation type="unfinished"></translation>
+        <translation>Używasz połączenia przez sieć komórkową.</translation>
     </message>
     <message numerus="yes">
         <source>License(s)</source>
@@ -472,11 +472,11 @@
     </message>
     <message>
         <source>Share link</source>
-        <translation type="unfinished"></translation>
+        <translation>Udostępnij link</translation>
     </message>
     <message>
         <source>Phone number</source>
-        <translation type="unfinished"></translation>
+        <translation>Numer telefonu</translation>
     </message>
     <message>
         <source>External link</source>
@@ -492,23 +492,23 @@
     </message>
     <message>
         <source>Share</source>
-        <translation type="unfinished"></translation>
+        <translation>Udostępnij</translation>
     </message>
     <message>
         <source>Copy link</source>
-        <translation type="unfinished"></translation>
+        <translation>Kopiuj link</translation>
     </message>
     <message>
         <source>Copy text</source>
-        <translation type="unfinished"></translation>
+        <translation>Kopiuj tekst</translation>
     </message>
     <message>
         <source>No preview available.</source>
-        <translation type="unfinished"></translation>
+        <translation>Podgląd niedostępny.</translation>
     </message>
     <message>
         <source>The page is taking too long to load.</source>
-        <translation type="unfinished"></translation>
+        <translation>Strona ładuje się zbyt długo.</translation>
     </message>
 </context>
 <context>
@@ -519,11 +519,11 @@
     </message>
     <message>
         <source>Follows you</source>
-        <translation type="unfinished"></translation>
+        <translation>Obserwuje Cię</translation>
     </message>
     <message>
         <source>Group</source>
-        <translation type="unfinished"></translation>
+        <translation>Grupa</translation>
     </message>
 </context>
 <context>
@@ -531,12 +531,12 @@
     <message>
         <source>About</source>
         <extracomment>If there&apos;s no good translation for &quot;About&quot;, use &quot;Details&quot; (in details about profile).</extracomment>
-        <translation type="unfinished">O tej aplikacji</translation>
+        <translation>O tej aplikacji</translation>
     </message>
     <message>
         <source>Followers</source>
         <extracomment>Will show as: &quot;35 Followers&quot;</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Obserwujący</translation>
     </message>
     <message>
         <source>Following</source>
@@ -546,11 +546,11 @@
     <message>
         <source>Statuses</source>
         <extracomment>Will show as: &quot;115 Statuses&quot;</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Wpisy</translation>
     </message>
     <message>
         <source>Mention</source>
-        <translation type="unfinished"></translation>
+        <translation>Wzmianka</translation>
     </message>
     <message>
         <source>Unfollow</source>
@@ -560,17 +560,17 @@
     <message>
         <source>Requested</source>
         <extracomment>Is a button. Keep it as short as possible.</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Zażądane</translation>
     </message>
     <message>
         <source>Follow</source>
         <extracomment>Is a button. Keep it as short as possible.</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Obserwuj</translation>
     </message>
     <message>
         <source>Unmute</source>
         <extracomment>Is a button. Keep it as short as possible.</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Usuń wyciszenie</translation>
     </message>
     <message>
         <source>Mute</source>
@@ -580,12 +580,12 @@
     <message>
         <source>Unblock</source>
         <extracomment>Is a button. Keep it as short as possible.</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Odblokuj</translation>
     </message>
     <message>
         <source>Block</source>
         <extracomment>Is a button. Keep it as short as possible.</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Zablokuj</translation>
     </message>
 </context>
 <context>
@@ -596,167 +596,167 @@
     </message>
     <message>
         <source>Options</source>
-        <translation type="unfinished"></translation>
+        <translation>Opcje</translation>
     </message>
     <message>
         <source>Load Images in Toots</source>
-        <translation type="unfinished"></translation>
+        <translation>Wczytuj obrazy we wpisach</translation>
     </message>
     <message>
         <source>Disable this option if you want to preserve your data connection</source>
-        <translation type="unfinished"></translation>
+        <translation>Wyłącz tę opcję, jeśli chcesz oszczędzać dane w sieci komórkowej</translation>
     </message>
     <message>
         <source>Account</source>
-        <translation type="unfinished"></translation>
+        <translation>Konto</translation>
     </message>
     <message>
         <source>Remove Account</source>
-        <translation type="unfinished"></translation>
+        <translation>Usuń konto</translation>
     </message>
     <message>
         <source>Add Account</source>
-        <translation type="unfinished"></translation>
+        <translation>Dodaj konto</translation>
     </message>
     <message>
         <source>Deauthorize this app from using your account and remove account data from phone</source>
-        <translation type="unfinished"></translation>
+        <translation>Odautoryzuj tę aplikację od korzystania z Twojego konta i usuń dane konta z telefonu</translation>
     </message>
     <message>
         <source>Authorize this app to access your Mastodon account</source>
-        <translation type="unfinished"></translation>
+        <translation>Autoryzuj tę aplikację, aby uzyskać dostęp do Twojego konta Mastodona</translation>
     </message>
     <message>
         <source>Account removed</source>
-        <translation type="unfinished"></translation>
+        <translation>Konto usunięte</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation>Usuń</translation>
     </message>
     <message>
         <source>Font Size</source>
-        <translation type="unfinished"></translation>
+        <translation>Rozmiar czcionki</translation>
     </message>
     <message>
         <source>Sample text</source>
-        <translation type="unfinished"></translation>
+        <translation>Tekst przykładowy</translation>
     </message>
     <message>
         <source>Quick Scroll Arrows</source>
-        <translation type="unfinished"></translation>
+        <translation>Strzałki szybkiego przewijania</translation>
     </message>
     <message>
         <source>Show arrows to jump to top/bottom when scrolling fast</source>
-        <translation type="unfinished"></translation>
+        <translation>Pokaż strzałki do skakania na górę/dół przy szybkim przewijaniu</translation>
     </message>
     <message>
         <source>About</source>
         <comment>About the app</comment>
-        <translation type="unfinished">O tej aplikacji</translation>
+        <translation>O tej aplikacji</translation>
     </message>
     <message>
         <source>Notification</source>
-        <translation type="unfinished"></translation>
+        <translation>Powiadomienie</translation>
     </message>
     <message>
         <source>Show notifications and create alerts</source>
-        <translation type="unfinished"></translation>
+        <translation>Pokaż powiadomienia i twórz alerty</translation>
     </message>
 </context>
 <context>
     <name>VisualContainer</name>
     <message>
         <source>Loading...</source>
-        <translation type="unfinished"></translation>
+        <translation>Wczytywanie...</translation>
     </message>
     <message>
         <source>Load more</source>
-        <translation type="unfinished"></translation>
+        <translation>Wczytaj więcej</translation>
     </message>
     <message>
         <source>Show less</source>
-        <translation type="unfinished"></translation>
+        <translation>Pokaż mniej</translation>
     </message>
     <message>
         <source>Show more</source>
-        <translation type="unfinished"></translation>
+        <translation>Pokaż więcej</translation>
     </message>
     <message>
         <source>Vote</source>
-        <translation type="unfinished"></translation>
+        <translation>Głosuj</translation>
     </message>
     <message>
         <source>votes</source>
-        <translation type="unfinished"></translation>
+        <translation>głosy</translation>
     </message>
     <message>
         <source>Closed</source>
-        <translation type="unfinished"></translation>
+        <translation>Zamknięte</translation>
     </message>
     <message>
         <source>days left</source>
-        <translation type="unfinished"></translation>
+        <translation>dni zostało</translation>
     </message>
     <message>
         <source>hours left</source>
-        <translation type="unfinished"></translation>
+        <translation>godzin zostało</translation>
     </message>
     <message>
         <source>minutes left</source>
-        <translation type="unfinished"></translation>
+        <translation>minut zostało</translation>
     </message>
     <message>
         <source>Conversation</source>
-        <translation type="unfinished"></translation>
+        <translation>Rozmowa</translation>
     </message>
     <message>
         <source>Unfavorite</source>
-        <translation type="unfinished"></translation>
+        <translation>Usuń z ulubionych</translation>
     </message>
     <message>
         <source>Favorite</source>
-        <translation type="unfinished"></translation>
+        <translation>Dodaj do ulubionych</translation>
     </message>
     <message>
         <source>Unboost</source>
-        <translation type="unfinished"></translation>
+        <translation>Cofnij podbicie</translation>
     </message>
     <message>
         <source>Boost</source>
-        <translation type="unfinished"></translation>
+        <translation>Podbij</translation>
     </message>
     <message>
         <source>Reply</source>
-        <translation type="unfinished"></translation>
+        <translation>Odpowiedz</translation>
     </message>
     <message>
         <source>Quote</source>
-        <translation type="unfinished"></translation>
+        <translation>Cytuj</translation>
     </message>
     <message>
         <source>Remove Bookmark</source>
-        <translation type="unfinished"></translation>
+        <translation>Usuń zakładkę</translation>
     </message>
     <message>
         <source>Bookmark</source>
-        <translation type="unfinished"></translation>
+        <translation>Dodaj do zakładek</translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>Usuń</translation>
     </message>
     <message>
         <source>Deleting</source>
-        <translation type="unfinished"></translation>
+        <translation>Usuwanie</translation>
     </message>
     <message>
         <source>Edit</source>
-        <translation type="unfinished"></translation>
+        <translation>Edytuj</translation>
     </message>
     <message>
         <source>Mention</source>
-        <translation type="unfinished"></translation>
+        <translation>Wzmianka</translation>
     </message>
 </context>
 </TS>

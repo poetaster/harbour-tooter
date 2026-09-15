@@ -5,94 +5,94 @@
     <name>API</name>
     <message>
         <source>favourited</source>
-        <translation type="unfinished">markert som favoritt</translation>
+        <translation>markert som favoritt</translation>
     </message>
     <message>
         <source>followed you</source>
-        <translation type="unfinished">begynte å følge deg</translation>
+        <translation>begynte å følge deg</translation>
     </message>
     <message>
         <source>boosted</source>
-        <translation type="unfinished">boostet</translation>
+        <translation>boostet</translation>
     </message>
     <message>
         <source>said</source>
-        <translation type="unfinished"></translation>
+        <translation>sa</translation>
     </message>
 </context>
 <context>
     <name>AboutPage</name>
     <message>
         <source>Tooter is Mastodon client for Sailfish OS.</source>
-        <translation type="unfinished"></translation>
+        <translation>Tooter er en Mastodon-klient for Sailfish OS.</translation>
     </message>
     <message>
         <source>SFOS Community Liberapay</source>
-        <translation type="unfinished"></translation>
+        <translation>SFOS Community Liberapay</translation>
     </message>
     <message>
         <source>Mention</source>
-        <translation type="unfinished">Omtale</translation>
+        <translation>Omtale</translation>
     </message>
     <message>
         <source>Credits</source>
-        <translation type="unfinished">Takk til</translation>
+        <translation>Takk til</translation>
     </message>
     <message>
         <source>UI/UX design and development</source>
-        <translation type="unfinished">UI/UX design og utvikling</translation>
+        <translation>UI/UX design og utvikling</translation>
     </message>
     <message>
         <source>Development and translations</source>
-        <translation type="unfinished">Utvikling og oversettelser</translation>
+        <translation>Utvikling og oversettelser</translation>
     </message>
     <message>
         <source>Development</source>
-        <translation type="unfinished">Utvikling</translation>
+        <translation>Utvikling</translation>
     </message>
     <message>
         <source>Visual identity</source>
-        <translation type="unfinished">Visuell profil</translation>
+        <translation>Visuell profil</translation>
     </message>
     <message>
         <source>Documentation</source>
-        <translation type="unfinished">Dokumentasjon</translation>
+        <translation>Dokumentasjon</translation>
     </message>
     <message>
         <source>Occitan &amp; French translation</source>
-        <translation type="unfinished">Fransk oversettelse</translation>
+        <translation>Fransk oversettelse</translation>
     </message>
     <message>
         <source>Chinese translation</source>
-        <translation type="unfinished">Kinesisk oversettelse</translation>
+        <translation>Kinesisk oversettelse</translation>
     </message>
     <message>
         <source>Dutch translation</source>
-        <translation type="unfinished">Nederlandsk oversettelse</translation>
+        <translation>Nederlandsk oversettelse</translation>
     </message>
     <message>
         <source>Spanish translation</source>
-        <translation type="unfinished">Spansk oversettelse</translation>
+        <translation>Spansk oversettelse</translation>
     </message>
     <message>
         <source>Development, Russian translation</source>
-        <translation type="unfinished"></translation>
+        <translation>Utvikling, russisk oversettelse</translation>
     </message>
     <message>
         <source>Norwegian Translation</source>
-        <translation type="unfinished">Norsk bokmålsoversettelse</translation>
+        <translation>Norsk bokmålsoversettelse</translation>
     </message>
     <message>
         <source>French Translation</source>
-        <translation type="unfinished">Fransk oversettelse</translation>
+        <translation>Fransk oversettelse</translation>
     </message>
     <message>
         <source>Swedish Translation</source>
-        <translation type="unfinished">Svensk oversettelse</translation>
+        <translation>Svensk oversettelse</translation>
     </message>
     <message>
         <source>Italian Translation</source>
-        <translation type="unfinished"></translation>
+        <translation>Italiensk oversettelse</translation>
     </message>
 </context>
 <context>
@@ -191,11 +191,11 @@
     <name>ExternalUrlPage</name>
     <message>
         <source>Swipe left to preview.</source>
-        <translation type="unfinished"></translation>
+        <translation>Sveip til venstre for forhåndsvisning.</translation>
     </message>
     <message>
         <source>You are using a mobile data connection.</source>
-        <translation type="unfinished"></translation>
+        <translation>Du bruker en mobildataforbindelse.</translation>
     </message>
 </context>
 <context>
@@ -209,7 +209,7 @@
     <name>LicenseListPart</name>
     <message>
         <source>License text</source>
-        <translation type="unfinished"></translation>
+        <translation>Lisenstekst</translation>
     </message>
 </context>
 <context>
@@ -239,47 +239,47 @@
     <name>MainPage</name>
     <message>
         <source>Press and hold the home tab to switch account</source>
-        <translation type="unfinished"></translation>
+        <translation>Trykk og hold på hjemfanen for å bytte konto</translation>
     </message>
     <message>
         <source>Home</source>
-        <translation type="unfinished"></translation>
+        <translation>Hjem</translation>
     </message>
     <message>
         <source>Notifications</source>
-        <translation type="unfinished"></translation>
+        <translation>Varsler</translation>
     </message>
     <message>
         <source>Local</source>
-        <translation type="unfinished"></translation>
+        <translation>Lokalt</translation>
     </message>
     <message>
         <source>Federated</source>
-        <translation type="unfinished"></translation>
+        <translation>Federt</translation>
     </message>
     <message>
         <source>Bookmarks</source>
-        <translation type="unfinished"></translation>
+        <translation>Bokmerker</translation>
     </message>
     <message>
         <source>Search</source>
-        <translation type="unfinished"></translation>
+        <translation>Søk</translation>
     </message>
     <message>
         <source>@user or #term</source>
-        <translation type="unfinished"></translation>
+        <translation>@bruker eller #term</translation>
     </message>
     <message>
         <source>Trending</source>
-        <translation type="unfinished"></translation>
+        <translation>Populært</translation>
     </message>
     <message>
         <source>New Toot</source>
-        <translation type="unfinished">Ny toot</translation>
+        <translation>Ny toot</translation>
     </message>
     <message>
         <source>Conversation</source>
-        <translation type="unfinished"></translation>
+        <translation>Konversasjon</translation>
     </message>
 </context>
 <context>
@@ -350,163 +350,163 @@
     <name>Opal.About</name>
     <message>
         <source>About</source>
-        <translation type="unfinished">Om</translation>
+        <translation>Om</translation>
     </message>
     <message>
         <source>Version %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Versjon %1</translation>
     </message>
     <message>
         <source>Development</source>
-        <translation type="unfinished">Utvikling</translation>
+        <translation>Utvikling</translation>
     </message>
     <message>
         <source>show contributors</source>
-        <translation type="unfinished"></translation>
+        <translation>vis bidragsytere</translation>
     </message>
     <message>
         <source>Homepage</source>
-        <translation type="unfinished"></translation>
+        <translation>Nettsted</translation>
     </message>
     <message>
         <source>Changelog</source>
-        <translation type="unfinished"></translation>
+        <translation>Endringslogg</translation>
     </message>
     <message>
         <source>Translations</source>
-        <translation type="unfinished"></translation>
+        <translation>Oversettelser</translation>
     </message>
     <message>
         <source>Source Code</source>
-        <translation type="unfinished"></translation>
+        <translation>Kildekode</translation>
     </message>
     <message>
         <source>Donations</source>
-        <translation type="unfinished"></translation>
+        <translation>Donasjoner</translation>
     </message>
     <message>
         <source>License</source>
-        <translation type="unfinished"></translation>
+        <translation>Lisens</translation>
     </message>
     <message numerus="yes">
         <source>show license(s)</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>vis lisens</numerusform>
+            <numerusform>vis lisenser</numerusform>
         </translation>
     </message>
     <message>
         <source>News</source>
-        <translation type="unfinished"></translation>
+        <translation>Nytt</translation>
     </message>
     <message>
         <source>Changes since version %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Endringer siden versjon %1</translation>
     </message>
     <message>
         <source>show details</source>
-        <translation type="unfinished"></translation>
+        <translation>vis detaljer</translation>
     </message>
     <message>
         <source>Thank you!</source>
-        <translation type="unfinished"></translation>
+        <translation>Takk!</translation>
     </message>
     <message>
         <source>Details</source>
-        <translation type="unfinished"></translation>
+        <translation>Detaljer</translation>
     </message>
     <message>
         <source>Contributors</source>
-        <translation type="unfinished"></translation>
+        <translation>Bidragsytere</translation>
     </message>
     <message>
         <source>Acknowledgements</source>
-        <translation type="unfinished"></translation>
+        <translation>Annerkjennelser</translation>
     </message>
     <message>
         <source>Please refer to &lt;a href=&quot;%1&quot;&gt;%1&lt;/a&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>Se &lt;a href=&quot;%1&quot;&gt;%1&lt;/a&gt;</translation>
     </message>
     <message>
         <source>Download license texts</source>
-        <translation type="unfinished"></translation>
+        <translation>Last ned lisenstekster</translation>
     </message>
     <message>
         <source>You are using a mobile data connection.</source>
-        <translation type="unfinished"></translation>
+        <translation>Du bruker en mobildataforbindelse.</translation>
     </message>
     <message numerus="yes">
         <source>License(s)</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>lisens</numerusform>
+            <numerusform>lisenser</numerusform>
         </translation>
     </message>
     <message>
         <source>Note: please check the source code for most accurate information.</source>
-        <translation type="unfinished"></translation>
+        <translation>Merk: Kildekoden inneholder den mest nøyaktige informasjonen.</translation>
     </message>
 </context>
 <context>
     <name>Opal.About.Common</name>
     <message>
         <source>If you want to support my work, you can buy me a cup of coffee.</source>
-        <translation type="unfinished"></translation>
+        <translation>Hvis du vil støtte mitt arbeid, kan du kjøpe meg en kaffe.</translation>
     </message>
     <message>
         <source>You can support this project by contributing, or by donating using any of these services.</source>
-        <translation type="unfinished"></translation>
+        <translation>Du kan støtte dette prosjektet ved å bidra eller ved å donere via en av tjenestene nedenfor.</translation>
     </message>
     <message>
         <source>Your contributions to translations or code would be most welcome.</source>
-        <translation type="unfinished"></translation>
+        <translation>Bidrag med oversettelser eller kode er velkommen.</translation>
     </message>
 </context>
 <context>
     <name>Opal.LinkHandler</name>
     <message>
         <source>Copied to clipboard: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Kopiert til utklippstavlen: %1</translation>
     </message>
     <message>
         <source>Share link</source>
-        <translation type="unfinished"></translation>
+        <translation>Del lenke</translation>
     </message>
     <message>
         <source>Phone number</source>
-        <translation type="unfinished"></translation>
+        <translation>Telefonnummer</translation>
     </message>
     <message>
         <source>External link</source>
-        <translation type="unfinished"></translation>
+        <translation>Ekstern lenke</translation>
     </message>
     <message>
         <source>Open in browser</source>
-        <translation type="unfinished"></translation>
+        <translation>Åpne i nettleser</translation>
     </message>
     <message>
         <source>Open externally</source>
-        <translation type="unfinished"></translation>
+        <translation>Åpne eksternt</translation>
     </message>
     <message>
         <source>Share</source>
-        <translation type="unfinished"></translation>
+        <translation>Del</translation>
     </message>
     <message>
         <source>Copy link</source>
-        <translation type="unfinished"></translation>
+        <translation>Kopier lenke</translation>
     </message>
     <message>
         <source>Copy text</source>
-        <translation type="unfinished"></translation>
+        <translation>Kopier tekst</translation>
     </message>
     <message>
         <source>No preview available.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ingen forhåndsvisning tilgjengelig.</translation>
     </message>
     <message>
         <source>The page is taking too long to load.</source>
-        <translation type="unfinished"></translation>
+        <translation>Siden tar for lang tid å laste.</translation>
     </message>
 </context>
 <context>
@@ -651,110 +651,110 @@
     <message>
         <source>About</source>
         <comment>About the app</comment>
-        <translation type="unfinished">Om</translation>
+        <translation>Om</translation>
     </message>
     <message>
         <source>Notification</source>
-        <translation type="unfinished"></translation>
+        <translation>Varsel</translation>
     </message>
     <message>
         <source>Show notifications and create alerts</source>
-        <translation type="unfinished"></translation>
+        <translation>Vis varsler og opprett alarmer</translation>
     </message>
 </context>
 <context>
     <name>VisualContainer</name>
     <message>
         <source>Loading...</source>
-        <translation type="unfinished"></translation>
+        <translation>Laster...</translation>
     </message>
     <message>
         <source>Load more</source>
-        <translation type="unfinished"></translation>
+        <translation>Last inn mer</translation>
     </message>
     <message>
         <source>Show less</source>
-        <translation type="unfinished"></translation>
+        <translation>Vis mindre</translation>
     </message>
     <message>
         <source>Show more</source>
-        <translation type="unfinished"></translation>
+        <translation>Vis mer</translation>
     </message>
     <message>
         <source>Vote</source>
-        <translation type="unfinished"></translation>
+        <translation>Avstem</translation>
     </message>
     <message>
         <source>votes</source>
-        <translation type="unfinished"></translation>
+        <translation>stemmer</translation>
     </message>
     <message>
         <source>Closed</source>
-        <translation type="unfinished"></translation>
+        <translation>Lukket</translation>
     </message>
     <message>
         <source>days left</source>
-        <translation type="unfinished"></translation>
+        <translation>dager igjen</translation>
     </message>
     <message>
         <source>hours left</source>
-        <translation type="unfinished"></translation>
+        <translation>timer igjen</translation>
     </message>
     <message>
         <source>minutes left</source>
-        <translation type="unfinished"></translation>
+        <translation>minutter igjen</translation>
     </message>
     <message>
         <source>Conversation</source>
-        <translation type="unfinished"></translation>
+        <translation>Konversasjon</translation>
     </message>
     <message>
         <source>Unfavorite</source>
-        <translation type="unfinished"></translation>
+        <translation>Fjern favoritt</translation>
     </message>
     <message>
         <source>Favorite</source>
-        <translation type="unfinished"></translation>
+        <translation>Favoritt</translation>
     </message>
     <message>
         <source>Unboost</source>
-        <translation type="unfinished"></translation>
+        <translation>Fjern boost</translation>
     </message>
     <message>
         <source>Boost</source>
-        <translation type="unfinished"></translation>
+        <translation>Boost</translation>
     </message>
     <message>
         <source>Reply</source>
-        <translation type="unfinished"></translation>
+        <translation>Svar</translation>
     </message>
     <message>
         <source>Quote</source>
-        <translation type="unfinished"></translation>
+        <translation>Siter</translation>
     </message>
     <message>
         <source>Remove Bookmark</source>
-        <translation type="unfinished"></translation>
+        <translation>Fjern bokmerke</translation>
     </message>
     <message>
         <source>Bookmark</source>
-        <translation type="unfinished"></translation>
+        <translation>Bokmerke</translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>Slett</translation>
     </message>
     <message>
         <source>Deleting</source>
-        <translation type="unfinished"></translation>
+        <translation>Sletter</translation>
     </message>
     <message>
         <source>Edit</source>
-        <translation type="unfinished"></translation>
+        <translation>Rediger</translation>
     </message>
     <message>
         <source>Mention</source>
-        <translation type="unfinished">Omtale</translation>
+        <translation>Omtale</translation>
     </message>
 </context>
 </TS>

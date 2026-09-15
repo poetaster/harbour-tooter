@@ -1,98 +1,98 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="de">
+<TS version="2.1" language="de_DE">
 <context>
     <name>API</name>
     <message>
         <source>favourited</source>
-        <translation type="unfinished">hat favorisiert</translation>
+        <translation>hat favorisiert</translation>
     </message>
     <message>
         <source>followed you</source>
-        <translation type="unfinished">folgt dir</translation>
+        <translation>folgt dir</translation>
     </message>
     <message>
         <source>boosted</source>
-        <translation type="unfinished">hat geteilt</translation>
+        <translation>hat geteilt</translation>
     </message>
     <message>
         <source>said</source>
-        <translation type="unfinished"></translation>
+        <translation>sagte</translation>
     </message>
 </context>
 <context>
     <name>AboutPage</name>
     <message>
         <source>Tooter is Mastodon client for Sailfish OS.</source>
-        <translation type="unfinished"></translation>
+        <translation>Tooter ist ein Mastodon-client für Sailfish-OS.</translation>
     </message>
     <message>
         <source>UI/UX design and development</source>
-        <translation type="unfinished">UI/UX-Gestaltung und Entwicklung</translation>
+        <translation>UI/UX-Gestaltung und Entwicklung</translation>
     </message>
     <message>
         <source>Visual identity</source>
-        <translation type="unfinished">Visuelle Identität</translation>
+        <translation>Visuelle Identität</translation>
     </message>
     <message>
         <source>Documentation</source>
-        <translation type="unfinished"></translation>
+        <translation>Dokumentation</translation>
     </message>
     <message>
         <source>Mention</source>
-        <translation type="unfinished">Erwähnen</translation>
+        <translation>Erwähnen</translation>
     </message>
     <message>
         <source>Credits</source>
-        <translation type="unfinished">Über</translation>
+        <translation>Über</translation>
     </message>
     <message>
         <source>Development and translations</source>
-        <translation type="unfinished">Entwicklung und Übersetzungen</translation>
+        <translation>Entwicklung und Übersetzungen</translation>
     </message>
     <message>
         <source>Development</source>
-        <translation type="unfinished">Entwicklung</translation>
+        <translation>Entwicklung</translation>
     </message>
     <message>
         <source>Occitan &amp; French translation</source>
-        <translation type="unfinished">Französische Übersetzung</translation>
+        <translation>Französische Übersetzung</translation>
     </message>
     <message>
         <source>Chinese translation</source>
-        <translation type="unfinished">Chinesische Übersetzung</translation>
+        <translation>Chinesische Übersetzung</translation>
     </message>
     <message>
         <source>Dutch translation</source>
-        <translation type="unfinished">Niederländische Übersetzung</translation>
+        <translation>Niederländische Übersetzung</translation>
     </message>
     <message>
         <source>Spanish translation</source>
-        <translation type="unfinished">Spanische Übersetzung</translation>
+        <translation>Spanische Übersetzung</translation>
     </message>
     <message>
         <source>Development, Russian translation</source>
-        <translation type="unfinished"></translation>
+        <translation>Entwicklung, russische Übersetzung</translation>
     </message>
     <message>
         <source>Norwegian Translation</source>
-        <translation type="unfinished"></translation>
+        <translation>Norwegische Übersetzung</translation>
     </message>
     <message>
         <source>SFOS Community Liberapay</source>
-        <translation type="unfinished"></translation>
+        <translation>SFOS Community Liberapay</translation>
     </message>
     <message>
         <source>French Translation</source>
-        <translation type="unfinished"></translation>
+        <translation>Französische Übersetzung</translation>
     </message>
     <message>
         <source>Swedish Translation</source>
-        <translation type="unfinished"></translation>
+        <translation>Schwedische Übersetzung</translation>
     </message>
     <message>
         <source>Italian Translation</source>
-        <translation type="unfinished"></translation>
+        <translation>Italienische Übersetzung</translation>
     </message>
 </context>
 <context>
@@ -122,51 +122,51 @@
     </message>
     <message>
         <source>Edit Alt Text</source>
-        <translation type="unfinished"></translation>
+        <translation>Alternativtext bearbeiten</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation>Entfernen</translation>
     </message>
     <message>
         <source>Toot edited!</source>
-        <translation type="unfinished"></translation>
+        <translation>Toot bearbeitet!</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished"></translation>
+        <translation>Speichern</translation>
     </message>
     <message>
         <source>Describe this media for visually impaired users</source>
-        <translation type="unfinished"></translation>
+        <translation>Beschreibe dieses Medium für sehbehinderte Nutzer</translation>
     </message>
     <message>
         <source>Alt text helps make content accessible to people who are blind or have low vision.</source>
-        <translation type="unfinished"></translation>
+        <translation>Alternativtext hilft, Inhalte für blinde und sehbehinderte Menschen zugänglich zu machen.</translation>
     </message>
     <message>
         <source>Quoting @%1</source>
-        <translation type="unfinished"></translation>
+        <translation>Zitiert @%1</translation>
     </message>
     <message>
         <source>Removing</source>
-        <translation type="unfinished"></translation>
+        <translation>Wird entfernt</translation>
     </message>
     <message>
         <source>Public</source>
-        <translation type="unfinished"></translation>
+        <translation>Öffentlich</translation>
     </message>
     <message>
         <source>Unlisted</source>
-        <translation type="unfinished"></translation>
+        <translation>Nicht gelistet</translation>
     </message>
     <message>
         <source>Followers-only</source>
-        <translation type="unfinished"></translation>
+        <translation>Nur für Follower</translation>
     </message>
     <message>
         <source>Direct</source>
-        <translation type="unfinished"></translation>
+        <translation>Direkt</translation>
     </message>
 </context>
 <context>
@@ -228,58 +228,58 @@
     </message>
     <message>
         <source>Enter a valid Mastodon instance URL (will open a web browser for Authentication)</source>
-        <translation type="unfinished"></translation>
+        <translation>Gib eine gültige Mastodon-Instanz-URL ein (es öffnet sich ein Webbrowser zur Authentifizierung)</translation>
     </message>
     <message>
         <source>Type</source>
-        <translation type="unfinished"></translation>
+        <translation>Typ</translation>
     </message>
 </context>
 <context>
     <name>MainPage</name>
     <message>
         <source>Press and hold the home tab to switch account</source>
-        <translation type="unfinished"></translation>
+        <translation>Halte den Start-Tab gedrückt, um das Konto zu wechseln</translation>
     </message>
     <message>
         <source>Home</source>
-        <translation type="unfinished"></translation>
+        <translation>Start</translation>
     </message>
     <message>
         <source>Notifications</source>
-        <translation type="unfinished"></translation>
+        <translation>Benachrichtigungen</translation>
     </message>
     <message>
         <source>Local</source>
-        <translation type="unfinished"></translation>
+        <translation>Lokal</translation>
     </message>
     <message>
         <source>Federated</source>
-        <translation type="unfinished"></translation>
+        <translation>Föderiert</translation>
     </message>
     <message>
         <source>Bookmarks</source>
-        <translation type="unfinished"></translation>
+        <translation>Lesezeichen</translation>
     </message>
     <message>
         <source>Search</source>
-        <translation type="unfinished"></translation>
+        <translation>Suche</translation>
     </message>
     <message>
         <source>@user or #term</source>
-        <translation type="unfinished"></translation>
+        <translation>@Benutzer oder #Begriff</translation>
     </message>
     <message>
         <source>Trending</source>
-        <translation type="unfinished"></translation>
+        <translation>Trends</translation>
     </message>
     <message>
         <source>New Toot</source>
-        <translation type="unfinished">Neuer Toot</translation>
+        <translation>Neuer Toot</translation>
     </message>
     <message>
         <source>Conversation</source>
-        <translation type="unfinished"></translation>
+        <translation>Gespräch</translation>
     </message>
 </context>
 <context>
@@ -323,27 +323,27 @@
     <name>MyList</name>
     <message>
         <source>Settings</source>
-        <translation type="unfinished">Einstellungen</translation>
+        <translation>Einstellungen</translation>
     </message>
     <message>
         <source>New Toot</source>
-        <translation type="unfinished">Neuer Toot</translation>
+        <translation>Neuer Toot</translation>
     </message>
     <message>
         <source>Open in Browser</source>
-        <translation type="unfinished">Im Browser öffnen</translation>
+        <translation>Im Browser öffnen</translation>
     </message>
     <message>
         <source>Reload</source>
-        <translation type="unfinished"></translation>
+        <translation>Neu laden</translation>
     </message>
     <message>
         <source>Nothing found</source>
-        <translation type="unfinished"></translation>
+        <translation>Nichts gefunden</translation>
     </message>
     <message>
         <source>My Profile</source>
-        <translation type="unfinished"></translation>
+        <translation>Mein Profil</translation>
     </message>
 </context>
 <context>
@@ -502,11 +502,11 @@
     </message>
     <message>
         <source>No preview available.</source>
-        <translation type="unfinished"></translation>
+        <translation>Keine Vorschau verfügbar.</translation>
     </message>
     <message>
         <source>The page is taking too long to load.</source>
-        <translation type="unfinished"></translation>
+        <translation>Die Seite lädt zu lange.</translation>
     </message>
 </context>
 <context>
@@ -626,135 +626,135 @@
     </message>
     <message>
         <source>Account removed</source>
-        <translation type="unfinished"></translation>
+        <translation>Konto entfernt</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation>Entfernen</translation>
     </message>
     <message>
         <source>Font Size</source>
-        <translation type="unfinished"></translation>
+        <translation>Schriftgröße</translation>
     </message>
     <message>
         <source>Sample text</source>
-        <translation type="unfinished"></translation>
+        <translation>Beispieltext</translation>
     </message>
     <message>
         <source>Quick Scroll Arrows</source>
-        <translation type="unfinished"></translation>
+        <translation>Schnell-Scroll-Pfeile</translation>
     </message>
     <message>
         <source>Show arrows to jump to top/bottom when scrolling fast</source>
-        <translation type="unfinished"></translation>
+        <translation>Pfeile zum Springen nach oben/unten beim schnellen Scrollen anzeigen</translation>
     </message>
     <message>
         <source>About</source>
         <comment>About the app</comment>
-        <translation type="unfinished"></translation>
+        <translation>Über</translation>
     </message>
     <message>
         <source>Notification</source>
-        <translation type="unfinished"></translation>
+        <translation>Benachrichtigung</translation>
     </message>
     <message>
         <source>Show notifications and create alerts</source>
-        <translation type="unfinished"></translation>
+        <translation>Benachrichtigungen anzeigen und Alerts erstellen</translation>
     </message>
 </context>
 <context>
     <name>VisualContainer</name>
     <message>
         <source>Loading...</source>
-        <translation type="unfinished"></translation>
+        <translation>Wird geladen...</translation>
     </message>
     <message>
         <source>Load more</source>
-        <translation type="unfinished"></translation>
+        <translation>Mehr laden</translation>
     </message>
     <message>
         <source>Show less</source>
-        <translation type="unfinished"></translation>
+        <translation>Weniger anzeigen</translation>
     </message>
     <message>
         <source>Show more</source>
-        <translation type="unfinished"></translation>
+        <translation>Mehr anzeigen</translation>
     </message>
     <message>
         <source>Vote</source>
-        <translation type="unfinished"></translation>
+        <translation>Abstimmen</translation>
     </message>
     <message>
         <source>votes</source>
-        <translation type="unfinished"></translation>
+        <translation>Stimmen</translation>
     </message>
     <message>
         <source>Closed</source>
-        <translation type="unfinished"></translation>
+        <translation>Abgeschlossen</translation>
     </message>
     <message>
         <source>days left</source>
-        <translation type="unfinished"></translation>
+        <translation>Tage übrig</translation>
     </message>
     <message>
         <source>hours left</source>
-        <translation type="unfinished"></translation>
+        <translation>Stunden übrig</translation>
     </message>
     <message>
         <source>minutes left</source>
-        <translation type="unfinished"></translation>
+        <translation>Minuten übrig</translation>
     </message>
     <message>
         <source>Conversation</source>
-        <translation type="unfinished"></translation>
+        <translation>Gespräch</translation>
     </message>
     <message>
         <source>Unfavorite</source>
-        <translation type="unfinished"></translation>
+        <translation>Favorit aufheben</translation>
     </message>
     <message>
         <source>Favorite</source>
-        <translation type="unfinished"></translation>
+        <translation>Favorit</translation>
     </message>
     <message>
         <source>Unboost</source>
-        <translation type="unfinished"></translation>
+        <translation>Teilen aufheben</translation>
     </message>
     <message>
         <source>Boost</source>
-        <translation type="unfinished"></translation>
+        <translation>Teilen</translation>
     </message>
     <message>
         <source>Reply</source>
-        <translation type="unfinished"></translation>
+        <translation>Antworten</translation>
     </message>
     <message>
         <source>Quote</source>
-        <translation type="unfinished"></translation>
+        <translation>Zitieren</translation>
     </message>
     <message>
         <source>Remove Bookmark</source>
-        <translation type="unfinished"></translation>
+        <translation>Lesezeichen entfernen</translation>
     </message>
     <message>
         <source>Bookmark</source>
-        <translation type="unfinished"></translation>
+        <translation>Lesezeichen</translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>Löschen</translation>
     </message>
     <message>
         <source>Deleting</source>
-        <translation type="unfinished"></translation>
+        <translation>Wird gelöscht</translation>
     </message>
     <message>
         <source>Edit</source>
-        <translation type="unfinished"></translation>
+        <translation>Bearbeiten</translation>
     </message>
     <message>
         <source>Mention</source>
-        <translation type="unfinished">Erwähnen</translation>
+        <translation>Erwähnen</translation>
     </message>
 </context>
 </TS>

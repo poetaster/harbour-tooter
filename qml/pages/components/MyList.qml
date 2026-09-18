@@ -268,7 +268,7 @@ SilicaListView {
 
                 var matches = /max_id=([0-9]+)/.exec(messageObject.LinkHeader);
                 var maxlink = matches[0].split("=")[1];
-                var matches = /min_id=([0-9]+)/.exec(messageObject.LinkHeader);
+                matches = /min_id=([0-9]+)/.exec(messageObject.LinkHeader);
                 var minlink = matches[0].split("=")[1];
                 if (debug) console.log("maxlink: " + maxlink)
                 if (debug) console.log("minlink: " + minlink)
@@ -303,8 +303,8 @@ SilicaListView {
             * simultaenously ... this is hamfisted
             */
             var listInterval = Math.floor(Math.random() * 60)*10*1000
-            if( title === "Home" ) listInterval = 20*60*1000
-            if( title === "Local" ) listInterval = 10*60*1000
+            if( title === "Home" ) listInterval = 10*60*1000
+            if( title === "Local" ) listInterval = 20*60*1000
             if( title === "Federated" ) listInterval = 30*60*1000
             if( title === "Bookmarks" ) listInterval = 40*60*1000
             if( title === "Notifications" ) listInterval = 12*60*1000
@@ -371,7 +371,8 @@ SilicaListView {
         // Collect current model IDs using object for O(1) operations
         // This replaces the old approach that kept growing an array and deduping
         var idsSet = {}
-        for(var i = 0 ; i < model.count ; i++) {
+        var i
+        for(i = 0 ; i < model.count ; i++) {
             idsSet[model.get(i).id] = true
         }
         // Convert to array only when needed for passing to worker
@@ -379,7 +380,7 @@ SilicaListView {
 
         var p = []
         if (params.length) {
-            for(var i = 0; i<params.length; i++)
+            for(i = 0; i<params.length; i++)
                 p.push(params[i])
         }
 

@@ -709,36 +709,12 @@
         <translation>Gesprek</translation>
     </message>
     <message>
-        <source>Unfavorite</source>
-        <translation>Verwijderen uit favorieten</translation>
-    </message>
-    <message>
-        <source>Favorite</source>
-        <translation>Toevoegen aan favorieten</translation>
-    </message>
-    <message>
-        <source>Unboost</source>
-        <translation>Ni meêr boosten</translation>
-    </message>
-    <message>
-        <source>Boost</source>
-        <translation>Boosten</translation>
-    </message>
-    <message>
         <source>Reply</source>
         <translation>Beantwoorden</translation>
     </message>
     <message>
         <source>Quote</source>
         <translation>Citeren</translation>
-    </message>
-    <message>
-        <source>Remove Bookmark</source>
-        <translation>Bladwijzer verwijderen</translation>
-    </message>
-    <message>
-        <source>Bookmark</source>
-        <translation>Toevoegen aan bladwijzers</translation>
     </message>
     <message>
         <source>Delete</source>

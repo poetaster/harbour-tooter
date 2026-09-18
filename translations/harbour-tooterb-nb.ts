@@ -709,36 +709,12 @@
         <translation>Konversasjon</translation>
     </message>
     <message>
-        <source>Unfavorite</source>
-        <translation>Fjern favoritt</translation>
-    </message>
-    <message>
-        <source>Favorite</source>
-        <translation>Favoritt</translation>
-    </message>
-    <message>
-        <source>Unboost</source>
-        <translation>Fjern boost</translation>
-    </message>
-    <message>
-        <source>Boost</source>
-        <translation>Boost</translation>
-    </message>
-    <message>
         <source>Reply</source>
         <translation>Svar</translation>
     </message>
     <message>
         <source>Quote</source>
         <translation>Siter</translation>
-    </message>
-    <message>
-        <source>Remove Bookmark</source>
-        <translation>Fjern bokmerke</translation>
-    </message>
-    <message>
-        <source>Bookmark</source>
-        <translation>Bokmerke</translation>
     </message>
     <message>
         <source>Delete</source>

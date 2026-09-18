@@ -711,36 +711,12 @@
         <translation>Rozmowa</translation>
     </message>
     <message>
-        <source>Unfavorite</source>
-        <translation>Usuń z ulubionych</translation>
-    </message>
-    <message>
-        <source>Favorite</source>
-        <translation>Dodaj do ulubionych</translation>
-    </message>
-    <message>
-        <source>Unboost</source>
-        <translation>Cofnij podbicie</translation>
-    </message>
-    <message>
-        <source>Boost</source>
-        <translation>Podbij</translation>
-    </message>
-    <message>
         <source>Reply</source>
         <translation>Odpowiedz</translation>
     </message>
     <message>
         <source>Quote</source>
         <translation>Cytuj</translation>
-    </message>
-    <message>
-        <source>Remove Bookmark</source>
-        <translation>Usuń zakładkę</translation>
-    </message>
-    <message>
-        <source>Bookmark</source>
-        <translation>Dodaj do zakładek</translation>
     </message>
     <message>
         <source>Delete</source>

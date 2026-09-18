@@ -709,36 +709,12 @@
         <translation>Conversazione</translation>
     </message>
     <message>
-        <source>Unfavorite</source>
-        <translation>Togli mi piace</translation>
-    </message>
-    <message>
-        <source>Favorite</source>
-        <translation>Mi piace</translation>
-    </message>
-    <message>
-        <source>Unboost</source>
-        <translation>Rimuovi condivisione</translation>
-    </message>
-    <message>
-        <source>Boost</source>
-        <translation>Condividi</translation>
-    </message>
-    <message>
         <source>Reply</source>
         <translation>Rispondi</translation>
     </message>
     <message>
         <source>Quote</source>
         <translation>Cita</translation>
-    </message>
-    <message>
-        <source>Remove Bookmark</source>
-        <translation>Rimuovi Segnalibro</translation>
-    </message>
-    <message>
-        <source>Bookmark</source>
-        <translation>Aggiungi ai segnalibri</translation>
     </message>
     <message>
         <source>Delete</source>

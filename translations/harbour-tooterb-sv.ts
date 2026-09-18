@@ -710,36 +710,12 @@
         <translation>Konversation</translation>
     </message>
     <message>
-        <source>Unfavorite</source>
-        <translation>Avfavorisera</translation>
-    </message>
-    <message>
-        <source>Favorite</source>
-        <translation>Favorisera</translation>
-    </message>
-    <message>
-        <source>Unboost</source>
-        <translation>Avboosta</translation>
-    </message>
-    <message>
-        <source>Boost</source>
-        <translation>Boosta</translation>
-    </message>
-    <message>
         <source>Reply</source>
         <translation>Svara</translation>
     </message>
     <message>
         <source>Quote</source>
         <translation>Citera</translation>
-    </message>
-    <message>
-        <source>Remove Bookmark</source>
-        <translation>Ta bort bokmärke</translation>
-    </message>
-    <message>
-        <source>Bookmark</source>
-        <translation>Bokmärk</translation>
     </message>
     <message>
         <source>Delete</source>

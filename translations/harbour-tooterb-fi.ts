@@ -827,123 +827,90 @@
 <context>
     <name>VisualContainer</name>
     <message>
-        <location filename="../qml/pages/components/VisualContainer.qml" line="93"/>
+        <location filename="../qml/pages/components/VisualContainer.qml" line="193"/>
         <source>Loading...</source>
         <translation>Ladataan...</translation>
     </message>
     <message>
-        <location filename="../qml/pages/components/VisualContainer.qml" line="93"/>
+        <location filename="../qml/pages/components/VisualContainer.qml" line="193"/>
         <source>Load more</source>
         <translation>Lataa lisää</translation>
     </message>
     <message>
-        <location filename="../qml/pages/components/VisualContainer.qml" line="474"/>
+        <location filename="../qml/pages/components/VisualContainer.qml" line="574"/>
         <source>Show less</source>
         <translation>Näytä vähemmän</translation>
     </message>
     <message>
-        <location filename="../qml/pages/components/VisualContainer.qml" line="474"/>
+        <location filename="../qml/pages/components/VisualContainer.qml" line="574"/>
         <source>Show more</source>
         <translation>Näytä enemmän</translation>
     </message>
     <message>
-        <location filename="../qml/pages/components/VisualContainer.qml" line="642"/>
+        <location filename="../qml/pages/components/VisualContainer.qml" line="742"/>
         <source>Vote</source>
         <translation>Äänestä</translation>
     </message>
     <message>
-        <location filename="../qml/pages/components/VisualContainer.qml" line="670"/>
+        <location filename="../qml/pages/components/VisualContainer.qml" line="770"/>
         <source>votes</source>
         <translation>ääntä</translation>
     </message>
     <message>
-        <location filename="../qml/pages/components/VisualContainer.qml" line="673"/>
+        <location filename="../qml/pages/components/VisualContainer.qml" line="773"/>
         <source>Closed</source>
         <translation>Suljettu</translation>
     </message>
     <message>
-        <location filename="../qml/pages/components/VisualContainer.qml" line="683"/>
+        <location filename="../qml/pages/components/VisualContainer.qml" line="783"/>
         <source>days left</source>
         <translation>päivää jäljellä</translation>
     </message>
     <message>
-        <location filename="../qml/pages/components/VisualContainer.qml" line="685"/>
+        <location filename="../qml/pages/components/VisualContainer.qml" line="785"/>
         <source>hours left</source>
         <translation>tuntia jäljellä</translation>
     </message>
     <message>
-        <location filename="../qml/pages/components/VisualContainer.qml" line="687"/>
+        <location filename="../qml/pages/components/VisualContainer.qml" line="787"/>
         <source>minutes left</source>
         <translation>minuuttia jäljellä</translation>
     </message>
     <message>
-        <location filename="../qml/pages/components/VisualContainer.qml" line="402"/>
-        <location filename="../qml/pages/components/VisualContainer.qml" line="853"/>
-        <location filename="../qml/pages/components/VisualContainer.qml" line="1257"/>
+        <location filename="../qml/pages/components/VisualContainer.qml" line="502"/>
+        <location filename="../qml/pages/components/VisualContainer.qml" line="953"/>
+        <location filename="../qml/pages/components/VisualContainer.qml" line="1296"/>
         <source>Conversation</source>
         <translation>Keskustelu</translation>
     </message>
     <message>
-        <location filename="../qml/pages/components/VisualContainer.qml" line="951"/>
-        <source>Unfavorite</source>
-        <translation>Poista suosikeista</translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/components/VisualContainer.qml" line="951"/>
-        <source>Favorite</source>
-        <translation>Suosikki</translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/components/VisualContainer.qml" line="993"/>
-        <source>Unboost</source>
-        <translation>Kumoa jako</translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/components/VisualContainer.qml" line="993"/>
-        <source>Boost</source>
-        <translation>Jaa</translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/components/VisualContainer.qml" line="1034"/>
-        <location filename="../qml/pages/components/VisualContainer.qml" line="1066"/>
+        <location filename="../qml/pages/components/VisualContainer.qml" line="85"/>
         <source>Reply</source>
         <translation>Vastaa</translation>
     </message>
     <message>
-        <location filename="../qml/pages/components/VisualContainer.qml" line="1093"/>
-        <location filename="../qml/pages/components/VisualContainer.qml" line="1097"/>
+        <location filename="../qml/pages/components/VisualContainer.qml" line="97"/>
         <source>Quote</source>
         <translation>Sitaa</translation>
     </message>
     <message>
-        <location filename="../qml/pages/components/VisualContainer.qml" line="1123"/>
-        <source>Remove Bookmark</source>
-        <translation>Poista kirjanmerkki</translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/components/VisualContainer.qml" line="1123"/>
-        <source>Bookmark</source>
-        <translation>Kirjanmerkki</translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/components/VisualContainer.qml" line="1160"/>
+        <location filename="../qml/pages/components/VisualContainer.qml" line="1243"/>
         <source>Delete</source>
         <translation>Poista</translation>
     </message>
     <message>
-        <location filename="../qml/pages/components/VisualContainer.qml" line="1162"/>
+        <location filename="../qml/pages/components/VisualContainer.qml" line="120"/>
         <source>Deleting</source>
         <translation>Poistetaan</translation>
     </message>
     <message>
-        <location filename="../qml/pages/components/VisualContainer.qml" line="1195"/>
-        <location filename="../qml/pages/components/VisualContainer.qml" line="1198"/>
+        <location filename="../qml/pages/components/VisualContainer.qml" line="1261"/>
+        <location filename="../qml/pages/components/VisualContainer.qml" line="1264"/>
         <source>Edit</source>
         <translation>Muokkaa</translation>
     </message>
     <message>
-        <location filename="../qml/pages/components/VisualContainer.qml" line="1221"/>
-        <location filename="../qml/pages/components/VisualContainer.qml" line="1225"/>
+        <location filename="../qml/pages/components/VisualContainer.qml" line="1211"/>
         <source>Mention</source>
         <translation>Maininta</translation>
     </message>

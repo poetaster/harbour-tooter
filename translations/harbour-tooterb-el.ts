@@ -390,7 +390,10 @@
     </message>
     <message numerus="yes">
         <source>show license(s)</source>
-        <translation><numerusform>Εμφάνιση άδειας</numerusform><numerusform>Εμφάνιση αδειών</numerusform></translation>
+        <translation>
+            <numerusform>Εμφάνιση άδειας</numerusform>
+            <numerusform>Εμφάνιση αδειών</numerusform>
+        </translation>
     </message>
     <message>
         <source>News</source>
@@ -434,7 +437,10 @@
     </message>
     <message numerus="yes">
         <source>License(s)</source>
-        <translation><numerusform>Άδεια</numerusform><numerusform>Αδειές</numerusform></translation>
+        <translation>
+            <numerusform>Άδεια</numerusform>
+            <numerusform>Αδειές</numerusform>
+        </translation>
     </message>
     <message>
         <source>Note: please check the source code for most accurate information.</source>
@@ -703,36 +709,12 @@
         <translation>Συνομιλία</translation>
     </message>
     <message>
-        <source>Unfavorite</source>
-        <translation>Αφαίρεση από τα αγαπημένα</translation>
-    </message>
-    <message>
-        <source>Favorite</source>
-        <translation>Αγαπημένο</translation>
-    </message>
-    <message>
-        <source>Unboost</source>
-        <translation>Αναίρεση προώθησης</translation>
-    </message>
-    <message>
-        <source>Boost</source>
-        <translation>Προώθηση</translation>
-    </message>
-    <message>
         <source>Reply</source>
         <translation>Απάντηση</translation>
     </message>
     <message>
         <source>Quote</source>
         <translation>Παρομοίωση</translation>
-    </message>
-    <message>
-        <source>Remove Bookmark</source>
-        <translation>Αφαίρεση σελιδοδείκτη</translation>
-    </message>
-    <message>
-        <source>Bookmark</source>
-        <translation>Σελιδοδείκτης</translation>
     </message>
     <message>
         <source>Delete</source>

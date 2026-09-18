@@ -709,36 +709,12 @@
         <translation>Conversación</translation>
     </message>
     <message>
-        <source>Unfavorite</source>
-        <translation>Quitar de favoritos</translation>
-    </message>
-    <message>
-        <source>Favorite</source>
-        <translation>Marcar como favorito</translation>
-    </message>
-    <message>
-        <source>Unboost</source>
-        <translation>Quitar retoot</translation>
-    </message>
-    <message>
-        <source>Boost</source>
-        <translation>Retoot</translation>
-    </message>
-    <message>
         <source>Reply</source>
         <translation>Responder</translation>
     </message>
     <message>
         <source>Quote</source>
         <translation>Citar</translation>
-    </message>
-    <message>
-        <source>Remove Bookmark</source>
-        <translation>Quitar de marcadores</translation>
-    </message>
-    <message>
-        <source>Bookmark</source>
-        <translation>Añadir a marcadores</translation>
     </message>
     <message>
         <source>Delete</source>

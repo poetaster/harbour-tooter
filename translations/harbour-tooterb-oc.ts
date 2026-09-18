@@ -709,36 +709,12 @@
         <translation>Conversacion</translation>
     </message>
     <message>
-        <source>Unfavorite</source>
-        <translation>Quitar dels favorits</translation>
-    </message>
-    <message>
-        <source>Favorite</source>
-        <translation>Favorit</translation>
-    </message>
-    <message>
-        <source>Unboost</source>
-        <translation>Anullar la re-particion</translation>
-    </message>
-    <message>
-        <source>Boost</source>
-        <translation>Repartir</translation>
-    </message>
-    <message>
         <source>Reply</source>
         <translation>Respondre</translation>
     </message>
     <message>
         <source>Quote</source>
         <translation>Citar</translation>
-    </message>
-    <message>
-        <source>Remove Bookmark</source>
-        <translation>Levar lo marca-pagina</translation>
-    </message>
-    <message>
-        <source>Bookmark</source>
-        <translation>Marca-pagina</translation>
     </message>
     <message>
         <source>Delete</source>

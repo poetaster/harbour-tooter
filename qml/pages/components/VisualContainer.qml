@@ -1075,7 +1075,7 @@ BackgroundItem {
                 //text: typeof model.status_favourited !== "undefined" && model.status_favourited ? qsTr("Unfavorite") : qsTr("Favorite")
                 MouseArea {
                     anchors.fill: parent
-                    onClicked: favourite()
+                    onClicked: if (!model.status_favourited) favourite()
                 }
                 Row {
                     spacing: Theme.paddingSmall
@@ -1103,7 +1103,7 @@ BackgroundItem {
                 //text: typeof model.status_reblogged !== "undefined" && model.status_reblogged ? qsTr("Unboost") : qsTr("Boost")
                 MouseArea {
                     anchors.fill: parent
-                    onClicked: boost()
+                    onClicked: if (!model.status_reblogged) boost()
                 }
                 Row {
                     spacing: Theme.paddingSmall
@@ -1186,7 +1186,7 @@ BackgroundItem {
                 //text: typeof model.status_bookmarked !== "undefined" && model.status_bookmarked ? qsTr("Remove Bookmark") : qsTr("Bookmark")
                 MouseArea {
                     anchors.fill: parent
-                    onClicked: bookmark()
+                    onClicked: if (!model.status_bookmarked) bookmark()
                 }
 
                 Icon {

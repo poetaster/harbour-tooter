@@ -1075,14 +1075,14 @@ BackgroundItem {
                 //text: typeof model.status_favourited !== "undefined" && model.status_favourited ? qsTr("Unfavorite") : qsTr("Favorite")
                 MouseArea {
                     anchors.fill: parent
-                    onClicked: if (!model.status_favourited) favourite()
+                    onClicked:  favourite()
                 }
                 Row {
                     spacing: Theme.paddingSmall
                     Icon {
                         id: icFA
                         source: "image://theme/icon-s-favorite?" + (!model.status_favourited ? Theme.highlightColor : Theme.primaryColor)
-                        width: Theme.iconSizeSmall
+                        width: Theme.iconSizeSmallPlus
                         height: width
                     }
 
@@ -1103,14 +1103,14 @@ BackgroundItem {
                 //text: typeof model.status_reblogged !== "undefined" && model.status_reblogged ? qsTr("Unboost") : qsTr("Boost")
                 MouseArea {
                     anchors.fill: parent
-                    onClicked: if (!model.status_reblogged) boost()
+                    onClicked: boost()
                 }
                 Row {
                     spacing: Theme.paddingSmall
                     Icon {
                         id: icRT
                         source: "image://theme/icon-s-retweet?" + (!model.status_reblogged ? Theme.highlightColor : Theme.primaryColor)
-                        width: Theme.iconSizeSmall
+                        width: Theme.iconSizeSmallPlus
                         height: width
                     }
 
@@ -1135,7 +1135,7 @@ BackgroundItem {
                 Icon {
                     id: icReply
                     source: "image://theme/icon-s-message?" + Theme.highlightColor
-                    width: Theme.iconSizeSmall
+                    width: Theme.iconSizeSmallPlus
                     height: width
                 }
             }
@@ -1167,7 +1167,7 @@ BackgroundItem {
                 Icon {
                     id: icQuote
                     source: "image://theme/icon-s-clipboard?" + Theme.highlightColor
-                    width: Theme.iconSizeSmall
+                    width: Theme.iconSizeSmallPlus
                     height: width
                     anchors {
                         leftMargin: Theme.horizontalPageMargin
@@ -1186,14 +1186,14 @@ BackgroundItem {
                 //text: typeof model.status_bookmarked !== "undefined" && model.status_bookmarked ? qsTr("Remove Bookmark") : qsTr("Bookmark")
                 MouseArea {
                     anchors.fill: parent
-                    onClicked: if (!model.status_bookmarked) bookmark()
+                    onClicked:  bookmark()
                 }
 
                 Icon {
                     id: icBM
                     source: "../../images/icon-s-bookmark.svg?"
                     color: !model.status_bookmarked ? Theme.highlightColor : Theme.primaryColor
-                    width: Theme.iconSizeSmall
+                    width: Theme.iconSizeSmallPlus
                     height: width
                 }
             }
@@ -1218,7 +1218,7 @@ BackgroundItem {
                 Icon {
                     id: icMT
                     source: "image://theme/icon-s-chat?" + (!model.status_favourited ? Theme.highlightColor : Theme.primaryColor)
-                    width: Theme.iconSizeSmall
+                    width: Theme.iconSizeSmallPlus
                     height: width
                 }
             }

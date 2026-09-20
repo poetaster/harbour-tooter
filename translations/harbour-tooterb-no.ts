@@ -733,4 +733,11 @@
         <translation>Nevning</translation>
     </message>
 </context>
+<context>
+    <name>harbour-tooterb</name>
+    <message>
+        <source>Conversation</source>
+        <translation type="unfinished">Konversasjon</translation>
+    </message>
+</context>
 </TS>

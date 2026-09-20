@@ -20,6 +20,8 @@ Page {
     
     allowedOrientations: Orientation.All
 
+
+/*
     DBusAdaptor {
         id: dbus
         bus: DBus.SessionBus
@@ -73,6 +75,7 @@ Page {
           openUrl(u)
         }
     }
+*/
     onSuggestedUserChanged:  {
         //console.log(suggestedUser)
         suggestedModel = Qt.createQmlObject( 'import QtQuick 2.0; ListModel {   }', Qt.application, 'InternalQmlObject' )

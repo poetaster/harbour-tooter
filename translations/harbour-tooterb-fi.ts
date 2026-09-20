@@ -293,57 +293,57 @@
 <context>
     <name>MainPage</name>
     <message>
-        <location filename="../qml/pages/MainPage.qml" line="126"/>
+        <location filename="../qml/pages/MainPage.qml" line="129"/>
         <source>Press and hold the home tab to switch account</source>
         <translation>Pidä aloitusvälilehdettä painettuna vaihtaaksesi tiliä</translation>
     </message>
     <message>
-        <location filename="../qml/pages/MainPage.qml" line="136"/>
+        <location filename="../qml/pages/MainPage.qml" line="139"/>
         <source>Home</source>
         <translation>Etusivu</translation>
     </message>
     <message>
-        <location filename="../qml/pages/MainPage.qml" line="148"/>
+        <location filename="../qml/pages/MainPage.qml" line="151"/>
         <source>Notifications</source>
         <translation>Ilmoitukset</translation>
     </message>
     <message>
-        <location filename="../qml/pages/MainPage.qml" line="159"/>
+        <location filename="../qml/pages/MainPage.qml" line="162"/>
         <source>Local</source>
         <translation>Paikallinen</translation>
     </message>
     <message>
-        <location filename="../qml/pages/MainPage.qml" line="170"/>
+        <location filename="../qml/pages/MainPage.qml" line="173"/>
         <source>Federated</source>
         <translation>Federointi</translation>
     </message>
     <message>
-        <location filename="../qml/pages/MainPage.qml" line="179"/>
+        <location filename="../qml/pages/MainPage.qml" line="182"/>
         <source>Bookmarks</source>
         <translation>Kirjanmerkit</translation>
     </message>
     <message>
-        <location filename="../qml/pages/MainPage.qml" line="215"/>
+        <location filename="../qml/pages/MainPage.qml" line="218"/>
         <source>Search</source>
         <translation>Haku</translation>
     </message>
     <message>
-        <location filename="../qml/pages/MainPage.qml" line="225"/>
+        <location filename="../qml/pages/MainPage.qml" line="228"/>
         <source>@user or #term</source>
         <translation>@käyttäjä tai #termi</translation>
     </message>
     <message>
-        <location filename="../qml/pages/MainPage.qml" line="352"/>
+        <location filename="../qml/pages/MainPage.qml" line="355"/>
         <source>Trending</source>
         <translation>Suosittu</translation>
     </message>
     <message>
-        <location filename="../qml/pages/MainPage.qml" line="396"/>
+        <location filename="../qml/pages/MainPage.qml" line="399"/>
         <source>New Toot</source>
         <translation>Uusi viesti</translation>
     </message>
     <message>
-        <location filename="../qml/pages/MainPage.qml" line="494"/>
+        <location filename="../qml/pages/MainPage.qml" line="497"/>
         <source>Conversation</source>
         <translation>Keskustelu</translation>
     </message>
@@ -913,6 +913,14 @@
         <location filename="../qml/pages/components/VisualContainer.qml" line="1217"/>
         <source>Mention</source>
         <translation>Maininta</translation>
+    </message>
+</context>
+<context>
+    <name>harbour-tooterb</name>
+    <message>
+        <location filename="../qml/harbour-tooterb.qml" line="68"/>
+        <source>Conversation</source>
+        <translation type="unfinished">Keskustelu</translation>
     </message>
 </context>
 </TS>

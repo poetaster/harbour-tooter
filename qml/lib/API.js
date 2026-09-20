@@ -281,7 +281,9 @@ function parseMastodonUrl(url) {
     var parts = normalizedUrl.split("/")
    if (debug) console.log("logging parts");
    if (debug) console.log(parts);
-    parts[0] = "https:", parts[1] = "", parts[2] = "instance.tld"
+   parts[0] = "https:";
+   parts[1] = "";
+   parts[2] = "instance.tld";
     //, parts[3] = path
 
     /*if (parts.length < 4) {

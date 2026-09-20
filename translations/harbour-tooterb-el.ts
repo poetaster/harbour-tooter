@@ -733,4 +733,11 @@
         <translation>Φραγή</translation>
     </message>
 </context>
+<context>
+    <name>harbour-tooterb</name>
+    <message>
+        <source>Conversation</source>
+        <translation type="unfinished">Συνομιλία</translation>
+    </message>
+</context>
 </TS>

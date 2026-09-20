@@ -735,4 +735,11 @@
         <translation>Wzmianka</translation>
     </message>
 </context>
+<context>
+    <name>harbour-tooterb</name>
+    <message>
+        <source>Conversation</source>
+        <translation type="unfinished">Rozmowa</translation>
+    </message>
+</context>
 </TS>

@@ -734,4 +734,11 @@
         <translation>Nämn</translation>
     </message>
 </context>
+<context>
+    <name>harbour-tooterb</name>
+    <message>
+        <source>Conversation</source>
+        <translation type="unfinished">Konversation</translation>
+    </message>
+</context>
 </TS>

@@ -4,9 +4,9 @@ X-Nemo-Application-Type=silica-qt5
 Icon=harbour-tooterb
 Exec=harbour-tooterb %u
 Name=Tooter β
-#X-DBusActivatable=true
+X-DBusActivatable=true
 
-#MimeType=text/html;x-scheme-handler/https;
+MimeType=text/html;x-scheme-handler/https;
 
 #X-Maemo-Service=de.poetaster.tooterb
 #X-Maemo-Object-Path=/de/poetaster/tooterb
@@ -16,3 +16,4 @@ Name=Tooter β
 OrganizationName=de.poetaster
 ApplicationName=tooterb
 Permissions=Internet;Audio;MediaIndexing;RemovableMedia;UserDirs;
+ExecDBus=/usr/bin/harbour-tooterb -prestart

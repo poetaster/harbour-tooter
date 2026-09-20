@@ -32,14 +32,12 @@ SOURCES += src/harbour-tooterb.cpp \
     src/imageuploader.cpp \
     src/filedownloader.cpp \
     src/notifications.cpp \
-    src/dbusAdaptor.cpp \
-    src/dbus.cpp
+    src/dbusAdaptor.cpp
 
 HEADERS += src/imageuploader.h \
     src/filedownloader.h \
     src/notifications.h \
-    src/dbusAdaptor.h \
-    src/dbus.h
+    src/dbusAdaptor.h
 
 DISTFILES += qml/harbour-tooterb.qml \
     qml/images/tooterb-cover.svg \

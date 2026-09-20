@@ -733,4 +733,11 @@
         <translation>Menzione</translation>
     </message>
 </context>
+<context>
+    <name>harbour-tooterb</name>
+    <message>
+        <source>Conversation</source>
+        <translation type="unfinished">Conversazione</translation>
+    </message>
+</context>
 </TS>

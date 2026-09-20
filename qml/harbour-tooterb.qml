@@ -51,6 +51,35 @@ ApplicationWindow {
     // Instance max characters - fetched from server, default to 500
     property int instanceMaxChars: 500
 
+    WorkerScript {
+        id: worker
+        source: "../lib/Worker.js"
+        onMessage: {
+
+            if (debug) console.log(JSON.stringify(messageObject))
+
+            if (messageObject.action === "v2/search" && messageObject.mode === "resolveUrl") {
+                if (messageObject.statuses && messageObject.statuses.length > 0) {
+                    var status = messageObject.statuses[0]
+                    if (debug) console.log("Resolved status: " + status.status_id)
+                    // Open in ConversationPage
+                    var m = Qt.createQmlObject('import QtQuick 2.0; ListModel { dynamicRoles:true }', Qt.application, 'InternalQmlObject')
+                    pageStack.push(Qt.resolvedUrl("ConversationPage.qml"), {
+                                       headerTitle: qsTr("Conversation"),
+                                       "status_id": status.status_id,
+                                       "status_url": status.status_url,
+                                       "status_uri": status.status_uri,
+                                       mdl: m,
+                                       type: "reply"
+                                   })
+                } else {
+                    // Status not found - open URL externally
+                    if (debug) console.log("Status not found, opening externally: " + messageObject.originalUrl)
+                    Qt.openUrlExternally(messageObject.originalUrl)
+                }
+            }
+        }
+    }
     Component.onCompleted: {
         var obj = {}
         Logic.mediator.installTo(obj)
@@ -104,13 +133,58 @@ ApplicationWindow {
         Logic.init()
     }
 
+    // Resolve a status URL and open it in ConversationPage
+    function resolveStatusUrl(url,encoded) {
+        if ( ! encoded) url = encodeURIComponent(url)
+        if (debug) console.log("Resolving status URL: " + url)
+        worker.sendMessage({
+            action: "v2/search",
+            mode: "resolveUrl",
+            params: [
+                { name: "q", data: url },
+                { name: "resolve", data: "true" },
+                { name: "type", data: "statuses" },
+                { name: "limit", data: "1" }
+            ],
+            conf: Logic.conf,
+            originalUrl: url
+        })
+    }
+    function openUrl(u) {
+        console.log("openUrl called via DBus:" + u)
+        // Use the URL parser to detect Mastodon resource types
+        var url = u.toString()
+        var username
+        var searchUrl = url
+        if (url.indexOf("?uri") !== -1) {
+            url = url.split("?")[1]
+            url = url.split("=")[1]
+            searchUrl = Logic.seqDecode(url)
+        }
+        var parsed = Logic.parseMastodonUrl(searchUrl)
+        username = parsed.username
+
+        // For recognized Mastodon URLs (tag, profile, status), delegate to MainPage
+        if (parsed.type === "status"){
+            resolveStatusUrl(url,true)
+            //loader.sourceComponent = loading
+            //searchField.text = '@' + username
+            //tlSearch.search = searchField.text
+            // slideshow.positionViewAtIndex(5, ListView.SnapToItem)
+        } else if (parsed.type !== "unknown") {
+            pageStack.pop(pageStack.find(function(page) {
+                var check = page.isFirstPage === true
+                if (check)
+                    page.onLinkActivated(u.toString())
+                return check
+            }))
+        }
+        //activate()
+    }
+
     Component.onDestruction: {
         //Logic.conf.notificationLastID = 0;
         Logic.saveData()
     }
 
-    // planned for future dbus adapter method
-    function open(url) {
-            console.log(key, "dbus open mehod onOpenUrl" )
-    }
 }

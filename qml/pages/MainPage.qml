@@ -8,7 +8,7 @@ import "./components/"
 
 Page {
     id: mainPage
-    property bool debug: true
+    property bool debug: false
     property bool isFirstPage: true
     property bool isTablet: true //Screen.sizeCategory >= Screen.Large
     // for people search

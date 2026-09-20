@@ -28,8 +28,9 @@ int main(int argc, char *argv[]) {
     view->rootContext()->setContextProperty("APP_VERSION", QString(APP_VERSION));
     view->rootContext()->setContextProperty("APP_RELEASE", QString(APP_RELEASE));
 
-    FileDownloader *fd = new FileDownloader(engine);
-    view->rootContext()->setContextProperty("FileDownloader", fd);
+    //FileDownloader *fd = new FileDownloader(engine);
+    //view->rootContext()->setContextProperty("FileDownloader", fd);
+    qmlRegisterType<FileDownloader>("harbour.tooterb.Downloader", 1, 0, "FileDownloader");
     qmlRegisterType<ImageUploader>("harbour.tooterb.Uploader", 1, 0, "ImageUploader");
 
     Notifications *no = new Notifications();

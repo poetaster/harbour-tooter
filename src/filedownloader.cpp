@@ -10,12 +10,26 @@
 #include "filedownloader.h"
 #include <QDebug>
 
-FileDownloader::FileDownloader(QQmlEngine *engine, QObject *parent) :
-    QObject(parent)
-{
-    m_engine = engine;
+#include <QtNetwork/QNetworkAccessManager>
+#include <QtNetwork/QNetworkRequest>
+#include <QtNetwork/QNetworkReply>
+#include <QtNetwork/QHttpMultiPart>
+
+#include <QtCore/QFile>
+#include <QtCore/QFileInfo>
+
+FileDownloader::FileDownloader(QObject *parent) : QObject(parent), m_networkAccessManager(nullptr) {
+
+        m_networkAccessManager = new QNetworkAccessManager(this);
 }
 
+FileDownloader::~FileDownloader() {
+    /*if (m_reply != nullptr) {
+        m_reply->disconnect();
+        m_reply->deleteLater();
+        m_reply = nullptr;
+    }*/
+}
 void FileDownloader::downloadFile(QUrl url, QString filename)
 {
     emit downloadStarted();
@@ -23,10 +37,10 @@ void FileDownloader::downloadFile(QUrl url, QString filename)
     m_filename = filename;
     qDebug() << "downloading" << url << "to" << filename;
 
-    QNetworkAccessManager *nam = m_engine->networkAccessManager();
+    //QNetworkAccessManager *nam = m_engine->networkAccessManager();
 
     QNetworkRequest request(url);
-    QNetworkReply *r = nam->get(request);
+    QNetworkReply *r = m_networkAccessManager->get(request);
     connect(r, SIGNAL(finished()), this, SLOT(fileDownloaded()));
 }
 

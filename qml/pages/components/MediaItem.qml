@@ -1,7 +1,7 @@
 import QtQuick 2.6
 import Sailfish.Silica 1.0
 import QtMultimedia 5.6
-
+import harbour.tooterb.Downloader 1.0
 
 
 ListItem {
@@ -20,7 +20,6 @@ ListItem {
         //if (debug) console.log("MediaItem")
         //if (debug) console.log(url)
     }
-
 
     function _toTime(s)
     {
@@ -101,7 +100,30 @@ ListItem {
         }
     }
 
+    FileDownloader {
+        id: fileDownloader
+        /*
+        onProgressChanged: {
+            // console.log("progress " + progress)
+            uploadProgress.width = parent.width * progress
+        }*/
+        onDownloadSuccess: {
+            //uploadProgress.width = 0
+            //console.log(replyData)a
+            downloadIndicator.running = false
 
+        }
+        /*
+        onFailure: {
+            uploadProgress.width = 0
+            btnAddImage.enabled = true
+            btnAddMusic.enabled = true
+            btnAddVideo.enabled = true
+            //console.log(status)
+            //console.log(statusText)
+        }*/
+
+    }
     QtObject {
         id: audioProxy
 
@@ -325,10 +347,22 @@ ListItem {
         }
         onClicked: {
             var filename = url.split("/")
-            FileDownloader.downloadFile(url, filename[filename.length-1])
+            fileDownloader.downloadFile(url, filename[filename.length-1])
+            downloadIndicator.running = true
+        }
+        //imageUploader.setUploadUrl(Logic.getActiveAccount().instance + "/api/v1/media")
+        //imageUploader.setFile(file)
+        //imageUploader.setMime(mime)
+        //imageUploader.setAuthorizationHeader(Logic.getActiveAccount().api_user_token)
+        //imageUploader.upload()
+
+        BusyIndicator {
+            id:downloadIndicator
+            running: false
+            anchors.centerIn: parent
+            size: BusyIndicatorSize.Medium
         }
     }
-
     Rectangle {
             id: altTooltip
             visible: false

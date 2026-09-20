@@ -9,7 +9,7 @@ import "./components/"
 Page {
     id: conversationPage
     property string key: "conversationPage"
-    property bool debug: true
+    property bool debug: false
     property ListModel suggestedModel
     property ListModel mdl
     property int tootMaxChar: appWindow.instanceMaxChars

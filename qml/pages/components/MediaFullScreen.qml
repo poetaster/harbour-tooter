@@ -1,7 +1,7 @@
 import QtQuick 2.6
 import Sailfish.Silica 1.0
 import QtMultimedia 5.6
-
+import harbour.tooterb.Downloader 1.0
 
 FullscreenContentPage {
     id: mediaPage
@@ -57,6 +57,28 @@ FullscreenContentPage {
         }
     }
 
+    FileDownloader {
+        id: fileDownloader
+        /*
+        onProgressChanged: {
+            // console.log("progress " + progress)
+            uploadProgress.width = parent.width * progress
+        }*/
+        onDownloadSuccess: {
+            //uploadProgress.width = 0
+            //console.log(replyData)a
+            downloadIndicator.running = false
+
+        }
+
+        onDownloadFailed: {
+            mediaDlBtn.icon.source = 'image://theme/icon-splus-error'
+            downloadIndicator.running = false
+            //console.log(status)
+            //console.log(statusText)
+        }
+
+    }
     // Gallery view for multiple images
     SlideshowView {
         id: galleryView
@@ -513,7 +535,14 @@ FullscreenContentPage {
             onClicked: {
                 var urlToDownload = overlayIcons.currentMediaURL
                 var filename = urlToDownload.split("/")
-                FileDownloader.downloadFile(urlToDownload, filename[filename.length-1])
+                fileDownloader.downloadFile(urlToDownload, filename[filename.length-1])
+                downloadIndicator.running = true
+            }
+            BusyIndicator {
+                id:downloadIndicator
+                running: false
+                anchors.centerIn: parent
+                size: BusyIndicatorSize.Medium
             }
         }
 

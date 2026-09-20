@@ -6,7 +6,7 @@ import "../../lib/API.js" as Logic
 BackgroundItem {
     id: delegate
 
-    property bool debug:true
+    property bool debug:false
     property bool conversationPage:false
     property bool expanded: false
     property int charLimit: 700
@@ -349,7 +349,7 @@ BackgroundItem {
         // Avatar dimmer for facourite and reblog notifications
         Rectangle {
             visible: myList.type === "notifications" && ( model.type === "favourite" || model.type === "reblog" )
-            opacity: 0.5
+            opacity: 0.4
             color: Theme.highlightDimmerColor
             anchors.fill: avatar
         }
@@ -1078,6 +1078,7 @@ BackgroundItem {
                     onClicked:  favourite()
                 }
                 Row {
+                    opacity: 0.3
                     spacing: Theme.paddingSmall
                     Icon {
                         id: icFA
@@ -1107,6 +1108,7 @@ BackgroundItem {
                 }
                 Row {
                     spacing: Theme.paddingSmall
+                    opacity: 0.3
                     Icon {
                         id: icRT
                         source: "image://theme/icon-s-retweet?" + (!model.status_reblogged ? Theme.highlightColor : Theme.primaryColor)
@@ -1133,6 +1135,7 @@ BackgroundItem {
                     onClicked: reply()
                 }
                 Icon {
+                    opacity: 0.3
                     id: icReply
                     source: "image://theme/icon-s-message?" + Theme.highlightColor
                     width: Theme.iconSizeSmallPlus
@@ -1152,6 +1155,7 @@ BackgroundItem {
                     onClicked: quote()
                 }
                 Label {
+                    opacity: 0.3
                    id:icQuoteT
                    visible: false
                    text: "«»"
@@ -1165,6 +1169,7 @@ BackgroundItem {
                 }
 
                 Icon {
+                    opacity: 0.3
                     id: icQuote
                     source: "image://theme/icon-s-clipboard?" + Theme.highlightColor
                     width: Theme.iconSizeSmallPlus
@@ -1190,6 +1195,7 @@ BackgroundItem {
                 }
 
                 Icon {
+                    opacity: 0.3
                     id: icBM
                     source: "../../images/icon-s-bookmark.svg?"
                     color: !model.status_bookmarked ? Theme.highlightColor : Theme.primaryColor
@@ -1216,6 +1222,7 @@ BackgroundItem {
                 }
 
                 Icon {
+                    opacity: 0.3
                     id: icMT
                     source: "image://theme/icon-s-chat?" + (!model.status_favourited ? Theme.highlightColor : Theme.primaryColor)
                     width: Theme.iconSizeSmallPlus

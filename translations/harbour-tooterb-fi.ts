@@ -351,8 +351,8 @@
 <context>
     <name>MediaFullScreen</name>
     <message>
-        <location filename="../qml/pages/components/MediaFullScreen.qml" line="151"/>
-        <location filename="../qml/pages/components/MediaFullScreen.qml" line="464"/>
+        <location filename="../qml/pages/components/MediaFullScreen.qml" line="173"/>
+        <location filename="../qml/pages/components/MediaFullScreen.qml" line="486"/>
         <source>Error loading</source>
         <translation>Virhe latauksessa</translation>
     </message>
@@ -360,17 +360,17 @@
 <context>
     <name>MediaItem</name>
     <message>
-        <location filename="../qml/pages/components/MediaItem.qml" line="94"/>
+        <location filename="../qml/pages/components/MediaItem.qml" line="93"/>
         <source>Image</source>
         <translation>Kuva</translation>
     </message>
     <message>
-        <location filename="../qml/pages/components/MediaItem.qml" line="96"/>
+        <location filename="../qml/pages/components/MediaItem.qml" line="95"/>
         <source>Video</source>
         <translation>Video</translation>
     </message>
     <message>
-        <location filename="../qml/pages/components/MediaItem.qml" line="98"/>
+        <location filename="../qml/pages/components/MediaItem.qml" line="97"/>
         <source>PDF document</source>
         <translation>PDF-asiakirja</translation>
     </message>
@@ -879,7 +879,7 @@
     <message>
         <location filename="../qml/pages/components/VisualContainer.qml" line="502"/>
         <location filename="../qml/pages/components/VisualContainer.qml" line="953"/>
-        <location filename="../qml/pages/components/VisualContainer.qml" line="1296"/>
+        <location filename="../qml/pages/components/VisualContainer.qml" line="1303"/>
         <source>Conversation</source>
         <translation>Keskustelu</translation>
     </message>
@@ -894,7 +894,7 @@
         <translation>Sitaa</translation>
     </message>
     <message>
-        <location filename="../qml/pages/components/VisualContainer.qml" line="1243"/>
+        <location filename="../qml/pages/components/VisualContainer.qml" line="1250"/>
         <source>Delete</source>
         <translation>Poista</translation>
     </message>
@@ -904,13 +904,13 @@
         <translation>Poistetaan</translation>
     </message>
     <message>
-        <location filename="../qml/pages/components/VisualContainer.qml" line="1261"/>
-        <location filename="../qml/pages/components/VisualContainer.qml" line="1264"/>
+        <location filename="../qml/pages/components/VisualContainer.qml" line="1268"/>
+        <location filename="../qml/pages/components/VisualContainer.qml" line="1271"/>
         <source>Edit</source>
         <translation>Muokkaa</translation>
     </message>
     <message>
-        <location filename="../qml/pages/components/VisualContainer.qml" line="1211"/>
+        <location filename="../qml/pages/components/VisualContainer.qml" line="1217"/>
         <source>Mention</source>
         <translation>Maininta</translation>
     </message>

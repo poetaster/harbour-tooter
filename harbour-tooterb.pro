@@ -24,10 +24,6 @@ DEFINES += "APPNAME=\\\"$${TARGET}\\\""
 
 DEFINES += "openrepos"
 
-!exists( src/dbusAdaptor.h ) {
-    system(qdbusxml2cpp config/de.poetaster.harbour.tooterb.xml -i dbus.h -a src/dbusAdaptor)
-}
-
 SOURCES += src/harbour-tooterb.cpp \
     src/imageuploader.cpp \
     src/filedownloader.cpp \
@@ -88,28 +84,6 @@ DISTFILES += qml/harbour-tooterb.qml \
     notification_categories.path = /usr/share/lipstick/notificationcategories
     notification_categories.files = config/x-harbour.tooterb.activity.*
 
-    dbus_services.path = /usr/share/dbus-1/services/
-    dbus_services.files = config/de.poetaster.harbour.tooterb.service
-
-    #interfaces.path = /usr/share/dbus-1/interfaces/
-    #interfaces.files = config/de.poetaster.harbour.tooterb.xml
-
-harbour_store {
-  message("Yup store")
-} else {
-# this is redundant see the defines at the top. TO-DO
-  DISTFILES += harbour-tooterb-open-url.desktop
-  DISTFILES += config/de.poetaster.harbour.tooterb.service
-  # extra desktop file for dbus
-  desktop2.path += /usr/share/applications
-  desktop2.files = $${TARGET}-open-url.desktop
-  INSTALLS += desktop2
-# extra service file for dbus
-  service.path = /usr/share/dbus-1/services/
-  service.files = config/de.poetaster.harbour.tooterb.service
-  INSTALLS += service
-  INSTALLS += notification_categories
-}
 SAILFISHAPP_ICONS = 86x86 108x108 128x128 172x172
 
 # to disable building translations every time, comment out the

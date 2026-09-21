@@ -10,7 +10,7 @@ Name:       harbour-tooterb
 %endif
 
 Summary:    Tooter β
-Version:    1.4.8
+Version:    1.4.9
 Release:    1
 Group:      Qt/Qt
 License:    GPLv3
@@ -59,12 +59,7 @@ Links:
 %setup -q -n %{name}-%{version}
 
 %build
-
-%if %{without harbour}
- %qmake5 VERSION=%{version} RELEASE=%{release}
-%else
- HARBOUR_STORE=1 MB2_QMAKE_ARGS='CONFIG+=harbour_store' %qmake5 QMAKE_ARGS='CONFIG+=harbour_store' 'CONFIG+=harbour_store'
-%endif
+%qmake5 VERSION=%{version} RELEASE=%{release}
 
 %make_build
 
@@ -80,9 +75,4 @@ desktop-file-install --delete-original       \
 %{_bindir}
 %{_datadir}/%{name}
 %{_datadir}/applications/%{name}.desktop
-%if %{without harbour}
- %{_datadir}/dbus-1/services/de.poetaster.harbour.tooterb.service
- %{_datadir}/applications/%{name}-open-url.desktop
- %{_datadir}/lipstick/notificationcategories/x-harbour.tooterb.activity.conf
-%endif
 %{_datadir}/icons/hicolor/*/apps/%{name}.png

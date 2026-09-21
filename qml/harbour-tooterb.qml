@@ -38,7 +38,7 @@ ApplicationWindow {
     id: appWindow
     allowedOrientations: defaultAllowedOrientations
     cover: Qt.resolvedUrl("cover/CoverPage.qml")
-    property bool debug: true
+    property bool debug: false
     // Global font scale property - reactive, updates UI immediately
     property real fontScale: 1.0
     // Global quick scroll setting - reactive
@@ -53,7 +53,7 @@ ApplicationWindow {
 
     WorkerScript {
         id: worker
-        source: "../lib/Worker.js"
+        source: "./lib/Worker.js"
         onMessage: {
 
             if (debug) console.log(JSON.stringify(messageObject))
@@ -64,7 +64,7 @@ ApplicationWindow {
                     if (debug) console.log("Resolved status: " + status.status_id)
                     // Open in ConversationPage
                     var m = Qt.createQmlObject('import QtQuick 2.0; ListModel { dynamicRoles:true }', Qt.application, 'InternalQmlObject')
-                    pageStack.push(Qt.resolvedUrl("ConversationPage.qml"), {
+                    pageStack.push(Qt.resolvedUrl("./pages/ConversationPage.qml"), {
                                        headerTitle: qsTr("Conversation"),
                                        "status_id": status.status_id,
                                        "status_url": status.status_url,

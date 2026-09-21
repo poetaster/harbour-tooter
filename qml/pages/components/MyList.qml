@@ -9,7 +9,7 @@ SilicaListView {
 
     quickScroll: appWindow.quickScrollEnabled
 
-    property bool debug: true
+    property bool debug: false
     property string type
     property string title
     property string description

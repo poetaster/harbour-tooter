@@ -16,4 +16,4 @@ MimeType=text/html;x-scheme-handler/https;
 OrganizationName=de.poetaster
 ApplicationName=tooterb
 Permissions=Internet;Audio;MediaIndexing;RemovableMedia;UserDirs;
-ExecDBus=/usr/bin/harbour-tooterb -prestart
+ExecDBus=harbour-tooterb --dbus

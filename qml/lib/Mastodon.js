@@ -2,7 +2,7 @@
 // no fucking copyright
 // do whatever you want with it
 // but please don't hurt it (and keep this header)
-var debug = true;
+var debug = false;
 var mastodonAPI = function(config) {
     var apiBase = config.instance + "/api/v1/";
     return {

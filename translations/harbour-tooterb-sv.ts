@@ -13,7 +13,7 @@
     </message>
     <message>
         <source>boosted</source>
-        <translation>boostade</translation>
+        <translation>knuffade</translation>
     </message>
     <message>
         <source>said</source>
@@ -28,7 +28,7 @@
     </message>
     <message>
         <source>UI/UX design and development</source>
-        <translation>UI/UX design och utveckling</translation>
+        <translation>UI/UX-design och -utveckling</translation>
     </message>
     <message>
         <source>Visual identity</source>
@@ -667,7 +667,7 @@
     <name>VisualContainer</name>
     <message>
         <source>Loading...</source>
-        <translation>Läser in...</translation>
+        <translation>Läser in ...</translation>
     </message>
     <message>
         <source>Load more</source>
@@ -738,7 +738,7 @@
     <name>harbour-tooterb</name>
     <message>
         <source>Conversation</source>
-        <translation type="unfinished">Konversation</translation>
+        <translation>Konversation</translation>
     </message>
 </context>
 </TS>

@@ -3,11 +3,13 @@ import Sailfish.Silica 1.0
 import Amber.Web.Authorization 1.0
 import "../lib/API.js" as Logic
 
+
+
+
 Page {
      property bool debug: false
 
     id: loginPage
-
     // The effective value will be restricted by ApplicationWindow.allowedOrientations
     allowedOrientations: Orientation.All
 
@@ -32,47 +34,28 @@ Page {
                 id: mastodonOAuth
                 authorizationEndpoint: instance.text + "/oauth/authorize"
                 tokenEndpoint: instance.text + "/oauth/token"
-                scopes: ["read", "write", "follow", "push"]
+                scopes: ["read", "write", "follow"]
                 redirectListener.port: 7538
 
-                // Workaround for Pixelfed
-                // For some reason Logic.conf.type does not send signal when it is changed, so we use the value from combo box
-                redirectUri: typeBox.currentIndex === 1 ? ' ' : redirectListener.uri
-                customParameters: typeBox.currentIndex === 1 ?
-                                      ({redirect_uris: "http://127.0.0.1:7538"})
-                                    : ({})
-
-                onErrorOccurred: if (debug) console.log("Mastodon OAuth2 Error: " + error.code + " = " + error.message + " : " + error.httpCode)
+                onErrorOccurred: console.log("Mastodon OAuth2 Error: " + error.code + " = " + error.message + " : " + error.httpCode)
 
                 onReceivedAuthorizationCode: {
-                    if (debug) console.log("Got auth code, about to request token.")
+                    console.log("Got auth code, about to request token.")
                 }
 
                 onReceivedAccessToken: {
-                    if (debug) console.log("Got access token: " + token.access_token)
-                    var account = Logic.getActiveAccount()
-                    account["api_user_token"] = token.access_token
-                    account["login"] = true
-                    Logic.api.setConfig("api_user_token", account["api_user_token"])
-                    pageStack.clear()
-                    Logic.clearModels()
-                    pageStack.push(Qt.resolvedUrl("MainPage.qml"))
+                    console.log("Got access token: " + token.access_token)
+                    Logic.conf["api_user_token"] = token.access_token
+                                Logic.conf["login"] = true;
+                                Logic.api.setConfig("api_user_token", Logic.conf["api_user_token"])
+                                pageStack.replace(Qt.resolvedUrl("MainPage.qml"), {})
+                            }
                 }
-            }
 
-            ComboBox {
-                id: typeBox
-                label: qsTr("Type")
-                menu: ContextMenu {
-                    MenuItem { text: "Mastodon" }
-                    MenuItem { text: "Pixelfed" }
-                }
-            }
-            
             TextField {
                 id: instance
                 focus: true
-                label: qsTr("Enter a valid Mastodon instance URL (will open a web browser for Authentication)")
+                label: qsTr("Enter a valid Mastodon instance URL")
                 text: "https://"
                 width: parent.width
                 validator: RegExpValidator { regExp: /^(ftp|http|https):\/\/[^ "]+$/ }
@@ -82,29 +65,24 @@ Page {
                 EnterKey.onClicked: {
                     Logic.api = Logic.mastodonAPI({ instance: instance.text, api_user_token: "" });
                     Logic.api.registerApplication("Tooter",
-                                                  "http://127.0.0.1:7538", 
-                                                  ["read", "write", "follow", "push"], //scopes
+                                                  "http://127.0.0.1:7538",
+                                                  ["read", "write", "follow"], //scopes
                                                   "https://github.com/poetaster/harbour-tooter#readme", //website on the login screen
                                                   function(data) {
+
                                                       if (debug) console.log(data)
                                                       var conf = JSON.parse(data)
+                                                      conf.instance = instance.text;
+                                                      conf.login = false;
 
-                                                      Logic.conf.accounts.push({
-                                                          api_user_token: conf.api_user_token,
-                                                          instance: instance.text,
-                                                          type: typeBox.currentIndex,
-                                                          login: false,
-                                                      })
-                                                      Logic.conf.activeAccount = Logic.conf.accounts.length - 1
+                                                      Logic.conf = conf;
                                                       if(debug) console.log(JSON.stringify(conf))
                                                       if(debug) console.log(JSON.stringify(Logic.conf))
-
                                                       // we got our application
 
                                                       mastodonOAuth.clientId = conf["client_id"]
-                                                      mastodonOAuth.clientSecret = conf["client_secret"]
+                                                      mastodonOAuth.clientSecret = conf["client_secret"];
 
-                                                      mastodonOAuth.redirectListener.startListening() // Workaround for Pixelfed
                                                       mastodonOAuth.authorizeInBrowser()
                                                   }
                                                   );

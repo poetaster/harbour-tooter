@@ -3,12 +3,6 @@ Name:       harbour-tooterb
 %define _binary_payload w2.xzdio
 %define __provides_exclude_from ^%{_datadir}/.*$
 
-%if "%{?vendor}" == "chum"
-%bcond_with harbour
-%else
-%bcond_without harbour
-%endif
-
 Summary:    Tooter β
 Version:    1.4.9
 Release:    1

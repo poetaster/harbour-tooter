@@ -41,7 +41,6 @@ WorkerScript.onMessage = function(msg) {
         }
     }
 
-
     /** order notifications in ASC order */
     function orderNotifications(items){
         for (var i = items.length-1; i > 0; i--) {
@@ -70,7 +69,7 @@ WorkerScript.onMessage = function(msg) {
 
     /*
     * HEAD call for some actions
-    * we have to retrieve the Link  header
+    * we have to retrieve the Link header
     * this falls through and continues for GET
     */
 
@@ -116,7 +115,6 @@ WorkerScript.onMessage = function(msg) {
     if (msg.method === "POST"){
         API.post(msg.action, msg.params, function(data) {
             if (msg.bgAction){
-                //console.log(JSON.stringify(data))
             } else if (msg.action === "statuses") {
                 // status posted
                 if(msg.model){
@@ -124,11 +122,9 @@ WorkerScript.onMessage = function(msg) {
                     msg.model.append(item)
                     msg.model.sync();
                 }
-
             } else {
                 for (var i in data) {
                     if (data.hasOwnProperty(i)) {
-                        //console.log(JSON.stringify(data[i]))
                         WorkerScript.sendMessage({ 'action': msg.action, 'success': true,  key: i, "data": data[i]})
                     }
                 }

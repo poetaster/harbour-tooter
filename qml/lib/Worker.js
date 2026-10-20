@@ -139,7 +139,10 @@ WorkerScript.onMessage = function(msg) {
             WorkerScript.sendMessage({action: msg.action, success: true, data: parseAccounts({}, '', data)})
             return
         }
+        // Handle requests for lists
+        if (msg.action === "v1/lists" && msg.mode === "list" ) {
 
+        }
         // Handle v2/search for URL resolution from external sources
         if (msg.action === "v2/search" && msg.mode === "resolveUrl") {
             if (debug) console.log("URL resolution search result")

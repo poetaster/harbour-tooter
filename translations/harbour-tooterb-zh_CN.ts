@@ -227,11 +227,7 @@
         <translation>Mastodon 是一个自由且开源的社交网络。一个去中心化的商业平台的替代品。它能够避免某个公司垄断你的通讯方式的风险。选择一个你所信任的服务器——无论你选择什么，你都可以和其他人进行互动。任何人都能运行他们自己的 Mastodon 实例，然后无缝加入社交网站。</translation>
     </message>
     <message>
-        <source>Enter a valid Mastodon instance URL (will open a web browser for Authentication)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Type</source>
+        <source>Enter a valid Mastodon instance URL</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -659,15 +655,39 @@
         <source>Show notifications and create alerts</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Context Menu</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use context menu instead of button row.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>VisualContainer</name>
+    <message>
+        <source>Reply</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Quote</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Deleting</source>
+        <translation type="unfinished"></translation>
+    </message>
     <message>
         <source>Loading...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Load more</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Conversation</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -703,15 +723,31 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Conversation</source>
+        <source>Mention</source>
+        <translation type="unfinished">提及</translation>
+    </message>
+    <message>
+        <source>Unfavorite</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Reply</source>
+        <source>Favorite</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Quote</source>
+        <source>Unboost</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Boost</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove Bookmark</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Bookmark</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -719,16 +755,8 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Deleting</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Edit</source>
         <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Mention</source>
-        <translation type="unfinished">提及</translation>
     </message>
 </context>
 <context>

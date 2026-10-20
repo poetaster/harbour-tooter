@@ -227,12 +227,8 @@
         <translation>Mastodon is e vrij en sociaal netwerk. Als gedecentraliseerd alternatief voôr commerciële platformen, vermijdt ’t de risico’s van eên enkel bedrijf da u communicatie monopoliseert. Kiest nu server da’ ge betrouwt — dewelken da’ g’oôk kiest, ge kunt me iedereên communiceren. Iedereên kan zelf een Mastodon-instantie hebben en naadloôs deêlnemen aan ’t sociaal netwèrk.</translation>
     </message>
     <message>
-        <source>Enter a valid Mastodon instance URL (will open a web browser for Authentication)</source>
-        <translation>Geeft ne geldige Mastodon-instantie-URL in (hiermee opende ne webbrowser voôr u aan te melden)</translation>
-    </message>
-    <message>
-        <source>Type</source>
-        <translation>Type</translation>
+        <source>Enter a valid Mastodon instance URL</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -661,76 +657,108 @@
         <source>Show notifications and create alerts</source>
         <translation>Toônt meldingen en maakt waarschuwingen aan</translation>
     </message>
+    <message>
+        <source>Context Menu</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use context menu instead of button row.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>VisualContainer</name>
     <message>
-        <source>Loading...</source>
-        <translation>Bezig me te laden…</translation>
-    </message>
-    <message>
-        <source>Load more</source>
-        <translation>Meêr laden</translation>
-    </message>
-    <message>
-        <source>Show less</source>
-        <translation>Minder tônen</translation>
-    </message>
-    <message>
-        <source>Show more</source>
-        <translation>Meêr tônen</translation>
-    </message>
-    <message>
-        <source>Vote</source>
-        <translation>Stem</translation>
-    </message>
-    <message>
-        <source>votes</source>
-        <translation>stemmen</translation>
-    </message>
-    <message>
-        <source>Closed</source>
-        <translation>Gesloten</translation>
-    </message>
-    <message>
-        <source>days left</source>
-        <translation>dagen te gaan</translation>
-    </message>
-    <message>
-        <source>hours left</source>
-        <translation>uur te gaan</translation>
-    </message>
-    <message>
-        <source>minutes left</source>
-        <translation>minuten te gaan</translation>
-    </message>
-    <message>
-        <source>Conversation</source>
-        <translation>Gesprek</translation>
-    </message>
-    <message>
         <source>Reply</source>
-        <translation>Beantwoorden</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Quote</source>
-        <translation>Citeren</translation>
-    </message>
-    <message>
-        <source>Delete</source>
-        <translation>Verwijderen</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Deleting</source>
-        <translation>Wor’ verwijderd</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Edit</source>
-        <translation>Bewèrken</translation>
+        <source>Loading...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Load more</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Conversation</source>
+        <translation type="unfinished">Gesprek</translation>
+    </message>
+    <message>
+        <source>Show less</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show more</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Vote</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>votes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Closed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>days left</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>hours left</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>minutes left</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Mention</source>
-        <translation>Vermelding</translation>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Unfavorite</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Favorite</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Unboost</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Boost</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove Bookmark</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Bookmark</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Edit</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

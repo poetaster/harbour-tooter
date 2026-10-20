@@ -227,12 +227,8 @@
         <translation>Mastodon è un servizio di rete sociale in software libero, costituito in una federazione d&apos;istanze. Mastodon fa parte del più ampio Fediverso, permettendo ai suoi utenti di interagire anche con utenti su diverse piattaforme aperte che supportano lo stesso protocollo.</translation>
     </message>
     <message>
-        <source>Enter a valid Mastodon instance URL (will open a web browser for Authentication)</source>
-        <translation>Inserisci un URL valido per un&apos;instanza di Mastodon (questo aprirà un browser web per L&apos;autenticazione)</translation>
-    </message>
-    <message>
-        <source>Type</source>
-        <translation>Scrivi</translation>
+        <source>Enter a valid Mastodon instance URL</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -661,76 +657,108 @@
         <source>Show notifications and create alerts</source>
         <translation>Mostra notifiche e crea avvisi</translation>
     </message>
+    <message>
+        <source>Context Menu</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use context menu instead of button row.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>VisualContainer</name>
     <message>
-        <source>Loading...</source>
-        <translation>Caricamento</translation>
-    </message>
-    <message>
-        <source>Load more</source>
-        <translation>Carica altro</translation>
-    </message>
-    <message>
-        <source>Show less</source>
-        <translation>Mostra meno</translation>
-    </message>
-    <message>
-        <source>Show more</source>
-        <translation>Mostra di più</translation>
-    </message>
-    <message>
-        <source>Vote</source>
-        <translation>Vota</translation>
-    </message>
-    <message>
-        <source>votes</source>
-        <translation>voti</translation>
-    </message>
-    <message>
-        <source>Closed</source>
-        <translation>Chiuso</translation>
-    </message>
-    <message>
-        <source>days left</source>
-        <translation>giorni rimanenti</translation>
-    </message>
-    <message>
-        <source>hours left</source>
-        <translation>ore rimanenti</translation>
-    </message>
-    <message>
-        <source>minutes left</source>
-        <translation>minuti rimanenti</translation>
-    </message>
-    <message>
-        <source>Conversation</source>
-        <translation>Conversazione</translation>
-    </message>
-    <message>
         <source>Reply</source>
-        <translation>Rispondi</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Quote</source>
-        <translation>Cita</translation>
-    </message>
-    <message>
-        <source>Delete</source>
-        <translation>Elimina</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Deleting</source>
-        <translation>Eliminazione</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Edit</source>
-        <translation>Modifica</translation>
+        <source>Loading...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Load more</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Conversation</source>
+        <translation type="unfinished">Conversazione</translation>
+    </message>
+    <message>
+        <source>Show less</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show more</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Vote</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>votes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Closed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>days left</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>hours left</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>minutes left</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Mention</source>
-        <translation>Menzione</translation>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Unfavorite</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Favorite</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Unboost</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Boost</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove Bookmark</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Bookmark</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Edit</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

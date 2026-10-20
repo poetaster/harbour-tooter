@@ -227,11 +227,7 @@
         <translation>Mastodon is a free, open-source social network. A decentralized alternative to commercial platforms, it avoids the risks of a single company monopolizing your communication. Pick a server that you trust — whichever you choose, you can interact with everyone else. Anyone can run their own Mastodon instance and participate in the social network seamlessly.</translation>
     </message>
     <message>
-        <source>Type</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Enter a valid Mastodon instance URL (will open a web browser for Authentication)</source>
+        <source>Enter a valid Mastodon instance URL</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -661,15 +657,39 @@
         <source>Show notifications and create alerts</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Context Menu</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use context menu instead of button row.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>VisualContainer</name>
+    <message>
+        <source>Reply</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Quote</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Deleting</source>
+        <translation type="unfinished"></translation>
+    </message>
     <message>
         <source>Loading...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Load more</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Conversation</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -705,15 +725,31 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Conversation</source>
+        <source>Mention</source>
+        <translation type="unfinished">Mention</translation>
+    </message>
+    <message>
+        <source>Unfavorite</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Reply</source>
+        <source>Favorite</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Quote</source>
+        <source>Unboost</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Boost</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove Bookmark</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Bookmark</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -721,16 +757,8 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Deleting</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Edit</source>
         <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Mention</source>
-        <translation type="unfinished">Mention</translation>
     </message>
 </context>
 <context>

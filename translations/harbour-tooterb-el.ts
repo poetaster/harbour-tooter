@@ -227,12 +227,8 @@
         <translation>Το Mastodon είναι ένα δωρεάν, ανοιχτού κώδικα κοινωνικό δίκτυο. Μια αποκεντρωμένη εναλλακτική στις εμπορικές πλατφόρμες, αποφεύγει τον κίνδυνο μονοπωλιοποίησης των επικοινωνιών σας από μια εταιρεία. Επιλέξτε έναν διακομιστή στον οποίο εμπιστεύεστε — όποιο και αν επιλέξετε, μπορείτε να αλληλεπιδράσετε με όλους τους υπόλοιπους. Οποιοσδήποτε μπορεί να εκτελέσει τον δικό του διακομιστή Mastodon και να συμμετάσχει στο κοινωνικό δίκτυο χωρίς πρόβλημα.</translation>
     </message>
     <message>
-        <source>Enter a valid Mastodon instance URL (will open a web browser for Authentication)</source>
-        <translation>Εισάγετε ένα έγκυρο URL διακομιστή Mastodon (θα ανοιχθεί ένας περιηγητής για έλεγχο ταυτότητας)</translation>
-    </message>
-    <message>
-        <source>Type</source>
-        <translation>Τύπος</translation>
+        <source>Enter a valid Mastodon instance URL</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -661,76 +657,108 @@
         <source>Show notifications and create alerts</source>
         <translation>Εμφάνιση ειδοποιήσεων και δημιουργία ειδοποιήσεων</translation>
     </message>
+    <message>
+        <source>Context Menu</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use context menu instead of button row.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>VisualContainer</name>
     <message>
-        <source>Loading...</source>
-        <translation>Φόρτωση...</translation>
-    </message>
-    <message>
-        <source>Load more</source>
-        <translation>Φόρτωση περισσότερων</translation>
-    </message>
-    <message>
-        <source>Show less</source>
-        <translation>Εμφάνιση λιγότερων</translation>
-    </message>
-    <message>
-        <source>Show more</source>
-        <translation>Εμφάνιση περισσότερων</translation>
-    </message>
-    <message>
-        <source>Vote</source>
-        <translation>Ψήφος</translation>
-    </message>
-    <message>
-        <source>votes</source>
-        <translation>ψηφοί</translation>
-    </message>
-    <message>
-        <source>Closed</source>
-        <translation>Κλειστό</translation>
-    </message>
-    <message>
-        <source>days left</source>
-        <translation>ημέρες απομένουν</translation>
-    </message>
-    <message>
-        <source>hours left</source>
-        <translation>ώρες απομένουν</translation>
-    </message>
-    <message>
-        <source>minutes left</source>
-        <translation>λεπτά απομένουν</translation>
-    </message>
-    <message>
-        <source>Conversation</source>
-        <translation>Συνομιλία</translation>
-    </message>
-    <message>
         <source>Reply</source>
-        <translation>Απάντηση</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Quote</source>
-        <translation>Παρομοίωση</translation>
-    </message>
-    <message>
-        <source>Delete</source>
-        <translation>Διαγραφή</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Deleting</source>
-        <translation>Διαγραφή</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Edit</source>
-        <translation>Επεξεργασία</translation>
+        <source>Loading...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Load more</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Conversation</source>
+        <translation type="unfinished">Συνομιλία</translation>
+    </message>
+    <message>
+        <source>Show less</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show more</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Vote</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>votes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Closed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>days left</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>hours left</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>minutes left</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Mention</source>
-        <translation>Φραγή</translation>
+        <translation type="unfinished">Φραγή</translation>
+    </message>
+    <message>
+        <source>Unfavorite</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Favorite</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Unboost</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Boost</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove Bookmark</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Bookmark</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Edit</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

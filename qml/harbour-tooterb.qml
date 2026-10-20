@@ -43,6 +43,8 @@ ApplicationWindow {
     property real fontScale: 1.0
     // Global quick scroll setting - reactive
     property bool quickScrollEnabled: true
+    // Global quick scroll setting - reactive
+    property bool conMen: false
     // Global notify setting - reactive
     property bool notify: false
     // Global notificationIds
@@ -96,6 +98,8 @@ ApplicationWindow {
                 appWindow.quickScrollEnabled = Logic.conf['quickScroll']
             if (typeof Logic.conf['notify'] !== "undefined")
                 appWindow.notify = Logic.conf['notify']
+            if (typeof Logic.conf['conMen'] !== "undefined")
+                appWindow.notify = Logic.conf['conMen']
 
             var oldAccountParameters = ['api_user_token', 'instance', 'login']
             if (oldAccountParameters.every(function(el) { return el in Logic.conf })) {

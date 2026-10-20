@@ -265,27 +265,22 @@
 <context>
     <name>LoginPage</name>
     <message>
-        <location filename="../qml/pages/LoginPage.qml" line="24"/>
+        <location filename="../qml/pages/LoginPage.qml" line="26"/>
         <source>Login</source>
         <translation>Kirjaudu sisään</translation>
     </message>
     <message>
-        <location filename="../qml/pages/LoginPage.qml" line="28"/>
+        <location filename="../qml/pages/LoginPage.qml" line="30"/>
         <source>Instance</source>
         <translation>Instanssi</translation>
     </message>
     <message>
-        <location filename="../qml/pages/LoginPage.qml" line="65"/>
-        <source>Type</source>
-        <translation>Tyyppi</translation>
+        <location filename="../qml/pages/LoginPage.qml" line="58"/>
+        <source>Enter a valid Mastodon instance URL</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/LoginPage.qml" line="75"/>
-        <source>Enter a valid Mastodon instance URL (will open a web browser for Authentication)</source>
-        <translation>Syötä kelvollinen Mastodon-instanssin URL (selain avautuu todennusta varten)</translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/LoginPage.qml" line="116"/>
+        <location filename="../qml/pages/LoginPage.qml" line="94"/>
         <source>Mastodon is a free, open-source social network. A decentralized alternative to commercial platforms, it avoids the risks of a single company monopolizing your communication. Pick a server that you trust — whichever you choose, you can interact with everyone else. Anyone can run their own Mastodon instance and participate in the social network seamlessly.</source>
         <translation>Mastodon on ilmainen, avoimen lähdekoodin sosiaalinen verkosto. Se on hajautettu vaihtoehto kaupallisille alustoille, ja sen avulla vältetään yksittäisen yrityksen monopoliasema viestinnässäsi. Valitse sinulle sopiva palvelin — mitä tahansa valitset, voit vuorovaikuttaa kaikkien muiden kanssa. Kuka tahansa voi ajaa oman Mastodon-instanssinsa ja osallistua sosiaaliseen verkostoon saumattomasti.</translation>
     </message>
@@ -754,47 +749,57 @@
         <translation>Asetukset</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="53"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="54"/>
         <source>Quick Scroll Arrows</source>
         <translation>Nopean vierityksen nuolet</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="54"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="55"/>
         <source>Show arrows to jump to top/bottom when scrolling fast</source>
         <translation>Näytä nuolet hyppäämiseen ylä-/alareunaan nopean vierityksen aikana</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="63"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="65"/>
         <source>Notification</source>
         <translation>Ilmoitus</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="64"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="66"/>
         <source>Show notifications and create alerts</source>
         <translation>Näytä ilmoitukset ja luo hälytykset</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="130"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="75"/>
+        <source>Context Menu</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/SettingsPage.qml" line="76"/>
+        <source>Use context menu instead of button row.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/SettingsPage.qml" line="143"/>
         <source>Account</source>
         <translation>Tili</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="158"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="171"/>
         <source>Account removed</source>
         <translation>Tili poistettu</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="173"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="186"/>
         <source>Remove</source>
         <translation>Poista</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="211"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="224"/>
         <source>Add Account</source>
         <translation>Lisää tili</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="226"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="239"/>
         <source>Authorize this app to access your Mastodon account</source>
         <translation>Myönnä tälle sovellukselle oikeudet Mastodon-tilisi käyttöön</translation>
     </message>
@@ -814,12 +819,12 @@
         <translation>Poista tämä vaihtoehto käytöstä, jos haluat säästää datayhteyttäsi</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="93"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="106"/>
         <source>Font Size</source>
         <translation>Kirjasinkoko</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="118"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="131"/>
         <source>Sample text</source>
         <translation>Esimerkkiteksti</translation>
     </message>
@@ -827,98 +832,138 @@
 <context>
     <name>VisualContainer</name>
     <message>
+        <location filename="../qml/pages/components/VisualContainer.qml" line="85"/>
+        <location filename="../qml/pages/components/VisualContainer.qml" line="1343"/>
+        <location filename="../qml/pages/components/VisualContainer.qml" line="1375"/>
+        <source>Reply</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/components/VisualContainer.qml" line="97"/>
+        <location filename="../qml/pages/components/VisualContainer.qml" line="1402"/>
+        <location filename="../qml/pages/components/VisualContainer.qml" line="1406"/>
+        <source>Quote</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/components/VisualContainer.qml" line="120"/>
+        <location filename="../qml/pages/components/VisualContainer.qml" line="1471"/>
+        <source>Deleting</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../qml/pages/components/VisualContainer.qml" line="193"/>
         <source>Loading...</source>
-        <translation>Ladataan...</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../qml/pages/components/VisualContainer.qml" line="193"/>
         <source>Load more</source>
-        <translation>Lataa lisää</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/components/VisualContainer.qml" line="574"/>
+        <location filename="../qml/pages/components/VisualContainer.qml" line="515"/>
+        <location filename="../qml/pages/components/VisualContainer.qml" line="965"/>
+        <location filename="../qml/pages/components/VisualContainer.qml" line="1627"/>
+        <source>Conversation</source>
+        <translation type="unfinished">Keskustelu</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/components/VisualContainer.qml" line="586"/>
         <source>Show less</source>
-        <translation>Näytä vähemmän</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/components/VisualContainer.qml" line="574"/>
+        <location filename="../qml/pages/components/VisualContainer.qml" line="586"/>
         <source>Show more</source>
-        <translation>Näytä enemmän</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/components/VisualContainer.qml" line="742"/>
+        <location filename="../qml/pages/components/VisualContainer.qml" line="754"/>
         <source>Vote</source>
-        <translation>Äänestä</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/components/VisualContainer.qml" line="770"/>
+        <location filename="../qml/pages/components/VisualContainer.qml" line="782"/>
         <source>votes</source>
-        <translation>ääntä</translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/components/VisualContainer.qml" line="773"/>
-        <source>Closed</source>
-        <translation>Suljettu</translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/components/VisualContainer.qml" line="783"/>
-        <source>days left</source>
-        <translation>päivää jäljellä</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../qml/pages/components/VisualContainer.qml" line="785"/>
+        <source>Closed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/components/VisualContainer.qml" line="795"/>
+        <source>days left</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/components/VisualContainer.qml" line="797"/>
         <source>hours left</source>
-        <translation>tuntia jäljellä</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/components/VisualContainer.qml" line="787"/>
+        <location filename="../qml/pages/components/VisualContainer.qml" line="799"/>
         <source>minutes left</source>
-        <translation>minuuttia jäljellä</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/components/VisualContainer.qml" line="502"/>
-        <location filename="../qml/pages/components/VisualContainer.qml" line="953"/>
-        <location filename="../qml/pages/components/VisualContainer.qml" line="1303"/>
-        <source>Conversation</source>
-        <translation>Keskustelu</translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/components/VisualContainer.qml" line="85"/>
-        <source>Reply</source>
-        <translation>Vastaa</translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/components/VisualContainer.qml" line="97"/>
-        <source>Quote</source>
-        <translation>Sitaa</translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/components/VisualContainer.qml" line="1250"/>
-        <source>Delete</source>
-        <translation>Poista</translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/components/VisualContainer.qml" line="120"/>
-        <source>Deleting</source>
-        <translation>Poistetaan</translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/components/VisualContainer.qml" line="1268"/>
-        <location filename="../qml/pages/components/VisualContainer.qml" line="1271"/>
-        <source>Edit</source>
-        <translation>Muokkaa</translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/components/VisualContainer.qml" line="1217"/>
+        <location filename="../qml/pages/components/VisualContainer.qml" line="1229"/>
+        <location filename="../qml/pages/components/VisualContainer.qml" line="1530"/>
+        <location filename="../qml/pages/components/VisualContainer.qml" line="1534"/>
         <source>Mention</source>
-        <translation>Maininta</translation>
+        <translation type="unfinished">Maininta</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/components/VisualContainer.qml" line="1260"/>
+        <source>Unfavorite</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/components/VisualContainer.qml" line="1260"/>
+        <source>Favorite</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/components/VisualContainer.qml" line="1302"/>
+        <source>Unboost</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/components/VisualContainer.qml" line="1302"/>
+        <source>Boost</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/components/VisualContainer.qml" line="1432"/>
+        <source>Remove Bookmark</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/components/VisualContainer.qml" line="1432"/>
+        <source>Bookmark</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/components/VisualContainer.qml" line="1469"/>
+        <location filename="../qml/pages/components/VisualContainer.qml" line="1567"/>
+        <source>Delete</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/components/VisualContainer.qml" line="1504"/>
+        <location filename="../qml/pages/components/VisualContainer.qml" line="1507"/>
+        <location filename="../qml/pages/components/VisualContainer.qml" line="1585"/>
+        <location filename="../qml/pages/components/VisualContainer.qml" line="1588"/>
+        <source>Edit</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>harbour-tooterb</name>
     <message>
-        <location filename="../qml/harbour-tooterb.qml" line="68"/>
+        <location filename="../qml/harbour-tooterb.qml" line="70"/>
         <source>Conversation</source>
         <translation type="unfinished">Keskustelu</translation>
     </message>

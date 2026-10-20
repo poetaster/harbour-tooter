@@ -6,7 +6,7 @@ import "../../lib/API.js" as Logic
 BackgroundItem {
     id: delegate
 
-    property bool debug:false
+    property bool debug: true
     property bool conversationPage:false
     property bool expanded: false
     property int charLimit: 700
@@ -14,7 +14,7 @@ BackgroundItem {
 
 
     Component.onCompleted: {
-            //logModelItems(model)
+            logModelItems(model)
     }
     function logModelItems(model) {
             for (var i = 0; i < model.count; i++) {
@@ -215,7 +215,18 @@ BackgroundItem {
         }
     }
 
-    height:  mnu.height + miniHeader.height + (typeof attachments !== "undefined" && attachments.count ? media.height + Theme.paddingLarge + Theme.paddingMedium: Theme.paddingLarge) + lblContent.height + (isLongPost ? showMoreLabel.height : 0) + (pollContainer.visible ? pollContainer.childrenRect.height + Theme.paddingMedium : 0) + (linkPreview.visible ? linkPreview.height + Theme.paddingMedium : 0) + (quotedPost.visible ? quotedPost.height + Theme.paddingMedium : 0) + Theme.paddingLarge + (miniStatus.visible ? miniStatus.height : 0) + (iconDirectMsg.visible ? iconDirectMsg.height : 0)
+    height:  {
+        var commonheight =  mnu.height + miniHeader.height
+        commonheight += (typeof attachments !== "undefined" && attachments.count ? media.height + Theme.paddingLarge + Theme.paddingMedium: Theme.paddingLarge)
+        commonheight += lblContent.height + (isLongPost ? showMoreLabel.height : 0)
+        commonheight += (pollContainer.visible ? pollContainer.childrenRect.height + Theme.paddingMedium : 0)
+        commonheight += (linkPreview.visible ? linkPreview.height + Theme.paddingMedium : 0)
+        commonheight += (quotedPost.visible ? quotedPost.height + Theme.paddingMedium : 0)
+        commonheight += Theme.paddingLarge + (miniStatus.visible ? miniStatus.height : 0)
+        commonheight += (iconDirectMsg.visible ? iconDirectMsg.height : 0)
+        commonheight += (altMnu.visible ? altMnu.height + Theme.paddingMedium : 0)
+        return commonheight
+    }
         /*
         if (myList.type === "notifications" && ( model.type === "favourite" || model.type === "reblog" )) {
                 mnu.height + miniHeader.height + Theme.paddingLarge + lblContent.height + Theme.paddingLarge + (miniStatus.visible ? miniStatus.height : 0)
@@ -238,19 +249,19 @@ BackgroundItem {
             GradientStop { position: 0.6; color: Theme.highlightBackgroundColor }
         }
     }
-
-    // Element showing reblog, favourite, follow status on top of Toot
+   // Element showing reblog, favourite, follow status on top of Toot
     MiniStatus {
         id: miniStatus
         anchors {
+            top: parent.top
             leftMargin: Theme.horizontalPageMargin
             rightMargin: Theme.horizontalPageMargin
-            top: parent.top
             topMargin: Theme.paddingMedium
+
         }
     }
-
     // Stacked avatars for grouped notifications (v2 API)
+/*
     Row {
         id: stackedAvatars
         visible: model.type !== "gap" && typeof model.notifications_count !== "undefined" && model.notifications_count > 1 && typeof model.grouped_account_count !== "undefined" && model.grouped_account_count > 1
@@ -299,11 +310,12 @@ BackgroundItem {
             z: 1
         }
     }
+*/
 
     // Account avatar (hidden when showing stacked avatars or for gap items)
     Image {
         id: avatar
-        visible: model.type !== "gap" && !stackedAvatars.visible
+        visible: model.type !== "gap" //&& !stackedAvatars.visible
         opacity: status === Image.Ready ? 1.0 : 0.0
         Behavior on opacity { FadeAnimator {} }
         asynchronous: true
@@ -425,9 +437,10 @@ BackgroundItem {
         id: miniHeader
         visible: model.type !== "gap"
         anchors {
-            top: stackedAvatars.visible ? stackedAvatars.top : avatar.top
-            left: stackedAvatars.visible ? stackedAvatars.right : avatar.right
+            top:  avatar.top//stackedAvatars.visible ? stackedAvatars.top : avatar.top
+            left: avatar.right// stackedAvatars.visible ? stackedAvatars.right : avatar.right
             right: parent.right
+            bottomMargin: Theme.paddingLarge
         }
     }
 
@@ -482,7 +495,7 @@ BackgroundItem {
             right: miniHeader.right
             rightMargin: Theme.horizontalPageMargin + Theme.paddingMedium
             top: miniHeader.bottom
-            topMargin: Theme.paddingSmall
+            topMargin: Theme.paddingLarge
             bottomMargin: Theme.paddingLarge
         }
         onLinkActivated: {
@@ -525,17 +538,16 @@ BackgroundItem {
             id: contentWarningBg
             color: Theme.highlightDimmerColor
             visible: {
-                if (status_spoiler_text.length !== null && status_spoiler_text.length  > 0 ) {
+                if (status_spoiler_text !== undefined && status_spoiler_text.length > 0) {
                     return true
-                } else {
-                    return false
                 }
+                return false
             }
             anchors.fill: parent
 
             Label {
                 id: contentWarningLabel
-                text: model.status_spoiler_text
+                text: status_spoiler_text !== undefined ? status_spoiler_text : ""
                 font.pixelSize: Theme.fontSizeExtraSmall
                 color: Theme.highlightColor
                 truncationMode: TruncationMode.Fade
@@ -1042,11 +1054,13 @@ BackgroundItem {
 
     Item {
         id: mnu
+        visible: ! Logic.conf['conMen']  && model.type !== "gap"
         anchors {
             left: miniHeader.left
             leftMargin: Theme.paddingMedium
-            //right: miniHeader.right
-            //rightMargin: Theme.horizontalPageMargin + Theme.paddingMedium
+            right: miniHeader.right
+            rightMargin: Theme.paddingMedium
+
             top: {
                 // in revserse order return the closest visible container
                 if ( quotedPost.visible ) return quotedPost.bottom
@@ -1056,16 +1070,13 @@ BackgroundItem {
                 if (showMoreLabel.visible ) return showMoreLabel.bottom
                 return lblContent.bottom
            }
-                topMargin: Theme.paddingSmall
-            //bottomMargin: Theme.paddingLarge
-            //bottom:delegate.bottom
+                topMargin: Theme.paddingLarge
         }
-        height: Theme.itemSizeSmall
+
+        height: Theme.itemSizeMedium
         width:delegate.width
-        visible: model.type !== "gap"
         Row {
-            spacing: 2
-            anchors.verticalCenter: mnu.verticalCenter
+            spacing: 20
 
             Item {
                 id: mnuFavourite
@@ -1078,7 +1089,7 @@ BackgroundItem {
                     onClicked:  favourite()
                 }
                 Row {
-                    opacity: 0.3
+                    opacity: 0.5
                     spacing: Theme.paddingSmall
                     Icon {
                         id: icFA
@@ -1088,7 +1099,7 @@ BackgroundItem {
                     }
 
                     Label {
-                        text: status_favourites_count
+                        text: (status_favourites_count !== undefined) ? status_favourites_count : ""
                         font.pixelSize: Theme.fontSizeSmall
                         color: !model.status_favourited ? Theme.highlightColor : Theme.primaryColor
                     }
@@ -1108,7 +1119,7 @@ BackgroundItem {
                 }
                 Row {
                     spacing: Theme.paddingSmall
-                    opacity: 0.3
+                    opacity: 0.5
                     Icon {
                         id: icRT
                         source: "image://theme/icon-s-retweet?" + (!model.status_reblogged ? Theme.highlightColor : Theme.primaryColor)
@@ -1117,7 +1128,7 @@ BackgroundItem {
                     }
 
                     Label {
-                        text: status_reblogs_count
+                        text: (status_reblogs_count !== undefined) ? status_reblogs_count : ""
                         font.pixelSize: Theme.fontSizeSmall
                         color: !model.status_reblogged ? Theme.highlightColor : Theme.primaryColor
                     }
@@ -1135,7 +1146,7 @@ BackgroundItem {
                     onClicked: reply()
                 }
                 Icon {
-                    opacity: 0.3
+                    opacity: 0.5
                     id: icReply
                     source: "image://theme/icon-s-message?" + Theme.highlightColor
                     width: Theme.iconSizeSmallPlus
@@ -1155,7 +1166,7 @@ BackgroundItem {
                     onClicked: quote()
                 }
                 Label {
-                    opacity: 0.3
+                    opacity: 0.5
                    id:icQuoteT
                    visible: false
                    text: "«»"
@@ -1169,7 +1180,7 @@ BackgroundItem {
                 }
 
                 Icon {
-                    opacity: 0.3
+                    opacity: 0.5
                     id: icQuote
                     source: "image://theme/icon-s-clipboard?" + Theme.highlightColor
                     width: Theme.iconSizeSmallPlus
@@ -1195,7 +1206,7 @@ BackgroundItem {
                 }
 
                 Icon {
-                    opacity: 0.3
+                    opacity: 0.5
                     id: icBM
                     source: "../../images/icon-s-bookmark.svg?"
                     color: !model.status_bookmarked ? Theme.highlightColor : Theme.primaryColor
@@ -1203,6 +1214,7 @@ BackgroundItem {
                     height: width
                 }
             }
+
             Item {
                 width: mnu.width / 6
                 id: mnuMention
@@ -1222,7 +1234,7 @@ BackgroundItem {
                 }
 
                 Icon {
-                    opacity: 0.3
+                    opacity: 0.5
                     id: icMT
                     source: "image://theme/icon-s-chat?" + (!model.status_favourited ? Theme.highlightColor : Theme.primaryColor)
                     width: Theme.iconSizeSmallPlus
@@ -1232,8 +1244,313 @@ BackgroundItem {
 
         }
     }
-
     // Context menu for Toots (hidden for gap items)
+    ContextMenu {
+        id: altMnu
+        visible: Logic.conf['conMen']  && model.type !== "gap"
+        anchors {
+            leftMargin: Theme.paddingMedium
+            rightMargin: Theme.horizontalPageMargin + Theme.paddingMedium
+            topMargin: Theme.paddingSmall
+        }
+
+        MenuItem {
+            id: altFavourite
+            visible: model.type !== "follow"
+            text: typeof model.status_favourited !== "undefined" && model.status_favourited ? qsTr("Unfavorite") : qsTr("Favorite")
+            onClicked: {
+                var status = typeof model.status_favourited !== "undefined" && model.status_favourited
+                worker.sendMessage({
+                                       "conf"   : Logic.conf,
+                                       "params" : [],
+                                       "method" : "POST",
+                                       "bgAction": true,
+                                       "action" : "statuses/"+model.status_id+"/" + (status ? "unfavourite" : "favourite")
+                                   })
+                model.status_favourites_count = !status ? model.status_favourites_count+1 : (model.status_favourites_count > 0 ? model.status_favourites_count-1 : model.status_favourites_count);
+                model.status_favourited = !model.status_favourited
+            }
+
+            Icon {
+                id: altFa
+                source: "image://theme/icon-s-favorite?" + (!model.status_favourited ? Theme.highlightColor : Theme.primaryColor)
+                width: Theme.iconSizeSmall
+                height: width
+                anchors {
+                    left: parent.left
+                    leftMargin: Theme.horizontalPageMargin
+                    verticalCenter: parent.verticalCenter
+                }
+            }
+
+            Label {
+                text: (status_favourites_count !== undefined) ? status_favourites_count : ""
+                font.pixelSize: Theme.fontSizeSmall
+                color: !model.status_favourited ? Theme.highlightColor : Theme.primaryColor
+                anchors {
+                    left: altFa.right
+                    leftMargin: Theme.paddingMedium
+                    verticalCenter: parent.verticalCenter
+                }
+            }
+        }
+
+        MenuItem {
+            id: altBoost
+            visible: model.type !== "follow"
+            enabled: model.status_visibility !== "direct"
+            text: typeof model.status_reblogged !== "undefined" && model.status_reblogged ? qsTr("Unboost") : qsTr("Boost")
+            onClicked: {
+                var status = typeof model.status_reblogged !== "undefined" && model.status_reblogged
+                worker.sendMessage({
+                                       "conf"   : Logic.conf,
+                                       "params" : [],
+                                       "method" : "POST",
+                                       "bgAction": true,
+                                       "action" : "statuses/"+model.status_id+"/" + (status ? "unreblog" : "reblog")
+                                   })
+                model.status_reblogs_count = !status ? model.status_reblogs_count+1 : (model.status_reblogs_count > 0 ? model.status_reblogs_count-1 : model.status_reblogs_count);
+                model.status_reblogged = !model.status_reblogged
+            }
+
+            Icon {
+                id: altBst
+                source: "image://theme/icon-s-retweet?" + (!model.status_reblogged ? Theme.highlightColor : Theme.primaryColor)
+                width: Theme.iconSizeSmall
+                height: width
+                anchors {
+                    leftMargin: Theme.horizontalPageMargin
+                    left: parent.left
+                    verticalCenter: parent.verticalCenter
+                }
+            }
+
+            Label {
+                text: (status_reblogs_count !== undefined) ? status_reblogs_count : ""
+                font.pixelSize: Theme.fontSizeSmall
+                color: !model.status_reblogged ? Theme.highlightColor : Theme.primaryColor
+                anchors {
+                    left: altBst.right
+                    leftMargin: Theme.paddingMedium
+                    verticalCenter: parent.verticalCenter
+                }
+            }
+        }
+
+        MenuItem {
+            id: altReply
+            visible: model.type !== "follow"
+            text: qsTr("Reply")
+            onClicked: {
+                var m = Qt.createQmlObject('import QtQuick 2.0; ListModel { dynamicRoles:true }', Qt.application, 'InternalQmlObject');
+                if (typeof mdl !== "undefined")
+                    m.append(mdl.get(index))
+
+                // Build mentions string: author + all mentioned users, excluding self
+                var activeAccount = Logic.conf.accounts && Logic.conf.accounts[Logic.conf.activeAccount]
+                var myUsername = activeAccount && activeAccount.userInfo ? activeAccount.userInfo.account_username : ""
+                var mentions = []
+                var seen = {}
+
+                // Add the author first (unless it's us)
+                if (model.account_acct && model.account_acct !== myUsername) {
+                    mentions.push("@" + model.account_acct)
+                    seen[model.account_acct.toLowerCase()] = true
+                }
+
+                // Add all mentioned users from the toot
+                if (typeof model.status_mentions !== "undefined" && model.status_mentions.length > 0) {
+                    var mentionList = model.status_mentions.split(',')
+                    for (var i = 0; i < mentionList.length; i++) {
+                        var acct = mentionList[i].trim()
+                        if (acct && acct !== myUsername && !seen[acct.toLowerCase()]) {
+                            mentions.push("@" + acct)
+                            seen[acct.toLowerCase()] = true
+                        }
+                    }
+                }
+
+                if (debug) console.log("convesation from mnureply")
+                pageStack.push(Qt.resolvedUrl("../ConversationPage.qml"), {
+                    headerTitle: qsTr("Reply"),
+                    "status_id": model.status_id,
+                    "status_url": model.status_url,
+                    "username": mentions.join(' '),
+                    mdl: m,
+                    type: "reply",
+                    openReplyPanel: true
+                })
+            }
+
+            Icon {
+                id: altRepl
+                source: "image://theme/icon-s-message?" + Theme.highlightColor
+                width: Theme.iconSizeSmall
+                height: width
+                anchors {
+                    leftMargin: Theme.horizontalPageMargin
+                    left: parent.left
+                    verticalCenter: parent.verticalCenter
+                }
+            }
+        }
+
+        MenuItem {
+            id: altQuote
+            visible: model.type !== "follow"
+            enabled: model.status_visibility !== "direct"
+            text: qsTr("Quote")
+            onClicked: {
+                if (debug) console.log("link from mnuQuote")
+                pageStack.push(Qt.resolvedUrl("../ConversationPage.qml"), {
+                                   headerTitle: qsTr("Quote"),
+                                   quoted_status_id: model.status_id,
+                                   quoted_account_acct: model.account_acct,
+                                   quoted_account_avatar: model.account_avatar,
+                                   quoted_account_display_name: model.account_display_name,
+                                   quoted_content: model.content,
+                                   type: "new"
+                               })
+            }
+
+            Icon {
+                id: altQt
+                source: "image://theme/icon-s-edit?" + Theme.highlightColor
+                width: Theme.iconSizeSmall
+                height: width
+                anchors {
+                    leftMargin: Theme.horizontalPageMargin
+                    left: parent.left
+                    verticalCenter: parent.verticalCenter
+                }
+            }
+        }
+
+        MenuItem {
+            id: altBookmark
+            visible: model.type !== "follow"
+            text: typeof model.status_bookmarked !== "undefined" && model.status_bookmarked ? qsTr("Remove Bookmark") : qsTr("Bookmark")
+            onClicked: {
+                var status = typeof model.status_bookmarked !== "undefined" && model.status_bookmarked
+                worker.sendMessage({
+                                       "conf"   : Logic.conf,
+                                       "params" : [],
+                                       "method" : "POST",
+                                       "bgAction": true,
+                                       "action" : "statuses/"+model.status_id+"/" + (status ? "unbookmark" : "bookmark")
+                                   })
+                model.status_bookmarked = !model.status_bookmarked
+            }
+
+            Icon {
+                id: altBM
+                source: "../../images/icon-s-bookmark.svg?"
+                color: !model.status_bookmarked ? Theme.highlightColor : Theme.primaryColor
+                width: Theme.iconSizeSmall
+                height: width
+                anchors {
+                    left: parent.left
+                    leftMargin: Theme.horizontalPageMargin + Theme.paddingMedium
+                    verticalCenter: parent.verticalCenter
+                }
+            }
+        }
+
+        MenuItem {
+            id: altDelete
+            // Only show for user's own posts
+            visible: {
+                if (model.type === "follow") return false
+                var activeAccount = Logic.conf.accounts && Logic.conf.accounts[Logic.conf.activeAccount]
+                if (!activeAccount || !activeAccount.userInfo) return false
+                var myUsername = activeAccount.userInfo.account_username
+                return model.account_acct === myUsername || model.account_username === myUsername
+            }
+            text: qsTr("Delete")
+            onClicked: {
+                remorseDelete.execute(delegate, qsTr("Deleting"), function() {
+                    worker.sendMessage({
+                        "conf": Logic.conf,
+                        "method": "DELETE",
+                        "action": "statuses/" + model.status_id
+                    })
+                    mdl.remove(index)
+                })
+            }
+
+            Icon {
+                id: altDel
+                source: "image://theme/icon-s-clear-opaque-cross?" + Theme.highlightColor
+                width: Theme.iconSizeSmall
+                height: width
+                anchors {
+                    left: parent.left
+                    leftMargin: Theme.horizontalPageMargin + Theme.paddingMedium
+                    verticalCenter: parent.verticalCenter
+                }
+            }
+        }
+
+        MenuItem {
+            id: altEdit
+            // Only show for user's own posts
+            visible: {
+                if (model.type === "follow") return false
+                var activeAccount = Logic.conf.accounts && Logic.conf.accounts[Logic.conf.activeAccount]
+                if (!activeAccount || !activeAccount.userInfo) return false
+                var myUsername = activeAccount.userInfo.account_username
+                return model.account_acct === myUsername || model.account_username === myUsername
+            }
+            text: qsTr("Edit")
+            onClicked: {
+                pageStack.push(Qt.resolvedUrl("../ConversationPage.qml"), {
+                                   headerTitle: qsTr("Edit"),
+                                   status_id: model.status_id,
+                                   editMode: true,
+                                   type: "edit"
+                               })
+            }
+
+            Icon {
+                id: altEd
+                source: "image://theme/icon-s-edit?" + Theme.highlightColor
+                width: Theme.iconSizeSmall
+                height: width
+                anchors {
+                    left: parent.left
+                    leftMargin: Theme.horizontalPageMargin + Theme.paddingMedium
+                    verticalCenter: parent.verticalCenter
+                }
+            }
+        }
+
+        MenuItem {
+            id: altMention
+            visible: model.type === "follow"
+            text: qsTr("Mention")
+            onClicked: {
+                if (debug) console.log("link from mnuMention")
+                pageStack.push(Qt.resolvedUrl("../ConversationPage.qml"), {
+                                   headerTitle: qsTr("Mention"),
+                                   username: "@"+reblog_account_acct,
+                                   type: "new"
+                               })
+            }
+
+            Icon {
+                id: altMT
+                source: "image://theme/icon-s-chat?" + (!model.status_favourited ? Theme.highlightColor : Theme.primaryColor)
+                width: Theme.iconSizeSmall
+                height: width
+                anchors {
+                    left: parent.left
+                    leftMargin: Theme.horizontalPageMargin + Theme.paddingMedium
+                    verticalCenter: parent.verticalCenter
+                }
+            }
+        }
+    }
+
     ContextMenu {
         id:ctxmnu
         visible: {
@@ -1288,7 +1605,14 @@ BackgroundItem {
             }
         }
     }
-    // Open ConversationPage and show other Toots in thread (if available) or ProfilePage if new Follower
+    onPressAndHold: {
+        var activeAccount = Logic.conf.accounts && Logic.conf.accounts[Logic.conf.activeAccount]
+        if (!activeAccount || !activeAccount.userInfo) return false
+        if ( Logic.conf['conMen'] ) altMnu.open(delegate)
+        if ( !Logic.conf['conMen'] ) ctxmnu.open(delegate)
+    }
+    // Context menu for own Toots edit and delete
+        // Open ConversationPage and show other Toots in thread (if available) or ProfilePage if new Follower
     onClicked: {
         // Don't navigate for gap items - they have their own click handler
         if (model.type === "gap") return
@@ -1299,7 +1623,7 @@ BackgroundItem {
 
         if (model.type !== "follow") {
             if (conversationPage) return
-                pageStack.push(Qt.resolvedUrl("../ConversationPage.qml"), {
+            pageStack.push(Qt.resolvedUrl("../ConversationPage.qml"), {
                                headerTitle: qsTr("Conversation"),
                                "status_id": status_id,
                                "status_url": status_url,
@@ -1325,15 +1649,4 @@ BackgroundItem {
                               } )
     }
 
-    onPressAndHold: {
-        if (model.type === "gap") return
-        if (debug) console.log(JSON.stringify(mdl.get(index)))
-        var activeAccount = Logic.conf.accounts && Logic.conf.accounts[Logic.conf.activeAccount]
-        if (!activeAccount || !activeAccount.userInfo) return false
-        ctxmnu.open(delegate)
-    }
-
-    onDoubleClicked: {
-        if (debug) console.log("double click")
-    }
 }

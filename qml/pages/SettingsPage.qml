@@ -46,6 +46,7 @@ Page {
                 checked: typeof Logic.conf['loadImages'] !== "undefined" && Logic.conf['loadImages']
                 onClicked: {
                     Logic.conf['loadImages'] = checked
+                    Logic.saveData()
                 }
             }
 
@@ -57,6 +58,7 @@ Page {
                 onClicked: {
                     Logic.conf['quickScroll'] = checked
                     appWindow.quickScrollEnabled = checked
+                    Logic.saveData()
                 }
             }
             IconTextSwitch {
@@ -67,6 +69,17 @@ Page {
                 onClicked: {
                     Logic.conf['notify'] = checked
                     appWindow.notify = checked
+                }
+            }
+            IconTextSwitch {
+                text: qsTr("Context Menu")
+                description: qsTr("Use context menu instead of button row.")
+                icon.source: "image://theme/icon-m-up"
+                checked: typeof Logic.conf['conMen'] === "undefined" || Logic.conf['conMen']
+                onClicked: {
+                    Logic.conf['conMen'] = checked
+                    console.log(Logic.conf['conMen'])
+                    Logic.saveData()
                 }
             }
 

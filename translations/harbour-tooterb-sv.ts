@@ -227,12 +227,8 @@
         <translation>Mastodon är ett fritt socialt nätverk byggt på öppen källkod. Ett decentraliserat alternativ till kommersiella plattformar. Det undviker riskerna med att ett enda företag monopoliserar din kommunikation. Välj en server som du litar på, oavsett vad du väljer kan du interagera med alla andra. Vem som helst kan köra sin egen Mastodon-instans och delta i det sociala nätverket sömlöst.</translation>
     </message>
     <message>
-        <source>Enter a valid Mastodon instance URL (will open a web browser for Authentication)</source>
-        <translation>Ange en giltig URL för en Mastodon-instans (öppnas i webbläsare för autentisering)</translation>
-    </message>
-    <message>
-        <source>Type</source>
-        <translation>Skriv</translation>
+        <source>Enter a valid Mastodon instance URL</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -662,76 +658,108 @@
         <source>Show notifications and create alerts</source>
         <translation>Visa notifieringar och skapa aviseringar</translation>
     </message>
+    <message>
+        <source>Context Menu</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use context menu instead of button row.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>VisualContainer</name>
     <message>
-        <source>Loading...</source>
-        <translation>Läser in ...</translation>
-    </message>
-    <message>
-        <source>Load more</source>
-        <translation>Läs in mer</translation>
-    </message>
-    <message>
-        <source>Show less</source>
-        <translation>Visa mindre</translation>
-    </message>
-    <message>
-        <source>Show more</source>
-        <translation>Visa mer</translation>
-    </message>
-    <message>
-        <source>Vote</source>
-        <translation>Rösta</translation>
-    </message>
-    <message>
-        <source>votes</source>
-        <translation>röster</translation>
-    </message>
-    <message>
-        <source>Closed</source>
-        <translation>Stängd</translation>
-    </message>
-    <message>
-        <source>days left</source>
-        <translation>dagar kvar</translation>
-    </message>
-    <message>
-        <source>hours left</source>
-        <translation>timmar kvar</translation>
-    </message>
-    <message>
-        <source>minutes left</source>
-        <translation>minuter kvar</translation>
-    </message>
-    <message>
-        <source>Conversation</source>
-        <translation>Konversation</translation>
-    </message>
-    <message>
         <source>Reply</source>
-        <translation>Svara</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Quote</source>
-        <translation>Citera</translation>
-    </message>
-    <message>
-        <source>Delete</source>
-        <translation>Ta bort</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Deleting</source>
-        <translation>Tar bort</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Edit</source>
-        <translation>Redigera</translation>
+        <source>Loading...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Load more</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Conversation</source>
+        <translation type="unfinished">Konversation</translation>
+    </message>
+    <message>
+        <source>Show less</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show more</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Vote</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>votes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Closed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>days left</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>hours left</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>minutes left</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Mention</source>
-        <translation>Nämn</translation>
+        <translation type="unfinished">Omnämnande</translation>
+    </message>
+    <message>
+        <source>Unfavorite</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Favorite</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Unboost</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Boost</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove Bookmark</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Bookmark</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Edit</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

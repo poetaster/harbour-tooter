@@ -777,7 +777,12 @@ BackgroundItem {
     onPressAndHold: {
         var activeAccount = Logic.conf.accounts && Logic.conf.accounts[Logic.conf.activeAccount]
         if (!activeAccount || !activeAccount.userInfo) return false
-        if ( Logic.conf['conMen'] ) tootMenu.item.open(delegate)
+        if ( Logic.conf['conMen'] ) {
+            tootMenu.item.open(delegate)
+        } else {
+            ctxmnu.open(delegate)
+
+        }
     }
     // Context menu for own Toots edit and delete
         // Open ConversationPage and show other Toots in thread (if available) or ProfilePage if new Follower

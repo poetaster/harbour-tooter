@@ -46,6 +46,7 @@ DISTFILES += qml/harbour-tooterb.qml \
     qml/pages/components/MyMedia.qml \
     qml/pages/components/NavigationPanel.qml \
     qml/pages/components/ProfileImage.qml \
+    qml/pages/components/QuotedPost.qml \
     qml/pages/components/TootActionMenu.qml \
     qml/pages/components/TootActionRow.qml \
     qml/pages/components/VisualContainer.qml \

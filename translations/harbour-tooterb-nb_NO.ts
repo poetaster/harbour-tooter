@@ -583,6 +583,13 @@
     </message>
 </context>
 <context>
+    <name>QuotedPost</name>
+    <message>
+        <source>Conversation</source>
+        <translation type="unfinished">Konversasjon</translation>
+    </message>
+</context>
+<context>
     <name>SettingsPage</name>
     <message>
         <source>Settings</source>

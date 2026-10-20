@@ -726,6 +726,14 @@
     </message>
 </context>
 <context>
+    <name>QuotedPost</name>
+    <message>
+        <location filename="../qml/pages/components/QuotedPost.qml" line="22"/>
+        <source>Conversation</source>
+        <translation type="unfinished">Keskustelu</translation>
+    </message>
+</context>
+<context>
     <name>SettingsPage</name>
     <message>
         <location filename="../qml/pages/SettingsPage.qml" line="13"/>
@@ -907,85 +915,84 @@
 <context>
     <name>VisualContainer</name>
     <message>
-        <location filename="../qml/pages/components/VisualContainer.qml" line="91"/>
+        <location filename="../qml/pages/components/VisualContainer.qml" line="102"/>
         <source>Reply</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/components/VisualContainer.qml" line="103"/>
+        <location filename="../qml/pages/components/VisualContainer.qml" line="114"/>
         <source>Quote</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/components/VisualContainer.qml" line="126"/>
+        <location filename="../qml/pages/components/VisualContainer.qml" line="137"/>
         <source>Deleting</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/components/VisualContainer.qml" line="199"/>
+        <location filename="../qml/pages/components/VisualContainer.qml" line="210"/>
         <source>Loading...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/components/VisualContainer.qml" line="199"/>
+        <location filename="../qml/pages/components/VisualContainer.qml" line="210"/>
         <source>Load more</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/components/VisualContainer.qml" line="520"/>
-        <location filename="../qml/pages/components/VisualContainer.qml" line="970"/>
-        <location filename="../qml/pages/components/VisualContainer.qml" line="1156"/>
+        <location filename="../qml/pages/components/VisualContainer.qml" line="531"/>
+        <location filename="../qml/pages/components/VisualContainer.qml" line="1055"/>
         <source>Conversation</source>
         <translation type="unfinished">Keskustelu</translation>
     </message>
     <message>
-        <location filename="../qml/pages/components/VisualContainer.qml" line="591"/>
+        <location filename="../qml/pages/components/VisualContainer.qml" line="602"/>
         <source>Show less</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/components/VisualContainer.qml" line="591"/>
+        <location filename="../qml/pages/components/VisualContainer.qml" line="602"/>
         <source>Show more</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/components/VisualContainer.qml" line="759"/>
+        <location filename="../qml/pages/components/VisualContainer.qml" line="770"/>
         <source>Vote</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/components/VisualContainer.qml" line="787"/>
+        <location filename="../qml/pages/components/VisualContainer.qml" line="798"/>
         <source>votes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/components/VisualContainer.qml" line="790"/>
+        <location filename="../qml/pages/components/VisualContainer.qml" line="801"/>
         <source>Closed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/components/VisualContainer.qml" line="800"/>
+        <location filename="../qml/pages/components/VisualContainer.qml" line="811"/>
         <source>days left</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/components/VisualContainer.qml" line="802"/>
+        <location filename="../qml/pages/components/VisualContainer.qml" line="813"/>
         <source>hours left</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/components/VisualContainer.qml" line="804"/>
+        <location filename="../qml/pages/components/VisualContainer.qml" line="815"/>
         <source>minutes left</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/components/VisualContainer.qml" line="1095"/>
+        <location filename="../qml/pages/components/VisualContainer.qml" line="994"/>
         <source>Delete</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/components/VisualContainer.qml" line="1113"/>
-        <location filename="../qml/pages/components/VisualContainer.qml" line="1116"/>
+        <location filename="../qml/pages/components/VisualContainer.qml" line="1012"/>
+        <location filename="../qml/pages/components/VisualContainer.qml" line="1015"/>
         <source>Edit</source>
         <translation type="unfinished"></translation>
     </message>

@@ -506,6 +506,33 @@
     </message>
 </context>
 <context>
+    <name>PollContainer</name>
+    <message>
+        <source>Vote</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>votes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Closed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>days left</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>hours left</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>minutes left</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>ProfileHeader</name>
     <message>
         <source>Group</source>
@@ -763,30 +790,6 @@
     </message>
     <message>
         <source>Show more</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Vote</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>votes</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Closed</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>days left</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>hours left</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>minutes left</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

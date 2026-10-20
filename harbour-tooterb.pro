@@ -42,9 +42,11 @@ DISTFILES += qml/harbour-tooterb.qml \
     qml/pages/SettingsPage.qml \
     qml/pages/components/HoldInteractionHint.qml \
     qml/pages/components/InfoBanner.qml \
+    qml/pages/components/LinkPreviewCard.qml \
     qml/pages/components/MediaFullScreen.qml \
     qml/pages/components/MyMedia.qml \
     qml/pages/components/NavigationPanel.qml \
+    qml/pages/components/PollContainer.qml \
     qml/pages/components/ProfileImage.qml \
     qml/pages/components/QuotedPost.qml \
     qml/pages/components/TootActionMenu.qml \

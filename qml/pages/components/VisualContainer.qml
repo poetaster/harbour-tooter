@@ -11,10 +11,37 @@ BackgroundItem {
     property bool expanded: false
     property int charLimit: 700
 
+    // Cache processed content to avoid regex on every press state change
+    // Compute base content (truncated if needed) once, then derive styled versions
+    property string baseDisplayContent: {
+        var displayContent = content
+        // Truncate if long post and not expanded (not for notifications)
+        // In conversation view, don't truncate the main clicked toot
+        var isMainConversationToot = (typeof myList.type !== "undefined"
+                                      && myList.type === "conversation" &&
+                                      typeof myList.mainStatusId !== "undefined"
+                                      && model.status_id === myList.mainStatusId)
+        if (isLongPost && !expanded &&
+                !isMainConversationToot &&
+                !(myList.type === "notifications" && (model.type === "favourite" || model.type === "reblog"))) {
+            displayContent = truncateContent(content, charLimit) + "..."
+        }
+        return displayContent
+    }
 
+    // Pre-compute both color variants - regex only runs when content changes, not on press
+    property bool isNotificationCompact: myList.type === "notifications" && (model.type === "favourite" || model.type === "reblog")
+    property string processedContent: isNotificationCompact ? baseDisplayContent :
+        baseDisplayContent.replace(/<a /g, '<a style="text-decoration: none; color:' + Theme.highlightColor + ';" ')
+    property string processedContentPressed: isNotificationCompact ? baseDisplayContent :
+        baseDisplayContent.replace(/<a /g, '<a style="text-decoration: none; color:' + Theme.secondaryColor + ';" ')
+    /*
+     * A number of elements are only loaded if the tootdata contains the type
+     * Speed up loading of any given toot and reduce memory footprint
+      */
 
     Component.onCompleted: {
-            logModelItems(model)
+        logModelItems(model)
         if ( Logic.conf['conMen']  ) {
             tootMenu.source = "TootActionMenu.qml"
         } else {
@@ -22,6 +49,21 @@ BackgroundItem {
 
         }
         if ( checkForQuotes() ) quotedPost.source = "QuotedPost.qml"
+        if ( checkForLinkPreviews() ) linkPreview.source = "LinkPreviewCard.qml"
+        if ( checkForPolls() ) pollContainer.source = "PollContainer.qml"
+
+    }
+
+    function checkForPolls() {
+        // Parse all poll data from JSON string
+        return typeof model.poll_json !== "undefined" && model.poll_json ? model.poll_json : ''
+
+    }
+
+    function checkForLinkPreviews() {
+        var hasLinkPreview = typeof model.card_url !== "undefined" && model.card_url.length > 0
+        var hastPreviewTitle = typeof model.card_title !== "undefined" && model.card_title.length > 0
+        return hasLinkPreview && hastPreviewTitle
     }
 
     function checkForQuotes() {
@@ -44,6 +86,7 @@ BackgroundItem {
         if (!html) return 0
         return html.replace(/<[^>]*>/g, '').length
     }
+
     function favourite(){
         var status = typeof model.status_favourited !== "undefined" && model.status_favourited
         worker.sendMessage({
@@ -56,6 +99,7 @@ BackgroundItem {
         model.status_favourites_count = !status ? model.status_favourites_count+1 : (model.status_favourites_count > 0 ? model.status_favourites_count-1 : model.status_favourites_count);
         model.status_favourited = !model.status_favourited
     }
+
     function boost(){
         var status = typeof model.status_reblogged !== "undefined" && model.status_reblogged
         worker.sendMessage({
@@ -68,6 +112,7 @@ BackgroundItem {
         model.status_reblogs_count = !status ? model.status_reblogs_count+1 : (model.status_reblogs_count > 0 ? model.status_reblogs_count-1 : model.status_reblogs_count);
         model.status_reblogged = !model.status_reblogged
     }
+
     function reply() {
         var m = Qt.createQmlObject('import QtQuick 2.0; ListModel { dynamicRoles:true }', Qt.application, 'InternalQmlObject');
         if (typeof mdl !== "undefined")
@@ -108,6 +153,7 @@ BackgroundItem {
             openReplyPanel: true
         })
     }
+
     function quote(){
         if (debug) console.log("link from mnuQuote")
         pageStack.push(Qt.resolvedUrl("../ConversationPage.qml"), {
@@ -182,6 +228,7 @@ BackgroundItem {
     RemorseItem { id: remorseDelete }
 
     // Gap item UI - "Load more" button for timeline gaps
+    // I think we can retire this?
     Item {
         id: gapLoader
         visible: model.type === "gap"
@@ -231,7 +278,7 @@ BackgroundItem {
             }
         }
     }
-
+    // This is a hack which will go away when all the loaders are finished?
     height:  {
         var commonheight =  tootMenu.height + miniHeader.height
         commonheight += (typeof attachments !== "undefined" && attachments.count ? media.height + Theme.paddingLarge + Theme.paddingMedium: Theme.paddingLarge)
@@ -277,6 +324,7 @@ BackgroundItem {
         }
     }
     // Stacked avatars for grouped notifications (v2 API)
+    // I don't like them, so there not in the mix at the moment
 /*
     Row {
         id: stackedAvatars
@@ -460,31 +508,6 @@ BackgroundItem {
         }
     }
 
-    // Cache processed content to avoid regex on every press state change
-    // Compute base content (truncated if needed) once, then derive styled versions
-    property string baseDisplayContent: {
-        var displayContent = content
-        // Truncate if long post and not expanded (not for notifications)
-        // In conversation view, don't truncate the main clicked toot
-        var isMainConversationToot = (typeof myList.type !== "undefined"
-                                      && myList.type === "conversation" &&
-                                      typeof myList.mainStatusId !== "undefined"
-                                      && model.status_id === myList.mainStatusId)
-        if (isLongPost && !expanded &&
-                !isMainConversationToot &&
-                !(myList.type === "notifications" && (model.type === "favourite" || model.type === "reblog"))) {
-            displayContent = truncateContent(content, charLimit) + "..."
-        }
-        return displayContent
-    }
-
-    // Pre-compute both color variants - regex only runs when content changes, not on press
-    property bool isNotificationCompact: myList.type === "notifications" && (model.type === "favourite" || model.type === "reblog")
-    property string processedContent: isNotificationCompact ? baseDisplayContent :
-        baseDisplayContent.replace(/<a /g, '<a style="text-decoration: none; color:' + Theme.highlightColor + ';" ')
-    property string processedContentPressed: isNotificationCompact ? baseDisplayContent :
-        baseDisplayContent.replace(/<a /g, '<a style="text-decoration: none; color:' + Theme.secondaryColor + ';" ')
-
     // Toot content
     Label  {
         id: lblContent
@@ -617,222 +640,18 @@ BackgroundItem {
     }
 
     // Poll display
-    Column {
-        id: pollContainer
-        visible: {
-            if (model.type === "gap") return false
-            if (myList.type === "notifications" && (model.type === "favourite" || model.type === "reblog")) return false
-            return pollData.id && pollData.id.length > 0
-        }
-        width: parent.width - Theme.horizontalPageMargin * 2 - avatar.width - Theme.paddingMedium
-        spacing: Theme.paddingSmall
+    Loader {
+        id:pollContainer
         anchors {
             left: lblContent.left
             right: lblContent.right
             top: showMoreLabel.visible ? showMoreLabel.bottom : lblContent.bottom
             topMargin: Theme.paddingMedium
         }
-
-        // Parse all poll data from JSON string
-        property var pollData: {
-            try {
-                var json = typeof model.poll_json !== "undefined" && model.poll_json ? model.poll_json : ''
-                if (json.length === 0) return { id: '', options: [], votes_count: 0, voted: false, expired: false, multiple: false, own_votes: [] }
-                return JSON.parse(json)
-            } catch (e) {
-                return { id: '', options: [], votes_count: 0, voted: false, expired: false, multiple: false, own_votes: [] }
-            }
-        }
-
-        // Track selected options for voting
-        property var selectedOptions: []
-        property bool hasVoted: pollData.voted || false
-        property bool isExpired: pollData.expired || false
-        property bool canVote: !hasVoted && !isExpired
-        property bool isMultiple: pollData.multiple || false
-
-        // Helper to check if option is selected
-        function isOptionSelected(idx) {
-            return selectedOptions.indexOf(idx) !== -1
-        }
-
-        // Helper to check if user voted for this option
-        function userVotedFor(idx) {
-            var ownVotes = pollData.own_votes || []
-            return ownVotes.indexOf(idx) !== -1
-        }
-
-        // Helper to get vote percentage
-        function getVotePercentage(optionVotes) {
-            var total = pollData.votes_count || 0
-            if (total === 0) return 0
-            return Math.round((optionVotes / total) * 100)
-        }
-
-        // Poll options using Repeater
-        Repeater {
-            model: pollContainer.pollData.options || []
-
-            Rectangle {
-                width: pollContainer.width
-                height: Math.max(Theme.itemSizeSmall, optionText.implicitHeight + Theme.paddingMedium * 2)
-                color: pollContainer.canVote && pollContainer.isOptionSelected(index) ? Theme.rgba(Theme.highlightColor, 0.3) : Theme.rgba(Theme.highlightBackgroundColor, 0.1)
-                radius: Theme.paddingSmall
-                border.color: pollContainer.userVotedFor(index) ? Theme.highlightColor : "transparent"
-                border.width: pollContainer.userVotedFor(index) ? 2 : 0
-
-                // Vote percentage bar (shown after voting or when expired)
-                Rectangle {
-                    visible: !pollContainer.canVote
-                    width: parent.width * pollContainer.getVotePercentage(modelData.votes) / 100
-                    height: parent.height
-                    color: Theme.rgba(Theme.highlightColor, 0.2)
-                    radius: Theme.paddingSmall
-                }
-
-                Row {
-                    anchors.fill: parent
-                    anchors.margins: Theme.paddingMedium
-                    spacing: Theme.paddingSmall
-
-                    // Checkbox/Radio indicator for voting
-                    Rectangle {
-                        visible: pollContainer.canVote
-                        width: Theme.iconSizeSmall * 0.7
-                        height: width
-                        anchors.verticalCenter: parent.verticalCenter
-                        radius: pollContainer.isMultiple ? Theme.paddingSmall / 2 : width / 2
-                        color: pollContainer.isOptionSelected(index) ? Theme.highlightColor : "transparent"
-                        border.color: Theme.highlightColor
-                        border.width: 2
-                    }
-
-                    // Checkmark for voted option
-                    Icon {
-                        visible: !pollContainer.canVote && pollContainer.userVotedFor(index)
-                        width: Theme.iconSizeSmall
-                        height: width
-                        anchors.verticalCenter: parent.verticalCenter
-                        source: "image://theme/icon-s-installed"
-                        color: Theme.highlightColor
-                    }
-
-                    Label {
-                        id: optionText
-                        text: modelData.title
-                        font.pixelSize: Theme.fontSizeSmall
-                        color: Theme.primaryColor
-                        wrapMode: Text.Wrap
-                        width: parent.width - (pollContainer.canVote || pollContainer.userVotedFor(index) ? Theme.iconSizeSmall + Theme.paddingSmall : 0) - optionPercent.width - Theme.paddingSmall
-                        anchors.verticalCenter: parent.verticalCenter
-                    }
-
-                    Label {
-                        id: optionPercent
-                        visible: !pollContainer.canVote
-                        text: pollContainer.getVotePercentage(modelData.votes) + "%"
-                        font.pixelSize: Theme.fontSizeSmall
-                        color: Theme.secondaryColor
-                        anchors.verticalCenter: parent.verticalCenter
-                    }
-                }
-
-                MouseArea {
-                    anchors.fill: parent
-                    enabled: pollContainer.canVote
-                    onClicked: {
-                        if (pollContainer.isMultiple) {
-                            var idx = pollContainer.selectedOptions.indexOf(index)
-                            if (idx === -1) {
-                                pollContainer.selectedOptions.push(index)
-                            } else {
-                                pollContainer.selectedOptions.splice(idx, 1)
-                            }
-                            pollContainer.selectedOptions = pollContainer.selectedOptions.slice()
-                        } else {
-                            pollContainer.selectedOptions = [index]
-                        }
-                    }
-                }
-            }
-        }
-
-        // Vote button and poll info
-        Row {
-            width: parent.width
-            height: Math.max(Theme.itemSizeSmall, implicitHeight)
-            spacing: Theme.paddingMedium
-
-            Button {
-                id: voteButton
-                visible: pollContainer.canVote
-                enabled: pollContainer.selectedOptions.length > 0
-                text: qsTr("Vote")
-                preferredWidth: Theme.buttonWidthSmall
-                onClicked: {
-                    // Build vote params - API expects {"choices": [0, 1, ...]}
-                    var choices = []
-                    for (var i = 0; i < pollContainer.selectedOptions.length; i++) {
-                        choices.push(pollContainer.selectedOptions[i])
-                    }
-                    worker.sendMessage({
-                        "conf": Logic.conf,
-                        "params": { "choices": choices },
-                        "method": "POST",
-                        "bgAction": true,
-                        "action": "polls/" + pollContainer.pollData.id + "/votes"
-                    })
-                    // Update local state optimistically by rebuilding poll_json
-                    var newPollData = JSON.parse(JSON.stringify(pollContainer.pollData))
-                    newPollData.voted = true
-                    newPollData.own_votes = pollContainer.selectedOptions.slice()
-                    newPollData.votes_count = (newPollData.votes_count || 0) + 1
-                    model.poll_json = JSON.stringify(newPollData)
-                }
-            }
-
-            Label {
-                text: {
-                    var parts = []
-                    var total = pollContainer.pollData.votes_count || 0
-                    parts.push(total + " " + qsTr("votes"))
-
-                    if (pollContainer.isExpired) {
-                        parts.push(qsTr("Closed"))
-                    } else if (pollContainer.pollData.expires_at) {
-                        var now = new Date()
-                        var expires = new Date(pollContainer.pollData.expires_at)
-                        var diff = expires - now
-                        if (diff > 0) {
-                            var hours = Math.floor(diff / (1000 * 60 * 60))
-                            var minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60))
-                            if (hours > 24) {
-                                var days = Math.floor(hours / 24)
-                                parts.push(days + " " + qsTr("days left"))
-                            } else if (hours > 0) {
-                                parts.push(hours + " " + qsTr("hours left"))
-                            } else {
-                                parts.push(minutes + " " + qsTr("minutes left"))
-                            }
-                        }
-                    }
-                    return parts.join(" · ")
-                }
-                font.pixelSize: Theme.fontSizeExtraSmall
-                color: Theme.secondaryColor
-                anchors.verticalCenter: voteButton.visible ? voteButton.verticalCenter : undefined
-                wrapMode: Text.Wrap
-                width: parent.width - (voteButton.visible ? voteButton.width + Theme.paddingMedium : 0)
-            }
-        }
     }
 
     // Displays media in Toots
     MediaBlock {
-        Component.onCompleted: {
-
-        }
-
         id: media
         visible: typeof attachments !== "undefined"
         model: typeof attachments !== "undefined" ? attachments : emptyAttachmentsModel
@@ -849,100 +668,18 @@ BackgroundItem {
     }
 
     // Link Preview Card
-    Rectangle {
+    Loader {
         id: linkPreview
-        visible: {
-            //if (model.type === "gap") return false
-            //if (myList.type === "notifications" && (model.type === "favourite" || model.type === "reblog")) return false
-            // Require both URL and title to avoid showing empty card boxes
-            return typeof model.card_url !== "undefined" && model.card_url.length > 0
-                   && typeof model.card_title !== "undefined" && model.card_title.length > 0
-        }
-        width: parent.width - Theme.horizontalPageMargin * 2 - avatar.width - Theme.paddingMedium
-        // Dynamic height: max of image height or text content height
-        height: visible ? Math.max(Theme.itemSizeLarge, linkPreviewText.implicitHeight) + Theme.paddingMedium * 2 : 0
-        color: Theme.rgba(Theme.highlightBackgroundColor, 0.1)
-        radius: Theme.paddingSmall
         anchors {
             left: lblContent.left
             right: lblContent.right
-            top: (typeof attachments !== "undefined" && attachments.count) ? media.bottom : (pollContainer.visible ? pollContainer.bottom : (showMoreLabel.visible ? showMoreLabel.bottom : lblContent.bottom))
+            top: {
+                // refactor this
+                (typeof attachments !== "undefined" && attachments.count) ? media.bottom : (pollContainer.visible ? pollContainer.bottom : (showMoreLabel.visible ? showMoreLabel.bottom : lblContent.bottom))
+            }
             topMargin: Theme.paddingMedium
         }
 
-        MouseArea {
-            anchors.fill: parent
-            onClicked: Qt.openUrlExternally(model.card_url)
-        }
-
-        // Thumbnail (if available)
-        Image {
-            id: cardImage
-            visible: typeof model.card_image !== "undefined" && model.card_image.length > 0
-            width: visible ? Theme.itemSizeLarge : 0
-            height: Theme.itemSizeLarge
-            source: visible ? model.card_image : ""
-            fillMode: Image.PreserveAspectCrop
-            asynchronous: true
-            cache: true
-            sourceSize.width: width * 2
-            sourceSize.height: height * 2
-            anchors {
-                left: parent.left
-                top: parent.top
-                margins: Theme.paddingMedium
-            }
-            onStatusChanged: {
-                if (status === Image.Error) visible = false
-            }
-        }
-
-        Column {
-            id: linkPreviewText
-            anchors {
-                left: cardImage.visible ? cardImage.right : parent.left
-                right: parent.right
-                top: parent.top
-                leftMargin: cardImage.visible ? Theme.paddingMedium : Theme.paddingMedium
-                rightMargin: Theme.paddingMedium
-                topMargin: Theme.paddingMedium
-            }
-            spacing: Theme.paddingSmall / 2
-
-            // Provider name
-            Label {
-                visible: typeof model.card_provider !== "undefined" && model.card_provider.length > 0
-                text: model.card_provider || ""
-                font.pixelSize: Theme.fontSizeTiny
-                color: Theme.secondaryColor
-                truncationMode: TruncationMode.Fade
-                width: parent.width
-            }
-
-            // Title
-            Label {
-                text: typeof model.card_title !== "undefined" ? model.card_title : ""
-                font.pixelSize: Theme.fontSizeExtraSmall
-                font.bold: true
-                color: Theme.highlightColor
-                wrapMode: Text.Wrap
-                maximumLineCount: 2
-                truncationMode: TruncationMode.Elide
-                width: parent.width
-            }
-
-            // Description (truncated)
-            Label {
-                visible: typeof model.card_description !== "undefined" && model.card_description.length > 0
-                text: model.card_description || ""
-                font.pixelSize: Theme.fontSizeTiny
-                color: Theme.secondaryHighlightColor
-                wrapMode: Text.Wrap
-                maximumLineCount: 3
-                truncationMode: TruncationMode.Elide
-                width: parent.width
-            }
-        }
     }
 
     // Quoted Post Display - styled like a mini-toot
@@ -951,7 +688,10 @@ BackgroundItem {
         anchors {
             left: lblContent.left
             right: lblContent.right
-            top: linkPreview.visible ? linkPreview.bottom : ((typeof attachments !== "undefined" && attachments.count) ? media.bottom : (pollContainer.visible ? pollContainer.bottom : (showMoreLabel.visible ? showMoreLabel.bottom : lblContent.bottom)))
+            top: {
+                // refactor this
+                linkPreview.visible ? linkPreview.bottom : ((typeof attachments !== "undefined" && attachments.count) ? media.bottom : (pollContainer.visible ? pollContainer.bottom : (showMoreLabel.visible ? showMoreLabel.bottom : lblContent.bottom)))
+            }
             topMargin: Theme.paddingMedium
         }
     }

@@ -667,6 +667,64 @@
     </message>
 </context>
 <context>
+    <name>TootActionMenu</name>
+    <message>
+        <source>Unfavorite</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Favorite</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Unboost</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Boost</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Reply</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Quote</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove Bookmark</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Bookmark</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Deleting</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Edit</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Mention</source>
+        <translation type="unfinished">Mencionar</translation>
+    </message>
+</context>
+<context>
+    <name>TootActionRow</name>
+    <message>
+        <source>Mention</source>
+        <translation type="unfinished">Mencionar</translation>
+    </message>
+</context>
+<context>
     <name>VisualContainer</name>
     <message>
         <source>Reply</source>
@@ -722,34 +780,6 @@
     </message>
     <message>
         <source>minutes left</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Mention</source>
-        <translation type="unfinished">Mencionar</translation>
-    </message>
-    <message>
-        <source>Unfavorite</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Favorite</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Unboost</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Boost</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Remove Bookmark</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Bookmark</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

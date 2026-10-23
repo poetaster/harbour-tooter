@@ -974,7 +974,7 @@
     </message>
     <message>
         <location filename="../qml/pages/components/VisualContainer.qml" line="554"/>
-        <location filename="../qml/pages/components/VisualContainer.qml" line="800"/>
+        <location filename="../qml/pages/components/VisualContainer.qml" line="799"/>
         <source>Conversation</source>
         <translation type="unfinished">Keskustelu</translation>
     </message>

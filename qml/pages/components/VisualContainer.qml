@@ -718,10 +718,10 @@ BackgroundItem {
         }
     }
 
+    // Context menu for own Toots edit and delete
     ContextMenu {
         id:ctxmnu
         visible: {
-            if (model.type === "follow") return false
             var activeAccount = Logic.conf.accounts && Logic.conf.accounts[Logic.conf.activeAccount]
             if (!activeAccount || !activeAccount.userInfo) return false
             var myUsername = activeAccount.userInfo.account_username
@@ -784,8 +784,7 @@ BackgroundItem {
 
         }
     }
-    // Context menu for own Toots edit and delete
-        // Open ConversationPage and show other Toots in thread (if available) or ProfilePage if new Follower
+   // Open ConversationPage and show other Toots in thread (if available) or ProfilePage if new Follower
     onClicked: {
         // Don't navigate for gap items - they have their own click handler
         if (model.type === "gap") return

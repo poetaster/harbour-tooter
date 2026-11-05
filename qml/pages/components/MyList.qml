@@ -176,6 +176,7 @@ SilicaListView {
     }
 
     footer: Item {
+        id: footerItem
         visible: autoLoadMore
         width: parent.width
         height: Theme.itemSizeLarge
@@ -264,7 +265,7 @@ SilicaListView {
             if (messageObject.LinkHeader) {
                 // <https://mastodon.gamedev.place/api/v1/bookmarks?max_id=11041>; rel=\"next\",
                 // <https://mastodon.gamedev.place/api/v1/bookmarks?min_id=14158>; rel=\"prev\""
-                if (debug) console.log(messagObject.LinkHeader)
+                if (debug) console.log(messageObject.LinkHeader)
 
                 var matches = /max_id=([0-9]+)/.exec(messageObject.LinkHeader);
                 var maxlink = matches[0].split("=")[1];

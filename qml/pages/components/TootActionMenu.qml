@@ -202,7 +202,7 @@ ContextMenu {
             height: width
             anchors {
                 left: parent.left
-                leftMargin: Theme.horizontalPageMargin + Theme.paddingMedium
+                leftMargin: Theme.horizontalPageMargin
                 verticalCenter: parent.verticalCenter
             }
         }
@@ -237,7 +237,7 @@ ContextMenu {
             height: width
             anchors {
                 left: parent.left
-                leftMargin: Theme.horizontalPageMargin + Theme.paddingMedium
+                leftMargin: Theme.horizontalPageMargin
                 verticalCenter: parent.verticalCenter
             }
         }
@@ -270,7 +270,7 @@ ContextMenu {
             height: width
             anchors {
                 left: parent.left
-                leftMargin: Theme.horizontalPageMargin + Theme.paddingMedium
+                leftMargin: Theme.horizontalPageMargin
                 verticalCenter: parent.verticalCenter
             }
         }
@@ -296,7 +296,7 @@ ContextMenu {
             height: width
             anchors {
                 left: parent.left
-                leftMargin: Theme.horizontalPageMargin + Theme.paddingMedium
+                leftMargin: Theme.horizontalPageMargin
                 verticalCenter: parent.verticalCenter
             }
         }

@@ -12,7 +12,7 @@ Item {
     property string bg: ""
 
     width: parent.width
-    height: isPortrait ? (avatarImage.height + Theme.paddingLarge*3 + infoLbl.height) : (avatarImage.height + Theme.paddingLarge*2.5 + infoLbl.height)
+    height: isPortrait ? (avatarImage.height + Theme.paddingLarge*4 + infoLbl.height) : (avatarImage.height + Theme.paddingLarge*3.5 + infoLbl.height)
 
     Rectangle {
         id: bgImage
@@ -38,13 +38,12 @@ Item {
         source: if (avatarImage.status === Image.Error)
                     source = "../../images/icon-l-profile.svg?" + Theme.primaryColor
                 else image
-        width: isPortrait ? Theme.iconSizeLarge : Theme.iconSizeExtraLarge
+        width: isPortrait ? Theme.iconSizeExtraLarge : Theme.iconSizeExtraLarge * 1.2
         height: width
         anchors {
             left: parent.left
             leftMargin: Theme.horizontalPageMargin
-            top: parent.top
-            topMargin: Theme.paddingLarge * 1.5
+            verticalCenter: parent.verticalCenter
         }
 
         Button {
@@ -66,8 +65,6 @@ Item {
 
     Column {
         anchors {
-            top: parent.top
-            topMargin: Theme.paddingLarge
             left: avatarImage.right
             leftMargin: Theme.horizontalPageMargin
             right: parent.right

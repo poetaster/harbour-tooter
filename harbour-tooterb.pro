@@ -68,6 +68,7 @@ DISTFILES += qml/harbour-tooterb.qml \
     qml/images/icon-m-bookmark \
     qml/images/icon-m-emoji.svg \
     qml/images/icon-m-profile.svg \
+    qml/images/icon-m-trending.svg \
     qml/images/icon-l-profile.svg \
     qml/lib/API.js \
     qml/lib/Mastodon.js \

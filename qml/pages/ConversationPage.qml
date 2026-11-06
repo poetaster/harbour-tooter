@@ -297,7 +297,7 @@ Page {
         Rectangle {
             id: progressBar
             width: toot.text.length ? panel.width * (toot.text.length / tootMaxChar) : 0
-            height: Theme.itemSizeSmall * 0.05
+            height: Theme.itemSizeSmall * 0.08
             color: Theme.highlightBackgroundColor
             opacity: 0.7
             anchors {
@@ -506,7 +506,7 @@ Page {
 
         IconButton {
             id: btnContentWarning
-            icon.source: "image://theme/icon-s-warning?" + ( pressed ? Theme.highlightColor : (warningContent.visible ? Theme.secondaryHighlightColor : Theme.primaryColor) )
+            icon.source: "image://theme/icon-m-warning?" + ( pressed ? Theme.highlightColor : (warningContent.visible ? Theme.secondaryHighlightColor : Theme.primaryColor) )
             onClicked: warningContent.visible = !warningContent.visible
             anchors {
                 top: toot.bottom
@@ -851,14 +851,34 @@ Page {
 
     BackgroundItem {
         id: hiddenPanel
-        visible: !panel.open
-        height: Theme.paddingLarge * 0.7
+        visible: false
+        height: Theme.paddingLarge
         width: parent.width
-        opacity: enabled ? 0.6 : 0.0
+        opacity: 0
         Behavior on opacity { FadeAnimator { duration: 400 } }
         anchors {
             horizontalCenter: parent.horizontalCenter
             bottom: parent.bottom
+        }
+
+        Timer {
+            interval: 280
+            running: !panel.open
+            repeat: false
+            onTriggered: {
+                hiddenPanel.visible = true
+                hiddenPanel.opacity = 0.6
+            }
+        }
+
+        Timer {
+            interval: 10
+            running: panel.open
+            repeat: false
+            onTriggered: {
+                hiddenPanel.visible = false
+                hiddenPanel.opacity = 0
+            }
         }
 
         MouseArea {
@@ -891,7 +911,7 @@ Page {
         Rectangle {
             id: progressBarHiddenPanel
             width: toot.text.length ? panel.width * (toot.text.length / tootMaxChar) : 0
-            height: Theme.itemSizeSmall * 0.05
+            height: Theme.itemSizeSmall * 0.08
             color: Theme.highlightBackgroundColor
             opacity: 0.7
             anchors {

@@ -176,6 +176,7 @@ SilicaListView {
     }
 
     footer: Item {
+        id: footerItem
         visible: autoLoadMore
         width: parent.width
         height: Theme.itemSizeLarge
@@ -207,8 +208,8 @@ SilicaListView {
             openDrawer(contentY - scrollOffset  > 0 ? false : true )
             scrollOffset = contentY
         }
-        // handled by footer item
-        if(contentY+height > footerItem.y && !deduping && !loadStarted && autoLoadMore ) {
+        // handled by footeritem
+        if (footerItem && contentY + height > footerItem.y && !deduping && !loadStarted && autoLoadMore) {
                 loadStarted = true
                 if (debug) console.log("Loading more: " + title + " (append)")
                 loadData("append")
@@ -264,7 +265,7 @@ SilicaListView {
             if (messageObject.LinkHeader) {
                 // <https://mastodon.gamedev.place/api/v1/bookmarks?max_id=11041>; rel=\"next\",
                 // <https://mastodon.gamedev.place/api/v1/bookmarks?min_id=14158>; rel=\"prev\""
-                if (debug) console.log(messagObject.LinkHeader)
+                if (debug) console.log(messageObject.LinkHeader)
 
                 var matches = /max_id=([0-9]+)/.exec(messageObject.LinkHeader);
                 var maxlink = matches[0].split("=")[1];
@@ -278,8 +279,14 @@ SilicaListView {
         }
     }
 
+    Timer {
+        id: initialLoadTimer
+        interval: 200
+        onTriggered: loadData("prepend")
+    }
+
     Component.onCompleted: {
-        loadData("prepend")
+        initialLoadTimer.start()
         if (debug) console.log("MyList completed: " + title)
         // for setting focus on external ID from dbus
         if (externalId.length > 1 && title === "Notifications") {

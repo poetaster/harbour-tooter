@@ -53,7 +53,7 @@ Page {
             IconTextSwitch {
                 text: qsTr("Quick Scroll Arrows")
                 description: qsTr("Show arrows to jump to top/bottom when scrolling fast")
-                icon.source: "image://theme/icon-m-up"
+                icon.source: "image://theme/icon-m-page-down"
                 checked: typeof Logic.conf['quickScroll'] === "undefined" || Logic.conf['quickScroll']
                 onClicked: {
                     Logic.conf['quickScroll'] = checked
@@ -64,7 +64,7 @@ Page {
             IconTextSwitch {
                 text: qsTr("Notification")
                 description: qsTr("Show notifications and create alerts")
-                icon.source: "image://theme/icon-m-up"
+                icon.source: "image://theme/icon-m-browser-notifications"
                 checked: typeof Logic.conf['notify'] === "undefined" || Logic.conf['notify']
                 onClicked: {
                     Logic.conf['notify'] = checked
@@ -74,7 +74,7 @@ Page {
             IconTextSwitch {
                 text: qsTr("Context Menu")
                 description: qsTr("Use context menu instead of button row.")
-                icon.source: "image://theme/icon-m-up"
+                icon.source: "image://theme/icon-m-menu"
                 checked: typeof Logic.conf['conMen'] === "undefined" || Logic.conf['conMen']
                 onClicked: {
                     Logic.conf['conMen'] = checked
@@ -202,26 +202,16 @@ Page {
                     rightMargin: Theme.paddingLarge
                 }
 
-                Icon {
-                    id: icnAddAccount
-                    color: Theme.highlightColor
-                    width: Theme.iconSizeMedium
-                    fillMode: Image.PreserveAspectFit
-                    source: "image://theme/icon-m-add"
-                    anchors.right: parent.right
-                }
-
                 Column {
                     id: clnAddAccount
                     spacing: Theme.paddingMedium
-                    anchors {
-                        left: parent.left
-                        right: icnAddAccount.left
-                    }
+                    width: parent.width
+                    anchors.horizontalCenter: parent.horizontalCenter
 
                     Button {
                         id: btnAddAccount
                         text: qsTr("Add Account")
+                        icon.source: "image://theme/icon-m-add"
                         preferredWidth: Theme.buttonWidthMedium
                         anchors.horizontalCenter: parent.horizontalCenter
                         onClicked: {
@@ -241,7 +231,7 @@ Page {
                         wrapMode: Text.Wrap
                         color: Theme.highlightColor
                         width: parent.width - Theme.paddingMedium
-                        anchors.left: parent.left
+                        anchors.horizontalCenter: parent.horizontalCenter
                     }
                 }
             }

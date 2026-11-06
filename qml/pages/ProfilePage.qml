@@ -240,7 +240,7 @@ Page {
                               //: Will show as: "35 Followers"
                               qsTr("Followers")
                         font.pixelSize: Theme.fontSizeExtraSmall
-                        color: Theme.primaryColor
+                        color: Theme.highlightColor
                         wrapMode: Text.Wrap
                     }
 
@@ -251,7 +251,7 @@ Page {
                               //: Will show as: "23 Following"
                               qsTr("Following")
                         font.pixelSize: Theme.fontSizeExtraSmall
-                        color: Theme.primaryColor
+                        color: Theme.highlightColor
                         wrapMode: Text.Wrap
                     }
 
@@ -262,13 +262,8 @@ Page {
                               //: Will show as: "115 Statuses"
                               qsTr("Statuses")
                         font.pixelSize: Theme.fontSizeExtraSmall
-                        color: pressed ?  Theme.highlightColor : Theme.primaryColor
+                        color: Theme.highlightColor
                         wrapMode: Text.Wrap
-
-                        MouseArea {
-                            anchors.fill: parent
-                            onClicked: expandingSection1.expanded = false
-                        }
 
                     }
                 }

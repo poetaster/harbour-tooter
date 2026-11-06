@@ -194,8 +194,8 @@ Page {
             property ListModel mdl: ListModel {}
             property string search
 
-            width: isPortrait ? parent.itemWidth : parent.itemWidth - Theme.itemSizeLarge
-            height: parent.itemHeight
+            width:  slideshow ? (isPortrait ? slideshow.itemWidth : slideshow.itemWidth - Theme.itemSizeLarge) : 0
+            height: slideshow ? slideshow.itemHeight : 0
             onSearchChanged: {
                 if (debug) console.log(search)
                 loader.sourceComponent = loading

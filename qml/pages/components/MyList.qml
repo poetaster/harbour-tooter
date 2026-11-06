@@ -208,8 +208,8 @@ SilicaListView {
             openDrawer(contentY - scrollOffset  > 0 ? false : true )
             scrollOffset = contentY
         }
-        // handled by footer item
-        if(contentY+height > footerItem.y && !deduping && !loadStarted && autoLoadMore ) {
+        // handled by footeritem
+        if (footerItem && contentY + height > footerItem.y && !deduping && !loadStarted && autoLoadMore) {
                 loadStarted = true
                 if (debug) console.log("Loading more: " + title + " (append)")
                 loadData("append")
@@ -279,8 +279,14 @@ SilicaListView {
         }
     }
 
+    Timer {
+        id: initialLoadTimer
+        interval: 500
+        onTriggered: loadData("prepend")
+    }
+
     Component.onCompleted: {
-        loadData("prepend")
+        initialLoadTimer.start()
         if (debug) console.log("MyList completed: " + title)
         // for setting focus on external ID from dbus
         if (externalId.length > 1 && title === "Notifications") {

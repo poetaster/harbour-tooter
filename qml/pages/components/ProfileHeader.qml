@@ -38,7 +38,7 @@ Item {
         source: if (avatarImage.status === Image.Error)
                     source = "../../images/icon-l-profile.svg?" + Theme.primaryColor
                 else image
-        width: isPortrait ? Theme.iconSizeExtraLarge : Theme.iconSizeExtraLarge * 1.2
+        width: isPortrait ? Theme.iconSizeExtraLarge : Theme.iconSizeExtraLarge
         height: width
         anchors {
             left: parent.left

@@ -281,7 +281,7 @@ SilicaListView {
 
     Timer {
         id: initialLoadTimer
-        interval: 500
+        interval: 200
         onTriggered: loadData("prepend")
     }
 

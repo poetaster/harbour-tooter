@@ -9,12 +9,6 @@ env:
 
 jobs:
   build:
-
-    permissions:
-      id-token: write
-      contents: read
-      attestations: write
-
     runs-on: ubuntu-latest
 
     steps:

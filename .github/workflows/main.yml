@@ -65,5 +65,5 @@ jobs:
     - name: Attest 
       uses: actions/attest@v4
       with:
-      subject-path: 'RPMS/*.rpm'
+        subject-path: 'RPMS/*.rpm'
 

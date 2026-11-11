@@ -152,7 +152,7 @@
     </message>
     <message>
         <location filename="../qml/pages/ConversationPage.qml" line="460"/>
-        <location filename="../qml/pages/ConversationPage.qml" line="929"/>
+        <location filename="../qml/pages/ConversationPage.qml" line="949"/>
         <source>Edit Alt Text</source>
         <translation>Muokkaa kuvatekstiä</translation>
     </message>
@@ -197,17 +197,17 @@
         <translation>Viesti lähetetty!</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ConversationPage.qml" line="930"/>
+        <location filename="../qml/pages/ConversationPage.qml" line="950"/>
         <source>Save</source>
         <translation>Tallenna</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ConversationPage.qml" line="936"/>
+        <location filename="../qml/pages/ConversationPage.qml" line="956"/>
         <source>Describe this media for visually impaired users</source>
         <translation>Kuvaile tämä media näkövammaisille käyttäjille</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ConversationPage.qml" line="945"/>
+        <location filename="../qml/pages/ConversationPage.qml" line="965"/>
         <source>Alt text helps make content accessible to people who are blind or have low vision.</source>
         <translation>Vaihtoehtoinen teksti auttaa tekemään sisällöstä saavutettavan sokeille tai heikosti näkeville henkilöille.</translation>
     </message>
@@ -313,32 +313,32 @@
         <translation>Federointi</translation>
     </message>
     <message>
-        <location filename="../qml/pages/MainPage.qml" line="182"/>
+        <location filename="../qml/pages/MainPage.qml" line="183"/>
         <source>Bookmarks</source>
         <translation>Kirjanmerkit</translation>
     </message>
     <message>
-        <location filename="../qml/pages/MainPage.qml" line="218"/>
+        <location filename="../qml/pages/MainPage.qml" line="219"/>
         <source>Search</source>
         <translation>Haku</translation>
     </message>
     <message>
-        <location filename="../qml/pages/MainPage.qml" line="228"/>
+        <location filename="../qml/pages/MainPage.qml" line="229"/>
         <source>@user or #term</source>
         <translation>@käyttäjä tai #termi</translation>
     </message>
     <message>
-        <location filename="../qml/pages/MainPage.qml" line="355"/>
+        <location filename="../qml/pages/MainPage.qml" line="356"/>
         <source>Trending</source>
         <translation>Suosittu</translation>
     </message>
     <message>
-        <location filename="../qml/pages/MainPage.qml" line="399"/>
+        <location filename="../qml/pages/MainPage.qml" line="400"/>
         <source>New Toot</source>
         <translation>Uusi viesti</translation>
     </message>
     <message>
-        <location filename="../qml/pages/MainPage.qml" line="497"/>
+        <location filename="../qml/pages/MainPage.qml" line="498"/>
         <source>Conversation</source>
         <translation>Keskustelu</translation>
     </message>
@@ -668,17 +668,17 @@
 <context>
     <name>ProfileHeader</name>
     <message>
-        <location filename="../qml/pages/components/ProfileHeader.qml" line="127"/>
+        <location filename="../qml/pages/components/ProfileHeader.qml" line="124"/>
         <source>Group</source>
         <translation>Ryhmä</translation>
     </message>
     <message>
-        <location filename="../qml/pages/components/ProfileHeader.qml" line="145"/>
+        <location filename="../qml/pages/components/ProfileHeader.qml" line="142"/>
         <source>Follows you</source>
         <translation>Seuraa sinua</translation>
     </message>
     <message>
-        <location filename="../qml/pages/components/ProfileHeader.qml" line="182"/>
+        <location filename="../qml/pages/components/ProfileHeader.qml" line="179"/>
         <source>Bot</source>
         <translation>Bot</translation>
     </message>
@@ -710,49 +710,49 @@
         <translation>Statukset</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ProfilePage.qml" line="285"/>
-        <location filename="../qml/pages/ProfilePage.qml" line="288"/>
+        <location filename="../qml/pages/ProfilePage.qml" line="280"/>
+        <location filename="../qml/pages/ProfilePage.qml" line="283"/>
         <source>Mention</source>
         <translation>Maininta</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ProfilePage.qml" line="300"/>
+        <location filename="../qml/pages/ProfilePage.qml" line="295"/>
         <source>Unfollow</source>
         <extracomment>Is a button. Keep it as short as possible.</extracomment>
         <translation>Lopeta seuraaminen</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ProfilePage.qml" line="302"/>
+        <location filename="../qml/pages/ProfilePage.qml" line="297"/>
         <source>Requested</source>
         <extracomment>Is a button. Keep it as short as possible.</extracomment>
         <translation>Pyydetty</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ProfilePage.qml" line="304"/>
+        <location filename="../qml/pages/ProfilePage.qml" line="299"/>
         <source>Follow</source>
         <extracomment>Is a button. Keep it as short as possible.</extracomment>
         <translation>Seuraa</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ProfilePage.qml" line="322"/>
+        <location filename="../qml/pages/ProfilePage.qml" line="317"/>
         <source>Unmute</source>
         <extracomment>Is a button. Keep it as short as possible.</extracomment>
         <translation>Poista mykistys</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ProfilePage.qml" line="324"/>
+        <location filename="../qml/pages/ProfilePage.qml" line="319"/>
         <source>Mute</source>
         <extracomment>Is a button. Keep it as short as possible.</extracomment>
         <translation>Mykistä</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ProfilePage.qml" line="342"/>
+        <location filename="../qml/pages/ProfilePage.qml" line="337"/>
         <source>Unblock</source>
         <extracomment>Is a button. Keep it as short as possible.</extracomment>
         <translation>Poista estäminen</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ProfilePage.qml" line="344"/>
+        <location filename="../qml/pages/ProfilePage.qml" line="339"/>
         <source>Block</source>
         <extracomment>Is a button. Keep it as short as possible.</extracomment>
         <translation>Estä</translation>
@@ -835,12 +835,12 @@
         <translation>Poista</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="224"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="213"/>
         <source>Add Account</source>
         <translation>Lisää tili</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="239"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="229"/>
         <source>Authorize this app to access your Mastodon account</source>
         <translation>Myönnä tälle sovellukselle oikeudet Mastodon-tilisi käyttöön</translation>
     </message>

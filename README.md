@@ -26,6 +26,7 @@ Contributions to this project are very welcome, since there are still many thing
 ## License
 Licensed under GNU GPLv3
 
+[![Add to Harpoon](add-to-harpoon.png)](https://github.com/JuhaniLehtimaeki/Harpoon)
 
 ## Funding
 The SailfishOS Community Team is on Liberapay

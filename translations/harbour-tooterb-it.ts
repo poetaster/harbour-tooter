@@ -228,7 +228,7 @@
     </message>
     <message>
         <source>Enter a valid Mastodon instance URL</source>
-        <translation type="unfinished"></translation>
+        <translation>Inserisci un URL valido per un istanza Mastodon</translation>
     </message>
 </context>
 <context>
@@ -509,27 +509,27 @@
     <name>PollContainer</name>
     <message>
         <source>Vote</source>
-        <translation type="unfinished"></translation>
+        <translation>Vota</translation>
     </message>
     <message>
         <source>votes</source>
-        <translation type="unfinished"></translation>
+        <translation>voti</translation>
     </message>
     <message>
         <source>Closed</source>
-        <translation type="unfinished"></translation>
+        <translation>Chiuso</translation>
     </message>
     <message>
         <source>days left</source>
-        <translation type="unfinished"></translation>
+        <translation>giorni rimanenti</translation>
     </message>
     <message>
         <source>hours left</source>
-        <translation type="unfinished"></translation>
+        <translation>ore rimanenti</translation>
     </message>
     <message>
         <source>minutes left</source>
-        <translation type="unfinished"></translation>
+        <translation>minuti rimanenti</translation>
     </message>
 </context>
 <context>
@@ -613,7 +613,7 @@
     <name>QuotedPost</name>
     <message>
         <source>Conversation</source>
-        <translation type="unfinished">Conversazione</translation>
+        <translation>Conversazione</translation>
     </message>
 </context>
 <context>
@@ -693,119 +693,119 @@
     </message>
     <message>
         <source>Context Menu</source>
-        <translation type="unfinished"></translation>
+        <translation>Menu contestuale</translation>
     </message>
     <message>
         <source>Use context menu instead of button row.</source>
-        <translation type="unfinished"></translation>
+        <translation>Usa il menu contestuale al posto dei pulsanti.</translation>
     </message>
 </context>
 <context>
     <name>TootActionMenu</name>
     <message>
         <source>Unfavorite</source>
-        <translation type="unfinished"></translation>
+        <translation>Non mi piace più</translation>
     </message>
     <message>
         <source>Favorite</source>
-        <translation type="unfinished"></translation>
+        <translation>Mi piace</translation>
     </message>
     <message>
         <source>Unboost</source>
-        <translation type="unfinished"></translation>
+        <translation>Non condividere più</translation>
     </message>
     <message>
         <source>Boost</source>
-        <translation type="unfinished"></translation>
+        <translation>Condividi</translation>
     </message>
     <message>
         <source>Reply</source>
-        <translation type="unfinished"></translation>
+        <translation>Rispondi</translation>
     </message>
     <message>
         <source>Quote</source>
-        <translation type="unfinished"></translation>
+        <translation>Cita</translation>
     </message>
     <message>
         <source>Remove Bookmark</source>
-        <translation type="unfinished"></translation>
+        <translation>Rimuovi segnalibro</translation>
     </message>
     <message>
         <source>Bookmark</source>
-        <translation type="unfinished"></translation>
+        <translation>Aggiungi ai segnalibri</translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>Elimina</translation>
     </message>
     <message>
         <source>Deleting</source>
-        <translation type="unfinished"></translation>
+        <translation>Sto eliminando</translation>
     </message>
     <message>
         <source>Edit</source>
-        <translation type="unfinished"></translation>
+        <translation>Modifica</translation>
     </message>
     <message>
         <source>Mention</source>
-        <translation type="unfinished"></translation>
+        <translation>Menzione</translation>
     </message>
 </context>
 <context>
     <name>TootActionRow</name>
     <message>
         <source>Mention</source>
-        <translation type="unfinished"></translation>
+        <translation>Menzione</translation>
     </message>
 </context>
 <context>
     <name>VisualContainer</name>
     <message>
         <source>Reply</source>
-        <translation type="unfinished"></translation>
+        <translation>Rispondi</translation>
     </message>
     <message>
         <source>Quote</source>
-        <translation type="unfinished"></translation>
+        <translation>Cita</translation>
     </message>
     <message>
         <source>Deleting</source>
-        <translation type="unfinished"></translation>
+        <translation>Sto eliminando</translation>
     </message>
     <message>
         <source>Loading...</source>
-        <translation type="unfinished"></translation>
+        <translation>Caricamento...</translation>
     </message>
     <message>
         <source>Load more</source>
-        <translation type="unfinished"></translation>
+        <translation>Carica altro</translation>
     </message>
     <message>
         <source>Conversation</source>
-        <translation type="unfinished">Conversazione</translation>
+        <translation>Conversazione</translation>
     </message>
     <message>
         <source>Show less</source>
-        <translation type="unfinished"></translation>
+        <translation>Mostra meno</translation>
     </message>
     <message>
         <source>Show more</source>
-        <translation type="unfinished"></translation>
+        <translation>Mostra altro</translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>Elimina</translation>
     </message>
     <message>
         <source>Edit</source>
-        <translation type="unfinished"></translation>
+        <translation>Modifica</translation>
     </message>
 </context>
 <context>
     <name>harbour-tooterb</name>
     <message>
         <source>Conversation</source>
-        <translation type="unfinished">Conversazione</translation>
+        <translation>Conversazione</translation>
     </message>
 </context>
 </TS>
